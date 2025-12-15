@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "imports": {
-    "#internal/nuxt/paths": "./node_modules/@nuxt/nitro-server/dist/runtime/utils/paths.js"
-  },
   "scripts": {
     "dev": "nuxt dev",
     "build": "nuxt build",

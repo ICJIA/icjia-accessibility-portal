@@ -5,10 +5,13 @@
         <v-card class="pa-8" elevation="0">
           <h1 class="text-h3 mb-4 d-flex align-center">
             <v-icon class="mr-3" color="primary">mdi-link-variant</v-icon>
-            {{ page?.title || 'Accessibility Links' }}
+            {{ page?.title || "Accessibility Links" }}
           </h1>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
-            {{ page?.description || 'A collection of useful accessibility resources and links.' }}
+            {{
+              page?.description ||
+              "A collection of useful accessibility resources and links."
+            }}
           </p>
 
           <div v-if="renderedPage" class="links-content">
@@ -53,36 +56,44 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { wrapFaqQuestionsIntoCards } from '../utils/faqTransform'
+import { computed } from "vue";
+import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
 
-const { data: page } = await useAsyncData('links', () => {
-  return queryCollection('links').first()
-})
+const { data: page } = await useAsyncData("links", () => {
+  return queryCollection("links").first();
+});
 
 const renderedPage = computed(() => {
-  if (!page.value) return null
-  const body = page.value.body
-  
+  if (!page.value) return null;
+  const body = page.value.body;
+
   // If body exists and is minimark format with content, transform it
-  if (body && body.type === 'minimark' && Array.isArray(body.value) && body.value.length > 0) {
+  if (
+    body &&
+    body.type === "minimark" &&
+    Array.isArray(body.value) &&
+    body.value.length > 0
+  ) {
     return {
       ...page.value,
       body: {
         ...body,
         value: wrapFaqQuestionsIntoCards(body.value),
       },
-    }
+    };
   }
-  
+
   // Return page as-is (handles empty body or non-minimark format)
-  return page.value
-})
+  return page.value;
+});
 
 useSeoMeta({
-  title: page.value?.title ? `${page.value.title} - ICJIA Accessibility Portal` : 'Accessibility Links - ICJIA Accessibility Portal',
-  description: page.value?.description || 'Accessibility resources and helpful links',
-})
+  title: page.value?.title
+    ? `${page.value.title} - ICJIA Accessibility Portal`
+    : "Accessibility Links - ICJIA Accessibility Portal",
+  description:
+    page.value?.description || "Accessibility resources and helpful links",
+});
 </script>
 
 <style scoped>
