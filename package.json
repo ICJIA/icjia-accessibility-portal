@@ -27,6 +27,7 @@
     "devDependencies": {
         "@axe-core/cli": "^4.11.0",
         "@axe-core/playwright": "^4.11.0",
+        "netlify-cli": "^23.12.3",
         "playwright": "^1.57.0",
         "playwright-core": "^1.57.0"
     }
