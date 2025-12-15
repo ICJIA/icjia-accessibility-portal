@@ -53,7 +53,8 @@
 </template>
 
 <script setup lang="ts">
-import { wrapFaqQuestionsIntoCards } from '~/utils/faqTransform'
+import { computed } from 'vue'
+import { wrapFaqQuestionsIntoCards } from '../utils/faqTransform'
 
 const { data: page } = await useAsyncData('links', () => {
   return queryCollection('links').first()
@@ -61,16 +62,21 @@ const { data: page } = await useAsyncData('links', () => {
 
 const renderedPage = computed(() => {
   if (!page.value) return null
-  const body = (page.value as any).body
-  if (!body || body.type !== 'minimark' || !Array.isArray(body.value)) return page.value
-
-  return {
-    ...(page.value as any),
-    body: {
-      ...body,
-      value: wrapFaqQuestionsIntoCards(body.value),
-    },
+  const body = page.value.body
+  
+  // If body exists and is minimark format with content, transform it
+  if (body && body.type === 'minimark' && Array.isArray(body.value) && body.value.length > 0) {
+    return {
+      ...page.value,
+      body: {
+        ...body,
+        value: wrapFaqQuestionsIntoCards(body.value),
+      },
+    }
   }
+  
+  // Return page as-is (handles empty body or non-minimark format)
+  return page.value
 })
 
 useSeoMeta({
