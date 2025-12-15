@@ -1,5 +1,5 @@
 [build]
-  command = "mkdir -p .netlify/functions-internal/server && yarn run generate"
+  command = "yarn run generate"
   publish = ".output/public"
 
 [build.environment]
