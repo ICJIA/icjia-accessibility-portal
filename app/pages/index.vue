@@ -107,7 +107,8 @@ const { data: faqsPage } = await useAsyncData("faqs", () => {
 const renderedFaqsPage = computed(() => {
   if (!faqsPage.value) return null;
   const body = (faqsPage.value as any).body;
-  if (!body || body.type !== "minimark" || !Array.isArray(body.value)) return faqsPage.value;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value))
+    return faqsPage.value;
 
   return {
     ...(faqsPage.value as any),

@@ -11,8 +11,8 @@
             {{ page?.description || 'A collection of useful accessibility resources and links.' }}
           </p>
 
-          <div v-if="page" class="links-content">
-            <ContentRenderer :value="page" />
+          <div v-if="renderedPage" class="links-content">
+            <ContentRenderer :value="renderedPage" />
           </div>
           <div v-else class="text-center py-8">
             <v-progress-circular indeterminate color="primary" />
@@ -53,8 +53,24 @@
 </template>
 
 <script setup lang="ts">
+import { wrapFaqQuestionsIntoCards } from '~/utils/faqTransform'
+
 const { data: page } = await useAsyncData('links', () => {
   return queryCollection('links').first()
+})
+
+const renderedPage = computed(() => {
+  if (!page.value) return null
+  const body = (page.value as any).body
+  if (!body || body.type !== 'minimark' || !Array.isArray(body.value)) return page.value
+
+  return {
+    ...(page.value as any),
+    body: {
+      ...body,
+      value: wrapFaqQuestionsIntoCards(body.value),
+    },
+  }
 })
 
 useSeoMeta({
@@ -64,17 +80,35 @@ useSeoMeta({
 </script>
 
 <style scoped>
-/* Links Content Styles - targeting rendered markdown */
+/* Links Content Styles - same as FAQ for consistency */
+
+/* Hide duplicate h1 from markdown */
 .links-content :deep(h1) {
-  display: none; /* Hide the duplicate h1 from markdown */
+  display: none;
 }
 
-.links-content :deep(h2) {
-  font-size: 1.25rem;
-  font-weight: 600;
+/* Intro paragraph (first p before any h2) */
+.links-content :deep(> p:first-of-type) {
+  font-size: 1.1rem;
   color: rgb(var(--v-theme-on-surface));
-  margin-top: 3.5rem;
-  margin-bottom: 1rem;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+/* Horizontal rules as section dividers */
+.links-content :deep(hr) {
+  border: none;
+  border-top: 2px solid rgba(var(--v-theme-primary), 0.2);
+  margin: 3rem 0;
+}
+
+/* ## = H2 section headings */
+.links-content :deep(h2) {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: rgb(var(--v-theme-on-surface));
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
   padding: 1rem 1.25rem;
   background: linear-gradient(
     135deg,
@@ -83,77 +117,159 @@ useSeoMeta({
   );
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
-  transition: all 0.2s ease;
 }
 
-.links-content :deep(h2):hover {
-  background: linear-gradient(
-    135deg,
-    rgba(var(--v-theme-primary), 0.2) 0%,
-    rgba(var(--v-theme-primary), 0.1) 100%
-  );
-}
-
-.links-content :deep(h2 a) {
+.links-content :deep(h2 a),
+.links-content :deep(h3 a) {
   color: inherit;
   text-decoration: none;
+  pointer-events: none;
+  cursor: default;
 }
 
-.links-content :deep(h2 a:hover) {
-  color: rgb(var(--v-theme-primary));
+/* ### = H3 question heading (paired with the answer block below) */
+.links-content :deep(h3) {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: rgb(var(--v-theme-on-surface));
+  margin-top: 1.75rem;
+  margin-bottom: 0;
+  padding: 0.9rem 1.1rem;
+  background: rgba(var(--v-theme-surface-variant), 0.28);
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-radius: 8px 8px 0 0;
 }
 
+/* Default paragraph styling (non-answer prose) */
 .links-content :deep(p) {
   font-size: 1rem;
-  line-height: 1.8;
+  line-height: 1.75;
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.9;
-  margin-left: 0;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Answer block: the content immediately following an H3 */
+.links-content :deep(h3 + p),
+.links-content :deep(h3 + ul),
+.links-content :deep(h3 + ol),
+.links-content :deep(h3 + table),
+.links-content :deep(h3 + blockquote),
+.links-content :deep(h3 + p + ul),
+.links-content :deep(h3 + p + ol),
+.links-content :deep(h3 + p + table),
+.links-content :deep(h3 + p + blockquote) {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(var(--v-theme-surface-variant), 0.22);
+  border-left: 4px solid rgba(var(--v-theme-primary), 0.35);
+  border-radius: 0 0 8px 8px;
+}
+
+/* If the answer starts with a paragraph and continues with a list/table, flatten the join */
+.links-content :deep(h3 + p) {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 0.75rem;
+}
+
+.links-content :deep(h3 + p + ul),
+.links-content :deep(h3 + p + ol),
+.links-content :deep(h3 + p + table),
+.links-content :deep(h3 + p + blockquote) {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Q/A Card wrapper - ensures everything stays together */
+.links-content :deep(.qa-card) {
   margin-bottom: 2rem;
-  padding: 1rem 1.5rem;
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-  border-radius: 8px;
-  border-left: 3px solid rgba(var(--v-theme-on-surface), 0.2);
-  transition: all 0.2s ease;
 }
 
-.links-content :deep(p):hover {
-  background: rgba(var(--v-theme-surface-variant), 0.5);
+.links-content :deep(.qa-card > h3) {
+  margin-top: 0;
 }
 
-/* First h2 has smaller top margin */
-.links-content :deep(h2:first-of-type) {
-  margin-top: 1rem;
+.links-content :deep(.qa-card > h3:first-child) {
+  border-radius: 8px 8px 0 0;
 }
 
-/* Style list items nicely */
-.links-content :deep(ul) {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 2rem;
+.links-content :deep(.qa-card > *:last-child) {
+  margin-bottom: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Lists: keep normal bullets and indent slightly so they align with answer text */
+.links-content :deep(ul),
+.links-content :deep(ol) {
+  padding-left: 1.25rem;
+  margin: 0 0 1rem 0;
 }
 
 .links-content :deep(li) {
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.5rem;
-  background: rgba(var(--v-theme-surface-variant), 0.2);
-  border-radius: 8px;
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.3);
-  transition: all 0.2s ease;
+  margin: 0.35rem 0;
 }
 
-.links-content :deep(li):hover {
-  background: rgba(var(--v-theme-surface-variant), 0.4);
-  border-left-color: rgb(var(--v-theme-primary));
+/* When list is an answer block, add a bit more left padding for bullets */
+.links-content :deep(.qa-card ul),
+.links-content :deep(.qa-card ol),
+.links-content :deep(h3 + ul),
+.links-content :deep(h3 + ol),
+.links-content :deep(h3 + p + ul),
+.links-content :deep(h3 + p + ol) {
+  padding-left: 2.25rem;
 }
 
-.links-content :deep(li a) {
+/* Links within content */
+.links-content :deep(a) {
   color: rgb(var(--v-theme-primary));
-  text-decoration: none;
-  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.links-content :deep(li a:hover) {
-  text-decoration: underline;
+.links-content :deep(a:hover) {
+  text-decoration-thickness: 2px;
+}
+
+/* Tables */
+.links-content :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem 0;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.links-content :deep(th) {
+  background: rgba(var(--v-theme-primary), 0.15);
+  color: rgb(var(--v-theme-on-surface));
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
+}
+
+.links-content :deep(td) {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
+  background: rgba(var(--v-theme-surface-variant), 0.15);
+}
+
+.links-content :deep(tr:last-child td) {
+  border-bottom: none;
+}
+
+.links-content :deep(tr:hover td) {
+  background: rgba(var(--v-theme-surface-variant), 0.3);
 }
 </style>
