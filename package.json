@@ -1,0 +1,26 @@
+{
+  "name": "icjia-accessibility",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@nuxt/content": "^3.9.0",
+    "better-sqlite3": "^12.5.0",
+    "fuse.js": "^7.1.0",
+    "nuxt": "^4.0.0",
+    "vite-plugin-vuetify": "^2.1.2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "vuetify": "^3.11.3",
+    "vuetify-nuxt-module": "^0.19.0",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {}
+}
