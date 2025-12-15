@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="app-wrapper">
     <SkipLink />
     <AppNavbar />
-    <v-main id="main-content" tabindex="-1">
+    <v-main id="main-content" tabindex="-1" class="main-content">
       <slot />
     </v-main>
     <AppFooter />
@@ -10,6 +10,17 @@
 </template>
 
 <style>
+/* App wrapper for sticky footer */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1 0 auto;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -24,8 +35,7 @@
 
 /* Focus indicators for accessibility */
 *:focus-visible {
-  outline: 3px solid var(--v-primary-base);
+  outline: 3px solid rgb(var(--v-theme-primary));
   outline-offset: 2px;
 }
 </style>
-
