@@ -7,7 +7,7 @@
           <div class="text-center">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
-              Countdown to Launch
+              Countdown to WCAG 2.1 AA Compliance
             </p>
             <div class="countdown-display">
               <div class="countdown-item">
