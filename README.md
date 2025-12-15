@@ -11,12 +11,14 @@ A modern, accessible portal for the Illinois Criminal Justice Information Author
 
 ## Features
 
-- WCAG 2.1 AA compliant design
+- WCAG 2.1 AA compliant design (verified with automated accessibility audits)
 - Dark mode by default with light/dark toggle
 - Responsive design
 - Skip navigation link for keyboard users
 - Accessible color contrast ratios
 - Static site generation for Netlify deployment
+- Automated accessibility testing with axe-core
+- All links open in new tabs for better navigation
 
 ## Development
 
@@ -32,6 +34,9 @@ yarn generate
 
 # Preview generated site
 yarn preview
+
+# Run accessibility audit (WCAG 2.1 AA compliance check)
+yarn audit:a11y
 ```
 
 ## Deployment
@@ -40,6 +45,20 @@ This site is configured for deployment on Netlify:
 
 - **Build command**: `yarn generate`
 - **Publish directory**: `.output/public`
+- **Node version**: 22.14.0 (specified in netlify.toml)
+
+The `netlify.toml` file includes:
+
+- Security headers (X-Frame-Options, X-XSS-Protection, etc.)
+- Cache headers for static assets
+- SPA fallback redirects for client-side routing
+
+To deploy:
+
+1. Push code to your Git repository
+2. Connect the repository to Netlify
+3. Netlify will automatically detect the `netlify.toml` configuration
+4. The site will build and deploy automatically on each push
 
 ## Project Structure
 
@@ -49,21 +68,27 @@ This site is configured for deployment on Netlify:
 │   ├── layouts/
 │   │   └── default.vue      # Default layout with navbar and footer
 │   ├── pages/
-│   │   ├── index.vue        # Home page
+│   │   ├── index.vue        # Home page with countdown timer
 │   │   ├── links.vue        # Accessibility links page
-│   │   └── faqs.vue         # FAQs page
-│   └── components/
-│       ├── SkipLink.vue     # Skip to main content link
-│       ├── AppNavbar.vue    # Navigation bar
-│       ├── ThemeToggle.vue  # Light/dark mode toggle
-│       └── AppFooter.vue    # Footer component
+│   │   ├── faqs.vue         # FAQs page
+│   │   └── search.vue       # Search page
+│   ├── components/
+│   │   ├── SkipLink.vue     # Skip to main content link
+│   │   ├── AppNavbar.vue    # Navigation bar
+│   │   ├── ThemeToggle.vue  # Light/dark mode toggle
+│   │   └── AppFooter.vue    # Footer component
+│   ├── plugins/
+│   │   └── content-links.client.ts  # Plugin to add target="_blank" to content links
+│   ├── utils/
+│   │   └── faqTransform.ts  # Utility to transform FAQ content
+│   └── error.vue            # Error page component
 ├── content/
 │   ├── links.md             # Accessibility links content
 │   └── faqs.md              # FAQ content
-├── plugins/
-│   └── vuetify.ts           # Vuetify plugin configuration
+├── audit-accessibility.js   # Accessibility audit script
 ├── content.config.ts        # Nuxt Content configuration
-└── nuxt.config.ts           # Nuxt configuration
+├── netlify.toml            # Netlify deployment configuration
+└── nuxt.config.ts          # Nuxt configuration
 ```
 
 ## Accessibility
@@ -82,4 +107,3 @@ This site is designed to meet WCAG 2.1 AA standards:
 ## License
 
 Copyright © 2025 Illinois Criminal Justice Information Authority. All rights reserved.
-
