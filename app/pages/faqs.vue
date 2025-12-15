@@ -77,9 +77,6 @@ useSeoMeta({
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.85;
   margin-bottom: 1.5rem;
-  padding: 0;
-  background: none;
-  border-left: none;
 }
 
 /* Horizontal rules as section dividers */
@@ -89,13 +86,13 @@ useSeoMeta({
   margin: 3rem 0;
 }
 
-/* h2 = Section headings */
+/* ## = H2 section headings (NOT linkified) */
 .faq-content :deep(h2) {
   font-size: 1.35rem;
   font-weight: 700;
   color: rgb(var(--v-theme-on-surface));
   margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   padding: 1rem 1.25rem;
   background: linear-gradient(
     135deg,
@@ -106,100 +103,89 @@ useSeoMeta({
   border-radius: 0 8px 8px 0;
 }
 
-.faq-content :deep(h2 a) {
+/* Safety: if any heading anchors still render, don't make them look/behave like links */
+.faq-content :deep(h2 a),
+.faq-content :deep(h3 a) {
   color: inherit;
   text-decoration: none;
+  pointer-events: none;
+  cursor: default;
 }
 
-/* h3 = Questions */
+/* ### = H3 question heading (paired with the answer block below) */
 .faq-content :deep(h3) {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-primary));
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  padding: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: rgb(var(--v-theme-on-surface));
+  margin-top: 1.75rem;
+  margin-bottom: 0;
+  padding: 0.9rem 1.1rem;
+  background: rgba(var(--v-theme-surface-variant), 0.28);
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-radius: 8px 8px 0 0;
 }
 
-.faq-content :deep(h3 a) {
-  color: rgb(var(--v-theme-primary));
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.faq-content :deep(h3 a:hover) {
-  text-decoration-thickness: 2px;
-}
-
-/* p = Answers */
+/* Default paragraph styling (non-answer prose) */
 .faq-content :deep(p) {
   font-size: 1rem;
   line-height: 1.75;
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.9;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Answer block: the content immediately following an H3 */
+.faq-content :deep(h3 + p),
+.faq-content :deep(h3 + ul),
+.faq-content :deep(h3 + ol),
+.faq-content :deep(h3 + table),
+.faq-content :deep(h3 + blockquote) {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-  border-radius: 8px;
-  border-left: 3px solid rgba(var(--v-theme-on-surface), 0.15);
+  background: rgba(var(--v-theme-surface-variant), 0.22);
+  border-left: 4px solid rgba(var(--v-theme-primary), 0.35);
+  border-radius: 0 0 8px 8px;
 }
 
-/* ul/li = Bullet points - properly indented */
-.faq-content :deep(ul) {
-  list-style: none;
-  padding-left: 0;
-  margin: 0 0 1.5rem 0;
+/* If the answer starts with a paragraph and continues with a list/table, flatten the join */
+.faq-content :deep(h3 + p) {
+  margin-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 0.75rem;
 }
 
-.faq-content :deep(ul li) {
-  position: relative;
-  padding: 0.6rem 1rem 0.6rem 1.75rem;
-  margin-left: 1.25rem;
-  margin-bottom: 0.35rem;
-  background: rgba(var(--v-theme-surface-variant), 0.2);
-  border-radius: 6px;
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.4);
-  line-height: 1.6;
+.faq-content :deep(h3 + p + ul),
+.faq-content :deep(h3 + p + ol),
+.faq-content :deep(h3 + p + table),
+.faq-content :deep(h3 + p + blockquote) {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.faq-content :deep(ul li::before) {
-  content: "•";
-  position: absolute;
-  left: 0.5rem;
-  color: rgb(var(--v-theme-primary));
-  font-weight: bold;
-}
-
-.faq-content :deep(ul li strong) {
-  color: rgb(var(--v-theme-on-surface));
-}
-
-/* Ordered lists */
+/* Lists: keep normal bullets and indent slightly so they align with answer text */
+.faq-content :deep(ul),
 .faq-content :deep(ol) {
-  padding-left: 0;
-  margin: 0 0 1.5rem 0;
-  counter-reset: item;
-  list-style: none;
+  padding-left: 1.25rem;
 }
 
-.faq-content :deep(ol li) {
-  position: relative;
-  padding: 0.6rem 1rem 0.6rem 2.5rem;
-  margin-left: 1.25rem;
-  margin-bottom: 0.35rem;
-  background: rgba(var(--v-theme-surface-variant), 0.2);
-  border-radius: 6px;
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.4);
-  line-height: 1.6;
-  counter-increment: item;
+.faq-content :deep(li) {
+  margin: 0.35rem 0;
 }
 
-.faq-content :deep(ol li::before) {
-  content: counter(item) ".";
-  position: absolute;
-  left: 0.75rem;
-  color: rgb(var(--v-theme-primary));
-  font-weight: 600;
+/* When list is an answer block, add a bit more left padding for bullets */
+.faq-content :deep(h3 + ul),
+.faq-content :deep(h3 + ol),
+.faq-content :deep(h3 + p + ul),
+.faq-content :deep(h3 + p + ol) {
+  padding-left: 2.5rem;
 }
 
 /* Tables */

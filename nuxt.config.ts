@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     'vuetify-nuxt-module'
   ],
 
+  content: {
+    renderer: {
+      // Don't wrap headings in anchor links (keeps ## as plain H2, ### as plain H3)
+      anchorLinks: false,
+    },
+  },
+
   vuetify: {
     moduleOptions: {
       styles: true
