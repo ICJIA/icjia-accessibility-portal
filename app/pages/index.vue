@@ -39,7 +39,9 @@
         <!-- FAQs Section -->
         <div class="faq-section">
           <h2 class="text-h4 mb-6 faq-main-title">
-            <v-icon class="mr-2" size="32">mdi-frequently-asked-questions</v-icon>
+            <v-icon class="mr-2" size="32"
+              >mdi-frequently-asked-questions</v-icon
+            >
             Frequently Asked Questions
           </h2>
           <div v-if="faqsPage" class="faq-content">
@@ -55,20 +57,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from "vue";
 
-const targetDate = new Date('2026-04-24T00:00:00').getTime()
+const targetDate = new Date("2026-04-24T00:00:00").getTime();
 
 const countdown = ref({
   days: 0,
   hours: 0,
   minutes: 0,
   seconds: 0,
-})
+});
 
 const updateCountdown = () => {
-  const now = new Date().getTime()
-  const distance = targetDate - now
+  const now = new Date().getTime();
+  const distance = targetDate - now;
 
   if (distance > 0) {
     countdown.value = {
@@ -76,39 +78,39 @@ const updateCountdown = () => {
       hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
       seconds: Math.floor((distance % (1000 * 60)) / 1000),
-    }
+    };
   } else {
-    countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }
-}
+};
 
-let countdownInterval: ReturnType<typeof setInterval> | null = null
+let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
 onMounted(() => {
-  updateCountdown()
-  countdownInterval = setInterval(updateCountdown, 1000)
-})
+  updateCountdown();
+  countdownInterval = setInterval(updateCountdown, 1000);
+});
 
 onUnmounted(() => {
   if (countdownInterval) {
-    clearInterval(countdownInterval)
+    clearInterval(countdownInterval);
   }
-})
+});
 
 // Fetch FAQs content
-const { data: faqsPage } = await useAsyncData('faqs', () => {
-  return queryCollection('faqs').first()
-})
+const { data: faqsPage } = await useAsyncData("faqs", () => {
+  return queryCollection("faqs").first();
+});
 
 useSeoMeta({
-  title: 'ICJIA Accessibility Portal - Home',
-  description: 'Your resource for accessibility information and resources',
-})
+  title: "ICJIA Accessibility Portal - Home",
+  description: "Your resource for accessibility information and resources",
+});
 </script>
 
 <style scoped>
 .countdown-card {
-  box-shadow: 
+  box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1),
     0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
@@ -157,11 +159,11 @@ useSeoMeta({
   .countdown-value {
     font-size: 2rem;
   }
-  
+
   .countdown-item {
     min-width: 60px;
   }
-  
+
   .countdown-separator {
     font-size: 1.5rem;
   }

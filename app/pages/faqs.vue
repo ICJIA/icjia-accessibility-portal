@@ -2,19 +2,15 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
-        <div class="faq-page">
-          <!-- Page Header -->
-          <div class="faq-header mb-8">
-            <h1 class="text-h3 faq-title">
-              <v-icon class="mr-3" size="40">mdi-frequently-asked-questions</v-icon>
-              Frequently Asked Questions
-            </h1>
-            <p class="text-body-1 mt-4 faq-description">
-              Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements.
-            </p>
-          </div>
+        <v-card class="pa-8" elevation="0">
+          <h1 class="text-h3 mb-4 d-flex align-center">
+            <v-icon class="mr-3" color="primary">mdi-frequently-asked-questions</v-icon>
+            {{ page?.title || 'Frequently Asked Questions' }}
+          </h1>
+          <p class="text-subtitle-1 text-medium-emphasis mb-6">
+            {{ page?.description || 'Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements.' }}
+          </p>
 
-          <!-- FAQ Content -->
           <div v-if="page" class="faq-content">
             <ContentRenderer :value="page" />
           </div>
@@ -23,23 +19,34 @@
             <p class="mt-4 text-body-1">Loading FAQs...</p>
           </div>
 
-          <!-- Help Section -->
-          <v-card class="mt-8 pa-6" variant="tonal" color="primary">
-            <div class="d-flex align-center">
-              <v-icon size="48" class="mr-4">mdi-help-circle-outline</v-icon>
-              <div>
-                <h3 class="text-h6 mb-2">Still have questions?</h3>
-                <p class="text-body-2 mb-0">
-                  If you couldn't find the answer you're looking for, please visit the 
-                  <a href="https://icjia.illinois.gov/contact" target="_blank" rel="noopener noreferrer" class="text-primary">
-                    ICJIA Contact page
-                  </a>
-                  for additional support.
-                </p>
-              </div>
-            </div>
+          <v-divider class="my-8" />
+
+          <v-card class="pa-6 text-center" variant="tonal">
+            <h2 class="text-h5 mb-4">Still have questions?</h2>
+            <p class="text-body-1 mb-4">
+              If you couldn't find the answer you're looking for, please visit the
+              <NuxtLink
+                href="https://icjia.illinois.gov/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-decoration-none font-weight-medium"
+              >
+                ICJIA Contact page
+              </NuxtLink>
+              for additional support.
+            </p>
+            <v-btn
+              href="https://icjia.illinois.gov/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="primary"
+              variant="flat"
+              prepend-icon="mdi-email-outline"
+            >
+              Contact Us
+            </v-btn>
           </v-card>
-        </div>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -57,29 +64,6 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.faq-page {
-  padding: 1rem 0;
-}
-
-.faq-header {
-  text-align: center;
-  padding-bottom: 2rem;
-  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
-}
-
-.faq-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(var(--v-theme-primary));
-}
-
-.faq-description {
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0.85;
-}
-
 /* FAQ Content Styles - targeting rendered markdown */
 .faq-content :deep(h1) {
   display: none; /* Hide the duplicate h1 from markdown */
@@ -140,16 +124,5 @@ useSeoMeta({
 /* First h2 has smaller top margin */
 .faq-content :deep(h2:first-of-type) {
   margin-top: 1rem;
-}
-
-/* Help section link styling */
-.faq-page a {
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.faq-page a:hover {
-  text-decoration-thickness: 2px;
 }
 </style>

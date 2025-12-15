@@ -3,12 +3,15 @@
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
         <v-card class="pa-8" elevation="0">
+          <h1 class="text-h3 mb-6 d-flex align-center">
+            <v-icon class="mr-3" color="primary">mdi-link-variant</v-icon>
+            {{ page?.title || 'Accessibility Links' }}
+          </h1>
           <ContentRenderer
             v-if="page"
             :value="page"
           />
           <div v-else>
-            <h1>Accessibility Links</h1>
             <p>Content not found.</p>
           </div>
         </v-card>
