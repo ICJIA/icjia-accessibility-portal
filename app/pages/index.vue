@@ -179,7 +179,7 @@ useSeoMeta({
   font-size: 1.25rem;
   font-weight: 600;
   color: rgb(var(--v-theme-on-surface));
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   padding: 1rem 1.25rem;
   background: linear-gradient(
@@ -206,6 +206,7 @@ useSeoMeta({
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.9;
   margin-left: 0;
+  margin-bottom: 1.5rem;
   padding: 0.75rem 1.25rem;
   background: rgba(var(--v-theme-surface-variant), 0.3);
   border-radius: 8px;
