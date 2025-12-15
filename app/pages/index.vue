@@ -260,7 +260,12 @@ useSeoMeta({
 .faq-content :deep(h3 + ul),
 .faq-content :deep(h3 + ol),
 .faq-content :deep(h3 + table),
-.faq-content :deep(h3 + blockquote) {
+.faq-content :deep(h3 + blockquote),
+/* Also support: question -> intro paragraph -> list/table/etc */
+.faq-content :deep(h3 + p + ul),
+.faq-content :deep(h3 + p + ol),
+.faq-content :deep(h3 + p + table),
+.faq-content :deep(h3 + p + blockquote) {
   margin-top: 0;
   margin-bottom: 1.5rem;
   padding: 1rem 1.25rem;
@@ -294,6 +299,11 @@ useSeoMeta({
   padding-left: 1.25rem;
 }
 
+.faq-content :deep(ul),
+.faq-content :deep(ol) {
+  margin: 0 0 1rem 0;
+}
+
 .faq-content :deep(li) {
   margin: 0.35rem 0;
 }
@@ -303,7 +313,8 @@ useSeoMeta({
 .faq-content :deep(h3 + ol),
 .faq-content :deep(h3 + p + ul),
 .faq-content :deep(h3 + p + ol) {
-  padding-left: 2.5rem;
+  /* keep bullets inside the answer card with a slight inset */
+  padding-left: 2.25rem;
 }
 
 /* Tables */
