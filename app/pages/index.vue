@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
         <!-- Countdown Clock Section -->
-        <v-card class="pa-8 mb-8" elevation="2">
+        <v-card class="pa-8 mb-8 countdown-card" elevation="4">
           <div class="text-center">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
@@ -105,6 +105,14 @@ useSeoMeta({
 </script>
 
 <style scoped>
+.countdown-card {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
+  border: 1px solid rgba(var(--v-theme-primary), 0.1);
+}
+
 .countdown-display {
   display: flex;
   justify-content: center;
