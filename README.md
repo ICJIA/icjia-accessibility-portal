@@ -1,6 +1,15 @@
 # ICJIA Accessibility Portal
 
-A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) providing accessibility resources, links, and FAQs.
+A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including FAQs and Links to ensure compliance and provide a centralized resource for accessibility information.
+
+## Purpose
+
+This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 24, 2026 guideline**. The portal includes:
+
+- **FAQs**: Frequently asked questions about accessibility requirements and compliance
+- **Links**: Curated collection of accessibility resources and related information
+
+All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
 
 ## Tech Stack
 
