@@ -55,6 +55,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
 const targetDate = new Date('2026-04-24T00:00:00').getTime()
 
 const countdown = ref({
