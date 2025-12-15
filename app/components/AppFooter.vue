@@ -1,56 +1,54 @@
 <template>
   <v-footer class="footer-wrapper">
     <v-container>
-      <!-- Logo and Branding Section -->
-      <div class="footer-brand text-center mb-6">
-        <img 
-          src="https://icjia.illinois.gov/icjia-logo.png" 
-          alt="Illinois Criminal Justice Information Authority Logo"
-          class="footer-logo"
-        />
-      </div>
+      <div class="footer-content">
+        <!-- Logo -->
+        <div class="footer-brand">
+          <img 
+            src="https://icjia.illinois.gov/icjia-logo.png" 
+            alt="Illinois Criminal Justice Information Authority Logo"
+            class="footer-logo"
+          />
+        </div>
 
-      <!-- Social Media Icons -->
-      <div class="social-section text-center mb-6">
-        <v-btn
-          v-for="social in socialLinks"
-          :key="social.name"
-          :href="social.url"
-          :aria-label="`Follow ICJIA on ${social.name}`"
-          icon
-          variant="text"
-          size="large"
-          class="social-icon mx-2"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <v-icon size="24">{{ social.icon }}</v-icon>
-        </v-btn>
-      </div>
+        <!-- Social Media Icons -->
+        <div class="social-section">
+          <v-btn
+            v-for="social in socialLinks"
+            :key="social.name"
+            :href="social.url"
+            :aria-label="`Follow ICJIA on ${social.name}`"
+            icon
+            variant="text"
+            size="small"
+            class="social-icon mx-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <v-icon size="20">{{ social.icon }}</v-icon>
+          </v-btn>
+        </div>
 
-      <!-- Footer Links -->
-      <div class="footer-links text-center mb-6">
-        <NuxtLink
-          v-for="link in footerLinks"
-          :key="link.text"
-          :to="link.to"
-          class="footer-link"
-        >
-          {{ link.text }}
-        </NuxtLink>
-      </div>
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <NuxtLink
+            v-for="link in footerLinks"
+            :key="link.text"
+            :to="link.to"
+            class="footer-link"
+          >
+            {{ link.text }}
+          </NuxtLink>
+        </div>
 
-      <!-- Divider -->
-      <v-divider class="footer-divider mb-6" />
-
-      <!-- Copyright -->
-      <div class="footer-copyright text-center">
-        <p class="copyright-text mb-1">
-          &copy; {{ currentYear }} Illinois Criminal Justice Information Authority
-        </p>
-        <p class="copyright-address">
-          60 E. Van Buren St., Suite 725 • Chicago, IL 60605
-        </p>
+        <!-- Copyright -->
+        <div class="footer-copyright">
+          <span class="copyright-text">
+            &copy; {{ currentYear }} ICJIA
+          </span>
+          <span class="copyright-divider">•</span>
+          <span class="copyright-address">Chicago, IL</span>
+        </div>
       </div>
     </v-container>
   </v-footer>
@@ -75,24 +73,29 @@ const footerLinks = [
 <style scoped>
 .footer-wrapper {
   flex-shrink: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(var(--v-theme-surface), 1) 0%,
-    rgba(var(--v-theme-surface), 0.95) 100%
-  ) !important;
-  border-top: 1px solid rgba(var(--v-theme-primary), 0.2);
-  padding: 3rem 0 2rem;
+  background: rgb(var(--v-theme-surface)) !important;
+  border-top: 1px solid rgba(var(--v-theme-primary), 0.15);
+  padding: 1rem 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
 .footer-brand {
-  padding-top: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .footer-logo {
-  max-height: 80px;
+  height: 32px;
   width: auto;
   filter: brightness(0) invert(1);
-  opacity: 0.9;
+  opacity: 0.85;
   transition: opacity 0.2s ease;
 }
 
@@ -109,47 +112,38 @@ const footerLinks = [
 
 .social-section {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .social-icon {
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.7;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-  background: rgba(var(--v-theme-primary), 0.1);
+  opacity: 0.6;
+  transition: all 0.2s ease;
 }
 
 .social-icon:hover {
   opacity: 1;
   color: rgb(var(--v-theme-primary));
-  background: rgba(var(--v-theme-primary), 0.2);
-  transform: translateY(-2px);
 }
 
 .footer-links {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
 }
 
 .footer-link {
   color: rgb(var(--v-theme-on-surface));
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 24px;
-  opacity: 0.8;
+  opacity: 0.7;
   transition: all 0.2s ease;
-  background: rgba(var(--v-theme-primary), 0.08);
 }
 
 .footer-link:hover {
   opacity: 1;
-  background: rgba(var(--v-theme-primary), 0.15);
   color: rgb(var(--v-theme-primary));
 }
 
@@ -158,26 +152,28 @@ const footerLinks = [
   outline-offset: 2px;
 }
 
-.footer-divider {
-  max-width: 200px;
-  margin: 0 auto;
-  border-color: rgba(var(--v-theme-primary), 0.2) !important;
-}
-
 .footer-copyright {
-  opacity: 0.7;
-}
-
-.copyright-text {
-  font-size: 0.875rem;
-  color: rgb(var(--v-theme-on-surface));
-  margin-bottom: 0.25rem;
-}
-
-.copyright-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.copyright-text,
+.copyright-address {
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.8;
-  margin-bottom: 0;
+}
+
+.copyright-divider {
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 </style>

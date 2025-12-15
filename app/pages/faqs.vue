@@ -99,7 +99,6 @@ useSeoMeta({
   );
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
-  position: relative;
   transition: all 0.2s ease;
 }
 
@@ -109,24 +108,6 @@ useSeoMeta({
     rgba(var(--v-theme-primary), 0.2) 0%,
     rgba(var(--v-theme-primary), 0.1) 100%
   );
-}
-
-.faq-content :deep(h2)::before {
-  content: "Q";
-  position: absolute;
-  left: -2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1.75rem;
-  height: 1.75rem;
-  background: rgb(var(--v-theme-primary));
-  color: rgb(var(--v-theme-on-primary));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.875rem;
-  font-weight: 700;
 }
 
 .faq-content :deep(h2 a) {
@@ -143,35 +124,16 @@ useSeoMeta({
   line-height: 1.8;
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.9;
-  margin-left: 1.25rem;
+  margin-left: 0;
   padding: 1rem 1.5rem;
   background: rgba(var(--v-theme-surface-variant), 0.3);
   border-radius: 8px;
   border-left: 3px solid rgba(var(--v-theme-on-surface), 0.2);
-  position: relative;
   transition: all 0.2s ease;
 }
 
 .faq-content :deep(p):hover {
   background: rgba(var(--v-theme-surface-variant), 0.5);
-}
-
-.faq-content :deep(p)::before {
-  content: "A";
-  position: absolute;
-  left: -2rem;
-  top: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: rgba(var(--v-theme-on-surface), 0.15);
-  color: rgb(var(--v-theme-on-surface));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  opacity: 0.8;
 }
 
 /* First h2 has smaller top margin */
