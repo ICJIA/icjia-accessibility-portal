@@ -31,22 +31,24 @@
               </div>
             </div>
             <p class="text-body-2 mt-4 text-medium-emphasis">
-              Launch Date: April 24, 2026
+              Target Date: April 24, 2026
             </p>
           </div>
         </v-card>
 
         <!-- FAQs Section -->
-        <v-card class="pa-8" elevation="0">
-          <h2 class="text-h4 mb-6">Frequently Asked Questions</h2>
-          <ContentRenderer
-            v-if="faqsPage"
-            :value="faqsPage"
-          />
+        <div class="faq-section">
+          <h2 class="text-h4 mb-6 faq-main-title">
+            <v-icon class="mr-2" size="32">mdi-frequently-asked-questions</v-icon>
+            Frequently Asked Questions
+          </h2>
+          <div v-if="faqsPage" class="faq-content">
+            <ContentRenderer :value="faqsPage" />
+          </div>
           <div v-else>
             <p class="text-body-1">FAQs content loading...</p>
           </div>
-        </v-card>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -123,7 +125,7 @@ useSeoMeta({
   font-size: 3rem;
   font-weight: bold;
   line-height: 1;
-  color: var(--v-primary-base);
+  color: rgb(var(--v-theme-primary));
 }
 
 .countdown-label {
@@ -153,5 +155,103 @@ useSeoMeta({
   .countdown-separator {
     font-size: 1.5rem;
   }
+}
+
+/* FAQ Section Styles */
+.faq-section {
+  padding: 2rem 0;
+}
+
+.faq-main-title {
+  display: flex;
+  align-items: center;
+  color: rgb(var(--v-theme-primary));
+  border-bottom: 2px solid rgb(var(--v-theme-primary));
+  padding-bottom: 1rem;
+}
+
+/* FAQ Content Styles - targeting rendered markdown */
+.faq-content :deep(h1) {
+  display: none; /* Hide the duplicate h1 from markdown */
+}
+
+.faq-content :deep(h2) {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface));
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--v-theme-primary), 0.15) 0%,
+    rgba(var(--v-theme-primary), 0.05) 100%
+  );
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.faq-content :deep(h2)::before {
+  content: "Q";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  background: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-primary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.faq-content :deep(h2 a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.faq-content :deep(h2 a:hover) {
+  color: rgb(var(--v-theme-primary));
+}
+
+.faq-content :deep(p) {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.9;
+  margin-left: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(var(--v-theme-surface-variant), 0.3);
+  border-radius: 8px;
+  border-left: 3px solid rgba(var(--v-theme-on-surface), 0.2);
+  position: relative;
+}
+
+.faq-content :deep(p)::before {
+  content: "A";
+  position: absolute;
+  left: -2rem;
+  top: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: rgba(var(--v-theme-on-surface), 0.15);
+  color: rgb(var(--v-theme-on-surface));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* First h2 doesn't need top margin */
+.faq-content :deep(h2:first-of-type) {
+  margin-top: 0;
 }
 </style>
