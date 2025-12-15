@@ -129,10 +129,10 @@ useSeoMeta({
   padding: 1rem 1.25rem;
   background: linear-gradient(
     135deg,
-    rgba(var(--v-theme-primary), 0.15) 0%,
-    rgba(var(--v-theme-primary), 0.05) 100%
+    rgba(186, 104, 200, 0.15) 0%,
+    rgba(186, 104, 200, 0.05) 100%
   );
-  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-left: 4px solid #ba68c8;
   border-radius: 0 8px 8px 0;
 }
 

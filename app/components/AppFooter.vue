@@ -4,8 +4,8 @@
       <div class="footer-content">
         <!-- Logo -->
         <div class="footer-brand">
-          <img 
-            src="https://icjia.illinois.gov/icjia-logo.png" 
+          <img
+            src="https://icjia.illinois.gov/icjia-logo.png"
             alt="Illinois Criminal Justice Information Authority Logo"
             class="footer-logo"
           />
@@ -34,7 +34,9 @@
           <NuxtLink
             v-for="link in footerLinks"
             :key="link.text"
-            :to="link.to"
+            :href="link.to"
+            target="_blank"
+            rel="noopener noreferrer"
             class="footer-link"
           >
             {{ link.text }}
@@ -43,9 +45,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright">
-          <span class="copyright-text">
-            &copy; {{ currentYear }} ICJIA
-          </span>
+          <span class="copyright-text"> &copy; {{ currentYear }} ICJIA </span>
           <span class="copyright-divider">•</span>
           <span class="copyright-address">Chicago, IL</span>
         </div>
@@ -55,19 +55,35 @@
 </template>
 
 <script setup lang="ts">
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const socialLinks = [
-  { name: 'Facebook', icon: 'mdi-facebook', url: 'https://www.facebook.com/ABORTICJIA/' },
-  { name: 'YouTube', icon: 'mdi-youtube', url: 'https://www.youtube.com/@icaborticjia5734' },
-  { name: 'Instagram', icon: 'mdi-instagram', url: 'https://www.instagram.com/icaborticjia/' },
-  { name: 'LinkedIn', icon: 'mdi-linkedin', url: 'https://www.linkedin.com/company/illinois-criminal-justice-information-authority/' },
-]
+  {
+    name: "Facebook",
+    icon: "mdi-facebook",
+    url: "https://www.facebook.com/ABORTICJIA/",
+  },
+  {
+    name: "YouTube",
+    icon: "mdi-youtube",
+    url: "https://www.youtube.com/@icaborticjia5734",
+  },
+  {
+    name: "Instagram",
+    icon: "mdi-instagram",
+    url: "https://www.instagram.com/icaborticjia/",
+  },
+  {
+    name: "LinkedIn",
+    icon: "mdi-linkedin",
+    url: "https://www.linkedin.com/company/illinois-criminal-justice-information-authority/",
+  },
+];
 
 const footerLinks = [
-  { text: 'Contact', to: '/' },
-  { text: 'Search', to: '/search' },
-]
+  { text: "Contact", to: "/" },
+  { text: "Search", to: "/search" },
+];
 </script>
 
 <style scoped>

@@ -7,7 +7,15 @@
           <div class="text-center">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
-              Countdown to WCAG 2.1 AA Compliance
+              Countdown to
+              <NuxtLink
+                href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-decoration-none font-weight-medium"
+              >
+                WCAG 2.1 AA Compliance
+              </NuxtLink>
             </p>
             <div class="countdown-display">
               <div class="countdown-item">
@@ -231,10 +239,10 @@ useSeoMeta({
   padding: 1rem 1.25rem;
   background: linear-gradient(
     135deg,
-    rgba(var(--v-theme-primary), 0.15) 0%,
-    rgba(var(--v-theme-primary), 0.05) 100%
+    rgba(186, 104, 200, 0.15) 0%,
+    rgba(186, 104, 200, 0.05) 100%
   );
-  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-left: 4px solid #ba68c8;
   border-radius: 0 8px 8px 0;
 }
 
@@ -372,6 +380,12 @@ useSeoMeta({
   color: rgb(var(--v-theme-primary));
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* Ensure sufficient contrast for links - use brighter color in dark mode for WCAG AA compliance */
+.v-theme--dark .faq-content :deep(a) {
+  /* Use a brighter color that meets WCAG AA contrast (4.5:1) on dark backgrounds */
+  color: #bbdefb;
 }
 
 .faq-content :deep(a:hover) {

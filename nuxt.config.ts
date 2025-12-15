@@ -1,6 +1,14 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en'
+      }
+    }
+  },
+  
   modules: [
     '@nuxt/content',
     'vuetify-nuxt-module'

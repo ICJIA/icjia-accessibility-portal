@@ -4,11 +4,16 @@
       <v-col cols="12" md="10" lg="8">
         <v-card class="pa-8" elevation="0">
           <h1 class="text-h3 mb-4 d-flex align-center">
-            <v-icon class="mr-3" color="primary">mdi-frequently-asked-questions</v-icon>
-            {{ page?.title || 'Frequently Asked Questions' }}
+            <v-icon class="mr-3" color="primary"
+              >mdi-frequently-asked-questions</v-icon
+            >
+            {{ page?.title || "Frequently Asked Questions" }}
           </h1>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
-            {{ page?.description || 'Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements.' }}
+            {{
+              page?.description ||
+              "Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements."
+            }}
           </p>
 
           <div v-if="renderedPage" class="faq-content">
@@ -24,7 +29,8 @@
           <v-card class="pa-6 text-center" variant="tonal">
             <h2 class="text-h5 mb-4">Still have questions?</h2>
             <p class="text-body-1 mb-4">
-              If you couldn't find the answer you're looking for, please visit the
+              If you couldn't find the answer you're looking for, please visit
+              the
               <NuxtLink
                 href="https://icjia.illinois.gov/contact"
                 target="_blank"
@@ -53,17 +59,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { wrapFaqQuestionsIntoCards } from '../utils/faqTransform'
+import { computed } from "vue";
+import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
 
-const { data: page } = await useAsyncData('faqs', () => {
-  return queryCollection('faqs').first()
-})
+const { data: page } = await useAsyncData("faqs", () => {
+  return queryCollection("faqs").first();
+});
 
 const renderedPage = computed(() => {
-  if (!page.value) return null
-  const body = page.value.body
-  if (!body || body.type !== 'minimark' || !Array.isArray(body.value)) return page.value
+  if (!page.value) return null;
+  const body = page.value.body;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value))
+    return page.value;
 
   return {
     ...page.value,
@@ -71,13 +78,16 @@ const renderedPage = computed(() => {
       ...body,
       value: wrapFaqQuestionsIntoCards(body.value),
     },
-  }
-})
+  };
+});
 
 useSeoMeta({
-  title: page.value?.title ? `${page.value.title} - ICJIA Accessibility Portal` : 'FAQs - ICJIA Accessibility Portal',
-  description: page.value?.description || 'Frequently asked questions about accessibility',
-})
+  title: page.value?.title
+    ? `${page.value.title} - ICJIA Accessibility Portal`
+    : "FAQs - ICJIA Accessibility Portal",
+  description:
+    page.value?.description || "Frequently asked questions about accessibility",
+});
 </script>
 
 <style scoped>
@@ -113,10 +123,10 @@ useSeoMeta({
   padding: 1rem 1.25rem;
   background: linear-gradient(
     135deg,
-    rgba(var(--v-theme-primary), 0.15) 0%,
-    rgba(var(--v-theme-primary), 0.05) 100%
+    rgba(186, 104, 200, 0.15) 0%,
+    rgba(186, 104, 200, 0.05) 100%
   );
-  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-left: 4px solid #ba68c8;
   border-radius: 0 8px 8px 0;
 }
 
@@ -254,6 +264,13 @@ useSeoMeta({
   color: rgb(var(--v-theme-primary));
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* Ensure sufficient contrast for links - use brighter color in dark mode for WCAG AA compliance */
+/* Primary color #90CAF9 may not have enough contrast on some dark backgrounds */
+.v-theme--dark .faq-content :deep(a) {
+  /* Use a brighter color that meets WCAG AA contrast (4.5:1) on dark backgrounds */
+  color: #bbdefb;
 }
 
 .faq-content :deep(a:hover) {

@@ -1,0 +1,66 @@
+
+> icjia-accessibility@1.0.0 audit:a11y
+> node audit-accessibility.js
+
+Starting dev server...
+Server started on http://localhost:3003
+
+🔍 Auditing: /
+❌ Found 1 violation(s)
+
+🔍 Auditing: /links
+❌ Found 1 violation(s)
+
+🔍 Auditing: /faqs
+❌ Found 2 violation(s)
+
+🔍 Auditing: /search
+❌ Found 1 violation(s)
+
+================================================================================
+ACCESSIBILITY AUDIT SUMMARY
+================================================================================
+
+❌ Found accessibility violations on 4 page(s):
+
+
+📄 /:
+
+  1. html-has-lang: Ensure every HTML document has a lang attribute
+     Impact: serious
+     Help: https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=playwright
+     Affected nodes: 1
+       1. <html style="--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(sa...
+
+📄 /links:
+
+  1. html-has-lang: Ensure every HTML document has a lang attribute
+     Impact: serious
+     Help: https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=playwright
+     Affected nodes: 1
+       1. <html style="--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(sa...
+
+📄 /faqs:
+
+  1. color-contrast: Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+     Impact: serious
+     Help: https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=playwright
+     Affected nodes: 14
+       1. <a href="mailto:DoIT.Accessibility@Illinois.gov" rel="noopener noreferrer"><!--[-->DoIT.Accessibilit...
+       2. <a href="https://doit.illinois.gov/initiatives/accessibility.html" rel="nofollow"><!--[-->https://do...
+       3. <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" rel="nofollow"><!--[-->http...
+       ... and 11 more
+
+  2. html-has-lang: Ensure every HTML document has a lang attribute
+     Impact: serious
+     Help: https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=playwright
+     Affected nodes: 1
+       1. <html style="--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(sa...
+
+📄 /search:
+
+  1. html-has-lang: Ensure every HTML document has a lang attribute
+     Impact: serious
+     Help: https://dequeuniversity.com/rules/axe/4.11/html-has-lang?application=playwright
+     Affected nodes: 1
+       1. <html style="--vueuse-safe-area-top: env(safe-area-inset-top, 0px); --vueuse-safe-area-right: env(sa...

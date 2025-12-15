@@ -9,29 +9,35 @@
               <div class="error-code mb-4">
                 <span class="error-number">{{ error.statusCode || 404 }}</span>
               </div>
-              
+
               <h1 class="text-h4 mb-4">Page Not Found</h1>
-              
+
               <p class="text-body-1 mb-6 text-medium-emphasis">
                 The page you're looking for doesn't exist or has been moved.
               </p>
 
               <div class="mb-6">
-                <v-icon size="64" class="mb-4">mdi-file-question-outline</v-icon>
+                <v-icon size="64" class="mb-4"
+                  >mdi-file-question-outline</v-icon
+                >
               </div>
 
               <div class="d-flex flex-column flex-sm-row gap-4 justify-center">
                 <v-btn
-                  :to="'/'"
+                  href="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   color="primary"
                   size="large"
                   prepend-icon="mdi-home"
                 >
                   Go Home
                 </v-btn>
-                
+
                 <v-btn
-                  :to="'/search'"
+                  href="/search"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="outlined"
                   size="large"
                   prepend-icon="mdi-magnify"
@@ -44,16 +50,22 @@
 
               <div class="text-body-2 text-medium-emphasis">
                 <p class="mb-2">You might be looking for:</p>
-                <div class="d-flex flex-column flex-sm-row gap-2 justify-center">
+                <div
+                  class="d-flex flex-column flex-sm-row gap-2 justify-center"
+                >
                   <v-btn
-                    :to="'/links'"
+                    href="/links"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="text"
                     size="small"
                   >
                     Accessibility Links
                   </v-btn>
                   <v-btn
-                    :to="'/faqs'"
+                    href="/faqs"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="text"
                     size="small"
                   >
@@ -73,16 +85,16 @@
 <script setup lang="ts">
 const props = defineProps<{
   error: {
-    statusCode?: number
-    statusMessage?: string
-    message?: string
-  }
-}>()
+    statusCode?: number;
+    statusMessage?: string;
+    message?: string;
+  };
+}>();
 
 useSeoMeta({
   title: `${props.error.statusCode || 404} - Page Not Found`,
-  description: 'The page you are looking for could not be found.',
-})
+  description: "The page you are looking for could not be found.",
+});
 </script>
 
 <style scoped>
@@ -98,7 +110,11 @@ useSeoMeta({
   font-size: 8rem;
   font-weight: bold;
   line-height: 1;
-  background: linear-gradient(135deg, var(--v-primary-base), var(--v-accent-base));
+  background: linear-gradient(
+    135deg,
+    var(--v-primary-base),
+    var(--v-accent-base)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -111,4 +127,3 @@ useSeoMeta({
   }
 }
 </style>
-
