@@ -214,36 +214,69 @@ useSeoMeta({
   border-bottom-right-radius: 8px;
 }
 
-/* Lists: keep normal bullets and indent slightly so they align with answer text */
+/* Lists: style each link item as a card */
 .links-content :deep(ul),
 .links-content :deep(ol) {
-  padding-left: 1.25rem;
-  margin: 0 0 1rem 0;
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.5rem 0;
 }
 
+/* Each list item becomes a card */
 .links-content :deep(li) {
-  margin: 0.35rem 0;
+  display: block;
+  margin: 0.75rem 0;
+  padding: 1rem 1.25rem;
+  background: rgba(var(--v-theme-surface-variant), 0.25);
+  border-left: 3px solid rgba(var(--v-theme-primary), 0.4);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.9;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
-/* When list is an answer block, add a bit more left padding for bullets */
-.links-content :deep(.qa-card ul),
-.links-content :deep(.qa-card ol),
-.links-content :deep(h3 + ul),
-.links-content :deep(h3 + ol),
-.links-content :deep(h3 + p + ul),
-.links-content :deep(h3 + p + ol) {
-  padding-left: 2.25rem;
+.links-content :deep(li:hover) {
+  background: rgba(var(--v-theme-surface-variant), 0.35);
+  border-left-color: rgb(var(--v-theme-primary));
+  transform: translateX(2px);
 }
 
-/* Links within content */
-.links-content :deep(a) {
+/* Link title (bold text inside the link) */
+.links-content :deep(li a) {
   color: rgb(var(--v-theme-primary));
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: inline;
 }
 
-.links-content :deep(a:hover) {
+.links-content :deep(li a:hover) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
+}
+
+/* Bold text (link titles) */
+.links-content :deep(li strong) {
+  color: rgb(var(--v-theme-primary));
+  font-weight: 600;
+}
+
+/* When list is inside a qa-card, ensure proper spacing */
+.links-content :deep(.qa-card ul),
+.links-content :deep(.qa-card ol) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.links-content :deep(.qa-card li:first-child) {
+  margin-top: 0;
+}
+
+.links-content :deep(.qa-card li:last-child) {
+  margin-bottom: 0;
 }
 
 /* Tables */
