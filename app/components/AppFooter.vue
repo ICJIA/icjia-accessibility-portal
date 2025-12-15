@@ -1,61 +1,57 @@
 <template>
-  <v-footer class="footer-wrapper py-6">
+  <v-footer class="footer-wrapper">
     <v-container>
-      <!-- Top Row: Social Icons and Links -->
-      <v-row class="align-center mb-4">
-        <!-- Social Media Icons -->
-        <v-col cols="12" md="auto" class="d-flex align-center justify-center justify-md-start mb-4 mb-md-0">
-          <v-btn
-            v-for="social in socialLinks"
-            :key="social.name"
-            :href="social.url"
-            :aria-label="`Link to ICJIA on ${social.name}`"
-            icon
-            variant="text"
-            size="small"
-            class="social-icon mx-1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <v-icon size="20">{{ social.icon }}</v-icon>
-          </v-btn>
-        </v-col>
+      <!-- Logo and Branding Section -->
+      <div class="footer-brand text-center mb-6">
+        <img 
+          src="https://icjia.illinois.gov/icjia-logo.png" 
+          alt="Illinois Criminal Justice Information Authority Logo"
+          class="footer-logo"
+        />
+      </div>
 
-        <!-- Divider (visible on desktop) -->
-        <v-col cols="auto" class="d-none d-md-flex">
-          <v-divider vertical class="mx-4 footer-divider" />
-        </v-col>
+      <!-- Social Media Icons -->
+      <div class="social-section text-center mb-6">
+        <v-btn
+          v-for="social in socialLinks"
+          :key="social.name"
+          :href="social.url"
+          :aria-label="`Follow ICJIA on ${social.name}`"
+          icon
+          variant="text"
+          size="large"
+          class="social-icon mx-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <v-icon size="24">{{ social.icon }}</v-icon>
+        </v-btn>
+      </div>
 
-        <!-- Footer Links -->
-        <v-col cols="12" md="auto" class="flex-grow-1">
-          <div class="d-flex flex-wrap justify-center justify-md-start footer-links">
-            <NuxtLink
-              v-for="link in footerLinks"
-              :key="link.text"
-              :to="link.to"
-              class="footer-link"
-            >
-              {{ link.text }}
-            </NuxtLink>
-          </div>
-        </v-col>
-      </v-row>
+      <!-- Footer Links -->
+      <div class="footer-links text-center mb-6">
+        <NuxtLink
+          v-for="link in footerLinks"
+          :key="link.text"
+          :to="link.to"
+          class="footer-link"
+        >
+          {{ link.text }}
+        </NuxtLink>
+      </div>
 
       <!-- Divider -->
-      <v-divider class="footer-divider my-4" />
+      <v-divider class="footer-divider mb-6" />
 
-      <!-- Bottom Row: Copyright and Agency Info -->
-      <v-row class="align-center">
-        <v-col cols="12" md="8">
-          <div class="footer-agency-info">
-            <p class="mb-1 agency-name">Illinois Criminal Justice Information Authority</p>
-            <p class="agency-address">60 E. Van Buren St., Suite 725 | Chicago, IL 60605</p>
-          </div>
-        </v-col>
-        <v-col cols="12" md="4" class="text-center text-md-right">
-          <p class="copyright">&copy; {{ currentYear }} State of Illinois</p>
-        </v-col>
-      </v-row>
+      <!-- Copyright -->
+      <div class="footer-copyright text-center">
+        <p class="copyright-text mb-1">
+          &copy; {{ currentYear }} Illinois Criminal Justice Information Authority
+        </p>
+        <p class="copyright-address">
+          60 E. Van Buren St., Suite 725 • Chicago, IL 60605
+        </p>
+      </div>
     </v-container>
   </v-footer>
 </template>
@@ -71,54 +67,90 @@ const socialLinks = [
 ]
 
 const footerLinks = [
-  { text: 'About', to: '/' },
   { text: 'Contact', to: '/' },
   { text: 'Search', to: '/search' },
-  { text: 'FOIA', to: '/' },
-  { text: 'Privacy', to: '/' },
-  { text: 'Accessibility', to: '/' },
 ]
 </script>
 
 <style scoped>
 .footer-wrapper {
   flex-shrink: 0;
-  background: rgb(var(--v-theme-surface)) !important;
-  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+  background: linear-gradient(
+    180deg,
+    rgba(var(--v-theme-surface), 1) 0%,
+    rgba(var(--v-theme-surface), 0.95) 100%
+  ) !important;
+  border-top: 1px solid rgba(var(--v-theme-primary), 0.2);
+  padding: 3rem 0 2rem;
+}
+
+.footer-brand {
+  padding-top: 1rem;
+}
+
+.footer-logo {
+  max-height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+/* Light mode logo adjustment */
+:root[data-theme="light"] .footer-logo,
+.v-theme--light .footer-logo {
+  filter: none;
+  opacity: 1;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.social-section {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .social-icon {
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.8;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  background: rgba(var(--v-theme-primary), 0.1);
 }
 
 .social-icon:hover {
   opacity: 1;
   color: rgb(var(--v-theme-primary));
-}
-
-.footer-divider {
-  border-color: rgba(var(--v-theme-on-surface), 0.12) !important;
+  background: rgba(var(--v-theme-primary), 0.2);
+  transform: translateY(-2px);
 }
 
 .footer-links {
-  gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .footer-link {
   color: rgb(var(--v-theme-on-surface));
   text-decoration: none;
-  font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
   opacity: 0.8;
-  transition: opacity 0.2s ease, background-color 0.2s ease;
+  transition: all 0.2s ease;
+  background: rgba(var(--v-theme-primary), 0.08);
 }
 
 .footer-link:hover {
   opacity: 1;
-  background-color: rgba(var(--v-theme-on-surface), 0.08);
+  background: rgba(var(--v-theme-primary), 0.15);
+  color: rgb(var(--v-theme-primary));
 }
 
 .footer-link:focus-visible {
@@ -126,34 +158,26 @@ const footerLinks = [
   outline-offset: 2px;
 }
 
-.footer-agency-info {
-  text-align: center;
+.footer-divider {
+  max-width: 200px;
+  margin: 0 auto;
+  border-color: rgba(var(--v-theme-primary), 0.2) !important;
 }
 
-@media (min-width: 960px) {
-  .footer-agency-info {
-    text-align: left;
-  }
+.footer-copyright {
+  opacity: 0.7;
 }
 
-.agency-name {
+.copyright-text {
   font-size: 0.875rem;
-  font-weight: 500;
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.9;
+  margin-bottom: 0.25rem;
 }
 
-.agency-address {
+.copyright-address {
   font-size: 0.75rem;
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.6;
-  margin-bottom: 0;
-}
-
-.copyright {
-  font-size: 0.75rem;
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 0.6;
+  opacity: 0.8;
   margin-bottom: 0;
 }
 </style>
