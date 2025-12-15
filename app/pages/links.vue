@@ -2,14 +2,16 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
-        <ContentRenderer
-          v-if="page"
-          :value="page"
-        />
-        <div v-else>
-          <h1>Accessibility Links</h1>
-          <p>Content not found.</p>
-        </div>
+        <v-card class="pa-8" elevation="0">
+          <ContentRenderer
+            v-if="page"
+            :value="page"
+          />
+          <div v-else>
+            <h1>Accessibility Links</h1>
+            <p>Content not found.</p>
+          </div>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
