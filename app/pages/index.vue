@@ -44,8 +44,8 @@
             >
             Frequently Asked Questions
           </h2>
-          <div v-if="faqsPage" class="faq-content">
-            <ContentRenderer :value="faqsPage" />
+          <div v-if="renderedFaqsPage" class="faq-content">
+            <ContentRenderer :value="renderedFaqsPage" />
           </div>
           <div v-else>
             <p class="text-body-1">FAQs content loading...</p>
@@ -57,7 +57,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
+import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
 
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
 
@@ -99,7 +100,22 @@ onUnmounted(() => {
 
 // Fetch FAQs content
 const { data: faqsPage } = await useAsyncData("faqs", () => {
-  return queryCollection("faqs").first();
+  // TS sometimes resolves an overload requiring 2 args; extra undefined is harmless at runtime.
+  return (queryCollection as any)("faqs", undefined).first();
+});
+
+const renderedFaqsPage = computed(() => {
+  if (!faqsPage.value) return null;
+  const body = (faqsPage.value as any).body;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value)) return faqsPage.value;
+
+  return {
+    ...(faqsPage.value as any),
+    body: {
+      ...body,
+      value: wrapFaqQuestionsIntoCards(body.value),
+    },
+  };
 });
 
 useSeoMeta({
@@ -389,5 +405,52 @@ useSeoMeta({
 /* Bold text emphasis */
 .faq-content :deep(strong) {
   font-weight: 600;
+}
+
+/* --- Q/A cards (AST-wrapped) --- */
+.faq-content :deep(.qa-card) {
+  margin: 1.25rem 0 2rem;
+  background: rgba(var(--v-theme-surface-variant), 0.18);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.08);
+  border-left: 4px solid rgba(var(--v-theme-primary), 0.7);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-content :deep(.qa-card > h3) {
+  margin: 0 !important;
+  padding: 1rem 1.25rem !important;
+  background: rgba(var(--v-theme-surface-variant), 0.28) !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.08);
+}
+
+/* Everything under the question stays inside the same card */
+.faq-content :deep(.qa-card > p),
+.faq-content :deep(.qa-card > ul),
+.faq-content :deep(.qa-card > ol),
+.faq-content :deep(.qa-card > table),
+.faq-content :deep(.qa-card > blockquote) {
+  margin: 0 !important;
+  padding: 1rem 1.25rem !important;
+  background: transparent !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+}
+
+/* If the answer spans multiple nodes, avoid double top padding */
+.faq-content :deep(.qa-card > :not(h3) + :not(h3)) {
+  padding-top: 0 !important;
+}
+
+/* Lists inside card: bullets aligned & slightly indented */
+.faq-content :deep(.qa-card ul),
+.faq-content :deep(.qa-card ol) {
+  padding-left: 2.25rem !important;
+}
+
+.faq-content :deep(.qa-card li) {
+  margin: 0.4rem 0 !important;
 }
 </style>
