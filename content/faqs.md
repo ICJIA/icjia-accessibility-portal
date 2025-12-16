@@ -206,9 +206,29 @@ The countdown timer on this page shows exactly how much time remains until the c
 - Implementing keyboard navigation and focus management
 - Using ARIA (Accessible Rich Internet Applications) attributes where needed
 - Following color contrast guidelines
-- Adding alt text to images
+- Adding alt text to images on websites
 - Structuring content with proper heading hierarchies
 - Testing with accessibility tools and screen readers
+
+**But here's what's critical to understand:**
+
+The web team is responsible for **website accessibility** — not **content accessibility**. These are two very different things:
+
+| Area                      | Responsibility                                                          | Who Does This                                      |
+| ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
+| **Website accessibility** | Code, navigation, structure, forms, interactive features                | Web team                                           |
+| **Content accessibility** | Documents (PDFs, Word, Excel, PowerPoint), videos, images, social media | Content creators (COMMS, R&A, FSGU, program staff) |
+
+**Why content accessibility requires a different approach:**
+
+While the compliance standard is the same (WCAG 2.1 Level AA), **the tools, skills, and workflows for content accessibility are completely different** from what the web team uses:
+
+- **Web accessibility** uses HTML, CSS, JavaScript, screen reader testing, and web-specific tools like WAVE and axe DevTools
+- **Document accessibility** requires Microsoft Office accessibility features, Adobe Acrobat Pro, PDF remediation tools, and document-specific testing like PAC 2024
+- **Video accessibility** needs captioning software, transcript creation, and audio description tools
+- **Social media accessibility** involves platform-specific alt text features, caption tools, and accessible content practices
+
+The web team can't make your PDFs accessible for you. They can't add alt text to images you upload. They can't caption your videos. These tasks require **content creators** to learn and apply accessibility practices using tools designed for their specific workflows.
 
 **So what's actually new?**
 
@@ -225,9 +245,9 @@ Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm co
 
 **Why this matters for you:**
 
-The web team can help because they've been doing this work for years. They understand the technical requirements, have experience with accessibility testing tools, and can guide you on best practices for documents, images, and content you create. They're not learning this from scratch — they're sharing expertise they've built over time.
+If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, FSGU, and other units that publish materials.
 
-**The bottom line:** ICJIA's web team isn't new to accessibility. What's new is the deadline that now applies to everyone creating public-facing content. The web team is a valuable resource precisely because they've been prioritizing accessibility long before it became a legal mandate.
+**The bottom line:** ICJIA's web team has been doing website accessibility for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
 
 ### I see the countdown timer. Is this for website compliance only?
 
@@ -352,7 +372,7 @@ Informing executive staff about accessibility requirements is valuable for aware
 
 **Talk to ICJIA's web team:**
 
-ICJIA's web developers have been building accessible websites for years — across multiple administrations. Accessibility isn't new to them; what's new is the legal deadline. They can answer questions, provide guidance, and share the expertise they've built over time. Don't hesitate to reach out directly if you prefer a conversation over reading documentation.
+ICJIA's web developers have been building accessible websites for years — across multiple administrations. Accessibility isn't new to them; what's new is the legal deadline. They can explain accessibility principles, point you toward resources, and answer general questions. Keep in mind that while the web team handles website accessibility, **content accessibility** (documents, videos, social media) requires different tools and workflows that content creators must learn and apply themselves.
 
 **Video learners:**
 
