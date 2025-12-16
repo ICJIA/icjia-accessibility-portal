@@ -2,6 +2,9 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
+        <!-- Countdown Timer -->
+        <CountdownTimer compact />
+
         <v-card class="pa-8" elevation="0" color="surface">
           <h1 class="text-h3 mb-4 d-flex align-center flex-wrap">
             <v-icon class="mr-3" color="primary"
