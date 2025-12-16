@@ -109,7 +109,7 @@ ICJIA's mission centers on improving the administration of criminal justice in I
 
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
-**No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all departments and roles in your organization. Accessibility is everyone's responsibility.
+**No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all units within ICJIA. Accessibility is everyone's responsibility.
 
 **Why accessibility requires organization-wide effort:**
 

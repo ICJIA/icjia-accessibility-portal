@@ -2,7 +2,6 @@
   <v-expansion-panels
     v-model="expandedPanels"
     class="faq-accordion"
-    :multiple="true"
     elevation="0"
     color="surface"
   >
@@ -47,8 +46,8 @@ const props = defineProps<{
   items: FaqItem[];
 }>();
 
-// Allow multiple panels to be open simultaneously
-const expandedPanels = ref<number[]>([]);
+// Only one panel can be open at a time
+const expandedPanels = ref<number | undefined>(undefined);
 
 // Create a content structure that ContentRenderer can handle
 function createAnswerContent(answerNodes: MiniMarkNode[]) {
