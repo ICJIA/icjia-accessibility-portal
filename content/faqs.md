@@ -132,6 +132,87 @@ The countdown isn't just for the web team — it's for everyone who creates or p
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered"
 
+### I have so much on my plate already. Why do I need to worry about this now? Can't we just wait and discuss this later?
+
+**We understand — everyone at ICJIA is busy, and adding new requirements to an already full workload is challenging.** But digital accessibility isn't something we can set aside for later. Here's why:
+
+**It's the law:**
+
+This isn't just about ICJIA policy or best practices — it's a legal requirement. The ADA Title II web accessibility rule establishes enforceable standards with firm deadlines. Non-compliance can result in:
+
+- Department of Justice investigations and enforcement actions
+- Complaints and lawsuits from individuals
+- Legal costs, remediation expenses, and reputational harm
+
+As a state agency, ICJIA is legally obligated to comply. This isn't optional, and "we were too busy" isn't a viable defense.
+
+**It aligns with our values:**
+
+Accessibility also reflects ICJIA's commitment to DEIA principles. When our content isn't accessible, we're excluding people with disabilities from the information and services we provide. That's inconsistent with our mission to serve all Illinoisans equitably.
+
+**The good news — it gets easier:**
+
+Accessibility may feel like extra work now, but many practices become second nature once you learn them:
+
+- Adding alt text to images takes seconds
+- Using heading styles in Word is actually faster than manual formatting
+- Checking color contrast becomes automatic with the right tools
+
+Most accessibility improvements also make content clearer and more usable for everyone — not just people with disabilities.
+
+**You're not alone:**
+
+ICJIA is working to provide training, resources, and support. The goal isn't to make your job harder — it's to build accessibility into how we already work so it becomes part of the process rather than an extra step.
+
+**The reality:**
+
+We all have competing priorities. But legal compliance isn't something we can deprioritize indefinitely. The countdown timer on this page is a reminder that the deadline is firm — and planning ahead now is far less disruptive than scrambling later.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal requirements and deadlines
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency obligations
+
+### These FAQs and links are a lot to read. Are there other ways to learn about compliance requirements?
+
+**Absolutely — we recognize that everyone learns differently.** Reading through FAQs and links works well for some people, but others prefer videos, hands-on demonstrations, or talking to someone directly. Here are alternatives for different learning styles:
+
+**Talk to ICJIA's web team:**
+
+ICJIA's web developers have been actively working on accessibility compliance since May 2025 — just days after the first DoIT accessibility kickoff meeting. They can answer questions, provide guidance, and share what they've learned. Don't hesitate to reach out directly if you prefer a conversation over reading documentation.
+
+**Video learners:**
+
+- <a href="https://www.ada.gov/topics/title-ii-web-rule-video-resources/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Webinars</a> — Official DOJ webinars explaining the compliance requirements
+- <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Introduction (Video)</a> — Short overview of accessibility fundamentals
+- <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LnZQBAOWJh2Z1dZn" target="_blank" rel="noopener noreferrer">Google's Accessibility Fundamentals (YouTube)</a> — Free video series covering core concepts
+
+**Hands-on learners:**
+
+- <a href="https://www.w3.org/WAI/demos/bad/" target="_blank" rel="noopener noreferrer">W3C Before and After Demo</a> — Interactive demonstration comparing inaccessible vs. accessible websites
+- <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Try WAVE on any website</a> — Test accessibility yourself and see issues in real-time
+- <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA (free screen reader)</a> — Experience how screen reader users navigate the web
+
+**Structured course learners:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Training</a> — State-specific training on IITAA requirements
+- <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">Section508.gov Training</a> — Free federal government training modules
+- <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">W3C Introduction to Web Accessibility (edX)</a> — Free self-paced online course
+
+**Quick reference learners:**
+
+- <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> — One-page summary of all requirements
+- <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed checklist format
+- <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple, actionable checklist
+
+**Discussion-based learners:**
+
+- Talk to ICJIA's web developers who have hands-on experience with compliance
+- Reach out to Illinois DoIT's accessibility team: DoIT.Accessibility@Illinois.gov
+- Ask questions at ICJIA's accessibility training sessions
+
+**The key takeaway:** You don't have to read everything on this site to understand the requirements. Pick the format that works best for you — including just asking someone who's been working on this.
+
 ### How does digital accessibility fit into ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) — and how does it enhance our mission?
 
 **Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give our accessibility commitment real accountability.**
