@@ -635,6 +635,88 @@ You are responsible for the accessibility of third-party content that you embed 
 
 ## Content Accessibility (Documents, PDFs, Presentations)
 
+### What about photos ICJIA takes at events — like speeches or awards ceremonies? Do those need to be accessible?
+
+**Yes, if you're sharing them digitally.** Any photos published on ICJIA's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
+
+**What is alt text?**
+
+Alt text is a brief written description of an image that screen readers read aloud to users who are blind or have low vision. It's also displayed if an image fails to load.
+
+**How to write good alt text for event photos:**
+
+- **Be specific and concise** — Describe what's actually happening in the photo
+- **Include relevant names** — If someone is being recognized, name them
+- **Describe the context** — What event is this? What's the setting?
+- **Keep it brief** — Usually 1-2 sentences is sufficient
+
+**How long should alt text be?**
+
+**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
+
+- **Maximum:** Stay under 150 characters when possible
+- **Ideal:** 125 characters or less
+- **Too short:** Single words like "photo" or "image" don't help anyone
+- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
+
+For complex images (like infographics or detailed charts), use a brief alt text summary plus a longer description elsewhere on the page or in a linked document.
+
+**Examples:**
+
+| Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
+| -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual ICJIA awards ceremony" |
+| Speech         | "Person speaking"         | "ICJIA Executive Director addresses attendees at the 2025 Victim Services Conference"                            |
+| Group photo    | "Group of people"         | "ICJIA Research & Analysis Unit staff at the December 2025 all-hands meeting"                                    |
+| Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                    |
+
+**Where to add alt text:**
+
+- **Website/CMS** — Look for the "alt text" or "image description" field when uploading
+- **Word documents** — Right-click image > Edit Alt Text
+- **PowerPoint** — Right-click image > Edit Alt Text
+- **Social media** — Each platform has an alt text option (see Social Media Accessibility section)
+- **Email** — Outlook and Gmail both support alt text for images
+
+**Who should write the alt text?**
+
+**Ideally, the person supplying the photo should also supply the alt text.** They know what's happening in the image, who's pictured, and why it matters. If you're submitting photos for the website, a newsletter, or social media, include alt text with your submission.
+
+- **You were there** — You know the context, the names, and what made the moment significant
+- **You chose the photo** — You selected it for a reason; that reason should be in the alt text
+- **It saves time** — The web team or communications staff shouldn't have to guess who's in the photo or what event it's from
+
+**Best practice:** When submitting photos, include a simple list: "Photo 1: [alt text], Photo 2: [alt text]" etc.
+
+**Are captions the same as alt text?**
+
+**No — captions and alt text serve different purposes and both may be needed.**
+
+|                 | Caption                                              | Alt Text                                                            |
+| --------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
+| **Visibility**  | Visible to everyone on the page                      | Hidden; only read by screen readers or shown if image fails to load |
+| **Purpose**     | Provides context, credits, or additional information | Describes the image for people who can't see it                     |
+| **Who sees it** | All users                                            | Users with screen readers, or when images don't load                |
+| **Required?**   | Optional but often helpful                           | Required for accessibility                                          |
+
+**Example of both working together:**
+
+- **Alt text:** "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe"
+- **Caption:** "Officer John Doe receives the 2025 Excellence Award for his work on community violence intervention programs. Photo: ICJIA"
+
+The alt text describes what's visually happening. The caption adds context that all readers benefit from (what the award was for, photo credit).
+
+**When you might skip detailed alt text:**
+
+- **Purely decorative images** — If a photo adds no meaningful information (like a decorative border), mark it as decorative. But event photos are almost never purely decorative.
+- **Caption already describes it** — If there's a visible caption that fully describes the visual content, alt text can be briefer — but alt text is still required (even if just "Award ceremony as described in caption").
+
+**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it. And if you're submitting photos, you're the best person to write that alt text.
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
+
 ### Do all documents need to be accessible?
 
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
