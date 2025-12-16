@@ -650,17 +650,6 @@ Alt text is a brief written description of an image that screen readers read alo
 - **Describe the context** — What event is this? What's the setting?
 - **Keep it brief** — Usually 1-2 sentences is sufficient
 
-**How long should alt text be?**
-
-**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
-
-- **Maximum:** Stay under 150 characters when possible
-- **Ideal:** 125 characters or less
-- **Too short:** Single words like "photo" or "image" don't help anyone
-- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
-
-For complex images (like infographics or detailed charts), use a brief alt text summary plus a longer description elsewhere on the page or in a linked document.
-
 **Examples:**
 
 | Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
@@ -678,7 +667,111 @@ For complex images (like infographics or detailed charts), use a brief alt text 
 - **Social media** — Each platform has an alt text option (see Social Media Accessibility section)
 - **Email** — Outlook and Gmail both support alt text for images
 
-**Who should write the alt text?**
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
+
+### How long should alt text be?
+
+**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
+
+- **Maximum:** Stay under 150 characters when possible
+- **Ideal:** 125 characters or less
+- **Too short:** Single words like "photo" or "image" don't help anyone
+- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
+
+**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it — but keep it concise.
+
+### How do I handle complex images like charts, graphs, or infographics?
+
+Some images — like charts, graphs, infographics, or images containing lots of text — need more than a brief alt text. Here's how to handle them:
+
+**For charts and graphs with data:**
+
+1. **Alt text:** Provide a brief summary of what the chart shows (e.g., "Bar chart showing Illinois crime rates declining 15% from 2020 to 2024")
+2. **Data table:** Include the underlying data in an accessible table format, either directly below the chart or linked nearby
+3. **Long description:** If the trends or patterns matter, describe them in the body text
+
+**Example for a chart:**
+
+- **Alt text:** "Line graph showing ICJIA grant funding from 2020-2025. Full data in table below."
+- **Below the image:** An accessible HTML table with the actual numbers
+
+**For infographics or images with lots of text:**
+
+1. **Don't use images of text** — If possible, present the information as actual text on the page instead of as an image
+2. **If you must use an image:** Provide the full text content in one of these ways:
+   - A "long description" link that opens the full text
+   - An expandable section below the image with the complete text
+   - A text summary in the body of the page
+
+**For scanned documents or PDF images:**
+
+1. **Best approach:** Use OCR (Optical Character Recognition) to convert the image to actual text
+2. **If OCR isn't possible:** Provide a text transcript of the document content
+3. **Alt text:** Describe what the document is (e.g., "Scanned letter from Governor dated June 2025. Full transcript below.")
+
+**General rule for complex images:**
+
+- **Alt text:** Brief summary + tell users where to find more detail
+- **Long description:** Provide full information in accessible text format nearby or linked
+
+**Example patterns:**
+
+| Image Type       | Alt Text Approach                                     | Additional Requirement    |
+| ---------------- | ----------------------------------------------------- | ------------------------- |
+| Data chart       | "Chart showing [brief conclusion]. Data table below." | Accessible data table     |
+| Infographic      | "Infographic about [topic]. Full text follows."       | Complete text version     |
+| Scanned document | "[Document type] from [source]. Transcript provided." | Text transcript           |
+| Complex diagram  | "Diagram of [subject]. Described in detail below."    | Detailed text description |
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — Complex images need text alternatives that serve equivalent purpose
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#images-of-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.5 Images of Text - Level AA</a> — Avoid images of text; use actual text when possible
+
+### How do I make images accessible on social media, Constant Contact, or Canva?
+
+Sharing infographics, charts, or images with text on platforms like social media, Constant Contact, or Canva presents unique challenges because you often can't add data tables or long descriptions directly.
+
+**Social media (Facebook, X/Twitter, Instagram, LinkedIn):**
+
+- **Alt text limits vary** — Most platforms allow 100-1000 characters for alt text, but keep it concise
+- **Use the post text** — Put key information in the post caption itself, not just the image
+- **Link to more** — If sharing a complex infographic, link to a webpage with the full accessible version
+- **Don't rely on the image alone** — If the image contains important text or data, repeat it in your post
+
+**Example social media approach:**
+
+- **Image:** Infographic showing "5 Steps to Accessible Documents"
+- **Alt text:** "Infographic listing 5 steps to create accessible documents. Steps listed in post."
+- **Post text:** "Here are 5 steps to accessible documents: 1) Use heading styles, 2) Add alt text to images, 3) Use meaningful link text, 4) Check color contrast, 5) Run accessibility checker. Full guide: [link]"
+
+**Constant Contact and email marketing:**
+
+- **Alt text field:** Constant Contact has an alt text field for images — use it
+- **Character limit:** Keep alt text brief since email clients vary in support
+- **Avoid image-only emails** — Don't put critical information only in images; many users have images disabled by default
+- **Provide text version** — Key messages should appear as actual text in the email, not just in graphics
+
+**Example email approach:**
+
+- **Image:** Event announcement graphic with date, time, location
+- **Alt text:** "ICJIA Training Event - details in text below"
+- **Email body:** Include all event details as actual text below the image
+
+**Canva:**
+
+- **Canva supports alt text** — When you download or share, Canva can include alt text
+- **Better approach:** Export important text content separately, not just as an image
+- **For presentations:** Use Canva's presentation mode which supports alt text, or export to PowerPoint and add alt text there
+- **For print vs. digital:** If creating something for digital distribution, consider whether it needs to be an image at all
+
+**General rule for social/email:**
+
+If you're sharing a complex image on social media or email, ask yourself: "If someone can't see this image, can they still get the information?" If not, you need to provide the content as text — either in the post/email body or linked to an accessible page.
+
+### Who should write the alt text for photos?
 
 **Ideally, the person supplying the photo should also supply the alt text.** They know what's happening in the image, who's pictured, and why it matters. If you're submitting photos for the website, a newsletter, or social media, include alt text with your submission.
 
@@ -688,7 +781,7 @@ For complex images (like infographics or detailed charts), use a brief alt text 
 
 **Best practice:** When submitting photos, include a simple list: "Photo 1: [alt text], Photo 2: [alt text]" etc.
 
-**Are captions the same as alt text?**
+### Are captions the same as alt text?
 
 **No — captions and alt text serve different purposes and both may be needed.**
 
@@ -710,12 +803,6 @@ The alt text describes what's visually happening. The caption adds context that 
 
 - **Purely decorative images** — If a photo adds no meaningful information (like a decorative border), mark it as decorative. But event photos are almost never purely decorative.
 - **Caption already describes it** — If there's a visible caption that fully describes the visual content, alt text can be briefer — but alt text is still required (even if just "Award ceremony as described in caption").
-
-**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it. And if you're submitting photos, you're the best person to write that alt text.
-
-**WCAG Reference:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
 
 ### Do all documents need to be accessible?
 
