@@ -25,7 +25,7 @@ Digital accessibility means that websites, applications, documents, and other di
 
 2. **We serve the public** — ICJIA's mission involves providing information, research, and resources to Illinois residents, criminal justice professionals, and the public. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
 
-3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/ncbddd/disabilityandhealth/impacts/illinois.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **26% of adults in Illinois — over 2.5 million people** — have some type of disability. This includes 7% with a cognitive disability, 6% with mobility limitations, 6% with hearing difficulties, 5% with vision impairment, and 4% who have difficulty with self-care. Many of these individuals rely on accessible digital content to access government services and information. When ICJIA's websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical criminal justice information and resources.
+3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, this represents over 2.3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When ICJIA's websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical criminal justice information and resources.
 
 4. **Federal funding** — ICJIA receives federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
 
@@ -183,7 +183,7 @@ ICJIA's web developers have been actively working on accessibility compliance si
 
 **Video learners:**
 
-- <a href="https://www.ada.gov/topics/title-ii-web-rule-video-resources/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Webinars</a> — Official DOJ webinars explaining the compliance requirements
+- <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Primer</a> — Official DOJ resources explaining the compliance requirements
 - <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Introduction (Video)</a> — Short overview of accessibility fundamentals
 - <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LnZQBAOWJh2Z1dZn" target="_blank" rel="noopener noreferrer">Google's Accessibility Fundamentals (YouTube)</a> — Free video series covering core concepts
 
@@ -309,7 +309,7 @@ ICJIA's mission centers on improving the administration of criminal justice in I
 **References:**
 
 - <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C WAI: Planning and Managing Web Accessibility</a>
-- <a href="https://www.section508.gov/manage/lifecycle/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
+- <a href="https://www.section508.gov/manage/section-508-program-team-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Applies to all state and local government employees involved in digital content
 
 ### What laws apply to Illinois state agencies?
@@ -320,8 +320,8 @@ Illinois state agencies must comply with multiple accessibility requirements:
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------------------ |
 | <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">**IITAA**</a> (Illinois Information Technology Accessibility Act) | Illinois state agencies and universities         | WCAG 2.1 Level AA        |
 | <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">**ADA Title II**</a>                                                                      | State and local government public-facing content | WCAG 2.1 Level AA        |
-| <a href="https://www.ada.gov/section-504/" target="_blank" rel="noopener noreferrer">**Section 504**</a>                                                                             | Any entity receiving federal funding             | Reasonable accommodation |
-| <a href="https://www.ada.gov/title-i/" target="_blank" rel="noopener noreferrer">**ADA Title I**</a>                                                                                 | Employment/workplace accommodations              | Reasonable accommodation |
+| <a href="https://www.ada.gov/resources/disability-rights-guide/#section-504" target="_blank" rel="noopener noreferrer">**Section 504**</a>                                           | Any entity receiving federal funding             | Reasonable accommodation |
+| <a href="https://www.ada.gov/resources/disability-rights-guide/#title-i-employment" target="_blank" rel="noopener noreferrer">**ADA Title I**</a>                                    | Employment/workplace accommodations              | Reasonable accommodation |
 
 ### What is WCAG?
 
@@ -1048,4 +1048,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 15, 2025_
+_Last updated: December 16, 2025_
