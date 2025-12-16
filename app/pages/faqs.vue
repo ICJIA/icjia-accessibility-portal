@@ -2,12 +2,12 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
-        <v-card class="pa-8" elevation="0">
-          <h1 class="text-h3 mb-4 d-flex align-center">
+        <v-card class="pa-8" elevation="0" color="surface">
+          <h1 class="text-h3 mb-4 d-flex align-center flex-wrap">
             <v-icon class="mr-3" color="primary"
               >mdi-frequently-asked-questions</v-icon
             >
-            {{ page?.title || "Frequently Asked Questions" }}
+            <span>{{ page?.title || "Frequently Asked Questions" }}</span>
           </h1>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
             {{
@@ -16,17 +16,31 @@
             }}
           </p>
 
-          <div v-if="renderedPage" class="faq-content">
-            <ContentRenderer :value="renderedPage" />
+          <div v-if="faqSections.length > 0 || introContent">
+            <!-- Render intro content -->
+            <div v-if="introContent" class="faq-intro">
+              <ContentRenderer :value="introContent" />
+            </div>
+            <!-- Render FAQ accordion with sections -->
+            <div
+              v-for="(section, sectionIndex) in faqSections"
+              :key="sectionIndex"
+              class="faq-section-group"
+            >
+              <h2 v-if="section.heading" class="faq-section-heading">
+                {{ section.heading }}
+              </h2>
+              <FaqAccordion :items="section.items" />
+            </div>
           </div>
-          <div v-else class="text-center py-8">
+          <div v-else-if="page" class="text-center py-8">
             <v-progress-circular indeterminate color="primary" />
             <p class="mt-4 text-body-1">Loading FAQs...</p>
           </div>
 
           <v-divider class="my-8" />
 
-          <v-card class="pa-6 text-center" variant="tonal">
+          <v-card class="pa-6 text-center" variant="tonal" color="surface">
             <h2 class="text-h5 mb-4">Still have questions?</h2>
             <p class="text-body-1 mb-4">
               If you couldn't find the answer you're looking for, please visit
@@ -60,23 +74,132 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
+import { transformFaqsToAccordionData } from "../utils/faqTransform";
 
 const { data: page } = await useAsyncData("faqs", () => {
   return queryCollection("faqs").first();
 });
 
-const renderedPage = computed(() => {
+type MiniMarkNode = any;
+
+function isElementNode(node: MiniMarkNode): node is any[] {
+  return Array.isArray(node) && typeof node[0] === "string";
+}
+
+function tagName(node: any[]): string {
+  return node[0];
+}
+
+// Extract text from a node
+function extractText(node: any): string {
+  if (typeof node === "string") return node;
+  if (Array.isArray(node) && node.length > 2) {
+    return node.slice(2).map(extractText).join("");
+  }
+  return "";
+}
+
+// Process markdown to create sections with headings
+const faqSections = computed(() => {
+  if (!page.value) return [];
+  const body = page.value.body;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value))
+    return [];
+
+  const nodes = body.value;
+  const sections: Array<{
+    heading: string | null;
+    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+  }> = [];
+  let currentSection: {
+    heading: string | null;
+    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+  } | null = null;
+  let i = 0;
+
+  while (i < nodes.length) {
+    const node = nodes[i];
+
+    if (isElementNode(node)) {
+      const tag = tagName(node);
+
+      if (tag === "h2") {
+        // Start new section
+        if (currentSection) {
+          sections.push(currentSection);
+        }
+        currentSection = {
+          heading: extractText(node),
+          items: [],
+        };
+        i++;
+        continue;
+      } else if (tag === "h3") {
+        // Extract FAQ item
+        if (!currentSection) {
+          currentSection = { heading: null, items: [] };
+        }
+        const questionText = extractText(node);
+        const answerNodes: MiniMarkNode[] = [];
+        i++;
+
+        while (i < nodes.length) {
+          const next = nodes[i];
+          if (isElementNode(next)) {
+            const t = tagName(next);
+            if (t === "h1" || t === "h2" || t === "h3" || t === "hr") break;
+          }
+          answerNodes.push(next);
+          i++;
+        }
+
+        if (questionText) {
+          currentSection.items.push({
+            question: questionText,
+            answer: answerNodes,
+          });
+        }
+        continue;
+      }
+    }
+
+    i++;
+  }
+
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+
+  return sections;
+});
+
+// Extract intro content (content before first H2)
+const introContent = computed(() => {
   if (!page.value) return null;
   const body = page.value.body;
   if (!body || body.type !== "minimark" || !Array.isArray(body.value))
-    return page.value;
+    return null;
+
+  const nodes = body.value;
+  const introNodes: MiniMarkNode[] = [];
+
+  for (const node of nodes) {
+    if (
+      isElementNode(node) &&
+      (tagName(node) === "h2" || tagName(node) === "h1")
+    ) {
+      break;
+    }
+    introNodes.push(node);
+  }
+
+  if (introNodes.length === 0) return null;
 
   return {
     ...page.value,
     body: {
       ...body,
-      value: wrapFaqQuestionsIntoCards(body.value),
+      value: introNodes,
     },
   };
 });
@@ -91,266 +214,79 @@ useSeoMeta({
 </script>
 
 <style scoped>
-/* FAQ Content Styles - targeting rendered markdown */
+/* Intro content styling */
+.faq-intro {
+  margin-bottom: 2rem;
+}
 
-/* Hide duplicate h1 from markdown */
-.faq-content :deep(h1) {
+.faq-intro :deep(h1) {
   display: none;
 }
 
-/* Intro paragraph (first p before any h2) */
-.faq-content :deep(> p:first-of-type) {
+.faq-intro :deep(p) {
   font-size: 1.1rem;
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.85;
   margin-bottom: 1.5rem;
+  line-height: 1.75;
 }
 
-/* Horizontal rules as section dividers */
-.faq-content :deep(hr) {
+.faq-intro :deep(hr) {
   border: none;
   border-top: 2px solid rgba(var(--v-theme-primary), 0.2);
   margin: 3rem 0;
 }
 
-/* ## = H2 section headings (NOT linkified) */
-.faq-content :deep(h2) {
+/* Section headings */
+.faq-section-group {
+  margin-bottom: 3rem;
+}
+
+.faq-section-heading {
   font-size: 1.35rem;
   font-weight: 700;
   color: rgb(var(--v-theme-on-surface));
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
   padding: 1rem 1.25rem;
-  background: linear-gradient(
-    135deg,
-    rgba(186, 104, 200, 0.15) 0%,
-    rgba(186, 104, 200, 0.05) 100%
-  );
-  border-left: 4px solid #ba68c8;
-  border-radius: 0 8px 8px 0;
-}
-
-/* Safety: if any heading anchors still render, don't make them look/behave like links */
-.faq-content :deep(h2 a),
-.faq-content :deep(h3 a) {
-  color: inherit;
-  text-decoration: none;
-  pointer-events: none;
-  cursor: default;
-}
-
-/* ### = H3 question heading (paired with the answer block below) */
-.faq-content :deep(h3) {
-  font-size: 1.05rem;
-  font-weight: 650;
-  color: rgb(var(--v-theme-on-surface));
-  margin-top: 1.75rem;
-  margin-bottom: 0;
-  padding: 0.9rem 1.1rem;
-  background: rgba(var(--v-theme-surface-variant), 0.28);
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 8px 8px 0 0;
-}
-
-/* Default paragraph styling (non-answer prose) */
-.faq-content :deep(p) {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 0.9;
-  margin: 0 0 1rem 0;
-  padding: 0;
-  background: none;
-  border: none;
-}
-
-/* Answer block: the content immediately following an H3 */
-.faq-content :deep(h3 + p),
-.faq-content :deep(h3 + ul),
-.faq-content :deep(h3 + ol),
-.faq-content :deep(h3 + table),
-.faq-content :deep(h3 + blockquote),
-/* Also support: question -> intro paragraph -> list/table/etc */
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol),
-.faq-content :deep(h3 + p + table),
-.faq-content :deep(h3 + p + blockquote) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-surface-variant), 0.22);
-  border-left: 4px solid rgba(var(--v-theme-primary), 0.35);
-  border-radius: 0 0 8px 8px;
-}
-
-/* If the answer starts with a paragraph and continues with a list/table, flatten the join */
-.faq-content :deep(h3 + p) {
-  margin-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 0.75rem;
-}
-
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol),
-.faq-content :deep(h3 + p + table),
-.faq-content :deep(h3 + p + blockquote) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  padding-top: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-/* Lists: keep normal bullets and indent slightly so they align with answer text */
-.faq-content :deep(ul),
-.faq-content :deep(ol) {
-  padding-left: 1.25rem;
-}
-
-.faq-content :deep(ul),
-.faq-content :deep(ol) {
-  margin: 0 0 1rem 0;
-}
-
-.faq-content :deep(li) {
-  margin: 0.35rem 0;
-}
-
-/* When list is an answer block, add a bit more left padding for bullets */
-.faq-content :deep(h3 + ul),
-.faq-content :deep(h3 + ol),
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol) {
-  /* keep bullets inside the answer card with a slight inset */
-  padding-left: 2.25rem;
-}
-
-/* Tables */
-.faq-content :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0 1.5rem 0;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.faq-content :deep(th) {
-  background: rgba(var(--v-theme-primary), 0.15);
-  color: rgb(var(--v-theme-on-surface));
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
-}
-
-.faq-content :deep(td) {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
-  background: rgba(var(--v-theme-surface-variant), 0.15);
-}
-
-.faq-content :deep(tr:last-child td) {
-  border-bottom: none;
-}
-
-.faq-content :deep(tr:hover td) {
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-}
-
-/* Links within content */
-.faq-content :deep(a) {
-  color: rgb(var(--v-theme-primary));
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Ensure sufficient contrast for links - use brighter color in dark mode for WCAG AA compliance */
-/* Primary color #90CAF9 may not have enough contrast on some dark backgrounds */
-.v-theme--dark .faq-content :deep(a) {
-  /* Use a brighter color that meets WCAG AA contrast (4.5:1) on dark backgrounds */
-  color: #bbdefb;
-}
-
-.faq-content :deep(a:hover) {
-  text-decoration-thickness: 2px;
-}
-
-/* Blockquotes */
-.faq-content :deep(blockquote) {
-  margin: 1rem 0 1.5rem 0;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-primary), 0.08);
+  background: rgb(var(--v-theme-surface-variant));
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
-  font-style: italic;
 }
 
-.faq-content :deep(blockquote p) {
-  background: none;
-  padding: 0;
-  margin: 0;
-  border-left: none;
+@media (max-width: 960px) {
+  .v-card {
+    padding: 1.5rem !important;
+  }
 }
 
-/* Code blocks */
-.faq-content :deep(code) {
-  background: rgba(var(--v-theme-surface-variant), 0.5);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
+@media (max-width: 600px) {
+  .v-card {
+    padding: 1rem !important;
+  }
+
+  h1.text-h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .text-subtitle-1 {
+    font-size: 0.9rem !important;
+  }
+
+  .faq-section-heading {
+    font-size: 1.2rem;
+    padding: 0.75rem 1rem;
+  }
 }
 
-/* Bold text emphasis */
-.faq-content :deep(strong) {
-  font-weight: 600;
-}
+@media (max-width: 400px) {
+  h1.text-h3 {
+    font-size: 1.25rem !important;
+  }
 
-/* --- Q/A cards (AST-wrapped) --- */
-.faq-content :deep(.qa-card) {
-  margin: 1.25rem 0 2rem;
-  background: rgba(var(--v-theme-surface-variant), 0.18);
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.08);
-  border-left: 4px solid rgba(var(--v-theme-primary), 0.7);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.faq-content :deep(.qa-card > h3) {
-  margin: 0 !important;
-  padding: 1rem 1.25rem !important;
-  background: rgba(var(--v-theme-surface-variant), 0.28) !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.08);
-}
-
-/* Everything under the question stays inside the same card */
-.faq-content :deep(.qa-card > p),
-.faq-content :deep(.qa-card > ul),
-.faq-content :deep(.qa-card > ol),
-.faq-content :deep(.qa-card > table),
-.faq-content :deep(.qa-card > blockquote) {
-  margin: 0 !important;
-  padding: 1rem 1.25rem !important;
-  background: transparent !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-}
-
-/* If the answer spans multiple nodes, avoid double top padding */
-.faq-content :deep(.qa-card > :not(h3) + :not(h3)) {
-  padding-top: 0 !important;
-}
-
-/* Lists inside card: bullets aligned & slightly indented */
-.faq-content :deep(.qa-card ul),
-.faq-content :deep(.qa-card ol) {
-  padding-left: 2.25rem !important;
-}
-
-.faq-content :deep(.qa-card li) {
-  margin: 0.4rem 0 !important;
+  .faq-section-heading {
+    font-size: 1.1rem;
+    padding: 0.5rem 0.75rem;
+  }
 }
 </style>

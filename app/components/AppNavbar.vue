@@ -1,20 +1,22 @@
 <template>
   <v-app-bar :elevation="2" color="surface">
     <v-container class="d-flex align-center pa-0">
-      <!-- Logo placeholder -->
+      <!-- Logo -->
       <v-app-bar-title class="d-flex align-center">
         <NuxtLink
           href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-h6 font-weight-bold text-decoration-none"
+          class="d-flex align-center text-decoration-none"
           style="color: inherit"
         >
-          ICJIA
+          <img
+            src="/icjia-logo.png"
+            alt="Illinois Criminal Justice Information Authority"
+            class="navbar-logo"
+          />
+          <span class="text-caption ml-3 text-medium-emphasis"
+            >Accessibility Portal</span
+          >
         </NuxtLink>
-        <span class="text-caption ml-2 text-medium-emphasis"
-          >Accessibility Portal</span
-        >
       </v-app-bar-title>
 
       <v-spacer />
@@ -24,47 +26,68 @@
         v-for="item in navItems"
         :key="item.to"
         :href="item.to"
-        target="_blank"
-        rel="noopener noreferrer"
         variant="text"
-        class="mx-1"
+        class="nav-btn d-none d-sm-flex"
         :prepend-icon="item.icon"
+        :aria-label="`Navigate to ${item.title}`"
       >
         {{ item.title }}
       </v-btn>
 
-      <!-- External ICJIA Link -->
+      <!-- Mobile Navigation Menu -->
+      <v-menu v-if="mobile" location="bottom" class="d-flex d-sm-none">
+        <template #activator="{ props }">
+          <v-btn
+            v-bind="props"
+            icon
+            variant="text"
+            aria-label="Navigation menu"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="item in navItems"
+            :key="item.to"
+            :href="item.to"
+            :prepend-icon="item.icon"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+          <v-list-item
+            href="https://icjia.illinois.gov"
+            target="_blank"
+            rel="noopener noreferrer"
+            prepend-icon="mdi-open-in-new"
+          >
+            <v-list-item-title>ICJIA Website</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+
+      <!-- Desktop External ICJIA Link -->
       <v-btn
         href="https://icjia.illinois.gov"
         target="_blank"
         rel="noopener noreferrer"
         variant="text"
-        class="mx-1"
+        class="mx-1 d-none d-sm-flex"
         prepend-icon="mdi-open-in-new"
       >
         ICJIA Website
       </v-btn>
-
-      <!-- Search Button -->
-      <v-btn
-        href="/search"
-        target="_blank"
-        rel="noopener noreferrer"
-        variant="text"
-        class="mx-1"
-        icon
-        aria-label="Search site"
-      >
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <!-- Theme Toggle -->
-      <ThemeToggle />
     </v-container>
   </v-app-bar>
 </template>
 
 <script setup lang="ts">
+import { useDisplay } from "vuetify";
+
+const { mobile } = useDisplay();
+
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
   { title: "Links", to: "/links", icon: "mdi-link" },
@@ -78,7 +101,55 @@ const navItems = [
 }
 
 .v-app-bar-title a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.nav-btn {
+  min-width: auto;
+  padding: 0 8px;
+}
+
+@media (max-width: 960px) {
+  .nav-btn {
+    font-size: 0.875rem;
+    padding: 0 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-logo {
+    height: 32px;
+    max-width: 120px;
+  }
+
+  .v-app-bar-title .text-caption {
+    font-size: 0.65rem;
+    margin-left: 0.5rem;
+  }
+
+  .v-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar-logo {
+    height: 28px;
+    max-width: 100px;
+  }
+
+  .v-app-bar-title .text-caption {
+    font-size: 0.6rem;
+    margin-left: 0.25rem;
+  }
 }
 </style>

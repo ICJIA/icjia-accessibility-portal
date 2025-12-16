@@ -23,32 +23,6 @@
           </div>
 
           <v-divider class="my-8" />
-
-          <v-card class="pa-6 text-center" variant="tonal">
-            <h2 class="text-h5 mb-4">Need more resources?</h2>
-            <p class="text-body-1 mb-4">
-              If you couldn't find what you're looking for, please visit the
-              <NuxtLink
-                href="https://icjia.illinois.gov/contact"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none font-weight-medium"
-              >
-                ICJIA Contact page
-              </NuxtLink>
-              for additional support.
-            </p>
-            <v-btn
-              href="https://icjia.illinois.gov/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              color="primary"
-              variant="flat"
-              prepend-icon="mdi-email-outline"
-            >
-              Contact Us
-            </v-btn>
-          </v-card>
         </v-card>
       </v-col>
     </v-row>
@@ -121,19 +95,18 @@ useSeoMeta({
 
 /* ## = H2 section headings */
 .links-content :deep(h2) {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: rgb(var(--v-theme-on-surface));
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  padding: 1rem 1.25rem;
-  background: linear-gradient(
-    135deg,
-    rgba(186, 104, 200, 0.15) 0%,
-    rgba(186, 104, 200, 0.05) 100%
-  );
-  border-left: 4px solid #ba68c8;
-  border-radius: 0 8px 8px 0;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.links-content :deep(h2:first-of-type) {
+  margin-top: 0;
 }
 
 .links-content :deep(h2 a),
@@ -144,17 +117,16 @@ useSeoMeta({
   cursor: default;
 }
 
-/* ### = H3 question heading (paired with the answer block below) */
+/* ### = H3 question heading */
 .links-content :deep(h3) {
-  font-size: 1.05rem;
-  font-weight: 650;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: rgb(var(--v-theme-on-surface));
-  margin-top: 1.75rem;
-  margin-bottom: 0;
-  padding: 0.9rem 1.1rem;
-  background: rgba(var(--v-theme-surface-variant), 0.28);
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 8px 8px 0 0;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 /* Default paragraph styling (non-answer prose) */
@@ -169,41 +141,12 @@ useSeoMeta({
   border: none;
 }
 
-/* Answer block: the content immediately following an H3 */
+/* Content following H3 */
 .links-content :deep(h3 + p),
 .links-content :deep(h3 + ul),
-.links-content :deep(h3 + ol),
-.links-content :deep(h3 + table),
-.links-content :deep(h3 + blockquote),
-.links-content :deep(h3 + p + ul),
-.links-content :deep(h3 + p + ol),
-.links-content :deep(h3 + p + table),
-.links-content :deep(h3 + p + blockquote) {
+.links-content :deep(h3 + ol) {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-surface-variant), 0.22);
-  border-left: 4px solid rgba(var(--v-theme-primary), 0.35);
-  border-radius: 0 0 8px 8px;
-}
-
-/* If the answer starts with a paragraph and continues with a list/table, flatten the join */
-.links-content :deep(h3 + p) {
-  margin-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 0.75rem;
-}
-
-.links-content :deep(h3 + p + ul),
-.links-content :deep(h3 + p + ol),
-.links-content :deep(h3 + p + table),
-.links-content :deep(h3 + p + blockquote) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  padding-top: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 /* Q/A Card wrapper - ensures everything stays together */
@@ -225,7 +168,7 @@ useSeoMeta({
   border-bottom-right-radius: 8px;
 }
 
-/* Lists: style each link item as a card */
+/* Lists: clean and modern */
 .links-content :deep(ul),
 .links-content :deep(ol) {
   list-style: none;
@@ -233,40 +176,29 @@ useSeoMeta({
   margin: 0 0 1.5rem 0;
 }
 
-/* Each list item becomes a card */
+/* List items - clean styling */
 .links-content :deep(li) {
   display: block;
-  margin: 0.75rem 0;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-surface-variant), 0.25);
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.4);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  margin: 0.5rem 0;
+  padding: 0;
+  background: none;
+  border: none;
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.9;
-  line-height: 1.7;
-  font-size: 0.95rem;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
-.links-content :deep(li:hover) {
-  background: rgba(var(--v-theme-surface-variant), 0.35);
-  border-left-color: rgb(var(--v-theme-primary));
-  transform: translateX(2px);
-}
-
-/* Link title (bold text inside the link) */
+/* Links in list items */
 .links-content :deep(li a) {
   color: rgb(var(--v-theme-primary));
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-weight: 500;
   display: inline;
 }
 
 .links-content :deep(li a:hover) {
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 /* Bold text (link titles) */
@@ -275,19 +207,60 @@ useSeoMeta({
   font-weight: 600;
 }
 
-/* When list is inside a qa-card, ensure proper spacing */
+/* Q/A card styling - simplified */
+.links-content :deep(.qa-card) {
+  margin-bottom: 2rem;
+}
+
 .links-content :deep(.qa-card ul),
 .links-content :deep(.qa-card ol) {
-  margin-top: 0;
+  margin-top: 0.5rem;
   margin-bottom: 0;
 }
 
-.links-content :deep(.qa-card li:first-child) {
-  margin-top: 0;
+@media (max-width: 960px) {
+  .v-card {
+    padding: 1.5rem !important;
+  }
 }
 
-.links-content :deep(.qa-card li:last-child) {
-  margin-bottom: 0;
+@media (max-width: 600px) {
+  .v-card {
+    padding: 1rem !important;
+  }
+
+  h1.text-h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .text-subtitle-1 {
+    font-size: 0.9rem !important;
+  }
+
+  .links-content :deep(h2) {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .links-content :deep(h3) {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  h1.text-h3 {
+    font-size: 1.25rem !important;
+  }
+
+  .links-content :deep(h2) {
+    font-size: 1.1rem;
+  }
+
+  .links-content :deep(h3) {
+    font-size: 1rem;
+  }
 }
 
 /* Tables */

@@ -5,4 +5,3 @@
     </NuxtLayout>
   </v-app>
 </template>
-

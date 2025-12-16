@@ -5,7 +5,7 @@
         <!-- Logo -->
         <div class="footer-brand">
           <img
-            src="https://icjia.illinois.gov/icjia-logo.png"
+            src="/icjia-logo.png"
             alt="Illinois Criminal Justice Information Authority Logo"
             class="footer-logo"
           />
@@ -27,20 +27,6 @@
           >
             <v-icon size="20">{{ social.icon }}</v-icon>
           </v-btn>
-        </div>
-
-        <!-- Footer Links -->
-        <div class="footer-links">
-          <NuxtLink
-            v-for="link in footerLinks"
-            :key="link.text"
-            :href="link.to"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link"
-          >
-            {{ link.text }}
-          </NuxtLink>
         </div>
 
         <!-- Copyright -->
@@ -79,11 +65,6 @@ const socialLinks = [
     url: "https://www.linkedin.com/company/illinois-criminal-justice-information-authority/",
   },
 ];
-
-const footerLinks = [
-  { text: "Contact", to: "/" },
-  { text: "Search", to: "/search" },
-];
 </script>
 
 <style scoped>
@@ -108,18 +89,12 @@ const footerLinks = [
 }
 
 .footer-logo {
-  height: 32px;
+  height: 40px;
   width: auto;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
+  max-width: 200px;
+  object-fit: contain;
+  opacity: 0.9;
   transition: opacity 0.2s ease;
-}
-
-/* Light mode logo adjustment */
-:root[data-theme="light"] .footer-logo,
-.v-theme--light .footer-logo {
-  filter: none;
-  opacity: 1;
 }
 
 .footer-logo:hover {
@@ -143,31 +118,6 @@ const footerLinks = [
   color: rgb(var(--v-theme-primary));
 }
 
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.footer-link {
-  color: rgb(var(--v-theme-on-surface));
-  text-decoration: none;
-  font-size: 0.8rem;
-  font-weight: 500;
-  opacity: 0.7;
-  transition: all 0.2s ease;
-}
-
-.footer-link:hover {
-  opacity: 1;
-  color: rgb(var(--v-theme-primary));
-}
-
-.footer-link:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-}
-
 .footer-copyright {
   display: flex;
   align-items: center;
@@ -186,10 +136,51 @@ const footerLinks = [
   opacity: 0.5;
 }
 
+@media (max-width: 960px) {
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    height: 36px;
+    max-width: 180px;
+  }
+}
+
 @media (max-width: 600px) {
   .footer-content {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .footer-logo {
+    height: 32px;
+    max-width: 150px;
+  }
+
+  .social-section {
+    justify-content: center;
+  }
+
+  .footer-copyright {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-logo {
+    height: 28px;
+    max-width: 120px;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .copyright-divider {
+    display: none;
   }
 }
 </style>

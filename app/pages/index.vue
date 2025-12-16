@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
         <!-- Countdown Clock Section -->
-        <v-card class="pa-8 mb-8 countdown-card" elevation="4">
+        <v-card class="pa-8 mb-8 countdown-card" elevation="4" color="surface">
           <div class="text-center">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
@@ -18,28 +18,47 @@
               </NuxtLink>
             </p>
             <div class="countdown-display">
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.days }}</div>
-                <div class="countdown-label">Days</div>
+              <div v-if="!countdownInitialized" class="countdown-loader">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                  size="48"
+                  width="4"
+                />
               </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.hours }}</div>
-                <div class="countdown-label">Hours</div>
-              </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.minutes }}</div>
-                <div class="countdown-label">Minutes</div>
-              </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.seconds }}</div>
-                <div class="countdown-label">Seconds</div>
-              </div>
+              <template v-else>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.days }}</div>
+                  <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.hours }}</div>
+                  <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.minutes }}</div>
+                  <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.seconds }}</div>
+                  <div class="countdown-label">Seconds</div>
+                </div>
+              </template>
             </div>
-            <p class="text-body-2 mt-4 text-medium-emphasis">
-              Target Date: April 24, 2026
+            <p class="text-body-2 mt-4">
+              <NuxtLink
+                href="https://www.ada.gov/resources/2024-03-08-web-rule/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="compliance-link"
+              >
+                <v-icon size="16" class="mr-1">mdi-open-in-new</v-icon>
+                ADA Title II Web Accessibility Compliance Deadline: April 24,
+                2026
+              </NuxtLink>
             </p>
           </div>
         </v-card>
@@ -52,8 +71,22 @@
             >
             Frequently Asked Questions
           </h2>
-          <div v-if="renderedFaqsPage" class="faq-content">
-            <ContentRenderer :value="renderedFaqsPage" />
+          <div v-if="faqItems.length > 0">
+            <!-- Render intro and section headings -->
+            <div v-if="introContent" class="faq-intro">
+              <ContentRenderer :value="introContent" />
+            </div>
+            <!-- Render FAQ accordion with sections -->
+            <div
+              v-for="(section, sectionIndex) in faqSections"
+              :key="sectionIndex"
+              class="faq-section-group"
+            >
+              <h2 v-if="section.heading" class="faq-section-heading">
+                {{ section.heading }}
+              </h2>
+              <FaqAccordion :items="section.items" />
+            </div>
           </div>
           <div v-else>
             <p class="text-body-1">FAQs content loading...</p>
@@ -66,7 +99,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
+import { transformFaqsToAccordionData } from "../utils/faqTransform";
 
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
 
@@ -76,6 +109,8 @@ const countdown = ref({
   minutes: 0,
   seconds: 0,
 });
+
+const countdownInitialized = ref(false);
 
 const updateCountdown = () => {
   const now = new Date().getTime();
@@ -91,11 +126,17 @@ const updateCountdown = () => {
   } else {
     countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }
+
+  // Mark as initialized after first calculation
+  if (!countdownInitialized.value) {
+    countdownInitialized.value = true;
+  }
 };
 
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
 onMounted(() => {
+  // Initialize immediately
   updateCountdown();
   countdownInterval = setInterval(updateCountdown, 1000);
 });
@@ -112,17 +153,136 @@ const { data: faqsPage } = await useAsyncData("faqs", () => {
   return (queryCollection as any)("faqs", undefined).first();
 });
 
-const renderedFaqsPage = computed(() => {
+type MiniMarkNode = any;
+
+function isElementNode(node: MiniMarkNode): node is any[] {
+  return Array.isArray(node) && typeof node[0] === "string";
+}
+
+function tagName(node: any[]): string {
+  return node[0];
+}
+
+// Extract text from a node
+function extractText(node: any): string {
+  if (typeof node === "string") return node;
+  if (Array.isArray(node) && node.length > 2) {
+    return node.slice(2).map(extractText).join("");
+  }
+  return "";
+}
+
+// Process markdown to separate intro, sections, and FAQs
+const faqItems = computed(() => {
+  if (!faqsPage.value) return [];
+  const body = (faqsPage.value as any).body;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value))
+    return [];
+
+  return transformFaqsToAccordionData(body.value);
+});
+
+// Process markdown to create sections with headings
+const faqSections = computed(() => {
+  if (!faqsPage.value) return [];
+  const body = (faqsPage.value as any).body;
+  if (!body || body.type !== "minimark" || !Array.isArray(body.value))
+    return [];
+
+  const nodes = body.value;
+  const sections: Array<{
+    heading: string | null;
+    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+  }> = [];
+  let currentSection: {
+    heading: string | null;
+    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+  } | null = null;
+  let i = 0;
+
+  while (i < nodes.length) {
+    const node = nodes[i];
+
+    if (isElementNode(node)) {
+      const tag = tagName(node);
+
+      if (tag === "h2") {
+        // Start new section
+        if (currentSection) {
+          sections.push(currentSection);
+        }
+        currentSection = {
+          heading: extractText(node),
+          items: [],
+        };
+        i++;
+        continue;
+      } else if (tag === "h3") {
+        // Extract FAQ item
+        if (!currentSection) {
+          currentSection = { heading: null, items: [] };
+        }
+        const questionText = extractText(node);
+        const answerNodes: MiniMarkNode[] = [];
+        i++;
+
+        while (i < nodes.length) {
+          const next = nodes[i];
+          if (isElementNode(next)) {
+            const t = tagName(next);
+            if (t === "h1" || t === "h2" || t === "h3" || t === "hr") break;
+          }
+          answerNodes.push(next);
+          i++;
+        }
+
+        if (questionText) {
+          currentSection.items.push({
+            question: questionText,
+            answer: answerNodes,
+          });
+        }
+        continue;
+      }
+    }
+
+    i++;
+  }
+
+  if (currentSection) {
+    sections.push(currentSection);
+  }
+
+  return sections;
+});
+
+// Extract intro content (content before first H2)
+const introContent = computed(() => {
   if (!faqsPage.value) return null;
   const body = (faqsPage.value as any).body;
   if (!body || body.type !== "minimark" || !Array.isArray(body.value))
-    return faqsPage.value;
+    return null;
+
+  const nodes = body.value;
+  const introNodes: MiniMarkNode[] = [];
+
+  for (const node of nodes) {
+    if (
+      isElementNode(node) &&
+      (tagName(node) === "h2" || tagName(node) === "h1")
+    ) {
+      break;
+    }
+    introNodes.push(node);
+  }
+
+  if (introNodes.length === 0) return null;
 
   return {
-    ...(faqsPage.value as any),
+    ...faqsPage.value,
     body: {
       ...body,
-      value: wrapFaqQuestionsIntoCards(body.value),
+      value: introNodes,
     },
   };
 });
@@ -135,11 +295,41 @@ useSeoMeta({
 
 <style scoped>
 .countdown-card {
+  background: rgb(var(--v-theme-surface)) !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1),
     0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
   border: 1px solid rgba(var(--v-theme-primary), 0.1);
+}
+
+.countdown-card :deep(h1),
+.countdown-card :deep(p),
+.countdown-card :deep(.text-h3),
+.countdown-card :deep(.text-h6),
+.countdown-card :deep(.text-body-2) {
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+.compliance-link {
+  color: rgb(var(--v-theme-primary)) !important;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.compliance-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.compliance-link:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .countdown-display {
@@ -148,7 +338,16 @@ useSeoMeta({
   align-items: center;
   gap: 1rem;
   margin: 2rem 0;
+  min-height: 120px;
   flex-wrap: wrap;
+}
+
+.countdown-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
 }
 
 .countdown-item {
@@ -171,6 +370,7 @@ useSeoMeta({
   letter-spacing: 0.1em;
   margin-top: 0.5rem;
   opacity: 0.8;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .countdown-separator {
@@ -178,9 +378,24 @@ useSeoMeta({
   font-weight: bold;
   opacity: 0.5;
   padding: 0 0.5rem;
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+@media (max-width: 960px) {
+  .countdown-card {
+    padding: 1.5rem !important;
+  }
+
+  .countdown-value {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .countdown-card {
+    padding: 1rem !important;
+  }
+
   .countdown-value {
     font-size: 2rem;
   }
@@ -191,6 +406,28 @@ useSeoMeta({
 
   .countdown-separator {
     font-size: 1.5rem;
+  }
+
+  h1.text-h3 {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .countdown-value {
+    font-size: 1.75rem;
+  }
+
+  .countdown-item {
+    min-width: 50px;
+  }
+
+  .countdown-separator {
+    font-size: 1.25rem;
+  }
+
+  .countdown-label {
+    font-size: 0.75rem;
   }
 }
 
@@ -207,265 +444,43 @@ useSeoMeta({
   padding-bottom: 1rem;
 }
 
-/* FAQ Content Styles - targeting rendered markdown */
+/* Intro content styling */
+.faq-intro {
+  margin-bottom: 2rem;
+}
 
-/* Hide duplicate h1 from markdown */
-.faq-content :deep(h1) {
+.faq-intro :deep(h1) {
   display: none;
 }
 
-/* Intro paragraph (first p before any h2) */
-.faq-content :deep(> p:first-of-type) {
+.faq-intro :deep(p) {
   font-size: 1.1rem;
   color: rgb(var(--v-theme-on-surface));
   opacity: 0.85;
   margin-bottom: 1.5rem;
+  line-height: 1.75;
 }
 
-/* Horizontal rules as section dividers */
-.faq-content :deep(hr) {
+.faq-intro :deep(hr) {
   border: none;
   border-top: 2px solid rgba(var(--v-theme-primary), 0.2);
   margin: 3rem 0;
 }
 
-/* ## = H2 section headings (NOT linkified) */
-.faq-content :deep(h2) {
+/* Section headings */
+.faq-section-group {
+  margin-bottom: 3rem;
+}
+
+.faq-section-heading {
   font-size: 1.35rem;
   font-weight: 700;
   color: rgb(var(--v-theme-on-surface));
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
   padding: 1rem 1.25rem;
-  background: linear-gradient(
-    135deg,
-    rgba(186, 104, 200, 0.15) 0%,
-    rgba(186, 104, 200, 0.05) 100%
-  );
-  border-left: 4px solid #ba68c8;
-  border-radius: 0 8px 8px 0;
-}
-
-/* Safety: if any heading anchors still render, don't make them look/behave like links */
-.faq-content :deep(h2 a),
-.faq-content :deep(h3 a) {
-  color: inherit;
-  text-decoration: none;
-  pointer-events: none;
-  cursor: default;
-}
-
-/* ### = H3 question heading (paired with the answer block below) */
-.faq-content :deep(h3) {
-  font-size: 1.05rem;
-  font-weight: 650;
-  color: rgb(var(--v-theme-on-surface));
-  margin-top: 1.75rem;
-  margin-bottom: 0;
-  padding: 0.9rem 1.1rem;
-  background: rgba(var(--v-theme-surface-variant), 0.28);
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 8px 8px 0 0;
-}
-
-/* Default paragraph styling (non-answer prose) */
-.faq-content :deep(p) {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 0.9;
-  margin: 0 0 1rem 0;
-  padding: 0;
-  background: none;
-  border: none;
-}
-
-/* Answer block: the content immediately following an H3 */
-.faq-content :deep(h3 + p),
-.faq-content :deep(h3 + ul),
-.faq-content :deep(h3 + ol),
-.faq-content :deep(h3 + table),
-.faq-content :deep(h3 + blockquote),
-/* Also support: question -> intro paragraph -> list/table/etc */
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol),
-.faq-content :deep(h3 + p + table),
-.faq-content :deep(h3 + p + blockquote) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-surface-variant), 0.22);
-  border-left: 4px solid rgba(var(--v-theme-primary), 0.35);
-  border-radius: 0 0 8px 8px;
-}
-
-/* If the answer starts with a paragraph and continues with a list/table, flatten the join */
-.faq-content :deep(h3 + p) {
-  margin-bottom: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-bottom: 0.75rem;
-}
-
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol),
-.faq-content :deep(h3 + p + table),
-.faq-content :deep(h3 + p + blockquote) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  padding-top: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-/* Lists: keep normal bullets and indent slightly so they align with answer text */
-.faq-content :deep(ul),
-.faq-content :deep(ol) {
-  padding-left: 1.25rem;
-}
-
-.faq-content :deep(ul),
-.faq-content :deep(ol) {
-  margin: 0 0 1rem 0;
-}
-
-.faq-content :deep(li) {
-  margin: 0.35rem 0;
-}
-
-/* When list is an answer block, add a bit more left padding for bullets */
-.faq-content :deep(h3 + ul),
-.faq-content :deep(h3 + ol),
-.faq-content :deep(h3 + p + ul),
-.faq-content :deep(h3 + p + ol) {
-  /* keep bullets inside the answer card with a slight inset */
-  padding-left: 2.25rem;
-}
-
-/* Tables */
-.faq-content :deep(table) {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0 1.5rem 0;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.faq-content :deep(th) {
-  background: rgba(var(--v-theme-primary), 0.15);
-  color: rgb(var(--v-theme-on-surface));
-  font-weight: 600;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
-}
-
-.faq-content :deep(td) {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
-  background: rgba(var(--v-theme-surface-variant), 0.15);
-}
-
-.faq-content :deep(tr:last-child td) {
-  border-bottom: none;
-}
-
-.faq-content :deep(tr:hover td) {
-  background: rgba(var(--v-theme-surface-variant), 0.3);
-}
-
-/* Links within content */
-.faq-content :deep(a) {
-  color: rgb(var(--v-theme-primary));
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* Ensure sufficient contrast for links - use brighter color in dark mode for WCAG AA compliance */
-.v-theme--dark .faq-content :deep(a) {
-  /* Use a brighter color that meets WCAG AA contrast (4.5:1) on dark backgrounds */
-  color: #bbdefb;
-}
-
-.faq-content :deep(a:hover) {
-  text-decoration-thickness: 2px;
-}
-
-/* Blockquotes */
-.faq-content :deep(blockquote) {
-  margin: 1rem 0 1.5rem 0;
-  padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-primary), 0.08);
+  background: rgb(var(--v-theme-surface-variant));
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
-  font-style: italic;
-}
-
-.faq-content :deep(blockquote p) {
-  background: none;
-  padding: 0;
-  margin: 0;
-  border-left: none;
-}
-
-/* Code blocks */
-.faq-content :deep(code) {
-  background: rgba(var(--v-theme-surface-variant), 0.5);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
-/* Bold text emphasis */
-.faq-content :deep(strong) {
-  font-weight: 600;
-}
-
-/* --- Q/A cards (AST-wrapped) --- */
-.faq-content :deep(.qa-card) {
-  margin: 1.25rem 0 2rem;
-  background: rgba(var(--v-theme-surface-variant), 0.18);
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.08);
-  border-left: 4px solid rgba(var(--v-theme-primary), 0.7);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.faq-content :deep(.qa-card > h3) {
-  margin: 0 !important;
-  padding: 1rem 1.25rem !important;
-  background: rgba(var(--v-theme-surface-variant), 0.28) !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.08);
-}
-
-/* Everything under the question stays inside the same card */
-.faq-content :deep(.qa-card > p),
-.faq-content :deep(.qa-card > ul),
-.faq-content :deep(.qa-card > ol),
-.faq-content :deep(.qa-card > table),
-.faq-content :deep(.qa-card > blockquote) {
-  margin: 0 !important;
-  padding: 1rem 1.25rem !important;
-  background: transparent !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-}
-
-/* If the answer spans multiple nodes, avoid double top padding */
-.faq-content :deep(.qa-card > :not(h3) + :not(h3)) {
-  padding-top: 0 !important;
-}
-
-/* Lists inside card: bullets aligned & slightly indented */
-.faq-content :deep(.qa-card ul),
-.faq-content :deep(.qa-card ol) {
-  padding-left: 2.25rem !important;
-}
-
-.faq-content :deep(.qa-card li) {
-  margin: 0.4rem 0 !important;
 }
 </style>

@@ -2,7 +2,7 @@ import { chromium } from "playwright";
 import { AxeBuilder } from "@axe-core/playwright";
 import { spawn } from "child_process";
 
-const PAGES = ["/", "/links", "/faqs", "/search"];
+const PAGES = ["/", "/links", "/faqs"];
 
 let devServer = null;
 let baseUrl = "http://localhost:3000";
