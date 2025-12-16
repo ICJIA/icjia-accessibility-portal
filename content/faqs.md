@@ -15,6 +15,110 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
+### Why does accessibility matter?
+
+Accessibility matters for several reasons:
+
+- **Legal compliance** — Federal and state laws require accessible digital content
+- **Equal access** — Approximately 1 in 4 adults in the U.S. have a disability
+- **Better user experience** — Accessible design often improves usability for everyone
+- **Broader reach** — Accessible content can be used by more people in more situations
+
+### What is WCAG?
+
+WCAG stands for Web Content Accessibility Guidelines. These are international standards developed by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. WCAG is organized around four principles (POUR):
+
+- **Perceivable** — Information must be presentable in ways users can perceive
+- **Operable** — Interface components must be operable by all users
+- **Understandable** — Information and operation must be understandable
+- **Robust** — Content must work with current and future technologies
+
+**Learn more:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/standards-guidelines/wcag/</a>
+
+### What does "WCAG 2.1 Level AA" mean?
+
+WCAG has three conformance levels:
+
+- **Level A** — Minimum accessibility (must meet)
+- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_
+- **Level AAA** — Enhanced accessibility (may meet where feasible)
+
+Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
+
+### What laws apply to Illinois state agencies?
+
+Illinois state agencies must comply with multiple accessibility requirements:
+
+| Law/Standard                                                                                                                                                                         | Applies To                                       | Technical Standard       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------------------ |
+| <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">**IITAA**</a> (Illinois Information Technology Accessibility Act) | Illinois state agencies and universities         | WCAG 2.1 Level AA        |
+| <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">**ADA Title II**</a>                                                                      | State and local government public-facing content | WCAG 2.1 Level AA        |
+| <a href="https://www.ada.gov/resources/disability-rights-guide/#section-504" target="_blank" rel="noopener noreferrer">**Section 504**</a>                                           | Any entity receiving federal funding             | Reasonable accommodation |
+| <a href="https://www.ada.gov/resources/disability-rights-guide/#title-i-employment" target="_blank" rel="noopener noreferrer">**ADA Title I**</a>                                    | Employment/workplace accommodations              | Reasonable accommodation |
+
+### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
+
+**No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all units within an organization. Accessibility is everyone's responsibility.
+
+**Why accessibility requires organization-wide effort:**
+
+1. **Content creators** — Writers, editors, and content managers must:
+   - Write clear, descriptive alt text for images
+   - Use proper heading structure in documents
+   - Create meaningful link text (not "click here")
+   - Ensure color isn't the only way to convey information
+   - Add captions to videos or coordinate captioning
+
+2. **Designers** — Graphic designers and UX designers must:
+   - Ensure sufficient color contrast ratios (4.5:1 for normal text)
+   - Design with keyboard navigation in mind
+   - Create focus indicators for interactive elements
+   - Avoid relying solely on color to convey meaning
+   - Design forms with proper labels and error messages
+
+3. **Procurement staff** — Purchasing and contract managers must:
+   - Include accessibility requirements in RFPs and contracts
+   - Request VPATs (Voluntary Product Accessibility Templates) from vendors
+   - Evaluate third-party tools for accessibility before purchase
+   - Ensure contract language mandates WCAG 2.1 Level AA compliance
+
+4. **Project managers and program staff** — Must:
+   - Include accessibility in project timelines and budgets
+   - Coordinate accessibility testing throughout development
+   - Ensure accessibility is considered from project start, not as an afterthought
+   - Verify that deliverables meet accessibility standards before launch
+
+5. **IT and web development teams** — Must:
+   - Implement accessible code and markup
+   - Test with assistive technologies
+   - Fix technical accessibility barriers
+   - Maintain accessible infrastructure and platforms
+
+6. **Leadership and management** — Must:
+   - Allocate resources for accessibility training and tools
+   - Establish accessibility policies and procedures
+   - Support organization-wide accessibility initiatives
+   - Ensure compliance with legal requirements
+
+**The problem with "IT-only" thinking:**
+
+- **Content issues** — If content creators don't write proper alt text or use heading styles, developers can't fix it retroactively without recreating content
+- **Design issues** — If designs don't meet contrast requirements or lack focus indicators, developers may need to redesign rather than just code
+- **Procurement issues** — If inaccessible tools are purchased, IT may be unable to make them accessible without vendor support
+- **Timeline and cost** — Fixing accessibility issues after development is typically 3-10 times more expensive than building accessibility in from the start
+
+**Best practice:** Adopt a "shift-left" approach — consider accessibility at every stage: planning, design, content creation, development, and procurement. This prevents costly retrofitting and ensures better outcomes.
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C WAI: Planning and Managing Web Accessibility</a>
+- <a href="https://www.section508.gov/manage/section-508-program-team-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Applies to all state and local government employees involved in digital content
+
+---
+
+## ICJIA-Specific Questions
+
 ### Why does ICJIA need to worry about digital accessibility? What does the April 2026 deadline mean for us?
 
 **As an Illinois state agency, ICJIA has legal obligations under both state and federal law to ensure our digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to ICJIA.
@@ -92,14 +196,38 @@ The countdown timer on this page shows exactly how much time remains until the c
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Published April 2024
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA History and Requirements</a> — Illinois requirements since 2008
 
-### Why does accessibility matter?
+### If this has been a requirement, why hasn't ICJIA been doing this all along?
 
-Accessibility matters for several reasons:
+**Actually, ICJIA's web team has been building accessible websites for years.** The web developers at ICJIA have been incorporating accessibility best practices into our websites across multiple administrations — this isn't new to them.
 
-- **Legal compliance** — Federal and state laws require accessible digital content
-- **Equal access** — Approximately 1 in 4 adults in the U.S. have a disability
-- **Better user experience** — Accessible design often improves usability for everyone
-- **Broader reach** — Accessible content can be used by more people in more situations
+**What the web team has been doing:**
+
+- Building websites with semantic HTML structure for screen reader compatibility
+- Implementing keyboard navigation and focus management
+- Using ARIA (Accessible Rich Internet Applications) attributes where needed
+- Following color contrast guidelines
+- Adding alt text to images
+- Structuring content with proper heading hierarchies
+- Testing with accessibility tools and screen readers
+
+**So what's actually new?**
+
+The difference now isn't that accessibility suddenly matters — it's that there's a **firm legal deadline with specific technical standards**. Before the April 2024 ADA Title II rule:
+
+- Accessibility was a best practice, but enforcement was inconsistent
+- There were no specific technical standards mandated by federal law for state agencies
+- Compliance was measured against general principles rather than testable criteria
+- There was no countdown clock creating organizational urgency
+
+**The April 2026 deadline changes the landscape:**
+
+Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm compliance date. This creates accountability that didn't exist before — and extends beyond websites to include documents, videos, social media, and all public-facing digital content.
+
+**Why this matters for you:**
+
+The web team can help because they've been doing this work for years. They understand the technical requirements, have experience with accessibility testing tools, and can guide you on best practices for documents, images, and content you create. They're not learning this from scratch — they're sharing expertise they've built over time.
+
+**The bottom line:** ICJIA's web team isn't new to accessibility. What's new is the deadline that now applies to everyone creating public-facing content. The web team is a valuable resource precisely because they've been prioritizing accessibility long before it became a legal mandate.
 
 ### I see the countdown timer. Is this for website compliance only?
 
@@ -173,13 +301,58 @@ We all have competing priorities. But legal compliance isn't something we can de
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal requirements and deadlines
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency obligations
 
+### We should take this slow. Can't we present to executive staff first and see what they say before moving forward?
+
+**We absolutely should brief leadership — but we shouldn't wait for that briefing before starting accessibility work.** Here's why:
+
+**Leadership buy-in is important, but it's not a prerequisite for compliance:**
+
+Informing executive staff about accessibility requirements is valuable for awareness, resource allocation, and organizational priority-setting. However, the legal deadline doesn't pause while we schedule meetings. The April 2026 compliance date is set by the U.S. Department of Justice, not by internal approval processes.
+
+**Why "wait and see" is risky:**
+
+1. **The timeline is fixed** — The countdown timer on this page shows exactly how much time remains. Every week spent waiting for internal discussions is a week of remediation work that doesn't happen.
+
+2. **The scope is significant** — Achieving WCAG 2.1 Level AA compliance across websites, documents, videos, and social media requires sustained effort. Organizations that start early have time to build skills, fix issues incrementally, and integrate accessibility into workflows. Organizations that delay often face rushed, expensive, last-minute remediation.
+
+3. **Leadership can't opt out** — This isn't a policy proposal that executives can approve or reject. It's a legal requirement. The question isn't _whether_ ICJIA will comply — it's _how well prepared_ we'll be by the deadline.
+
+4. **"Slow" can become "stalled"** — In busy organizations, "let's discuss this later" can easily become months of inaction. Meanwhile, the deadline keeps approaching.
+
+**What a better approach looks like:**
+
+- **Brief leadership AND start working** — These aren't mutually exclusive. Begin accessibility improvements now while also preparing leadership briefings.
+
+- **Show progress, not just problems** — When you do brief executives, it's more effective to say "Here's what we've already started and here's what we need" rather than "Here's a problem we haven't addressed yet."
+
+- **Start with low-hanging fruit** — Staff can begin using accessibility practices today (alt text, heading styles, meaningful link text) without waiting for organizational decisions. These habits take time to build.
+
+- **Use this site as a resource** — This accessibility portal exists precisely so staff can start learning and implementing best practices now, regardless of where leadership discussions stand.
+
+**Why now is the time to move forward:**
+
+- **We have enough runway — barely** — Starting now gives us time to make meaningful progress. Waiting months shrinks that window considerably.
+
+- **Accessibility skills compound** — The sooner staff learn accessible practices, the more content gets created correctly the first time. Delay means more content to remediate later.
+
+- **Other agencies are moving** — Illinois DoIT has been actively training state agencies since early 2024. ICJIA shouldn't fall behind peer agencies.
+
+- **It's the right thing to do** — Beyond compliance, accessible content serves the 1 in 4 adults with disabilities. Every day of delay is another day some Illinoisans can't fully access ICJIA's resources.
+
+**The bottom line:** Brief your leadership — they should know about this requirement. But don't let that briefing become a gate that prevents action. The legal deadline doesn't wait for organizational decision-making processes, and neither should we.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — The federal rule establishing firm compliance deadlines
+- <a href="https://www.section508.gov/manage/laws-and-policies/quick-reference-guide/" target="_blank" rel="noopener noreferrer">Section508.gov: Laws and Policies Quick Reference</a> — Overview of accessibility legal requirements
+
 ### These FAQs and links are a lot to read. Are there other ways to learn about compliance requirements?
 
 **Absolutely — we recognize that everyone learns differently.** Reading through FAQs and links works well for some people, but others prefer videos, hands-on demonstrations, or talking to someone directly. Here are alternatives for different learning styles:
 
 **Talk to ICJIA's web team:**
 
-ICJIA's web developers have been actively working on accessibility compliance since May 2025 — just days after the first DoIT accessibility kickoff meeting. They can answer questions, provide guidance, and share what they've learned. Don't hesitate to reach out directly if you prefer a conversation over reading documentation.
+ICJIA's web developers have been building accessible websites for years — across multiple administrations. Accessibility isn't new to them; what's new is the legal deadline. They can answer questions, provide guidance, and share the expertise they've built over time. Don't hesitate to reach out directly if you prefer a conversation over reading documentation.
 
 **Video learners:**
 
@@ -252,97 +425,6 @@ ICJIA's mission centers on improving the administration of criminal justice in I
 - <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
 - <a href="https://icjia.illinois.gov/about" target="_blank" rel="noopener noreferrer">ICJIA Mission</a> — Learn more about ICJIA's mission and work
-
-### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
-
-**No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all units within ICJIA. Accessibility is everyone's responsibility.
-
-**Why accessibility requires organization-wide effort:**
-
-1. **Content creators** — Writers, editors, and content managers must:
-   - Write clear, descriptive alt text for images
-   - Use proper heading structure in documents
-   - Create meaningful link text (not "click here")
-   - Ensure color isn't the only way to convey information
-   - Add captions to videos or coordinate captioning
-
-2. **Designers** — Graphic designers and UX designers must:
-   - Ensure sufficient color contrast ratios (4.5:1 for normal text)
-   - Design with keyboard navigation in mind
-   - Create focus indicators for interactive elements
-   - Avoid relying solely on color to convey meaning
-   - Design forms with proper labels and error messages
-
-3. **Procurement staff** — Purchasing and contract managers must:
-   - Include accessibility requirements in RFPs and contracts
-   - Request VPATs (Voluntary Product Accessibility Templates) from vendors
-   - Evaluate third-party tools for accessibility before purchase
-   - Ensure contract language mandates WCAG 2.1 Level AA compliance
-
-4. **Project managers and program staff** — Must:
-   - Include accessibility in project timelines and budgets
-   - Coordinate accessibility testing throughout development
-   - Ensure accessibility is considered from project start, not as an afterthought
-   - Verify that deliverables meet accessibility standards before launch
-
-5. **IT and web development teams** — Must:
-   - Implement accessible code and markup
-   - Test with assistive technologies
-   - Fix technical accessibility barriers
-   - Maintain accessible infrastructure and platforms
-
-6. **Leadership and management** — Must:
-   - Allocate resources for accessibility training and tools
-   - Establish accessibility policies and procedures
-   - Support organization-wide accessibility initiatives
-   - Ensure compliance with legal requirements
-
-**The problem with "IT-only" thinking:**
-
-- **Content issues** — If content creators don't write proper alt text or use heading styles, developers can't fix it retroactively without recreating content
-- **Design issues** — If designs don't meet contrast requirements or lack focus indicators, developers may need to redesign rather than just code
-- **Procurement issues** — If inaccessible tools are purchased, IT may be unable to make them accessible without vendor support
-- **Timeline and cost** — Fixing accessibility issues after development is typically 3-10 times more expensive than building accessibility in from the start
-
-**Best practice:** Adopt a "shift-left" approach — consider accessibility at every stage: planning, design, content creation, development, and procurement. This prevents costly retrofitting and ensures better outcomes.
-
-**References:**
-
-- <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C WAI: Planning and Managing Web Accessibility</a>
-- <a href="https://www.section508.gov/manage/section-508-program-team-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Applies to all state and local government employees involved in digital content
-
-### What laws apply to Illinois state agencies?
-
-Illinois state agencies must comply with multiple accessibility requirements:
-
-| Law/Standard                                                                                                                                                                         | Applies To                                       | Technical Standard       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | ------------------------ |
-| <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">**IITAA**</a> (Illinois Information Technology Accessibility Act) | Illinois state agencies and universities         | WCAG 2.1 Level AA        |
-| <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">**ADA Title II**</a>                                                                      | State and local government public-facing content | WCAG 2.1 Level AA        |
-| <a href="https://www.ada.gov/resources/disability-rights-guide/#section-504" target="_blank" rel="noopener noreferrer">**Section 504**</a>                                           | Any entity receiving federal funding             | Reasonable accommodation |
-| <a href="https://www.ada.gov/resources/disability-rights-guide/#title-i-employment" target="_blank" rel="noopener noreferrer">**ADA Title I**</a>                                    | Employment/workplace accommodations              | Reasonable accommodation |
-
-### What is WCAG?
-
-WCAG stands for Web Content Accessibility Guidelines. These are international standards developed by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. WCAG is organized around four principles (POUR):
-
-- **Perceivable** — Information must be presentable in ways users can perceive
-- **Operable** — Interface components must be operable by all users
-- **Understandable** — Information and operation must be understandable
-- **Robust** — Content must work with current and future technologies
-
-**Learn more:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/standards-guidelines/wcag/</a>
-
-### What does "WCAG 2.1 Level AA" mean?
-
-WCAG has three conformance levels:
-
-- **Level A** — Minimum accessibility (must meet)
-- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_
-- **Level AAA** — Enhanced accessibility (may meet where feasible)
-
-Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
 ---
 
