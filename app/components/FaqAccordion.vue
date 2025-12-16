@@ -74,8 +74,24 @@ function findPanelByHash(hash: string): number {
   return props.items.findIndex((item) => getQuestionId(item.question) === id);
 }
 
-// Update URL hash when panel changes
-watch(expandedPanels, (newValue) => {
+// Scroll element to top of viewport (below navbar)
+function scrollToElement(elementId: string) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const navbar = document.querySelector("header");
+    const navbarHeight = navbar ? navbar.offsetHeight : 64;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+
+    window.scrollTo({
+      top: Math.max(0, offsetPosition),
+      behavior: "smooth",
+    });
+  }
+}
+
+// Update URL hash and scroll when panel changes
+watch(expandedPanels, async (newValue, oldValue) => {
   if (typeof window === "undefined") return;
 
   if (
@@ -86,6 +102,17 @@ watch(expandedPanels, (newValue) => {
     const id = getQuestionId(props.items[newValue].question);
     // Update URL without triggering navigation
     window.history.replaceState(null, "", `#${id}`);
+
+    // Wait for panel expansion animation to complete, then scroll
+    await nextTick();
+    // Use multiple timeouts to ensure scroll happens after animation
+    setTimeout(() => {
+      scrollToElement(id);
+      // Second scroll after animation fully completes
+      setTimeout(() => {
+        scrollToElement(id);
+      }, 200);
+    }, 100);
   }
 });
 
@@ -148,6 +175,7 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   transition: all 150ms ease !important;
   overflow: hidden;
+  scroll-margin-top: 80px; /* Account for fixed navbar */
 }
 
 .faq-panel:hover {
