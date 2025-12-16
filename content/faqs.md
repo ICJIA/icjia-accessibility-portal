@@ -71,7 +71,7 @@ Accessibility matters for several reasons:
 
 **Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give our accessibility commitment real accountability.**
 
-ICJIA has long been committed to DEIA principles. Traditionally, the "Accessibility" component focused primarily on physical accessibility — ensuring our buildings, events, and in-person services were accessible to people with disabilities. This remains essential work.
+ICJIA has long been committed to DEIA principles, and accessibility has always been part of that commitment. What's evolving is how we define and measure accessibility in an increasingly digital world — and the legal standards that now apply to our online presence.
 
 **What's changed:**
 
