@@ -405,7 +405,7 @@ useSeoMeta({
 }
 
 .countdown-value {
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-weight: bold;
   line-height: 1;
   color: rgb(var(--v-theme-primary));
@@ -421,7 +421,7 @@ useSeoMeta({
 }
 
 .countdown-separator {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
   opacity: 0.5;
   padding: 0 0.5rem;
@@ -434,7 +434,7 @@ useSeoMeta({
   }
 
   .countdown-value {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -444,7 +444,7 @@ useSeoMeta({
   }
 
   .countdown-value {
-    font-size: 2rem;
+    font-size: 2.75rem;
   }
 
   .countdown-item {
@@ -452,7 +452,7 @@ useSeoMeta({
   }
 
   .countdown-separator {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   h1.text-h3 {
@@ -462,7 +462,7 @@ useSeoMeta({
 
 @media (max-width: 400px) {
   .countdown-value {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
   }
 
   .countdown-item {
@@ -470,7 +470,7 @@ useSeoMeta({
   }
 
   .countdown-separator {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .countdown-label {

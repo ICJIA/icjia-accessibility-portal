@@ -51,6 +51,13 @@ const props = defineProps<{
 // Only one panel can be open at a time
 const expandedPanels = ref<number | undefined>(undefined);
 
+// Watch for collapse signal from navbar logo click
+const { collapseSignal } = useFaqCollapse();
+watch(collapseSignal, () => {
+  // Collapse all panels when signal changes
+  expandedPanels.value = undefined;
+});
+
 // Generate a URL-friendly slug from question text
 function slugify(text: string): string {
   return text
@@ -350,4 +357,3 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   color: rgb(var(--v-theme-primary)) !important;
 }
 </style>
-

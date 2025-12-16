@@ -3,10 +3,11 @@
     <v-container class="d-flex align-center pa-0">
       <!-- Logo -->
       <v-app-bar-title class="d-flex align-center">
-        <NuxtLink
+        <a
           href="/"
-          class="d-flex align-center text-decoration-none"
+          class="d-flex align-center text-decoration-none logo-link"
           style="color: inherit"
+          @click="handleLogoClick"
         >
           <img
             src="/icjia-logo.png"
@@ -16,7 +17,7 @@
           <span class="text-caption ml-3 text-medium-emphasis"
             >Accessibility Portal</span
           >
-        </NuxtLink>
+        </a>
       </v-app-bar-title>
 
       <v-spacer />
@@ -87,12 +88,42 @@
 import { useDisplay } from "vuetify";
 
 const { mobile } = useDisplay();
+const route = useRoute();
+const { collapseAll } = useFaqCollapse();
 
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
   { title: "Links", to: "/links", icon: "mdi-link" },
   { title: "FAQs", to: "/faqs", icon: "mdi-help-circle" },
 ];
+
+/**
+ * Handle logo click: if on home page, collapse all FAQs and scroll to top.
+ * Otherwise, navigate to home page normally.
+ */
+function handleLogoClick(event: MouseEvent) {
+  const isHomePage = route.path === "/";
+
+  if (isHomePage) {
+    // Prevent default navigation since we're already on home
+    event.preventDefault();
+
+    // Collapse all FAQ panels
+    collapseAll();
+
+    // Clear any hash from URL
+    if (window.location.hash) {
+      window.history.replaceState(null, "", "/");
+    }
+
+    // Scroll to top of page smoothly
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+  // If not on home page, let the default navigation happen
+}
 </script>
 
 <style scoped>
