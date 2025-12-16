@@ -269,6 +269,11 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.28.5"
 
+"@barbapapazes/plausible-tracker@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@barbapapazes/plausible-tracker/-/plausible-tracker-0.5.6.tgz#36c2cf3354326282b9a3315538dbec2744acb997"
+  integrity sha512-GRZxn3ZngYQ1+QbdP8d66D/lQg+T2oEevG8kBGfNwVbt9VZB67sgMx/gkRo/Ww2lH7QelgjUNzvOeG+DsJX2HQ==
+
 "@bazel/runfiles@^6.3.1":
   version "6.5.0"
   resolved "https://registry.npmjs.org/@bazel/runfiles/-/runfiles-6.5.0.tgz"
@@ -2052,7 +2057,7 @@
     unimport "^4.0.0"
     untyped "^1.5.2"
 
-"@nuxt/kit@4.2.2", "@nuxt/kit@^4.2.1":
+"@nuxt/kit@4.2.2", "@nuxt/kit@^4.0.3", "@nuxt/kit@^4.2.1":
   version "4.2.2"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-4.2.2.tgz"
   integrity sha512-ZAgYBrPz/yhVgDznBNdQj2vhmOp31haJbO0I0iah/P9atw+OHH7NJLUZ3PK+LOz/0fblKTN1XJVSi8YQ1TQ0KA==
@@ -2250,6 +2255,16 @@
     unist-util-visit "^5.0.0"
     unwasm "^0.5.0"
     vfile "^6.0.3"
+
+"@nuxtjs/plausible@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/plausible/-/plausible-2.0.1.tgz#85eb4170d4efc695794037e6c7bd00ae83698619"
+  integrity sha512-Edr7oFIeZ9Og2lS21NhC3MRgcR7X9H1Hyjve8EsM2CycJGBlCcGKHs0+vi4KpbCVi33VlTXUUYNRPtGyeUX6Fw==
+  dependencies:
+    "@barbapapazes/plausible-tracker" "^0.5.6"
+    "@nuxt/kit" "^4.0.3"
+    defu "^6.1.4"
+    ufo "^1.6.1"
 
 "@octokit/auth-token@^6.0.0":
   version "6.0.0"

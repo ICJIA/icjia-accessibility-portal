@@ -11,8 +11,13 @@ export default defineNuxtConfig({
   
   modules: [
     '@nuxt/content',
-    'vuetify-nuxt-module'
+    'vuetify-nuxt-module',
+    '@nuxtjs/plausible'
   ],
+
+  plausible: {
+    domain: 'accessibility.icjia.app'
+  },
 
   content: {
     renderer: {
