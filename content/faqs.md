@@ -101,6 +101,37 @@ Accessibility matters for several reasons:
 - **Better user experience** — Accessible design often improves usability for everyone
 - **Broader reach** — Accessible content can be used by more people in more situations
 
+### I see the countdown timer. Is this for website compliance only?
+
+**No — the April 2026 deadline applies to much more than just websites.** The countdown timer represents the compliance deadline for all public-facing digital content, not just web pages.
+
+**What's covered by the deadline:**
+
+- **Websites** — All public-facing web pages, including forms, interactive features, and embedded content
+- **Documents** — PDFs, Word documents, Excel spreadsheets, and PowerPoint presentations published online or shared digitally
+- **Mobile apps** — Any mobile applications provided to the public
+- **Videos and multimedia** — All video content requires captions; audio content requires transcripts
+- **Social media** — Posts, images, and videos shared on social platforms
+- **Third-party content** — Embedded maps, dashboards, widgets, and tools provided through your digital presence
+- **Email communications** — Newsletters and other digital communications sent to the public
+
+**What this means for ICJIA staff:**
+
+The countdown isn't just for the web team — it's for everyone who creates or publishes digital content:
+
+- **Researchers** — Reports and publications must be accessible
+- **Communications staff** — Social media posts, press releases, and newsletters
+- **Grant administrators** — Application materials and funding announcements
+- **Program staff** — Any documents or resources shared with the public
+- **Data teams** — Dashboards, visualizations, and data tools
+- **Procurement staff** — Ensuring vendors and third-party tools meet accessibility requirements
+
+**The bottom line:** If it's digital and public-facing, it needs to be accessible by the deadline shown in the countdown timer.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered"
+
 ### How does digital accessibility fit into ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) — and how does it enhance our mission?
 
 **Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give our accessibility commitment real accountability.**
