@@ -85,7 +85,10 @@
               <h2 v-if="section.heading" class="faq-section-heading">
                 {{ section.heading }}
               </h2>
-              <FaqAccordion :items="section.items" />
+              <FaqAccordion
+                :items="section.items"
+                :section-id="slugify(section.heading || '')"
+              />
             </div>
           </div>
           <div v-else>
@@ -170,6 +173,17 @@ function extractText(node: any): string {
     return node.slice(2).map(extractText).join("");
   }
   return "";
+}
+
+// Generate a URL-friendly slug from text
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .substring(0, 30)
+    .replace(/-$/, "");
 }
 
 // Process markdown to separate intro, sections, and FAQs

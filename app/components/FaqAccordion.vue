@@ -8,6 +8,7 @@
     <v-expansion-panel
       v-for="(item, index) in items"
       :key="index"
+      :id="getQuestionId(item.question)"
       :value="index"
       class="faq-panel"
       elevation="0"
@@ -33,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, watch, onMounted, nextTick } from "vue";
 
 type MiniMarkNode = any;
 
@@ -44,10 +45,82 @@ interface FaqItem {
 
 const props = defineProps<{
   items: FaqItem[];
+  sectionId?: string;
 }>();
 
 // Only one panel can be open at a time
 const expandedPanels = ref<number | undefined>(undefined);
+
+// Generate a URL-friendly slug from question text
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single
+    .substring(0, 50) // Limit length
+    .replace(/-$/, ""); // Remove trailing hyphen
+}
+
+// Get the full ID for a question (with optional section prefix)
+function getQuestionId(question: string): string {
+  const slug = slugify(question);
+  return props.sectionId ? `${props.sectionId}-${slug}` : slug;
+}
+
+// Find panel index by hash
+function findPanelByHash(hash: string): number {
+  const id = hash.replace("#", "");
+  return props.items.findIndex((item) => getQuestionId(item.question) === id);
+}
+
+// Update URL hash when panel changes
+watch(expandedPanels, (newValue) => {
+  if (typeof window === "undefined") return;
+
+  if (
+    newValue !== undefined &&
+    newValue >= 0 &&
+    newValue < props.items.length
+  ) {
+    const id = getQuestionId(props.items[newValue].question);
+    // Update URL without triggering navigation
+    window.history.replaceState(null, "", `#${id}`);
+  }
+});
+
+// On mount, check for hash and open corresponding panel
+onMounted(async () => {
+  if (typeof window === "undefined") return;
+
+  const hash = window.location.hash;
+  if (hash) {
+    const panelIndex = findPanelByHash(hash);
+    if (panelIndex >= 0) {
+      // Open the panel
+      expandedPanels.value = panelIndex;
+
+      // Wait for DOM update then scroll
+      await nextTick();
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace("#", ""));
+        if (element) {
+          // Get navbar height to offset scroll position
+          const navbar = document.querySelector("header");
+          const navbarHeight = navbar ? navbar.offsetHeight : 64;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.scrollY - navbarHeight - 16;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }
+});
 
 // Create a content structure that ContentRenderer can handle
 function createAnswerContent(answerNodes: MiniMarkNode[]) {
