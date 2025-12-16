@@ -58,6 +58,40 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
 
+### Why am I just hearing about this deadline now?
+
+**You're not alone — many people are surprised to learn about the April 2026 deadline.** There are several reasons why this may feel sudden:
+
+**The rule is relatively new:**
+
+The ADA Title II web accessibility rule was only finalized on **April 24, 2024** — just two years before the compliance deadline for larger entities. While digital accessibility has been a legal expectation for years (under Section 508, the IITAA, and general ADA requirements), this is the first time the Department of Justice has established **specific technical standards** (WCAG 2.1 AA) with **firm deadlines** for state and local governments.
+
+**Accessibility wasn't always on the radar:**
+
+- **It wasn't prioritized** — For many organizations, accessibility was seen as a "nice to have" rather than a legal requirement
+- **Limited awareness** — Unless you work in IT, web development, or disability services, accessibility requirements may not have been part of your professional development
+- **No enforcement history** — Without high-profile enforcement actions, many agencies didn't feel urgency around digital accessibility
+
+**Illinois has had requirements since 2008:**
+
+The Illinois Information Technology Accessibility Act (IITAA) has required accessible digital content for state agencies since 2008. However, enforcement was inconsistent, and many agencies weren't fully aware of their obligations. The new federal rule adds another layer of accountability.
+
+**What matters now:**
+
+The countdown timer on this page shows exactly how much time remains until the compliance deadline. Rather than focusing on why we didn't know sooner, the priority now is incorporating accessibility into our workflows within this timeframe. Use the time remaining to:
+
+- Audit existing content
+- Prioritize remediation
+- Build accessibility into our workflows
+- Train staff on accessibility practices
+
+**The good news:** You're learning about this with enough time to take meaningful action. Many organizations are in the same position, and resources are available to help.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Published April 2024
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA History and Requirements</a> — Illinois requirements since 2008
+
 ### Why does accessibility matter?
 
 Accessibility matters for several reasons:
