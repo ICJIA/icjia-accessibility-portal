@@ -60,6 +60,17 @@
                 2026
               </NuxtLink>
             </p>
+            <p class="text-caption mt-3 text-medium-emphasis site-dates">
+              <span class="date-item">
+                <v-icon size="14" class="mr-1">mdi-creation</v-icon>
+                Created: {{ siteCreated }}
+              </span>
+              <span class="date-separator">•</span>
+              <span class="date-item">
+                <v-icon size="14" class="mr-1">mdi-update</v-icon>
+                Updated: {{ lastUpdated }}
+              </span>
+            </p>
           </div>
         </v-card>
 
@@ -105,6 +116,10 @@ import { ref, onMounted, onUnmounted, computed } from "vue";
 import { transformFaqsToAccordionData } from "../utils/faqTransform";
 
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
+
+// Site dates - update lastUpdated when content is added or edited
+const siteCreated = "December 2025";
+const lastUpdated = "December 16, 2025";
 
 const countdown = ref({
   days: 0,
@@ -344,6 +359,24 @@ useSeoMeta({
   outline: 2px solid rgb(var(--v-theme-primary));
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.site-dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-style: italic;
+}
+
+.date-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.date-separator {
+  opacity: 0.5;
 }
 
 .countdown-display {
