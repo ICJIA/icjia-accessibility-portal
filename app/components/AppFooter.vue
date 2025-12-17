@@ -1,17 +1,14 @@
 <template>
-  <v-footer class="footer-wrapper">
-    <v-container>
-      <div class="footer-content">
-        <!-- Copyright -->
-        <div class="footer-copyright">
-          <span class="copyright-text">
-            &copy; {{ currentYear }} Illinois Criminal Justice Information
-            Authority
-          </span>
-        </div>
+  <footer class="footer-wrapper">
+    <div class="footer-container">
+      <div class="footer-copyright">
+        <span class="copyright-text"
+          >&copy; {{ currentYear }} Illinois Criminal Justice Information
+          Authority</span
+        >
       </div>
-    </v-container>
-  </v-footer>
+    </div>
+  </footer>
 </template>
 
 <script setup lang="ts">
@@ -26,11 +23,10 @@ const currentYear = new Date().getFullYear();
   padding: 1rem 0;
 }
 
-.footer-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .footer-copyright {

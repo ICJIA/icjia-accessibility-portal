@@ -7,7 +7,9 @@
 
         <v-card class="pa-8" elevation="0">
           <h1 class="text-h3 mb-4 d-flex align-center">
-            <v-icon class="mr-3" color="primary">mdi-link-variant</v-icon>
+            <v-icon class="mr-3" color="primary" aria-hidden="true"
+              >mdi-link-variant</v-icon
+            >
             {{ page?.title || "Accessibility Links" }}
           </h1>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">

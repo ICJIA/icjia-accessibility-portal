@@ -7,7 +7,7 @@
 
         <v-card class="pa-8" elevation="0" color="surface">
           <h1 class="text-h3 mb-4 d-flex align-center flex-wrap">
-            <v-icon class="mr-3" color="primary"
+            <v-icon class="mr-3" color="primary" aria-hidden="true"
               >mdi-frequently-asked-questions</v-icon
             >
             <span>{{ page?.title || "Frequently Asked Questions" }}</span>

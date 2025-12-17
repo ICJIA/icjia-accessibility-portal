@@ -1,7 +1,8 @@
 <template>
   <v-app>
+    <SkipLink />
     <AppNavbar />
-    <v-main>
+    <v-main id="main-content" tabindex="-1">
       <v-container>
         <v-row justify="center" align="center" class="min-height-screen">
           <v-col cols="12" md="8" lg="6">

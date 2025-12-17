@@ -15,13 +15,20 @@
       <p v-if="compact" class="text-body-2 mb-2 countdown-compact-text">
         Countdown to WCAG 2.1 AA Compliance
       </p>
-      <div class="countdown-display" :class="{ compact: compact }">
+      <div
+        class="countdown-display"
+        :class="{ compact: compact }"
+        aria-live="polite"
+        aria-atomic="true"
+        :aria-label="countdownAriaLabel"
+      >
         <div v-if="!countdownInitialized" class="countdown-loader">
           <v-progress-circular
             indeterminate
             color="primary"
             :size="compact ? 32 : 48"
             :width="compact ? 3 : 4"
+            aria-label="Loading countdown timer"
           />
         </div>
         <template v-else>
@@ -29,17 +36,17 @@
             <div class="countdown-value">{{ countdown.days }}</div>
             <div class="countdown-label">Days</div>
           </div>
-          <div class="countdown-separator">:</div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
           <div class="countdown-item">
             <div class="countdown-value">{{ countdown.hours }}</div>
             <div class="countdown-label">Hours</div>
           </div>
-          <div class="countdown-separator">:</div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
           <div class="countdown-item">
             <div class="countdown-value">{{ countdown.minutes }}</div>
             <div class="countdown-label">Minutes</div>
           </div>
-          <div class="countdown-separator">:</div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
           <div class="countdown-item">
             <div class="countdown-value">{{ countdown.seconds }}</div>
             <div class="countdown-label">Seconds</div>
@@ -53,7 +60,9 @@
           rel="noopener noreferrer"
           class="compliance-link"
         >
-          <v-icon size="14" class="mr-1">mdi-open-in-new</v-icon>
+          <v-icon size="14" class="mr-1" aria-hidden="true"
+            >mdi-open-in-new</v-icon
+          >
           ADA Title II Deadline: April 24, 2026
         </NuxtLink>
       </p>
@@ -62,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 
 defineProps<{
   compact?: boolean;
@@ -78,6 +87,14 @@ const countdown = ref({
 });
 
 const countdownInitialized = ref(false);
+
+// Computed aria-label for screen readers
+const countdownAriaLabel = computed(() => {
+  if (!countdownInitialized.value) {
+    return "Countdown timer loading";
+  }
+  return `Countdown: ${countdown.value.days} days, ${countdown.value.hours} hours, ${countdown.value.minutes} minutes, ${countdown.value.seconds} seconds remaining until WCAG 2.1 AA compliance deadline`;
+});
 
 const updateCountdown = () => {
   const now = new Date().getTime();

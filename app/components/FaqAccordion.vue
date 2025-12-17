@@ -14,15 +14,26 @@
       elevation="0"
       color="surface"
     >
-      <v-expansion-panel-title class="faq-question">
+      <v-expansion-panel-title
+        class="faq-question"
+        :aria-describedby="`answer-${getQuestionId(item.question)}`"
+      >
         {{ item.question }}
         <template #actions>
-          <v-icon icon="mdi-chevron-down" class="faq-chevron" size="24" />
+          <v-icon
+            icon="mdi-chevron-down"
+            class="faq-chevron"
+            size="24"
+            aria-hidden="true"
+          />
         </template>
       </v-expansion-panel-title>
 
       <v-expansion-panel-text class="faq-answer">
-        <div class="faq-answer-content">
+        <div
+          :id="`answer-${getQuestionId(item.question)}`"
+          class="faq-answer-content"
+        >
           <ContentRenderer
             v-if="item.answer"
             :value="createAnswerContent(item.answer)"
@@ -357,4 +368,3 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   color: rgb(var(--v-theme-primary)) !important;
 }
 </style>
-

@@ -10,35 +10,25 @@
               Countdown to WCAG 2.1 AA Compliance
             </p>
             <div class="countdown-display">
-              <div v-if="!countdownInitialized" class="countdown-loader">
-                <v-progress-circular
-                  indeterminate
-                  color="primary"
-                  size="48"
-                  width="4"
-                />
+              <div class="countdown-item">
+                <div class="countdown-value">{{ countdown.days }}</div>
+                <div class="countdown-label">Days</div>
               </div>
-              <template v-else>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.days }}</div>
-                  <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.hours }}</div>
-                  <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.minutes }}</div>
-                  <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.seconds }}</div>
-                  <div class="countdown-label">Seconds</div>
-                </div>
-              </template>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-item">
+                <div class="countdown-value">{{ countdown.hours }}</div>
+                <div class="countdown-label">Hours</div>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-item">
+                <div class="countdown-value">{{ countdown.minutes }}</div>
+                <div class="countdown-label">Minutes</div>
+              </div>
+              <div class="countdown-separator">:</div>
+              <div class="countdown-item">
+                <div class="countdown-value">{{ countdown.seconds }}</div>
+                <div class="countdown-label">Seconds</div>
+              </div>
             </div>
             <p class="text-body-2 mt-4">
               <NuxtLink
@@ -47,19 +37,25 @@
                 rel="noopener noreferrer"
                 class="compliance-link"
               >
-                <v-icon size="16" class="mr-1">mdi-open-in-new</v-icon>
+                <v-icon size="16" class="mr-1" aria-hidden="true"
+                  >mdi-open-in-new</v-icon
+                >
                 ADA Title II Web Accessibility Compliance Deadline: April 24,
                 2026
               </NuxtLink>
             </p>
             <p class="text-caption mt-3 text-medium-emphasis site-dates">
               <span class="date-item">
-                <v-icon size="14" class="mr-1">mdi-creation</v-icon>
+                <v-icon size="14" class="mr-1" aria-hidden="true"
+                  >mdi-creation</v-icon
+                >
                 Created: {{ siteCreated }}
               </span>
-              <span class="date-separator">•</span>
+              <span class="date-separator" aria-hidden="true">•</span>
               <span class="date-item">
-                <v-icon size="14" class="mr-1">mdi-update</v-icon>
+                <v-icon size="14" class="mr-1" aria-hidden="true"
+                  >mdi-update</v-icon
+                >
                 Updated: {{ lastUpdated }}
               </span>
             </p>
@@ -120,8 +116,6 @@ const countdown = ref({
   seconds: 0,
 });
 
-const countdownInitialized = ref(false);
-
 const updateCountdown = () => {
   const now = new Date().getTime();
   const distance = targetDate - now;
@@ -136,17 +130,15 @@ const updateCountdown = () => {
   } else {
     countdown.value = { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }
-
-  // Mark as initialized after first calculation
-  if (!countdownInitialized.value) {
-    countdownInitialized.value = true;
-  }
 };
+
+// Initialize countdown immediately for SSR hydration consistency
+updateCountdown();
 
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
 onMounted(() => {
-  // Initialize immediately
+  // Update countdown and start interval
   updateCountdown();
   countdownInterval = setInterval(updateCountdown, 1000);
 });

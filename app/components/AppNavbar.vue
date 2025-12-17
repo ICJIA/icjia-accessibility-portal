@@ -31,6 +31,7 @@
         class="nav-btn d-none d-sm-flex"
         :prepend-icon="item.icon"
         :aria-label="`Navigate to ${item.title}`"
+        :aria-current="route.path === item.to ? 'page' : undefined"
       >
         {{ item.title }}
       </v-btn>
@@ -60,6 +61,7 @@
             :key="item.to"
             :href="item.to"
             :prepend-icon="item.icon"
+            :aria-current="route.path === item.to ? 'page' : undefined"
           >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
