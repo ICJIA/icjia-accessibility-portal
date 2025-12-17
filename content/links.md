@@ -215,9 +215,3 @@ A curated collection of links for website and content accessibility compliance, 
 
 - Compatible with assistive technologies
 - Valid, well-structured code
-
----
-
-_Last updated: December 2025_
-
-_This document is intended as a starting point for accessibility compliance efforts. Consult legal counsel for specific compliance requirements._
