@@ -43,35 +43,6 @@
             <v-progress-circular indeterminate color="primary" />
             <p class="mt-4 text-body-1">Loading FAQs...</p>
           </div>
-
-          <v-divider class="my-8" />
-
-          <v-card class="pa-6 text-center" variant="tonal" color="surface">
-            <h2 class="text-h5 mb-4">Still have questions?</h2>
-            <p class="text-body-1 mb-4">
-              If you couldn't find the answer you're looking for, please visit
-              the
-              <NuxtLink
-                href="https://icjia.illinois.gov/contact"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none font-weight-medium"
-              >
-                ICJIA Contact page
-              </NuxtLink>
-              for additional support.
-            </p>
-            <v-btn
-              href="https://icjia.illinois.gov/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              color="primary"
-              variant="flat"
-              prepend-icon="mdi-email-outline"
-            >
-              Contact Us
-            </v-btn>
-          </v-card>
         </v-card>
       </v-col>
     </v-row>

@@ -115,8 +115,8 @@ onUnmounted(() => {
 
 <style scoped>
 .countdown-card {
-  background: #000000 !important;
-  color: #ffffff !important;
+  background: rgb(var(--v-theme-surface)) !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1),
@@ -131,11 +131,11 @@ onUnmounted(() => {
 .countdown-card a:hover,
 .countdown-card a:active,
 .countdown-card a:focus {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .countdown-content {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .countdown-content p,
@@ -145,89 +145,50 @@ onUnmounted(() => {
 .countdown-content h5,
 .countdown-content h6,
 .countdown-content span {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
-/* All links in countdown must be white */
+/* All links in countdown - use primary color for better visibility and contrast */
 .countdown-content a,
 .countdown-content a:link,
 .countdown-content a:visited,
 .countdown-content a:hover,
 .countdown-content a:active,
 .countdown-content a:focus {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .countdown-heading {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .countdown-heading * {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
-/* Ensure all text and links in heading are white */
+/* Ensure all text and links in heading use theme colors */
 .countdown-heading,
-.countdown-heading span,
+.countdown-heading span {
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
 .countdown-heading a,
 .countdown-heading a:link,
 .countdown-heading a:visited,
 .countdown-heading a:hover,
 .countdown-heading a:active,
 .countdown-heading a:focus {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
-/* Force white color on all links in countdown, overriding Vuetify theme */
-/* Using maximum specificity to override Vuetify's visited link styles */
-.countdown-content a,
-.countdown-content a:link,
-.countdown-content a:visited,
-.countdown-content a:hover,
-.countdown-content a:active,
-.countdown-content a:focus,
-.countdown-heading a,
-.countdown-heading a:link,
-.countdown-heading a:visited,
-.countdown-heading a:hover,
-.countdown-heading a:active,
-.countdown-heading a:focus,
+/* Force primary color on all links in countdown for proper contrast */
 .countdown-link,
 .countdown-link:link,
 .countdown-link:visited,
 .countdown-link:hover,
 .countdown-link:active,
-.countdown-link:focus,
-a.countdown-link,
-a.countdown-link:link,
-a.countdown-link:visited,
-a.countdown-link:hover,
-a.countdown-link:active,
-a.countdown-link:focus,
-.countdown-heading a.countdown-link,
-.countdown-heading a.countdown-link:link,
-.countdown-heading a.countdown-link:visited,
-.countdown-heading a.countdown-link:hover,
-.countdown-heading a.countdown-link:active,
-.countdown-heading a.countdown-link:focus,
-.countdown-content a.countdown-link,
-.countdown-content a.countdown-link:link,
-.countdown-content a.countdown-link:visited,
-.countdown-content a.countdown-link:hover,
-.countdown-content a.countdown-link:active,
-.countdown-content a.countdown-link:focus {
-  color: #ffffff !important;
-  text-decoration: underline !important;
-}
-
-/* Specifically target visited state with even higher specificity */
-.countdown-card .countdown-content a:visited,
-.countdown-card .countdown-heading a:visited,
-.countdown-card .countdown-link:visited,
-.countdown-card a.countdown-link:visited,
-.countdown-card .countdown-heading a.countdown-link:visited,
-.countdown-card .countdown-content a.countdown-link:visited {
-  color: #ffffff !important;
+.countdown-link:focus {
+  color: rgb(var(--v-theme-primary)) !important;
   text-decoration: underline !important;
 }
 
@@ -236,11 +197,11 @@ a.countdown-link:focus,
 }
 
 .countdown-compact-text {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .compliance-link {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
   text-decoration: underline;
   font-weight: 500;
   display: inline-flex;
@@ -249,17 +210,17 @@ a.countdown-link:focus,
 }
 
 .compliance-link:hover {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
   opacity: 0.9;
   text-decoration: underline;
 }
 
 .compliance-link:visited {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .compliance-link .v-icon {
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .compliance-link:focus-visible {
@@ -307,7 +268,7 @@ a.countdown-link:focus,
   font-size: 2.5rem;
   font-weight: bold;
   line-height: 1;
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-primary)) !important;
 }
 
 .compact .countdown-value {
@@ -320,7 +281,7 @@ a.countdown-link:focus,
   letter-spacing: 0.1em;
   margin-top: 0.25rem;
   opacity: 0.9;
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .compact .countdown-label {
@@ -332,7 +293,7 @@ a.countdown-link:focus,
   font-weight: bold;
   opacity: 0.8;
   padding: 0 0.25rem;
-  color: #ffffff !important;
+  color: rgb(var(--v-theme-on-surface)) !important;
 }
 
 .compact .countdown-separator {
