@@ -36,7 +36,12 @@
       </v-btn>
 
       <!-- Mobile Navigation Menu -->
-      <v-menu v-if="mobile" location="bottom" class="d-flex d-sm-none">
+      <v-menu
+        v-if="mobile"
+        location="bottom"
+        class="d-flex d-sm-none"
+        v-model="menuOpen"
+      >
         <template #activator="{ props }">
           <v-btn
             v-bind="props"
@@ -44,7 +49,7 @@
             variant="text"
             aria-label="Navigation menu"
             aria-haspopup="true"
-            aria-expanded="false"
+            :aria-expanded="menuOpen"
           >
             <v-icon>mdi-menu</v-icon>
           </v-btn>
@@ -85,11 +90,13 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
 import { useDisplay } from "vuetify";
 
 const { mobile } = useDisplay();
 const route = useRoute();
 const { collapseAll } = useFaqCollapse();
+const menuOpen = ref(false);
 
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },

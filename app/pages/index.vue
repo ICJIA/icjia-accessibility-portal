@@ -7,15 +7,7 @@
           <div class="text-center">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
-              Countdown to
-              <NuxtLink
-                href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-decoration-none font-weight-medium"
-              >
-                WCAG 2.1 AA Compliance
-              </NuxtLink>
+              Countdown to WCAG 2.1 AA Compliance
             </p>
             <div class="countdown-display">
               <div v-if="!countdownInitialized" class="countdown-loader">

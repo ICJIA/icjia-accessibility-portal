@@ -25,8 +25,6 @@
               <div class="d-flex flex-column flex-sm-row gap-4 justify-center">
                 <v-btn
                   href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   color="primary"
                   size="large"
                   prepend-icon="mdi-home"
@@ -35,14 +33,12 @@
                 </v-btn>
 
                 <v-btn
-                  href="/search"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/links"
                   variant="outlined"
                   size="large"
-                  prepend-icon="mdi-magnify"
+                  prepend-icon="mdi-link"
                 >
-                  Search Site
+                  Accessibility Links
                 </v-btn>
               </div>
 
@@ -53,24 +49,10 @@
                 <div
                   class="d-flex flex-column flex-sm-row gap-2 justify-center"
                 >
-                  <v-btn
-                    href="/links"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="text"
-                    size="small"
-                  >
+                  <v-btn href="/links" variant="text" size="small">
                     Accessibility Links
                   </v-btn>
-                  <v-btn
-                    href="/faqs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="text"
-                    size="small"
-                  >
-                    FAQs
-                  </v-btn>
+                  <v-btn href="/faqs" variant="text" size="small"> FAQs </v-btn>
                 </div>
               </div>
             </v-card>

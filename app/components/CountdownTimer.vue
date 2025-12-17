@@ -5,19 +5,14 @@
     :elevation="compact ? 2 : 4"
     color="surface"
   >
-    <div class="text-center" :class="{ 'pa-8': !compact, 'pa-4': compact }">
-      <h2 v-if="!compact" class="text-h5 mb-2">
-        Countdown to
-        <NuxtLink
-          href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-decoration-none font-weight-medium"
-        >
-          WCAG 2.1 AA Compliance
-        </NuxtLink>
+    <div
+      class="text-center countdown-content"
+      :class="{ 'pa-8': !compact, 'pa-4': compact }"
+    >
+      <h2 v-if="!compact" class="text-h5 mb-2 countdown-heading">
+        Countdown to WCAG 2.1 AA Compliance
       </h2>
-      <p v-if="compact" class="text-body-2 text-medium-emphasis mb-2">
+      <p v-if="compact" class="text-body-2 mb-2 countdown-compact-text">
         Countdown to WCAG 2.1 AA Compliance
       </p>
       <div class="countdown-display" :class="{ compact: compact }">
@@ -120,8 +115,8 @@ onUnmounted(() => {
 
 <style scoped>
 .countdown-card {
-  background: rgb(var(--v-theme-surface)) !important;
-  color: rgb(var(--v-theme-on-surface)) !important;
+  background: #000000 !important;
+  color: #ffffff !important;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -2px rgba(0, 0, 0, 0.1),
@@ -129,9 +124,124 @@ onUnmounted(() => {
   border: 1px solid rgba(var(--v-theme-primary), 0.1);
 }
 
+/* Override any Vuetify link styles within the countdown card */
+.countdown-card a,
+.countdown-card a:link,
+.countdown-card a:visited,
+.countdown-card a:hover,
+.countdown-card a:active,
+.countdown-card a:focus {
+  color: #ffffff !important;
+}
+
+.countdown-content {
+  color: #ffffff !important;
+}
+
+.countdown-content p,
+.countdown-content h2,
+.countdown-content h3,
+.countdown-content h4,
+.countdown-content h5,
+.countdown-content h6,
+.countdown-content span {
+  color: #ffffff !important;
+}
+
+/* All links in countdown must be white */
+.countdown-content a,
+.countdown-content a:link,
+.countdown-content a:visited,
+.countdown-content a:hover,
+.countdown-content a:active,
+.countdown-content a:focus {
+  color: #ffffff !important;
+}
+
+.countdown-heading {
+  color: #ffffff !important;
+}
+
+.countdown-heading * {
+  color: #ffffff !important;
+}
+
+/* Ensure all text and links in heading are white */
+.countdown-heading,
+.countdown-heading span,
+.countdown-heading a,
+.countdown-heading a:link,
+.countdown-heading a:visited,
+.countdown-heading a:hover,
+.countdown-heading a:active,
+.countdown-heading a:focus {
+  color: #ffffff !important;
+}
+
+/* Force white color on all links in countdown, overriding Vuetify theme */
+/* Using maximum specificity to override Vuetify's visited link styles */
+.countdown-content a,
+.countdown-content a:link,
+.countdown-content a:visited,
+.countdown-content a:hover,
+.countdown-content a:active,
+.countdown-content a:focus,
+.countdown-heading a,
+.countdown-heading a:link,
+.countdown-heading a:visited,
+.countdown-heading a:hover,
+.countdown-heading a:active,
+.countdown-heading a:focus,
+.countdown-link,
+.countdown-link:link,
+.countdown-link:visited,
+.countdown-link:hover,
+.countdown-link:active,
+.countdown-link:focus,
+a.countdown-link,
+a.countdown-link:link,
+a.countdown-link:visited,
+a.countdown-link:hover,
+a.countdown-link:active,
+a.countdown-link:focus,
+.countdown-heading a.countdown-link,
+.countdown-heading a.countdown-link:link,
+.countdown-heading a.countdown-link:visited,
+.countdown-heading a.countdown-link:hover,
+.countdown-heading a.countdown-link:active,
+.countdown-heading a.countdown-link:focus,
+.countdown-content a.countdown-link,
+.countdown-content a.countdown-link:link,
+.countdown-content a.countdown-link:visited,
+.countdown-content a.countdown-link:hover,
+.countdown-content a.countdown-link:active,
+.countdown-content a.countdown-link:focus {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+/* Specifically target visited state with even higher specificity */
+.countdown-card .countdown-content a:visited,
+.countdown-card .countdown-heading a:visited,
+.countdown-card .countdown-link:visited,
+.countdown-card a.countdown-link:visited,
+.countdown-card .countdown-heading a.countdown-link:visited,
+.countdown-card .countdown-content a.countdown-link:visited {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+.countdown-link:hover {
+  opacity: 0.9;
+}
+
+.countdown-compact-text {
+  color: #ffffff !important;
+}
+
 .compliance-link {
-  color: rgb(var(--v-theme-primary)) !important;
-  text-decoration: none;
+  color: #ffffff !important;
+  text-decoration: underline;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -139,8 +249,17 @@ onUnmounted(() => {
 }
 
 .compliance-link:hover {
-  opacity: 0.8;
+  color: #ffffff !important;
+  opacity: 0.9;
   text-decoration: underline;
+}
+
+.compliance-link:visited {
+  color: #ffffff !important;
+}
+
+.compliance-link .v-icon {
+  color: #ffffff !important;
 }
 
 .compliance-link:focus-visible {
@@ -188,7 +307,7 @@ onUnmounted(() => {
   font-size: 2.5rem;
   font-weight: bold;
   line-height: 1;
-  color: rgb(var(--v-theme-primary));
+  color: #ffffff !important;
 }
 
 .compact .countdown-value {
@@ -200,8 +319,8 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0.25rem;
-  opacity: 0.8;
-  color: rgb(var(--v-theme-on-surface)) !important;
+  opacity: 0.9;
+  color: #ffffff !important;
 }
 
 .compact .countdown-label {
@@ -211,9 +330,9 @@ onUnmounted(() => {
 .countdown-separator {
   font-size: 1.75rem;
   font-weight: bold;
-  opacity: 0.5;
+  opacity: 0.8;
   padding: 0 0.25rem;
-  color: rgb(var(--v-theme-on-surface)) !important;
+  color: #ffffff !important;
 }
 
 .compact .countdown-separator {
@@ -280,4 +399,3 @@ onUnmounted(() => {
   }
 }
 </style>
-
