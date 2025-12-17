@@ -24,6 +24,42 @@ Accessibility matters for several reasons:
 - **Better user experience** — Accessible design often improves usability for everyone
 - **Broader reach** — Accessible content can be used by more people in more situations
 
+### How does digital accessibility and compliance fit into an agency's DEIA mission?
+
+**Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give accessibility commitments real accountability.**
+
+Many state and local government agencies have long been committed to Diversity, Equity, Inclusion, and Accessibility (DEIA) principles, and accessibility has always been part of that commitment. What's evolving is how we define and measure accessibility in an increasingly digital world — and the legal standards that now apply to our online presence.
+
+**What's changed:**
+
+The digital transformation of government services means that accessibility must now extend to everything agencies do online. The April 2026 ADA Title II compliance deadline transforms digital accessibility from an aspirational goal into a legal mandate. This isn't a departure from DEIA values — it's their fulfillment.
+
+**How accessibility enhances agency missions:**
+
+Equity is fundamental to public service — ensuring that all residents, regardless of ability, can access government information, services, and resources. When digital content isn't accessible, agencies exclude people with disabilities from:
+
+- **Public information and services** — Reports, data dashboards, publications, and service information that affects communities
+- **Grant and funding opportunities** — Organizations serving communities with higher disability rates need equal access to funding opportunities and application processes
+- **Public participation** — Policy discussions, public comment opportunities, and civic engagement must be accessible so that people with disabilities can participate in shaping public policy
+- **Emergency and critical services** — Accessible information is essential during emergencies and for accessing critical government services
+
+**Why this strengthens DEIA commitments:**
+
+1. **Equity becomes measurable** — WCAG 2.1 AA standards provide concrete, testable criteria for digital equity. Agencies can now objectively assess whether their digital content truly serves everyone.
+
+2. **Inclusion becomes actionable** — Rather than hoping content is inclusive, agencies have specific guidelines for ensuring people with visual, auditory, motor, and cognitive disabilities can access information.
+
+3. **Accountability is built in** — Legal requirements mean accessibility isn't dependent on budget cycles, competing priorities, or individual champions. It's a baseline expectation.
+
+4. **Everyone benefits** — Accessible design principles (clear language, logical structure, captions, readable fonts) improve the experience for all users, not just those with disabilities.
+
+**The bottom line:** The 2026 deadline doesn't replace values-driven commitments to accessibility — it reinforces them. Agencies now have the legal framework, technical standards, and organizational accountability to ensure their digital presence truly reflects DEIA principles and advances equity in public service.
+
+**References:**
+
+- <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
+
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
 **No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all units within an organization. Accessibility is everyone's responsibility.
@@ -240,42 +276,6 @@ Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm co
 If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, FSGU, and other units that publish materials.
 
 **The bottom line:** ICJIA's web team has been doing website accessibility for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
-
-### How does digital accessibility and compliance fit into an agency's DEIA mission?
-
-**Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give accessibility commitments real accountability.**
-
-Many state and local government agencies have long been committed to Diversity, Equity, Inclusion, and Accessibility (DEIA) principles, and accessibility has always been part of that commitment. What's evolving is how we define and measure accessibility in an increasingly digital world — and the legal standards that now apply to our online presence.
-
-**What's changed:**
-
-The digital transformation of government services means that accessibility must now extend to everything agencies do online. The April 2026 ADA Title II compliance deadline transforms digital accessibility from an aspirational goal into a legal mandate. This isn't a departure from DEIA values — it's their fulfillment.
-
-**How accessibility enhances agency missions:**
-
-Equity is fundamental to public service — ensuring that all residents, regardless of ability, can access government information, services, and resources. When digital content isn't accessible, agencies exclude people with disabilities from:
-
-- **Public information and services** — Reports, data dashboards, publications, and service information that affects communities
-- **Grant and funding opportunities** — Organizations serving communities with higher disability rates need equal access to funding opportunities and application processes
-- **Public participation** — Policy discussions, public comment opportunities, and civic engagement must be accessible so that people with disabilities can participate in shaping public policy
-- **Emergency and critical services** — Accessible information is essential during emergencies and for accessing critical government services
-
-**Why this strengthens DEIA commitments:**
-
-1. **Equity becomes measurable** — WCAG 2.1 AA standards provide concrete, testable criteria for digital equity. Agencies can now objectively assess whether their digital content truly serves everyone.
-
-2. **Inclusion becomes actionable** — Rather than hoping content is inclusive, agencies have specific guidelines for ensuring people with visual, auditory, motor, and cognitive disabilities can access information.
-
-3. **Accountability is built in** — Legal requirements mean accessibility isn't dependent on budget cycles, competing priorities, or individual champions. It's a baseline expectation.
-
-4. **Everyone benefits** — Accessible design principles (clear language, logical structure, captions, readable fonts) improve the experience for all users, not just those with disabilities.
-
-**The bottom line:** The 2026 deadline doesn't replace values-driven commitments to accessibility — it reinforces them. Agencies now have the legal framework, technical standards, and organizational accountability to ensure their digital presence truly reflects DEIA principles and advances equity in public service.
-
-**References:**
-
-- <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
 -->
 
 **Why this matters for ICJIA specifically:**
@@ -439,43 +439,6 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 **References:**
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered" and enforcement provisions
-
-**Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give our accessibility commitment real accountability.**
-
-ICJIA has long been committed to DEIA principles, and accessibility has always been part of that commitment. What's evolving is how we define and measure accessibility in an increasingly digital world — and the legal standards that now apply to our online presence.
-
-**What's changed:**
-
-The digital transformation of government services means that accessibility must now extend to everything we do online. The April 2026 ADA Title II compliance deadline transforms digital accessibility from an aspirational goal into a legal mandate. This isn't a departure from DEIA values — it's their fulfillment.
-
-**How accessibility enhances ICJIA's mission:**
-
-ICJIA's mission centers on improving the administration of criminal justice in Illinois through research, data, and resources. Equity is fundamental to this work — ensuring that all Illinoisans, regardless of ability, can access criminal justice information, research findings, grant opportunities, and victim services information.
-
-- **Research and data must reach everyone** — When our research reports, data dashboards, and publications aren't accessible, we're excluding people with disabilities from evidence-based information that affects their communities.
-
-- **Grant information must be equitable** — Organizations serving communities with higher disability rates need equal access to funding opportunities and application processes.
-
-- **Victim services information is critical** — People with disabilities experience higher rates of victimization. Ensuring our victim services resources are accessible is directly aligned with our mission to support crime victims.
-
-- **Criminal justice reform requires inclusive voices** — Policy discussions and public comment opportunities must be accessible so that people with disabilities can participate in shaping criminal justice policy.
-
-**Why this strengthens our DEIA commitment:**
-
-1. **Equity becomes measurable** — WCAG 2.1 AA standards provide concrete, testable criteria for digital equity. We can now objectively assess whether our digital content truly serves everyone.
-
-2. **Inclusion becomes actionable** — Rather than hoping our content is inclusive, we have specific guidelines for ensuring people with visual, auditory, motor, and cognitive disabilities can access our information.
-
-3. **Accountability is built in** — Legal requirements mean accessibility isn't dependent on budget cycles, competing priorities, or individual champions. It's a baseline expectation.
-
-4. **Everyone benefits** — Accessible design principles (clear language, logical structure, captions, readable fonts) improve the experience for all users, not just those with disabilities.
-
-**The bottom line:** The 2026 deadline doesn't replace ICJIA's values-driven commitment to accessibility — it reinforces it. We now have the legal framework, technical standards, and organizational accountability to ensure our digital presence truly reflects our DEIA principles and advances our mission of equity in criminal justice.
-
-**References:**
-
-- <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
 
 ---
 
