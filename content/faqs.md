@@ -440,6 +440,171 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered" and enforcement provisions
 
+### I'm a content creator. Where do I start?
+
+**As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Start with these foundational practices that apply to everything you create:
+
+**1. Learn the basics (about 30 minutes):**
+
+- **Alt text for images** — Every image needs descriptive alt text. Learn when to describe what's in the image vs. when to mark it as decorative: <a href="https://webaim.org/techniques/alttext/" target="_blank" rel="noopener noreferrer">WebAIM: Alternative Text</a>
+- **Heading structure** — Use proper heading levels (H1, H2, H3) instead of just making text big and bold. This helps screen reader users navigate: <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank" rel="noopener noreferrer">W3C: Headings</a>
+- **Meaningful link text** — Write links that make sense out of context (not "click here" or "read more"): <a href="https://webaim.org/techniques/hypertext/" target="_blank" rel="noopener noreferrer">WebAIM: Links and Hypertext</a>
+- **Color contrast** — Ensure text has sufficient contrast against backgrounds (4.5:1 for normal text): <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a>
+
+**2. Document-specific resources:**
+
+- **Word documents** — <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Word Documents</a>
+- **PDFs** — <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a>
+- **PowerPoint** — <a href="https://www.section508.gov/create/presentations/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Presentations</a>
+- **Excel** — <a href="https://www.section508.gov/create/documents/excel/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Excel Documents</a>
+
+**3. Video and multimedia:**
+
+- **Captions** — All videos need captions: <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Captions</a>
+- **Transcripts** — Audio content needs transcripts: <a href="https://www.w3.org/WAI/media/av/transcripts/" target="_blank" rel="noopener noreferrer">W3C: Transcripts</a>
+
+**4. Quick reference tools:**
+
+- <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple checklist for content creators
+- <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed WCAG checklist
+
+**5. Training opportunities:**
+
+- **Illinois DoIT Training** — <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Request free accessibility training</a> (email: DoIT.Accessibility@Illinois.gov)
+- **W3C Course** — <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">Free Introduction to Web Accessibility course</a>
+
+**The key mindset shift:** Think about how someone using a screen reader or keyboard navigation would experience your content. If they can't see images, colors, or mouse interactions, can they still understand and use your content? If not, you need to provide alternatives.
+
+### I'm a web developer. Where do I start?
+
+**As a developer, you're building the foundation that makes everything else possible.** Start with these technical practices and tools:
+
+**1. Learn WCAG 2.1 Level AA (the technical standards):**
+
+- **WCAG Quick Reference** — <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Quick Reference</a> — Filter by Level AA to see all requirements
+- **WebAIM's WCAG Checklist** — <a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener noreferrer">Developer-friendly checklist format</a>
+- **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla Developer Network: Accessibility</a> — Technical implementation guides
+
+**2. Essential development practices:**
+
+- **Semantic HTML** — Use proper HTML elements (`<nav>`, `<main>`, `<article>`, `<button>` vs `<div>`): <a href="https://www.w3.org/WAI/tutorials/page-structure/" target="_blank" rel="noopener noreferrer">W3C: Page Structure</a>
+- **Keyboard navigation** — Ensure all interactive elements are keyboard accessible: <a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener noreferrer">WebAIM: Keyboard Accessibility</a>
+- **ARIA when needed** — Use ARIA attributes correctly (but prefer semantic HTML first): <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA Authoring Practices Guide</a>
+- **Focus management** — Visible focus indicators and logical tab order: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank" rel="noopener noreferrer">WCAG: Focus Visible</a>
+- **Form accessibility** — Proper labels, error messages, and validation: <a href="https://webaim.org/techniques/forms/" target="_blank" rel="noopener noreferrer">WebAIM: Forms</a>
+
+**3. Testing tools (integrate into your workflow):**
+
+- **axe DevTools** — <a href="https://www.deque.com/axe/devtools/" target="_blank" rel="noopener noreferrer">Browser extension and automated testing</a>
+- **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Web accessibility evaluation tool</a>
+- **Lighthouse** — <a href="https://developer.chrome.com/docs/lighthouse/accessibility/" target="_blank" rel="noopener noreferrer">Built into Chrome DevTools</a>
+- **Screen reader testing** — Test with NVDA (Windows) or VoiceOver (Mac): <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA</a>
+
+**4. Framework-specific resources:**
+
+- **React** — <a href="https://react.dev/learn/accessibility" target="_blank" rel="noopener noreferrer">React Accessibility Documentation</a>
+- **Vue** — <a href="https://vuejs.org/guide/best-practices/accessibility.html" target="_blank" rel="noopener noreferrer">Vue.js Accessibility Guide</a>
+- **Angular** — <a href="https://angular.io/guide/accessibility" target="_blank" rel="noopener noreferrer">Angular Accessibility Guide</a>
+
+**5. Automated testing integration:**
+
+- **axe-core** — <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">Open-source accessibility testing engine</a> (works with Jest, Cypress, Playwright, etc.)
+- **eslint-plugin-jsx-a11y** — <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">ESLint plugin for accessibility</a>
+
+**6. Training and deeper learning:**
+
+- **W3C Course** — <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">Free Introduction to Web Accessibility</a>
+- **Google's Accessibility Course** — <a href="https://web.dev/learn/accessibility/" target="_blank" rel="noopener noreferrer">web.dev: Learn Accessibility</a>
+- **Illinois DoIT Training** — <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Request web development accessibility training</a>
+
+**7. Code review checklist:**
+
+- Semantic HTML structure
+- Keyboard navigation works throughout
+- Focus indicators are visible
+- Color contrast meets 4.5:1 (normal text) or 3:1 (large text)
+- Images have alt text (or are marked decorative)
+- Forms have proper labels and error messages
+- ARIA is used correctly (or semantic HTML is preferred)
+- Automated tests pass (axe-core, WAVE, Lighthouse)
+
+**The key mindset:** Build accessibility in from the start, not as an afterthought. It's much easier and cheaper than retrofitting later. Test with keyboard navigation and screen readers regularly, not just at the end.
+
+### I'm a manager. Where do I start?
+
+**As a manager, your role is to create the organizational conditions for accessibility success.** You don't need to become a technical expert, but you do need to understand the requirements, allocate resources, and support your team. Start here:
+
+**1. Understand the legal requirements and timeline:**
+
+- **The deadline is firm** — April 24, 2026 for WCAG 2.1 Level AA compliance
+- **It applies to everything** — Websites, documents, videos, social media, mobile apps
+- **It's not optional** — This is a legal requirement under ADA Title II and IITAA
+- **Read the basics** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary of requirements
+
+**2. Assess your current state:**
+
+- **Audit existing content** — Identify all public-facing digital content (websites, documents, videos, social media)
+- **Prioritize by impact** — Focus on high-traffic pages, frequently accessed documents, and critical services first
+- **Identify gaps** — Use automated tools and manual testing to find accessibility issues
+- **Estimate remediation effort** — Understand the scope of work needed
+
+**3. Build accessibility into your processes:**
+
+- **Include accessibility in project timelines** — Don't treat it as an add-on; build it into initial project plans
+- **Require accessibility in procurement** — Include WCAG 2.1 AA requirements in RFPs and vendor contracts
+- **Establish content review processes** — Ensure documents and content are checked for accessibility before publication
+- **Create accessibility checkpoints** — Build accessibility reviews into your content approval workflows
+
+**4. Allocate resources strategically:**
+
+- **Training budget** — Invest in accessibility training for content creators, developers, and designers
+- **Tools and software** — Provide accessibility testing tools (WAVE, axe DevTools, PDF accessibility checkers)
+- **Time allocation** — Recognize that creating accessible content may take slightly longer initially
+- **Expert support** — Consider accessibility consultants or specialists for complex projects
+
+**5. Support your team:**
+
+- **Make it a priority** — Communicate that accessibility is important and expected
+- **Remove barriers** — Ensure staff have access to training, tools, and time needed
+- **Celebrate progress** — Recognize teams and individuals who successfully implement accessibility
+- **Learn alongside your team** — Attend training sessions to understand what your team is learning
+
+**6. Establish accountability:**
+
+- **Assign responsibilities** — Clearly define who is responsible for accessibility in each area
+- **Set expectations** — Make accessibility part of job descriptions and performance expectations
+- **Track progress** — Monitor compliance status and remediation efforts
+- **Regular check-ins** — Include accessibility in regular team meetings and project reviews
+
+**7. Connect with resources:**
+
+- **Illinois DoIT** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Contact DoIT.Accessibility@Illinois.gov</a> for training, guidance, and support
+- **Accessibility coordinators** — Identify or designate an accessibility coordinator in your organization
+- **Peer networks** — Connect with other managers facing similar challenges
+- **Legal/compliance team** — Work with your legal or compliance office to understand requirements
+
+**8. Plan for the long term:**
+
+- **Sustainability** — Build accessibility into ongoing operations, not just a one-time project
+- **Continuous improvement** — Accessibility is an ongoing commitment, not a one-time fix
+- **Stay informed** — Keep up with accessibility standards and best practices
+- **Documentation** — Maintain records of accessibility efforts and compliance status
+
+**Key management principles:**
+
+- **Start early** — The earlier you begin, the easier and cheaper it is
+- **It's everyone's responsibility** — Not just IT; content creators, designers, and project managers all play roles
+- **Prevention is cheaper than remediation** — Building accessibility in from the start costs 3-10 times less than fixing later
+- **Accessibility benefits everyone** — Accessible design improves usability for all users, not just those with disabilities
+
+**The bottom line:** As a manager, you don't need to become a technical expert, but you do need to create the organizational support, resources, and accountability that enable your team to succeed. The April 2026 deadline is firm, but with proper planning and support, your organization can achieve compliance.
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning and Managing Web Accessibility</a> — Strategic guidance for organizations
+- <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
+- <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
+
 ---
 
 ## Illinois-Specific Requirements (IITAA)

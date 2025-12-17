@@ -1,3 +1,8 @@
+<!--
+  @fileoverview Default layout component
+  @description Provides the default page layout with skip link, navbar, main content area, and footer
+  Includes accessibility features like reduced motion support and focus indicators
+-->
 <template>
   <div class="app-wrapper">
     <SkipLink />

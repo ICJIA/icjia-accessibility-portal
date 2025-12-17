@@ -45,8 +45,22 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview FAQ Accordion component with ARIA support
+ * @description Displays FAQ items in an accordion format with proper ARIA relationships,
+ * URL hash support for deep linking, and collapse functionality
+ */
+
 import { ref, watch, onMounted, nextTick } from "vue";
 
+/** @typedef {any} MiniMarkNode */
+
+/**
+ * FAQ item interface
+ * @typedef {Object} FaqItem
+ * @property {string} question - FAQ question text
+ * @property {MiniMarkNode[]} answer - FAQ answer content as markdown nodes
+ */
 type MiniMarkNode = any;
 
 interface FaqItem {
@@ -54,22 +68,37 @@ interface FaqItem {
   answer: MiniMarkNode[];
 }
 
+/**
+ * Component props
+ * @typedef {Object} FaqAccordionProps
+ * @property {FaqItem[]} items - Array of FAQ items to display
+ * @property {string} [sectionId] - Optional section ID prefix for question IDs
+ */
 const props = defineProps<{
   items: FaqItem[];
   sectionId?: string;
 }>();
 
-// Only one panel can be open at a time
+/**
+ * Currently expanded panel index (only one panel can be open at a time)
+ * @type {import('vue').Ref<number | undefined>}
+ */
 const expandedPanels = ref<number | undefined>(undefined);
 
-// Watch for collapse signal from navbar logo click
+/**
+ * Watch for collapse signal from navbar logo click
+ */
 const { collapseSignal } = useFaqCollapse();
 watch(collapseSignal, () => {
   // Collapse all panels when signal changes
   expandedPanels.value = undefined;
 });
 
-// Generate a URL-friendly slug from question text
+/**
+ * Generates a URL-friendly slug from question text
+ * @param {string} text - Text to convert to slug
+ * @returns {string} URL-friendly slug
+ */
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -80,19 +109,31 @@ function slugify(text: string): string {
     .replace(/-$/, ""); // Remove trailing hyphen
 }
 
-// Get the full ID for a question (with optional section prefix)
+/**
+ * Gets the full ID for a question (with optional section prefix)
+ * @param {string} question - Question text
+ * @returns {string} Full question ID
+ */
 function getQuestionId(question: string): string {
   const slug = slugify(question);
   return props.sectionId ? `${props.sectionId}-${slug}` : slug;
 }
 
-// Find panel index by hash
+/**
+ * Finds panel index by URL hash
+ * @param {string} hash - URL hash (e.g., "#question-slug")
+ * @returns {number} Panel index or -1 if not found
+ */
 function findPanelByHash(hash: string): number {
   const id = hash.replace("#", "");
   return props.items.findIndex((item) => getQuestionId(item.question) === id);
 }
 
-// Scroll element to top of viewport (below navbar)
+/**
+ * Scrolls element to top of viewport (below navbar)
+ * @param {string} elementId - Element ID to scroll to
+ * @returns {void}
+ */
 function scrollToElement(elementId: string) {
   const element = document.getElementById(elementId);
   if (element) {
@@ -117,7 +158,9 @@ watch(expandedPanels, async (newValue, oldValue) => {
     newValue >= 0 &&
     newValue < props.items.length
   ) {
-    const id = getQuestionId(props.items[newValue].question);
+    const item = props.items[newValue];
+    if (!item) return;
+    const id = getQuestionId(item.question);
     // Update URL without triggering navigation
     window.history.replaceState(null, "", `#${id}`);
 

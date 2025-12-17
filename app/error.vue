@@ -66,6 +66,19 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Error page component
+ * @description Displays error pages (404, 500, etc.) with helpful navigation options
+ */
+
+/**
+ * Component props
+ * @typedef {Object} ErrorPageProps
+ * @property {Object} error - Error object
+ * @property {number} [error.statusCode] - HTTP status code
+ * @property {string} [error.statusMessage] - HTTP status message
+ * @property {string} [error.message] - Error message
+ */
 const props = defineProps<{
   error: {
     statusCode?: number;

@@ -1,10 +1,22 @@
+/**
+ * @fileoverview Accessibility audit script using axe-core
+ * @description Runs automated WCAG 2.1 AA compliance tests on all pages using axe-core via Playwright
+ * @author ICJIA Development Team
+ * @requires playwright
+ * @requires @axe-core/playwright
+ */
+
 import { chromium } from "playwright";
 import { AxeBuilder } from "@axe-core/playwright";
 import { spawn } from "child_process";
 
+/** @type {string[]} Pages to audit for accessibility compliance */
 const PAGES = ["/", "/links", "/faqs"];
 
+/** @type {import('child_process').ChildProcess | null} Reference to the development server process */
 let devServer = null;
+
+/** @type {string} Base URL for the development server */
 let baseUrl = "http://localhost:3000";
 
 // Print tool information
@@ -17,7 +29,11 @@ console.log("Testing pages:", PAGES.join(", "));
 console.log("=".repeat(80));
 console.log("");
 
-// Start dev server
+/**
+ * Starts the development server and waits for it to be ready
+ * @returns {Promise<void>} Resolves when the server is ready
+ * @throws {Error} If the server fails to start within 60 seconds
+ */
 function startDevServer() {
   return new Promise((resolve, reject) => {
     console.log("📦 Starting development server...");
@@ -67,7 +83,10 @@ function startDevServer() {
   });
 }
 
-// Stop dev server
+/**
+ * Stops the development server if it's running
+ * @returns {void}
+ */
 function stopDevServer() {
   if (devServer) {
     devServer.kill();
@@ -75,7 +94,12 @@ function stopDevServer() {
   }
 }
 
-// Run accessibility audit on a page
+/**
+ * Runs an accessibility audit on a single page using axe-core
+ * @param {import('playwright').Page} page - Playwright page object
+ * @param {string} url - URL path to audit (e.g., "/", "/links", "/faqs")
+ * @returns {Promise<{violations: Array, error?: string}>} Audit results with violations array
+ */
 async function auditPage(page, url) {
   console.log(`\n🔍 Auditing: ${url}`);
   console.log(`   Using axe-core to test WCAG 2.1 AA compliance...`);
@@ -97,7 +121,11 @@ async function auditPage(page, url) {
   }
 }
 
-// Main audit function
+/**
+ * Main audit function that tests all pages and reports results
+ * @returns {Promise<void>}
+ * @throws {Error} If the audit process fails
+ */
 async function runAudit() {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();

@@ -18,10 +18,11 @@
       <div
         class="countdown-display"
         :class="{ compact: compact }"
+        role="status"
         aria-live="polite"
-        aria-atomic="true"
-        :aria-label="countdownAriaLabel"
+        aria-atomic="false"
       >
+        <span class="sr-only">{{ countdownAriaLabel }}</span>
         <div v-if="!countdownInitialized" class="countdown-loader">
           <v-progress-circular
             indeterminate
@@ -71,14 +72,30 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Countdown timer component for WCAG 2.1 AA compliance deadline
+ * @description Displays a countdown timer to the ADA Title II compliance deadline
+ * with ARIA live region support for screen readers
+ */
+
 import { ref, computed, onMounted, onUnmounted } from "vue";
 
+/**
+ * Component props
+ * @typedef {Object} CountdownTimerProps
+ * @property {boolean} [compact] - Whether to display in compact mode
+ */
 defineProps<{
   compact?: boolean;
 }>();
 
+/** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
 
+/**
+ * @type {import('vue').Ref<{days: number, hours: number, minutes: number, seconds: number}>}
+ * Countdown timer state
+ */
 const countdown = ref({
   days: 0,
   hours: 0,
@@ -86,9 +103,13 @@ const countdown = ref({
   seconds: 0,
 });
 
+/** @type {import('vue').Ref<boolean>} Whether countdown has been initialized */
 const countdownInitialized = ref(false);
 
-// Computed aria-label for screen readers
+/**
+ * Computed aria-label for screen readers
+ * @type {import('vue').ComputedRef<string>}
+ */
 const countdownAriaLabel = computed(() => {
   if (!countdownInitialized.value) {
     return "Countdown timer loading";
@@ -96,6 +117,10 @@ const countdownAriaLabel = computed(() => {
   return `Countdown: ${countdown.value.days} days, ${countdown.value.hours} hours, ${countdown.value.minutes} minutes, ${countdown.value.seconds} seconds remaining until WCAG 2.1 AA compliance deadline`;
 });
 
+/**
+ * Updates the countdown timer values based on the time remaining until target date
+ * @returns {void}
+ */
 const updateCountdown = () => {
   const now = new Date().getTime();
   const distance = targetDate - now;
@@ -116,13 +141,20 @@ const updateCountdown = () => {
   }
 };
 
+/** @type {ReturnType<typeof setInterval> | null} Interval reference for countdown updates */
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
+/**
+ * Initialize countdown when component is mounted
+ */
 onMounted(() => {
   updateCountdown();
   countdownInterval = setInterval(updateCountdown, 1000);
 });
 
+/**
+ * Cleanup function to clear the countdown interval when component is unmounted
+ */
 onUnmounted(() => {
   if (countdownInterval) {
     clearInterval(countdownInterval);
@@ -311,6 +343,19 @@ onUnmounted(() => {
   opacity: 0.8;
   padding: 0 0.25rem;
   color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Screen reader only text - visually hidden but available to assistive technologies */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .compact .countdown-separator {

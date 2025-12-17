@@ -10,6 +10,18 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Skip link component for keyboard navigation
+ * @description Provides a skip link that allows keyboard users to jump directly
+ * to the main content area, meeting WCAG 2.1 AA requirements for keyboard navigation
+ */
+
+/**
+ * Handles skip link click/keydown events
+ * Scrolls to main content and focuses it, respecting reduced motion preferences
+ * @param {Event} e - Click or keydown event
+ * @returns {void}
+ */
 const handleClick = (e: Event) => {
   e.preventDefault();
   const target = document.getElementById("main-content");

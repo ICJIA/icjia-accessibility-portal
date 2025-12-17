@@ -12,6 +12,12 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Footer component displaying copyright information
+ * @description Simple footer component showing copyright with current year
+ */
+
+/** @type {number} Current year for copyright display */
 const currentYear = new Date().getFullYear();
 </script>
 

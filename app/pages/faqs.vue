@@ -50,24 +50,45 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview FAQs page component
+ * @description Displays frequently asked questions in an accordion format with sections
+ */
+
 import { computed } from "vue";
 import { transformFaqsToAccordionData } from "../utils/faqTransform";
 
+/** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs", () => {
   return queryCollection("faqs").first();
 });
 
+/** @typedef {any} MiniMarkNode */
 type MiniMarkNode = any;
 
+/**
+ * Type guard to check if a node is an element node
+ * @param {MiniMarkNode} node - Node to check
+ * @returns {node is any[]} True if node is an element node
+ */
 function isElementNode(node: MiniMarkNode): node is any[] {
   return Array.isArray(node) && typeof node[0] === "string";
 }
 
+/**
+ * Gets the tag name from an element node
+ * @param {any[]} node - Element node
+ * @returns {string} Tag name
+ */
 function tagName(node: any[]): string {
   return node[0];
 }
 
-// Extract text from a node
+/**
+ * Extracts text content from a markdown node
+ * @param {any} node - Markdown node to extract text from
+ * @returns {string} Extracted text content
+ */
 function extractText(node: any): string {
   if (typeof node === "string") return node;
   if (Array.isArray(node) && node.length > 2) {
@@ -76,7 +97,11 @@ function extractText(node: any): string {
   return "";
 }
 
-// Generate a URL-friendly slug from text
+/**
+ * Generates a URL-friendly slug from text
+ * @param {string} text - Text to convert to slug
+ * @returns {string} URL-friendly slug
+ */
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -87,7 +112,10 @@ function slugify(text: string): string {
     .replace(/-$/, "");
 }
 
-// Process markdown to create sections with headings
+/**
+ * Processed FAQ sections with headings and items
+ * @type {import('vue').ComputedRef<Array<{heading: string | null, items: Array<{question: string, answer: MiniMarkNode[]}>}>>}
+ */
 const faqSections = computed(() => {
   if (!page.value) return [];
   const body = page.value.body;

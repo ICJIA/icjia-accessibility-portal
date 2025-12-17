@@ -35,13 +35,23 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Links page component
+ * @description Displays accessibility resources and links from markdown content
+ */
+
 import { computed } from "vue";
 import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
 
+/** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} Links page content */
 const { data: page } = await useAsyncData("links", () => {
   return queryCollection("links").first();
 });
 
+/**
+ * Rendered page content with transformed markdown
+ * @type {import('vue').ComputedRef<import('@nuxt/content').ParsedContent | null>}
+ */
 const renderedPage = computed(() => {
   if (!page.value) return null;
   const body = page.value.body;

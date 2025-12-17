@@ -10,7 +10,13 @@
               Countdown to WCAG 2.1 AA Compliance
             </p>
             <ClientOnly>
-              <div class="countdown-display">
+              <div
+                class="countdown-display"
+                role="status"
+                aria-live="polite"
+                aria-atomic="false"
+              >
+                <span class="sr-only">{{ countdownAriaLabel }}</span>
                 <div class="countdown-item">
                   <div class="countdown-value">{{ formattedDays }}</div>
                   <div class="countdown-label">Days</div>
@@ -115,15 +121,28 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Home page component with countdown timer and FAQ sections
+ * @description Displays the ICJIA Accessibility Portal homepage with a countdown timer
+ * to the WCAG 2.1 AA compliance deadline and FAQ sections
+ */
+
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import { transformFaqsToAccordionData } from "../utils/faqTransform";
 
+/** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
 
-// Site dates - update lastUpdated when content is added or edited
+/** @type {string} Site creation date */
 const siteCreated = "December 2025";
-const lastUpdated = "December 16, 2025";
 
+/** @type {string} Last update date - update when content is added or edited */
+const lastUpdated = "December 17, 2025";
+
+/**
+ * @type {import('vue').Ref<{days: number, hours: number, minutes: number, seconds: number}>}
+ * Countdown timer state
+ */
 const countdown = ref({
   days: 0,
   hours: 0,
@@ -131,20 +150,50 @@ const countdown = ref({
   seconds: 0,
 });
 
-// Format countdown values with zero-padding
+/**
+ * Formatted countdown days with zero-padding
+ * @type {import('vue').ComputedRef<string>}
+ */
 const formattedDays = computed(() =>
   String(countdown.value.days).padStart(2, "0")
 );
+
+/**
+ * Formatted countdown hours with zero-padding
+ * @type {import('vue').ComputedRef<string>}
+ */
 const formattedHours = computed(() =>
   String(countdown.value.hours).padStart(2, "0")
 );
+
+/**
+ * Formatted countdown minutes with zero-padding
+ * @type {import('vue').ComputedRef<string>}
+ */
 const formattedMinutes = computed(() =>
   String(countdown.value.minutes).padStart(2, "0")
 );
+
+/**
+ * Formatted countdown seconds with zero-padding
+ * @type {import('vue').ComputedRef<string>}
+ */
 const formattedSeconds = computed(() =>
   String(countdown.value.seconds).padStart(2, "0")
 );
 
+/**
+ * Computed aria-label for screen readers
+ * @type {import('vue').ComputedRef<string>}
+ */
+const countdownAriaLabel = computed(() => {
+  return `Countdown: ${countdown.value.days} days, ${countdown.value.hours} hours, ${countdown.value.minutes} minutes, ${countdown.value.seconds} seconds remaining until WCAG 2.1 AA compliance deadline`;
+});
+
+/**
+ * Updates the countdown timer values based on the time remaining until target date
+ * @returns {void}
+ */
 const updateCountdown = () => {
   const now = new Date().getTime();
   const distance = targetDate - now;
@@ -161,9 +210,13 @@ const updateCountdown = () => {
   }
 };
 
+/** @type {ReturnType<typeof setInterval> | null} Interval reference for countdown updates */
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
-// Initialize countdown only on client-side to avoid hydration mismatches
+/**
+ * Initialize countdown only on client-side to avoid hydration mismatches
+ * Sets up the countdown timer and starts the update interval
+ */
 onMounted(() => {
   // Initialize countdown immediately on client
   updateCountdown();
@@ -171,6 +224,9 @@ onMounted(() => {
   countdownInterval = setInterval(updateCountdown, 1000);
 });
 
+/**
+ * Cleanup function to clear the countdown interval when component is unmounted
+ */
 onUnmounted(() => {
   if (countdownInterval) {
     clearInterval(countdownInterval);
@@ -183,17 +239,32 @@ const { data: faqsPage } = await useAsyncData("faqs", () => {
   return (queryCollection as any)("faqs", undefined).first();
 });
 
+/** @typedef {any} MiniMarkNode */
 type MiniMarkNode = any;
 
+/**
+ * Type guard to check if a node is an element node
+ * @param {MiniMarkNode} node - Node to check
+ * @returns {node is any[]} True if node is an element node
+ */
 function isElementNode(node: MiniMarkNode): node is any[] {
   return Array.isArray(node) && typeof node[0] === "string";
 }
 
+/**
+ * Gets the tag name from an element node
+ * @param {any[]} node - Element node
+ * @returns {string} Tag name
+ */
 function tagName(node: any[]): string {
   return node[0];
 }
 
-// Extract text from a node
+/**
+ * Extracts text content from a markdown node
+ * @param {any} node - Markdown node to extract text from
+ * @returns {string} Extracted text content
+ */
 function extractText(node: any): string {
   if (typeof node === "string") return node;
   if (Array.isArray(node) && node.length > 2) {
@@ -202,7 +273,11 @@ function extractText(node: any): string {
   return "";
 }
 
-// Generate a URL-friendly slug from text
+/**
+ * Generates a URL-friendly slug from text
+ * @param {string} text - Text to convert to slug
+ * @returns {string} URL-friendly slug
+ */
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -213,7 +288,10 @@ function slugify(text: string): string {
     .replace(/-$/, "");
 }
 
-// Process markdown to separate intro, sections, and FAQs
+/**
+ * Processed FAQ items from markdown content
+ * @type {import('vue').ComputedRef<Array<{question: string, answer: MiniMarkNode[]}>>}
+ */
 const faqItems = computed(() => {
   if (!faqsPage.value) return [];
   const body = (faqsPage.value as any).body;
@@ -223,7 +301,10 @@ const faqItems = computed(() => {
   return transformFaqsToAccordionData(body.value);
 });
 
-// Process markdown to create sections with headings
+/**
+ * Processed FAQ sections with headings and items
+ * @type {import('vue').ComputedRef<Array<{heading: string | null, items: Array<{question: string, answer: MiniMarkNode[]}>}>>}
+ */
 const faqSections = computed(() => {
   if (!faqsPage.value) return [];
   const body = (faqsPage.value as any).body;
@@ -297,7 +378,10 @@ const faqSections = computed(() => {
   return sections;
 });
 
-// Extract intro content (content before first H2)
+/**
+ * Intro content from markdown (content before first H2 heading)
+ * @type {import('vue').ComputedRef<any | null>}
+ */
 const introContent = computed(() => {
   if (!faqsPage.value) return null;
   const body = (faqsPage.value as any).body;
@@ -379,7 +463,6 @@ useSeoMeta({
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  font-style: italic;
 }
 
 .date-item {
@@ -444,6 +527,19 @@ useSeoMeta({
   line-height: 1;
   display: flex;
   align-items: center;
+}
+
+/* Screen reader only text - visually hidden but available to assistive technologies */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 @media (max-width: 960px) {

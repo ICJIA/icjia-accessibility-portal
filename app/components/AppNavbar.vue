@@ -92,14 +92,31 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @fileoverview Navigation bar component with logo and navigation links
+ * @description AppNavbar provides the main navigation with logo, navigation items,
+ * and mobile menu support. Includes aria-current support for active page indication.
+ */
+
 import { ref } from "vue";
 import { useDisplay } from "vuetify";
 
+/** @type {import('vuetify').DisplayInstance} Vuetify display instance for responsive behavior */
 const { mobile } = useDisplay();
+
+/** @type {import('vue-router').RouteLocationNormalized} Current route object */
 const route = useRoute();
+
+/** @type {import('../composables/useFaqCollapse').UseFaqCollapseReturn} FAQ collapse composable */
 const { collapseAll } = useFaqCollapse();
+
+/** @type {import('vue').Ref<boolean>} Mobile menu open state */
 const menuOpen = ref(false);
 
+/**
+ * Navigation items configuration
+ * @type {Array<{title: string, to: string, icon: string}>}
+ */
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
   { title: "Links", to: "/links", icon: "mdi-link" },
@@ -107,8 +124,10 @@ const navItems = [
 ];
 
 /**
- * Handle logo click: if on home page, collapse all FAQs and scroll to top.
+ * Handles logo click: if on home page, collapse all FAQs and scroll to top.
  * Otherwise, navigate to home page normally.
+ * @param {MouseEvent} event - Click event
+ * @returns {void}
  */
 function handleLogoClick(event: MouseEvent) {
   const isHomePage = route.path === "/";
