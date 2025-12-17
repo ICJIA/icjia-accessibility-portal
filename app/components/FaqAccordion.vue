@@ -226,6 +226,7 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-left: 25px; /* Offset from section headings */
 }
 
 .faq-panel {
@@ -376,11 +377,13 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 @media (max-width: 767px) {
   .faq-accordion {
     gap: 20px;
+    margin-left: 16px; /* Reduced indentation on mobile for better space usage */
   }
 
   .faq-question {
     padding: 16px !important;
     font-size: 16px;
+    line-height: 1.5; /* Slightly tighter line height for better readability on small screens */
   }
 
   .faq-answer-content {
@@ -391,6 +394,22 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   .faq-chevron {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+@media (max-width: 400px) {
+  .faq-accordion {
+    margin-left: 12px; /* Further reduced on very small screens */
+  }
+
+  .faq-question {
+    font-size: 15px; /* Slightly smaller on very small screens but still readable */
+    padding: 14px !important;
+  }
+
+  .faq-answer-content {
+    padding: 0 14px 14px 14px;
+    font-size: 14px;
   }
 }
 
