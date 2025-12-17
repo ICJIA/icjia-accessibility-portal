@@ -20,7 +20,7 @@ All accessibility information is organized in one place to facilitate easy acces
 
 ## Features
 
-- **WCAG 2.1 AA Compliant** - Verified with automated accessibility audits (all pages pass)
+- **WCAG 2.1 AA Compliant** - Verified with automated accessibility audits using **axe-core** (all pages pass)
 - **Accessibility Enhancements**:
   - Skip navigation link for keyboard users
   - ARIA live regions for dynamic content (countdown timer)
@@ -31,7 +31,7 @@ All accessibility information is organized in one place to facilitate easy acces
 - **Responsive Design** - Mobile-first approach with proper breakpoints
 - **Dark Mode** - Dark theme by default with light/dark toggle support
 - **Static Site Generation** - Optimized for Netlify deployment
-- **Automated Testing** - Accessibility audits with axe-core (WCAG 2.1 AA)
+- **Automated Testing** - Accessibility audits using **axe-core** (WCAG 2.1 AA compliance)
 - **Content Management** - Markdown-based content via Nuxt Content
 - **Performance** - Optimized static generation with proper caching headers
 
@@ -50,7 +50,7 @@ yarn generate
 # Preview generated site
 yarn preview
 
-# Run accessibility audit (WCAG 2.1 AA compliance check)
+# Run accessibility audit using axe-core (WCAG 2.1 AA compliance check)
 yarn audit:a11y
 ```
 
@@ -113,7 +113,7 @@ To deploy:
 
 ## Accessibility
 
-This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages have been verified with automated accessibility audits using axe-core.
+This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages have been verified with automated accessibility audits using **axe-core** (via @axe-core/playwright).
 
 ### Accessibility Features
 
@@ -131,13 +131,20 @@ This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages ha
 
 ### Accessibility Testing
 
-Run the automated accessibility audit:
+Run the automated accessibility audit using **axe-core**:
 
 ```bash
-npm run audit:a11y
+yarn audit:a11y
 ```
 
-This will test all pages for WCAG 2.1 AA compliance. All pages currently pass with no violations.
+This will test all pages for WCAG 2.1 AA compliance using **axe-core** (via @axe-core/playwright). The audit tool will:
+
+- Start a development server
+- Test all pages (/, /links, /faqs) for WCAG 2.1 AA compliance
+- Report any accessibility violations found
+- Exit with error code if violations are detected
+
+All pages currently pass with no violations.
 
 ## Status
 

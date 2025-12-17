@@ -7,10 +7,20 @@ const PAGES = ["/", "/links", "/faqs"];
 let devServer = null;
 let baseUrl = "http://localhost:3000";
 
+// Print tool information
+console.log("=".repeat(80));
+console.log("ACCESSIBILITY AUDIT TOOL");
+console.log("=".repeat(80));
+console.log("Tool: axe-core (via @axe-core/playwright)");
+console.log("Standard: WCAG 2.1 AA compliance");
+console.log("Testing pages:", PAGES.join(", "));
+console.log("=".repeat(80));
+console.log("");
+
 // Start dev server
 function startDevServer() {
   return new Promise((resolve, reject) => {
-    console.log("Starting dev server...");
+    console.log("📦 Starting development server...");
     devServer = spawn("npm", ["run", "dev"], {
       cwd: process.cwd(),
       stdio: "pipe",
@@ -68,19 +78,21 @@ function stopDevServer() {
 // Run accessibility audit on a page
 async function auditPage(page, url) {
   console.log(`\n🔍 Auditing: ${url}`);
+  console.log(`   Using axe-core to test WCAG 2.1 AA compliance...`);
 
   try {
     await page.goto(`${baseUrl}${url}`, { waitUntil: "networkidle" });
     await page.waitForTimeout(2000); // Wait for any dynamic content
 
-    // Run axe audit with WCAG 2.1 AA rules
+    // Run axe-core audit with WCAG 2.1 AA rules
+    console.log(`   Running axe-core analysis...`);
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
 
     return { violations: results.violations };
   } catch (error) {
-    console.error(`Error auditing ${url}:`, error.message);
+    console.error(`   ❌ Error auditing ${url}:`, error.message);
     return { violations: [], error: error.message };
   }
 }
@@ -112,6 +124,8 @@ async function runAudit() {
     // Print summary
     console.log("\n" + "=".repeat(80));
     console.log("ACCESSIBILITY AUDIT SUMMARY");
+    console.log("=".repeat(80));
+    console.log("Tool: axe-core (WCAG 2.1 AA compliance testing)");
     console.log("=".repeat(80));
 
     if (allViolations.length === 0) {
