@@ -16,7 +16,8 @@ export default defineNuxtConfig({
   ],
 
   plausible: {
-    domain: 'accessibility.icjia.app'
+    domain: 'accessibility.icjia.app',
+    apiHost: 'https://analytics.icjia.cloud'
   },
 
   content: {
