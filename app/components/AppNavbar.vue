@@ -154,7 +154,8 @@ function handleLogoClick(event: MouseEvent) {
 
 .nav-btn {
   min-width: auto;
-  padding: 0 8px;
+  padding: 0 12px;
+  margin: 0 4px;
 }
 
 @media (max-width: 960px) {

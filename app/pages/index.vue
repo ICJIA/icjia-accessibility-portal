@@ -9,27 +9,42 @@
             <p class="text-h6 mb-6 text-medium-emphasis">
               Countdown to WCAG 2.1 AA Compliance
             </p>
-            <div class="countdown-display">
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.days }}</div>
-                <div class="countdown-label">Days</div>
+            <ClientOnly>
+              <div class="countdown-display">
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.days }}</div>
+                  <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.hours }}</div>
+                  <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.minutes }}</div>
+                  <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                  <div class="countdown-value">{{ countdown.seconds }}</div>
+                  <div class="countdown-label">Seconds</div>
+                </div>
               </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.hours }}</div>
-                <div class="countdown-label">Hours</div>
-              </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.minutes }}</div>
-                <div class="countdown-label">Minutes</div>
-              </div>
-              <div class="countdown-separator">:</div>
-              <div class="countdown-item">
-                <div class="countdown-value">{{ countdown.seconds }}</div>
-                <div class="countdown-label">Seconds</div>
-              </div>
-            </div>
+              <template #fallback>
+                <div class="countdown-display">
+                  <div class="countdown-loader">
+                    <v-progress-circular
+                      indeterminate
+                      color="primary"
+                      size="48"
+                      width="4"
+                      aria-label="Loading countdown timer"
+                    />
+                  </div>
+                </div>
+              </template>
+            </ClientOnly>
             <p class="text-body-2 mt-4">
               <NuxtLink
                 href="https://www.ada.gov/resources/2024-03-08-web-rule/"
@@ -132,14 +147,13 @@ const updateCountdown = () => {
   }
 };
 
-// Initialize countdown immediately for SSR hydration consistency
-updateCountdown();
-
 let countdownInterval: ReturnType<typeof setInterval> | null = null;
 
+// Initialize countdown only on client-side to avoid hydration mismatches
 onMounted(() => {
-  // Update countdown and start interval
+  // Initialize countdown immediately on client
   updateCountdown();
+  // Start interval to update every second
   countdownInterval = setInterval(updateCountdown, 1000);
 });
 
