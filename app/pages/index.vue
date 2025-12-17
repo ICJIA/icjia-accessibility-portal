@@ -12,22 +12,22 @@
             <ClientOnly>
               <div class="countdown-display">
                 <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.days }}</div>
+                  <div class="countdown-value">{{ formattedDays }}</div>
                   <div class="countdown-label">Days</div>
                 </div>
-                <div class="countdown-separator">:</div>
+                <div class="countdown-separator" aria-hidden="true">:</div>
                 <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.hours }}</div>
+                  <div class="countdown-value">{{ formattedHours }}</div>
                   <div class="countdown-label">Hours</div>
                 </div>
-                <div class="countdown-separator">:</div>
+                <div class="countdown-separator" aria-hidden="true">:</div>
                 <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.minutes }}</div>
+                  <div class="countdown-value">{{ formattedMinutes }}</div>
                   <div class="countdown-label">Minutes</div>
                 </div>
-                <div class="countdown-separator">:</div>
+                <div class="countdown-separator" aria-hidden="true">:</div>
                 <div class="countdown-item">
-                  <div class="countdown-value">{{ countdown.seconds }}</div>
+                  <div class="countdown-value">{{ formattedSeconds }}</div>
                   <div class="countdown-label">Seconds</div>
                 </div>
               </div>
@@ -130,6 +130,20 @@ const countdown = ref({
   minutes: 0,
   seconds: 0,
 });
+
+// Format countdown values with zero-padding
+const formattedDays = computed(() =>
+  String(countdown.value.days).padStart(2, "0")
+);
+const formattedHours = computed(() =>
+  String(countdown.value.hours).padStart(2, "0")
+);
+const formattedMinutes = computed(() =>
+  String(countdown.value.minutes).padStart(2, "0")
+);
+const formattedSeconds = computed(() =>
+  String(countdown.value.seconds).padStart(2, "0")
+);
 
 const updateCountdown = () => {
   const now = new Date().getTime();
@@ -381,10 +395,11 @@ useSeoMeta({
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   margin: 2rem 0;
   min-height: 120px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .countdown-loader {
@@ -399,7 +414,9 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-width: 80px;
+  flex: 0 0 auto;
 }
 
 .countdown-value {
@@ -422,8 +439,11 @@ useSeoMeta({
   font-size: 3rem;
   font-weight: bold;
   opacity: 0.5;
-  padding: 0 0.5rem;
+  padding: 0 0.25rem;
   color: rgb(var(--v-theme-on-surface)) !important;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 960px) {
@@ -434,6 +454,11 @@ useSeoMeta({
   .countdown-value {
     font-size: 3.5rem;
   }
+
+  .countdown-separator {
+    font-size: 2.5rem;
+    padding: 0 0.2rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -441,16 +466,28 @@ useSeoMeta({
     padding: 1rem !important;
   }
 
+  .countdown-display {
+    gap: 0.25rem;
+    margin: 1.5rem 0;
+    min-height: 100px;
+  }
+
   .countdown-value {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
   }
 
   .countdown-item {
-    min-width: 60px;
+    min-width: 55px;
   }
 
   .countdown-separator {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    padding: 0 0.15rem;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+    margin-top: 0.25rem;
   }
 
   h1.text-h3 {
@@ -459,20 +496,28 @@ useSeoMeta({
 }
 
 @media (max-width: 400px) {
+  .countdown-display {
+    gap: 0.2rem;
+    margin: 1rem 0;
+    min-height: 90px;
+  }
+
   .countdown-value {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .countdown-item {
-    min-width: 50px;
+    min-width: 45px;
   }
 
   .countdown-separator {
     font-size: 1.5rem;
+    padding: 0 0.1rem;
   }
 
   .countdown-label {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
+    margin-top: 0.2rem;
   }
 }
 
