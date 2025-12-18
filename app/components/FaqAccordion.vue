@@ -4,6 +4,7 @@
     class="faq-accordion"
     elevation="0"
     color="surface"
+    :multiple="false"
   >
     <v-expansion-panel
       v-for="(item, index) in items"
@@ -80,18 +81,76 @@ const props = defineProps<{
 }>();
 
 /**
- * Currently expanded panel index (only one panel can be open at a time)
+ * Unique identifier for this accordion instance
+ * Used to coordinate with other accordions on the page
+ * Uses sectionId if provided, otherwise generates a unique ID
+ * This is stable for the component instance lifetime (script setup runs once)
+ */
+const accordionId =
+  props.sectionId || `accordion-${Math.random().toString(36).substring(2, 11)}`;
+
+/**
+ * Shared state for coordinating accordions across the page
+ */
+const { collapseSignal, openAccordion, setOpenAccordion, getOpenPanelIndex } =
+  useFaqCollapse();
+
+/**
+ * Currently expanded panel index (synced with shared state)
  * @type {import('vue').Ref<number | undefined>}
  */
-const expandedPanels = ref<number | undefined>(undefined);
+const expandedPanels = ref<number | undefined>(getOpenPanelIndex(accordionId));
 
 /**
  * Watch for collapse signal from navbar logo click
  */
-const { collapseSignal } = useFaqCollapse();
 watch(collapseSignal, () => {
   // Collapse all panels when signal changes
   expandedPanels.value = undefined;
+  setOpenAccordion(accordionId, undefined);
+});
+
+/**
+ * Flag to prevent infinite loops when syncing with shared state
+ */
+let isSyncingFromShared = false;
+
+/**
+ * Watch shared state to sync when other accordions open/close
+ */
+watch(openAccordion, (newValue) => {
+  isSyncingFromShared = true;
+  if (newValue?.accordionId === accordionId) {
+    // This accordion's panel is open
+    expandedPanels.value = newValue.panelIndex;
+  } else {
+    // Another accordion is open, close this one
+    expandedPanels.value = undefined;
+  }
+  // Reset flag after next tick to allow local changes to propagate
+  nextTick(() => {
+    isSyncingFromShared = false;
+  });
+});
+
+/**
+ * Watch local state changes and update shared state
+ * This ensures only one accordion is open at a time
+ */
+watch(expandedPanels, (newValue) => {
+  // Don't update shared state if this change came from shared state
+  if (isSyncingFromShared) return;
+
+  if (newValue !== undefined) {
+    // A panel in this accordion was opened
+    setOpenAccordion(accordionId, newValue);
+  } else {
+    // This accordion was closed
+    // Only clear shared state if this accordion was the one that was open
+    if (openAccordion.value?.accordionId === accordionId) {
+      setOpenAccordion(accordionId, undefined);
+    }
+  }
 });
 
 /**
@@ -185,8 +244,10 @@ onMounted(async () => {
   if (hash) {
     const panelIndex = findPanelByHash(hash);
     if (panelIndex >= 0) {
-      // Open the panel
+      // Open the panel and update shared state
+      isSyncingFromShared = false; // This is a user-initiated action, not from shared state
       expandedPanels.value = panelIndex;
+      setOpenAccordion(accordionId, panelIndex);
 
       // Wait for DOM update then scroll
       await nextTick();

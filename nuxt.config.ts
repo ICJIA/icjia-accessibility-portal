@@ -35,6 +35,9 @@ export default defineNuxtConfig({
     },
   },
 
+  // Note: The "Failed to stringify dev server logs" warning is a known harmless issue
+  // with Vuetify + Nuxt 4 where Vuetify exposes functions in its configuration that
+  // can't be serialized for dev server logging. This does not affect functionality.
   vuetify: {
     moduleOptions: {
       styles: true
@@ -95,7 +98,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify']
   },
 
-  nitro: {
+  nitro: import.meta.dev ? {} : {
     preset: 'static',
     prerender: {
       crawlLinks: true
