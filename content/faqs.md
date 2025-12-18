@@ -1261,6 +1261,376 @@ Illinois DoIT recommends including language similar to:
 
 > "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
 
+### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
+
+**Testing third-party tools for WCAG 2.1 AA compliance requires a multi-step approach.** You can't rely solely on vendor claims — you need to verify accessibility yourself. Here's how to test tools like Docebo, DocuSign, or other third-party platforms:
+
+**1. Request accessibility documentation:**
+
+- **VPAT (Voluntary Product Accessibility Template)** — Request the most recent VPAT from the vendor
+- **Accessibility conformance report** — Ask for documentation that specifically addresses WCAG 2.1 Level AA compliance
+- **Accessibility roadmap** — If the tool isn't fully compliant, ask about plans to address gaps
+- **Version information** — Ensure documentation matches the version you're using or planning to use
+
+**What to look for in documentation:**
+
+- "Supports" (not just "Partially Supports") for WCAG 2.1 Level AA criteria
+- Specific features that are accessible vs. those with limitations
+- Known accessibility barriers and workarounds
+- Testing methods used by the vendor
+
+**2. Automated accessibility testing:**
+
+- **Use browser extensions:**
+  - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a> (free browser extension)
+  - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a> (free browser extension)
+  - **ANDI** — <a href="https://www.ssa.gov/accessibility/andi/help/install.html" target="_blank" rel="noopener noreferrer">https://www.ssa.gov/accessibility/andi/help/install.html</a> (free browser extension)
+
+- **Test key workflows:**
+  - Log in/authentication process
+  - Primary user tasks (e.g., signing documents in DocuSign, taking courses in Docebo)
+  - Navigation and menus
+  - Forms and data entry
+  - Error messages and feedback
+  - Help documentation
+
+**3. Manual keyboard testing:**
+
+- **Navigate the entire interface using only the keyboard:**
+  - Tab through all interactive elements
+  - Use Enter/Space to activate buttons and links
+  - Use arrow keys for menus and dropdowns
+  - Ensure all functionality is accessible without a mouse
+
+- **Check for keyboard traps:**
+  - Can you navigate away from all elements?
+  - Are there any areas where keyboard focus gets stuck?
+  - Can you complete all tasks using only the keyboard?
+
+**4. Screen reader testing:**
+
+- **Test with at least one screen reader:**
+  - **NVDA** (Windows, free) — <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">https://www.nvaccess.org/</a>
+  - **JAWS** (Windows, paid) — Industry standard
+  - **VoiceOver** (Mac/iOS, built-in) — Free, built into Apple devices
+
+- **What to test:**
+  - Can you understand the page structure and content?
+  - Are form fields properly labeled?
+  - Are buttons and links clearly identified?
+  - Are error messages announced?
+  - Is the reading order logical?
+  - Can you complete all tasks using the screen reader?
+
+**5. Visual accessibility testing:**
+
+- **Color contrast:**
+  - Use WebAIM Contrast Checker — <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
+  - Test text against backgrounds (minimum 4.5:1 for normal text, 3:1 for large text)
+  - Test interactive elements (buttons, links, form fields)
+
+- **Color dependency:**
+  - Can you understand all information without relying on color?
+  - Are there icons, text labels, or patterns in addition to color?
+  - Test in grayscale or with color blindness simulators
+
+- **Text size and readability:**
+  - Can text be resized up to 200% without loss of functionality?
+  - Is text readable at standard sizes (minimum 12pt, preferably 14pt+)?
+  - Is there adequate line spacing?
+
+**6. Test with real users (if possible):**
+
+- **User testing with people with disabilities:**
+  - Recruit testers who use assistive technologies
+  - Have them complete typical tasks in the tool
+  - Document barriers and issues they encounter
+  - This provides the most accurate assessment of real-world accessibility
+
+**7. Document your findings:**
+
+- **Create a testing report:**
+  - List all features tested
+  - Document accessibility barriers found
+  - Note which WCAG criteria are met vs. not met
+  - Include screenshots or video recordings of issues
+  - Compare findings with vendor's VPAT
+
+- **Track compliance status:**
+  - Maintain records of testing dates and results
+  - Update documentation as tools are updated
+  - Share findings with procurement and IT teams
+
+**8. For specific tools (Docebo, DocuSign):**
+
+**Testing Docebo:**
+
+- Test course navigation and completion
+- Verify video captions work correctly
+- Test quiz and assessment accessibility
+- Check document upload and viewing
+- Test mobile app accessibility (if used)
+
+**Testing DocuSign:**
+
+- Test the document signing workflow end-to-end
+- Verify document viewing and navigation
+- Test form field completion
+- Check error handling and messages
+- Test on both web and mobile platforms
+
+**9. Ongoing monitoring:**
+
+- **Regular re-testing:**
+  - Test again when tools are updated
+  - Re-test after customizations or branding changes
+  - Monitor for new accessibility barriers
+
+- **User feedback:**
+  - Track accessibility complaints or requests
+  - Document workarounds needed for accessibility barriers
+  - Report issues to vendors and request fixes
+
+**Resources for testing:**
+
+- **DoIT Testing Resources:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
+- **Section 508 ICT Testing Baseline:** <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
+- **W3C Easy Checks:** <a href="https://www.w3.org/WAI/test-evaluate/preliminary/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/test-evaluate/preliminary/</a>
+- **WebAIM Testing Guide:** <a href="https://webaim.org/articles/testing/" target="_blank" rel="noopener noreferrer">https://webaim.org/articles/testing/</a>
+
+**The bottom line:** Testing third-party tool compliance requires both automated tools and manual testing with assistive technologies. Don't rely solely on vendor claims — verify accessibility yourself through systematic testing. Document your findings, compare them with vendor documentation, and maintain ongoing monitoring as tools are updated.
+
+### Our agency uses DocuSign to digitally sign documents. Is this something that falls under WCAG compliance?
+
+**Yes, DocuSign falls under WCAG compliance requirements.** As a web-based application used by state agencies to provide services to the public, DocuSign must meet accessibility standards under both ADA Title II and IITAA.
+
+**DocuSign platform accessibility:**
+
+DocuSign has made efforts to improve accessibility and provides some accessibility features, but **the platform may not be fully WCAG 2.1 AA compliant in all areas**. Key considerations:
+
+- **Platform accessibility** — DocuSign's web interface and mobile apps should be accessible, but you should verify current compliance status
+- **Document accessibility** — The documents you send through DocuSign must be accessible (see [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) and [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible) above)
+- **User experience** — Even if the platform is accessible, the signing process must be usable by people with disabilities
+
+**What you need to do:**
+
+1. **Ensure documents are accessible before sending:**
+   - Make PDFs, Word documents, or other files accessible **before** uploading them to DocuSign
+   - Use accessible document formats (see [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) and [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible) above)
+   - Run accessibility checkers on documents before sending them through DocuSign
+
+2. **Request accessibility documentation from DocuSign:**
+   - Ask your DocuSign account representative for their current accessibility conformance report (VPAT - Voluntary Product Accessibility Template)
+   - Request documentation of WCAG 2.1 AA compliance
+   - Verify which features are accessible and which may have limitations
+
+3. **Test the signing process:**
+   - Test DocuSign workflows with keyboard-only navigation
+   - Test with screen readers (NVDA, JAWS, or VoiceOver)
+   - Verify that all signing steps are accessible
+   - Ensure error messages are accessible and clear
+
+4. **Provide alternatives if needed:**
+   - If DocuSign has accessibility barriers, provide alternative methods for people with disabilities to sign documents
+   - This might include:
+     - Accessible PDF forms that can be signed and returned via email
+     - In-person signing options
+     - Phone-based signing processes
+     - Other accessible electronic signature solutions
+
+5. **Train staff on accessible use:**
+   - Ensure staff know how to create accessible documents for DocuSign
+   - Train staff on DocuSign's accessibility features
+   - Provide guidance on handling accessibility requests from signers
+
+**Best practices for using DocuSign accessibly:**
+
+- **Start with accessible source documents** — Don't rely on DocuSign to make inaccessible documents accessible
+- **Use clear instructions** — Provide clear, accessible instructions for signers on how to complete the signing process
+- **Test your workflows** — Test the entire signing workflow with assistive technologies before sending to users
+- **Monitor for issues** — Track any accessibility complaints or barriers reported by users
+- **Have a backup plan** — Know how to provide alternative signing methods if DocuSign is inaccessible for a particular user
+
+**Legal considerations:**
+
+Under ADA Title II and IITAA, state agencies must:
+
+- Ensure that services provided through third-party platforms are accessible
+- Provide accessible alternatives if a platform has accessibility barriers
+- Not rely solely on a vendor's claims — agencies are responsible for ensuring accessibility
+
+**Resources:**
+
+- **DocuSign Accessibility:** Check DocuSign's current accessibility documentation and VPAT
+- **DoIT Procurement Guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html</a>
+- **Section 508 ICT Testing:** <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
+
+**The bottom line:** DocuSign is subject to WCAG compliance requirements. Your agency is responsible for ensuring that documents sent through DocuSign are accessible and that the signing process is usable by people with disabilities. Start with accessible source documents, verify DocuSign's current accessibility status, test your workflows, and have alternative methods available if needed.
+
+### Is Docebo LMS accessibility compliant? What do I need to do when designing a Docebo course to meet WCAG 2.1 guidelines?
+
+**Docebo LMS platform accessibility:**
+
+Docebo has made efforts to improve accessibility, but **the platform itself may not be fully WCAG 2.1 AA compliant out of the box**. The platform's accessibility depends on:
+
+- **Platform version and configuration** — Newer versions have better accessibility features
+- **Custom branding and themes** — Custom styling can introduce accessibility barriers
+- **Third-party integrations** — Plugins and integrations may not be accessible
+
+**Important:** Even if the platform has accessibility features, **course content you create must still be designed accessibly**. The platform can't make inaccessible content accessible.
+
+**What to do when designing accessible Docebo courses:**
+
+1. **Use accessible document formats for course materials:**
+   - Upload accessible Word documents, PDFs, and PowerPoint presentations (see [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible), [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible), and [How do I make PowerPoint presentations accessible?](#how-do-i-make-powerpoint-presentations-accessible) in the Content Accessibility section)
+   - Ensure all uploaded documents meet WCAG 2.1 AA standards before uploading
+
+2. **Video content:**
+   - **Add captions** — Docebo supports captions; upload accurate caption files (SRT or VTT format)
+   - **Review auto-generated captions** — If using Docebo's auto-captioning, review and correct errors
+   - **Provide transcripts** — Include downloadable transcripts for all video content
+   - **Audio description** — For videos with essential visual information not conveyed in audio, provide audio descriptions
+
+3. **Images and graphics:**
+   - **Add alt text** — Use Docebo's alt text fields for all images, charts, and graphics
+   - **Describe complex images** — For charts, graphs, or infographics, provide detailed descriptions or data tables
+   - **Avoid text in images** — Don't put important text only in images; include it as actual text
+
+4. **Course structure and navigation:**
+   - **Use clear, descriptive headings** — Structure content with proper heading hierarchy
+   - **Meaningful link text** — Use descriptive link text (not "click here" or "read more")
+   - **Logical reading order** — Ensure content flows in a logical sequence
+   - **Clear navigation** — Use descriptive page titles and module names
+
+5. **Interactive elements:**
+   - **Keyboard accessible** — Ensure all interactive elements (quizzes, buttons, links) can be accessed via keyboard
+   - **Focus indicators** — Verify that keyboard focus is visible on all interactive elements
+   - **Form labels** — Ensure all form fields have clear, associated labels
+   - **Error messages** — Provide clear, accessible error messages for quizzes and assessments
+
+6. **Color and contrast:**
+   - **Sufficient contrast** — Ensure text has at least 4.5:1 contrast ratio (3:1 for large text)
+   - **Don't rely on color alone** — Use icons, text labels, or patterns in addition to color to convey information
+   - **Test contrast** — Use tools like WebAIM Contrast Checker to verify contrast ratios
+
+7. **Text content:**
+   - **Plain language** — Write in clear, simple language
+   - **Readable fonts** — Use readable font sizes (minimum 12pt, preferably 14pt or larger)
+   - **Line spacing** — Ensure adequate line spacing for readability
+   - **Text formatting** — Use proper heading styles, lists, and formatting (not just visual styling)
+
+8. **Quizzes and assessments:**
+   - **Clear instructions** — Provide clear, accessible instructions for all quiz questions
+   - **Multiple question types** — Ensure all question types (multiple choice, true/false, etc.) are keyboard accessible
+   - **Time limits** — If quizzes have time limits, provide warnings and allow extensions for users who need them
+   - **Feedback** — Provide accessible feedback for correct/incorrect answers
+
+9. **Testing your course:**
+   - **Test with keyboard only** — Navigate the entire course using only the keyboard (Tab, Enter, Space, arrow keys)
+   - **Test with screen reader** — Test with a screen reader (NVDA, JAWS, or VoiceOver) to ensure content is accessible
+   - **Use accessibility checkers** — Run automated accessibility checks on uploaded documents before adding them to Docebo
+   - **User testing** — If possible, have users with disabilities test the course and provide feedback
+
+**Best practices for Docebo course design:**
+
+- **Start with accessible source materials** — Make documents accessible before uploading to Docebo
+- **Use Docebo's accessibility features** — Take advantage of alt text fields, caption uploads, and other accessibility options
+- **Test early and often** — Don't wait until the course is complete to test accessibility
+- **Provide alternatives** — For complex interactive content, provide alternative formats or text-based versions
+- **Document accessibility** — Keep records of accessibility features you've implemented
+
+**Resources:**
+
+- **Docebo Accessibility Documentation:** Check Docebo's help documentation for current accessibility features and best practices
+- **WCAG 2.1 Guidelines:** <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/WCAG21/quickref/?levels=aa</a>
+- **WebAIM Contrast Checker:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
+
+**The bottom line:** Docebo LMS provides tools to create accessible courses, but **you are responsible for ensuring your course content meets WCAG 2.1 AA standards**. Start with accessible source materials, use Docebo's accessibility features, and test your courses with assistive technologies before publishing.
+
+### If we have existing Tableau dashboards or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
+
+**No exemptions for currently used content.** If your Tableau dashboards or Docebo courses are **currently being used to provide services to the public**, they must be made accessible — **no exemptions apply**.
+
+**The key distinction:**
+
+- **Currently used for services** = **Must be accessible** (no exemptions)
+- **Archived/not currently used** = May be exempt, but must provide accessible alternatives upon request
+
+**For Tableau dashboards:**
+
+**If the dashboard is currently active and used for public services:**
+
+- **Must be made accessible immediately** — No exemptions
+- Tableau dashboards are web-based applications that provide services to the public
+- They fall under WCAG 2.1 AA compliance requirements
+- You must remediate existing dashboards or provide accessible alternatives
+
+**What to do:**
+
+1. **Audit existing dashboards** — Identify all active Tableau dashboards used for public services
+2. **Prioritize by usage** — Start with the most frequently used or critical dashboards
+3. **Remediate or replace** — Either make dashboards accessible or provide accessible alternatives (accessible data tables, accessible PDFs, or alternative formats)
+4. **Test accessibility** — Verify dashboards work with screen readers, keyboard navigation, and meet color contrast requirements
+5. **Provide alternatives** — If a dashboard can't be made fully accessible, provide the same information in an accessible format
+
+**For Docebo online courses:**
+
+**If the course is currently active and used for training or services:**
+
+- **Must be made accessible immediately** — No exemptions
+- Online courses are web-based content that provides services to the public
+- They fall under WCAG 2.1 AA compliance requirements
+- You must remediate existing courses or provide accessible alternatives
+
+**What to do:**
+
+1. **Audit existing courses** — Identify all active courses currently in use
+2. **Prioritize by enrollment** — Start with courses that have active enrollments or are required for services
+3. **Remediate course content** — Make all course materials accessible (see [Is Docebo LMS accessibility compliant?](#is-docebo-lms-accessibility-compliant-what-do-i-need-to-do-when-designing-a-docebo-course-to-meet-wcag-21-guidelines) question above)
+4. **Test with assistive technologies** — Verify courses work with screen readers and keyboard navigation
+5. **Provide alternatives** — If a course can't be made fully accessible, provide the same training content in an accessible format
+
+**When exemptions might apply:**
+
+**Only if content is truly archived and not currently used:**
+
+- Dashboards or courses that are no longer active
+- Historical/archived content not used for current services
+- Content that has been replaced by newer versions
+
+**Even with exemptions:**
+
+- You must provide accessible alternatives **upon request**
+- If someone requests access to archived content, you must make it accessible or provide an accessible alternative
+
+**Important considerations:**
+
+1. **"Currently used" is broadly defined** — If content is accessible to the public or used by staff to provide services, it's considered "currently used"
+
+2. **No grace period for existing content** — The April 2026 deadline applies to all content, including existing dashboards and courses
+
+3. **Prioritization is allowed** — You can prioritize which dashboards/courses to remediate first, but all active content must eventually be accessible
+
+4. **Documentation matters** — Keep records of:
+   - Which dashboards/courses are active vs. archived
+   - Remediation plans and timelines
+   - Alternative formats provided
+
+**Best practices:**
+
+- **Start remediation now** — Don't wait until the deadline
+- **Prioritize high-impact content** — Focus on the most-used dashboards and courses first
+- **Plan for alternatives** — Have a plan to provide accessible alternatives if full remediation isn't immediately possible
+- **Test early and often** — Test accessibility as you remediate, not just at the end
+- **Document everything** — Keep records of remediation efforts and alternative formats
+
+**Resources:**
+
+- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+- **DoIT Accessibility Guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
+
+**The bottom line:** Existing Tableau dashboards and Docebo courses that are **currently used for public services have no exemptions** — they must be made accessible. Only truly archived content that is not currently used may be exempt, and even then, you must provide accessible alternatives upon request. Start remediation now and prioritize the most critical content first.
+
 ---
 
 ## Getting Help
