@@ -56,7 +56,7 @@ All accessibility information is organized in one place to facilitate easy acces
   - aria-current="page" on active navigation items
   - Decorative icons properly marked with aria-hidden
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-- **Dark Mode** - Dark theme by default with light/dark toggle support
+- **Dark Theme** - Dark theme by default
 - **Static Site Generation** - Optimized for Netlify deployment
 - **Automated Testing** - Accessibility audits using **axe-core** (WCAG 2.1 AA compliance)
 - **Content Management** - Markdown-based content via Nuxt Content
@@ -156,10 +156,12 @@ To deploy:
 │   ├── links.md             # Accessibility links content
 │   └── faqs.md              # FAQ content
 ├── public/
-│   ├── robots.txt           # Robots.txt (disallows all indexing)
-│   └── icjia-logo.png       # ICJIA logo
+│   ├── favicon.svg          # Site favicon
+│   ├── icjia-logo.png       # ICJIA logo
+│   └── robots.txt           # Robots.txt (disallows all indexing)
 ├── audit-accessibility.js   # Accessibility audit script
 ├── content.config.ts        # Nuxt Content configuration
+├── LICENSE                  # MIT License
 ├── netlify.toml            # Netlify deployment configuration
 └── nuxt.config.ts          # Nuxt configuration
 ```
@@ -255,7 +257,7 @@ All pages currently pass with **no violations** detected. The audit is run regul
 
 - ✅ All pages pass WCAG 2.1 AA compliance
 - ✅ Fully responsive design (mobile, tablet, desktop)
-- ✅ Dark mode support
+- ✅ Dark theme (default)
 - ✅ Static site generation optimized
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags

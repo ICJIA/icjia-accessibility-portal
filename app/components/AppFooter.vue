@@ -16,10 +16,10 @@
             class="footer-link"
             aria-label="View source code on GitHub (opens in new tab)"
           >
-            <v-icon size="18" class="mr-1" aria-hidden="true"
+            <v-icon size="14" class="mr-1" aria-hidden="true"
               >mdi-github</v-icon
             >
-            Source Code
+            GitHub
           </a>
         </div>
       </div>
