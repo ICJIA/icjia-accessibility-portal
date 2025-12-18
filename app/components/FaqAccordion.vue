@@ -180,12 +180,31 @@ function getQuestionId(question: string): string {
 
 /**
  * Finds panel index by URL hash
- * @param {string} hash - URL hash (e.g., "#question-slug")
+ * @param {string} hash - URL hash (e.g., "#question-slug" or "#section-question-slug")
  * @returns {number} Panel index or -1 if not found
  */
 function findPanelByHash(hash: string): number {
   const id = hash.replace("#", "");
-  return props.items.findIndex((item) => getQuestionId(item.question) === id);
+
+  // First try exact match (with section prefix)
+  let index = props.items.findIndex(
+    (item) => getQuestionId(item.question) === id
+  );
+  if (index >= 0) return index;
+
+  // If not found, try matching without section prefix
+  // This handles cases where hash is just "how-do-i-make-a-pdf-accessible"
+  // but the actual ID is "content-accessibility-how-do-i-make-a-pdf-accessible"
+  for (let i = 0; i < props.items.length; i++) {
+    const item = props.items[i];
+    const fullId = getQuestionId(item.question);
+    // Check if the full ID ends with the hash ID (handles section prefixes)
+    if (fullId === id || fullId.endsWith(`-${id}`)) {
+      return i;
+    }
+  }
+
+  return -1;
 }
 
 /**
@@ -220,8 +239,9 @@ watch(expandedPanels, async (newValue, oldValue) => {
     const item = props.items[newValue];
     if (!item) return;
     const id = getQuestionId(item.question);
-    // Update URL without triggering navigation
-    window.history.replaceState(null, "", `#${id}`);
+    // Update URL without triggering navigation (preserve history state for Vue Router)
+    const currentState = window.history.state;
+    window.history.replaceState(currentState, "", `#${id}`);
 
     // Wait for panel expansion animation to complete, then scroll
     await nextTick();
@@ -252,7 +272,23 @@ onMounted(async () => {
       // Wait for DOM update then scroll
       await nextTick();
       setTimeout(() => {
-        const element = document.getElementById(hash.replace("#", ""));
+        // Try to find the element by the hash ID (might have section prefix)
+        const hashId = hash.replace("#", "");
+        let element = document.getElementById(hashId);
+
+        // If not found, search for panels with IDs that end with the hash ID
+        if (!element) {
+          const allPanels =
+            document.querySelectorAll<HTMLElement>(".faq-panel[id]");
+          for (const panel of allPanels) {
+            const panelId = panel.id;
+            if (panelId === hashId || panelId.endsWith(`-${hashId}`)) {
+              element = panel;
+              break;
+            }
+          }
+        }
+
         if (element) {
           // Get navbar height to offset scroll position
           const navbar = document.querySelector("header");
@@ -265,6 +301,16 @@ onMounted(async () => {
             top: offsetPosition,
             behavior: "smooth",
           });
+
+          // Update hash to the actual ID (with section prefix) if different
+          const actualId = element.id;
+          if (actualId !== hashId && window.history.state) {
+            window.history.replaceState(
+              window.history.state,
+              "",
+              `#${actualId}`
+            );
+          }
         }
       }, 100);
     }
