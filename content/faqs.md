@@ -15,6 +15,83 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
+### Why am I hearing so much about digital accessibility now? What's changed?
+
+**Digital accessibility has become a critical priority because of a major shift in federal law that creates specific, enforceable requirements for state and local governments.** If you're wondering "Why now?" or "What changed?" — here's what you need to know:
+
+**The game-changer: The ADA Title II Web Rule**
+
+On April 24, 2024, the U.S. Department of Justice published a final rule that establishes **specific technical requirements** for web content and mobile app accessibility under Title II of the Americans with Disabilities Act. This is the first time the federal government has set concrete, testable standards for digital accessibility that apply directly to state and local governments.
+
+**Official fact sheet:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a>
+
+**What this means:**
+
+- **Before April 2024:** Accessibility was required in principle, but enforcement was inconsistent and standards were vague. Agencies knew they should be accessible, but there were no specific technical requirements or firm deadlines.
+
+- **After April 2024:** There are now **specific technical standards** (WCAG 2.1 Level AA) and **firm compliance deadlines** (April 24, 2026 for most agencies). This isn't optional — it's a legal requirement with clear, testable criteria.
+
+**Why you're hearing about it so frequently now:**
+
+1. **The deadline is approaching** — For state and local governments with populations of 50,000 or more, the compliance deadline is **April 24, 2026**. That's less than two years away, and achieving compliance requires systematic work across all digital content. Organizations are realizing that this work needs to start now.
+
+2. **The scope is comprehensive** — The rule covers **all public-facing digital content**: websites, mobile apps, documents (PDFs, Word, Excel, PowerPoint), videos, social media posts, and third-party tools. This isn't just about websites — it's about everything your agency puts online.
+
+3. **It requires everyone's participation** — While web developers can fix technical issues (like code structure, keyboard navigation, ARIA labels), they **cannot** fix content issues. Achieving compliance requires:
+   - **Content creators** to write alt text for images, use proper heading styles, make documents accessible, and add captions to videos
+   - **Designers** to ensure color contrast meets requirements
+   - **Procurement** to include accessibility in contracts for third-party tools
+   - **Web developers** to implement technical accessibility standards
+   - **Leadership** to allocate time and resources
+
+4. **The cost of waiting is high** — Fixing accessibility issues after development is typically **3-10 times more expensive** than building accessibility in from the start. Organizations are trying to prevent costly retrofitting by addressing accessibility early.
+
+5. **Legal risk is real** — Non-compliance has legal consequences. With specific standards and deadlines, enforcement becomes straightforward. Agencies that don't comply face legal risk, and the Department of Justice has clear criteria to evaluate compliance.
+
+6. **The digital transformation accelerated** — Government services have moved online rapidly, especially since 2020. What used to be in-person services are now digital, making digital accessibility essential for equal access to government services.
+
+7. **The population affected is significant** — According to the CDC, approximately **1 in 4 adults in the United States** has some type of disability. In Illinois, that's over 2.3 million people. When digital content isn't accessible, agencies exclude millions of residents from accessing information and services.
+
+**Why different teams are bringing it up:**
+
+- **Web developers** — They're responsible for implementing technical requirements and need accessible content from others
+- **Leadership and compliance** — They're concerned about meeting legal requirements and deadlines
+- **Content creators** — They're learning new skills and processes to make their content accessible
+- **Procurement** — They need to include accessibility requirements in contracts
+
+**For managers: Understanding vs. delaying**
+
+It's completely understandable that managers want to clarify what digital accessibility entails and get a better sense of the scope, timeline, and resources needed. **However, managers cannot tell the agency to wait on this work.** The deadline is **April 24, 2026** — it's a legal requirement, not a suggestion.
+
+**What managers can do:**
+
+- **Ask questions** — Understand what accessibility means for your team's work
+- **Clarify scope** — Get a clear picture of what needs to be done
+- **Plan resources** — Allocate time and budget needed for compliance
+- **Prioritize work** — Determine what needs to be done first
+
+**What managers cannot do:**
+
+- **Delay the work** — The deadline is firm and cannot be extended
+- **Treat it as optional** — It's a legal requirement, not a "nice to have"
+- **Push it to "later"** — Waiting makes the work more expensive and increases legal risk
+
+**The reality:** While it's reasonable to want more information before committing resources, the April 2026 deadline is non-negotiable. The best approach is to **learn while doing** — start the work now, ask questions along the way, and adjust plans as you gain more understanding. Waiting until you fully understand everything will only make compliance harder to achieve.
+
+**What's different from before:**
+
+- **Specific standards** — WCAG 2.1 Level AA provides concrete, testable criteria (unlike vague "accessibility" requirements)
+- **Firm deadline** — April 2026 isn't a suggestion; it's a legal requirement
+- **Comprehensive coverage** — Documents, videos, social media, and third-party tools are all included
+- **Clear enforcement** — The Department of Justice has specific criteria to evaluate compliance
+
+**The bottom line:** Digital accessibility has always been the right thing to do, but now it's also a **legal requirement with specific standards and a firm deadline**. The April 2024 rule transformed digital accessibility from an aspirational goal into a concrete, enforceable mandate. That's why agencies are prioritizing this work now — not because accessibility suddenly matters, but because the legal framework, technical standards, and compliance deadlines are now clearly defined. Digital accessibility is being mentioned frequently because it affects everyone in the organization and requires everyone's participation to succeed.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Official DOJ summary of the rule
+- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Full rule information
+
 ### Why does accessibility matter?
 
 Accessibility matters for several reasons:
@@ -59,6 +136,27 @@ Equity is fundamental to public service — ensuring that all residents, regardl
 
 - <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
+
+### What is WCAG?
+
+WCAG stands for Web Content Accessibility Guidelines. These are international standards developed by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. WCAG is organized around four principles (POUR):
+
+- **Perceivable** — Information must be presentable in ways users can perceive
+- **Operable** — Interface components must be operable by all users
+- **Understandable** — Information and operation must be understandable
+- **Robust** — Content must work with current and future technologies
+
+**Learn more:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/standards-guidelines/wcag/</a>
+
+### What does "WCAG 2.1 Level AA" mean?
+
+WCAG has three conformance levels:
+
+- **Level A** — Minimum accessibility (must meet)
+- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_
+- **Level AAA** — Enhanced accessibility (may meet where feasible)
+
+Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
@@ -154,27 +252,6 @@ Equity is fundamental to public service — ensuring that all residents, regardl
 - Attend accessibility training sessions
 
 **The key takeaway:** You don't have to read everything on this site to understand the requirements. Pick the format that works best for you.
-
-### What is WCAG?
-
-WCAG stands for Web Content Accessibility Guidelines. These are international standards developed by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. WCAG is organized around four principles (POUR):
-
-- **Perceivable** — Information must be presentable in ways users can perceive
-- **Operable** — Interface components must be operable by all users
-- **Understandable** — Information and operation must be understandable
-- **Robust** — Content must work with current and future technologies
-
-**Learn more:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/standards-guidelines/wcag/</a>
-
-### What does "WCAG 2.1 Level AA" mean?
-
-WCAG has three conformance levels:
-
-- **Level A** — Minimum accessibility (must meet)
-- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_
-- **Level AAA** — Enhanced accessibility (may meet where feasible)
-
-Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
 ---
 
