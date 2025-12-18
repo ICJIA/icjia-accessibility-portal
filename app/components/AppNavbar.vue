@@ -120,7 +120,6 @@ const menuOpen = ref(false);
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
   { title: "Links", to: "/links", icon: "mdi-link" },
-  { title: "FAQs", to: "/faqs", icon: "mdi-help-circle" },
 ];
 
 /**

@@ -11,7 +11,7 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { spawn } from "child_process";
 
 /** @type {string[]} Pages to audit for accessibility compliance */
-const PAGES = ["/", "/links", "/faqs"];
+const PAGES = ["/", "/links"];
 
 /** @type {import('child_process').ChildProcess | null} Reference to the development server process */
 let devServer = null;

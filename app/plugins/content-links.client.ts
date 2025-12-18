@@ -32,6 +32,29 @@ const findFaqQuestionById = (anchorId: string): HTMLElement | null => {
 };
 
 /**
+ * Navigates to the homepage with the given hash.
+ * Used as a fallback when the target FAQ panel isn't present on the current page.
+ */
+const navigateToHomeHash = (anchorId: string) => {
+  // If we're already on the homepage, just update the hash
+  if (window.location.pathname === "/") {
+    const currentState = window.history.state;
+    window.history.replaceState(currentState, "", `#${anchorId}`);
+    // Wait a bit for the hash change to register, then try to find and scroll to the panel
+    setTimeout(() => {
+      const panel = findFaqQuestionById(anchorId);
+      if (panel) {
+        performScrollAndExpand(panel);
+      }
+    }, 100);
+    return;
+  }
+
+  // Navigate to homepage with hash
+  window.location.assign(`/#${anchorId}`);
+};
+
+/**
  * Scrolls to a FAQ question and opens it if it's in an accordion
  * @param {string} anchorId - The anchor ID (without #)
  * @returns {void}
@@ -44,8 +67,11 @@ const scrollToFaqQuestion = (anchorId: string) => {
       const retryPanel = findFaqQuestionById(anchorId);
       if (retryPanel) {
         performScrollAndExpand(retryPanel);
+      } else {
+        // If the panel isn't on this page, navigate to the homepage with hash.
+        navigateToHomeHash(anchorId);
       }
-    }, 200);
+    }, 250);
     return;
   }
 
@@ -114,12 +140,18 @@ const handleAnchorLinkClick = (event: MouseEvent) => {
   const isInFaqContent = link.closest('.faq-answer-content, .faq-content, [data-content], .faq-accordion');
   if (!isInFaqContent) return;
 
-  // Prevent default navigation and stop propagation to prevent Vue Router from handling it
-  event.preventDefault();
-  event.stopPropagation();
-  event.stopImmediatePropagation();
-  
-  // Scroll to the FAQ question
+  // Only take over the click if we can actually handle it.
+  // If we can't find the panel, don't block default behavior; our retry will navigate to /faqs.
+  const panel = findFaqQuestionById(anchorId);
+  if (panel) {
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    performScrollAndExpand(panel);
+    return;
+  }
+
+  // Let the browser update the hash immediately, then handle via retry.
   scrollToFaqQuestion(anchorId);
 };
 
@@ -208,9 +240,16 @@ export default defineNuxtPlugin(() => {
       // Only handle if this looks like a FAQ question ID (not a regular anchor)
       // FAQ question IDs typically contain hyphens and are lowercase
       if (anchorId.includes('-')) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
+        const panel = findFaqQuestionById(anchorId);
+        if (panel) {
+          event.preventDefault();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
+          performScrollAndExpand(panel);
+          return;
+        }
+
+        // Don't block default hash update; fallback will navigate if needed.
         scrollToFaqQuestion(anchorId);
       }
     };

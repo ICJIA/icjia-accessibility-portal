@@ -53,7 +53,7 @@
                   <v-btn href="/links" variant="text" size="small">
                     Accessibility Links
                   </v-btn>
-                  <v-btn href="/faqs" variant="text" size="small"> FAQs </v-btn>
+                  <v-btn href="/" variant="text" size="small"> Home </v-btn>
                 </div>
               </div>
             </v-card>
