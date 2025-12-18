@@ -1085,375 +1085,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **The bottom line:** While password-protected intranet sites are generally exempt from ADA Title II public-facing requirements, they should still be made accessible to comply with IITAA, support employees with disabilities, and avoid the need for accommodations on a case-by-case basis. **All new documents posted after the compliance deadline should be accessible.** For existing documents, prioritize by usage and ensure you can provide accessible versions upon request. Make your intranet and internal documents accessible — it's the right thing to do and helps ensure all employees can access the tools they need to do their jobs.
 
----
-
-## Content Accessibility (Documents, PDFs, Presentations)
-
-### What about photos ICJIA takes at events — like speeches or awards ceremonies? Do those need to be accessible?
-
-**Yes, if you're sharing them digitally.** Any photos published on ICJIA's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
-
-**What is alt text?**
-
-Alt text is a brief written description of an image that screen readers read aloud to users who are blind or have low vision. It's also displayed if an image fails to load.
-
-**How to write good alt text for event photos:**
-
-- **Be specific and concise** — Describe what's actually happening in the photo
-- **Include relevant names** — If someone is being recognized, name them
-- **Describe the context** — What event is this? What's the setting?
-- **Keep it brief** — Usually 1-2 sentences is sufficient
-
-**Examples:**
-
-| Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
-| -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual ICJIA awards ceremony" |
-| Speech         | "Person speaking"         | "ICJIA Executive Director addresses attendees at the 2025 Victim Services Conference"                            |
-| Group photo    | "Group of people"         | "ICJIA Research & Analysis Unit staff at the December 2025 all-hands meeting"                                    |
-| Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                    |
-
-**Where to add alt text:**
-
-- **Website/CMS** — Look for the "alt text" or "image description" field when uploading
-- **Word documents** — Right-click image > Edit Alt Text
-- **PowerPoint** — Right-click image > Edit Alt Text
-- **Social media** — Each platform has an alt text option (see Social Media Accessibility section)
-- **Email** — Outlook and Gmail both support alt text for images
-
-**WCAG Reference:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
-
-### How long should alt text be?
-
-**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
-
-- **Maximum:** Stay under 150 characters when possible
-- **Ideal:** 125 characters or less
-- **Too short:** Single words like "photo" or "image" don't help anyone
-- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
-
-**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it — but keep it concise.
-
-### How do I handle complex images like charts, graphs, or infographics?
-
-Some images — like charts, graphs, infographics, or images containing lots of text — need more than a brief alt text. Here's how to handle them:
-
-**For charts and graphs with data:**
-
-1. **Alt text:** Provide a brief summary of what the chart shows (e.g., "Bar chart showing Illinois crime rates declining 15% from 2020 to 2024")
-2. **Data table:** Include the underlying data in an accessible table format, either directly below the chart or linked nearby
-3. **Long description:** If the trends or patterns matter, describe them in the body text
-
-**Example for a chart:**
-
-- **Alt text:** "Line graph showing ICJIA grant funding from 2020-2025. Full data in table below."
-- **Below the image:** An accessible HTML table with the actual numbers
-
-**For infographics or images with lots of text:**
-
-1. **Don't use images of text** — If possible, present the information as actual text on the page instead of as an image
-2. **If you must use an image:** Provide the full text content in one of these ways:
-   - A "long description" link that opens the full text
-   - An expandable section below the image with the complete text
-   - A text summary in the body of the page
-
-**For scanned documents or PDF images:**
-
-1. **Best approach:** Use OCR (Optical Character Recognition) to convert the image to actual text
-2. **If OCR isn't possible:** Provide a text transcript of the document content
-3. **Alt text:** Describe what the document is (e.g., "Scanned letter from Governor dated June 2025. Full transcript below.")
-
-**General rule for complex images:**
-
-- **Alt text:** Brief summary + tell users where to find more detail
-- **Long description:** Provide full information in accessible text format nearby or linked
-
-**Example patterns:**
-
-| Image Type       | Alt Text Approach                                     | Additional Requirement    |
-| ---------------- | ----------------------------------------------------- | ------------------------- |
-| Data chart       | "Chart showing [brief conclusion]. Data table below." | Accessible data table     |
-| Infographic      | "Infographic about [topic]. Full text follows."       | Complete text version     |
-| Scanned document | "[Document type] from [source]. Transcript provided." | Text transcript           |
-| Complex diagram  | "Diagram of [subject]. Described in detail below."    | Detailed text description |
-
-**WCAG Reference:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — Complex images need text alternatives that serve equivalent purpose
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#images-of-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.5 Images of Text - Level AA</a> — Avoid images of text; use actual text when possible
-
-### How do I make images accessible on social media, Constant Contact, or Canva?
-
-Sharing infographics, charts, or images with text on platforms like social media, Constant Contact, or Canva presents unique challenges because you often can't add data tables or long descriptions directly.
-
-**Social media (Facebook, X/Twitter, Instagram, LinkedIn):**
-
-- **Alt text limits vary** — Most platforms allow 100-1000 characters for alt text, but keep it concise
-- **Use the post text** — Put key information in the post caption itself, not just the image
-- **Link to more** — If sharing a complex infographic, link to a webpage with the full accessible version
-- **Don't rely on the image alone** — If the image contains important text or data, repeat it in your post
-
-**Example social media approach:**
-
-- **Image:** Infographic showing "5 Steps to Accessible Documents"
-- **Alt text:** "Infographic listing 5 steps to create accessible documents. Steps listed in post."
-- **Post text:** "Here are 5 steps to accessible documents: 1) Use heading styles, 2) Add alt text to images, 3) Use meaningful link text, 4) Check color contrast, 5) Run accessibility checker. Full guide: [link]"
-
-**Constant Contact and email marketing:**
-
-- **Alt text field:** Constant Contact has an alt text field for images — use it
-- **Character limit:** Keep alt text brief since email clients vary in support
-- **Avoid image-only emails** — Don't put critical information only in images; many users have images disabled by default
-- **Provide text version** — Key messages should appear as actual text in the email, not just in graphics
-
-**Example email approach:**
-
-- **Image:** Event announcement graphic with date, time, location
-- **Alt text:** "ICJIA Training Event - details in text below"
-- **Email body:** Include all event details as actual text below the image
-
-**Canva:**
-
-- **Canva supports alt text** — When you download or share, Canva can include alt text
-- **Better approach:** Export important text content separately, not just as an image
-- **For presentations:** Use Canva's presentation mode which supports alt text, or export to PowerPoint and add alt text there
-- **For print vs. digital:** If creating something for digital distribution, consider whether it needs to be an image at all
-
-**General rule for social/email:**
-
-If you're sharing a complex image on social media or email, ask yourself: "If someone can't see this image, can they still get the information?" If not, you need to provide the content as text — either in the post/email body or linked to an accessible page.
-
-### Who should write the alt text for photos?
-
-**Ideally, the person supplying the photo should also supply the alt text.** They know what's happening in the image, who's pictured, and why it matters. If you're submitting photos for the website, a newsletter, or social media, include alt text with your submission.
-
-- **You were there** — You know the context, the names, and what made the moment significant
-- **You chose the photo** — You selected it for a reason; that reason should be in the alt text
-- **It saves time** — The web team or communications staff shouldn't have to guess who's in the photo or what event it's from
-
-**Best practice:** When submitting photos, include a simple list: "Photo 1: [alt text], Photo 2: [alt text]" etc.
-
-### Are captions the same as alt text?
-
-**No — captions and alt text serve different purposes and both may be needed.**
-
-|                 | Caption                                              | Alt Text                                                            |
-| --------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
-| **Visibility**  | Visible to everyone on the page                      | Hidden; only read by screen readers or shown if image fails to load |
-| **Purpose**     | Provides context, credits, or additional information | Describes the image for people who can't see it                     |
-| **Who sees it** | All users                                            | Users with screen readers, or when images don't load                |
-| **Required?**   | Optional but often helpful                           | Required for accessibility                                          |
-
-**Example of both working together:**
-
-- **Alt text:** "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe"
-- **Caption:** "Officer John Doe receives the 2025 Excellence Award for his work on community violence intervention programs. Photo: ICJIA"
-
-The alt text describes what's visually happening. The caption adds context that all readers benefit from (what the award was for, photo credit).
-
-**When you might skip detailed alt text:**
-
-- **Purely decorative images** — If a photo adds no meaningful information (like a decorative border), mark it as decorative. But event photos are almost never purely decorative.
-- **Caption already describes it** — If there's a visible caption that fully describes the visual content, alt text can be briefer — but alt text is still required (even if just "Award ceremony as described in caption").
-
-### Do all documents need to be accessible?
-
-For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
-
-- PDFs
-- Word documents
-- Excel spreadsheets
-- PowerPoint presentations
-
-**Exceptions may apply for:**
-
-- Pre-existing documents not currently used for services (still must provide accessible alternatives upon request)
-- Password-protected documents specific to an individual's account
-
-### How do I make a Word document accessible?
-
-Key steps for accessible Word documents:
-
-1. **Use built-in heading styles** (Heading 1, Heading 2, etc.) — don't just make text bold and large
-2. **Add alt text to images** — Right-click > Edit Alt Text
-3. **Use simple table structures** — Avoid merged cells; designate header rows
-4. **Use meaningful link text** — Not "click here"
-5. **Ensure sufficient color contrast**
-6. **Use built-in lists** — Bulleted and numbered lists from the ribbon
-7. **Run the Accessibility Checker** — Review tab > Check Accessibility
-
-**Training available from DoIT:** DoIT.Accessibility@Illinois.gov
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (heading structure, table headers, lists)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-
-### How do I make a PDF accessible?
-
-The best approach depends on the source:
-
-**If you have the source document (Word, InDesign, etc.):**
-
-1. Make the source document accessible first
-2. Export to PDF with accessibility settings enabled
-3. Check and fix any remaining issues in Adobe Acrobat Pro
-
-**If you only have the PDF:**
-
-1. Run the Accessibility Checker in Adobe Acrobat Pro
-2. Add tags using the Reading Order tool
-3. Add alt text to images
-4. Set the document language
-5. Verify reading order
-6. Test with a screen reader
-
-**Testing tool:** PAC 2024 (free) — <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">https://pac.pdf-accessibility.org/</a>
-
-**Adobe guidance:** <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html</a>
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (document structure, reading order)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
-
-### Is Canva accessible?
-
-Canva has made progress on accessibility features, including:
-
-- Design Accessibility checker (checks contrast, alt text, typography)
-- Automatic alt text suggestions
-- Reading order and heading tagging for PDFs
-
-**However:** Canva PDFs are not fully WCAG or PDF/UA compliant. If you use Canva:
-
-- Use the Design Accessibility tool before exporting
-- Check exported PDFs with PAC or Adobe Acrobat
-- Be prepared to remediate PDFs in Adobe Acrobat Pro
-- Simpler designs produce better accessibility results
-
-**Canva accessibility:** <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">https://www.canva.com/accessibility/</a>
-
-### How do I make Excel spreadsheets accessible?
-
-Key steps for accessible Excel files:
-
-1. **Use a simple, logical structure** — Avoid blank rows/columns for spacing
-2. **Name worksheets descriptively** — Not "Sheet1," "Sheet2"
-3. **Define table headers** — Format as Table with header row
-4. **Add alt text to charts and images**
-5. **Avoid merged cells** when possible
-6. **Use sufficient color contrast**
-7. **Don't rely on color alone** to convey information
-8. **Run the Accessibility Checker** — Review tab > Check Accessibility
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (table structure, headers)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for charts/images)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.1 Use of Color - Level A</a> (don't rely on color alone)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-
-### How do I make PowerPoint presentations accessible?
-
-Key steps for accessible PowerPoint:
-
-1. **Use built-in slide layouts** — Don't create from blank slides
-2. **Add alt text to images, charts, and graphics**
-3. **Ensure reading order is correct** — Home > Arrange > Selection Pane
-4. **Use unique, descriptive slide titles**
-5. **Use sufficient color contrast**
-6. **Make hyperlinks descriptive**
-7. **Add captions to embedded videos**
-8. **Run the Accessibility Checker** — Review tab > Check Accessibility
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (reading order, structure)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#page-titled" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.2 Page Titled - Level A</a> (slide titles)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (video captions)
-
----
-
-## Social Media Accessibility
-
-### Do social media posts need to be accessible?
-
-Yes. Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (before the compliance deadline) are exempt.
-
-**Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
-
-**ADA Title II Reference:**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Social Media</a> (see section on "Social Media Posts")
-
-### How do I make social media posts accessible?
-
-**For all platforms:**
-
-- Write in plain language
-- Use CamelCase for hashtags (#AccessibilityMatters)
-- Limit emoji use; don't place multiple emojis together
-- Put hashtags at the end of posts
-- Keep videos captioned
-- Use sufficient color contrast in graphics
-
-**For images:**
-
-- Add alt text (most platforms support this now)
-- Don't put essential text only in images
-- Describe images in the post if alt text isn't available
-
-**For video:**
-
-- Add captions (not just auto-generated — review for accuracy)
-- Provide audio description for essential visual content if needed
-
-**Platform-specific guidance:** <a href="https://www.section508.gov/create/social-media/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/create/social-media/</a>
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (captions)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for images)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-
-### How do I add alt text on different platforms?
-
-- **X (Twitter):** When composing, click the image > "Add description"
-- **Facebook:** Click the image > Edit > Alternative Text
-- **Instagram:** Advanced Settings > Write Alt Text (or edit after posting)
-- **LinkedIn:** Click the image while composing > Alt text
-
----
-
-## Procurement and Third-Party Tools
-
-### What should I do when purchasing software or services?
-
-When procuring technology products or services:
-
-1. **Include accessibility requirements** in RFPs and contracts
-2. **Request accessibility documentation** from vendors — Ask for accessibility conformance reports or documentation that addresses WCAG 2.1 Level AA compliance
-3. **Evaluate accessibility claims** — Look for "Supports" not just "Partially Supports"
-4. **Request a demo** of accessibility features
-5. **Test with assistive technology** if possible
-
-**IITAA procurement guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html</a>
-
-### What contract language should I use?
-
-Illinois DoIT recommends including language similar to:
-
-> "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
-
 ### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
 
 **Testing third-party tools for WCAG 2.1 AA compliance requires a multi-step approach.** You can't rely solely on vendor claims — you need to verify accessibility yourself. Here's how to test tools like Docebo, DocuSign, or other third-party platforms:
@@ -1849,6 +1480,373 @@ Learning Management Systems (LMS) like Docebo, Moodle, Canvas, Blackboard, and o
 **The bottom line:** All third-party content — including Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools — **must be WCAG 2.1 AA compliant** to meet ADA Title II guidelines. Existing content that is **currently used for public services has no exemptions** — it must be made accessible. Only truly archived content that is not currently used may be exempt, and even then, you must provide accessible alternatives upon request. Start remediation now and prioritize the most critical content first.
 
 ---
+
+## Content Accessibility (Documents, PDFs, Presentations)
+
+### What about photos ICJIA takes at events — like speeches or awards ceremonies? Do those need to be accessible?
+
+**Yes, if you're sharing them digitally.** Any photos published on ICJIA's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
+
+**What is alt text?**
+
+Alt text is a brief written description of an image that screen readers read aloud to users who are blind or have low vision. It's also displayed if an image fails to load.
+
+**How to write good alt text for event photos:**
+
+- **Be specific and concise** — Describe what's actually happening in the photo
+- **Include relevant names** — If someone is being recognized, name them
+- **Describe the context** — What event is this? What's the setting?
+- **Keep it brief** — Usually 1-2 sentences is sufficient
+
+**Examples:**
+
+| Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
+| -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual ICJIA awards ceremony" |
+| Speech         | "Person speaking"         | "ICJIA Executive Director addresses attendees at the 2025 Victim Services Conference"                            |
+| Group photo    | "Group of people"         | "ICJIA Research & Analysis Unit staff at the December 2025 all-hands meeting"                                    |
+| Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                    |
+
+**Where to add alt text:**
+
+- **Website/CMS** — Look for the "alt text" or "image description" field when uploading
+- **Word documents** — Right-click image > Edit Alt Text
+- **PowerPoint** — Right-click image > Edit Alt Text
+- **Social media** — Each platform has an alt text option (see Social Media Accessibility section)
+- **Email** — Outlook and Gmail both support alt text for images
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
+
+### How long should alt text be?
+
+**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
+
+- **Maximum:** Stay under 150 characters when possible
+- **Ideal:** 125 characters or less
+- **Too short:** Single words like "photo" or "image" don't help anyone
+- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
+
+**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it — but keep it concise.
+
+### How do I handle complex images like charts, graphs, or infographics?
+
+Some images — like charts, graphs, infographics, or images containing lots of text — need more than a brief alt text. Here's how to handle them:
+
+**For charts and graphs with data:**
+
+1. **Alt text:** Provide a brief summary of what the chart shows (e.g., "Bar chart showing Illinois crime rates declining 15% from 2020 to 2024")
+2. **Data table:** Include the underlying data in an accessible table format, either directly below the chart or linked nearby
+3. **Long description:** If the trends or patterns matter, describe them in the body text
+
+**Example for a chart:**
+
+- **Alt text:** "Line graph showing ICJIA grant funding from 2020-2025. Full data in table below."
+- **Below the image:** An accessible HTML table with the actual numbers
+
+**For infographics or images with lots of text:**
+
+1. **Don't use images of text** — If possible, present the information as actual text on the page instead of as an image
+2. **If you must use an image:** Provide the full text content in one of these ways:
+   - A "long description" link that opens the full text
+   - An expandable section below the image with the complete text
+   - A text summary in the body of the page
+
+**For scanned documents or PDF images:**
+
+1. **Best approach:** Use OCR (Optical Character Recognition) to convert the image to actual text
+2. **If OCR isn't possible:** Provide a text transcript of the document content
+3. **Alt text:** Describe what the document is (e.g., "Scanned letter from Governor dated June 2025. Full transcript below.")
+
+**General rule for complex images:**
+
+- **Alt text:** Brief summary + tell users where to find more detail
+- **Long description:** Provide full information in accessible text format nearby or linked
+
+**Example patterns:**
+
+| Image Type       | Alt Text Approach                                     | Additional Requirement    |
+| ---------------- | ----------------------------------------------------- | ------------------------- |
+| Data chart       | "Chart showing [brief conclusion]. Data table below." | Accessible data table     |
+| Infographic      | "Infographic about [topic]. Full text follows."       | Complete text version     |
+| Scanned document | "[Document type] from [source]. Transcript provided." | Text transcript           |
+| Complex diagram  | "Diagram of [subject]. Described in detail below."    | Detailed text description |
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — Complex images need text alternatives that serve equivalent purpose
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#images-of-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.5 Images of Text - Level AA</a> — Avoid images of text; use actual text when possible
+
+### How do I make images accessible on social media, Constant Contact, or Canva?
+
+Sharing infographics, charts, or images with text on platforms like social media, Constant Contact, or Canva presents unique challenges because you often can't add data tables or long descriptions directly.
+
+**Social media (Facebook, X/Twitter, Instagram, LinkedIn):**
+
+- **Alt text limits vary** — Most platforms allow 100-1000 characters for alt text, but keep it concise
+- **Use the post text** — Put key information in the post caption itself, not just the image
+- **Link to more** — If sharing a complex infographic, link to a webpage with the full accessible version
+- **Don't rely on the image alone** — If the image contains important text or data, repeat it in your post
+
+**Example social media approach:**
+
+- **Image:** Infographic showing "5 Steps to Accessible Documents"
+- **Alt text:** "Infographic listing 5 steps to create accessible documents. Steps listed in post."
+- **Post text:** "Here are 5 steps to accessible documents: 1) Use heading styles, 2) Add alt text to images, 3) Use meaningful link text, 4) Check color contrast, 5) Run accessibility checker. Full guide: [link]"
+
+**Constant Contact and email marketing:**
+
+- **Alt text field:** Constant Contact has an alt text field for images — use it
+- **Character limit:** Keep alt text brief since email clients vary in support
+- **Avoid image-only emails** — Don't put critical information only in images; many users have images disabled by default
+- **Provide text version** — Key messages should appear as actual text in the email, not just in graphics
+
+**Example email approach:**
+
+- **Image:** Event announcement graphic with date, time, location
+- **Alt text:** "ICJIA Training Event - details in text below"
+- **Email body:** Include all event details as actual text below the image
+
+**Canva:**
+
+- **Canva supports alt text** — When you download or share, Canva can include alt text
+- **Better approach:** Export important text content separately, not just as an image
+- **For presentations:** Use Canva's presentation mode which supports alt text, or export to PowerPoint and add alt text there
+- **For print vs. digital:** If creating something for digital distribution, consider whether it needs to be an image at all
+
+**General rule for social/email:**
+
+If you're sharing a complex image on social media or email, ask yourself: "If someone can't see this image, can they still get the information?" If not, you need to provide the content as text — either in the post/email body or linked to an accessible page.
+
+### Who should write the alt text for photos?
+
+**Ideally, the person supplying the photo should also supply the alt text.** They know what's happening in the image, who's pictured, and why it matters. If you're submitting photos for the website, a newsletter, or social media, include alt text with your submission.
+
+- **You were there** — You know the context, the names, and what made the moment significant
+- **You chose the photo** — You selected it for a reason; that reason should be in the alt text
+- **It saves time** — The web team or communications staff shouldn't have to guess who's in the photo or what event it's from
+
+**Best practice:** When submitting photos, include a simple list: "Photo 1: [alt text], Photo 2: [alt text]" etc.
+
+### Are captions the same as alt text?
+
+**No — captions and alt text serve different purposes and both may be needed.**
+
+|                 | Caption                                              | Alt Text                                                            |
+| --------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
+| **Visibility**  | Visible to everyone on the page                      | Hidden; only read by screen readers or shown if image fails to load |
+| **Purpose**     | Provides context, credits, or additional information | Describes the image for people who can't see it                     |
+| **Who sees it** | All users                                            | Users with screen readers, or when images don't load                |
+| **Required?**   | Optional but often helpful                           | Required for accessibility                                          |
+
+**Example of both working together:**
+
+- **Alt text:** "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe"
+- **Caption:** "Officer John Doe receives the 2025 Excellence Award for his work on community violence intervention programs. Photo: ICJIA"
+
+The alt text describes what's visually happening. The caption adds context that all readers benefit from (what the award was for, photo credit).
+
+**When you might skip detailed alt text:**
+
+- **Purely decorative images** — If a photo adds no meaningful information (like a decorative border), mark it as decorative. But event photos are almost never purely decorative.
+- **Caption already describes it** — If there's a visible caption that fully describes the visual content, alt text can be briefer — but alt text is still required (even if just "Award ceremony as described in caption").
+
+### Do all documents need to be accessible?
+
+For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
+
+- PDFs
+- Word documents
+- Excel spreadsheets
+- PowerPoint presentations
+
+**Exceptions may apply for:**
+
+- Pre-existing documents not currently used for services (still must provide accessible alternatives upon request)
+- Password-protected documents specific to an individual's account
+
+### How do I make a Word document accessible?
+
+Key steps for accessible Word documents:
+
+1. **Use built-in heading styles** (Heading 1, Heading 2, etc.) — don't just make text bold and large
+2. **Add alt text to images** — Right-click > Edit Alt Text
+3. **Use simple table structures** — Avoid merged cells; designate header rows
+4. **Use meaningful link text** — Not "click here"
+5. **Ensure sufficient color contrast**
+6. **Use built-in lists** — Bulleted and numbered lists from the ribbon
+7. **Run the Accessibility Checker** — Review tab > Check Accessibility
+
+**Training available from DoIT:** DoIT.Accessibility@Illinois.gov
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (heading structure, table headers, lists)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+
+### How do I make a PDF accessible?
+
+The best approach depends on the source:
+
+**If you have the source document (Word, InDesign, etc.):**
+
+1. Make the source document accessible first
+2. Export to PDF with accessibility settings enabled
+3. Check and fix any remaining issues in Adobe Acrobat Pro
+
+**If you only have the PDF:**
+
+1. Run the Accessibility Checker in Adobe Acrobat Pro
+2. Add tags using the Reading Order tool
+3. Add alt text to images
+4. Set the document language
+5. Verify reading order
+6. Test with a screen reader
+
+**Testing tool:** PAC 2024 (free) — <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">https://pac.pdf-accessibility.org/</a>
+
+**Adobe guidance:** <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html</a>
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (document structure, reading order)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
+
+### Is Canva accessible?
+
+Canva has made progress on accessibility features, including:
+
+- Design Accessibility checker (checks contrast, alt text, typography)
+- Automatic alt text suggestions
+- Reading order and heading tagging for PDFs
+
+**However:** Canva PDFs are not fully WCAG or PDF/UA compliant. If you use Canva:
+
+- Use the Design Accessibility tool before exporting
+- Check exported PDFs with PAC or Adobe Acrobat
+- Be prepared to remediate PDFs in Adobe Acrobat Pro
+- Simpler designs produce better accessibility results
+
+**Canva accessibility:** <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">https://www.canva.com/accessibility/</a>
+
+### How do I make Excel spreadsheets accessible?
+
+Key steps for accessible Excel files:
+
+1. **Use a simple, logical structure** — Avoid blank rows/columns for spacing
+2. **Name worksheets descriptively** — Not "Sheet1," "Sheet2"
+3. **Define table headers** — Format as Table with header row
+4. **Add alt text to charts and images**
+5. **Avoid merged cells** when possible
+6. **Use sufficient color contrast**
+7. **Don't rely on color alone** to convey information
+8. **Run the Accessibility Checker** — Review tab > Check Accessibility
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (table structure, headers)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for charts/images)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.1 Use of Color - Level A</a> (don't rely on color alone)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+
+### How do I make PowerPoint presentations accessible?
+
+Key steps for accessible PowerPoint:
+
+1. **Use built-in slide layouts** — Don't create from blank slides
+2. **Add alt text to images, charts, and graphics**
+3. **Ensure reading order is correct** — Home > Arrange > Selection Pane
+4. **Use unique, descriptive slide titles**
+5. **Use sufficient color contrast**
+6. **Make hyperlinks descriptive**
+7. **Add captions to embedded videos**
+8. **Run the Accessibility Checker** — Review tab > Check Accessibility
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (reading order, structure)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#page-titled" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.2 Page Titled - Level A</a> (slide titles)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (video captions)
+
+---
+
+## Social Media Accessibility
+
+### Do social media posts need to be accessible?
+
+Yes. Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (before the compliance deadline) are exempt.
+
+**Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
+
+**ADA Title II Reference:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Social Media</a> (see section on "Social Media Posts")
+
+### How do I make social media posts accessible?
+
+**For all platforms:**
+
+- Write in plain language
+- Use CamelCase for hashtags (#AccessibilityMatters)
+- Limit emoji use; don't place multiple emojis together
+- Put hashtags at the end of posts
+- Keep videos captioned
+- Use sufficient color contrast in graphics
+
+**For images:**
+
+- Add alt text (most platforms support this now)
+- Don't put essential text only in images
+- Describe images in the post if alt text isn't available
+
+**For video:**
+
+- Add captions (not just auto-generated — review for accuracy)
+- Provide audio description for essential visual content if needed
+
+**Platform-specific guidance:** <a href="https://www.section508.gov/create/social-media/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/create/social-media/</a>
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (captions)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for images)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+
+### How do I add alt text on different platforms?
+
+- **X (Twitter):** When composing, click the image > "Add description"
+- **Facebook:** Click the image > Edit > Alternative Text
+- **Instagram:** Advanced Settings > Write Alt Text (or edit after posting)
+- **LinkedIn:** Click the image while composing > Alt text
+
+---
+
+## Procurement and Third-Party Tools
+
+### What should I do when purchasing software or services?
+
+When procuring technology products or services:
+
+1. **Include accessibility requirements** in RFPs and contracts
+2. **Request accessibility documentation** from vendors — Ask for accessibility conformance reports or documentation that addresses WCAG 2.1 Level AA compliance
+3. **Evaluate accessibility claims** — Look for "Supports" not just "Partially Supports"
+4. **Request a demo** of accessibility features
+5. **Test with assistive technology** if possible
+
+**IITAA procurement guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html</a>
+
+### What contract language should I use?
+
+Illinois DoIT recommends including language similar to:
+
+> "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
 
 ## Getting Help
 
