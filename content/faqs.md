@@ -708,6 +708,107 @@ For most Illinois state agencies, the deadline is **April 24, 2026**.
 
 **Best practice:** Make internal documents accessible proactively. It's easier than retrofitting later, and you may have employees with disabilities who need access.
 
+### Does our agency's password-protected intranet site need to be WCAG 2.1 AA compliant? What about documents on the intranet?
+
+**Short answer:** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws and best practices.
+
+**ADA Title II exemption:**
+
+The ADA Title II web rule specifically covers content "provided or made available to the public." Password-protected intranet sites that are:
+
+- Only accessible to agency employees
+- Not accessible to the general public
+- Protected by authentication (login required)
+
+...are generally **exempt from ADA Title II WCAG 2.1 AA requirements**.
+
+**However, other legal requirements may still apply:**
+
+1. **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law requires that intranets and internal systems used by state employees be accessible. IITAA applies to:
+   - State agency intranets
+   - Internal web applications
+   - Internal systems used by employees
+   - Documents and content on internal systems
+
+2. **ADA Title I (Employment)** — Employers must provide reasonable accommodations for employees with disabilities. If an employee with a disability needs access to an intranet site or internal documents to perform their job, the employer may be required to make that content accessible as a reasonable accommodation.
+
+3. **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities, which can include internal systems.
+
+**What this means for your intranet:**
+
+- **The intranet site itself** — Should be accessible under IITAA and as a reasonable accommodation under ADA Title I
+- **Documents on the intranet** — Should be accessible, especially if they're:
+  - Required for employees to do their jobs
+  - Used for training or professional development
+  - Shared with employees who may have disabilities
+  - Part of employee services (benefits, HR, etc.)
+
+**What about archived documents on the intranet?**
+
+**Archived documents (PDFs, Excel, Word, etc.) that are truly archived and not currently used:**
+
+- **Generally exempt** — If documents are archived (not actively used, historical records, replaced by newer versions), they may be exempt from accessibility requirements
+- **However**, you must still provide accessible alternatives **upon request** if an employee with a disability needs access to archived content
+- **Best practice:** Even archived documents should be made accessible if they're:
+  - Referenced or linked from active intranet pages
+  - Part of a document library that employees might search
+  - Needed for reference or historical context
+
+**After the compliance deadline (April 24, 2026), do all documents need to be accessible?**
+
+**For new documents created after the deadline:**
+
+- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint, etc.) posted to the intranet after the deadline should be accessible
+- This includes documents created internally or received from external sources
+- Make accessibility part of your document creation workflow
+
+**For existing documents created before the deadline:**
+
+- **Prioritize by usage** — Focus on making accessible:
+  - Documents that are actively used by employees
+  - Documents required for job functions
+  - Frequently accessed documents
+  - Documents linked from main intranet pages
+- **Archived documents** — May remain as-is unless an employee requests access, at which point you must provide an accessible version
+
+**Key principle:** The requirement is to ensure employees with disabilities can access the information they need to do their jobs. If a document is truly archived and never accessed, it may not need immediate remediation. But if any employee needs it, you must provide an accessible version.
+
+**Best practices:**
+
+1. **Make the intranet accessible** — Even if technically exempt from ADA Title II, making your intranet WCAG 2.1 AA compliant:
+   - Ensures compliance with IITAA
+   - Supports employees with disabilities
+   - Prevents the need for retrofitting if content later becomes public-facing
+   - Improves usability for all employees
+
+2. **Prioritize critical content** — Focus on making accessible:
+   - Employee-facing services (benefits, HR systems, time tracking)
+   - Required training materials
+   - Frequently accessed documents
+   - Forms and applications employees must use
+   - New documents created after the compliance deadline
+
+3. **Create an accessibility workflow** — Establish processes to:
+   - Make all new documents accessible before posting to the intranet
+   - Remediate existing documents based on usage and priority
+   - Respond promptly to requests for accessible versions of archived documents
+
+4. **Test with employees** — If you have employees who use assistive technologies, involve them in testing your intranet
+
+5. **Document accessibility efforts** — Keep records of:
+   - Which documents are accessible vs. need remediation
+   - Accessibility features implemented
+   - Any accommodations provided
+   - Requests for accessible versions of archived documents
+
+**Resources:**
+
+- **IITAA Requirements:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
+- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
+- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+
+**The bottom line:** While password-protected intranet sites are generally exempt from ADA Title II public-facing requirements, they should still be made accessible to comply with IITAA, support employees with disabilities, and avoid the need for accommodations on a case-by-case basis. **All new documents posted after the compliance deadline should be accessible.** For existing documents, prioritize by usage and ensure you can provide accessible versions upon request. Make your intranet and internal documents accessible — it's the right thing to do and helps ensure all employees can access the tools they need to do their jobs.
+
 ### What content is covered by the ADA Title II rule?
 
 The rule covers all web content and mobile apps that state and local governments provide or make available to the public, including:
@@ -1467,32 +1568,33 @@ Under ADA Title II and IITAA, state agencies must:
 
 **The bottom line:** DocuSign is subject to WCAG compliance requirements. Your agency is responsible for ensuring that documents sent through DocuSign are accessible and that the signing process is usable by people with disabilities. Start with accessible source documents, verify DocuSign's current accessibility status, test your workflows, and have alternative methods available if needed.
 
-### Is Docebo LMS accessibility compliant? What do I need to do when designing a Docebo course to meet WCAG 2.1 guidelines?
+### Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?
 
-**Docebo LMS platform accessibility:**
+**LMS platform accessibility:**
 
-Docebo has made efforts to improve accessibility, but **the platform itself may not be fully WCAG 2.1 AA compliant out of the box**. The platform's accessibility depends on:
+Learning Management Systems (LMS) like Docebo, Moodle, Canvas, Blackboard, and others have made efforts to improve accessibility, but **the platforms themselves may not be fully WCAG 2.1 AA compliant out of the box**. Platform accessibility depends on:
 
-- **Platform version and configuration** — Newer versions have better accessibility features
+- **Platform version and configuration** — Newer versions typically have better accessibility features
 - **Custom branding and themes** — Custom styling can introduce accessibility barriers
-- **Third-party integrations** — Plugins and integrations may not be accessible
+- **Third-party integrations** — Plugins, add-ons, and integrations may not be accessible
+- **Platform-specific features** — Some LMS features may have accessibility limitations
 
-**Important:** Even if the platform has accessibility features, **course content you create must still be designed accessibly**. The platform can't make inaccessible content accessible.
+**Important:** Even if an LMS platform has accessibility features, **course content you create must still be designed accessibly**. The platform can't make inaccessible content accessible.
 
-**What to do when designing accessible Docebo courses:**
+**What to do when designing accessible LMS courses (using Docebo as an example):**
 
 1. **Use accessible document formats for course materials:**
    - Upload accessible Word documents, PDFs, and PowerPoint presentations (see [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible), [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible), and [How do I make PowerPoint presentations accessible?](#how-do-i-make-powerpoint-presentations-accessible) in the Content Accessibility section)
    - Ensure all uploaded documents meet WCAG 2.1 AA standards before uploading
 
 2. **Video content:**
-   - **Add captions** — Docebo supports captions; upload accurate caption files (SRT or VTT format)
-   - **Review auto-generated captions** — If using Docebo's auto-captioning, review and correct errors
+   - **Add captions** — Most LMS platforms (including Docebo) support captions; upload accurate caption files (SRT or VTT format)
+   - **Review auto-generated captions** — If using auto-captioning features, review and correct errors
    - **Provide transcripts** — Include downloadable transcripts for all video content
    - **Audio description** — For videos with essential visual information not conveyed in audio, provide audio descriptions
 
 3. **Images and graphics:**
-   - **Add alt text** — Use Docebo's alt text fields for all images, charts, and graphics
+   - **Add alt text** — Use the LMS platform's alt text fields for all images, charts, and graphics
    - **Describe complex images** — For charts, graphs, or infographics, provide detailed descriptions or data tables
    - **Avoid text in images** — Don't put important text only in images; include it as actual text
 
@@ -1528,28 +1630,29 @@ Docebo has made efforts to improve accessibility, but **the platform itself may 
 9. **Testing your course:**
    - **Test with keyboard only** — Navigate the entire course using only the keyboard (Tab, Enter, Space, arrow keys)
    - **Test with screen reader** — Test with a screen reader (NVDA, JAWS, or VoiceOver) to ensure content is accessible
-   - **Use accessibility checkers** — Run automated accessibility checks on uploaded documents before adding them to Docebo
+   - **Use accessibility checkers** — Run automated accessibility checks on uploaded documents before adding them to the LMS
    - **User testing** — If possible, have users with disabilities test the course and provide feedback
 
-**Best practices for Docebo course design:**
+**Best practices for LMS course design:**
 
-- **Start with accessible source materials** — Make documents accessible before uploading to Docebo
-- **Use Docebo's accessibility features** — Take advantage of alt text fields, caption uploads, and other accessibility options
+- **Start with accessible source materials** — Make documents accessible before uploading to the LMS
+- **Use the LMS platform's accessibility features** — Take advantage of alt text fields, caption uploads, and other accessibility options available in your platform
 - **Test early and often** — Don't wait until the course is complete to test accessibility
 - **Provide alternatives** — For complex interactive content, provide alternative formats or text-based versions
 - **Document accessibility** — Keep records of accessibility features you've implemented
+- **Check platform-specific documentation** — Review your LMS vendor's accessibility documentation and VPAT (Voluntary Product Accessibility Template) if available
 
 **Resources:**
 
-- **Docebo Accessibility Documentation:** Check Docebo's help documentation for current accessibility features and best practices
+- **LMS Accessibility Documentation:** Check your LMS platform's help documentation for current accessibility features and best practices (e.g., Docebo, Moodle, Canvas, Blackboard)
 - **WCAG 2.1 Guidelines:** <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/WCAG21/quickref/?levels=aa</a>
 - **WebAIM Contrast Checker:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
-**The bottom line:** Docebo LMS provides tools to create accessible courses, but **you are responsible for ensuring your course content meets WCAG 2.1 AA standards**. Start with accessible source materials, use Docebo's accessibility features, and test your courses with assistive technologies before publishing.
+**The bottom line:** LMS platforms like Docebo provide tools to create accessible courses, but **you are responsible for ensuring your course content meets WCAG 2.1 AA standards**. Start with accessible source materials, use your LMS platform's accessibility features, and test your courses with assistive technologies before publishing.
 
-### If we have existing Tableau dashboards or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
+### If we have existing content like Tableau dashboards, ArcGIS maps, or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
 
-**No exemptions for currently used content.** If your Tableau dashboards or Docebo courses are **currently being used to provide services to the public**, they must be made accessible — **no exemptions apply**.
+**No exemptions for currently used content.** All third-party content — including Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools — **must be WCAG 2.1 AA compliant** to meet ADA Title II guidelines. If these tools are **currently being used to provide services to the public**, they must be made accessible — **no exemptions apply**.
 
 **The key distinction:**
 
@@ -1573,6 +1676,23 @@ Docebo has made efforts to improve accessibility, but **the platform itself may 
 4. **Test accessibility** — Verify dashboards work with screen readers, keyboard navigation, and meet color contrast requirements
 5. **Provide alternatives** — If a dashboard can't be made fully accessible, provide the same information in an accessible format
 
+**For ArcGIS maps and applications:**
+
+**If the map or application is currently active and used for public services:**
+
+- **Must be made accessible immediately** — No exemptions
+- ArcGIS maps and web applications are web-based tools that provide services to the public
+- They fall under WCAG 2.1 AA compliance requirements
+- You must remediate existing maps/applications or provide accessible alternatives
+
+**What to do:**
+
+1. **Audit existing maps/applications** — Identify all active ArcGIS content used for public services
+2. **Prioritize by usage** — Start with the most frequently used or critical maps/applications
+3. **Remediate or provide alternatives** — Either make ArcGIS content accessible or provide accessible alternatives (accessible data tables, text descriptions, or alternative formats)
+4. **Test accessibility** — Verify maps/applications work with screen readers, keyboard navigation, and meet color contrast requirements
+5. **Provide alternatives** — If an ArcGIS map/application can't be made fully accessible, provide the same information in an accessible format (data tables, text descriptions, accessible PDFs)
+
 **For Docebo online courses:**
 
 **If the course is currently active and used for training or services:**
@@ -1586,7 +1706,7 @@ Docebo has made efforts to improve accessibility, but **the platform itself may 
 
 1. **Audit existing courses** — Identify all active courses currently in use
 2. **Prioritize by enrollment** — Start with courses that have active enrollments or are required for services
-3. **Remediate course content** — Make all course materials accessible (see [Is Docebo LMS accessibility compliant?](#is-docebo-lms-accessibility-compliant-what-do-i-need-to-do-when-designing-a-docebo-course-to-meet-wcag-21-guidelines) question above)
+3. **Remediate course content** — Make all course materials accessible (see [Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?](#is-a-learning-management-system-lms-like-docebo-wcag-21-compliant) question above)
 4. **Test with assistive technologies** — Verify courses work with screen readers and keyboard navigation
 5. **Provide alternatives** — If a course can't be made fully accessible, provide the same training content in an accessible format
 
@@ -1594,7 +1714,7 @@ Docebo has made efforts to improve accessibility, but **the platform itself may 
 
 **Only if content is truly archived and not currently used:**
 
-- Dashboards or courses that are no longer active
+- Dashboards, maps, or courses that are no longer active
 - Historical/archived content not used for current services
 - Content that has been replaced by newer versions
 
@@ -1605,31 +1725,36 @@ Docebo has made efforts to improve accessibility, but **the platform itself may 
 
 **Important considerations:**
 
-1. **"Currently used" is broadly defined** — If content is accessible to the public or used by staff to provide services, it's considered "currently used"
+1. **All third-party content must be WCAG 2.1 AA compliant** — This includes Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools used to provide services. There are no exceptions for third-party tools — they must meet the same accessibility standards as your agency's own content.
 
-2. **No grace period for existing content** — The April 2026 deadline applies to all content, including existing dashboards and courses
+2. **"Currently used" is broadly defined** — If content is accessible to the public or used by staff to provide services, it's considered "currently used"
 
-3. **Prioritization is allowed** — You can prioritize which dashboards/courses to remediate first, but all active content must eventually be accessible
+3. **No grace period for existing content** — The April 2026 deadline applies to all content, including existing dashboards, maps, and courses. All third-party tools must be WCAG 2.1 AA compliant to meet ADA Title II guidelines.
 
-4. **Documentation matters** — Keep records of:
-   - Which dashboards/courses are active vs. archived
+4. **Prioritization is allowed** — You can prioritize which dashboards/maps/courses to remediate first, but all active content must eventually be accessible
+
+5. **Documentation matters** — Keep records of:
+   - Which dashboards/maps/courses are active vs. archived
    - Remediation plans and timelines
    - Alternative formats provided
+   - VPATs (Voluntary Product Accessibility Templates) from vendors
 
 **Best practices:**
 
 - **Start remediation now** — Don't wait until the deadline
-- **Prioritize high-impact content** — Focus on the most-used dashboards and courses first
+- **Prioritize high-impact content** — Focus on the most-used dashboards, maps, and courses first
 - **Plan for alternatives** — Have a plan to provide accessible alternatives if full remediation isn't immediately possible
 - **Test early and often** — Test accessibility as you remediate, not just at the end
 - **Document everything** — Keep records of remediation efforts and alternative formats
+- **Request VPATs from vendors** — Ask third-party tool vendors for their Voluntary Product Accessibility Templates to understand their accessibility status
+- **Verify compliance** — Don't assume third-party tools are accessible; test them yourself to ensure they meet WCAG 2.1 AA standards
 
 **Resources:**
 
 - **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 - **DoIT Accessibility Guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
 
-**The bottom line:** Existing Tableau dashboards and Docebo courses that are **currently used for public services have no exemptions** — they must be made accessible. Only truly archived content that is not currently used may be exempt, and even then, you must provide accessible alternatives upon request. Start remediation now and prioritize the most critical content first.
+**The bottom line:** All third-party content — including Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools — **must be WCAG 2.1 AA compliant** to meet ADA Title II guidelines. Existing content that is **currently used for public services has no exemptions** — it must be made accessible. Only truly archived content that is not currently used may be exempt, and even then, you must provide accessible alternatives upon request. Start remediation now and prioritize the most critical content first.
 
 ---
 
