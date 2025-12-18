@@ -55,3 +55,4 @@ export default <RouterConfig>{
     return { top: 0, behavior: 'smooth' }
   }
 }
+

@@ -687,6 +687,98 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 **Official fact sheet:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 
+### How does Title II differ from Title I? I'm familiar with Title I, but Title II is new to me.
+
+**Title I and Title II are two different parts of the Americans with Disabilities Act (ADA) that cover different areas of disability rights.** Understanding the difference helps clarify why the April 2026 deadline is significant and how it relates to what you may already know about ADA compliance.
+
+**ADA Title I — Employment (What you're likely familiar with):**
+
+Title I of the ADA prohibits employment discrimination against qualified individuals with disabilities. It applies to:
+
+- **Private employers** with 15 or more employees
+- **State and local governments** (regardless of size)
+- **Employment agencies**
+- **Labor organizations**
+
+**Key aspects of Title I:**
+
+- **Reasonable accommodations** — Employers must provide reasonable accommodations to qualified employees with disabilities unless doing so would cause "undue hardship"
+- **Non-discrimination** — Employers cannot discriminate in hiring, firing, promotions, pay, or other employment practices
+- **Interactive process** — Employers and employees work together to determine appropriate accommodations
+- **Case-by-case basis** — Accommodations are determined individually based on the employee's needs and job requirements
+- **No specific technical standards** — Title I doesn't mandate specific technical standards like WCAG; it focuses on providing reasonable accommodations
+
+**Examples of Title I accommodations:**
+
+- Providing screen reader software for an employee with vision impairment
+- Modifying work schedules for medical appointments
+- Providing ergonomic equipment or modified workstations
+- Making internal documents accessible when an employee needs them to perform their job
+
+**ADA Title II — Public Services (What's new with the 2026 deadline):**
+
+Title II of the ADA prohibits discrimination against people with disabilities in all programs, services, and activities provided by state and local governments. The April 2024 web accessibility rule adds specific technical requirements for digital content.
+
+**Key aspects of Title II:**
+
+- **Applies to state and local governments** — All public entities, regardless of size
+- **Covers public-facing services** — Programs, services, and activities provided to the public
+- **Specific technical standards** — The 2024 rule requires WCAG 2.1 Level AA compliance (unlike Title I, which has no specific technical standards)
+- **Proactive compliance** — Must make content accessible before someone requests it (unlike Title I's case-by-case accommodation approach)
+- **Firm deadline** — April 24, 2026 for entities with populations of 50,000 or more
+- **Covers digital content** — Websites, mobile apps, documents, videos, social media, and all public-facing digital content
+
+**Examples of Title II requirements:**
+
+- Making all public-facing websites WCAG 2.1 AA compliant
+- Ensuring PDFs, Word documents, and Excel files are accessible
+- Providing captions for videos
+- Making online forms and applications accessible
+- Ensuring social media posts are accessible (going forward)
+
+**Key Differences Between Title I and Title II:**
+
+| Aspect                  | Title I (Employment)                                          | Title II (Public Services)                     |
+| ----------------------- | ------------------------------------------------------------- | ---------------------------------------------- |
+| **Who it applies to**   | Employers (private and public)                                | State and local governments                    |
+| **What it covers**      | Employment practices and workplace accommodations             | Public programs, services, and activities      |
+| **Approach**            | Case-by-case reasonable accommodations                        | Proactive accessibility for all public content |
+| **Technical standards** | No specific standards; accommodations determined individually | WCAG 2.1 Level AA required                     |
+| **Timeline**            | Accommodations provided when requested                        | Must be compliant by April 2026 deadline       |
+| **Scope**               | Individual employee needs                                     | All public-facing digital content              |
+| **Internal vs. public** | Primarily internal (workplace)                                | Primarily public-facing content                |
+
+**Why Title II might feel "new":**
+
+1. **The web rule is recent** — While Title II has existed since 1990, the specific web accessibility rule with technical standards (WCAG 2.1 AA) was only published in April 2024. This is the first time the Department of Justice has established specific technical requirements for digital accessibility under Title II.
+
+2. **Different enforcement history** — Title I has been actively enforced through the Equal Employment Opportunity Commission (EEOC) for decades, with many employers familiar with the reasonable accommodation process. Title II web accessibility enforcement has been less consistent until now.
+
+3. **Different focus** — Title I focuses on individual accommodations in the workplace, while Title II focuses on ensuring public services are accessible to everyone. The web rule extends this to digital content, which is a newer area of focus.
+
+**How Title I and Title II relate to each other:**
+
+- **They can overlap** — For example, if a state agency employee with a disability needs to access internal documents to do their job, Title I (reasonable accommodation) may require making those documents accessible. If those same documents are also public-facing, Title II would also require them to be accessible.
+
+- **Different requirements** — Title I requires reasonable accommodations for employees; Title II requires proactive accessibility for public content. An agency might need to comply with both.
+
+- **Complementary protections** — Both titles work together to ensure people with disabilities have equal access — Title I in employment, Title II in public services.
+
+**For ICJIA specifically:**
+
+- **Title I** applies to ICJIA as an employer — we must provide reasonable accommodations for employees with disabilities
+- **Title II** applies to ICJIA as a state agency — we must make all public-facing digital content accessible by April 2026
+- **Both apply** — ICJIA must comply with both Title I (for employees) and Title II (for public services)
+
+**The bottom line:** Title I is about employment accommodations (what you're familiar with), while Title II is about making public services accessible to everyone (what the 2026 deadline addresses). The April 2024 web rule is the first time Title II has had specific technical standards for digital content, which is why it may feel new even though Title II itself has existed since 1990.
+
+**References:**
+
+- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
+- **ADA Title II (Public Services):** <a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-state-and-local-governments/</a>
+- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+- **Overview of ADA Titles:** <a href="https://www.ada.gov/ada_intro.htm" target="_blank" rel="noopener noreferrer">https://www.ada.gov/ada_intro.htm</a>
+
 ### When must we comply with the ADA Title II rule?
 
 | Entity Size                  | Compliance Deadline |
@@ -707,107 +799,6 @@ For most Illinois state agencies, the deadline is **April 24, 2026**.
 - **IITAA** — Illinois law covers intranets and internal systems used by state employees
 
 **Best practice:** Make internal documents accessible proactively. It's easier than retrofitting later, and you may have employees with disabilities who need access.
-
-### Does our agency's password-protected intranet site need to be WCAG 2.1 AA compliant? What about documents on the intranet?
-
-**Short answer:** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws and best practices.
-
-**ADA Title II exemption:**
-
-The ADA Title II web rule specifically covers content "provided or made available to the public." Password-protected intranet sites that are:
-
-- Only accessible to agency employees
-- Not accessible to the general public
-- Protected by authentication (login required)
-
-...are generally **exempt from ADA Title II WCAG 2.1 AA requirements**.
-
-**However, other legal requirements may still apply:**
-
-1. **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law requires that intranets and internal systems used by state employees be accessible. IITAA applies to:
-   - State agency intranets
-   - Internal web applications
-   - Internal systems used by employees
-   - Documents and content on internal systems
-
-2. **ADA Title I (Employment)** — Employers must provide reasonable accommodations for employees with disabilities. If an employee with a disability needs access to an intranet site or internal documents to perform their job, the employer may be required to make that content accessible as a reasonable accommodation.
-
-3. **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities, which can include internal systems.
-
-**What this means for your intranet:**
-
-- **The intranet site itself** — Should be accessible under IITAA and as a reasonable accommodation under ADA Title I
-- **Documents on the intranet** — Should be accessible, especially if they're:
-  - Required for employees to do their jobs
-  - Used for training or professional development
-  - Shared with employees who may have disabilities
-  - Part of employee services (benefits, HR, etc.)
-
-**What about archived documents on the intranet?**
-
-**Archived documents (PDFs, Excel, Word, etc.) that are truly archived and not currently used:**
-
-- **Generally exempt** — If documents are archived (not actively used, historical records, replaced by newer versions), they may be exempt from accessibility requirements
-- **However**, you must still provide accessible alternatives **upon request** if an employee with a disability needs access to archived content
-- **Best practice:** Even archived documents should be made accessible if they're:
-  - Referenced or linked from active intranet pages
-  - Part of a document library that employees might search
-  - Needed for reference or historical context
-
-**After the compliance deadline (April 24, 2026), do all documents need to be accessible?**
-
-**For new documents created after the deadline:**
-
-- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint, etc.) posted to the intranet after the deadline should be accessible
-- This includes documents created internally or received from external sources
-- Make accessibility part of your document creation workflow
-
-**For existing documents created before the deadline:**
-
-- **Prioritize by usage** — Focus on making accessible:
-  - Documents that are actively used by employees
-  - Documents required for job functions
-  - Frequently accessed documents
-  - Documents linked from main intranet pages
-- **Archived documents** — May remain as-is unless an employee requests access, at which point you must provide an accessible version
-
-**Key principle:** The requirement is to ensure employees with disabilities can access the information they need to do their jobs. If a document is truly archived and never accessed, it may not need immediate remediation. But if any employee needs it, you must provide an accessible version.
-
-**Best practices:**
-
-1. **Make the intranet accessible** — Even if technically exempt from ADA Title II, making your intranet WCAG 2.1 AA compliant:
-   - Ensures compliance with IITAA
-   - Supports employees with disabilities
-   - Prevents the need for retrofitting if content later becomes public-facing
-   - Improves usability for all employees
-
-2. **Prioritize critical content** — Focus on making accessible:
-   - Employee-facing services (benefits, HR systems, time tracking)
-   - Required training materials
-   - Frequently accessed documents
-   - Forms and applications employees must use
-   - New documents created after the compliance deadline
-
-3. **Create an accessibility workflow** — Establish processes to:
-   - Make all new documents accessible before posting to the intranet
-   - Remediate existing documents based on usage and priority
-   - Respond promptly to requests for accessible versions of archived documents
-
-4. **Test with employees** — If you have employees who use assistive technologies, involve them in testing your intranet
-
-5. **Document accessibility efforts** — Keep records of:
-   - Which documents are accessible vs. need remediation
-   - Accessibility features implemented
-   - Any accommodations provided
-   - Requests for accessible versions of archived documents
-
-**Resources:**
-
-- **IITAA Requirements:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
-- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
-- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
-
-**The bottom line:** While password-protected intranet sites are generally exempt from ADA Title II public-facing requirements, they should still be made accessible to comply with IITAA, support employees with disabilities, and avoid the need for accommodations on a case-by-case basis. **All new documents posted after the compliance deadline should be accessible.** For existing documents, prioritize by usage and ensure you can provide accessible versions upon request. Make your intranet and internal documents accessible — it's the right thing to do and helps ensure all employees can access the tools they need to do their jobs.
 
 ### What content is covered by the ADA Title II rule?
 
@@ -992,6 +983,107 @@ You are responsible for the accessibility of third-party content that you embed 
 **ADA Title II Reference:**
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
+
+### Does our agency's password-protected intranet site need to be WCAG 2.1 AA compliant? What about documents on the intranet?
+
+**Short answer:** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws and best practices.
+
+**ADA Title II exemption:**
+
+The ADA Title II web rule specifically covers content "provided or made available to the public." Password-protected intranet sites that are:
+
+- Only accessible to agency employees
+- Not accessible to the general public
+- Protected by authentication (login required)
+
+...are generally **exempt from ADA Title II WCAG 2.1 AA requirements**.
+
+**However, other legal requirements may still apply:**
+
+1. **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law requires that intranets and internal systems used by state employees be accessible. IITAA applies to:
+   - State agency intranets
+   - Internal web applications
+   - Internal systems used by employees
+   - Documents and content on internal systems
+
+2. **ADA Title I (Employment)** — Employers must provide reasonable accommodations for employees with disabilities. If an employee with a disability needs access to an intranet site or internal documents to perform their job, the employer may be required to make that content accessible as a reasonable accommodation.
+
+3. **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities, which can include internal systems.
+
+**What this means for your intranet:**
+
+- **The intranet site itself** — Should be accessible under IITAA and as a reasonable accommodation under ADA Title I
+- **Documents on the intranet** — Should be accessible, especially if they're:
+  - Required for employees to do their jobs
+  - Used for training or professional development
+  - Shared with employees who may have disabilities
+  - Part of employee services (benefits, HR, etc.)
+
+**What about archived documents on the intranet?**
+
+**Archived documents (PDFs, Excel, Word, etc.) that are truly archived and not currently used:**
+
+- **Generally exempt** — If documents are archived (not actively used, historical records, replaced by newer versions), they may be exempt from accessibility requirements
+- **However**, you must still provide accessible alternatives **upon request** if an employee with a disability needs access to archived content
+- **Best practice:** Even archived documents should be made accessible if they're:
+  - Referenced or linked from active intranet pages
+  - Part of a document library that employees might search
+  - Needed for reference or historical context
+
+**After the compliance deadline (April 24, 2026), do all documents need to be accessible?**
+
+**For new documents created after the deadline:**
+
+- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint, etc.) posted to the intranet after the deadline should be accessible
+- This includes documents created internally or received from external sources
+- Make accessibility part of your document creation workflow
+
+**For existing documents created before the deadline:**
+
+- **Prioritize by usage** — Focus on making accessible:
+  - Documents that are actively used by employees
+  - Documents required for job functions
+  - Frequently accessed documents
+  - Documents linked from main intranet pages
+- **Archived documents** — May remain as-is unless an employee requests access, at which point you must provide an accessible version
+
+**Key principle:** The requirement is to ensure employees with disabilities can access the information they need to do their jobs. If a document is truly archived and never accessed, it may not need immediate remediation. But if any employee needs it, you must provide an accessible version.
+
+**Best practices:**
+
+1. **Make the intranet accessible** — Even if technically exempt from ADA Title II, making your intranet WCAG 2.1 AA compliant:
+   - Ensures compliance with IITAA
+   - Supports employees with disabilities
+   - Prevents the need for retrofitting if content later becomes public-facing
+   - Improves usability for all employees
+
+2. **Prioritize critical content** — Focus on making accessible:
+   - Employee-facing services (benefits, HR systems, time tracking)
+   - Required training materials
+   - Frequently accessed documents
+   - Forms and applications employees must use
+   - New documents created after the compliance deadline
+
+3. **Create an accessibility workflow** — Establish processes to:
+   - Make all new documents accessible before posting to the intranet
+   - Remediate existing documents based on usage and priority
+   - Respond promptly to requests for accessible versions of archived documents
+
+4. **Test with employees** — If you have employees who use assistive technologies, involve them in testing your intranet
+
+5. **Document accessibility efforts** — Keep records of:
+   - Which documents are accessible vs. need remediation
+   - Accessibility features implemented
+   - Any accommodations provided
+   - Requests for accessible versions of archived documents
+
+**Resources:**
+
+- **IITAA Requirements:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
+- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
+- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+
+**The bottom line:** While password-protected intranet sites are generally exempt from ADA Title II public-facing requirements, they should still be made accessible to comply with IITAA, support employees with disabilities, and avoid the need for accommodations on a case-by-case basis. **All new documents posted after the compliance deadline should be accessible.** For existing documents, prioritize by usage and ensure you can provide accessible versions upon request. Make your intranet and internal documents accessible — it's the right thing to do and helps ensure all employees can access the tools they need to do their jobs.
 
 ---
 
