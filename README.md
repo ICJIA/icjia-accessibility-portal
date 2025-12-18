@@ -260,11 +260,15 @@ All pages currently pass with **no violations** detected. The audit is run regul
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags
 
-**Last Updated**: December 17, 2025  
-**Last Accessibility Audit**: December 2025 - All pages passed with no violations  
+**Last Updated**: December 18, 2025
+
 **Node Version**: 22.14.0  
 **Nuxt Version**: 4.2.2
 
 ## License
 
-Copyright © 2025 Illinois Criminal Justice Information Authority. All rights reserved.
+This project is licensed under the MIT License.
+
+Copyright (c) 2025 Illinois Criminal Justice Information Authority
+
+See the [LICENSE](LICENSE) file for the full license text.

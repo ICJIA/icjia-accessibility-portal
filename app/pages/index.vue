@@ -137,7 +137,7 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 17, 2025";
+const lastUpdated = "December 18, 2025";
 
 /**
  * @type {import('vue').Ref<{days: number, hours: number, minutes: number, seconds: number}>}

@@ -1296,4 +1296,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 17, 2025_
+_Last updated: December 18, 2025_
