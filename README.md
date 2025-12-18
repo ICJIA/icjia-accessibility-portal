@@ -136,9 +136,8 @@ To deploy:
 │   ├── layouts/
 │   │   └── default.vue      # Default layout with navbar and footer
 │   ├── pages/
-│   │   ├── index.vue        # Home page with countdown timer
-│   │   ├── links.vue        # Accessibility links page
-│   │   └── faqs.vue         # FAQs page
+│   │   ├── index.vue        # Home page with countdown timer and FAQs
+│   │   └── links.vue        # Accessibility links page
 │   ├── components/
 │   │   ├── SkipLink.vue     # Skip to main content link
 │   │   ├── AppNavbar.vue    # Navigation bar with aria-current support
@@ -198,9 +197,8 @@ The audit script will:
 
 1. **Start the development server** - Automatically launches the Nuxt dev server
 2. **Test all pages** - Audits the following pages for WCAG 2.1 AA compliance:
-   - `/` (Home page)
+   - `/` (Home page with FAQs)
    - `/links` (Accessibility links page)
-   - `/faqs` (FAQs page)
 3. **Run axe-core analysis** - Uses `@axe-core/playwright` to perform comprehensive accessibility testing
 4. **Report results** - Displays detailed violation reports with:
    - Violation IDs and descriptions
