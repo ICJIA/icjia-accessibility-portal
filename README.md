@@ -263,7 +263,9 @@ All pages currently pass with **no violations** detected. The audit is run regul
 **Last Updated**: December 18, 2025
 
 **Node Version**: 22.14.0  
-**Nuxt Version**: 4.2.2
+**Nuxt Version**: 4.0.0+  
+**Vue Version**: 3.5.13+  
+**Vuetify Version**: 3.11.3+
 
 ## License
 
