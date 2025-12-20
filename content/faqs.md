@@ -15,21 +15,33 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
-### Why am I hearing so much about digital accessibility now? What's changed?
+### Why am I hearing about this deadline now? I had no idea.
 
-**Digital accessibility has become a critical priority because of a major shift in federal law that creates specific, enforceable requirements for state and local governments.** If you're wondering "Why now?" or "What changed?" — here's what you need to know:
+**You're not alone — many people are surprised to learn about digital accessibility requirements and the April 2026 deadline.** Digital accessibility has become a critical priority because of a major shift in federal law that creates specific, enforceable requirements for state and local governments. There are several reasons why this may feel sudden:
 
 **The game-changer: The ADA Title II Web Rule**
 
-On April 24, 2024, the U.S. Department of Justice published a final rule that establishes **specific technical requirements** for web content and mobile app accessibility under Title II of the Americans with Disabilities Act. This is the first time the federal government has set concrete, testable standards for digital accessibility that apply directly to state and local governments.
+The ADA Title II web accessibility rule was only finalized on **April 24, 2024**, setting a compliance deadline of **April 24, 2026** for larger entities. On that date, the U.S. Department of Justice published a final rule that establishes **specific technical requirements** for web content and mobile app accessibility under Title II of the Americans with Disabilities Act. This is the first time the federal government has set concrete, testable standards for digital accessibility that apply directly to state and local governments.
+
+While digital accessibility has been a legal expectation for years (under Section 508, the IITAA, and general ADA requirements), this is the first time the Department of Justice has established **specific technical standards** (WCAG 2.1 AA) with **firm deadlines** for state and local governments.
 
 **Official fact sheet:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a>
 
 **What this means:**
 
-- **Before April 2024:** Accessibility was required in principle, but enforcement was inconsistent and standards were vague. Agencies knew they should be accessible, but there were no specific technical requirements or firm deadlines.
+- **Before April 2024:** Accessibility was required in principle, but enforcement was inconsistent and standards were vague. Agencies knew they should be accessible, but there were no specific technical requirements or firm deadlines. Compliance was measured against general principles rather than testable criteria, and there was no countdown clock creating organizational urgency.
 
-- **After April 2024:** There are now **specific technical standards** (WCAG 2.1 Level AA) and **firm compliance deadlines** (April 24, 2026 for most agencies). This isn't optional — it's a legal requirement with clear, testable criteria.
+- **After April 2024:** There are now **specific technical standards** (WCAG 2.1 Level AA) and **firm compliance deadlines** (April 24, 2026 for most agencies). This isn't optional — it's a legal requirement with clear, testable criteria. The April 2026 deadline changes the landscape: now there are specific, testable requirements with a firm compliance date, creating accountability that didn't exist before — and extending beyond websites to include documents, videos, social media, and all public-facing digital content.
+
+**Accessibility wasn't always on the radar:**
+
+- **It wasn't prioritized** — For many organizations, accessibility was seen as a "nice to have" rather than a legal requirement
+- **Limited awareness** — Unless you work in IT, web development, or disability services, accessibility requirements may not have been part of your professional development
+- **No enforcement history** — Without high-profile enforcement actions, many agencies didn't feel urgency around digital accessibility
+
+**Illinois has had requirements since 2008:**
+
+The Illinois Information Technology Accessibility Act (IITAA) has required accessible digital content for state agencies since 2008. However, enforcement was inconsistent, and many agencies weren't fully aware of their obligations. The new federal rule adds another layer of accountability.
 
 **Why you're hearing about it so frequently now:**
 
@@ -78,6 +90,15 @@ It's completely understandable that managers want to clarify what digital access
 
 **The reality:** While it's reasonable to want more information before committing resources, the April 2026 deadline is non-negotiable. The best approach is to **learn while doing** — start the work now, ask questions along the way, and adjust plans as you gain more understanding. Waiting until you fully understand everything will only make compliance harder to achieve.
 
+**What matters now:**
+
+The countdown timer on this page shows exactly how much time remains until the compliance deadline. Rather than focusing on why we didn't know sooner, the priority now is incorporating accessibility into our workflows within this timeframe. Use the time remaining to:
+
+- Audit existing content
+- Prioritize remediation
+- Build accessibility into our workflows
+- Train staff on accessibility practices
+
 **What's different from before:**
 
 - **Specific standards** — WCAG 2.1 Level AA provides concrete, testable criteria (unlike vague "accessibility" requirements)
@@ -87,10 +108,13 @@ It's completely understandable that managers want to clarify what digital access
 
 **The bottom line:** Digital accessibility has always been the right thing to do, but now it's also a **legal requirement with specific standards and a firm deadline**. The April 2024 rule transformed digital accessibility from an aspirational goal into a concrete, enforceable mandate. That's why agencies are prioritizing this work now — not because accessibility suddenly matters, but because the legal framework, technical standards, and compliance deadlines are now clearly defined. Digital accessibility is being mentioned frequently because it affects everyone in the organization and requires everyone's participation to succeed.
 
+**The good news:** You're learning about this with enough time to take meaningful action. Many organizations are in the same position, and resources are available to help.
+
 **References:**
 
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Official DOJ summary of the rule
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Official DOJ summary of the rule (Published April 2024)
 - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Full rule information
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA History and Requirements</a> — Illinois requirements since 2008
 
 ### Why does accessibility matter?
 
@@ -393,40 +417,6 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
 - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
-
-### Why am I just hearing about this deadline now?
-
-**You're not alone — many people are surprised to learn about the April 2026 deadline.** There are several reasons why this may feel sudden:
-
-**The rule is relatively new:**
-
-The ADA Title II web accessibility rule was only finalized on **April 24, 2024** — just two years before the compliance deadline for larger entities. While digital accessibility has been a legal expectation for years (under Section 508, the IITAA, and general ADA requirements), this is the first time the Department of Justice has established **specific technical standards** (WCAG 2.1 AA) with **firm deadlines** for state and local governments.
-
-**Accessibility wasn't always on the radar:**
-
-- **It wasn't prioritized** — For many organizations, accessibility was seen as a "nice to have" rather than a legal requirement
-- **Limited awareness** — Unless you work in IT, web development, or disability services, accessibility requirements may not have been part of your professional development
-- **No enforcement history** — Without high-profile enforcement actions, many agencies didn't feel urgency around digital accessibility
-
-**Illinois has had requirements since 2008:**
-
-The Illinois Information Technology Accessibility Act (IITAA) has required accessible digital content for state agencies since 2008. However, enforcement was inconsistent, and many agencies weren't fully aware of their obligations. The new federal rule adds another layer of accountability.
-
-**What matters now:**
-
-The countdown timer on this page shows exactly how much time remains until the compliance deadline. Rather than focusing on why we didn't know sooner, the priority now is incorporating accessibility into our workflows within this timeframe. Use the time remaining to:
-
-- Audit existing content
-- Prioritize remediation
-- Build accessibility into our workflows
-- Train staff on accessibility practices
-
-**The good news:** You're learning about this with enough time to take meaningful action. Many organizations are in the same position, and resources are available to help.
-
-**References:**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Published April 2024
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA History and Requirements</a> — Illinois requirements since 2008
 
 ### If this has been a requirement, why hasn't ICJIA been doing this all along?
 
@@ -1958,4 +1948,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 18, 2025_
+_Last updated: December 20, 2025_

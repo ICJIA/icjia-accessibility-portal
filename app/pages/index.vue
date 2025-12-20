@@ -129,6 +129,7 @@
 
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import { transformFaqsToAccordionData } from "../utils/faqTransform";
+import { useDeadlineCountdown } from "../composables/useDeadlineCountdown";
 
 /** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
@@ -137,7 +138,11 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 18, 2025";
+const lastUpdated = "December 20, 2025";
+
+// Get deadline countdown information
+const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =
+  useDeadlineCountdown();
 
 /**
  * @type {import('vue').Ref<{days: number, hours: number, minutes: number, seconds: number}>}
@@ -274,6 +279,65 @@ function extractText(node: any): string {
 }
 
 /**
+ * Replaces text patterns in a node with dynamic deadline values
+ * @param {any} node - Markdown node to process
+ * @returns {any} Processed node with replaced text
+ */
+function replaceDeadlineText(node: any): any {
+  if (typeof node === "string") {
+    // Replace static text patterns with dynamic values
+    let text = node;
+    const days = daysRemaining.value;
+    const passed = deadlinePassed.value;
+    const daysText = daysRemainingText.value;
+
+    // Replace the specific pattern the user mentioned (exact match)
+    text = text.replace(
+      /That's less than two years away, and achieving compliance requires systematic work across all digital content\. Organizations are realizing that this work needs to start now\./g,
+      passed
+        ? `The compliance deadline has passed. Immediate action is required to achieve compliance.`
+        : `${days} days remain, and achieving compliance requires systematic work across all digital content. Organizations are realizing that this work needs to start now.`
+    );
+
+    // Replace "just two years before the compliance deadline" (with optional trailing text)
+    text = text.replace(
+      /just two years before the compliance deadline([^.]*)/g,
+      passed
+        ? `the compliance deadline has passed$1`
+        : `${days} days before the compliance deadline$1`
+    );
+
+    // Replace "less than two years away" (standalone or in context)
+    text = text.replace(
+      /less than two years away/g,
+      passed ? "the deadline has passed" : daysText
+    );
+
+    // Replace "two years" when it appears in deadline context (be careful with context)
+    // Only replace when it's clearly about time until deadline, not historical references
+    text = text.replace(
+      /(\d{4}) — just two years before the compliance deadline/g,
+      passed
+        ? `$1 — the compliance deadline has passed`
+        : `$1 — ${days} days before the compliance deadline`
+    );
+
+    return text;
+  }
+
+  if (Array.isArray(node)) {
+    // Process array nodes (elements)
+    if (node.length > 2) {
+      // Element node: [tag, attrs, ...children]
+      return [node[0], node[1], ...node.slice(2).map(replaceDeadlineText)];
+    }
+    return node.map(replaceDeadlineText);
+  }
+
+  return node;
+}
+
+/**
  * Generates a URL-friendly slug from text
  * @param {string} text - Text to convert to slug
  * @returns {string} URL-friendly slug
@@ -306,6 +370,10 @@ const faqItems = computed(() => {
  * @type {import('vue').ComputedRef<Array<{heading: string | null, items: Array<{question: string, answer: MiniMarkNode[]}>}>>}
  */
 const faqSections = computed(() => {
+  // Make this computed depend on deadline countdown values so it updates when days change
+  const _ = daysRemaining.value; // Access to make computed reactive
+  const __ = deadlinePassed.value; // Access to make computed reactive
+
   if (!faqsPage.value) return [];
   const body = (faqsPage.value as any).body;
   if (!body || body.type !== "minimark" || !Array.isArray(body.value))
@@ -361,7 +429,7 @@ const faqSections = computed(() => {
         if (questionText) {
           currentSection.items.push({
             question: questionText,
-            answer: answerNodes,
+            answer: answerNodes.map(replaceDeadlineText),
           });
         }
         continue;
@@ -383,6 +451,10 @@ const faqSections = computed(() => {
  * @type {import('vue').ComputedRef<any | null>}
  */
 const introContent = computed(() => {
+  // Make this computed depend on deadline countdown values so it updates when days change
+  const _ = daysRemaining.value; // Access to make computed reactive
+  const __ = deadlinePassed.value; // Access to make computed reactive
+
   if (!faqsPage.value) return null;
   const body = (faqsPage.value as any).body;
   if (!body || body.type !== "minimark" || !Array.isArray(body.value))
@@ -407,7 +479,7 @@ const introContent = computed(() => {
     ...faqsPage.value,
     body: {
       ...body,
-      value: introNodes,
+      value: introNodes.map(replaceDeadlineText),
     },
   };
 });
