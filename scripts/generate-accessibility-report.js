@@ -790,7 +790,8 @@ function generateHTMLReport(results, reportDate) {
         <li><strong>Browser Integration:</strong> Works with all major browsers and testing frameworks</li>
       </ul>
       <p style="margin-top: 1rem;">
-        <a href="https://www.deque.com/axe/core/" target="_blank" rel="noopener noreferrer">Learn more about axe-core →</a>
+        <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">Learn more about axe-core →</a> | 
+        <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">GitHub Repository →</a>
       </p>
     </div>
 
