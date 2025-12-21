@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Audit Report - WCAG 2.1 AA Compliance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0F172A;
+      --bg-surface: #1E293B;
+      --bg-surface-variant: #1A2332;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --accent: #60A5FA;
+      --accent-dark: #3B82F6;
+      --success: #81C784;
+      --error: #CF6679;
+      --warning: #FFB74D;
+      --border: rgba(96, 165, 250, 0.2);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: var(--bg-surface);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .timestamp {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-card {
+      background: var(--bg-surface);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .summary-card h3 {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .summary-card .value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--text-primary);
+    }
+
+    .summary-card.success .value {
+      color: var(--success);
+    }
+
+    .summary-card.error .value {
+      color: var(--error);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .status-badge.passed {
+      background: rgba(129, 199, 132, 0.2);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .status-badge.failed {
+      background: rgba(207, 102, 121, 0.2);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+    .pages-section {
+      background: var(--bg-surface);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .pages-section h2 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .page-result {
+      background: var(--bg-surface-variant);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--border);
+    }
+
+    .page-result.passed {
+      border-left-color: var(--success);
+    }
+
+    .page-result.failed {
+      border-left-color: var(--error);
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .page-path {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .page-url {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-family: monospace;
+      margin-top: 0.25rem;
+    }
+
+    .page-url a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .page-url a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .page-url a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .violations-list {
+      margin-top: 1rem;
+    }
+
+    .violation {
+      background: var(--bg-primary);
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .violation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 0.5rem;
+    }
+
+    .violation-id {
+      font-weight: 600;
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    .violation-impact {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .violation-impact.critical {
+      background: rgba(207, 102, 121, 0.3);
+      color: var(--error);
+    }
+
+    .violation-impact.serious {
+      background: rgba(255, 183, 77, 0.3);
+      color: var(--warning);
+    }
+
+    .violation-impact.moderate {
+      background: rgba(255, 183, 77, 0.2);
+      color: var(--warning);
+    }
+
+    .violation-impact.minor {
+      background: rgba(96, 165, 250, 0.2);
+      color: var(--accent);
+    }
+
+    .violation-description {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .violation-help {
+      margin-top: 0.5rem;
+    }
+
+    .violation-help a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .violation-help a:hover {
+      text-decoration: underline;
+    }
+
+    .violation-nodes {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .violation-node {
+      background: var(--bg-surface);
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+
+    .error-message {
+      background: rgba(207, 102, 121, 0.2);
+      border: 1px solid var(--error);
+      color: var(--error);
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .tool-info {
+      background: var(--bg-surface);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .tool-info h3 {
+      color: var(--accent);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-info p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .tool-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .tool-info a:hover {
+      text-decoration: underline;
+    }
+
+    .tool-info ul {
+      text-align: left;
+      max-width: 800px;
+      margin: 1rem auto;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-left: 2rem;
+    }
+
+    .tool-info li {
+      margin-bottom: 0.75rem;
+    }
+
+    .tool-info li strong {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 Accessibility Audit Report</h1>
+      <p class="subtitle">WCAG 2.1 AA Compliance Testing</p>
+      <div class="timestamp">Generated: December 21, 2025 at 12:11:56 PM CST</div>
+      <div class="status-badge passed">
+        ✅ All Pages Pass WCAG 2.1 AA
+      </div>
+    </header>
+
+    <div class="summary">
+      <div class="summary-card">
+        <h3>Total Pages</h3>
+        <div class="value">3</div>
+      </div>
+      <div class="summary-card success">
+        <h3>Pages Passed</h3>
+        <div class="value">3</div>
+      </div>
+      <div class="summary-card ">
+        <h3>Pages Failed</h3>
+        <div class="value">0</div>
+      </div>
+      <div class="summary-card ">
+        <h3>Total Violations</h3>
+        <div class="value">0</div>
+      </div>
+    </div>
+
+    
+
+    <div class="pages-section">
+      <h2>Page Results</h2>
+      
+      <div class="page-result passed">
+        <div class="page-header">
+          <div>
+            <div class="page-path">✅ /</div>
+            <div class="page-url">
+              <a href="/" target="_blank" rel="noopener noreferrer" aria-label="Open / in new tab">
+                /
+              </a>
+            </div>
+          </div>
+          <div class="status-badge passed">
+            Passed
+          </div>
+        </div>
+        
+        
+        <div style="color: var(--success); margin-top: 1rem;">
+          ✓ This page passes all WCAG 2.1 AA accessibility checks.
+        </div>
+        
+      </div>
+      
+      <div class="page-result passed">
+        <div class="page-header">
+          <div>
+            <div class="page-path">✅ /faqs</div>
+            <div class="page-url">
+              <a href="/faqs" target="_blank" rel="noopener noreferrer" aria-label="Open /faqs in new tab">
+                /faqs
+              </a>
+            </div>
+          </div>
+          <div class="status-badge passed">
+            Passed
+          </div>
+        </div>
+        
+        
+        <div style="color: var(--success); margin-top: 1rem;">
+          ✓ This page passes all WCAG 2.1 AA accessibility checks.
+        </div>
+        
+      </div>
+      
+      <div class="page-result passed">
+        <div class="page-header">
+          <div>
+            <div class="page-path">✅ /links</div>
+            <div class="page-url">
+              <a href="/links" target="_blank" rel="noopener noreferrer" aria-label="Open /links in new tab">
+                /links
+              </a>
+            </div>
+          </div>
+          <div class="status-badge passed">
+            Passed
+          </div>
+        </div>
+        
+        
+        <div style="color: var(--success); margin-top: 1rem;">
+          ✓ This page passes all WCAG 2.1 AA accessibility checks.
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <div class="tool-info">
+      <h3>About axe-core</h3>
+      <p>
+        This accessibility audit was generated using <strong>axe-core</strong>, 
+        one of the most comprehensive and trusted accessibility testing tools available. 
+        axe-core is developed by Deque Systems and is used by major organizations worldwide 
+        to ensure web accessibility compliance.
+      </p>
+      <p>
+        <strong>Why axe-core is considered one of the best accessibility checkers:</strong>
+      </p>
+      <ul>
+        <li><strong>Comprehensive Coverage:</strong> Tests against WCAG 2.1 Level A and AA guidelines, covering over 50 accessibility rules</li>
+        <li><strong>Industry Standard:</strong> Used by Google, Microsoft, and thousands of organizations worldwide</li>
+        <li><strong>Open Source:</strong> Free, open-source tool with active community support and continuous improvements</li>
+        <li><strong>Accurate Results:</strong> Low false-positive rate with detailed, actionable violation reports</li>
+        <li><strong>Automated Testing:</strong> Integrates seamlessly with CI/CD pipelines and development workflows</li>
+        <li><strong>Browser Integration:</strong> Works with all major browsers and testing frameworks</li>
+      </ul>
+      <p style="margin-top: 1rem;">
+        <a href="https://www.deque.com/axe/core/" target="_blank" rel="noopener noreferrer">Learn more about axe-core →</a>
+      </p>
+    </div>
+
+    <footer>
+      <p>Generated by <strong>axe-core</strong> accessibility testing tool</p>
+      <p>WCAG 2.1 AA Compliance Standard</p>
+    </footer>
+  </div>
+</body>
+</html>

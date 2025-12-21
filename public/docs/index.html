@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Portal - ICJIA Accessibility Portal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-primary: #0f172a;
+        --bg-surface: #1e293b;
+        --bg-surface-variant: #1a2332;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --accent: #60a5fa;
+        --accent-dark: #3b82f6;
+        --border: rgba(96, 165, 250, 0.2);
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        padding: 2rem;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        color: var(--accent);
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      .docs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .doc-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+      }
+
+      .doc-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 8px 24px rgba(96, 165, 250, 0.15);
+        transform: translateY(-4px);
+      }
+
+      .doc-card:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .doc-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--accent);
+      }
+
+      .doc-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+      }
+
+      .doc-description {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .doc-link {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 1rem;
+        color: var(--accent);
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .doc-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .docs-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📚 Documentation Portal</h1>
+        <p class="subtitle">
+          Resources and documentation for the ICJIA Accessibility Portal
+        </p>
+      </header>
+
+      <div class="docs-grid">
+        <a href="/docs/accessibility" class="doc-card">
+          <div class="doc-icon">🔍</div>
+          <div class="doc-title">Accessibility Report</div>
+          <div class="doc-description">
+            Comprehensive WCAG 2.1 AA compliance audit report generated using
+            axe-core. View detailed accessibility testing results for all pages
+            on the site.
+          </div>
+          <span class="doc-link">View Report →</span>
+        </a>
+
+        <!-- Future documentation cards can be added here -->
+        <!-- Example:
+      <a href="/docs/api" class="doc-card">
+        <div class="doc-icon">📖</div>
+        <div class="doc-title">API Documentation</div>
+        <div class="doc-description">
+          Complete API reference documentation generated from JSDoc comments.
+        </div>
+        <span class="doc-link">View Docs →</span>
+      </a>
+      --></div>
+    </div>
+  </body>
+</html>

@@ -9,6 +9,16 @@
           >
         </div>
         <div class="footer-links">
+          <NuxtLink
+            to="/docs/accessibility/"
+            class="footer-link"
+            aria-label="View accessibility audit report"
+          >
+            <v-icon size="14" class="mr-1" aria-hidden="true"
+              >mdi-accessibility</v-icon
+            >
+            Accessibility Report
+          </NuxtLink>
           <a
             href="https://github.com/ICJIA/icjia-accessibility-portal"
             target="_blank"

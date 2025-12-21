@@ -82,6 +82,10 @@ yarn dev
 
 # Run accessibility audit using axe-core (WCAG 2.1 AA compliance check)
 yarn audit:a11y
+
+# Generate comprehensive accessibility report (HTML)
+# Note: Requires a running server (dev, preview, or generate:serve)
+yarn generate:accessibility
 ```
 
 ## Building
@@ -102,10 +106,15 @@ yarn generate:serve
 
 The build process will:
 
-1. Generate static HTML files from Vue components
-2. Process markdown content from the `content/` directory
-3. Optimize assets and create production-ready files
-4. Output to `.output/public/` directory
+1. **Generate sitemap** - Automatically creates `sitemap.xml` with all public routes
+2. **Generate static HTML files** - From Vue components
+3. **Process markdown content** - From the `content/` directory
+4. **Generate routes.json** - Lists all prerendered routes (used for sitemap generation)
+5. **Regenerate sitemap** - Updates sitemap with discovered routes
+6. **Optimize assets** - Creates production-ready files
+7. **Output to `.output/public/`** - Directory ready for deployment
+
+**Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not included in the sitemap for SEO purposes).
 
 ## Deployment
 
@@ -157,12 +166,21 @@ To deploy:
 ├── public/
 │   ├── favicon.svg          # Site favicon
 │   ├── icjia-logo.png       # ICJIA logo
-│   └── robots.txt           # Robots.txt (disallows all indexing)
-├── audit-accessibility.js   # Accessibility audit script
+│   ├── robots.txt           # Robots.txt (disallows all indexing)
+│   ├── sitemap.xml          # Auto-generated sitemap (excludes /docs/ routes)
+│   └── docs/
+│       ├── index.html       # Documentation portal index
+│       └── accessibility/
+│           └── index.html   # Accessibility audit report (generated)
+├── scripts/
+│   ├── generate-sitemap.js  # Sitemap generation script
+│   └── generate-accessibility-report.js  # Accessibility report generator
+├── audit-accessibility.js   # Legacy accessibility audit script (console output)
 ├── content.config.ts        # Nuxt Content configuration
 ├── LICENSE                  # MIT License
 ├── netlify.toml            # Netlify deployment configuration
-└── nuxt.config.ts          # Nuxt configuration
+├── nuxt.config.ts          # Nuxt configuration
+└── routes.json             # Auto-generated routes list (from Nuxt build)
 ```
 
 ## Accessibility
@@ -185,27 +203,66 @@ This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages ha
 
 ### Accessibility Testing
 
-This project uses a custom automated accessibility audit script (`audit-accessibility.js`) that leverages **axe-core** to test WCAG 2.1 AA compliance across all pages.
+This project includes two accessibility testing tools:
 
-#### Running the Audit
+#### 1. Quick Console Audit (`yarn audit:a11y`)
+
+A lightweight script that runs accessibility checks and outputs results to the console. Useful for quick checks during development.
 
 ```bash
 yarn audit:a11y
 ```
 
-The audit script will:
+**Features:**
 
-1. **Start the development server** - Automatically launches the Nuxt dev server
-2. **Test all pages** - Audits the following pages for WCAG 2.1 AA compliance:
-   - `/` (Home page with FAQs)
-   - `/links` (Accessibility links page)
-3. **Run axe-core analysis** - Uses `@axe-core/playwright` to perform comprehensive accessibility testing
-4. **Report results** - Displays detailed violation reports with:
-   - Violation IDs and descriptions
-   - Impact levels
-   - Affected HTML elements
-   - Help URLs for remediation
-5. **Exit with status code** - Returns error code 1 if violations are found (useful for CI/CD)
+- Automatically starts the development server
+- Tests all pages for WCAG 2.1 AA compliance
+- Displays violation reports in the console
+- Exits with error code if violations are found (useful for CI/CD)
+
+#### 2. Comprehensive HTML Report (`yarn generate:accessibility`)
+
+A full-featured accessibility report generator that creates a detailed HTML report for all pages in the sitemap.
+
+```bash
+# First, start a server (choose one):
+yarn dev              # Development server (port 3000)
+yarn preview          # Preview server (port 3000)
+yarn generate:serve  # Generated site server (port 5150)
+
+# Then, in another terminal, generate the report:
+yarn generate:accessibility
+```
+
+**Features:**
+
+- **Uses sitemap.xml** - Automatically tests all pages listed in the sitemap
+- **Comprehensive testing** - Full WCAG 2.1 AA compliance audit using axe-core
+- **HTML report generation** - Creates a beautiful, dark-themed HTML report
+- **Clickable page links** - All page URLs in the report are clickable and open in new tabs
+- **Detailed violation information** - Includes violation IDs, descriptions, impact levels, affected elements, and remediation guidance
+- **Report location** - Generated at `/public/docs/accessibility/index.html` and accessible at `/docs/accessibility`
+- **Documentation portal** - Report is accessible via the documentation portal at `/docs`
+
+**Report Contents:**
+
+- Summary statistics (total pages, passed/failed counts, total violations)
+- Violation breakdown by impact level (critical, serious, moderate, minor)
+- Per-page results with pass/fail status
+- Detailed violation information for each page
+- Information about axe-core and why it's a trusted accessibility testing tool
+
+**Requirements:**
+
+- A server must be running (dev, preview, or generate:serve)
+- The script will automatically detect the running server on common ports (3000, 5150, 4173, 3003)
+- If no server is detected, the script will provide clear instructions
+
+**Accessing the Report:**
+
+- After generation, view the report at: `http://localhost:[port]/docs/accessibility`
+- Or access via the documentation portal: `http://localhost:[port]/docs`
+- The report is also available in the footer navigation (Accessibility Report link)
 
 #### Why axe-core?
 
@@ -249,6 +306,18 @@ The audit script will:
 
 All pages currently pass with **no violations** detected. The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards.
 
+#### Sitemap Generation
+
+The project includes automated sitemap generation that runs during build, generate, and dev processes:
+
+- **Automatic generation** - Sitemap is created/updated automatically
+- **Route discovery** - Uses `routes.json` (generated by Nuxt) as the primary source
+- **Fallback scanning** - Scans `app/pages` and `content/` directories if routes.json isn't available
+- **Excludes documentation** - Automatically excludes `/docs/` routes from the sitemap
+- **Configurable domain** - Site domain is configurable in `scripts/generate-sitemap.js`
+
+The sitemap is generated at `public/sitemap.xml` and includes all public pages with proper priority and change frequency settings.
+
 ## Project Status
 
 **Current Status**: ✅ Production Ready
@@ -260,7 +329,7 @@ All pages currently pass with **no violations** detected. The audit is run regul
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags
 
-**Last Updated**: December 20, 2025
+**Last Updated**: December 21, 2025
 
 **Node Version**: 22.14.0  
 **Nuxt Version**: 4.0.0+  

@@ -1,0 +1,570 @@
+#!/usr/bin/env node
+/**
+ * @fileoverview Sitemap generation script
+ * @description Generates sitemap.xml for all public pages in the site
+ * Dynamically discovers routes from:
+ * - app/pages directory (.vue files, including catch-all routes)
+ * - content directory (.md files that may create routes)
+ * @author ICJIA
+ */
+
+import {
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  readdirSync,
+  mkdirSync,
+  statSync,
+} from "fs";
+import { join, dirname, relative } from "path";
+import { fileURLToPath } from "url";
+
+/**
+ * Default site domain (without protocol)
+ * Change this value to update the default site domain used in the sitemap
+ * @type {string}
+ * @constant
+ */
+const DEFAULT_SITE_DOMAIN = "accessibility.icjia.app";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const projectRoot = join(__dirname, "..");
+
+/**
+ * Get the base URL for the site
+ * Priority order:
+ * 1. SITE_URL environment variable (if set)
+ * 2. Domain from nuxt.config.ts plausible configuration
+ * 3. DEFAULT_SITE_DOMAIN constant
+ *
+ * @returns {string} Base URL for the site (e.g., "https://accessibility.icjia.app")
+ */
+function getBaseUrl() {
+  // Check for environment variable first
+  if (process.env.SITE_URL) {
+    return process.env.SITE_URL.replace(/\/$/, ""); // Remove trailing slash
+  }
+
+  // Try to read from nuxt.config.ts
+  const configPath = join(projectRoot, "nuxt.config.ts");
+  if (existsSync(configPath)) {
+    const configContent = readFileSync(configPath, "utf-8");
+    // Extract domain from plausible config
+    const domainMatch = configContent.match(/domain:\s*['"]([^'"]+)['"]/);
+    if (domainMatch) {
+      return `https://${domainMatch[1]}`;
+    }
+  }
+
+  // Default fallback to configured constant
+  return `https://${DEFAULT_SITE_DOMAIN}`;
+}
+
+/**
+ * Check if a filename represents a catch-all or dynamic route
+ * Detects patterns like [id].vue, [...slug].vue, [param].vue, etc.
+ *
+ * @param {string} filename - Filename to check (e.g., "[id].vue", "[...slug].vue")
+ * @returns {boolean} True if the file represents a dynamic/catch-all route
+ */
+function isDynamicRoute(filename) {
+  return /\[.*\]/.test(filename);
+}
+
+/**
+ * Convert a file path to a route path
+ * Handles index files, removes file extensions, and ensures proper route formatting.
+ * For dynamic routes (e.g., [id].vue, [...slug].vue), returns the route pattern.
+ *
+ * @param {string} filePath - Absolute path to the page file (e.g., "/path/to/app/pages/index.vue")
+ * @param {string} pagesDir - Absolute path to the pages directory (e.g., "/path/to/app/pages")
+ * @returns {string} Route path (e.g., "/" for index.vue, "/links" for links.vue, "/[...slug]" for [...slug].vue)
+ * @example
+ * filePathToRoute("/app/pages/index.vue", "/app/pages") // Returns "/"
+ * filePathToRoute("/app/pages/links.vue", "/app/pages") // Returns "/links"
+ * filePathToRoute("/app/pages/[...slug].vue", "/app/pages") // Returns "/[...slug]"
+ */
+function filePathToRoute(filePath, pagesDir) {
+  // Get relative path from pages directory
+  const relativePath = filePath.replace(pagesDir, "").replace(/^\//, "");
+
+  // Remove file extension
+  let route = relativePath
+    .replace(/\.vue$/, "")
+    .replace(/\.ts$/, "")
+    .replace(/\.js$/, "");
+
+  // Handle index files
+  if (route.endsWith("/index") || route === "index") {
+    route = route.replace(/\/?index$/, "") || "/";
+  }
+
+  // Ensure route starts with /
+  if (!route.startsWith("/")) {
+    route = "/" + route;
+  }
+
+  return route;
+}
+
+/**
+ * Recursively find all .vue files in a directory and its subdirectories
+ *
+ * @param {string} dir - Absolute path to the directory to search
+ * @param {string} baseDir - Base directory path (currently unused but kept for future use)
+ * @returns {string[]} Array of absolute file paths to all .vue files found
+ * @throws {Error} Does not throw, but logs warnings if directory cannot be read
+ */
+function findVueFiles(dir, baseDir) {
+  const files = [];
+
+  try {
+    const entries = readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        files.push(...findVueFiles(fullPath, baseDir));
+      } else if (entry.isFile() && entry.name.endsWith(".vue")) {
+        files.push(fullPath);
+      }
+    }
+  } catch (error) {
+    console.warn(`Warning: Could not read directory ${dir}:`, error.message);
+  }
+
+  return files;
+}
+
+/**
+ * Recursively find all .md files in a directory and its subdirectories
+ *
+ * @param {string} dir - Absolute path to the directory to search
+ * @returns {string[]} Array of absolute file paths to all .md files found
+ * @throws {Error} Does not throw, but logs warnings if directory cannot be read
+ */
+function findMarkdownFiles(dir) {
+  const files = [];
+
+  try {
+    const entries = readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = join(dir, entry.name);
+
+      if (entry.isDirectory()) {
+        files.push(...findMarkdownFiles(fullPath));
+      } else if (entry.isFile() && entry.name.endsWith(".md")) {
+        files.push(fullPath);
+      }
+    }
+  } catch (error) {
+    console.warn(`Warning: Could not read directory ${dir}:`, error.message);
+  }
+
+  return files;
+}
+
+/**
+ * Convert a markdown file path to a potential route
+ * Nuxt Content typically creates routes based on the file structure in the content directory.
+ * For example: content/blog/post.md might become /blog/post
+ *
+ * @param {string} filePath - Absolute path to the markdown file
+ * @param {string} contentDir - Absolute path to the content directory
+ * @returns {string|null} Potential route path, or null if it shouldn't create a route
+ */
+function markdownFileToRoute(filePath, contentDir) {
+  // Get relative path from content directory
+  const relativePath = relative(contentDir, filePath);
+
+  // Remove file extension
+  let route = relativePath.replace(/\.md$/, "");
+
+  // Handle index files (index.md might map to a directory route)
+  if (route.endsWith("/index") || route === "index") {
+    route = route.replace(/\/?index$/, "") || "/";
+  }
+
+  // Skip if empty or just a dot
+  if (!route || route === ".") {
+    return null;
+  }
+
+  // Ensure route starts with /
+  if (!route.startsWith("/")) {
+    route = "/" + route;
+  }
+
+  return route;
+}
+
+/**
+ * Get routes from the pages directory
+ * Scans app/pages for .vue files and converts them to routes.
+ * Detects dynamic/catch-all routes but includes them as patterns.
+ *
+ * @returns {{routes: string[], dynamicRoutes: string[]}} Object containing static routes and dynamic route patterns
+ */
+function getRoutesFromPages() {
+  const pagesDir = join(projectRoot, "app", "pages");
+  const routes = new Set();
+  const dynamicRoutes = [];
+
+  if (!existsSync(pagesDir)) {
+    console.warn(`Warning: Pages directory not found at ${pagesDir}`);
+    return { routes: [], dynamicRoutes: [] };
+  }
+
+  // Dynamically find all .vue files in pages directory (including subdirectories)
+  const pageFiles = findVueFiles(pagesDir, pagesDir);
+
+  for (const file of pageFiles) {
+    const filename = file.split("/").pop() || "";
+    const route = filePathToRoute(file, pagesDir);
+
+    if (isDynamicRoute(filename)) {
+      // This is a dynamic/catch-all route
+      dynamicRoutes.push(route);
+      console.log(`  Found dynamic route: ${route} (from ${filename})`);
+    } else {
+      // Regular static route
+      routes.add(route);
+    }
+  }
+
+  // Always include root if we have any pages
+  if (pageFiles.length > 0) {
+    routes.add("/");
+  }
+
+  return {
+    routes: Array.from(routes).sort(),
+    dynamicRoutes: dynamicRoutes.sort(),
+  };
+}
+
+/**
+ * Get potential routes from the content directory
+ * Scans content/ for .md files that might create routes via Nuxt Content.
+ * Note: Not all .md files create routes - some are used as data sources.
+ *
+ * @returns {string[]} Array of potential route paths from markdown files
+ */
+function getRoutesFromContent() {
+  const contentDir = join(projectRoot, "content");
+  const routes = new Set();
+
+  if (!existsSync(contentDir)) {
+    // Content directory doesn't exist, that's okay
+    return [];
+  }
+
+  // Find all .md files in content directory
+  const mdFiles = findMarkdownFiles(contentDir);
+
+  for (const file of mdFiles) {
+    const route = markdownFileToRoute(file, contentDir);
+    if (route) {
+      routes.add(route);
+    }
+  }
+
+  return Array.from(routes).sort();
+}
+
+/**
+ * Discover actual routes for catch-all patterns by scanning content
+ * For catch-all routes like [...slug].vue, try to discover actual routes
+ * by looking at content files or other sources.
+ *
+ * @param {string[]} dynamicRoutePatterns - Array of dynamic route patterns (e.g., ["/[...slug]"])
+ * @returns {string[]} Array of discovered actual routes
+ */
+function discoverDynamicRoutes(dynamicRoutePatterns) {
+  const discoveredRoutes = [];
+
+  if (dynamicRoutePatterns.length === 0) {
+    return discoveredRoutes;
+  }
+
+  // For catch-all routes like [...slug], we can try to discover routes from content
+  // This is a best-effort approach - we can't know all possible routes without runtime data
+  for (const pattern of dynamicRoutePatterns) {
+    // Check if this is a catch-all pattern
+    if (pattern.includes("[...")) {
+      // Try to discover routes from content directory
+      const contentDir = join(projectRoot, "content");
+      if (existsSync(contentDir)) {
+        const mdFiles = findMarkdownFiles(contentDir);
+        for (const file of mdFiles) {
+          // Extract potential slug from file path
+          const relativePath = relative(contentDir, file);
+          const slug = relativePath
+            .replace(/\.md$/, "")
+            .replace(/\/index$/, "");
+
+          if (slug && slug !== "index") {
+            // Create route based on catch-all pattern
+            // For [...slug], the route would be /{slug}
+            const route = `/${slug}`;
+            discoveredRoutes.push(route);
+          }
+        }
+      }
+    }
+    // For other dynamic patterns like [id].vue, we can't discover without runtime data
+    // These would need to be handled differently (e.g., via a routes.json file)
+  }
+
+  return discoveredRoutes;
+}
+
+/**
+ * Get routes from a routes.json file if it exists
+ * This file is generated by Nuxt during build/generate and contains all valid routes,
+ * including dynamic routes with their actual values. This is the most reliable source.
+ *
+ * @returns {{routes: string[], isFromNuxt: boolean}} Object with routes array and flag indicating if from Nuxt
+ */
+function getRoutesFromJson() {
+  const routesJsonPath = join(projectRoot, "routes.json");
+
+  if (!existsSync(routesJsonPath)) {
+    return { routes: [], isFromNuxt: false };
+  }
+
+  try {
+    const content = readFileSync(routesJsonPath, "utf-8");
+    const data = JSON.parse(content);
+
+    let routes = [];
+
+    // Support both array format and object with routes property
+    if (Array.isArray(data)) {
+      routes = data.filter((route) => typeof route === "string");
+    } else if (data.routes && Array.isArray(data.routes)) {
+      routes = data.routes.filter((route) => typeof route === "string");
+    }
+
+    // Check if this was generated by Nuxt (has generated timestamp)
+    const isFromNuxt = !!data.generated;
+
+    if (isFromNuxt && routes.length > 0) {
+      console.log(
+        `  Found ${routes.length} route(s) from Nuxt-generated routes.json`
+      );
+    }
+
+    return { routes, isFromNuxt };
+  } catch (error) {
+    console.warn(
+      `Warning: Could not read or parse routes.json: ${error.message}`
+    );
+    return { routes: [], isFromNuxt: false };
+  }
+}
+
+/**
+ * Get all routes from both pages and content directories
+ * Prioritizes routes.json if it was generated by Nuxt (most reliable source).
+ * Falls back to directory scanning if routes.json doesn't exist or wasn't from Nuxt.
+ *
+ * @returns {string[]} Sorted array of all route paths
+ */
+function getAllRoutes() {
+  // First, check if we have a Nuxt-generated routes.json (most reliable)
+  const { routes: jsonRoutes, isFromNuxt } = getRoutesFromJson();
+
+  // Always scan pages directory to catch new pages that haven't been built yet
+  console.log("Scanning app/pages directory...");
+  const { routes: pageRoutes, dynamicRoutes } = getRoutesFromPages();
+
+  // Get routes from content directory
+  console.log("Scanning content directory...");
+  const contentRoutes = getRoutesFromContent();
+
+  // Start with routes from pages and content (always include these)
+  const allRoutes = new Set(["/"]); // Always include root
+  pageRoutes.forEach((route) => allRoutes.add(route));
+  contentRoutes.forEach((route) => allRoutes.add(route));
+
+  // If we have Nuxt-generated routes.json, use it as the primary source
+  // but merge with pages/content to catch new pages
+  if (isFromNuxt && jsonRoutes.length > 0) {
+    console.log(
+      `Using ${jsonRoutes.length} route(s) from Nuxt-generated routes.json`
+    );
+    // Add all routes from routes.json
+    jsonRoutes.forEach((route) => allRoutes.add(route));
+
+    // Check if there are any pages/content routes not in routes.json
+    const missingRoutes = [];
+    pageRoutes.forEach((route) => {
+      if (!jsonRoutes.includes(route)) {
+        missingRoutes.push(route);
+      }
+    });
+    contentRoutes.forEach((route) => {
+      if (!jsonRoutes.includes(route)) {
+        missingRoutes.push(route);
+      }
+    });
+
+    if (missingRoutes.length > 0) {
+      console.log(
+        `  Note: Found ${missingRoutes.length} additional route(s) in pages/content not yet in routes.json: ${missingRoutes.join(", ")}`
+      );
+      console.log("  These will be included in the sitemap.");
+    }
+  } else {
+    // Fallback: no routes.json or not from Nuxt, use directory scanning
+    console.log(
+      "Scanning directories for routes (routes.json not found or not from Nuxt)..."
+    );
+
+    // If routes.json exists but wasn't from Nuxt, include those routes too
+    if (jsonRoutes.length > 0) {
+      console.log(`Including ${jsonRoutes.length} route(s) from routes.json`);
+      jsonRoutes.forEach((route) => allRoutes.add(route));
+    }
+
+    // Try to discover actual routes for dynamic patterns
+    if (dynamicRoutes.length > 0) {
+      console.log("Discovering routes for dynamic patterns...");
+      const discoveredRoutes = discoverDynamicRoutes(dynamicRoutes);
+      discoveredRoutes.forEach((route) => allRoutes.add(route));
+
+      if (discoveredRoutes.length === 0 && jsonRoutes.length === 0) {
+        console.warn(
+          `  Warning: Found ${dynamicRoutes.length} dynamic route(s) but couldn't discover actual routes.`
+        );
+        console.warn(
+          "  Routes.json will be generated during build/generate with all valid routes."
+        );
+      }
+    }
+  }
+
+  return Array.from(allRoutes).sort();
+}
+
+/**
+ * Generate sitemap XML content following the sitemap.org protocol
+ * Creates a valid XML sitemap with URL entries including location, last modified date,
+ * change frequency, and priority
+ *
+ * @param {string[]} routes - Array of route paths (e.g., ["/", "/links"])
+ * @param {string} baseUrl - Base URL for the site (e.g., "https://accessibility.icjia.app")
+ * @returns {string} Complete XML sitemap content as a string
+ * @example
+ * generateSitemap(["/", "/links"], "https://example.com")
+ * // Returns XML sitemap string with both URLs
+ */
+function generateSitemap(routes, baseUrl) {
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const urlEntries = routes
+    .map((route) => {
+      const url = `${baseUrl}${route === "/" ? "" : route}`;
+      return `    <url>
+      <loc>${escapeXml(url)}</loc>
+      <lastmod>${currentDate}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>${route === "/" ? "1.0" : "0.8"}</priority>
+    </url>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlEntries}
+</urlset>`;
+}
+
+/**
+ * Escape XML special characters to prevent XML parsing errors
+ * Replaces &, <, >, ", and ' with their XML entity equivalents
+ *
+ * @param {string} str - String that may contain XML special characters
+ * @returns {string} String with XML special characters properly escaped
+ * @example
+ * escapeXml("A & B < C") // Returns "A &amp; B &lt; C"
+ */
+function escapeXml(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+/**
+ * Main function to generate sitemap.xml
+ * Orchestrates the sitemap generation process:
+ * 1. Gets the base URL (from env, config, or default)
+ * 2. Dynamically discovers all routes from pages and content directories
+ * 3. Handles catch-all/dynamic routes by attempting to discover actual routes
+ * 4. Generates XML sitemap content
+ * 5. Writes sitemap.xml to the public directory
+ *
+ * This script is designed to run automatically before build, generate, and dev commands
+ * via npm lifecycle hooks (prebuild, pregenerate, predev). It will automatically
+ * detect and include any new pages added to the app/pages directory or content directory.
+ *
+ * @returns {void}
+ * @throws {Error} Exits with code 1 if sitemap generation fails
+ */
+function main() {
+  try {
+    console.log("");
+    console.log("┌" + "─".repeat(78) + "┐");
+    console.log(
+      "│" + " ".repeat(20) + "SITEMAP GENERATION" + " ".repeat(42) + "│"
+    );
+    console.log("└" + "─".repeat(78) + "┘");
+    console.log("");
+
+    const baseUrl = getBaseUrl();
+    console.log(`📍 Using base URL: ${baseUrl}`);
+    console.log("");
+
+    const allRoutes = getAllRoutes();
+
+    // Filter out /docs/ routes (documentation pages should not be in sitemap)
+    // Excludes both /docs and any route starting with /docs/
+    const routes = allRoutes.filter(
+      (route) => route !== "/docs" && !route.startsWith("/docs/")
+    );
+
+    const excludedCount = allRoutes.length - routes.length;
+    if (excludedCount > 0) {
+      console.log(`  (Excluded ${excludedCount} /docs route(s) from sitemap)`);
+    }
+
+    console.log("");
+    console.log(`✓ Found ${routes.length} total route(s) for sitemap:`, routes);
+
+    const sitemapContent = generateSitemap(routes, baseUrl);
+    const outputPath = join(projectRoot, "public", "sitemap.xml");
+
+    // Ensure public directory exists
+    const publicDir = join(projectRoot, "public");
+    if (!existsSync(publicDir)) {
+      mkdirSync(publicDir, { recursive: true });
+    }
+
+    writeFileSync(outputPath, sitemapContent, "utf-8");
+    console.log("");
+    console.log(`✅ Sitemap generated successfully: ${outputPath}`);
+    console.log("");
+  } catch (error) {
+    console.error("❌ Error generating sitemap:", error);
+    process.exit(1);
+  }
+}
+
+main();
