@@ -389,7 +389,7 @@ If you create content — reports, presentations, social media posts, videos, PD
 
 4. **Federal funding** — ICJIA receives federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
 
-5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies including ICJIA.
+5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II digital accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies including ICJIA.
 
 **What "compliance" actually means:**
 

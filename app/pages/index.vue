@@ -61,7 +61,7 @@
                 <v-icon size="16" class="mr-1" aria-hidden="true"
                   >mdi-open-in-new</v-icon
                 >
-                ADA Title II Web Accessibility Compliance Deadline: April 24,
+                ADA Title II Digital Accessibility Compliance Deadline: April 24,
                 2026
               </NuxtLink>
             </p>

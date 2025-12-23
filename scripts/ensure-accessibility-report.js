@@ -87,3 +87,5 @@ if (!existsSync(docsIndexPath)) {
   // Check if it exists in the repo - if not, we'll let the build process handle it
   // This script just ensures the accessibility report exists
 }
+
+

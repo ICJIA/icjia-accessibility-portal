@@ -776,7 +776,7 @@ function generateHTMLReport(results, reportDate) {
         This accessibility audit was generated using <strong>axe-core</strong>, 
         one of the most comprehensive and trusted accessibility testing tools available. 
         axe-core is developed by Deque Systems and is used by major organizations worldwide 
-        to ensure web accessibility compliance.
+        to ensure digital accessibility compliance.
       </p>
       <p>
         <strong>Why axe-core is considered one of the best accessibility checkers:</strong>
