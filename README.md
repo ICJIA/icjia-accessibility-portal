@@ -156,7 +156,8 @@ To deploy:
 │   ├── composables/
 │   │   └── useFaqCollapse.ts  # Composable for FAQ collapse state
 │   ├── plugins/
-│   │   └── content-links.client.ts  # Plugin to add target="_blank" to content links
+│   │   ├── content-links.client.ts  # Plugin to add target="_blank" to content links
+│   │   └── ensure-accessibility-report.server.ts  # Server plugin to ensure report exists
 │   ├── utils/
 │   │   └── faqTransform.ts  # Utility to transform FAQ content
 │   └── error.vue            # Error page component
@@ -173,8 +174,10 @@ To deploy:
 │       └── accessibility/
 │           └── index.html   # Accessibility audit report (generated)
 ├── scripts/
+│   ├── generate-routes.js  # Routes generation script (scans pages and content)
 │   ├── generate-sitemap.js  # Sitemap generation script
-│   └── generate-accessibility-report.js  # Accessibility report generator
+│   ├── generate-accessibility-report.js  # Accessibility report generator
+│   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
 ├── audit-accessibility.js   # Legacy accessibility audit script (console output)
 ├── content.config.ts        # Nuxt Content configuration
 ├── LICENSE                  # MIT License
@@ -329,7 +332,7 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags
 
-**Last Updated**: December 21, 2025
+**Last Updated**: December 23, 2025
 
 **Node Version**: 22.14.0  
 **Nuxt Version**: 4.0.0+  

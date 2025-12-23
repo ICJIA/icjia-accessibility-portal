@@ -61,8 +61,8 @@
                 <v-icon size="16" class="mr-1" aria-hidden="true"
                   >mdi-open-in-new</v-icon
                 >
-                ADA Title II Digital Accessibility Compliance Deadline: April 24,
-                2026
+                ADA Title II Digital Accessibility Compliance Deadline: April
+                24, 2026
               </NuxtLink>
             </p>
             <p class="text-caption mt-3 text-medium-emphasis site-dates">
@@ -138,7 +138,7 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 20, 2025";
+const lastUpdated = "December 23, 2025";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =
