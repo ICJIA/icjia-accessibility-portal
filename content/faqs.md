@@ -13,7 +13,38 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ### What is digital accessibility?
 
+**Quick answer:** Digital accessibility means everyone can use your digital content — websites, documents, videos, apps — regardless of disability.
+
+**Full explanation:**
+
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
+
+### How does digital accessibility and compliance fit into an agency's DEIA mission?
+
+**Quick answer:** **Accessibility is the “A” in DEIA** — it’s how we deliver **equitable access** to services and information by **removing systemic barriers** in our digital work. And it’s not just an aspiration: it’s backed by **accountability** through enforceable law (IITAA + ADA Title II) and a **measurable standard** (**WCAG 2.1 Level AA**) with a compliance deadline.
+
+**Why this is central to DEIA (not separate from it):**
+
+- **DEIA is about removing systemic barriers to participation** — inaccessible digital content is a barrier that can exclude people with disabilities from information, programs, and services.
+- **Government is “digital by default” now** — if the front door is a website, PDF, online form, dashboard, or video, accessibility determines who can actually use the service.
+- **Equity becomes measurable** — WCAG 2.1 Level AA turns “we want to be inclusive” into clear, testable expectations for digital equity.
+- **Accountability is real** — this goes beyond individual accommodations. IITAA has required accessibility for years, and the ADA Title II web rule reinforces enforceable requirements for public-facing digital content.
+
+**What this means in practice (the DEIA “translation” into daily work):**
+
+1. **Publish accessibly by default** — headings, link text, alt text, captions, and readable structure are part of equitable communication.
+2. **Design for everyone** — sufficient contrast, keyboard use, and clear language aren’t “extras”; they determine who can participate.
+3. **Procure responsibly** — requiring accessibility in contracts prevents inequity from being “outsourced” to inaccessible vendors/tools.
+4. **Fix barriers when found** — treat accessibility issues like service issues, not optional enhancements.
+5. **Start now** — timelines and learning approaches can vary, but the obligation to provide accessible services does not.
+
+**The bottom line:** Accessibility is how DEIA commitments show up in the real world — **equitable access, with accountability** — and it’s backed by legal requirements that make the “A” measurable and enforceable.
+
+**References:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — DOJ summary of standards and deadlines
+- <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
 
 ### Why is there suddenly a deadline for digital accessibility?
 
@@ -68,6 +99,11 @@ While web developers handle technical implementation (code structure, keyboard n
 
 It's completely reasonable for managers to want clarity on scope, timeline, and resources. However, the deadline is firm and cannot be extended.
 
+**Who to ask (so you get answers without losing time):**
+
+- **Your web developers** — Web teams have been working on accessibility for years and can share practical guidance on common barriers, testing, and what “good” looks like. They write code (not your documents), but they’re often the best starting point for accessibility questions in general — especially as timelines get tight.
+- **Illinois DoIT Office of Information Accessibility** — Best source for questions about the **specific legal mandates** (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov
+
 **What managers can do:**
 
 - **Ask questions** — Understand what accessibility means for your team's work
@@ -101,42 +137,6 @@ When digital content isn't accessible, agencies exclude millions of residents fr
 
 **Why this matters:** Accessible digital content isn't just about legal compliance — it's about ensuring equal access to government services for millions of Illinois residents.
 
-### How does digital accessibility and compliance fit into an agency's DEIA mission?
-
-**Digital accessibility is the natural evolution of the "A" in DEIA — and it's now backed by legal requirements that give accessibility commitments real accountability.**
-
-Many state and local government agencies have long been committed to Diversity, Equity, Inclusion, and Accessibility (DEIA) principles, and accessibility has always been part of that commitment. What's evolving is how we define and measure accessibility in an increasingly digital world — and the legal standards that now apply to our online presence.
-
-**What's changed:**
-
-The digital transformation of government services means that accessibility must now extend to everything agencies do online. The April 2026 ADA Title II compliance deadline transforms digital accessibility from an aspirational goal into a legal mandate. This isn't a departure from DEIA values — it's their fulfillment.
-
-**How accessibility enhances agency missions:**
-
-Equity is fundamental to public service — ensuring that all residents, regardless of ability, can access government information, services, and resources. When digital content isn't accessible, agencies exclude people with disabilities from:
-
-- **Public information and services** — Reports, data dashboards, publications, and service information that affects communities
-- **Grant and funding opportunities** — Organizations serving communities with higher disability rates need equal access to funding opportunities and application processes
-- **Public participation** — Policy discussions, public comment opportunities, and civic engagement must be accessible so that people with disabilities can participate in shaping public policy
-- **Emergency and critical services** — Accessible information is essential during emergencies and for accessing critical government services
-
-**Why this strengthens DEIA commitments:**
-
-1. **Equity becomes measurable** — WCAG 2.1 AA standards provide concrete, testable criteria for digital equity. Agencies can now objectively assess whether their digital content truly serves everyone.
-
-2. **Inclusion becomes actionable** — Rather than hoping content is inclusive, agencies have specific guidelines for ensuring people with visual, auditory, motor, and cognitive disabilities can access information.
-
-3. **Accountability is built in** — Legal requirements mean accessibility isn't dependent on budget cycles, competing priorities, or individual champions. It's a baseline expectation.
-
-4. **Everyone benefits** — Accessible design principles (clear language, logical structure, captions, readable fonts) improve the experience for all users, not just those with disabilities.
-
-**The bottom line:** The 2026 deadline doesn't replace values-driven commitments to accessibility — it reinforces them. Agencies now have the legal framework, technical standards, and organizational accountability to ensure their digital presence truly reflects DEIA principles and advances equity in public service.
-
-**References:**
-
-- <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">ADA.gov</a> — Federal guidance on disability rights
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois accessibility standards
-
 ### What is WCAG?
 
 **WCAG (Web Content Accessibility Guidelines)** are international standards that explain how to make digital content accessible to people with disabilities. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone.
@@ -162,56 +162,22 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
-**No, accessibility is not just an IT issue.** While web developers and IT staff play crucial roles, achieving and maintaining accessibility requires collaboration across all units within an organization. Accessibility is everyone's responsibility.
+**No. Accessibility is an organization-wide responsibility.** IT and web teams can fix technical barriers, but they can’t retroactively “repair” inaccessible content, designs, or procurement decisions without rework.
 
-**Why accessibility requires organization-wide effort:**
+**Who owns what (high-level):**
 
-1. **Content creators** — Writers, editors, and content managers must:
-   - Write clear, descriptive alt text for images
-   - Use proper heading structure in documents
-   - Create meaningful link text (not "click here")
-   - Ensure color isn't the only way to convey information
-   - Add captions to videos or coordinate captioning
+- **Content creators**: headings, links, alt text, document structure, captions/transcripts
+- **Designers**: contrast, focus visibility, layouts that work with keyboard/screen readers
+- **Procurement/program teams**: require WCAG 2.1 AA in contracts; avoid buying inaccessible tools
+- **Web/IT**: accessible code, testing, fixes, platform configuration
+- **Managers/leaders**: time, tools, training, accountability
 
-2. **Designers** — Graphic designers and UX designers must:
-   - Ensure sufficient color contrast ratios (4.5:1 for normal text)
-   - Design with keyboard navigation in mind
-   - Create focus indicators for interactive elements
-   - Avoid relying solely on color to convey meaning
-   - Design forms with proper labels and error messages
+**Why “IT will fix it later” fails:**
 
-3. **Procurement staff** — Purchasing and contract managers must:
-   - Include accessibility requirements in RFPs and contracts
-   - Request accessibility documentation from vendors
-   - Evaluate third-party tools for accessibility before purchase
-   - Ensure contract language mandates WCAG 2.1 Level AA compliance
+- Accessibility is cheapest when done early; retrofits can be **3–10×** more expensive.
+- A PDF without headings/alt text, a low-contrast design, or an inaccessible vendor tool can’t be “patched” by IT without changing the original work.
 
-4. **Project managers and program staff** — Must:
-   - Include accessibility in project timelines and budgets
-   - Coordinate accessibility testing throughout development
-   - Ensure accessibility is considered from project start, not as an afterthought
-   - Verify that deliverables meet accessibility standards before launch
-
-5. **IT and web development teams** — Must:
-   - Implement accessible code and markup
-   - Test with assistive technologies
-   - Fix technical accessibility barriers
-   - Maintain accessible infrastructure and platforms
-
-6. **Leadership and management** — Must:
-   - Allocate resources for accessibility training and tools
-   - Establish accessibility policies and procedures
-   - Support organization-wide accessibility initiatives
-   - Ensure compliance with legal requirements
-
-**The problem with "IT-only" thinking:**
-
-- **Content issues** — If content creators don't write proper alt text or use heading styles, developers can't fix it retroactively without recreating content
-- **Design issues** — If designs don't meet contrast requirements or lack focus indicators, developers may need to redesign rather than just code
-- **Procurement issues** — If inaccessible tools are purchased, IT may be unable to make them accessible without vendor support
-- **Timeline and cost** — Fixing accessibility issues after development is typically 3-10 times more expensive than building accessibility in from the start
-
-**Best practice:** Adopt a "shift-left" approach — consider accessibility at every stage: planning, design, content creation, development, and procurement. This prevents costly retrofitting and ensures better outcomes.
+**Best practice:** “Shift left” — plan for accessibility in **content + design + procurement + build**, not at the end.
 
 **References:**
 
@@ -254,6 +220,35 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - Attend accessibility training sessions
 
 **The key takeaway:** You don't have to read everything on this site to understand the requirements. Pick the format that works best for you.
+
+### I prefer to talk to someone rather than read FAQs. Who can help me?
+
+**We understand that some people prefer conversation over documentation.** If you genuinely learn better through discussion, here are people who can help you get started:
+
+**Internal resources at your agency:**
+
+1. **Your web development team** — They've been implementing accessibility for years and can explain how it applies to your role
+2. **Your IT coordinator or accessibility coordinator** — Many agencies have designated staff who can provide guidance
+3. **Colleagues who've already started** — Ask around — someone on your team may already be working on accessibility and can share what they've learned
+
+**Illinois state resources:**
+
+- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — They can answer questions specific to Illinois state agency requirements
+- **DoIT training sessions** — Check <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/training.html</a> for scheduled training opportunities
+
+**That said, it's important to be clear about timing:**
+
+While we absolutely support different learning approaches, **learning style is not a reason to delay starting accessibility work.** The April 24, 2026 deadline applies regardless of how you prefer to learn.
+
+**Here's a realistic approach:**
+
+1. **Start now with the resources that work for you** — Whether that's videos, conversations with your web team, or hands-on practice with tools
+2. **Schedule a conversation** — Reach out to your web team or DoIT to set up a discussion, but don't wait for that meeting to begin learning
+3. **Use multiple approaches** — You might start with a quick 10-minute video to understand the basics, then have a conversation to ask specific questions about your work
+
+**The reality:** Waiting to "talk to someone first" before starting any accessibility work delays compliance and increases risk. The most productive approach is to start learning through any available method (reading, videos, tools) while also scheduling conversations for specific questions.
+
+**Bottom line:** Different learning styles are valid, but they're not a substitute for action. Use the learning approach that works best for you — but start now, not later.
 
 ---
 
@@ -304,56 +299,22 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 
 ### If this has been a requirement, why hasn't your agency been doing this all along?
 
-**Actually, your agency's web team has been building accessible websites for years.** The web developers at state agencies have been incorporating accessibility best practices into websites across multiple administrations — this isn't new to them.
+**Two things can be true at once:**
 
-**What the web team has been doing:**
+1. **Many agency web teams have been building accessible websites for years.** This isn’t “brand new” work for developers.
+2. **The 2026 deadline changes who needs to participate.** Compliance now depends on *everyone who publishes digital content*, not just the web team.
 
-- Building websites with semantic HTML structure for screen reader compatibility
-- Implementing keyboard navigation and focus management
-- Using ARIA (Accessible Rich Internet Applications) attributes where needed
-- Following color contrast guidelines
-- Adding alt text to images on websites
-- Structuring content with proper heading hierarchies
-- Testing with accessibility tools and screen readers
+**What the web team owns vs. what content teams own:**
 
-**But here's what's critical to understand:**
+- **Web team (website accessibility):** code structure, navigation, forms, keyboard support, ARIA where needed
+- **Content creators (content accessibility):** accessible documents (Word/PDF/PowerPoint/Excel), image alt text, captions/transcripts, social media accessibility
 
-The web team is responsible for **website accessibility** — not **content accessibility**. These are two very different things:
+**Why it feels different now:**
 
-| Area                      | Responsibility                                                          | Who Does This                                      |
-| ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
-| **Website accessibility** | Code, navigation, structure, forms, interactive features                | Web team                                           |
-| **Content accessibility** | Documents (PDFs, Word, Excel, PowerPoint), videos, images, social media | Content creators (Communications, Research, program staff) |
+- **Accountability is stronger** — ADA Title II now points to a measurable standard (**WCAG 2.1 Level AA**) with a firm compliance deadline.
+- **Scope is broader** — accessibility applies across websites *and* documents, multimedia, social media, and third-party tools used to deliver services.
 
-**Why content accessibility requires a different approach:**
-
-While the compliance standard is the same (WCAG 2.1 Level AA), **the tools, skills, and workflows for content accessibility are completely different** from what the web team uses:
-
-- **Web accessibility** uses HTML, CSS, JavaScript, screen reader testing, and web-specific tools like WAVE and axe DevTools
-- **Document accessibility** requires Microsoft Office accessibility features, Adobe Acrobat Pro, PDF remediation tools, and document-specific testing like PAC 2024
-- **Video accessibility** needs captioning software, transcript creation, and audio description tools
-- **Social media accessibility** involves platform-specific alt text features, caption tools, and accessible content practices
-
-The web team can't make your PDFs accessible for you. They can't add alt text to images you upload. They can't caption your videos. These tasks require **content creators** to learn and apply accessibility practices using tools designed for their specific workflows.
-
-**So what's actually new?**
-
-The difference now isn't that accessibility suddenly matters — it's that there's a **firm legal deadline with specific technical standards**. Before the April 2024 ADA Title II rule:
-
-- Accessibility was a best practice, but enforcement was inconsistent
-- There were no specific technical standards mandated by federal law for state agencies
-- Compliance was measured against general principles rather than testable criteria
-- There was no countdown clock creating organizational urgency
-
-**The April 2026 deadline changes the landscape:**
-
-Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm compliance date. This creates accountability that didn't exist before — and extends beyond websites to include documents, videos, social media, and all public-facing digital content.
-
-**Why this matters for you:**
-
-If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, and other units that publish materials.
-
-**The bottom line:** Your agency's web team has been building accessible websites for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
+**The bottom line:** Developers can’t make your PDFs accessible for you, and they can’t caption your videos after the fact. The standard is the same, but the work is spread across roles — and the deadline makes that shared responsibility unavoidable.
 
 ### What happens after April 24, 2026?
 
@@ -453,37 +414,20 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 **Core technical standards:**
 
 - **WCAG Quick Reference** — <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Quick Reference</a> — Filter by Level AA
-- **WebAIM's WCAG Checklist** — <a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener noreferrer">Developer-friendly checklist format</a>
-- **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a> — Technical implementation guides
+- **ARIA Authoring Practices** — <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA APG</a> (use semantic HTML first; ARIA second)
+- **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a>
 
 **Essential development practices:**
 
-- **ARIA (Accessible Rich Internet Applications)** — Use ARIA attributes correctly (but prefer semantic HTML first): <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA Authoring Practices Guide</a>
 - **Focus management** — Visible focus indicators and logical tab order: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank" rel="noopener noreferrer">WCAG: Focus Visible</a>
+- **Automate what you can** — Add <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">eslint-plugin-jsx-a11y</a> and use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> in CI/tests where feasible
 
 **Testing tools (integrate into your workflow):**
 
-- **axe DevTools** — <a href="https://www.deque.com/axe/devtools/" target="_blank" rel="noopener noreferrer">Browser extension and automated testing</a> (Free)
-- **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Web accessibility evaluation tool</a> (Free)
-- **Lighthouse** — Built into Chrome DevTools (Free)
-- **Screen reader testing** — Test with NVDA (Windows) or VoiceOver (Mac): <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA</a> (Free)
+- **Automated checks** — axe DevTools or WAVE (plus Lighthouse as a secondary signal)
+- **Manual checks** — keyboard-only + at least one screen reader (NVDA or VoiceOver): <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">NVDA download</a>
 
-**Framework-specific resources (if applicable):**
-
-- **React** — <a href="https://react.dev/learn/accessibility" target="_blank" rel="noopener noreferrer">React Accessibility Documentation</a>
-- **Vue** — <a href="https://vuejs.org/guide/best-practices/accessibility.html" target="_blank" rel="noopener noreferrer">Vue.js Accessibility Guide</a>
-- **Angular** — <a href="https://angular.io/guide/accessibility" target="_blank" rel="noopener noreferrer">Angular Accessibility Guide</a>
-
-**Automated testing integration:**
-
-- **axe-core** — <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">Open-source testing engine</a> (works with Jest, Cypress, Playwright)
-- **eslint-plugin-jsx-a11y** — <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">ESLint plugin for accessibility</a>
-
-**Training and deeper learning:**
-
-- **W3C Course** — <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">Free Introduction to Web Accessibility</a> (~4 hours)
-- **Google's Accessibility Course** — <a href="https://web.dev/learn/accessibility/" target="_blank" rel="noopener noreferrer">web.dev: Learn Accessibility</a> (Self-paced)
-- **Illinois DoIT Training** — <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Request web development accessibility training</a>
+**Deepen skills (optional):** <a href="https://web.dev/learn/accessibility/" target="_blank" rel="noopener noreferrer">web.dev Learn Accessibility</a> and Illinois DoIT training: <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/training.html</a>
 
 **Code review checklist (use this before every release):**
 
@@ -500,7 +444,15 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 
 ### I'm a manager. Where do I start?
 
-**As a manager, your role is to create the organizational conditions for accessibility success.** You don't need to become a technical expert, but you do need to understand the requirements, allocate resources, and support your team. Start here:
+**As a manager, your role is to create the organizational conditions for accessibility success.** You don’t need to become a technical expert — you need to set priorities, fund time/tools, and create accountability.
+
+**Manager quick checklist (start here):**
+
+1. **Name an owner** (or coordinator) for accessibility work and reporting
+2. **Inventory what you publish** (sites, forms, PDFs, videos, social posts, vendor tools)
+3. **Prioritize by impact** (high-traffic + high-stakes services first)
+4. **Bake accessibility into process** (before publish / before purchase / before launch)
+5. **Track progress** to the deadline (clear milestones, regular check-ins)
 
 **1. Understand the legal requirements and timeline:**
 
@@ -546,24 +498,15 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 
 **7. Connect with resources:**
 
-- **Illinois DoIT** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Contact DoIT.Accessibility@Illinois.gov</a> for training, guidance, and support
+- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — Website: <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a>
 - **Accessibility coordinators** — Identify or designate an accessibility coordinator in your organization
 - **Peer networks** — Connect with other managers facing similar challenges
 - **Legal/compliance team** — Work with your legal or compliance office to understand requirements
 
-**8. Plan for the long term:**
+**8. Keep it sustainable (so it doesn’t collapse after one push):**
 
-- **Sustainability** — Build accessibility into ongoing operations, not just a one-time project
-- **Continuous improvement** — Accessibility is an ongoing commitment, not a one-time fix
-- **Stay informed** — Keep up with accessibility standards and best practices
-- **Documentation** — Maintain records of accessibility efforts and compliance status
-
-**Key management principles:**
-
-- **Start early** — The earlier you begin, the easier and cheaper it is
-- **It's everyone's responsibility** — Not just IT; content creators, designers, and project managers all play roles
-- **Prevention is cheaper than remediation** — Building accessibility in from the start costs 3-10 times less than fixing later
-- **Accessibility benefits everyone** — Accessible design improves usability for all users, not just those with disabilities
+- Build accessibility into ongoing operations (publish + purchase + build), not a one-time project
+- Maintain documentation, milestones, and ownership
 
 **The bottom line:** As a manager, you don't need to become a technical expert, but you do need to create the organizational support, resources, and accountability that enable your team to succeed. The April 2026 deadline is firm, but with proper planning and support, your organization can achieve compliance.
 
@@ -657,54 +600,27 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 ### How does Title II differ from Title I? I'm familiar with Title I, but Title II is new to me.
 
-**Title I and Title II are two different parts of the Americans with Disabilities Act (ADA) that cover different areas of disability rights.** Understanding the difference helps clarify why the April 2026 deadline is significant and how it relates to what you may already know about ADA compliance.
+**Quick answer:** **Title I** covers **employment** and reasonable accommodations for employees. **Title II** covers **public services** and requires state and local governments to proactively make public-facing digital content meet **WCAG 2.1 Level AA** by the compliance deadline.
 
-**ADA Title I — Employment (What you're likely familiar with):**
+**The key difference:** Title I is about **individual workplace accommodations**. Title II is about **equitable public access** to government services — including digital services — using a **measurable standard** (WCAG 2.1 AA).
 
-Title I of the ADA prohibits employment discrimination against qualified individuals with disabilities. It applies to:
+**Title I (Employment):**
 
-- **Private employers** with 15 or more employees
-- **State and local governments** (regardless of size)
-- **Employment agencies**
-- **Labor organizations**
+- Focus: employees and job applicants
+- Approach: reasonable accommodations, case-by-case (interactive process)
+- “Standard”: no single technical web standard required — it’s about reasonable access in context
 
-**Key aspects of Title I:**
+**Examples:** accessible internal documents when needed; assistive tech software; modified equipment.
 
-- **Reasonable accommodations** — Employers must provide reasonable accommodations to qualified employees with disabilities unless doing so would cause "undue hardship"
-- **Non-discrimination** — Employers cannot discriminate in hiring, firing, promotions, pay, or other employment practices
-- **Interactive process** — Employers and employees work together to determine appropriate accommodations
-- **Case-by-case basis** — Accommodations are determined individually based on the employee's needs and job requirements
-- **No specific technical standards** — Title I doesn't mandate specific technical standards like WCAG; it focuses on providing reasonable accommodations
+**Title II (Public Services):**
 
-**Examples of Title I accommodations:**
+- Focus: programs/services offered to the public
+- Approach: proactive accessibility for everyone (not just when requested)
+- Standard: **WCAG 2.1 Level AA** for public-facing web content and mobile apps (per the 2024 web rule)
 
-- Providing screen reader software for an employee with vision impairment
-- Modifying work schedules for medical appointments
-- Providing ergonomic equipment or modified workstations
-- Making internal documents accessible when an employee needs them to perform their job
+**Examples:** accessible websites/forms; accessible PDFs; captions for videos; accessible third‑party tools used to deliver services.
 
-**ADA Title II — Public Services (What's new with the 2026 deadline):**
-
-Title II of the ADA prohibits discrimination against people with disabilities in all programs, services, and activities provided by state and local governments. The April 2024 web accessibility rule adds specific technical requirements for digital content.
-
-**Key aspects of Title II:**
-
-- **Applies to state and local governments** — All public entities, regardless of size
-- **Covers public-facing services** — Programs, services, and activities provided to the public
-- **Specific technical standards** — The 2024 rule requires WCAG 2.1 Level AA compliance (unlike Title I, which has no specific technical standards)
-- **Proactive compliance** — Must make content accessible before someone requests it (unlike Title I's case-by-case accommodation approach)
-- **Firm deadline** — April 24, 2026 for entities with populations of 50,000 or more
-- **Covers digital content** — Websites, mobile apps, documents, videos, social media, and all public-facing digital content
-
-**Examples of Title II requirements:**
-
-- Making all public-facing websites WCAG 2.1 AA compliant
-- Ensuring PDFs, Word documents, and Excel files are accessible
-- Providing captions for videos
-- Making online forms and applications accessible
-- Ensuring social media posts are accessible (going forward)
-
-**Key Differences Between Title I and Title II:**
+**Key differences (at a glance):**
 
 | Aspect                  | Title I (Employment)                                          | Title II (Public Services)                     |
 | ----------------------- | ------------------------------------------------------------- | ---------------------------------------------- |
@@ -716,27 +632,9 @@ Title II of the ADA prohibits discrimination against people with disabilities in
 | **Scope**               | Individual employee needs                                     | All public-facing digital content              |
 | **Internal vs. public** | Primarily internal (workplace)                                | Primarily public-facing content                |
 
-**Why Title II might feel "new":**
+**Why it can feel “new”:** The **web rule is recent (April 2024)** — it’s the first time DOJ set a specific digital standard under Title II.
 
-1. **The web rule is recent** — While Title II has existed since 1990, the specific web accessibility rule with technical standards (WCAG 2.1 AA) was only published in April 2024. This is the first time the Department of Justice has established specific technical requirements for digital accessibility under Title II.
-
-2. **Different enforcement history** — Title I has been actively enforced through the Equal Employment Opportunity Commission (EEOC) for decades, with many employers familiar with the reasonable accommodation process. Title II web accessibility enforcement has been less consistent until now.
-
-3. **Different focus** — Title I focuses on individual accommodations in the workplace, while Title II focuses on ensuring public services are accessible to everyone. The web rule extends this to digital content, which is a newer area of focus.
-
-**How Title I and Title II relate to each other:**
-
-- **They can overlap** — For example, if a state agency employee with a disability needs to access internal documents to do their job, Title I (reasonable accommodation) may require making those documents accessible. If those same documents are also public-facing, Title II would also require them to be accessible.
-
-- **Different requirements** — Title I requires reasonable accommodations for employees; Title II requires proactive accessibility for public content. An agency might need to comply with both.
-
-- **Complementary protections** — Both titles work together to ensure people with disabilities have equal access — Title I in employment, Title II in public services.
-
-**For ICJIA specifically:**
-
-- **Title I** applies to ICJIA as an employer — we must provide reasonable accommodations for employees with disabilities
-- **Title II** applies to ICJIA as a state agency — we must make all public-facing digital content accessible by April 2026
-- **Both apply** — ICJIA must comply with both Title I (for employees) and Title II (for public services)
+**For Illinois state agencies:** You must do both — **Title I** for employees and **Title II** for the public.
 
 **The bottom line:** Title I is about employment accommodations (what you're familiar with), while Title II is about making public services accessible to everyone (what the 2026 deadline addresses). The April 2024 web rule is the first time Title II has had specific technical standards for digital content, which is why it may feel new even though Title II itself has existed since 1990.
 
@@ -905,52 +803,23 @@ You are responsible for the accessibility of third-party content that you embed 
 
 ### Do embedded dashboards and maps (like Tableau or ArcGIS) need to be accessible?
 
-**Yes, embedded dashboards and maps must be accessible to meet WCAG 2.1 Level AA requirements for ADA Title II compliance.** Under both IITAA and ADA Title II, you are responsible for ensuring that all third-party content you embed or integrate into your website is accessible, including data visualization tools like Tableau, mapping services like ArcGIS, and other embedded interactive content.
+**Quick answer:** **Yes.** If you embed a dashboard or map to deliver a public service, it must be accessible under IITAA and ADA Title II (WCAG 2.1 AA). If the embedded tool can’t be made accessible, you must provide an **equivalent accessible alternative**.
 
-**Key requirements for embedded content:**
+**Minimum requirements (what “accessible” means):**
 
-1. **Keyboard accessibility** — All interactive elements (filters, buttons, zoom controls, data points) must be operable using only a keyboard, without requiring mouse interaction.
+- Works **with keyboard only** (no mouse required)
+- Works with a **screen reader** (labels, controls, and structure make sense)
+- Meets **contrast** requirements and has visible focus
 
-2. **Screen reader compatibility** — Content must be readable by screen readers, with proper labels, descriptions, and alternative text for visual elements.
+**What to do (fast, practical):**
 
-3. **Color contrast** — Text and interactive elements must meet WCAG 2.1 Level AA contrast ratios (4.5:1 for normal text, 3:1 for large text and UI components).
+1. **Get a VPAT/ACR** and require WCAG 2.1 AA in the contract
+2. **Test the workflow** (keyboard + screen reader + axe/WAVE) before publishing
+3. **Provide an alternative** if needed (common options):
+   - **Dashboards:** accessible data table / CSV download + plain-language summary
+   - **Maps:** accessible list/table of locations + text explanation of what the map shows
 
-4. **Alternative formats** — Provide accessible alternatives when embedded content cannot be made fully accessible:
-   - Data tables or CSV exports for dashboards
-   - Text descriptions or alternative map formats for geographic information
-   - Static images with detailed alt text when interactive features aren't accessible
-
-5. **Focus indicators** — Visible focus indicators must be present for keyboard navigation.
-
-**What to do before embedding:**
-
-- **Request accessibility documentation** — Ask vendors for accessibility conformance reports or documentation that specifically address WCAG 2.1 Level AA compliance.
-
-- **Test with assistive technology** — Test embedded content with screen readers (NVDA, JAWS, VoiceOver) and keyboard-only navigation before going live.
-
-- **Include accessibility in contracts** — Specify WCAG 2.1 Level AA compliance requirements in procurement contracts and service agreements.
-
-- **Provide alternatives** — If embedded content cannot be made fully accessible, provide equivalent accessible alternatives (e.g., downloadable data files, alternative map formats, or text descriptions).
-
-**Vendor-specific considerations:**
-
-- **Tableau** — Tableau has made accessibility improvements, but embedded dashboards may require configuration for full accessibility. Test thoroughly and provide data exports as alternatives.
-
-- **ArcGIS** — ArcGIS Online and embedded maps have accessibility features, but complex interactive maps may need alternative formats. Consider providing static map images with detailed descriptions or alternative navigation methods.
-
-**Remember:** Simply embedding third-party content does not absolve you of accessibility responsibility. If you cannot make embedded content accessible, you must provide accessible alternatives that offer equivalent functionality and information.
-
-**WCAG References:**
-
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#keyboard" target="_blank" rel="noopener noreferrer">Success Criterion 2.1.1 Keyboard - Level A</a> (keyboard accessibility)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#name-role-value" target="_blank" rel="noopener noreferrer">Success Criterion 4.1.2 Name, Role, Value - Level A</a> (screen reader compatibility)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.7 Focus Visible - Level AA</a> (focus indicators)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alternative text)
-
-**ADA Title II Reference:**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
+**Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a>
 
 ### Does our agency's password-protected intranet need to be accessible?
 
@@ -999,9 +868,9 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **Exception:** Even archived documents should be made accessible if they're:
 
-  - Referenced or linked from active intranet pages
+- Referenced or linked from active intranet pages
 - Part of a searchable document library
-  - Needed for reference or historical context
+- Needed for reference or historical context
 
 **If an employee requests access to archived content, you must provide an accessible version.**
 
@@ -1037,407 +906,126 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 3. **Respond to requests** — Have a process to quickly provide accessible versions of archived documents upon request
 4. **Document your efforts** — Keep records of what's accessible, what needs work, and any requests you've fulfilled
 
+<a id="third-party-tool-testing"></a>
 ### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
 
-**Testing third-party tools for WCAG 2.1 AA compliance requires a multi-step approach.** You can't rely solely on vendor claims — you need to verify accessibility yourself. Here's how to test tools like Docebo, DocuSign, or other third-party platforms:
+**Quick answer:** Don’t rely on vendor claims. Request a current VPAT, then test your **real workflows** with (1) keyboard-only navigation, (2) a screen reader, and (3) an automated checker (axe/WAVE). Document issues and require fixes (or an accessible alternative) before you go live.
 
-**1. Request accessibility documentation:**
+**Minimum test plan (30–60 minutes):**
 
-- **VPAT (Voluntary Product Accessibility Template)** — Request the most recent VPAT from the vendor
-- **Accessibility conformance report** — Ask for documentation that specifically addresses WCAG 2.1 Level AA compliance
-- **Accessibility roadmap** — If the tool isn't fully compliant, ask about plans to address gaps
-- **Version information** — Ensure documentation matches the version you're using or planning to use
+1. **Pick 2–3 real workflows** (example: “sign a document,” “enroll and complete a course,” “submit a form”).
+2. **Run an automated scan** (axe DevTools or WAVE) on each workflow screen:
+   - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a>
+   - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a>
+3. **Keyboard-only check** (no mouse):
+   - You can reach everything (Tab/Shift+Tab) and activate it (Enter/Space)
+   - Focus is visible and never gets “stuck”
+4. **Screen reader spot-check** (at least one):
+   - **NVDA** (free) — <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">https://www.nvaccess.org/</a>
+   - **VoiceOver** (built-in on Mac/iOS)
+   - Confirm labels make sense, errors are announced, and the workflow can be completed
+5. **Document what you found**:
+   - Date/version tested, workflow steps, issues, and screenshots
+   - “Workaround/alternative provided” if the vendor can’t fix quickly
 
-**What to look for in documentation:**
+**Procurement/contract expectations (what to ask for):**
 
-- "Supports" (not just "Partially Supports") for WCAG 2.1 Level AA criteria
-- Specific features that are accessible vs. those with limitations
-- Known accessibility barriers and workarounds
-- Testing methods used by the vendor
+- **VPAT/ACR** for the exact product/version you’re buying/using
+- A list of **known issues** + vendor **remediation timeline**
+- Contract language requiring **WCAG 2.1 Level AA** and support for accessibility fixes
 
-**2. Automated accessibility testing:**
+**Ongoing monitoring (keep it lightweight):**
 
-- **Use browser extensions:**
-  - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a> (free browser extension)
-  - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a> (free browser extension)
-  - **ANDI** — <a href="https://www.ssa.gov/accessibility/andi/help/install.html" target="_blank" rel="noopener noreferrer">https://www.ssa.gov/accessibility/andi/help/install.html</a> (free browser extension)
+- Re-test after **major updates**, configuration/theme changes, or new integrations
+- Track user feedback and escalate issues to the vendor
 
-- **Test key workflows:**
-  - Log in/authentication process
-  - Primary user tasks (e.g., signing documents in DocuSign, taking courses in Docebo)
-  - Navigation and menus
-  - Forms and data entry
-  - Error messages and feedback
-  - Help documentation
+**Resources:**
 
-**3. Manual keyboard testing:**
+- DoIT Testing Resources: <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
+- Section 508 ICT Testing Baseline: <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
 
-- **Navigate the entire interface using only the keyboard:**
-  - Tab through all interactive elements
-  - Use Enter/Space to activate buttons and links
-  - Use arrow keys for menus and dropdowns
-  - Ensure all functionality is accessible without a mouse
-
-- **Check for keyboard traps:**
-  - Can you navigate away from all elements?
-  - Are there any areas where keyboard focus gets stuck?
-  - Can you complete all tasks using only the keyboard?
-
-**4. Screen reader testing:**
-
-- **Test with at least one screen reader:**
-  - **NVDA** (Windows, free) — <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">https://www.nvaccess.org/</a>
-  - **JAWS** (Windows, paid) — Industry standard
-  - **VoiceOver** (Mac/iOS, built-in) — Free, built into Apple devices
-
-- **What to test:**
-  - Can you understand the page structure and content?
-  - Are form fields properly labeled?
-  - Are buttons and links clearly identified?
-  - Are error messages announced?
-  - Is the reading order logical?
-  - Can you complete all tasks using the screen reader?
-
-**5. Visual accessibility testing:**
-
-- **Color contrast:**
-  - Use WebAIM Contrast Checker — <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
-  - Test text against backgrounds (minimum 4.5:1 for normal text, 3:1 for large text)
-  - Test interactive elements (buttons, links, form fields)
-
-- **Color dependency:**
-  - Can you understand all information without relying on color?
-  - Are there icons, text labels, or patterns in addition to color?
-  - Test in grayscale or with color blindness simulators
-
-- **Text size and readability:**
-  - Can text be resized up to 200% without loss of functionality?
-  - Is text readable at standard sizes (minimum 12pt, preferably 14pt+)?
-  - Is there adequate line spacing?
-
-**6. Test with real users (if possible):**
-
-- **User testing with people with disabilities:**
-  - Recruit testers who use assistive technologies
-  - Have them complete typical tasks in the tool
-  - Document barriers and issues they encounter
-  - This provides the most accurate assessment of real-world accessibility
-
-**7. Document your findings:**
-
-- **Create a testing report:**
-  - List all features tested
-  - Document accessibility barriers found
-  - Note which WCAG criteria are met vs. not met
-  - Include screenshots or video recordings of issues
-  - Compare findings with vendor's VPAT
-
-- **Track compliance status:**
-  - Maintain records of testing dates and results
-  - Update documentation as tools are updated
-  - Share findings with procurement and IT teams
-
-**8. For specific tools (Docebo, DocuSign):**
-
-**Testing Docebo:**
-
-- Test course navigation and completion
-- Verify video captions work correctly
-- Test quiz and assessment accessibility
-- Check document upload and viewing
-- Test mobile app accessibility (if used)
-
-**Testing DocuSign:**
-
-- Test the document signing workflow end-to-end
-- Verify document viewing and navigation
-- Test form field completion
-- Check error handling and messages
-- Test on both web and mobile platforms
-
-**9. Ongoing monitoring:**
-
-- **Regular re-testing:**
-  - Test again when tools are updated
-  - Re-test after customizations or branding changes
-  - Monitor for new accessibility barriers
-
-- **User feedback:**
-  - Track accessibility complaints or requests
-  - Document workarounds needed for accessibility barriers
-  - Report issues to vendors and request fixes
-
-**Resources for testing:**
-
-- **DoIT Testing Resources:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
-- **Section 508 ICT Testing Baseline:** <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
-- **W3C Easy Checks:** <a href="https://www.w3.org/WAI/test-evaluate/preliminary/" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/test-evaluate/preliminary/</a>
-- **WebAIM Testing Guide:** <a href="https://webaim.org/articles/testing/" target="_blank" rel="noopener noreferrer">https://webaim.org/articles/testing/</a>
-
-**The bottom line:** Testing third-party tool compliance requires both automated tools and manual testing with assistive technologies. Don't rely solely on vendor claims — verify accessibility yourself through systematic testing. Document your findings, compare them with vendor documentation, and maintain ongoing monitoring as tools are updated.
+**The bottom line:** Test the workflows people actually use. If the tool can’t be made accessible quickly, you still need to provide an **accessible alternative** for the service.
 
 ### Our agency uses DocuSign to digitally sign documents. Is this something that falls under WCAG compliance?
 
-**Yes, DocuSign falls under WCAG compliance requirements.** As a web-based application used by state agencies to provide services to the public, DocuSign must meet accessibility standards under both ADA Title II and IITAA.
+**Quick answer:** Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
 
-**DocuSign platform accessibility:**
+**What to do (in order):**
 
-DocuSign has made efforts to improve accessibility and provides some accessibility features, but **the platform may not be fully WCAG 2.1 AA compliant in all areas**. Key considerations:
+1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can’t “fix” an inaccessible document.
+2. **Request DocuSign’s current VPAT/ACR** for your version and configuration.
+3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#third-party-tool-testing)
+4. **Have an accessible alternative** if a user can’t complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
 
-- **Platform accessibility** — DocuSign's web interface and mobile apps should be accessible, but you should verify current compliance status
-- **Document accessibility** — The documents you send through DocuSign must be accessible (see [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) and [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible) above)
-- **User experience** — Even if the platform is accessible, the signing process must be usable by people with disabilities
-
-**What you need to do:**
-
-1. **Ensure documents are accessible before sending:**
-   - Make PDFs, Word documents, or other files accessible **before** uploading them to DocuSign
-   - Use accessible document formats (see [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) and [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible) above)
-   - Run accessibility checkers on documents before sending them through DocuSign
-
-2. **Request accessibility documentation from DocuSign:**
-   - Ask your DocuSign account representative for their current accessibility conformance report (VPAT - Voluntary Product Accessibility Template)
-   - Request documentation of WCAG 2.1 AA compliance
-   - Verify which features are accessible and which may have limitations
-
-3. **Test the signing process:**
-   - Test DocuSign workflows with keyboard-only navigation
-   - Test with screen readers (NVDA, JAWS, or VoiceOver)
-   - Verify that all signing steps are accessible
-   - Ensure error messages are accessible and clear
-
-4. **Provide alternatives if needed:**
-   - If DocuSign has accessibility barriers, provide alternative methods for people with disabilities to sign documents
-   - This might include:
-     - Accessible PDF forms that can be signed and returned via email
-     - In-person signing options
-     - Phone-based signing processes
-     - Other accessible electronic signature solutions
-
-5. **Train staff on accessible use:**
-   - Ensure staff know how to create accessible documents for DocuSign
-   - Train staff on DocuSign's accessibility features
-   - Provide guidance on handling accessibility requests from signers
-
-**Best practices for using DocuSign accessibly:**
-
-- **Start with accessible source documents** — Don't rely on DocuSign to make inaccessible documents accessible
-- **Use clear instructions** — Provide clear, accessible instructions for signers on how to complete the signing process
-- **Test your workflows** — Test the entire signing workflow with assistive technologies before sending to users
-- **Monitor for issues** — Track any accessibility complaints or barriers reported by users
-- **Have a backup plan** — Know how to provide alternative signing methods if DocuSign is inaccessible for a particular user
-
-**Legal considerations:**
-
-Under ADA Title II and IITAA, state agencies must:
-
-- Ensure that services provided through third-party platforms are accessible
-- Provide accessible alternatives if a platform has accessibility barriers
-- Not rely solely on a vendor's claims — agencies are responsible for ensuring accessibility
-
-**Resources:**
-
-- **DocuSign Accessibility:** Check DocuSign's current accessibility documentation and VPAT
-- **DoIT Procurement Guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html</a>
-- **Section 508 ICT Testing:** <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
-
-**The bottom line:** DocuSign is subject to WCAG compliance requirements. Your agency is responsible for ensuring that documents sent through DocuSign are accessible and that the signing process is usable by people with disabilities. Start with accessible source documents, verify DocuSign's current accessibility status, test your workflows, and have alternative methods available if needed.
+**The bottom line:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
 
 ### Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?
 
-**LMS platform accessibility:**
+**Quick answer:** Sometimes partially. Even if the LMS platform is improving, **your course content and configuration still have to be accessible**.
 
-Learning Management Systems (LMS) like Docebo, Moodle, Canvas, Blackboard, and others have made efforts to improve accessibility, but **the platforms themselves may not be fully WCAG 2.1 AA compliant out of the box**. Platform accessibility depends on:
+**What can affect LMS accessibility:**
 
-- **Platform version and configuration** — Newer versions typically have better accessibility features
-- **Custom branding and themes** — Custom styling can introduce accessibility barriers
-- **Third-party integrations** — Plugins, add-ons, and integrations may not be accessible
-- **Platform-specific features** — Some LMS features may have accessibility limitations
+- Platform version/configuration
+- Custom themes/branding
+- Plugins/integrations
+- Specific feature limitations (quizzes, embedded media, uploads, etc.)
 
-**Important:** Even if an LMS platform has accessibility features, **course content you create must still be designed accessibly**. The platform can't make inaccessible content accessible.
+**Accessible LMS course checklist (high impact):**
 
-**What to do when designing accessible LMS courses (using Docebo as an example):**
-
-1. **Use accessible document formats for course materials:**
-   - Upload accessible Word documents, PDFs, and PowerPoint presentations (see [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible), [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible), and [How do I make PowerPoint presentations accessible?](#how-do-i-make-powerpoint-presentations-accessible) in the Content Accessibility section)
-   - Ensure all uploaded documents meet WCAG 2.1 AA standards before uploading
-
-2. **Video content:**
-   - **Add captions** — Most LMS platforms (including Docebo) support captions; upload accurate caption files (SRT or VTT format)
-   - **Review auto-generated captions** — If using auto-captioning features, review and correct errors
-   - **Provide transcripts** — Include downloadable transcripts for all video content
-   - **Audio description** — For videos with essential visual information not conveyed in audio, provide audio descriptions
-
-3. **Images and graphics:**
-   - **Add alt text** — Use the LMS platform's alt text fields for all images, charts, and graphics
-   - **Describe complex images** — For charts, graphs, or infographics, provide detailed descriptions or data tables
-   - **Avoid text in images** — Don't put important text only in images; include it as actual text
-
-4. **Course structure and navigation:**
-   - **Use clear, descriptive headings** — Structure content with proper heading hierarchy
-   - **Meaningful link text** — Use descriptive link text (not "click here" or "read more")
-   - **Logical reading order** — Ensure content flows in a logical sequence
-   - **Clear navigation** — Use descriptive page titles and module names
-
-5. **Interactive elements:**
-   - **Keyboard accessible** — Ensure all interactive elements (quizzes, buttons, links) can be accessed via keyboard
-   - **Focus indicators** — Verify that keyboard focus is visible on all interactive elements
-   - **Form labels** — Ensure all form fields have clear, associated labels
-   - **Error messages** — Provide clear, accessible error messages for quizzes and assessments
-
-6. **Color and contrast:**
-   - **Sufficient contrast** — Ensure text has at least 4.5:1 contrast ratio (3:1 for large text)
-   - **Don't rely on color alone** — Use icons, text labels, or patterns in addition to color to convey information
-   - **Test contrast** — Use tools like WebAIM Contrast Checker to verify contrast ratios
-
-7. **Text content:**
-   - **Plain language** — Write in clear, simple language
-   - **Readable fonts** — Use readable font sizes (minimum 12pt, preferably 14pt or larger)
-   - **Line spacing** — Ensure adequate line spacing for readability
-   - **Text formatting** — Use proper heading styles, lists, and formatting (not just visual styling)
-
-8. **Quizzes and assessments:**
-   - **Clear instructions** — Provide clear, accessible instructions for all quiz questions
-   - **Multiple question types** — Ensure all question types (multiple choice, true/false, etc.) are keyboard accessible
-   - **Time limits** — If quizzes have time limits, provide warnings and allow extensions for users who need them
-   - **Feedback** — Provide accessible feedback for correct/incorrect answers
-
-9. **Testing your course:**
-   - **Test with keyboard only** — Navigate the entire course using only the keyboard (Tab, Enter, Space, arrow keys)
-   - **Test with screen reader** — Test with a screen reader (NVDA, JAWS, or VoiceOver) to ensure content is accessible
-   - **Use accessibility checkers** — Run automated accessibility checks on uploaded documents before adding them to the LMS
-   - **User testing** — If possible, have users with disabilities test the course and provide feedback
-
-**Best practices for LMS course design:**
-
-- **Start with accessible source materials** — Make documents accessible before uploading to the LMS
-- **Use the LMS platform's accessibility features** — Take advantage of alt text fields, caption uploads, and other accessibility options available in your platform
-- **Test early and often** — Don't wait until the course is complete to test accessibility
-- **Provide alternatives** — For complex interactive content, provide alternative formats or text-based versions
-- **Document accessibility** — Keep records of accessibility features you've implemented
-- **Check platform-specific documentation** — Review your LMS vendor's accessibility documentation and VPAT (Voluntary Product Accessibility Template) if available
+1. **Documents** — Upload accessible Word/PDF/PowerPoint files (make the source accessible first).
+2. **Video/audio** — Captions for video; transcripts for audio; fix auto-captions.
+3. **Images** — Alt text for images/graphics; don’t put essential text only in images.
+4. **Structure** — Clear headings and descriptive link text; predictable navigation and module names.
+5. **Interactivity** — Quizzes/forms are keyboard accessible, with clear labels and error messages.
+6. **Color** — Sufficient contrast and no “color-only” meaning.
+7. **Test the course** using: [How do I test third-party tool compliance?](#third-party-tool-testing)
 
 **Resources:**
 
-- **LMS Accessibility Documentation:** Check your LMS platform's help documentation for current accessibility features and best practices (e.g., Docebo, Moodle, Canvas, Blackboard)
-- **WCAG 2.1 Guidelines:** <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/WCAG21/quickref/?levels=aa</a>
-- **WebAIM Contrast Checker:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
+- WCAG 2.1 Quick Reference (Level AA): <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/WCAG21/quickref/?levels=aa</a>
+- WebAIM Contrast Checker: <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
-**The bottom line:** LMS platforms like Docebo provide tools to create accessible courses, but **you are responsible for ensuring your course content meets WCAG 2.1 AA standards**. Start with accessible source materials, use your LMS platform's accessibility features, and test your courses with assistive technologies before publishing.
+**The bottom line:** Treat the LMS like any other third-party tool: verify the platform, and ensure the content you upload is accessible.
 
 ### If we have existing content like Tableau dashboards, ArcGIS maps, or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
 
-**No exemptions for currently used content.** All third-party content — including Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools — **must be WCAG 2.1 AA compliant** to meet ADA Title II guidelines. If these tools are **currently being used to provide services to the public**, they must be made accessible — **no exemptions apply**.
+**Quick answer:** If it’s **currently used to provide public services**, it needs to be accessible (no “archived content” exemption). If it’s **truly archived and not used**, it may be exempt — but you still must provide an accessible alternative **upon request**.
 
 **The key distinction:**
 
-- **Currently used for services** = **Must be accessible** (no exemptions)
+- **Currently used for services** = Must be accessible
 - **Archived/not currently used** = May be exempt, but must provide accessible alternatives upon request
 
-**For Tableau dashboards:**
+**What to do (works for dashboards, maps, and courses):**
 
-**If the dashboard is currently active and used for public services:**
+1. **Inventory** what exists and label it **active** vs. **archived**
+2. **Prioritize** by impact (high-traffic, high-stakes, frequently used)
+3. **Make it accessible or provide an equivalent accessible alternative**, such as:
+   - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
+   - **Courses:** accessible documents + captions/transcripts + accessible quiz interactions
+4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#third-party-tool-testing)
+5. **Document** what you changed, what remains, and the alternatives you provide
 
-- **Must be made accessible immediately** — No exemptions
-- Tableau dashboards are web-based applications that provide services to the public
-- They fall under WCAG 2.1 AA compliance requirements
-- You must remediate existing dashboards or provide accessible alternatives
+**Tool-specific notes (common pain points):**
 
-**What to do:**
-
-1. **Audit existing dashboards** — Identify all active Tableau dashboards used for public services
-2. **Prioritize by usage** — Start with the most frequently used or critical dashboards
-3. **Remediate or replace** — Either make dashboards accessible or provide accessible alternatives (accessible data tables, accessible PDFs, or alternative formats)
-4. **Test accessibility** — Verify dashboards work with screen readers, keyboard navigation, and meet color contrast requirements
-5. **Provide alternatives** — If a dashboard can't be made fully accessible, provide the same information in an accessible format
-
-**For ArcGIS maps and applications:**
-
-**If the map or application is currently active and used for public services:**
-
-- **Must be made accessible immediately** — No exemptions
-- ArcGIS maps and web applications are web-based tools that provide services to the public
-- They fall under WCAG 2.1 AA compliance requirements
-- You must remediate existing maps/applications or provide accessible alternatives
-
-**What to do:**
-
-1. **Audit existing maps/applications** — Identify all active ArcGIS content used for public services
-2. **Prioritize by usage** — Start with the most frequently used or critical maps/applications
-3. **Remediate or provide alternatives** — Either make ArcGIS content accessible or provide accessible alternatives (accessible data tables, text descriptions, or alternative formats)
-4. **Test accessibility** — Verify maps/applications work with screen readers, keyboard navigation, and meet color contrast requirements
-5. **Provide alternatives** — If an ArcGIS map/application can't be made fully accessible, provide the same information in an accessible format (data tables, text descriptions, accessible PDFs)
-
-**For Docebo online courses:**
-
-**If the course is currently active and used for training or services:**
-
-- **Must be made accessible immediately** — No exemptions
-- Online courses are web-based content that provides services to the public
-- They fall under WCAG 2.1 AA compliance requirements
-- You must remediate existing courses or provide accessible alternatives
-
-**What to do:**
-
-1. **Audit existing courses** — Identify all active courses currently in use
-2. **Prioritize by enrollment** — Start with courses that have active enrollments or are required for services
-3. **Remediate course content** — Make all course materials accessible (see [Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?](#is-a-learning-management-system-lms-like-docebo-wcag-21-compliant) question above)
-4. **Test with assistive technologies** — Verify courses work with screen readers and keyboard navigation
-5. **Provide alternatives** — If a course can't be made fully accessible, provide the same training content in an accessible format
-
-**When exemptions might apply:**
-
-**Only if content is truly archived and not currently used:**
-
-- Dashboards, maps, or courses that are no longer active
-- Historical/archived content not used for current services
-- Content that has been replaced by newer versions
-
-**Even with exemptions:**
-
-- You must provide accessible alternatives **upon request**
-- If someone requests access to archived content, you must make it accessible or provide an accessible alternative
-
-**Important considerations:**
-
-1. **All third-party content must be WCAG 2.1 AA compliant** — This includes Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools used to provide services. There are no exceptions for third-party tools — they must meet the same accessibility standards as your agency's own content.
-
-2. **"Currently used" is broadly defined** — If content is accessible to the public or used by staff to provide services, it's considered "currently used"
-
-3. **No grace period for existing content** — The April 2026 deadline applies to all content, including existing dashboards, maps, and courses. All third-party tools must be WCAG 2.1 AA compliant to meet ADA Title II guidelines.
-
-4. **Prioritization is allowed** — You can prioritize which dashboards/maps/courses to remediate first, but all active content must eventually be accessible
-
-5. **Documentation matters** — Keep records of:
-   - Which dashboards/maps/courses are active vs. archived
-   - Remediation plans and timelines
-   - Alternative formats provided
-   - VPATs (Voluntary Product Accessibility Templates) from vendors
-
-**Best practices:**
-
-- **Start remediation now** — Don't wait until the deadline
-- **Prioritize high-impact content** — Focus on the most-used dashboards, maps, and courses first
-- **Plan for alternatives** — Have a plan to provide accessible alternatives if full remediation isn't immediately possible
-- **Test early and often** — Test accessibility as you remediate, not just at the end
-- **Document everything** — Keep records of remediation efforts and alternative formats
-- **Request VPATs from vendors** — Ask third-party tool vendors for their Voluntary Product Accessibility Templates to understand their accessibility status
-- **Verify compliance** — Don't assume third-party tools are accessible; test them yourself to ensure they meet WCAG 2.1 AA standards
+- **Tableau**: interactive charts often need **accessible tables** and clear descriptions. Don’t rely on hover-only tooltips.
+- **ArcGIS**: complex interactive maps frequently need **equivalent text + data** (tables, lists of locations, and a written summary of what the map shows).
+- **Docebo/LMS courses**: the platform may be “mostly accessible,” but **uploaded content and course design** are where failures usually occur (captions, docs, images, quizzes, navigation).
 
 **Resources:**
 
-- **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
-- **DoIT Accessibility Guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
+- ADA Title II Web Rule: <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+- DoIT Accessibility Guidance: <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
 
-**The bottom line:** All third-party content — including Tableau dashboards, ArcGIS maps, Docebo courses, and any other web-based tools — **must be WCAG 2.1 AA compliant** to meet ADA Title II guidelines. Existing content that is **currently used for public services has no exemptions** — it must be made accessible. Only truly archived content that is not currently used may be exempt, and even then, you must provide accessible alternatives upon request. Start remediation now and prioritize the most critical content first.
+**The bottom line:** If the public needs it to access a service, it must be accessible. If you can’t make the tool fully accessible quickly, provide an **equivalent accessible alternative** and document the remediation plan.
 
 ---
 
 ## Content Accessibility (Documents, PDFs, Presentations)
 
-### What about photos ICJIA takes at events — like speeches or awards ceremonies? Do those need to be accessible?
+### What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?
 
-**Yes, if you're sharing them digitally.** Any photos published on ICJIA's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
+**Yes, if you're sharing them digitally.** Any photos published on your agency's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
 
 **What is alt text?**
 
@@ -1454,9 +1042,9 @@ Alt text is a brief written description of an image that screen readers read alo
 
 | Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
 | -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual ICJIA awards ceremony" |
-| Speech         | "Person speaking"         | "ICJIA Executive Director addresses attendees at the 2025 Victim Services Conference"                            |
-| Group photo    | "Group of people"         | "ICJIA Research & Analysis Unit staff at the December 2025 all-hands meeting"                                    |
+| Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual agency awards ceremony" |
+| Speech         | "Person speaking"         | "Agency director addresses attendees at the 2025 victim services conference"                                      |
+| Group photo    | "Group of people"         | "Agency research team staff at the December 2025 all-hands meeting"                                               |
 | Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                    |
 
 **Where to add alt text:**
@@ -1494,7 +1082,7 @@ Some images — like charts, graphs, infographics, or images containing lots of 
 
 **Example for a chart:**
 
-- **Alt text:** "Line graph showing ICJIA grant funding from 2020-2025. Full data in table below."
+- **Alt text:** "Line graph showing agency grant funding from 2020-2025. Full data in table below."
 - **Below the image:** An accessible HTML table with the actual numbers
 
 **For infographics or images with lots of text:**
@@ -1557,7 +1145,7 @@ Sharing infographics, charts, or images with text on platforms like social media
 **Example email approach:**
 
 - **Image:** Event announcement graphic with date, time, location
-- **Alt text:** "ICJIA Training Event - details in text below"
+- **Alt text:** "Agency training event - details in text below"
 - **Email body:** Include all event details as actual text below the image
 
 **Canva:**
@@ -1595,7 +1183,7 @@ If you're sharing a complex image on social media or email, ask yourself: "If so
 **Example of both working together:**
 
 - **Alt text:** "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe"
-- **Caption:** "Officer John Doe receives the 2025 Excellence Award for his work on community violence intervention programs. Photo: ICJIA"
+- **Caption:** "Officer John Doe receives the 2025 Excellence Award for his work on community violence intervention programs. Photo: Agency"
 
 The alt text describes what's visually happening. The caption adds context that all readers benefit from (what the award was for, photo credit).
 
@@ -1883,4 +1471,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 23, 2025_
+_Last updated: December 26, 2025_
