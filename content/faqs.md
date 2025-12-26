@@ -185,70 +185,22 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - <a href="https://www.section508.gov/manage/section-508-program-team-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Applies to all state and local government employees involved in digital content
 
-### Are there other ways to learn about compliance requirements?
+### I prefer to talk to someone rather than read FAQs. Who can I ask?
 
-**Absolutely — we recognize that everyone learns differently.** Reading through FAQs and links works well for some people, but others prefer videos, hands-on demonstrations, or talking to someone directly. Here are alternatives for different learning styles:
+**Questions are welcome — but your learning style doesn't change the work or the deadline.** You still need to audit existing content and make future content accessible. If you have questions, here's who to ask:
 
-**Video learners:**
+**Start with your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. The only differences now are that accessibility applies to content (not just code) and there's a firm deadline. Web devs are your best first stop for practical guidance.
 
-- <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Primer</a> — Official DOJ resources explaining the compliance requirements
-- <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Introduction (Video)</a> — Short overview of accessibility fundamentals
-- <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LnZQBAOWJh2Z1dZn" target="_blank" rel="noopener noreferrer">Google's Accessibility Fundamentals (YouTube)</a> — Free video series covering core concepts
+**If you need more clarity, ask DoIT.** The Illinois DoIT Office of Information Accessibility has a dedicated accessibility coordinator who can answer questions about specific legal mandates (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov
 
-**Hands-on learners:**
+**Other learning formats (if FAQs aren't your thing):**
 
-- <a href="https://www.w3.org/WAI/demos/bad/" target="_blank" rel="noopener noreferrer">W3C Before and After Demo</a> — Interactive demonstration comparing inaccessible vs. accessible websites
-- <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Try WAVE on any website</a> — Test accessibility yourself and see issues in real-time
-- <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA (free screen reader)</a> — Experience how screen reader users navigate the web
+- **Videos:** <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Primer</a> | <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Accessibility Introduction</a> | <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LnZQBAOWJh2Z1dZn" target="_blank" rel="noopener noreferrer">Google Accessibility Fundamentals</a>
+- **Hands-on:** <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Try WAVE on any website</a> | <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA (free screen reader)</a>
+- **Courses:** <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Training</a> | <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">Section508.gov Training</a>
+- **Quick references:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> | <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> | <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a>
 
-**Structured course learners:**
-
-- <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Training</a> — State-specific training on IITAA requirements
-- <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">Section508.gov Training</a> — Free federal government training modules
-- <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">W3C Introduction to Web Accessibility (edX)</a> — Free self-paced online course
-
-**Quick reference learners:**
-
-- <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> — One-page summary of all requirements
-- <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed checklist format
-- <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple, actionable checklist
-
-**Discussion-based learners:**
-
-- Reach out to Illinois DoIT's accessibility team: DoIT.Accessibility@Illinois.gov
-- Contact your organization's accessibility coordinator or web team
-- Attend accessibility training sessions
-
-**The key takeaway:** You don't have to read everything on this site to understand the requirements. Pick the format that works best for you.
-
-### I prefer to talk to someone rather than read FAQs. Who can help me?
-
-**We understand that some people prefer conversation over documentation.** If you genuinely learn better through discussion, here are people who can help you get started:
-
-**Internal resources at your agency:**
-
-1. **Your web development team** — They've been implementing accessibility for years and can explain how it applies to your role
-2. **Your IT coordinator or accessibility coordinator** — Many agencies have designated staff who can provide guidance
-3. **Colleagues who've already started** — Ask around — someone on your team may already be working on accessibility and can share what they've learned
-
-**Illinois state resources:**
-
-- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — They can answer questions specific to Illinois state agency requirements
-- **DoIT training sessions** — Check <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/training.html</a> for scheduled training opportunities
-
-**That said, it's important to be clear about timing:**
-
-While we absolutely support different learning approaches, **learning style is not a reason to delay starting accessibility work.** The April 24, 2026 deadline applies regardless of how you prefer to learn.
-
-**Here's a realistic approach:**
-
-1. **Start now with the resources that work for you** — Whether that's videos, conversations with your web team, or hands-on practice with tools
-2. **Schedule a conversation** — Reach out to your web team or DoIT to set up a discussion, but don't wait for that meeting to begin learning
-3. **Use multiple approaches** — You might start with a quick 10-minute video to understand the basics, then have a conversation to ask specific questions about your work
-
-**The reality:** Waiting to "talk to someone first" before starting any accessibility work delays compliance and increases risk. The most productive approach is to start learning through any available method (reading, videos, tools) while also scheduling conversations for specific questions.
-
-**Bottom line:** Different learning styles are valid, but they're not a substitute for action. Use the learning approach that works best for you — but start now, not later.
+**Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
 ---
 
@@ -1407,34 +1359,6 @@ When procuring technology products or services:
 Illinois DoIT recommends including language similar to:
 
 > "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
-
----
-
-## Key Terms
-
-**Confused by the jargon?** Here are plain-language definitions of common accessibility terms:
-
-**Alt text (Alternative text)** — A brief written description of an image that screen readers read aloud to users who can't see the image. Example: "Director Smith presenting award to Officer Jones."
-
-**ARIA (Accessible Rich Internet Applications)** — Code attributes that provide additional information to screen readers when standard HTML isn't enough. Think of it as labels and instructions for assistive technology.
-
-**Assistive technology** — Tools people with disabilities use to access digital content. Examples: screen readers (read content aloud), screen magnifiers, voice recognition software, alternative keyboards.
-
-**Captions** — Text displayed on screen that shows what's being said in a video. Different from subtitles (which assume you can hear) — captions also describe important sounds.
-
-**Focus indicator** — The visual outline that shows which element on a page is currently selected when navigating with a keyboard (usually by pressing Tab). Should be clearly visible.
-
-**Keyboard navigation** — The ability to use a website or application using only keyboard keys (Tab, Enter, Space, Arrow keys) without needing a mouse.
-
-**Reading order** — The sequence in which content is read by screen readers. Should match the logical flow of information (top to bottom, left to right in English).
-
-**Screen reader** — Software that reads website and document content aloud for people who are blind or have low vision. Examples: NVDA (free), JAWS, VoiceOver (built into Macs/iPhones).
-
-**Semantic HTML** — Using HTML elements for their intended purpose (`<button>` for buttons, `<nav>` for navigation) rather than generic `<div>` elements. This helps assistive technologies understand page structure.
-
-**VPAT (Voluntary Product Accessibility Template)** — A document vendors provide that explains how well their product meets accessibility standards. Look for "Supports" rather than "Partially Supports."
-
-**WCAG (Web Content Accessibility Guidelines)** — International standards for making digital content accessible. Pronounced "wuh-kag."
 
 ---
 
