@@ -191,7 +191,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Find your agency's accessibility coordinator.** Every agency should have someone responsible for accessibility planning and compliance. This person can answer general questions, provide presentations, and connect you to resources. The owner of your agency's accessibility plan is executive staff — not the web developers.
 
-**For practical web questions, ask your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. They're your best first stop for practical guidance on web content. However, keep in mind that web developers implement *web* accessibility — the Title II rule is much bigger than just websites (it covers documents, videos, social media, mobile apps, and third-party tools).
+**For practical accessibility questions, ask your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. They're your best first stop for practical guidance on web content. However, keep in mind that web developers implement *web* accessibility — the Title II rule is much bigger than just websites (it covers documents, videos, social media, mobile apps, and third-party tools).
 
 **For legal/mandate questions, ask DoIT.** The Illinois DoIT Office of Information Accessibility has a dedicated accessibility coordinator who can answer questions about specific legal requirements (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov
 
