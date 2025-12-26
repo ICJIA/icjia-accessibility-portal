@@ -86,10 +86,6 @@ It's completely reasonable for managers to want clarity on scope, timeline, and 
 
 ### Who is affected by inaccessible digital content?
 
-**Quick answer:** Approximately 1 in 4 adults in the U.S. (over 2.3 million people in Illinois alone) have some type of disability — including vision, hearing, motor, and cognitive impairments.
-
-**Full explanation:**
-
 **Approximately 1 in 4 adults in the United States has some type of disability.** In Illinois, that's over 2.3 million people.
 
 When digital content isn't accessible, agencies exclude millions of residents from accessing government information and services. Common disabilities include:
@@ -100,6 +96,15 @@ When digital content isn't accessible, agencies exclude millions of residents fr
 - **Cognitive disabilities** — Learning disabilities, memory difficulties, attention disorders
 
 **Why this matters:** Accessible digital content isn't just about legal compliance — it's about ensuring equal access to government services for millions of Illinois residents.
+
+### Why does accessibility matter?
+
+Accessibility matters for several reasons:
+
+- **Legal compliance** — Federal and state laws require accessible digital content
+- **Equal access** — Approximately 1 in 4 adults in the U.S. have a disability
+- **Better user experience** — Accessible design often improves usability for everyone
+- **Broader reach** — Accessible content can be used by more people in more situations
 
 ### How does digital accessibility and compliance fit into an agency's DEIA mission?
 
@@ -257,42 +262,42 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 ---
 
-## State Agency Applicability
+**Why this matters for state agencies specifically:**
 
-### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
+### Why does ICJIA need to worry about digital accessibility? What does the April 2026 deadline mean for us?
 
-**As an Illinois state agency, your agency has legal obligations under both state and federal law to ensure digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to all Illinois state agencies.
+**As an Illinois state agency, ICJIA has legal obligations under both state and federal law to ensure our digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to ICJIA.
 
-**Why this matters for Illinois state agencies:**
+**Why this matters for ICJIA specifically:**
 
-1. **State agency status** — Illinois state agencies fall under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
+1. **We're a state agency** — ICJIA falls under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
 
-2. **Public service mission** — State agencies provide information, research, and resources to Illinois residents. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
+2. **We serve the public** — ICJIA's mission involves providing information, research, and resources to Illinois residents, criminal justice professionals, and the public. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
 
-3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, this represents over 2.3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When state agency websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical government information and resources.
+3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, this represents over 2.3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When ICJIA's websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical criminal justice information and resources.
 
-4. **Federal funding** — Many Illinois state agencies receive federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
+4. **Federal funding** — ICJIA receives federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
 
-5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies.
+5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies including ICJIA.
 
 **What "compliance" actually means:**
 
 - All public-facing web pages must meet WCAG 2.1 Level AA standards
 - All public-facing documents (PDFs, Word, Excel, PowerPoint) must be accessible
 - Videos must have captions; audio must have transcripts
-- Third-party tools and embedded content you provide must be accessible
+- Third-party tools and embedded content we provide must be accessible
 - Social media posts going forward must be accessible
 
 **What happens if we don't comply:**
 
 - The DOJ can investigate and pursue enforcement actions
 - Individuals can file complaints or lawsuits
-- Agencies could face legal costs, remediation costs, and reputational harm
-- Most importantly, people with disabilities would be unable to access your information and services
+- ICJIA could face legal costs, remediation costs, and reputational harm
+- Most importantly, people with disabilities would be unable to access our information and services
 
 **The reality of digital accessibility now:**
 
-Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
+Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For ICJIA, this means integrating accessibility into every aspect of our digital presence: websites, documents, social media, and any tools we provide to the public.
 
 **The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
 
@@ -302,9 +307,9 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
 
-### If this has been a requirement, why hasn't your agency been doing this all along?
+### If this has been a requirement, why hasn't ICJIA been doing this all along?
 
-**Actually, your agency's web team has been building accessible websites for years.** The web developers at state agencies have been incorporating accessibility best practices into websites across multiple administrations — this isn't new to them.
+**Actually, ICJIA's web team has been building accessible websites for years.** The web developers at ICJIA have been incorporating accessibility best practices into our websites across multiple administrations — this isn't new to them.
 
 **What the web team has been doing:**
 
@@ -323,7 +328,7 @@ The web team is responsible for **website accessibility** — not **content acce
 | Area                      | Responsibility                                                          | Who Does This                                      |
 | ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
 | **Website accessibility** | Code, navigation, structure, forms, interactive features                | Web team                                           |
-| **Content accessibility** | Documents (PDFs, Word, Excel, PowerPoint), videos, images, social media | Content creators (Communications, Research, program staff) |
+| **Content accessibility** | Documents (PDFs, Word, Excel, PowerPoint), videos, images, social media | Content creators (COMMS, R&A, FSGU, program staff) |
 
 **Why content accessibility requires a different approach:**
 
@@ -351,15 +356,103 @@ Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm co
 
 **Why this matters for you:**
 
-If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, and other units that publish materials.
+If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, FSGU, and other units that publish materials.
 
-**The bottom line:** Your agency's web team has been building accessible websites for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
+**The bottom line:** ICJIA's web team has been doing website accessibility for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
+
+**Why this matters for ICJIA specifically:**
+
+1. **We're a state agency** — ICJIA falls under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
+
+2. **We serve the public** — ICJIA's mission involves providing information, research, and resources to Illinois residents, criminal justice professionals, and the public. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
+
+3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, this represents over 2.3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When ICJIA's websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical criminal justice information and resources.
+
+4. **Federal funding** — ICJIA receives federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
+
+5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II digital accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies including ICJIA.
+
+**What "compliance" actually means:**
+
+- All public-facing web pages must meet WCAG 2.1 Level AA standards
+- All public-facing documents (PDFs, Word, Excel, PowerPoint) must be accessible
+- Videos must have captions; audio must have transcripts
+- Third-party tools and embedded content we provide must be accessible
+- Social media posts going forward must be accessible
+
+**What happens if we don't comply:**
+
+- The DOJ can investigate and pursue enforcement actions
+- Individuals can file complaints or lawsuits
+- ICJIA could face legal costs, remediation costs, and reputational harm
+- Most importantly, people with disabilities would be unable to access our information and services
+
+**The reality of digital accessibility now:**
+
+Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For ICJIA, this means integrating accessibility into every aspect of our digital presence: websites, documents, social media, and any tools we provide to the public.
+
+**The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
+
+**References:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
+- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
+
+### If this has been a requirement, why hasn't ICJIA been doing this all along?
+
+**Actually, ICJIA's web team has been building accessible websites for years.** The web developers at ICJIA have been incorporating accessibility best practices into our websites across multiple administrations — this isn't new to them.
+
+**What the web team has been doing:**
+
+- Building websites with semantic HTML structure for screen reader compatibility
+- Implementing keyboard navigation and focus management
+- Using ARIA (Accessible Rich Internet Applications) attributes where needed
+- Following color contrast guidelines
+- Adding alt text to images on websites
+- Structuring content with proper heading hierarchies
+- Testing with accessibility tools and screen readers
+
+**But here's what's critical to understand:**
+
+The web team is responsible for **website accessibility** — not **content accessibility**. These are two very different things:
+
+| Area                      | Responsibility                                                          | Who Does This                                      |
+| ------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------- |
+| **Website accessibility** | Code, navigation, structure, forms, interactive features                | Web team                                           |
+| **Content accessibility** | Documents (PDFs, Word, Excel, PowerPoint), videos, images, social media | Content creators (COMMS, R&A, FSGU, program staff) |
+
+**Why content accessibility requires a different approach:**
+
+While the compliance standard is the same (WCAG 2.1 Level AA), **the tools, skills, and workflows for content accessibility are completely different** from what the web team uses:
+
+- **Web accessibility** uses HTML, CSS, JavaScript, screen reader testing, and web-specific tools like WAVE and axe DevTools
+- **Document accessibility** requires Microsoft Office accessibility features, Adobe Acrobat Pro, PDF remediation tools, and document-specific testing like PAC 2024
+- **Video accessibility** needs captioning software, transcript creation, and audio description tools
+- **Social media accessibility** involves platform-specific alt text features, caption tools, and accessible content practices
+
+The web team can't make your PDFs accessible for you. They can't add alt text to images you upload. They can't caption your videos. These tasks require **content creators** to learn and apply accessibility practices using tools designed for their specific workflows.
+
+**So what's actually new?**
+
+The difference now isn't that accessibility suddenly matters — it's that there's a **firm legal deadline with specific technical standards**. Before the April 2024 ADA Title II rule:
+
+- Accessibility was a best practice, but enforcement was inconsistent
+- There were no specific technical standards mandated by federal law for state agencies
+- Compliance was measured against general principles rather than testable criteria
+- There was no countdown clock creating organizational urgency
+
+**The April 2026 deadline changes the landscape:**
+
+Now there are specific, testable requirements (WCAG 2.1 Level AA) with a firm compliance date. This creates accountability that didn't exist before — and extends beyond websites to include documents, videos, social media, and all public-facing digital content.
+
+**Why this matters for you:**
+
+If you create content — reports, presentations, social media posts, videos, PDFs, or any public-facing documents — **you** are responsible for making that content accessible. The web team can share what they know about accessibility principles, but the actual work of making content accessible falls to the people creating that content: Communications, Research & Analysis, FSGU, and other units that publish materials.
+
+**The bottom line:** ICJIA's web team has been doing website accessibility for years. What's new is the deadline that now applies to **all content creators**. The compliance standard is the same, but the tools and skills needed for document, video, and social media accessibility are different from web development — and that work belongs to the people creating the content.
 
 ### What happens after April 24, 2026?
-
-**Quick answer:** After April 24, 2026, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
-
-**Full explanation:**
 
 **After April 24, 2026, state and local governments must be in compliance with WCAG 2.1 Level AA standards for all public-facing digital content.** Agencies that fail to meet this deadline may face several potential issues:
 
@@ -954,11 +1047,7 @@ You are responsible for the accessibility of third-party content that you embed 
 
 ### Does our agency's password-protected intranet need to be accessible?
 
-**Quick answer:** Password-protected intranet sites for employees only are generally exempt from ADA Title II, but **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
-
-**Full explanation:**
-
-**It depends.** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws.
+**Short answer: It depends.** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws.
 
 **ADA Title II exemption:**
 
@@ -985,10 +1074,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 ### What about archived documents on the intranet?
 
-**Quick answer:** Truly archived documents that are no longer used may be exempt, but you must still provide accessible alternatives **upon request** if an employee needs them.
-
-**Full explanation:**
-
 **Archived documents that are not currently used may be exempt** — but you must still provide accessible alternatives **upon request**.
 
 **For truly archived documents:**
@@ -999,17 +1084,13 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **Exception:** Even archived documents should be made accessible if they're:
 
-  - Referenced or linked from active intranet pages
+- Referenced or linked from active intranet pages
 - Part of a searchable document library
-  - Needed for reference or historical context
+- Needed for reference or historical context
 
 **If an employee requests access to archived content, you must provide an accessible version.**
 
 ### After April 2026, do all new documents need to be accessible?
-
-**Quick answer:** Yes. All new documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA standards from day one — whether posted publicly or on an intranet.
-
-**Full explanation:**
 
 **Yes. All new documents created after the April 24, 2026 deadline must be accessible** — whether they're posted publicly or on an intranet.
 
