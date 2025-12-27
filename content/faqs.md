@@ -80,7 +80,7 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **Because web developers can only fix technical issues — they can't fix content.**
 
-While web developers handle technical implementation (code structure, keyboard navigation, ARIA attributes for screen readers), they **cannot** fix content created by others. Achieving compliance requires:
+While web developers handle technical implementation (code structure, keyboard navigation, ARIA attributes that help screen readers understand interactive elements), they **cannot** fix content created by others. Achieving compliance requires:
 
 - **Content creators** — Write alt text for images, use proper heading styles, make documents accessible, add captions to videos
 - **Designers** — Ensure color contrast meets requirements, design with keyboard navigation in mind
@@ -95,9 +95,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 ### Can managers delay accessibility work to "get more information first"?
 
-**No. Managers cannot delay the work.** The April 24, 2026 deadline is a legal requirement, not a suggestion.
-
-It's completely reasonable for managers to want clarity on scope, timeline, and resources. However, the deadline is firm and cannot be extended.
+**The April 24, 2026 deadline is a legal requirement that cannot be extended.** While it's completely reasonable for managers to want clarity on scope, timeline, and resources before starting work, the deadline is firm — accessibility work needs to begin now, even as you gather more information.
 
 **Who to ask (so you get answers without losing time):**
 
@@ -120,13 +118,53 @@ It's completely reasonable for managers to want clarity on scope, timeline, and 
 
 **The reality:** Waiting until you fully understand everything will only make compliance harder to achieve. The best approach is to start the work now, ask questions along the way, and adjust plans as you gain more understanding.
 
-### Who is affected by inaccessible digital content?
+### I'm already overloaded — how am I supposed to add accessibility to my workload?
 
-**Quick answer:** Approximately 1 in 4 adults in the U.S. (over 2.3 million people in Illinois alone) have some type of disability — including vision, hearing, motor, and cognitive impairments.
+{new:2025-12-27}
+
+**Quick answer:** Accessibility isn't additional work on top of your job — it's a change in *how* you do work you're already doing. Creating an accessible document takes only a few extra minutes once you know the basics.
 
 **Full explanation:**
 
-**Approximately 1 in 4 adults in the United States has some type of disability.** In Illinois, that's over 2.3 million people.
+**We hear you.** Everyone is busy, and "one more thing" feels impossible. But here's the reframe: you're already creating documents, adding images, and publishing content. Accessibility is about doing those things *slightly differently* — not doing more things.
+
+**The real time investment:**
+
+| Task | Extra Time | Notes |
+|------|-----------|-------|
+| Adding alt text to an image | 30 seconds | You know what's in the image — just describe it |
+| Using heading styles instead of bold | 0 seconds | Same number of clicks, different button |
+| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds | Better for everyone, not just accessibility |
+| Running the Accessibility Checker in Word | 60 seconds | Built into Microsoft Office — one click |
+| Adding captions to a 5-minute video | 10-15 minutes | This one does take time (but is legally required) |
+
+**What actually takes time:**
+
+- **Remediating old content** — Yes, this is real work. Prioritize by impact and chip away at it.
+- **Learning the basics** — About 15-30 minutes to learn the essentials. Do it once, apply forever.
+- **Complex documents** — Tables, forms, and multi-column layouts require more attention.
+
+**What to tell your manager:**
+
+If you genuinely don't have bandwidth, escalate it. Say: *"Accessibility is now required by law. I need either (a) time allocated for training and remediation, or (b) clarity on what gets deprioritized to make room for this."*
+
+Accessibility is not optional, and "I'm too busy" is not a legal defense. But managers do need to allocate realistic time and resources.
+
+**Start small:**
+
+1. Learn one thing this week (alt text is the easiest)
+2. Apply it to everything you create going forward
+3. Add another skill next week
+
+**The bottom line:** You don't have to fix everything at once. But you do have to start — and starting is smaller than you think.
+
+### Who is affected by inaccessible digital content?
+
+**Quick answer:** Approximately 1 in 4 adults in the U.S. (over 3 million people in Illinois alone) have some type of disability — including vision, hearing, motor, and cognitive impairments.
+
+**Full explanation:**
+
+**Approximately 1 in 4 adults in the United States has some type of disability.** In Illinois, with a population of approximately 12.8 million, that's over 3 million people.
 
 When digital content isn't accessible, agencies exclude millions of residents from accessing government information and services. Common disabilities include:
 
@@ -177,7 +215,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - Accessibility is cheapest when done early; retrofits can be **3–10×** more expensive.
 - A PDF without headings/alt text, a low-contrast design, or an inaccessible vendor tool can’t be “patched” by IT without changing the original work.
 
-**Best practice:** “Shift left” — plan for accessibility in **content + design + procurement + build**, not at the end.
+**Best practice:** Plan for accessibility early — address it in **content + design + procurement + build** from the start, not at the end. (This is sometimes called "shifting left" in project management terminology.)
 
 **References:**
 
@@ -187,7 +225,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 ### I prefer to talk to someone rather than read FAQs. Who can I ask?
 
-**Questions are welcome — but your learning style doesn't change the work or the deadline.** You still need to audit existing content and make future content accessible. If you have questions, here's who to ask:
+**Questions are welcome, and there are many ways to learn.** Whether you prefer reading, watching videos, hands-on practice, or talking to someone, resources exist for you. That said, the work and deadline remain the same regardless of format — you'll still need to make your content accessible. Here's who to ask:
 
 **Find your agency's accessibility coordinator.** Every agency should have someone responsible for accessibility planning and compliance. This person can answer general questions, provide presentations, and connect you to resources. The owner of your agency's accessibility plan is executive staff — not the web developers.
 
@@ -204,111 +242,49 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
+### What are the most common accessibility mistakes to avoid?
+
+{new:2025-12-27}
+
+**Quick answer:** Most accessibility failures come from a small set of common mistakes. Avoid these 10 things and you'll prevent the majority of accessibility issues.
+
+**Top 10 accessibility mistakes (and what to do instead):**
+
+| ❌ Don't do this | ✅ Do this instead |
+|-----------------|-------------------|
+| **1. Skip alt text on images** — "The image is self-explanatory" | Write alt text for every image. If you took the photo for a reason, that reason needs words. |
+| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule" |
+| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate. |
+| **4. Put essential info only in images** — Images may not load or be visible | Always include the same information as text in the document or caption |
+| **5. Use color alone to convey meaning** — "Required fields are in red" | Use text labels, icons, or patterns in addition to color |
+| **6. Create PDFs by scanning paper** — Results in an image, not readable text | Use OCR or create documents digitally with proper structure |
+| **7. Skip captions on videos** — "People can figure it out" | Always add captions. It's legally required and benefits everyone. |
+| **8. Use tiny or low-contrast text** — Light gray on white, small fonts | Use at least 4.5:1 contrast ratio; avoid text smaller than 14px |
+| **9. Build complex tables with merged cells** — Screen readers can't interpret them | Use simple tables with clear headers; avoid merging cells when possible |
+| **10. Assume "IT will fix it later"** — Accessibility is everyone's job | Make accessibility part of your workflow from the start |
+
+**Bonus mistakes to avoid:**
+
+- **Autoplaying audio or video** — Always give users control
+- **Removing focus indicators** — The blue outline helps keyboard users know where they are
+- **Using placeholder text as labels** — Placeholder text disappears when you start typing
+- **Making clickable areas too small** — Buttons and links should be at least 44x44 pixels
+- **Flashing or blinking content** — Can trigger seizures; avoid flashing more than 3 times per second
+
+**The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll be ahead of most content creators.
+
+**Quick self-check:** Before publishing any content, ask yourself:
+1. Does every image have alt text?
+2. Are my links descriptive?
+3. Did I use heading styles (not just bold)?
+4. Can I understand the content without seeing colors?
+5. Do my videos have captions?
+
+If you can answer "yes" to all five, you've avoided the most common problems.
+
 ---
 
-## State Agency Applicability
-
-### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
-
-**As an Illinois state agency, your agency has legal obligations under both state and federal law to ensure digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to all Illinois state agencies.
-
-**Why this matters for Illinois state agencies:**
-
-1. **State agency status** — Illinois state agencies fall under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
-
-2. **Public service mission** — State agencies provide information, research, and resources to Illinois residents. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
-
-3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, this represents over 2.3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When state agency websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical government information and resources.
-
-4. **Federal funding** — Many Illinois state agencies receive federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
-
-5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies.
-
-**What "compliance" actually means:**
-
-- All public-facing web pages must meet WCAG 2.1 Level AA standards
-- All public-facing documents (PDFs, Word, Excel, PowerPoint) must be accessible
-- Videos must have captions; audio must have transcripts
-- Third-party tools and embedded content you provide must be accessible
-- Social media posts going forward must be accessible
-
-**What happens if we don't comply:**
-
-- The DOJ can investigate and pursue enforcement actions
-- Individuals can file complaints or lawsuits
-- Agencies could face legal costs, remediation costs, and reputational harm
-- Most importantly, people with disabilities would be unable to access your information and services
-
-**The reality of digital accessibility now:**
-
-Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
-
-**The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
-
-**References:**
-
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
-- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
-
-### If this has been a requirement, why hasn't your agency been doing this all along?
-
-**Two things can be true at once:**
-
-1. **Many agency web teams have been building accessible websites for years.** This isn’t “brand new” work for developers.
-2. **The 2026 deadline changes who needs to participate.** Compliance now depends on *everyone who publishes digital content*, not just the web team.
-
-**What the web team owns vs. what content teams own:**
-
-- **Web team (website accessibility):** code structure, navigation, forms, keyboard support, ARIA where needed
-- **Content creators (content accessibility):** accessible documents (Word/PDF/PowerPoint/Excel), image alt text, captions/transcripts, social media accessibility
-
-**Why it feels different now:**
-
-- **Accountability is stronger** — ADA Title II now points to a measurable standard (**WCAG 2.1 Level AA**) with a firm compliance deadline.
-- **Scope is broader** — accessibility applies across websites *and* documents, multimedia, social media, and third-party tools used to deliver services.
-
-**The bottom line:** Developers can’t make your PDFs accessible for you, and they can’t caption your videos after the fact. The standard is the same, but the work is spread across roles — and the deadline makes that shared responsibility unavoidable.
-
-### What happens after April 24, 2026?
-
-**Quick answer:** After April 24, 2026, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
-
-**Full explanation:**
-
-**After April 24, 2026, state and local governments must be in compliance with WCAG 2.1 Level AA standards for all public-facing digital content.** Agencies that fail to meet this deadline may face several potential issues:
-
-**Legal and enforcement consequences:**
-
-- **Department of Justice investigations** — The DOJ can investigate complaints and pursue enforcement actions against non-compliant agencies
-- **Complaints and lawsuits** — Individuals with disabilities can file complaints with the DOJ or pursue private lawsuits under the ADA
-- **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content
-- **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust
-
-**Operational impacts:**
-
-- **Service disruptions** — If complaints or lawsuits result in court orders, agencies may need to temporarily remove or restrict access to non-compliant content
-- **Resource reallocation** — Emergency remediation efforts can divert staff time and budget from other priorities
-- **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed
-- **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements
-
-**What's covered by the deadline:**
-
-The April 2026 deadline applies to all public-facing digital content, not just websites:
-
-- **Websites** — All public-facing web pages, including forms, interactive features, and embedded content
-- **Documents** — PDFs, Word documents, Excel spreadsheets, and PowerPoint presentations published online or shared digitally
-- **Mobile apps** — Any mobile applications provided to the public
-- **Videos and multimedia** — All video content requires captions; audio content requires transcripts
-- **Social media** — Posts, images, and videos shared on social platforms (going forward)
-- **Third-party content** — Embedded maps, dashboards, widgets, and tools provided through contracts or agreements
-- **Email communications** — Newsletters and other digital communications sent to the public
-
-**The bottom line:** If it's digital and public-facing, it needs to be accessible by April 24, 2026. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
-
-**References:**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered" and enforcement provisions
+## Getting Started
 
 ### I'm a content creator. Where do I start?
 
@@ -398,7 +374,7 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 
 ### I'm a manager. Where do I start?
 
-**As a manager, your role is to create the organizational conditions for accessibility success.** You don’t need to become a technical expert — you need to set priorities, fund time/tools, and create accountability.
+**As a manager, your role is to create the organizational conditions for accessibility success.** You don't need to become a technical expert — you need to set priorities, fund time/tools, and create accountability.
 
 **Manager quick checklist (start here):**
 
@@ -457,7 +433,7 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 - **Peer networks** — Connect with other managers facing similar challenges
 - **Legal/compliance team** — Work with your legal or compliance office to understand requirements
 
-**8. Keep it sustainable (so it doesn’t collapse after one push):**
+**8. Keep it sustainable (so it doesn't collapse after one push):**
 
 - Build accessibility into ongoing operations (publish + purchase + build), not a one-time project
 - Maintain documentation, milestones, and ownership
@@ -472,7 +448,257 @@ The April 2026 deadline applies to all public-facing digital content, not just w
 
 ---
 
-## Illinois-Specific Requirements (IITAA)
+## State Agency Applicability
+
+### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
+
+**As an Illinois state agency, your agency has legal obligations under both state and federal law to ensure digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to all Illinois state agencies.
+
+**Why this matters for Illinois state agencies:**
+
+1. **State agency status** — Illinois state agencies fall under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
+
+2. **Public service mission** — State agencies provide information, research, and resources to Illinois residents. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
+
+3. **Millions of Illinois residents need accessible digital content** — According to <a href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html" target="_blank" rel="noopener noreferrer">CDC data</a>, approximately **1 in 4 adults in the United States** have some type of disability. In Illinois, with a population of approximately 12.8 million, this represents over 3 million people. Common disabilities include mobility limitations, cognitive difficulties, hearing difficulties, and vision impairment. Many of these individuals rely on accessible digital content to access government services and information. When state agency websites or documents aren't accessible, we're potentially excluding millions of Illinoisans from critical government information and resources.
+
+4. **Federal funding** — Many Illinois state agencies receive federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
+
+5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies.
+
+**What "compliance" actually means:**
+
+- All public-facing web pages must meet WCAG 2.1 Level AA standards
+- All public-facing documents (PDFs, Word, Excel, PowerPoint) must be accessible
+- Videos must have captions; audio must have transcripts
+- Third-party tools and embedded content you provide must be accessible
+- Social media posts going forward must be accessible
+
+**What happens if we don't comply:**
+
+- The DOJ can investigate and pursue enforcement actions
+- Individuals can file complaints or lawsuits
+- Agencies could face legal costs, remediation costs, and reputational harm
+- Most importantly, people with disabilities would be unable to access your information and services
+
+**The reality of digital accessibility now:**
+
+Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
+
+**The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
+
+**References:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
+- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
+
+### If this has been a requirement, why hasn't your agency been doing this all along?
+
+**Two things can be true at once:**
+
+1. **Many agency web teams have been building accessible websites for years.** This isn’t “brand new” work for developers.
+2. **The 2026 deadline changes who needs to participate.** Compliance now depends on *everyone who publishes digital content*, not just the web team.
+
+**What the web team owns vs. what content teams own:**
+
+- **Web team (website accessibility):** code structure, navigation, forms, keyboard support, ARIA where needed
+- **Content creators (content accessibility):** accessible documents (Word/PDF/PowerPoint/Excel), image alt text, captions/transcripts, social media accessibility
+
+**Why it feels different now:**
+
+- **Accountability is stronger** — ADA Title II now points to a measurable standard (**WCAG 2.1 Level AA**) with a firm compliance deadline.
+- **Scope is broader** — accessibility applies across websites *and* documents, multimedia, social media, and third-party tools used to deliver services.
+
+**The bottom line:** Developers can’t make your PDFs accessible for you, and they can’t caption your videos after the fact. The standard is the same, but the work is spread across roles — and the deadline makes that shared responsibility unavoidable.
+
+### What happens after April 24, 2026?
+
+**Quick answer:** After April 24, 2026, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
+
+**Full explanation:**
+
+**After April 24, 2026, state and local governments must be in compliance with WCAG 2.1 Level AA standards for all public-facing digital content.** Agencies that fail to meet this deadline may face several potential issues:
+
+**Legal and enforcement consequences:**
+
+- **Department of Justice investigations** — The DOJ can investigate complaints and pursue enforcement actions against non-compliant agencies
+- **Complaints and lawsuits** — Individuals with disabilities can file complaints with the DOJ or pursue private lawsuits under the ADA
+- **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content
+- **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust
+
+**What this means for you personally:**
+
+While enforcement is typically at the agency level, individuals may experience:
+
+- **Required remediation** — You may be asked to fix inaccessible content you created
+- **Mandatory training** — Staff who create inaccessible content may be required to complete accessibility training
+- **Performance expectations** — Accessibility compliance may become part of job responsibilities and performance evaluations
+- **Increased workload** — Emergency remediation is stressful and time-consuming; building accessibility in from the start prevents this
+
+**Operational impacts:**
+
+- **Service disruptions** — If complaints or lawsuits result in court orders, agencies may need to temporarily remove or restrict access to non-compliant content
+- **Resource reallocation** — Emergency remediation efforts can divert staff time and budget from other priorities
+- **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed
+- **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements
+
+**What's covered by the deadline:**
+
+The April 2026 deadline applies to all public-facing digital content, not just websites:
+
+- **Websites** — All public-facing web pages, including forms, interactive features, and embedded content
+- **Documents** — PDFs, Word documents, Excel spreadsheets, and PowerPoint presentations published online or shared digitally
+- **Mobile apps** — Any mobile applications provided to the public
+- **Videos and multimedia** — All video content requires captions; audio content requires transcripts
+- **Social media** — Posts, images, and videos shared on social platforms (going forward)
+- **Third-party content** — Embedded maps, dashboards, widgets, and tools provided through contracts or agreements
+- **Email communications** — Newsletters and other digital communications sent to the public
+
+**The bottom line:** If it's digital and public-facing, it needs to be accessible by April 24, 2026. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered" and enforcement provisions
+
+### What if we can't meet the April 24, 2026 deadline?
+
+{new:2025-12-27}
+
+**Quick answer:** The deadline is a legal requirement, not a target. If your agency can't achieve full compliance by April 24, 2026, you should still make as much progress as possible while documenting your remediation plan and prioritizing high-impact content.
+
+**Full explanation:**
+
+**The April 24, 2026 deadline is a firm legal requirement under the ADA Title II web accessibility rule.** There is no formal extension process, and non-compliance exposes agencies to enforcement actions, complaints, and lawsuits.
+
+**However, the reality is that some agencies may not achieve 100% compliance by the deadline.** Here's what you should do:
+
+**1. Prioritize ruthlessly:**
+- Focus on high-traffic pages and documents first
+- Address critical services that residents depend on
+- Fix barriers that completely block access before cosmetic issues
+
+**2. Document your remediation efforts:**
+- Keep records of what you've fixed and when
+- Maintain a prioritized backlog of remaining issues
+- Show a clear timeline and plan for ongoing remediation
+
+**3. Provide accessible alternatives:**
+- If a document can't be remediated in time, provide an accessible alternative upon request
+- Ensure contact information is available for accommodation requests
+- Respond promptly to accessibility complaints
+
+**4. Continue progress after the deadline:**
+- The obligation doesn't end at the deadline — you must still work toward full compliance
+- Demonstrating good-faith efforts matters if complaints are filed
+
+**What NOT to do:**
+- Don't use the deadline as an excuse to stop work — "we can't make it anyway" is not a defense
+- Don't ignore accessibility because you're behind — some progress is always better than none
+- Don't assume you won't be held accountable — enforcement is increasing
+
+**The bottom line:** Missing the deadline is not a free pass. Agencies should make maximum progress, document their efforts, provide alternatives, and continue working toward full compliance. Good-faith efforts and documented progress can matter in enforcement contexts, but only if you're actually making progress.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Enforcement provisions
+- <a href="https://www.justice.gov/crt/types-complaints-and-background" target="_blank" rel="noopener noreferrer">DOJ Civil Rights Division</a> — Complaint process information
+
+### How do we prioritize accessibility work with limited resources and a ticking clock?
+
+{new:2025-12-27}
+
+**Quick answer:** Start with the highest-impact content — what the most people need, for the most critical services. Don't try to fix everything at once; focus on removing the biggest barriers first.
+
+**Full explanation:**
+
+**When time and resources are limited, strategic prioritization is essential.** Here's a practical framework agencies like yours can use:
+
+**Tier 1: Fix First (Highest Impact)**
+- **Critical services** — Applications, forms, and information people need to access benefits, report issues, or meet legal requirements
+- **High-traffic pages** — Your homepage, main navigation, and most-visited content
+- **Complete blockers** — Issues that prevent access entirely (missing form labels, inaccessible login, no keyboard navigation)
+- **New content** — Stop creating new barriers; make all new content accessible immediately
+
+**Tier 2: Fix Next (High Impact)**
+- **Frequently used documents** — Annual reports, guides, forms that get regular downloads
+- **Video content** — Add captions to videos, starting with the most viewed
+- **Third-party tools** — Audit embedded tools and widgets; request VPATs and remediation timelines
+
+**Tier 3: Fix Systematically (Ongoing)**
+- **Archive content** — Older documents and pages with lower traffic
+- **Social media backlog** — Historical posts (new posts should be accessible from now on)
+- **Comprehensive remediation** — Work through remaining issues methodically
+
+**Practical steps to get started:**
+
+1. **Audit your content inventory** — Know what you have (pages, documents, videos, tools)
+2. **Identify your top 20** — Focus on the 20 highest-priority items first
+3. **Stop the bleeding** — Require accessibility for all new content immediately
+4. **Track progress** — Document what you've fixed and what remains
+5. **Allocate time weekly** — Even 2-4 hours/week of focused remediation adds up
+
+**What agencies like yours actually do:**
+- Assign accessibility responsibilities to specific staff
+- Include accessibility in project timelines and content workflows
+- Use automated testing (WAVE, axe) for quick wins
+- Request vendor accessibility documentation before purchasing
+- Celebrate progress — fixing 50% is better than fixing 0%
+
+**The bottom line:** You don't have to fix everything at once, but you do have to start. Prioritize by impact, document your plan, and make steady progress. The goal is to remove as many barriers as possible for as many people as possible by the deadline.
+
+### What's the bare minimum we need to do by April 2026?
+
+{new:2025-12-27}
+
+**Quick answer:** There's no official "minimum" — the law requires full WCAG 2.1 AA compliance. But if you're overwhelmed, here's a pragmatic prioritization: stop creating new barriers immediately, fix the highest-impact issues first, and have a documented plan for the rest.
+
+**Full explanation:**
+
+**Legally, there is no "minimum."** The requirement is full compliance with WCAG 2.1 Level AA for all public-facing digital content. However, we understand that 100% compliance by the deadline may not be realistic for everyone.
+
+**Here's what "minimum viable compliance" looks like in practice:**
+
+**1. STOP creating new barriers (effective immediately):**
+- All new documents use heading styles and alt text
+- All new videos have captions
+- All new web content is keyboard-accessible
+- All new purchases include WCAG 2.1 AA requirements in contracts
+
+**2. FIX the biggest barriers first:**
+- Homepage and main navigation
+- Forms and applications (anything people need to access services)
+- Top 20 most-visited pages
+- Top 20 most-downloaded documents
+- Any content that completely blocks access (e.g., missing form labels, no keyboard navigation)
+
+**3. DOCUMENT your remediation plan:**
+- Inventory of what exists
+- Prioritized list of what needs fixing
+- Timeline with milestones
+- Who's responsible for what
+- Process for responding to accessibility complaints
+
+**4. RESPOND to requests:**
+- Have a process to provide accessible alternatives upon request
+- Post contact information for accessibility issues
+- Track and respond to complaints promptly
+
+**What you cannot skip:**
+- New content must be accessible — no exceptions
+- High-impact public services must be accessible
+- You must provide accessible alternatives when someone asks
+
+**What can wait (if you have to triage):**
+- Archived content not currently used
+- Low-traffic pages with minimal public impact
+- Historical social media posts
+
+**The bottom line:** The legal requirement is full compliance, and "we only did the minimum" won't protect you from complaints about content you didn't fix. But strategic prioritization — documented and actively progressing — is far better than paralysis. Start with the biggest barriers, stop creating new ones, and keep moving.
+
+---
+
+## Legal Requirements (IITAA and ADA Title II)
 
 ### What is the IITAA?
 
@@ -541,10 +767,6 @@ For questions or comments about information technology accessibility or the IITA
 - Springfield: 217-524-3648
 - Chicago: 312-814-3648
 - TTY: 866-277-5669
-
----
-
-## ADA Title II Web Rule
 
 ### What is the ADA Title II web accessibility rule?
 
@@ -622,7 +844,7 @@ For most Illinois state agencies, the deadline is **April 24, 2026**.
 
 ### What content is covered by the ADA Title II rule?
 
-The rule covers all web content and mobile apps that state and local governments provide or make available to the public, including:
+**This is the same as the April 2026 deadline coverage.** The ADA Title II rule requires WCAG 2.1 Level AA compliance for all public-facing digital content, including:
 
 - Websites and web applications
 - Mobile apps
@@ -631,6 +853,8 @@ The rule covers all web content and mobile apps that state and local governments
 - Social media posts (going forward)
 - Video and audio content
 - Third-party content provided through contracts or agreements
+
+**See also:** [What does the April 2026 deadline cover?](#what-does-the-april-2026-deadline-cover) for more details.
 
 **ADA Title II Reference:**
 
@@ -977,6 +1201,40 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 ## Content Accessibility (Documents, PDFs, Presentations)
 
+### My documents look fine — why do they need to be "accessible"?
+
+{new:2025-12-27}
+
+**Quick answer:** "Looking fine" means you can see the content visually. "Accessible" means people using screen readers, keyboard navigation, or other assistive technologies can also use the content — and that requires specific structure that's invisible to you but essential for them.
+
+**Full explanation:**
+
+When you create a document, you see formatted text, images, and layout. But someone using a screen reader experiences the document very differently — they hear it read aloud, navigate by headings, and rely on text descriptions of images. If those structural elements aren't there, the document is unusable for them.
+
+**What "accessible" actually means (it's more than alt text):**
+
+| What you see | What accessibility requires |
+|--------------|---------------------------|
+| Bold, large text that looks like a heading | Proper heading styles (Heading 1, Heading 2) so screen readers can navigate |
+| A nice-looking table | Header rows defined so screen readers announce column names |
+| An image or chart | Alt text describing what's in the image |
+| A clickable link | Descriptive link text (not "click here") |
+| A form to fill out | Properly labeled form fields |
+| Good-looking colors | Sufficient contrast (4.5:1 ratio for text) |
+
+**Why this matters:**
+
+- **Screen readers can't "see"** — they read the document's underlying structure, not its visual appearance
+- **Keyboard users can't click** — they navigate using Tab and arrow keys, which require proper structure
+- **Users with low vision may zoom 200%+** — the document must reflow properly
+- **Users with cognitive disabilities** — benefit from clear headings, simple language, and logical organization
+
+**The good news:** Making documents accessible usually makes them better organized and easier to use for everyone.
+
+**Quick test:** Open your document and try navigating it using only the keyboard (Tab, arrow keys, Enter). If you can't reach everything or don't know where you are, it's not accessible.
+
+**Learn more:** See the specific questions below for Word, PDF, Excel, and PowerPoint accessibility.
+
 ### What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?
 
 **Yes, if you're sharing them digitally.** Any photos published on your agency's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
@@ -1015,14 +1273,18 @@ Alt text is a brief written description of an image that screen readers read alo
 
 ### How long should alt text be?
 
-**Aim for 125 characters or fewer** — this is about 15-25 words. Some older screen readers truncate alt text at 125 characters, and shorter descriptions are easier for users to process.
+**Best practice: Aim for 125 characters or fewer** — this is about 15-25 words. This guideline exists because some older screen readers truncated alt text at 125 characters, and shorter descriptions are generally easier for users to process.
 
-- **Maximum:** Stay under 150 characters when possible
-- **Ideal:** 125 characters or less
+**However, modern screen readers handle longer alt text just fine.** Most current screen readers (NVDA, JAWS, VoiceOver) will read alt text of any length without truncation. The 125-character limit is a best practice guideline, not a technical requirement.
+
+- **Ideal:** 125 characters or less (concise and scannable)
+- **Acceptable:** Longer alt text when the image requires detailed description
 - **Too short:** Single words like "photo" or "image" don't help anyone
-- **Too long:** If you need more than 150 characters, consider whether a visible caption would work better
+- **Consider alternatives:** If you need extensive description (charts, infographics, diagrams), use a visible caption, long description, or linked text instead of cramming everything into alt text
 
-**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it — but keep it concise.
+**The key principle:** Alt text should be **concise but complete**. Describe what's meaningful about the image in as few words as necessary — but don't sacrifice clarity just to hit an arbitrary character limit.
+
+**The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it. Keep it concise when possible, but don't truncate important information just to stay under 125 characters — modern screen readers can handle more.
 
 ### How do I handle complex images like charts, graphs, or infographics?
 
@@ -1289,6 +1551,71 @@ Key steps for accessible PowerPoint:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (video captions)
 
+### How do I make emails and newsletters accessible?
+
+{new:2025-12-27}
+
+**Quick answer:** Emails follow the same principles as documents: use heading structure, add alt text to images, write descriptive links, and ensure good color contrast. The biggest difference is that many email clients have limited support for accessibility features, so simpler is better.
+
+**Full explanation:**
+
+Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
+
+**Email accessibility essentials:**
+
+| Element | What to do |
+|---------|-----------|
+| **Images** | Add alt text; assume images may not display (many email clients block images by default) |
+| **Links** | Use descriptive link text ("View the 2025 report" not "Click here") |
+| **Structure** | Use heading styles if your email platform supports them; keep layouts simple |
+| **Color** | Don't rely on color alone to convey meaning; ensure sufficient contrast |
+| **Plain text** | Always include a plain-text version of HTML emails |
+| **Critical info** | Put essential information in text, not just in images or graphics |
+
+**Platform-specific tips:**
+
+**Outlook (desktop and web):**
+- Use the built-in Accessibility Checker (Review > Check Accessibility)
+- Add alt text to images (right-click > Edit Alt Text)
+- Use heading styles from the formatting toolbar
+- Avoid excessive use of tables for layout
+
+**Gmail:**
+- Gmail has limited accessibility features for composing
+- Keep formatting simple — bold, italics, lists
+- Add image descriptions in the email body if alt text isn't available
+- Include a plain-text alternative when possible
+
+**Constant Contact / Mailchimp / Email marketing tools:**
+- Use the alt text field for all images (it's usually available when you click on an image)
+- Use built-in heading styles rather than just making text larger
+- Test with keyboard navigation before sending
+- Preview in multiple email clients
+- Include an accessible web version link at the top
+
+**Common email accessibility mistakes:**
+
+1. **Image-only emails** — If the entire message is a graphic, users who can't see images (or have them blocked) get nothing
+2. **"Click here" links** — Screen readers often read links out of context; "View the 2025 Annual Report" is much better
+3. **Tiny text in images** — Text in graphics should be at least 14pt equivalent
+4. **Low contrast** — Light gray text on white backgrounds is hard to read for everyone
+5. **Complex layouts** — Multi-column layouts often break in email clients and screen readers
+
+**The key principle:** Assume someone might read your email:
+- With images turned off
+- Using a screen reader
+- On a mobile device
+- With low vision
+
+If your message still makes sense in all those scenarios, you're doing it right.
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (structure)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+
 ---
 
 ## Social Media Accessibility
@@ -1362,6 +1689,59 @@ Illinois DoIT recommends including language similar to:
 
 > "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
 
+### What is a VPAT? What is an ACR or MCAR?
+
+{new:2025-12-27}
+
+**Quick answer:** A **VPAT (Voluntary Product Accessibility Template)** is a standardized form vendors fill out to describe how their product meets accessibility standards. An **ACR (Accessibility Conformance Report)** is the completed VPAT — the actual document you request from vendors. **MCAR** stands for **Manufacturer's Conformance Accessibility Report**, which is essentially the same thing.
+
+**Full explanation:**
+
+**VPAT = the blank form; ACR = the completed report.** These terms are often used interchangeably, but technically:
+
+- **VPAT (Voluntary Product Accessibility Template)** — The blank template created by the IT Industry Council (ITI) that provides a standard format for documenting accessibility conformance
+- **ACR (Accessibility Conformance Report)** — The completed document a vendor provides, showing how their specific product meets (or doesn't meet) accessibility standards
+- **MCAR (Manufacturer's Conformance Accessibility Report)** — Another term for ACR, emphasizing that it comes from the manufacturer/vendor
+
+**What a VPAT/ACR tells you:**
+
+1. **Which standard is evaluated** — Look for WCAG 2.1 Level AA (the current requirement)
+2. **Conformance level for each criterion** — Common ratings include:
+   - **Supports** — Fully meets the criterion
+   - **Partially Supports** — Meets some but not all aspects
+   - **Does Not Support** — Fails to meet the criterion
+   - **Not Applicable** — Criterion doesn't apply to this product
+3. **Remarks and explanations** — Details on how conformance is achieved or what barriers exist
+
+**How to use VPATs in procurement:**
+
+1. **Request a current VPAT/ACR** — Ask for one dated within the last 12 months
+2. **Check the version** — Ensure it covers the exact product and version you're purchasing
+3. **Look for "Supports"** — Products with many "Partially Supports" or "Does Not Support" ratings may require accessible alternatives
+4. **Ask about remediation** — If issues exist, ask the vendor for a remediation timeline
+5. **Include in contracts** — Require WCAG 2.1 AA compliance and ongoing accessibility support
+
+**Where to find VPATs:**
+
+- Check the vendor's website (often under "Accessibility" or "Legal")
+- Request directly from your sales representative
+- Search the <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">ITI VPAT template page</a> for the latest template version
+
+**Red flags in a VPAT:**
+
+- Very old date (more than 12-18 months)
+- Wrong product version
+- Many "Does Not Support" ratings for critical criteria
+- Vague or missing explanations
+- No commitment to remediation
+
+**The bottom line:** Always request a current VPAT/ACR before purchasing technology. It won't guarantee accessibility, but it's your first line of defense against buying inaccessible tools.
+
+**References:**
+
+- <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">ITI VPAT Template</a> — Official VPAT template and guidance
+- <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Section508.gov: How to Create an ACR</a> — Federal guidance on VPATs
+
 ---
 
 ## Getting Help
@@ -1397,4 +1777,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 26, 2025_
+_Last updated: December 27, 2025_

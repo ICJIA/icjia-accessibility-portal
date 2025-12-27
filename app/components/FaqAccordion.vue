@@ -17,9 +17,22 @@
     >
       <v-expansion-panel-title
         class="faq-question"
+        :class="{ 'has-new-badge': item.isNew }"
         :aria-describedby="`answer-${getQuestionId(item.question)}`"
       >
-        {{ item.question }}
+        <div class="faq-question-wrapper">
+          <v-chip
+            v-if="item.isNew"
+            size="x-small"
+            color="success"
+            variant="flat"
+            class="new-badge"
+            aria-label="New question"
+          >
+            New
+          </v-chip>
+          <span class="faq-question-text">{{ item.question }}</span>
+        </div>
         <template #actions>
           <v-icon
             icon="mdi-chevron-down"
@@ -61,12 +74,16 @@ import { ref, watch, onMounted, nextTick } from "vue";
  * @typedef {Object} FaqItem
  * @property {string} question - FAQ question text
  * @property {MiniMarkNode[]} answer - FAQ answer content as markdown nodes
+ * @property {boolean} [isNew] - Whether this FAQ was recently added (within 2 weeks)
+ * @property {string} [newDate] - Date the FAQ was added (YYYY-MM-DD format)
  */
 type MiniMarkNode = any;
 
 interface FaqItem {
   question: string;
   answer: MiniMarkNode[];
+  isNew?: boolean;
+  newDate?: string;
 }
 
 /**
@@ -369,6 +386,27 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   color: rgb(var(--v-theme-on-surface)) !important;
   padding: 24px !important;
   min-height: auto !important;
+}
+
+.faq-question-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+}
+
+.faq-question-text {
+  display: block;
+  flex: 1;
+}
+
+.new-badge {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 10px !important;
+  height: 20px !important;
 }
 
 .faq-chevron {

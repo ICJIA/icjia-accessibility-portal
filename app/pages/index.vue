@@ -105,6 +105,130 @@
               <h2 v-if="section.heading" class="faq-section-heading">
                 {{ section.heading }}
               </h2>
+
+              <!-- Executive Summary - appears after first section heading only -->
+              <v-expansion-panels
+                v-if="sectionIndex === 0"
+                class="tldr-panel mb-6"
+                elevation="0"
+              >
+                <v-expansion-panel class="tldr-expansion" elevation="0">
+                  <v-expansion-panel-title class="tldr-title-row">
+                    <div class="tldr-header-wrapper">
+                      <v-chip
+                        size="x-small"
+                        color="success"
+                        variant="flat"
+                        class="new-badge-summary"
+                        aria-label="New section"
+                      >
+                        New
+                      </v-chip>
+                      <div class="tldr-header-content">
+                        <span class="tldr-title">Executive Summary</span>
+                        <v-chip
+                          size="x-small"
+                          color="primary"
+                          variant="tonal"
+                          class="ml-3"
+                        >
+                          30-second read
+                        </v-chip>
+                      </div>
+                    </div>
+                    <template #actions>
+                      <v-icon
+                        icon="mdi-chevron-down"
+                        class="tldr-chevron"
+                        size="24"
+                      />
+                    </template>
+                  </v-expansion-panel-title>
+                  <v-expansion-panel-text class="tldr-content-panel">
+                    <div class="tldr-content">
+                      <p class="tldr-lead">
+                        <strong>The situation:</strong> By
+                        <strong>April 24, 2026</strong>, all public-facing
+                        digital content must meet federal accessibility
+                        standards (WCAG 2.1 Level AA). This is a
+                        <strong>legal requirement</strong> under ADA Title II,
+                        not a recommendation.
+                      </p>
+                      <p class="tldr-key">
+                        <strong
+                          >Why this requires organizational attention:</strong
+                        >
+                        Technical fixes alone cannot achieve compliance. Content
+                        accessibility — documents, PDFs, presentations, videos —
+                        requires action from everyone who creates content. This
+                        is an organizational responsibility shared across all
+                        staff, not a single department's project.
+                      </p>
+                      <p class="tldr-consequences">
+                        <strong
+                          >Failure to comply has real consequences:</strong
+                        >
+                        Agencies that don't meet the April 2026 deadline risk
+                        Department of Justice investigations, lawsuits from
+                        individuals with disabilities, significant legal and
+                        remediation costs, and reputational harm. More
+                        importantly, inaccessible content excludes millions of
+                        Illinois residents from accessing government services.
+                        This is not optional — it's enforceable federal law.
+                      </p>
+                      <p class="tldr-content-specific">
+                        <strong>Important note:</strong> Each content type has
+                        its own accessibility checkers and unique requirements.
+                        Adobe Acrobat has built-in PDF accessibility tools, Word
+                        has its Accessibility Checker, PowerPoint and Excel each
+                        have their own. There's no one-size-fits-all solution —
+                        each content type needs specific and sometimes unique
+                        fixes.
+                      </p>
+                      <div class="tldr-actions">
+                        <strong>Minimum viable actions:</strong>
+                        <div class="tldr-columns">
+                          <div class="tldr-column">
+                            <span class="tldr-column-title"
+                              >Web Accessibility</span
+                            >
+                            <ul>
+                              <li>Keyboard navigation works</li>
+                              <li>Images have alt text</li>
+                              <li>Color contrast meets standards</li>
+                              <li>Forms are properly labeled</li>
+                            </ul>
+                          </div>
+                          <div class="tldr-column">
+                            <span class="tldr-column-title"
+                              >Document Accessibility</span
+                            >
+                            <ul>
+                              <li>Use heading styles (not bold text)</li>
+                              <li>Add alt text to images</li>
+                              <li>Caption videos</li>
+                              <li>Use accessible templates</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="tldr-note">
+                        <strong>The FAQs below</strong> address federal
+                        requirements for web and content accessibility in
+                        detail.
+                      </p>
+                      <p class="tldr-contact">
+                        <strong>Questions?</strong>
+                        These requirements come from federal law (ADA Title II)
+                        and Illinois law (IITAA), not from any individual
+                        agency. For guidance, contact
+                        DoIT.Accessibility@Illinois.gov.
+                      </p>
+                    </div>
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
+
               <FaqAccordion
                 :items="section.items"
                 :section-id="slugify(section.heading || '')"
@@ -128,7 +252,11 @@
  */
 
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { transformFaqsToAccordionData } from "../utils/faqTransform";
+import {
+  transformFaqsToAccordionData,
+  extractNewDate,
+  filterNewComments,
+} from "../utils/faqTransform";
 import { useDeadlineCountdown } from "../composables/useDeadlineCountdown";
 
 /** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
@@ -138,7 +266,7 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 23, 2025";
+const lastUpdated = "December 27, 2025";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =
@@ -367,7 +495,7 @@ const faqItems = computed(() => {
 
 /**
  * Processed FAQ sections with headings and items
- * @type {import('vue').ComputedRef<Array<{heading: string | null, items: Array<{question: string, answer: MiniMarkNode[]}>}>>}
+ * @type {import('vue').ComputedRef<Array<{heading: string | null, items: Array<{question: string, answer: MiniMarkNode[], isNew?: boolean, newDate?: string}>}>>}
  */
 const faqSections = computed(() => {
   // Make this computed depend on deadline countdown values so it updates when days change
@@ -382,11 +510,21 @@ const faqSections = computed(() => {
   const nodes = body.value;
   const sections: Array<{
     heading: string | null;
-    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+    items: Array<{
+      question: string;
+      answer: MiniMarkNode[];
+      isNew?: boolean;
+      newDate?: string;
+    }>;
   }> = [];
   let currentSection: {
     heading: string | null;
-    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+    items: Array<{
+      question: string;
+      answer: MiniMarkNode[];
+      isNew?: boolean;
+      newDate?: string;
+    }>;
   } | null = null;
   let i = 0;
 
@@ -427,9 +565,15 @@ const faqSections = computed(() => {
         }
 
         if (questionText) {
+          // Check for "new" date and filter comments
+          const newDate = extractNewDate(answerNodes);
+          const filteredAnswer = filterNewComments(answerNodes);
+
           currentSection.items.push({
             question: questionText,
-            answer: answerNodes.map(replaceDeadlineText),
+            answer: filteredAnswer.map(replaceDeadlineText),
+            isNew: newDate !== null,
+            newDate: newDate || undefined,
           });
         }
         continue;
@@ -740,5 +884,216 @@ useSeoMeta({
   background: rgb(var(--v-theme-surface-variant));
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
+}
+
+/* TL;DR Executive Summary Panel */
+.tldr-panel {
+  margin-left: 25px;
+}
+
+.tldr-expansion {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--v-theme-primary), 0.08) 0%,
+    rgba(var(--v-theme-primary), 0.03) 100%
+  ) !important;
+  border: 1px solid rgba(var(--v-theme-primary), 0.25) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.tldr-expansion:hover {
+  border-color: rgb(var(--v-theme-primary)) !important;
+}
+
+.tldr-title-row {
+  padding: 1.25rem 1.5rem !important;
+  min-height: auto !important;
+}
+
+.tldr-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+}
+
+.new-badge-summary {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 10px !important;
+  height: 20px !important;
+}
+
+.tldr-header-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.tldr-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgb(var(--v-theme-primary));
+}
+
+.tldr-chevron {
+  color: rgb(var(--v-theme-primary)) !important;
+  transition: transform 200ms ease-in-out !important;
+}
+
+.tldr-expansion[aria-expanded="true"] .tldr-chevron {
+  transform: rotate(180deg);
+}
+
+.tldr-content-panel {
+  padding: 0 !important;
+  background: rgba(var(--v-theme-surface), 0.5) !important;
+}
+
+.tldr-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.tldr-content p {
+  margin-bottom: 1rem;
+}
+
+.tldr-content p:last-child {
+  margin-bottom: 0;
+}
+
+.tldr-lead {
+  font-size: 1rem;
+}
+
+.tldr-key {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.tldr-content-specific {
+  font-size: 0.9rem;
+  background: rgba(var(--v-theme-primary), 0.08);
+  border-left: 3px solid rgb(var(--v-theme-primary));
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.tldr-consequences {
+  font-size: 0.95rem;
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.tldr-actions {
+  margin: 1rem 0;
+}
+
+.tldr-columns {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.tldr-column {
+  flex: 1;
+  background: rgba(var(--v-theme-surface), 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--v-theme-primary), 0.15);
+}
+
+.tldr-column-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: rgb(var(--v-theme-primary));
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(var(--v-theme-primary), 0.2);
+}
+
+.tldr-column ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.tldr-column li {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.tldr-actions ol {
+  margin: 0.5rem 0 0 1.25rem;
+  padding: 0;
+}
+
+.tldr-actions li {
+  margin: 0.25rem 0;
+}
+
+.tldr-note {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(var(--v-theme-info), 0.1);
+  border-left: 3px solid rgb(var(--v-theme-info));
+  border-radius: 0 6px 6px 0;
+}
+
+.tldr-contact {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  border-top: 1px solid rgba(var(--v-theme-primary), 0.1);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767px) {
+  .tldr-panel {
+    margin-left: 16px;
+  }
+
+  .tldr-title-row {
+    padding: 1rem 1.25rem !important;
+  }
+
+  .tldr-content {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .tldr-columns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .tldr-panel {
+    margin-left: 12px;
+  }
+
+  .tldr-title-row {
+    padding: 0.875rem 1rem !important;
+  }
+
+  .tldr-content {
+    padding: 0 1rem 1rem 1rem;
+  }
 }
 </style>
