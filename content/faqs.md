@@ -78,6 +78,8 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Covered Content</a> (see section on "What Web Content and Mobile Apps Are Covered")
 
+**See also:** [How do I make mobile apps accessible?](#how-do-i-make-mobile-apps-accessible)
+
 ### Why does accessibility compliance require everyone's participation?
 
 **Because web developers can only fix technical issues — they can't fix content.**
@@ -124,21 +126,21 @@ While web developers handle technical implementation (code structure, keyboard n
 
 {new:2025-12-27}
 
-**Quick answer:** Accessibility isn't additional work on top of your job — it's a change in *how* you do work you're already doing. Creating an accessible document takes only a few extra minutes once you know the basics.
+**Quick answer:** Accessibility isn't additional work on top of your job — it's a change in _how_ you do work you're already doing. Creating an accessible document takes only a few extra minutes once you know the basics.
 
 **Full explanation:**
 
-**We hear you.** Everyone is busy, and "one more thing" feels impossible. But here's the reframe: you're already creating documents, adding images, and publishing content. Accessibility is about doing those things *slightly differently* — not doing more things.
+**We hear you.** Everyone is busy, and "one more thing" feels impossible. But here's the reframe: you're already creating documents, adding images, and publishing content. Accessibility is about doing those things _slightly differently_ — not doing more things.
 
 **The real time investment:**
 
-| Task | Extra Time | Notes |
-|------|-----------|-------|
-| Adding alt text to an image | 30 seconds | You know what's in the image — just describe it |
-| Using heading styles instead of bold | 0 seconds | Same number of clicks, different button |
-| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds | Better for everyone, not just accessibility |
-| Running the Accessibility Checker in Word | 60 seconds | Built into Microsoft Office — one click |
-| Adding captions to a 5-minute video | 10-15 minutes | This one does take time (but is legally required) |
+| Task                                                       | Extra Time    | Notes                                             |
+| ---------------------------------------------------------- | ------------- | ------------------------------------------------- |
+| Adding alt text to an image                                | 30 seconds    | You know what's in the image — just describe it   |
+| Using heading styles instead of bold                       | 0 seconds     | Same number of clicks, different button           |
+| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds     | Better for everyone, not just accessibility       |
+| Running the Accessibility Checker in Word                  | 60 seconds    | Built into Microsoft Office — one click           |
+| Adding captions to a 5-minute video                        | 10-15 minutes | This one does take time (but is legally required) |
 
 **What actually takes time:**
 
@@ -148,7 +150,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **What to tell your manager:**
 
-If you genuinely don't have bandwidth, escalate it. Say: *"Accessibility is now required by law. I need either (a) time allocated for training and remediation, or (b) clarity on what gets deprioritized to make room for this."*
+If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is now required by law. I need either (a) time allocated for training and remediation, or (b) clarity on what gets deprioritized to make room for this."_
 
 **The reality:** Accessibility is a legal requirement, not optional. However, managers do need to allocate realistic time and resources for staff to learn and implement accessibility practices. If you're genuinely overloaded, the solution isn't to skip accessibility — it's to work with your manager to prioritize and allocate time appropriately.
 
@@ -231,7 +233,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Find your agency's accessibility coordinator.** Every agency should have someone responsible for accessibility planning and compliance. This person can answer general questions, provide presentations, and connect you to resources. The owner of your agency's accessibility plan is executive staff — not the web developers.
 
-**For practical accessibility questions, ask your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. They're your best first stop for practical guidance on web content. However, keep in mind that web developers implement *web* accessibility — the Title II rule is much bigger than just websites (it covers documents, videos, social media, mobile apps, and third-party tools).
+**For practical accessibility questions, ask your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. They're your best first stop for practical guidance on web content. However, keep in mind that web developers implement _web_ accessibility — the Title II rule is much bigger than just websites (it covers documents, videos, social media, mobile apps, and third-party tools).
 
 **For legal/mandate questions, ask DoIT.** The Illinois DoIT Office of Information Accessibility has a dedicated accessibility coordinator who can answer questions about specific legal requirements (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov
 
@@ -252,18 +254,18 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Top 10 accessibility mistakes (and what to do instead):**
 
-| ❌ Don't do this | ✅ Do this instead |
-|-----------------|-------------------|
-| **1. Skip alt text on images** — "The image is self-explanatory" | Write alt text for every image. If you took the photo for a reason, that reason needs words. |
-| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule" |
-| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate. |
-| **4. Put essential info only in images** — Images may not load or be visible | Always include the same information as text in the document or caption |
-| **5. Use color alone to convey meaning** — "Required fields are in red" | Use text labels, icons, or patterns in addition to color |
-| **6. Create PDFs by scanning paper** — Results in an image, not readable text | Use OCR or create documents digitally with proper structure |
-| **7. Skip captions on videos** — "People can figure it out" | Always add captions. It's legally required and benefits everyone. |
-| **8. Use tiny or low-contrast text** — Light gray on white, small fonts | Use at least 4.5:1 contrast ratio; avoid text smaller than 14px |
-| **9. Build complex tables with merged cells** — Screen readers can't interpret them | Use simple tables with clear headers; avoid merging cells when possible |
-| **10. Assume "IT will fix it later"** — Accessibility is everyone's job | Make accessibility part of your workflow from the start |
+| ❌ Don't do this                                                                            | ✅ Do this instead                                                                           |
+| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **1. Skip alt text on images** — "The image is self-explanatory"                            | Write alt text for every image. If you took the photo for a reason, that reason needs words. |
+| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule"       |
+| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one  | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate.         |
+| **4. Put essential info only in images** — Images may not load or be visible                | Always include the same information as text in the document or caption                       |
+| **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color                                     |
+| **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                  |
+| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's legally required and benefits everyone.                            |
+| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio; avoid text smaller than 14px                              |
+| **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible                      |
+| **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                      |
 
 **Bonus mistakes to avoid:**
 
@@ -276,6 +278,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 **The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll be ahead of most content creators.
 
 **Quick self-check:** Before publishing any content, ask yourself:
+
 1. Does every image have alt text?
 2. Are my links descriptive?
 3. Did I use heading styles (not just bold)?
@@ -291,6 +294,20 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 ### I'm a content creator. Where do I start?
 
 **As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Here's your quickstart guide:
+
+**DoIT best practice:** Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When possible, publish content as webpage text rather than PDFs.
+
+**Visual example of accessible vs. inaccessible content:**
+
+_Inaccessible approach:_ A webpage with two sentences and a link: "Our agency published its annual report. [Click here to download PDF]"
+
+- Screen reader users hear: "Our agency published its annual report. Link: click here"
+- Problem: No context about what the PDF contains, and the PDF itself may be inaccessible
+
+_Accessible approach:_ Full report content published as webpage text with proper headings, alt text for images, and accessible tables
+
+- Screen reader users can navigate by headings, read all content, and understand the full report
+- Alternative: If PDF is necessary, provide both webpage summary AND accessible PDF with clear description
 
 **Start here (15 minutes) — Essential skills everyone needs:**
 
@@ -349,10 +366,43 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 - **ARIA Authoring Practices** — <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA APG</a> (use semantic HTML first; ARIA second)
 - **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a>
 
+**See also:** [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility) | [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues)
+
 **Essential development practices:**
 
 - **Focus management** — Visible focus indicators and logical tab order: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank" rel="noopener noreferrer">WCAG: Focus Visible</a>
 - **Automate what you can** — Add <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">eslint-plugin-jsx-a11y</a> and use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> in CI/tests where feasible
+
+**ARIA usage specifics:**
+
+ARIA (Accessible Rich Internet Applications) should be used when semantic HTML isn't sufficient. Here's when and how:
+
+**When to use ARIA:**
+
+- **Dynamic content updates** — Use `aria-live` regions to announce changes (e.g., form validation messages, search results)
+- **Complex widgets** — Use ARIA patterns for custom components (accordions, modals, tabs) that don't have native HTML equivalents
+- **Hidden content** — Use `aria-hidden="true"` for decorative elements that screen readers should skip
+- **Form relationships** — Use `aria-describedby` to link error messages to form fields
+- **Button states** — Use `aria-expanded` for collapsible content, `aria-pressed` for toggle buttons
+
+**ARIA best practices:**
+
+1. **Prefer semantic HTML** — Use `<button>` not `<div role="button">`, `<nav>` not `<div role="navigation">`
+2. **Don't change semantics** — Don't add ARIA that conflicts with native HTML (e.g., `role="button"` on a `<button>`)
+3. **Test with screen readers** — ARIA that looks correct in code may not work as expected; always test
+4. **Keep it simple** — If you can solve it with HTML, don't add ARIA
+
+**Common ARIA patterns:**
+
+- **Error messages:** `<input aria-describedby="error-id">` + `<div id="error-id" role="alert">Error text</div>`
+- **Skip links:** `<a href="#main" aria-label="Skip to main content">Skip to content</a>`
+- **Modal dialogs:** `role="dialog"` + `aria-labelledby` + `aria-modal="true"` + focus trap
+- **Progress indicators:** `role="progressbar"` + `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+
+**Resources:**
+
+- <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA Authoring Practices Guide</a> — Complete patterns and examples
+- <a href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" rel="noopener noreferrer">ARIA Patterns</a> — Specific widget patterns
 
 **Testing tools (integrate into your workflow):**
 
@@ -487,7 +537,7 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 **Two things can be true at once:**
 
 1. **Many agency web teams have been building accessible websites for years.** This isn’t “brand new” work for developers.
-2. **The 2026 deadline changes who needs to participate.** Compliance now depends on *everyone who publishes digital content*, not just the web team.
+2. **The 2026 deadline changes who needs to participate.** Compliance now depends on _everyone who publishes digital content_, not just the web team.
 
 **What the web team owns vs. what content teams own:**
 
@@ -497,7 +547,7 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 **Why it feels different now:**
 
 - **Accountability is stronger** — ADA Title II now points to a measurable standard (**WCAG 2.1 Level AA**) with a firm compliance deadline.
-- **Scope is broader** — accessibility applies across websites *and* documents, multimedia, social media, and third-party tools used to deliver services.
+- **Scope is broader** — accessibility applies across websites _and_ documents, multimedia, social media, and third-party tools used to deliver services.
 
 **The bottom line:** Developers can’t make your PDFs accessible for you, and they can’t caption your videos after the fact. The standard is the same, but the work is spread across roles — and the deadline makes that shared responsibility unavoidable.
 
@@ -553,25 +603,30 @@ While enforcement is typically at the agency level, individuals may experience:
 **However, the reality is that some agencies may not achieve 100% compliance by the deadline.** Here's what you should do:
 
 **1. Prioritize ruthlessly:**
+
 - Focus on high-traffic pages and documents first
 - Address critical services that residents depend on
 - Fix barriers that completely block access before cosmetic issues
 
 **2. Document your remediation efforts:**
+
 - Keep records of what you've fixed and when
 - Maintain a prioritized backlog of remaining issues
 - Show a clear timeline and plan for ongoing remediation
 
 **3. Provide accessible alternatives:**
+
 - If a document can't be remediated in time, provide an accessible alternative upon request
 - Ensure contact information is available for accommodation requests
 - Respond promptly to accessibility complaints
 
 **4. Continue progress after the deadline:**
+
 - The obligation doesn't end at the deadline — you must still work toward full compliance
 - Demonstrating good-faith efforts matters if complaints are filed
 
 **What NOT to do:**
+
 - Don't use the deadline as an excuse to stop work — "we can't make it anyway" is not a defense
 - Don't ignore accessibility because you're behind — some progress is always better than none
 - Don't assume you won't be held accountable — enforcement is increasing
@@ -594,17 +649,20 @@ While enforcement is typically at the agency level, individuals may experience:
 **When time and resources are limited, strategic prioritization is essential.** Here's a practical framework agencies like yours can use:
 
 **Tier 1: Fix First (Highest Impact)**
+
 - **Critical services** — Applications, forms, and information people need to access benefits, report issues, or meet legal requirements
 - **High-traffic pages** — Your homepage, main navigation, and most-visited content
 - **Complete blockers** — Issues that prevent access entirely (missing form labels, inaccessible login, no keyboard navigation)
 - **New content** — Stop creating new barriers; make all new content accessible immediately
 
 **Tier 2: Fix Next (High Impact)**
+
 - **Frequently used documents** — Annual reports, guides, forms that get regular downloads
 - **Video content** — Add captions to videos, starting with the most viewed
 - **Third-party tools** — Audit embedded tools and widgets; request VPATs and remediation timelines
 
 **Tier 3: Fix Systematically (Ongoing)**
+
 - **Archive content** — Older documents and pages with lower traffic
 - **Social media backlog** — Historical posts (new posts should be accessible from now on)
 - **Comprehensive remediation** — Work through remaining issues methodically
@@ -620,6 +678,7 @@ While enforcement is typically at the agency level, individuals may experience:
 **Example prioritization (real agency scenario):**
 
 A state agency with limited resources might prioritize like this:
+
 - **Week 1-2:** Homepage and main navigation (highest traffic)
 - **Week 3-4:** Online application forms (critical services)
 - **Month 2:** Top 10 most-downloaded PDFs (frequently used documents)
@@ -627,6 +686,7 @@ A state agency with limited resources might prioritize like this:
 - **Ongoing:** All new content created accessibly, archive content as time permits
 
 **What agencies like yours actually do:**
+
 - Assign accessibility responsibilities to specific staff
 - Include accessibility in project timelines and content workflows
 - Use automated testing (WAVE, axe) for quick wins
@@ -648,12 +708,14 @@ A state agency with limited resources might prioritize like this:
 **Here's what "minimum viable compliance" looks like in practice:**
 
 **1. STOP creating new barriers (effective immediately):**
+
 - All new documents use heading styles and alt text
 - All new videos have captions
 - All new web content is keyboard-accessible
 - All new purchases include WCAG 2.1 AA requirements in contracts
 
 **2. FIX the biggest barriers first:**
+
 - Homepage and main navigation
 - Forms and applications (anything people need to access services)
 - Top 20 most-visited pages
@@ -661,6 +723,7 @@ A state agency with limited resources might prioritize like this:
 - Any content that completely blocks access (e.g., missing form labels, no keyboard navigation)
 
 **3. DOCUMENT your remediation plan:**
+
 - Inventory of what exists
 - Prioritized list of what needs fixing
 - Timeline with milestones
@@ -668,16 +731,19 @@ A state agency with limited resources might prioritize like this:
 - Process for responding to accessibility complaints
 
 **4. RESPOND to requests:**
+
 - Have a process to provide accessible alternatives upon request
 - Post contact information for accessibility issues
 - Track and respond to complaints promptly
 
 **What you cannot skip:**
+
 - New content must be accessible — no exceptions
 - High-impact public services must be accessible
 - You must provide accessible alternatives when someone asks
 
 **What can wait (if you have to triage):**
+
 - Archived content not currently used
 - Low-traffic pages with minimal public impact
 - Historical social media posts
@@ -685,6 +751,7 @@ A state agency with limited resources might prioritize like this:
 **Example "bare minimum" approach (realistic scenario):**
 
 A small state agency with 5 staff and 200+ documents might:
+
 - **Immediately:** Require all new content to be accessible (stop the bleeding)
 - **Month 1:** Fix homepage, main navigation, and top 3 application forms
 - **Month 2-3:** Remediate top 10 most-downloaded PDFs
@@ -881,6 +948,8 @@ Use a combination of automated and manual testing:
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
+**See also:** [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
+
 **WCAG References:**
 
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#keyboard" target="_blank" rel="noopener noreferrer">Success Criterion 2.1.1 Keyboard - Level A</a> (keyboard navigation)
@@ -889,6 +958,8 @@ Use a combination of automated and manual testing:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### What are the most common website accessibility issues?
+
+**See also:** [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid) | [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility)
 
 1. **Missing or inadequate alt text** for images
 2. **Poor color contrast** between text and background
@@ -942,6 +1013,93 @@ Yes, for WCAG 2.1 Level AA compliance:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-live" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.4 Captions (Live) - Level AA</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.1 Audio-only and Video-only (Prerecorded) - Level A</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.5 Audio Description (Prerecorded) - Level AA</a>
+
+### How do I make mobile apps accessible?
+
+**Quick answer:** Mobile apps must meet the same WCAG 2.1 Level AA standards as websites. This includes proper labeling, keyboard/gesture navigation, sufficient color contrast, and compatibility with mobile screen readers (VoiceOver on iOS, TalkBack on Android).
+
+**Full explanation:**
+
+Mobile apps provided to the public by state and local governments must meet WCAG 2.1 Level AA standards under the ADA Title II web rule. Mobile accessibility follows the same principles as web accessibility, but with platform-specific considerations.
+
+**Core mobile accessibility requirements:**
+
+1. **Screen reader compatibility** — Apps must work with:
+   - **iOS:** VoiceOver (built-in)
+   - **Android:** TalkBack (built-in)
+   - Content must be properly labeled and navigable
+
+2. **Touch target size** — Interactive elements must be at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) to accommodate users with motor disabilities
+
+3. **Color contrast** — Same 4.5:1 ratio for normal text, 3:1 for large text as web content
+
+4. **Alternative input methods** — Support for:
+   - External keyboards
+   - Switch control devices
+   - Voice control
+
+5. **Dynamic content** — Announce updates to screen readers (e.g., form validation, loading states)
+
+**Platform-specific guidance:**
+
+**iOS (Apple):**
+
+- Use native accessibility APIs (UIAccessibility)
+- Test with VoiceOver (Settings > Accessibility > VoiceOver)
+- Use semantic labels (`accessibilityLabel`, `accessibilityHint`)
+- Support Dynamic Type for text scaling
+- Ensure proper focus management
+
+**Android:**
+
+- Use Android Accessibility APIs
+- Test with TalkBack (Settings > Accessibility > TalkBack)
+- Use content descriptions for images and icons
+- Support font scaling
+- Implement proper focus indicators
+
+**Step-by-step mobile app accessibility workflow:**
+
+1. **Design phase:**
+   - Ensure touch targets are at least 44x44 points
+   - Design with sufficient color contrast
+   - Plan for text scaling (support Dynamic Type/Large Text)
+   - Avoid relying solely on color to convey information
+
+2. **Development phase:**
+   - Use native accessibility APIs (don't build custom solutions)
+   - Add accessibility labels to all interactive elements
+   - Test with screen readers during development (not just at the end)
+   - Implement proper focus management
+
+3. **Testing phase:**
+   - Test with VoiceOver (iOS) and TalkBack (Android)
+   - Test with keyboard navigation (external keyboard)
+   - Test with text scaling enabled
+   - Test with color contrast checkers
+   - Use automated tools (axe DevTools Mobile, Accessibility Scanner for Android)
+
+4. **Before release:**
+   - Complete accessibility audit
+   - Document known issues and remediation plan
+   - Test with real users with disabilities if possible
+
+**Common mobile accessibility mistakes:**
+
+- **Too-small touch targets** — Buttons or links that are hard to tap
+- **Missing labels** — Icons without text descriptions
+- **Poor focus management** — Focus gets lost or trapped
+- **Inaccessible gestures** — Complex swipe patterns that can't be performed with assistive technology
+- **No keyboard support** — App doesn't work with external keyboards
+
+**Resources:**
+
+- <a href="https://developer.apple.com/accessibility/ios/" target="_blank" rel="noopener noreferrer">Apple iOS Accessibility</a>
+- <a href="https://developer.android.com/guide/topics/ui/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility</a>
+- <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
+
+**See also:** [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#what-does-the-april-2026-deadline-cover)
 
 ### What about third-party widgets, embedded content, dashboards, and maps?
 
@@ -1058,6 +1216,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 4. **Document your efforts** — Keep records of what's accessible, what needs work, and any requests you've fulfilled
 
 <a id="third-party-tool-testing"></a>
+
 ### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
 
 **Why this matters:** Vendor claims about accessibility aren't always accurate, and even accessible platforms can become inaccessible through custom configuration or content you add. Testing real workflows ensures the tools your agency uses actually work for people with disabilities — not just in theory, but in practice.
@@ -1188,14 +1347,14 @@ When you create a document, you see formatted text, images, and layout. But some
 
 **What "accessible" actually means (it's more than alt text):**
 
-| What you see | What accessibility requires |
-|--------------|---------------------------|
+| What you see                               | What accessibility requires                                                 |
+| ------------------------------------------ | --------------------------------------------------------------------------- |
 | Bold, large text that looks like a heading | Proper heading styles (Heading 1, Heading 2) so screen readers can navigate |
-| A nice-looking table | Header rows defined so screen readers announce column names |
-| An image or chart | Alt text describing what's in the image |
-| A clickable link | Descriptive link text (not "click here") |
-| A form to fill out | Properly labeled form fields |
-| Good-looking colors | Sufficient contrast (4.5:1 ratio for text) |
+| A nice-looking table                       | Header rows defined so screen readers announce column names                 |
+| An image or chart                          | Alt text describing what's in the image                                     |
+| A clickable link                           | Descriptive link text (not "click here")                                    |
+| A form to fill out                         | Properly labeled form fields                                                |
+| Good-looking colors                        | Sufficient contrast (4.5:1 ratio for text)                                  |
 
 **Why this matters:**
 
@@ -1227,12 +1386,12 @@ Alt text is a brief written description of an image that screen readers read alo
 
 **Examples:**
 
-| Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                    |
-| -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Photo Type     | Poor Alt Text             | Good Alt Text                                                                                                     |
+| -------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | Award ceremony | "Photo" or "IMG_4523.jpg" | "Director Jane Smith presents the 2025 Excellence Award to Officer John Doe at the annual agency awards ceremony" |
 | Speech         | "Person speaking"         | "Agency director addresses attendees at the 2025 victim services conference"                                      |
 | Group photo    | "Group of people"         | "Agency research team staff at the December 2025 all-hands meeting"                                               |
-| Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                    |
+| Event venue    | "Conference room"         | "Attendees networking during a break at the Illinois Criminal Justice Summit"                                     |
 
 **Where to add alt text:**
 
@@ -1387,6 +1546,8 @@ The alt text describes what's visually happening. The caption adds context that 
 
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
 
+**DoIT best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a document format, ensure it's accessible.
+
 - PDFs
 - Word documents
 - Excel spreadsheets
@@ -1398,6 +1559,51 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 - Password-protected documents specific to an individual's account
 
 ### How do I make a Word document accessible?
+
+**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
+
+**Step-by-step workflow for creating an accessible Word document:**
+
+**Before you start:**
+
+1. Use an accessible template if available (check with your agency's accessibility coordinator)
+2. Plan your document structure (main heading, sections, subsections)
+
+**During creation:**
+
+1. **Set up document language** — File > Options > Language > Set as default
+2. **Use built-in heading styles** (Heading 1, Heading 2, etc.) — don't just make text bold and large
+   - _Visual example:_ Instead of making text 18pt and bold, use the "Heading 1" style from the Styles pane
+   - _Why:_ Screen readers use heading styles to navigate; bold text doesn't create navigation structure
+3. **Add alt text to images** — Right-click image > Edit Alt Text
+   - _Visual example:_ For a photo of a meeting, alt text might be "Five people sitting around a conference table discussing a document"
+   - _Why:_ Screen readers read alt text aloud; without it, images are invisible to users who can't see them
+4. **Use simple table structures** — Avoid merged cells; designate header rows
+   - _Visual example:_ Use Table Tools > Design > Header Row checkbox to mark the first row as headers
+   - _Why:_ Screen readers announce column headers when navigating table cells
+5. **Use meaningful link text** — Not "click here"
+   - _Visual example:_ "Download the 2025 Annual Report" instead of "Click here"
+   - _Why:_ Screen readers can list all links on a page; "click here" provides no context
+6. **Ensure sufficient color contrast** — Use the Accessibility Checker to identify contrast issues
+7. **Use built-in lists** — Bulleted and numbered lists from the ribbon (not manually typed dashes or numbers)
+   - _Visual example:_ Use the bullet list button, not typing "-" before each item
+   - _Why:_ Screen readers announce list structure and item count
+
+**Before publishing:**
+
+8. **Run the Accessibility Checker** — Review tab > Check Accessibility
+   - Fix all errors (red X)
+   - Review warnings (yellow triangle)
+   - Address tips (blue circle) when possible
+9. **Test with a screen reader** — If available, use Narrator (Windows) or VoiceOver (Mac) to verify the document makes sense when read aloud
+10. **Save as accessible PDF** — If converting to PDF, use File > Save As > PDF, then check "Best for electronic distribution and accessibility"
+
+**Common mistakes to avoid:**
+
+- Using text boxes for content (screen readers may skip them)
+- Using watermarks that interfere with readability
+- Embedding essential information only in headers/footers
+- Using decorative fonts that are hard to read
 
 Key steps for accessible Word documents:
 
@@ -1419,6 +1625,10 @@ Key steps for accessible Word documents:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### How do I make a PDF accessible?
+
+**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
+
+**DoIT best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a PDF, follow the steps below.
 
 The best approach depends on the source:
 
@@ -1536,32 +1746,37 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
+**DoIT best practice for newsletters:** Illinois DoIT recommends — and has always recommended — that newsletter content published as webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF.
+
 **Email accessibility essentials:**
 
-| Element | What to do |
-|---------|-----------|
-| **Images** | Add alt text; assume images may not display (many email clients block images by default) |
-| **Links** | Use descriptive link text ("View the 2025 report" not "Click here") |
-| **Structure** | Use heading styles if your email platform supports them; keep layouts simple |
-| **Color** | Don't rely on color alone to convey meaning; ensure sufficient contrast |
-| **Plain text** | Always include a plain-text version of HTML emails |
-| **Critical info** | Put essential information in text, not just in images or graphics |
+| Element           | What to do                                                                               |
+| ----------------- | ---------------------------------------------------------------------------------------- |
+| **Images**        | Add alt text; assume images may not display (many email clients block images by default) |
+| **Links**         | Use descriptive link text ("View the 2025 report" not "Click here")                      |
+| **Structure**     | Use heading styles if your email platform supports them; keep layouts simple             |
+| **Color**         | Don't rely on color alone to convey meaning; ensure sufficient contrast                  |
+| **Plain text**    | Always include a plain-text version of HTML emails                                       |
+| **Critical info** | Put essential information in text, not just in images or graphics                        |
 
 **Platform-specific tips:**
 
 **Outlook (desktop and web):**
+
 - Use the built-in Accessibility Checker (Review > Check Accessibility)
 - Add alt text to images (right-click > Edit Alt Text)
 - Use heading styles from the formatting toolbar
 - Avoid excessive use of tables for layout
 
 **Gmail:**
+
 - Gmail has limited accessibility features for composing
 - Keep formatting simple — bold, italics, lists
 - Add image descriptions in the email body if alt text isn't available
 - Include a plain-text alternative when possible
 
 **Constant Contact / Mailchimp / Email marketing tools:**
+
 - Use the alt text field for all images (it's usually available when you click on an image)
 - Use built-in heading styles rather than just making text larger
 - Test with keyboard navigation before sending
@@ -1577,6 +1792,7 @@ Many state agencies send newsletters, announcements, and other email communicati
 5. **Complex layouts** — Multi-column layouts often break in email clients and screen readers
 
 **The key principle:** Assume someone might read your email:
+
 - With images turned off
 - Using a screen reader
 - On a mobile device
@@ -1774,6 +1990,7 @@ Illinois DoIT recommends including language similar to:
 **VPAT (Voluntary Product Accessibility Template)** — The blank template created by the IT Industry Council (ITI) that provides a standard format for documenting accessibility conformance. Vendors fill out VPATs to create ACRs. <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">Download VPAT template</a>
 
 **VPAT ratings** — Common ratings in VPATs/ACRs include:
+
 - **Supports** — Fully meets the criterion
 - **Partially Supports** — Meets some but not all aspects
 - **Does Not Support** — Fails to meet the criterion
@@ -1790,9 +2007,10 @@ Illinois DoIT recommends including language similar to:
 **Captions** — Text displayed on screen that shows what's being said in a video. Different from subtitles (which assume you can hear) — captions also describe important sounds like "[door slams]" or "[music playing]." Required for WCAG 2.1 Level AA compliance. <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">Learn about captions</a>
 
 **Color contrast ratio** — A measure of how readable text is against its background. WCAG 2.1 Level AA requires:
+
 - **4.5:1** for normal text (under 18pt or 14pt bold)
 - **3:1** for large text (18pt+ or 14pt+ bold)
-<a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">Test color contrast with WebAIM Contrast Checker</a>
+  <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">Test color contrast with WebAIM Contrast Checker</a>
 
 **Focus indicator** — The visual outline that shows which element on a page is currently selected when navigating with a keyboard (usually by pressing Tab). Should be clearly visible so keyboard users know where they are.
 

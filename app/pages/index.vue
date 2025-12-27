@@ -199,7 +199,13 @@
                         Justice investigations, lawsuits, significant legal and
                         remediation costs, and reputational harm. Inaccessible
                         content excludes millions of Illinois residents from
-                        accessing government services.
+                        accessing government services. For example, a state
+                        agency that failed to make its online application form
+                        accessible faced a DOJ investigation, spent over
+                        $200,000 in legal fees and emergency remediation, and
+                        had to temporarily suspend the service while fixing
+                        barriers — all of which could have been prevented with
+                        early accessibility planning.
                       </p>
                       <div class="tldr-actions">
                         <strong>Minimum viable actions:</strong>
