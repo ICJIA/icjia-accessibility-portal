@@ -146,6 +146,25 @@
                   </v-expansion-panel-title>
                   <v-expansion-panel-text class="tldr-content-panel">
                     <div class="tldr-content">
+                      <p class="tldr-intro">
+                        <strong>Digital accessibility</strong> requires that
+                        websites, documents, and digital content meet specific
+                        technical standards: screen readers can read and
+                        navigate the content, keyboard users can access all
+                        functionality, images have descriptive text, documents
+                        have proper structure (headings, not just bold text),
+                        and color contrast meets standards. Content that "looks
+                        fine" visually may still be inaccessible if it lacks
+                        these technical elements. Approximately
+                        <a
+                          href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >1 in 4 Illinois adults</a
+                        >
+                        (over 3 million people) have a disability and require
+                        accessible technology — more than is commonly understood.
+                      </p>
                       <p class="tldr-lead">
                         By <strong>April 24, 2026</strong>, all public-facing
                         digital content must meet
@@ -209,9 +228,11 @@
                         </div>
                       </div>
                       <p class="tldr-manual-work">
-                        <strong>Important:</strong> There is no magic bullet.
-                        Each website and content type requires manual checking
-                        and updating by web developers and content creators.
+                        <strong>Important:</strong> There is no one-click fix for
+                        accessibility. Each piece of digital content — web pages,
+                        PDFs, Word files — usually needs manual remediation. The
+                        good news: many accessibility checkers are available for
+                        websites and content.
                       </p>
                       <p class="tldr-contact">
                         <strong>Questions?</strong> These requirements come from
@@ -976,6 +997,12 @@ useSeoMeta({
 
 .tldr-content p:last-child {
   margin-bottom: 0;
+}
+
+.tldr-intro {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .tldr-lead {
