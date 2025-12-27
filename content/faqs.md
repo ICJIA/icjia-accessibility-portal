@@ -13,8 +13,6 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ### What is digital accessibility?
 
-**Read time: 1 minute**
-
 **Quick answer:** Digital accessibility means everyone can use your digital content — websites, documents, videos, apps — regardless of disability.
 
 **Full explanation:**
@@ -22,8 +20,6 @@ A practical guide to common accessibility questions for staff at Illinois state 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
 ### How does digital accessibility and compliance fit into an agency's DEIA mission?
-
-**Read time: 2 minutes**
 
 **Quick answer:** **Accessibility is the "A" in DEIA** — it's how we deliver **equitable access** to services and information by **removing systemic barriers** in our digital work. And it's not just an aspiration: it's backed by **accountability** through enforceable law (IITAA + ADA Title II) and a **measurable standard** (**WCAG 2.1 Level AA**) with a compliance deadline.
 
@@ -52,8 +48,6 @@ Digital accessibility means that websites, applications, documents, and other di
 
 ### Why is there suddenly a deadline for digital accessibility?
 
-**Read time: 2 minutes**
-
 **The deadline exists because the federal government finalized specific requirements on April 24, 2024.** The ADA Title II web accessibility rule establishes, for the first time, **specific technical standards** (WCAG 2.1 Level AA) with **firm deadlines** for state and local governments.
 
 **What changed:**
@@ -71,8 +65,6 @@ Digital accessibility means that websites, applications, documents, and other di
 
 ### What does the April 2026 deadline cover?
 
-**Read time: 1 minute**
-
 **Everything digital and public-facing.** The deadline applies to all public-facing digital content, not just websites:
 
 - **Websites and web applications** — All pages and interactive features
@@ -87,8 +79,6 @@ Digital accessibility means that websites, applications, documents, and other di
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Covered Content</a> (see section on "What Web Content and Mobile Apps Are Covered")
 
 ### Why does accessibility compliance require everyone's participation?
-
-**Read time: 1 minute**
 
 **Because web developers can only fix technical issues — they can't fix content.**
 
@@ -106,8 +96,6 @@ While web developers handle technical implementation (code structure, keyboard n
 **The cost of waiting:** Fixing accessibility issues after development is typically **3-10 times more expensive** than building accessibility in from the start.
 
 ### Can managers delay accessibility work to "get more information first"?
-
-**Read time: 2 minutes**
 
 **The April 24, 2026 deadline is a legal requirement that cannot be extended.** While it's completely reasonable for managers to want clarity on scope, timeline, and resources before starting work, the deadline is firm — accessibility work needs to begin now, even as you gather more information.
 
@@ -135,8 +123,6 @@ While web developers handle technical implementation (code structure, keyboard n
 ### I'm already overloaded — how am I supposed to add accessibility to my workload?
 
 {new:2025-12-27}
-
-**Read time: 2 minutes**
 
 **Quick answer:** Accessibility isn't additional work on top of your job — it's a change in *how* you do work you're already doing. Creating an accessible document takes only a few extra minutes once you know the basics.
 
@@ -176,8 +162,6 @@ If you genuinely don't have bandwidth, escalate it. Say: *"Accessibility is now 
 
 ### Who is affected by inaccessible digital content?
 
-**Read time: 1 minute**
-
 **Quick answer:** Illinois residents with disabilities — including vision, hearing, motor, and cognitive impairments — require accessible digital content to access government services. The <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois Information Technology Accessibility Act (IITAA)</a>, overseen by Illinois DoIT, requires that all state agency digital content be accessible to people with disabilities.
 
 **Full explanation:**
@@ -195,8 +179,6 @@ When digital content isn't accessible, agencies exclude Illinois residents with 
 
 ### What is WCAG?
 
-**Read time: 1 minute**
-
 **WCAG (Web Content Accessibility Guidelines)** are international standards that explain how to make digital content accessible to people with disabilities. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone.
 
 WCAG is organized around four principles, known as **POUR**:
@@ -210,8 +192,6 @@ WCAG is organized around four principles, known as **POUR**:
 
 ### What does "WCAG 2.1 Level AA" mean?
 
-**Read time: 1 minute**
-
 WCAG has three conformance levels:
 
 - **Level A** — Minimum accessibility (must meet)
@@ -221,8 +201,6 @@ WCAG has three conformance levels:
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
-
-**Read time: 2 minutes**
 
 **No. Accessibility is an organization-wide responsibility.** IT and web teams can fix technical barriers, but they can’t retroactively “repair” inaccessible content, designs, or procurement decisions without rework.
 
@@ -249,8 +227,6 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 ### I prefer to talk to someone rather than read FAQs. Who can I ask?
 
-**Read time: 2 minutes**
-
 **Questions are welcome, and there are many ways to learn.** Whether you prefer reading, watching videos, hands-on practice, or talking to someone, resources exist for you. That said, the work and deadline remain the same regardless of format — you'll still need to make your content accessible. Here's who to ask:
 
 **Find your agency's accessibility coordinator.** Every agency should have someone responsible for accessibility planning and compliance. This person can answer general questions, provide presentations, and connect you to resources. The owner of your agency's accessibility plan is executive staff — not the web developers.
@@ -271,8 +247,6 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 ### What are the most common accessibility mistakes to avoid?
 
 {new:2025-12-27}
-
-**Read time: 3 minutes**
 
 **Quick answer:** Most accessibility failures come from a small set of common mistakes. Avoid these 10 things and you'll prevent the majority of accessibility issues.
 
@@ -315,8 +289,6 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 ## Getting Started
 
 ### I'm a content creator. Where do I start?
-
-**Read time: 4 minutes**
 
 **As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Here's your quickstart guide:
 
@@ -362,8 +334,6 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 ### I'm a web developer. Where do I start?
 
-**Read time: 4 minutes**
-
 **As a developer, you're building the foundation that makes everything else possible.** Here's your roadmap:
 
 **Week 1 priority (must-do):**
@@ -405,8 +375,6 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 **The key mindset:** Build accessibility in from the start, not as an afterthought. It's much easier and cheaper than retrofitting later. Test with keyboard navigation and screen readers regularly, not just at the end.
 
 ### I'm a manager. Where do I start?
-
-**Read time: 5 minutes**
 
 **As a manager, your role is to create the organizational conditions for accessibility success.** You don't need to become a technical expert — you need to set priorities, fund time/tools, and create accountability.
 
@@ -486,8 +454,6 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 ### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
 
-**Read time: 3 minutes**
-
 **As an Illinois state agency, your agency has legal obligations under both state and federal law to ensure digital content is accessible.** The April 24, 2026 compliance deadline is not optional — it's a legal requirement that applies directly to all Illinois state agencies.
 
 **Why this matters for Illinois state agencies:**
@@ -518,8 +484,6 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 
 ### If this has been a requirement, why hasn't your agency been doing this all along?
 
-**Read time: 2 minutes**
-
 **Two things can be true at once:**
 
 1. **Many agency web teams have been building accessible websites for years.** This isn’t “brand new” work for developers.
@@ -538,8 +502,6 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 **The bottom line:** Developers can’t make your PDFs accessible for you, and they can’t caption your videos after the fact. The standard is the same, but the work is spread across roles — and the deadline makes that shared responsibility unavoidable.
 
 ### What happens after April 24, 2026?
-
-**Read time: 3 minutes**
 
 **Quick answer:** After April 24, 2026, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
 
@@ -581,8 +543,6 @@ While enforcement is typically at the agency level, individuals may experience:
 ### What if we can't meet the April 24, 2026 deadline?
 
 {new:2025-12-27}
-
-**Read time: 3 minutes**
 
 **Quick answer:** The deadline is a legal requirement, not a target. If your agency can't achieve full compliance by April 24, 2026, you should still make as much progress as possible while documenting your remediation plan and prioritizing high-impact content.
 
@@ -626,8 +586,6 @@ While enforcement is typically at the agency level, individuals may experience:
 ### How do we prioritize accessibility work with limited resources and a ticking clock?
 
 {new:2025-12-27}
-
-**Read time: 4 minutes**
 
 **Quick answer:** Start with the highest-impact content — what the most people need, for the most critical services. Don't try to fix everything at once; focus on removing the biggest barriers first.
 
@@ -680,8 +638,6 @@ A state agency with limited resources might prioritize like this:
 ### What's the bare minimum we need to do by April 2026?
 
 {new:2025-12-27}
-
-**Read time: 3 minutes**
 
 **Quick answer:** There's no official "minimum" — the law requires full WCAG 2.1 AA compliance. But if you're overwhelmed, here's a pragmatic prioritization: stop creating new barriers immediately, fix the highest-impact issues first, and have a documented plan for the rest.
 
@@ -743,15 +699,11 @@ A small state agency with 5 staff and 200+ documents might:
 
 ### What is the IITAA?
 
-**Read time: 1 minute**
-
 **The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards require conformance with WCAG 2.1 Level AA.
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
 ### Who must comply with the IITAA?
-
-**Read time: 1 minute**
 
 The IITAA applies to:
 
@@ -771,8 +723,6 @@ The IITAA does **not** directly apply to:
 
 ### What does the IITAA cover?
 
-**Read time: 1 minute**
-
 The IITAA covers all "information and communication technology," including:
 
 - Websites and web applications
@@ -785,15 +735,11 @@ The IITAA covers all "information and communication technology," including:
 
 ### When did the current IITAA standards take effect?
 
-**Read time: 1 minute**
-
 - **IITAA 1.0** — August 20, 2008 (original standards)
 - **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA)
 - **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 AA)
 
 ### Where can I get IITAA training?
-
-**Read time: 1 minute**
 
 The Illinois Department of Innovation & Technology (DoIT) Office of Information Accessibility provides free training for state agencies, including:
 
@@ -809,8 +755,6 @@ The Illinois Department of Innovation & Technology (DoIT) Office of Information 
 
 ### Who do I contact with IITAA questions?
 
-**Read time: 1 minute**
-
 For questions or comments about information technology accessibility or the IITAA:
 
 **Email:** DoIT.Accessibility@Illinois.gov
@@ -823,15 +767,11 @@ For questions or comments about information technology accessibility or the IITA
 
 ### What is the ADA Title II web accessibility rule?
 
-**Read time: 1 minute**
-
 On April 24, 2024, the U.S. Department of Justice published a final rule establishing specific technical requirements for web content and mobile app accessibility under Title II of the Americans with Disabilities Act. The rule requires state and local governments to make their public-facing digital content meet WCAG 2.1 Level AA.
 
 **Official fact sheet:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 
 ### How does Title II differ from Title I? I'm familiar with Title I, but Title II is new to me.
-
-**Read time: 3 minutes**
 
 **Quick answer:** **Title I** covers **employment** and reasonable accommodations for employees. **Title II** covers **public services** and requires state and local governments to proactively make public-facing digital content meet **WCAG 2.1 Level AA** by the compliance deadline.
 
@@ -880,8 +820,6 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 ### When must we comply with the ADA Title II rule?
 
-**Read time: 1 minute**
-
 | Entity Size                  | Compliance Deadline |
 | ---------------------------- | ------------------- |
 | Population of 50,000 or more | **April 24, 2026**  |
@@ -890,8 +828,6 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 For most Illinois state agencies, the deadline is **April 24, 2026**.
 
 ### Does ADA Title II apply to internal documents?
-
-**Read time: 2 minutes**
 
 **No, the ADA Title II web rule does not directly apply to purely internal content.** The rule specifically covers "services, programs, and activities provided or made available" to the public.
 
@@ -904,8 +840,6 @@ For most Illinois state agencies, the deadline is **April 24, 2026**.
 **Best practice:** Make internal documents accessible proactively. It's easier than retrofitting later, and you may have employees with disabilities who need access.
 
 ### Are there any exceptions to the ADA Title II rule?
-
-**Read time: 2 minutes**
 
 Yes, limited exceptions exist for:
 
@@ -926,8 +860,6 @@ Yes, limited exceptions exist for:
 ## Website Accessibility
 
 ### How do I test my website for accessibility?
-
-**Read time: 2 minutes**
 
 **Why this matters:** Automated tools catch many issues quickly, but they can't detect everything. Manual testing with keyboard navigation and screen readers reveals barriers that automated tools miss — and these barriers can prevent people with disabilities from using your website entirely.
 
@@ -958,8 +890,6 @@ Use a combination of automated and manual testing:
 
 ### What are the most common website accessibility issues?
 
-**Read time: 2 minutes**
-
 1. **Missing or inadequate alt text** for images
 2. **Poor color contrast** between text and background
 3. **Missing form labels** — form fields without associated labels
@@ -984,8 +914,6 @@ Use a combination of automated and manual testing:
 
 ### What color contrast ratio is required?
 
-**Read time: 1 minute**
-
 For WCAG 2.1 Level AA:
 
 - **Normal text** (under 18pt or 14pt bold): **4.5:1** contrast ratio
@@ -1000,8 +928,6 @@ For WCAG 2.1 Level AA:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a>
 
 ### Do I need to caption all videos?
-
-**Read time: 1 minute**
 
 Yes, for WCAG 2.1 Level AA compliance:
 
@@ -1018,8 +944,6 @@ Yes, for WCAG 2.1 Level AA compliance:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.5 Audio Description (Prerecorded) - Level AA</a>
 
 ### What about third-party widgets, embedded content, dashboards, and maps?
-
-**Read time: 2 minutes**
 
 **Yes.** You are responsible for the accessibility of third-party content that you embed or integrate into your website through contracts or agreements. This includes:
 
@@ -1049,8 +973,6 @@ Yes, for WCAG 2.1 Level AA compliance:
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
 
 ### Does our agency's password-protected intranet need to be accessible?
-
-**Read time: 3 minutes**
 
 **Quick answer:** Password-protected intranet sites for employees only are generally exempt from ADA Title II, but **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
 
@@ -1083,8 +1005,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 ### What about archived documents on the intranet?
 
-**Read time: 2 minutes**
-
 **Quick answer:** Truly archived documents that are no longer used may be exempt, but you must still provide accessible alternatives **upon request** if an employee needs them.
 
 **Full explanation:**
@@ -1106,8 +1026,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 **If an employee requests access to archived content, you must provide an accessible version.**
 
 ### After April 2026, do all new documents need to be accessible?
-
-**Read time: 2 minutes**
 
 **Quick answer:** Yes. All new documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA standards from day one — whether posted publicly or on an intranet.
 
@@ -1141,8 +1059,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 <a id="third-party-tool-testing"></a>
 ### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
-
-**Read time: 3 minutes**
 
 **Why this matters:** Vendor claims about accessibility aren't always accurate, and even accessible platforms can become inaccessible through custom configuration or content you add. Testing real workflows ensures the tools your agency uses actually work for people with disabilities — not just in theory, but in practice.
 
@@ -1185,8 +1101,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 ### Our agency uses DocuSign to digitally sign documents. Is this something that falls under WCAG compliance?
 
-**Read time: 2 minutes**
-
 **Quick answer:** Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
 
 **What to do (in order):**
@@ -1199,8 +1113,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 **The bottom line:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
 
 ### Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?
-
-**Read time: 2 minutes**
 
 **Quick answer:** Sometimes partially. Even if the LMS platform is improving, **your course content and configuration still have to be accessible**.
 
@@ -1229,8 +1141,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 **The bottom line:** Treat the LMS like any other third-party tool: verify the platform, and ensure the content you upload is accessible.
 
 ### If we have existing content like Tableau dashboards, ArcGIS maps, or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
-
-**Read time: 3 minutes**
 
 **Quick answer:** If it's **currently used to provide public services**, it needs to be accessible (no "archived content" exemption). If it’s **truly archived and not used**, it may be exempt — but you still must provide an accessible alternative **upon request**.
 
@@ -1270,8 +1180,6 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 {new:2025-12-27}
 
-**Read time: 2 minutes**
-
 **Quick answer:** "Looking fine" means you can see the content visually. "Accessible" means people using screen readers, keyboard navigation, or other assistive technologies can also use the content — and that requires specific structure that's invisible to you but essential for them.
 
 **Full explanation:**
@@ -1303,8 +1211,6 @@ When you create a document, you see formatted text, images, and layout. But some
 **Learn more:** See the specific questions below for Word, PDF, Excel, and PowerPoint accessibility.
 
 ### What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?
-
-**Read time: 2 minutes**
 
 **Yes, if you're sharing them digitally.** Any photos published on your agency's website, social media, or in digital documents need alt text (alternative text) that describes the image for people who can't see it.
 
@@ -1342,8 +1248,6 @@ Alt text is a brief written description of an image that screen readers read alo
 
 ### How long should alt text be?
 
-**Read time: 1 minute**
-
 **Best practice: Aim for 125 characters or fewer** — this is about 15-25 words. This guideline exists because some older screen readers truncated alt text at 125 characters, and shorter descriptions are generally easier for users to process.
 
 **However, modern screen readers handle longer alt text just fine.** Most current screen readers (NVDA, JAWS, VoiceOver) will read alt text of any length without truncation. The 125-character limit is a best practice guideline, not a technical requirement.
@@ -1358,8 +1262,6 @@ Alt text is a brief written description of an image that screen readers read alo
 **The bottom line:** If you took the photo because it captures something meaningful, that meaning needs to be conveyed in alt text for people who can't see it. Keep it concise when possible, but don't truncate important information just to stay under 125 characters — modern screen readers can handle more.
 
 ### How do I handle complex images like charts, graphs, or infographics?
-
-**Read time: 2 minutes**
 
 Some images — like charts, graphs, infographics, or images containing lots of text — need more than a brief alt text. Here's how to handle them:
 
@@ -1409,8 +1311,6 @@ Some images — like charts, graphs, infographics, or images containing lots of 
 
 ### How do I make images accessible on social media, Constant Contact, or Canva?
 
-**Read time: 2 minutes**
-
 Sharing infographics, charts, or images with text on platforms like social media, Constant Contact, or Canva presents unique challenges because you often can't add data tables or long descriptions directly.
 
 **Social media (Facebook, X/Twitter, Instagram, LinkedIn):**
@@ -1452,8 +1352,6 @@ If you're sharing a complex image on social media or email, ask yourself: "If so
 
 ### Who should write the alt text for photos?
 
-**Read time: 1 minute**
-
 **Ideally, the person supplying the photo should also supply the alt text.** They know what's happening in the image, who's pictured, and why it matters. If you're submitting photos for the website, a newsletter, or social media, include alt text with your submission.
 
 - **You were there** — You know the context, the names, and what made the moment significant
@@ -1463,8 +1361,6 @@ If you're sharing a complex image on social media or email, ask yourself: "If so
 **Best practice:** When submitting photos, include a simple list: "Photo 1: [alt text], Photo 2: [alt text]" etc.
 
 ### Are captions the same as alt text?
-
-**Read time: 1 minute**
 
 **No — captions and alt text serve different purposes and both may be needed.**
 
@@ -1489,8 +1385,6 @@ The alt text describes what's visually happening. The caption adds context that 
 
 ### Do all documents need to be accessible?
 
-**Read time: 1 minute**
-
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
 
 - PDFs
@@ -1504,8 +1398,6 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 - Password-protected documents specific to an individual's account
 
 ### How do I make a Word document accessible?
-
-**Read time: 2 minutes**
 
 Key steps for accessible Word documents:
 
@@ -1527,8 +1419,6 @@ Key steps for accessible Word documents:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### How do I make a PDF accessible?
-
-**Read time: 2 minutes**
 
 The best approach depends on the source:
 
@@ -1558,8 +1448,6 @@ The best approach depends on the source:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
 
 ### Is Canva accessible?
-
-**Read time: 2 minutes**
 
 **Canva has made significant progress on accessibility** and offers several helpful features:
 
@@ -1598,8 +1486,6 @@ The best approach depends on the source:
 
 ### How do I make Excel spreadsheets accessible?
 
-**Read time: 2 minutes**
-
 Key steps for accessible Excel files:
 
 1. **Use a simple, logical structure** — Avoid blank rows/columns for spacing
@@ -1619,8 +1505,6 @@ Key steps for accessible Excel files:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### How do I make PowerPoint presentations accessible?
-
-**Read time: 2 minutes**
 
 Key steps for accessible PowerPoint:
 
@@ -1645,8 +1529,6 @@ Key steps for accessible PowerPoint:
 ### How do I make emails and newsletters accessible?
 
 {new:2025-12-27}
-
-**Read time: 3 minutes**
 
 **Quick answer:** Emails follow the same principles as documents: use heading structure, add alt text to images, write descriptive links, and ensure good color contrast. The biggest difference is that many email clients have limited support for accessibility features, so simpler is better.
 
@@ -1715,8 +1597,6 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-**Read time: 2 minutes**
-
 **Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (before the compliance deadline) are exempt.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
@@ -1763,8 +1643,6 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### What should I do when purchasing software or services?
 
-**Read time: 2 minutes**
-
 When procuring technology products or services:
 
 1. **Include accessibility requirements** in RFPs and contracts
@@ -1777,8 +1655,6 @@ When procuring technology products or services:
 
 ### What contract language should I use?
 
-**Read time: 1 minute**
-
 Illinois DoIT recommends including language similar to:
 
 > "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
@@ -1786,8 +1662,6 @@ Illinois DoIT recommends including language similar to:
 ### What is a VPAT? What is an ACR or MCAR?
 
 {new:2025-12-27}
-
-**Read time: 3 minutes**
 
 **Quick answer:** A **VPAT (Voluntary Product Accessibility Template)** is a standardized form vendors fill out to describe how their product meets accessibility standards. An **ACR (Accessibility Conformance Report)** is the completed VPAT — the actual document you request from vendors. **MCAR** stands for **Manufacturer's Conformance Accessibility Report**, which is essentially the same thing.
 
