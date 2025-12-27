@@ -12,42 +12,32 @@ export default <RouterConfig>{
       return savedPosition
     }
 
-    // If there's a hash, let our plugin handle FAQ questions
-    // For FAQ hashes, return undefined to prevent Vue Router from trying to scroll
-    // Our plugin will handle opening accordions and scrolling
+    // If there's a hash, scroll to the element
     if (to.hash) {
-      const hashId = to.hash.substring(1);
-      
-      // Wait a bit for components to mount, then check if it's a FAQ question
+      // Wait for components to mount, then scroll
       return new Promise((resolve) => {
-        setTimeout(() => {
-          // Check if this is a FAQ panel (with or without section prefix)
-          const element = document.getElementById(hashId);
-          const isFaqPanel = element && element.classList.contains('faq-panel');
-          
-          if (!isFaqPanel) {
-            // Check if any FAQ panel has an ID ending with this hash
-            const allPanels = document.querySelectorAll<HTMLElement>('.faq-panel[id]');
-            for (const panel of allPanels) {
-              const panelId = panel.id;
-              if (panelId === hashId || panelId.endsWith(`-${hashId}`)) {
-                // It's a FAQ question - let our plugin handle it
-                resolve(undefined);
-                return;
-              }
-            }
+        const scrollToElement = () => {
+          const element = document.querySelector(to.hash);
+          if (element) {
+            // Element exists, scroll to it
+            const navbar = document.querySelector('header');
+            const navbarHeight = navbar ? navbar.offsetHeight : 64;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - navbarHeight - 20;
+            
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: 'smooth',
+            });
+            resolve(undefined); // Return undefined to prevent Vue Router from trying to scroll again
           } else {
-            // It's a FAQ question - let our plugin handle it
-            resolve(undefined);
-            return;
+            // Element not found yet, try again after a short delay
+            setTimeout(scrollToElement, 100);
           }
-          
-          // Not a FAQ question, try normal scroll behavior
-          resolve({
-            el: to.hash,
-            behavior: 'smooth',
-          });
-        }, 200); // Wait for components to mount
+        };
+        
+        // Start trying to scroll after a brief delay
+        setTimeout(scrollToElement, 100);
       });
     }
 
@@ -55,6 +45,7 @@ export default <RouterConfig>{
     return { top: 0, behavior: 'smooth' }
   }
 }
+
 
 
 

@@ -498,6 +498,46 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
 - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
 
+### I want to understand the full scope of accessibility requirements, but web developers aren't part of executive staff. Who should I talk to?
+
+{new:2025-12-27}
+
+**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers have years of hands-on experience and are excellent resources — even if they're not in leadership roles.
+
+**Understanding the different roles:**
+
+**For strategic and legal questions (scope, timeline, organizational impact):**
+
+- **Your agency's accessibility coordinator** — This person (often in executive or compliance roles) understands the full scope of requirements across all content types
+- **Executive staff** — They own the agency's accessibility plan and can address resource allocation, priorities, and organizational strategy
+- **Illinois DoIT Office of Information Accessibility** — For legal/mandate questions: DoIT.Accessibility@Illinois.gov
+
+**For practical implementation questions (how to fix issues, what tools to use, testing approaches):**
+
+- **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches. Their expertise is valuable even if they're not in executive roles.
+
+**Why web developers are valuable resources:**
+
+Web developers who have been working on accessibility have:
+
+- **Hands-on experience** with WCAG 2.1 Level AA implementation
+- **Practical knowledge** of testing tools, common issues, and remediation approaches
+- **Technical understanding** of how accessibility works in practice, not just in theory
+- **Real-world context** about what's feasible, what takes time, and what works
+
+**The key distinction:**
+
+- **Scope and strategy** = Executive staff and accessibility coordinators
+- **Implementation and technical details** = Web developers and technical teams
+
+**For web developers reading this:**
+
+If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. The fact that you're not in executive staff doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
+
+**Bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers. Both perspectives are needed, and both are valuable.
+
+**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#general-accessibility-questions)
+
 ---
 
 ## State Agency Applicability
@@ -1969,6 +2009,8 @@ Illinois DoIT recommends including language similar to:
 
 ### Legal and Standards Terms
 
+{new:2025-12-27}
+
 **ADA (Americans with Disabilities Act)** — Federal civil rights law that prohibits discrimination against people with disabilities. **Title I** covers employment accommodations. **Title II** covers public services and requires state and local governments to make digital content accessible. <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">Learn more about ADA</a>
 
 **ADA Title II Web Rule** — The 2024 Department of Justice rule that requires state and local governments to meet **WCAG 2.1 Level AA** standards for public-facing digital content by April 24, 2026 (for entities with populations of 50,000+). <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">Read the ADA Title II Web Rule Fact Sheet</a>
@@ -1982,6 +2024,8 @@ Illinois DoIT recommends including language similar to:
 **WCAG 2.1 Level AA** — The specific accessibility standard required by both IITAA and ADA Title II. "Level AA" means meeting both Level A (minimum) and Level AA (standard) criteria. This is the compliance target for all public-facing digital content. <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">View WCAG 2.1 Level AA Quick Reference</a>
 
 ### Procurement Terms
+
+{new:2025-12-27}
 
 **ACR (Accessibility Conformance Report)** — The completed document a vendor provides showing how their product meets (or doesn't meet) accessibility standards. This is the actual report you request from vendors — the filled-out version of a VPAT. <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Learn how to create an ACR</a>
 
@@ -1997,6 +2041,8 @@ Illinois DoIT recommends including language similar to:
 - **Not Applicable** — Criterion doesn't apply to this product
 
 ### Technical Terms
+
+{new:2025-12-27}
 
 **Alt text (Alternative text)** — A brief written description of an image that screen readers read aloud to users who can't see the image. Example: "Director Smith presenting award to Officer Jones at the annual ceremony." Best practice: 125 characters or fewer.
 
@@ -2024,6 +2070,8 @@ Illinois DoIT recommends including language similar to:
 
 ### Content-Specific Terms
 
+{new:2025-12-27}
+
 **Accessible document** — A document (Word, PDF, PowerPoint, Excel) that has proper structure (headings, not just bold text), alt text for images, readable tables, and other features that make it usable by assistive technologies. <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Learn how to create accessible documents</a>
 
 **Accessible template** — A document template (Word, PowerPoint, etc.) that's already set up with proper heading styles, accessible fonts, sufficient color contrast, and other accessibility features built in.
@@ -2033,6 +2081,8 @@ Illinois DoIT recommends including language similar to:
 **Semantic HTML** — HTML code that uses the correct elements for their intended purpose (e.g., `<button>` for buttons, `<nav>` for navigation, `<heading>` for headings). This helps screen readers understand the structure and purpose of content.
 
 ### Process Terms
+
+{new:2025-12-27}
 
 **Automated testing** — Using software tools (like <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE</a>, <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe DevTools</a>, Lighthouse) to automatically scan for accessibility issues. These tools catch many problems but can't detect everything — manual testing is also required. <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Testing Resources</a>
 
