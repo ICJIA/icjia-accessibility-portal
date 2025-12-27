@@ -210,8 +210,31 @@
                         after its mobile application was found inaccessible to
                         users with vision disabilities. The agency was required
                         to bring all digital services into WCAG 2.1 Level AA
-                        compliance — all of which could have been prevented with
-                        early accessibility planning.
+                        compliance.                         Similarly, public institutions like
+                        <a
+                          href="https://clearinghouse.net/case/46289/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >West Virginia University faced a federal lawsuit in 2025</a
+                        >
+                        filed by blind graduate students alleging that its digital
+                        course materials, videos, and online systems were
+                        inaccessible, requiring policy changes and accessibility
+                        remediation.
+                        <a
+                          href="https://www.justice.gov/archives/opa/pr/justice-department-settles-louisiana-tech-university-over-inaccessible-course-materials"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >Louisiana Tech University reached a DOJ settlement in
+                          2013</a
+                        >
+                        after a blind student was unable to access course
+                        materials for nearly a month, leading to withdrawal from
+                        the course. The university paid $23,543 in damages and
+                        was required to adopt accessibility policies. These public
+                        institutions face the same ADA Title II requirements as
+                        state agencies — all of which could have been prevented
+                        with early accessibility planning.
                       </p>
                       <div class="tldr-actions">
                         <strong>Minimum viable actions:</strong>
