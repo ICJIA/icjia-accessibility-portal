@@ -147,43 +147,39 @@
                   <v-expansion-panel-text class="tldr-content-panel">
                     <div class="tldr-content">
                       <p class="tldr-lead">
-                        <strong>The situation:</strong> By
-                        <strong>April 24, 2026</strong>, all public-facing
-                        digital content must meet federal accessibility
-                        standards (WCAG 2.1 Level AA). This is a
-                        <strong>legal requirement</strong> under ADA Title II,
-                        not a recommendation.
+                        By <strong>April 24, 2026</strong>, all public-facing
+                        digital content must meet
+                        <a
+                          href="https://www.w3.org/TR/WCAG21/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >WCAG 2.1 Level AA</a
+                        >
+                        standards under the
+                        <a
+                          href="https://www.ada.gov/resources/2024-03-08-web-rule/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Americans with Disabilities Act (ADA) Title II</a
+                        >. This is enforceable federal law, not optional.
                       </p>
                       <p class="tldr-key">
-                        <strong
-                          >Why this requires organizational attention:</strong
-                        >
-                        Technical fixes alone cannot achieve compliance. Content
-                        accessibility — documents, PDFs, presentations, videos —
-                        requires action from everyone who creates content. This
-                        is an organizational responsibility shared across all
-                        staff, not a single department's project.
+                        <strong>Why this requires organizational attention:</strong>
+                        Website accessibility needs code, design, and testing from
+                        web teams. Content accessibility (documents, PDFs,
+                        presentations, videos) requires action from everyone who
+                        creates content. This is an organization-wide
+                        responsibility, not a single department's project.
+                        Accessibility is the "A" in DEIA — it delivers equitable
+                        access by removing systemic barriers and making equity
+                        measurable.
                       </p>
                       <p class="tldr-consequences">
-                        <strong
-                          >Failure to comply has real consequences:</strong
-                        >
-                        Agencies that don't meet the April 2026 deadline risk
-                        Department of Justice investigations, lawsuits from
-                        individuals with disabilities, significant legal and
-                        remediation costs, and reputational harm. More
-                        importantly, inaccessible content excludes millions of
-                        Illinois residents from accessing government services.
-                        This is not optional — it's enforceable federal law.
-                      </p>
-                      <p class="tldr-content-specific">
-                        <strong>Important note:</strong> Each content type has
-                        its own accessibility checkers and unique requirements.
-                        Adobe Acrobat has built-in PDF accessibility tools, Word
-                        has its Accessibility Checker, PowerPoint and Excel each
-                        have their own. There's no one-size-fits-all solution —
-                        each content type needs specific and sometimes unique
-                        fixes.
+                        <strong>Failure to comply risks:</strong> Department of
+                        Justice investigations, lawsuits, significant legal and
+                        remediation costs, and reputational harm. Inaccessible
+                        content excludes millions of Illinois residents from
+                        accessing government services.
                       </p>
                       <div class="tldr-actions">
                         <strong>Minimum viable actions:</strong>
@@ -212,17 +208,29 @@
                           </div>
                         </div>
                       </div>
-                      <p class="tldr-note">
-                        <strong>The FAQs below</strong> address federal
-                        requirements for web and content accessibility in
-                        detail.
+                      <p class="tldr-manual-work">
+                        <strong>Important:</strong> There is no magic bullet.
+                        Each website and content type requires manual checking
+                        and updating by web developers and content creators.
                       </p>
                       <p class="tldr-contact">
-                        <strong>Questions?</strong>
-                        These requirements come from federal law (ADA Title II)
-                        and Illinois law (IITAA), not from any individual
-                        agency. For guidance, contact
-                        DoIT.Accessibility@Illinois.gov.
+                        <strong>Questions?</strong> These requirements come from
+                        federal law (
+                        <a
+                          href="https://www.ada.gov/resources/2024-03-08-web-rule/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >ADA Title II</a
+                        >) and Illinois law (the
+                        <a
+                          href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Illinois Information Technology Accessibility Act (IITAA)</a
+                        >). Contact
+                        <a href="mailto:DoIT.Accessibility@Illinois.gov"
+                          >DoIT.Accessibility@Illinois.gov</a
+                        >.
                       </p>
                     </div>
                   </v-expansion-panel-text>
@@ -979,14 +987,9 @@ useSeoMeta({
   line-height: 1.6;
 }
 
-.tldr-content-specific {
-  font-size: 0.9rem;
-  background: rgba(var(--v-theme-primary), 0.08);
-  border-left: 3px solid rgb(var(--v-theme-primary));
-  padding: 0.75rem 1rem;
-  border-radius: 0 6px 6px 0;
+.tldr-deia {
   margin: 1rem 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .tldr-consequences {
@@ -1044,6 +1047,14 @@ useSeoMeta({
 
 .tldr-actions li {
   margin: 0.25rem 0;
+}
+
+.tldr-manual-work {
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.9;
 }
 
 .tldr-note {
