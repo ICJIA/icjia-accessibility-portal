@@ -155,15 +155,16 @@
                         have proper structure (headings, not just bold text),
                         and color contrast meets standards. Content that "looks
                         fine" visually may still be inaccessible if it lacks
-                        these technical elements. Approximately
+                        these technical elements. Illinois residents with
+                        disabilities require accessible technology to access
+                        government services — a requirement enforced by the
                         <a
-                          href="https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html"
+                          href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html"
                           target="_blank"
                           rel="noopener noreferrer"
-                          >1 in 4 Illinois adults</a
-                        >
-                        (over 3 million people) have a disability and require
-                        accessible technology — more than is commonly understood.
+                          >Illinois Information Technology Accessibility Act
+                          (IITAA)</a
+                        >, which Illinois DoIT oversees.
                       </p>
                       <p class="tldr-lead">
                         By <strong>April 24, 2026</strong>, all public-facing
