@@ -146,6 +146,23 @@
                   </v-expansion-panel-title>
                   <v-expansion-panel-text class="tldr-content-panel">
                     <div class="tldr-content">
+                      <p class="tldr-lead">
+                        By April 24, 2026, all public-facing digital content
+                        must meet
+                        <a
+                          href="https://www.w3.org/TR/WCAG21/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >WCAG 2.1 Level AA</a
+                        >
+                        standards under the
+                        <a
+                          href="https://www.ada.gov/resources/2024-03-08-web-rule/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Americans with Disabilities Act (ADA) Title II</a
+                        >. This is enforceable federal law, not optional.
+                      </p>
                       <p class="tldr-intro">
                         <strong>Digital accessibility</strong> requires that
                         websites, documents, and digital content meet specific
@@ -166,33 +183,16 @@
                           (IITAA)</a
                         >, which Illinois DoIT oversees.
                       </p>
-                      <p class="tldr-lead">
-                        By <strong>April 24, 2026</strong>, all public-facing
-                        digital content must meet
-                        <a
-                          href="https://www.w3.org/TR/WCAG21/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          >WCAG 2.1 Level AA</a
-                        >
-                        standards under the
-                        <a
-                          href="https://www.ada.gov/resources/2024-03-08-web-rule/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          >Americans with Disabilities Act (ADA) Title II</a
-                        >. This is enforceable federal law, not optional.
-                      </p>
                       <p class="tldr-key">
                         <strong>Why this requires organizational attention:</strong>
-                        Website accessibility needs code, design, and testing from
-                        web teams. Content accessibility (documents, PDFs,
-                        presentations, videos) requires action from everyone who
-                        creates content. This is an organization-wide
-                        responsibility, not a single department's project.
-                        Accessibility is the "A" in DEIA — it delivers equitable
-                        access by removing systemic barriers and making equity
-                        measurable.
+                        This deadline requires agency-wide buy-in — it's not just IT.
+                        It's a fundamental shift for anyone who publishes
+                        public-facing digital content. While digital content may be
+                        associated with IT, accessibility is an agency-wide
+                        responsibility that must start with leadership, not with
+                        individual web developers or content creators. Accessibility is
+                        the "A" in DEIA — it delivers equitable access by removing
+                        systemic barriers.
                       </p>
                       <p class="tldr-consequences">
                         <strong>Failure to comply risks:</strong> Department of
