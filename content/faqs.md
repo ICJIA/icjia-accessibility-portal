@@ -498,7 +498,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
 - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
 
-### I want to understand the full scope of accessibility requirements, but web developers aren't part of executive staff. Who should I talk to?
+### I want to understand the full scope of accessibility requirements, but web developers and content creators aren't part of executive staff. Who should I talk to?
 
 {new:2025-12-27}
 
