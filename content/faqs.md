@@ -516,25 +516,22 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 - **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches. Their expertise is valuable even if they're not in executive roles.
 
-**Why web developers are valuable resources:**
-
-Web developers who have been working on accessibility have:
-
-- **Hands-on experience** with WCAG 2.1 Level AA implementation
-- **Practical knowledge** of testing tools, common issues, and remediation approaches
-- **Technical understanding** of how accessibility works in practice, not just in theory
-- **Real-world context** about what's feasible, what takes time, and what works
+- **Recent ICJIA content creators** — Several content creators from ICJIA's research and analysis unit have been trained on accessibility best practices and are already solving accessibility issues in their work.
 
 **The key distinction:**
 
-- **Scope and strategy** = Executive staff and accessibility coordinators
-- **Implementation and technical details** = Web developers and technical teams
+- **Scope and strategy** = Executive staff.
+- **Implementation and technical details** = Web developers, technical teams, and recent content creators.
 
-**For web developers reading this:**
+**For web developers and technical teams:**
 
 If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. The fact that you're not in executive staff doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
 
-**Bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers. Both perspectives are needed, and both are valuable.
+**For content creators already creating accessible content:**
+
+Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator, not executive staff, gives you the ground-level perspective that makes accessibility implementation successful.
+
+**Bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. Both perspectives are needed, and both are valuable.
 
 **See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#general-accessibility-questions)
 
