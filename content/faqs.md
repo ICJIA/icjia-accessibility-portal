@@ -533,8 +533,6 @@ Your training in accessibility best practices and your current work solving acce
 
 **Bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. Both perspectives are needed, and both are valuable.
 
-**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#general-accessibility-questions)
-
 ---
 
 ## State Agency Applicability
