@@ -502,7 +502,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 {new:2025-12-27}
 
-**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers have years of hands-on experience and are excellent resources — even if they're not in leadership roles.
+**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers and content creators who are now making accessible content have hands-on experience and are excellent resources — even if they're not in leadership roles.
 
 **Understanding the different roles:**
 
