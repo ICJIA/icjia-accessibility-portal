@@ -250,12 +250,12 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 {new:2025-12-28}
 
-**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training, and the information in these FAQs has been checked and rechecked — it's as good as any presentation. This FAQ website presents all the information that would be in any presentation.
+**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training. These FAQs are as comprehensive as possible and provide short, direct answers to accessibility questions. This FAQ website is as good as any presentation DoIT might give about content accessibility — it presents all the information that would be in any presentation.
 
 **Why start now:**
 
 - **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens
-- **This FAQ content is comprehensive** — The information here has been checked and rechecked and contains everything that would be covered in a presentation. There's no secret information you'll get from a presentation that isn't already here
+- **This FAQ content is comprehensive** — These FAQs are as comprehensive as possible and provide short, direct answers. The information here contains everything that would be covered in a presentation about content accessibility. There's no secret information you'll get from a presentation that isn't already here
 - **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done
 - **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there
 
@@ -283,10 +283,20 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 **Important reality check:**
 
 - **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content
-- **All the information is already here** — This FAQ website presents all the information that would be in any presentation. The presentation format may help some people learn better, but the content is the same
+- **All the information is already here** — This FAQ website is as good as any presentation DoIT might give about content accessibility. It presents all the information that would be in any presentation, with short, direct answers. The presentation format may help some people learn better, but the content is the same
 - **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June
 
-**Bottom line:** Start making your content accessible now using the information in these FAQs. The FAQ content has been checked and rechecked and is as good as any presentation. The DoIT presentation gives you a chance to ask questions, but it's not a prerequisite for beginning the work — and it won't speed up compliance. The work is difficult and time-consuming regardless of when you receive training.
+**Official resources and quick reads:**
+
+- **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a> — State-specific accessibility resources and training
+- **IITAA (Illinois Information Technology Accessibility Act)** — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a> — Illinois state accessibility requirements
+- **ADA Title II Web Rule** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a> — Federal accessibility requirements and deadlines
+- **Quick reads about accessibility:**
+  - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> — Quick overview of WCAG 2.1 standards
+  - <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed WCAG checklist
+  - <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple accessibility checklist format
+
+**Bottom line:** Start making your content accessible now using the information in these FAQs. These FAQs are as comprehensive as possible and provide short, direct answers — they're as good as any presentation DoIT might give about content accessibility. The DoIT presentation gives you a chance to ask questions, but it's not a prerequisite for beginning the work — and it won't speed up compliance. The work is difficult and time-consuming regardless of when you receive training.
 
 **See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
 
