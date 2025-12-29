@@ -308,7 +308,7 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 27, 2025";
+const lastUpdated = "December 29, 2025";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =

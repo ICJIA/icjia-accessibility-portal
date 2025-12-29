@@ -246,6 +246,50 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
+### I'm waiting for a presentation on accessibility. Should I start work in my unit based on the info in this FAQ or wait for the DoIT presentation?
+
+{new:2025-12-28}
+
+**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training, and the information in these FAQs has been checked and rechecked — it's as good as any presentation. This FAQ website presents all the information that would be in any presentation.
+
+**Why start now:**
+
+- **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens
+- **This FAQ content is comprehensive** — The information here has been checked and rechecked and contains everything that would be covered in a presentation. There's no secret information you'll get from a presentation that isn't already here
+- **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done
+- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there
+
+**What you can start doing today:**
+
+1. **Add alt text to images** — Every image needs a brief description
+2. **Use heading styles** — Use Heading 1, Heading 2, Heading 3 instead of just making text bold
+3. **Write descriptive links** — Instead of "click here," write "Download the 2025 Annual Report"
+4. **Check color contrast** — Make sure text is dark enough against its background (4.5:1 ratio for normal text)
+5. **Add captions to videos** — All videos need captions
+
+**What to do while waiting for the presentation:**
+
+- **Start with your most recent content** — Fix accessibility issues in documents, PDFs, or web pages you've created recently
+- **Use the resources in these FAQs** — The links and guides here are the same ones DoIT will reference
+- **Ask your web developers or content creators** — If your unit has people already working on accessibility, they can help you get started
+- **Request the presentation** — Contact DoIT.Accessibility@Illinois.gov to schedule training, but don't delay work until then
+
+**What the presentation provides (that this FAQ doesn't):**
+
+- **A chance to ask questions** — The main value of a presentation is the opportunity to ask specific questions about your agency's situation, get clarification on complex issues, and discuss edge cases
+- **Interactive discussion** — You can discuss your specific challenges with DoIT staff and other agencies
+- **Clarification on confusing points** — If something in these FAQs is unclear, you can ask for clarification
+
+**Important reality check:**
+
+- **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content
+- **All the information is already here** — This FAQ website presents all the information that would be in any presentation. The presentation format may help some people learn better, but the content is the same
+- **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June
+
+**Bottom line:** Start making your content accessible now using the information in these FAQs. The FAQ content has been checked and rechecked and is as good as any presentation. The DoIT presentation gives you a chance to ask questions, but it's not a prerequisite for beginning the work — and it won't speed up compliance. The work is difficult and time-consuming regardless of when you receive training.
+
+**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
+
 ### What are the most common accessibility mistakes to avoid?
 
 {new:2025-12-27}
@@ -497,6 +541,41 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning and Managing Web Accessibility</a> — Strategic guidance for organizations
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
 - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
+
+### Who should be our agency's accessibility coordinator?
+
+{new:2025-12-28}
+
+**Quick answer:** The accessibility coordinator should be someone in executive or compliance roles who has organizational authority to set policy, allocate resources, and make strategic decisions. While web developers and content creators have valuable technical expertise, the coordinator role requires someone who can make agency-wide decisions and set policy — not just implement technical solutions.
+
+**What the coordinator does:**
+
+The accessibility coordinator needs to:
+
+- **Set organizational policy** — Make decisions about accessibility standards, priorities, and processes that apply agency-wide
+- **Allocate resources** — Approve budgets, training, tools, and time allocation for accessibility work
+- **Coordinate with technical teams** — Meet with and talk to web developers and content creators who are currently involved in accessibility compliance work. These teams are busy doing the actual compliance work, so the coordinator should gather information from them and report back to executive staff about progress, challenges, and resource needs.
+- **Report to executive staff** — Provide updates on compliance status, risks, and progress to leadership
+
+**Who should be the coordinator:**
+
+The accessibility coordinator should be someone who has organizational authority (often in executive, compliance, or management roles) and can:
+
+- Make policy decisions and allocate resources
+- Understand the full scope (websites, documents, videos, social media, mobile apps, third-party tools)
+- Coordinate across departments (IT, communications, legal, procurement, content teams)
+- Report to executive staff with strategic recommendations
+
+**Common coordinator roles:** Compliance officer, IT director/manager, communications director, program manager, or executive staff member.
+
+**The key distinction:**
+
+- **Accessibility coordinator** = Sets policy, allocates resources, makes strategic decisions, coordinates with technical teams, reports to executive staff (needs organizational authority)
+- **Web developers and content creators** = Provide technical expertise, implement solutions, do the actual compliance work (valuable resources, but typically not policy setters)
+
+**Bottom line:** The accessibility coordinator needs organizational authority to set policy and allocate resources. The coordinator should meet with web developers and content creators who are doing the compliance work, gather information from them, and report back to executive staff. Web developers and content creators are essential technical resources, but they're busy doing the work — the coordinator's role is to coordinate, gather information, and make strategic decisions at the organizational level.
+
+**See also:** [I want to understand the full scope of accessibility requirements, but web developers and content creators aren't part of executive staff. Who should I talk to?](#getting-started-i-want-to-understand-the-full-scope-of-accessibili) for more on who to consult for different types of questions.
 
 ### I want to understand the full scope of accessibility requirements, but web developers and content creators aren't part of executive staff. Who should I talk to?
 
@@ -2089,4 +2168,4 @@ Illinois DoIT recommends including language similar to:
 
 ---
 
-_Last updated: December 27, 2025_
+_Last updated: December 29, 2025_

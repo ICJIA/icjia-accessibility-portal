@@ -332,7 +332,7 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags
 
-**Last Updated**: December 23, 2025
+**Last Updated**: December 29, 2025
 
 **Node Version**: 22.14.0  
 **Nuxt Version**: 4.0.0+  
