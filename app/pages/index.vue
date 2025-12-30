@@ -102,7 +102,11 @@
               :key="sectionIndex"
               class="faq-section-group"
             >
-              <h2 v-if="section.heading" class="faq-section-heading">
+              <h2
+                v-if="section.heading"
+                :id="slugify(section.heading || '')"
+                class="faq-section-heading"
+              >
                 {{ section.heading }}
               </h2>
 

@@ -23,7 +23,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 | 4. Run Accessibility Checker          | 60 sec       | Catches common errors       |
 | 5. Add captions to videos             | 10-15 min    | Legally required            |
 
-**Start here:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start)
+**Start here:** [I'm a content creator. Where do I start?](#getting-started-im-a-content-creator-where-do-i-start)
 
 ### For Web Developers
 
@@ -35,7 +35,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 | 4. Ensure visible focus indicators | 10 min | Required for keyboard users |
 | 5. Use semantic HTML (not divs)    | 0 sec  | Foundation of accessibility |
 
-**Start here:** [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start)
+**Start here:** [I'm a web developer. Where do I start?](#getting-started-im-a-web-developer-where-do-i-start)
 
 ### For Managers
 
@@ -47,7 +47,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 | 4. Add accessibility to job duties | 15 min    | Set expectations         |
 | 5. Document your remediation plan  | 1 hour    | Show good-faith progress |
 
-**Start here:** [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
+**Start here:** [I'm a manager. Where do I start?](#getting-started-im-a-manager-where-do-i-start)
 
 **April 24, 2026 deadline is firm.** Start now — every small improvement counts.
 
@@ -62,6 +62,38 @@ A practical guide to common accessibility questions for staff at Illinois state 
 **Full explanation:**
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
+
+### Why is this FAQ so long?
+
+{new:2025-12-30}
+
+**Quick answer:** Accessibility is complex — there's no one-click fix, and it touches every role and content type. This FAQ is comprehensive because it needs to address questions from content creators, web developers, managers, and procurement staff. It covers websites, documents, videos, social media, and third-party tools.
+
+**Full explanation:**
+
+**Accessibility is genuinely complicated:**
+
+- **There's no single solution** — Unlike some compliance requirements that can be addressed with one policy change or software update, accessibility requires ongoing attention across every piece of digital content
+- **It affects every role** — Content creators, web developers, designers, managers, procurement staff, and communications teams all have different responsibilities and different questions
+- **It covers many content types** — Websites, PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, videos, social media posts, mobile apps, and third-party tools each have unique accessibility considerations
+- **The standards are detailed** — WCAG 2.1 Level AA contains dozens of specific criteria, and applying them correctly requires understanding both the technical requirements and the real-world use cases
+
+**Why this FAQ can't be shorter:**
+
+1. **Different audiences need different information** — A content creator doesn't need to know about ARIA attributes, but a web developer does. A manager needs to know about resource allocation, but that's not relevant to someone writing alt text
+2. **Real-world scenarios vary** — "Do I need to make this accessible?" depends on whether you're talking about a new document, archived content, a third-party tool, or a password-protected intranet
+3. **Context prevents mistakes** — Brief answers can be misinterpreted. Explaining _why_ something is required (not just _that_ it's required) helps people make good decisions when they encounter situations not explicitly covered here
+4. **Examples are essential** — Showing what accessible vs. inaccessible content looks like takes space, but it's the most effective way to teach accessibility practices
+
+**How to use this FAQ efficiently:**
+
+- **Use the Quick Reference section at the top** — Scroll to the top of this page to see the [Quick Reference: 5 Critical Actions by Role](#quick-reference-5-critical-act) tables showing the 5 most critical actions for your role
+- **Start with your role** — Jump to [I'm a content creator. Where do I start?](#getting-started-im-a-content-creator-where-do-i-start), [I'm a web developer. Where do I start?](#getting-started-im-a-web-developer-where-do-i-start), or [I'm a manager. Where do I start?](#getting-started-im-a-manager-where-do-i-start)
+- **Use the search function** — Press Ctrl+F (or Cmd+F on Mac) to find specific topics
+- **Follow the "See also" links** — Related questions are cross-referenced to help you find relevant information quickly
+- **Don't try to read it all** — This is a reference guide, not a book. Look up what you need when you need it
+
+**The bottom line:** Yes, this FAQ is long — because accessibility is complex, and providing accurate, actionable guidance for diverse roles and situations requires detail. However, you don't need to read it all. Use it as a reference when specific questions arise, and start with the [Quick Reference section at the top](#quick-reference-5-critical-act) or the "Where do I start?" questions for your role.
 
 ### How does digital accessibility and compliance fit into an agency's DEIA mission?
 
@@ -122,7 +154,7 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Covered Content</a> (see section on "What Web Content and Mobile Apps Are Covered")
 
-**See also:** [How do I make mobile apps accessible?](#how-do-i-make-mobile-apps-accessible)
+**See also:** [How do I make mobile apps accessible?](#website-accessibility-how-do-i-make-mobile-apps-accessible)
 
 ### Why does accessibility compliance require everyone's participation?
 
@@ -366,7 +398,7 @@ Your training in accessibility best practices and your current work solving acce
 
 **The bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. If you're unsure about any claim, use the linked sources — the authoritative sources (DOJ, DoIT, W3C) are always the final word.
 
-**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#i-prefer-to-talk-to-someone-rather-than-read-faqs) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
+**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#general-accessibility-question-i-prefer-to-talk-to-someone-rather-than-read-faqs) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
 
 ### I'm waiting for a presentation on accessibility. Should I start work in my unit based on the info in this FAQ or wait for the DoIT presentation?
 
@@ -379,7 +411,7 @@ Your training in accessibility best practices and your current work solving acce
 - **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens
 - **The basics are available now** — These FAQs cover the core requirements and common fixes. A presentation adds context and Q&A, but you can begin with the fundamentals today.
 - **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done
-- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there
+- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#general-accessibility-question-what-are-the-most-common-accessibility-mistakes-to)) and build from there
 
 **What you can start doing today:**
 
@@ -423,7 +455,7 @@ Your training in accessibility best practices and your current work solving acce
 
 **Bottom line:** Start making your content accessible now using the information in these FAQs. Use a DoIT presentation to ask questions and confirm how the requirements apply to your specific agency, but don't delay the work until training happens.
 
-**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-im-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#getting-started-im-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#getting-started-im-a-manager-where-do-i-start)
 
 ### What are the most common accessibility mistakes to avoid?
 
@@ -545,7 +577,7 @@ _Accessible approach:_ Full report content published as webpage text with proper
 - **ARIA Authoring Practices** — <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA APG</a> (use semantic HTML first; ARIA second)
 - **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a>
 
-**See also:** [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility) | [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues)
+**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-iss)
 
 **Essential development practices:**
 
@@ -743,7 +775,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **What this means for content creators:**
 
-If you're creating documents, PDFs, or other content files, you're responsible for making those accessible — the website accessibility reports don't cover your content. See: [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible) | [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) | [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible)
+If you're creating documents, PDFs, or other content files, you're responsible for making those accessible — the website accessibility reports don't cover your content. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) | [How do I make a PDF accessible?](#content-accessibility-document-how-do-i-make-a-pdf-accessible) | [How do I make a Word document accessible?](#content-accessibility-document-how-do-i-make-a-word-document-accessible)
 
 ### Do we need an accessibility coordinator? Can't the web developer just take care of it?
 
@@ -833,7 +865,7 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 
 **The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
 
-**See also:** [What happens after April 24, 2026?](#what-happens-after-april-24-2026) for details on enforcement and consequences of non-compliance.
+**See also:** [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) for details on enforcement and consequences of non-compliance.
 
 **References:**
 
@@ -895,7 +927,7 @@ While enforcement is typically at the agency level, individuals may experience:
 
 **The bottom line:** If it's digital and public-facing, it needs to be accessible by April 24, 2026. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
 
-**See also:** [What does the April 2026 deadline cover?](#what-does-the-april-2026-deadline-cover) for details on what content is included.
+**See also:** [What does the April 2026 deadline cover?](#general-accessibility-question-what-does-the-april-2026-deadline-cover) for details on what content is included.
 
 **References:**
 
@@ -1259,7 +1291,7 @@ Use a combination of automated and manual testing:
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
+**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-iss) | [I'm a web developer. Where do I start?](#getting-started-im-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do)
 
 **WCAG References:**
 
@@ -1270,7 +1302,7 @@ Use a combination of automated and manual testing:
 
 ### What are the most common website accessibility issues?
 
-**See also:** [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid) | [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility)
+**See also:** [What are the most common accessibility mistakes to avoid?](#general-accessibility-question-what-are-the-most-common-accessibility-mistakes-to) | [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
 1. **Missing or inadequate alt text** for images
 2. **Poor color contrast** between text and background
@@ -1410,7 +1442,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 - <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
-**See also:** [How do I test my website for accessibility?](#how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#what-does-the-april-2026-deadline-cover)
+**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#general-accessibility-question-what-does-the-april-2026-deadline-cover)
 
 ### What about third-party widgets, embedded content, dashboards, and maps?
 
@@ -1431,13 +1463,13 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 1. **Request accessibility documentation** (VPAT/ACR) from vendors before purchasing
 2. **Include accessibility requirements in contracts** (require WCAG 2.1 Level AA)
-3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do))
+3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do))
 4. **Provide an accessible alternative** if the tool can't be made accessible:
    - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
    - **Maps:** accessible lists/tables of locations + text explanation of what the map shows
    - **Other tools:** equivalent accessible methods to complete the same service
 
-**For specific tools:** See questions below about [DocuSign](#our-agency-uses-docusign-to-digitally-sign-documen), [LMS systems](#is-a-learning-management-system-lms-like-docebo-wc), and [existing content like Tableau or ArcGIS](#if-we-have-existing-content-like-tableau-dashboard).
+**For specific tools:** See questions below about [DocuSign](#website-accessibility-our-agency-uses-docusign-to-digitally-sign-documen), [LMS systems](#website-accessibility-is-a-learning-management-system-lms-like-docebo-wc), and [existing content like Tableau or ArcGIS](#website-accessibility-if-we-have-existing-content-like-tableau-dashboard).
 
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
 
@@ -1577,7 +1609,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can’t “fix” an inaccessible document.
 2. **Request DocuSign’s current VPAT/ACR** for your version and configuration.
-3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
+3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do)
 4. **Have an accessible alternative** if a user can’t complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
 
 **The bottom line:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
@@ -1601,7 +1633,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 4. **Structure** — Clear headings and descriptive link text; predictable navigation and module names.
 5. **Interactivity** — Quizzes/forms are keyboard accessible, with clear labels and error messages.
 6. **Color** — Sufficient contrast and no “color-only” meaning.
-7. **Test the course** using: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
+7. **Test the course** using: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do)
 
 **Resources:**
 
@@ -1626,7 +1658,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 3. **Make it accessible or provide an equivalent accessible alternative**, such as:
    - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
    - **Courses:** accessible documents + captions/transcripts + accessible quiz interactions
-4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
+4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do)
 5. **Document** what you changed, what remains, and the alternatives you provide
 
 **Tool-specific notes (common pain points):**
@@ -1869,7 +1901,7 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 
 ### How do I make a Word document accessible?
 
-**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-acce) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 
 **Step-by-step workflow for creating an accessible Word document:**
 
@@ -1935,7 +1967,7 @@ Key steps for accessible Word documents:
 
 ### How do I make a PDF accessible?
 
-**See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-acce) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 
 **Accessibility best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a PDF, follow the steps below.
 
@@ -2268,7 +2300,7 @@ If you have a question that isn't covered here, or if you find information that'
 
 **Why web developers maintain this FAQ:**
 
-ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [Can I trust accessibility information from non-executive staff?](#can-i-trust-accessibility-information-from-non-exe)
+ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [Can I trust accessibility information from non-executive staff?](#general-accessibility-question-can-i-trust-accessibility-information-from-non-exe)
 
 **The bottom line:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 7 days. Check the last-updated date at the bottom for the most recent revision.
 
