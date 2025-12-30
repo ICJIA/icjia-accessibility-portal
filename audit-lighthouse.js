@@ -17,28 +17,31 @@
 /**
  * Target Environment Configuration
  *
- * Choose whether to run the audit against the development server, generated static site, or production.
+ * Choose whether to run the audit against the production server, generated static site, or development server.
  *
  * OPTIONS:
- * - "production" - Tests against the live production server (recommended for real-world metrics)
- * - "generated" - Tests against the locally generated static site (default: port 3000)
+ * - "production" - Tests against the live production server (DEFAULT - recommended for real-world metrics)
+ *                  Tests against: https://accessibility.icjia.app
+ * - "generated" - Tests against the locally generated static site on port 5150
  *                 Requires running 'yarn generate' first. The script will start a local server
  *                 to serve the generated site from .output/public
- * - "development" - Tests against the local development server (runs on LOCAL_SERVER_PORT)
+ *                 Use this to test optimizations locally before deploying
+ * - "development" - Tests against the local development server on port 3000
+ *                   The script will start 'yarn dev' if not already running
  *
  * @example
- * // To test against production:
+ * // To test against production (default - recommended):
  * const TARGET_ENV = "production";
  *
- * // To test against generated static site (recommended for testing optimizations):
- * const TARGET_ENV = "generated";
+ * // To test against generated static site (for testing optimizations locally):
+ * //const TARGET_ENV = "generated";
  *
  * // To test against local dev server:
- * const TARGET_ENV = "development";
+ * //const TARGET_ENV = "development";
  */
-const TARGET_ENV = "generated"; // Default: test against locally generated static site
-//const TARGET_ENV = "production"; // Uncomment to test against production URL
-//const TARGET_ENV = "development"; // Uncomment to test against local dev server
+const TARGET_ENV = "production"; // Default: test against production URL (recommended)
+//const TARGET_ENV = "generated"; // Uncomment to test against locally generated static site on port 5150
+//const TARGET_ENV = "development"; // Uncomment to test against local dev server on port 3000
 
 /**
  * Production URL Configuration
@@ -51,10 +54,11 @@ const PRODUCTION_URL = "https://accessibility.icjia.app";
  * Server Port Configuration
  *
  * The port number for local servers.
- * - Used for generated static site when TARGET_ENV is "generated" (matches yarn generate:serve port)
- * - Used for development server when TARGET_ENV is "development"
+ * - Used for generated static site when TARGET_ENV is "generated" (default: 5150, matches yarn generate:serve port)
+ * - Used for development server when TARGET_ENV is "development" (default: 3000)
  */
-const LOCAL_SERVER_PORT = 5150; // Port for local server (generated or dev)
+const LOCAL_SERVER_PORT = 5150; // Port for generated static site (matches yarn generate:serve)
+const DEV_SERVER_PORT = 3000; // Port for development server
 
 /**
  * File Paths Configuration
@@ -146,7 +150,7 @@ const SITE_INFO = {
  *
  * Usage: npm run audit:lighthouse
  *
- * Configuration: Edit TARGET_ENV, PRODUCTION_URL, and LOCAL_SERVER_PORT in the
+ * Configuration: Edit TARGET_ENV, PRODUCTION_URL, LOCAL_SERVER_PORT, and DEV_SERVER_PORT in the
  *                developer configuration section at the top of this file
  */
 
@@ -173,7 +177,9 @@ const JSON_REPORT_FILE = path.join(OUTPUT_DIR, JSON_REPORT_FILE_NAME);
 const BASE_URL =
   TARGET_ENV === "production"
     ? PRODUCTION_URL
-    : `http://localhost:${LOCAL_SERVER_PORT}`;
+    : TARGET_ENV === "generated"
+      ? `http://localhost:${LOCAL_SERVER_PORT}`
+      : `http://localhost:${DEV_SERVER_PORT}`;
 
 /**
  * Check if the target server is accessible
@@ -1540,15 +1546,13 @@ async function runAudit() {
   } else {
     // Development server
     console.log(
-      `Checking if dev server is running on port ${LOCAL_SERVER_PORT}...`
+      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`
     );
     let serverRunning = await checkServer();
     let serverWasAlreadyRunning = false;
 
     if (!serverRunning) {
-      console.log(
-        `   ⚠️  Dev server not detected on port ${LOCAL_SERVER_PORT}`
-      );
+      console.log(`   ⚠️  Dev server not detected on port ${DEV_SERVER_PORT}`);
       console.log(`   🚀 Starting dev server now...`);
       try {
         devServerProcess = await startDevServer();
@@ -1577,7 +1581,7 @@ async function runAudit() {
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     );
     console.log(`📍 Dev Server Status:`);
-    console.log(`   Port: ${LOCAL_SERVER_PORT}`);
+    console.log(`   Port: ${DEV_SERVER_PORT}`);
     console.log(
       `   Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
     );

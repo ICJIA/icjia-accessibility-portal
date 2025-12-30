@@ -12,7 +12,10 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'apple-touch-icon', href: '/favicon.svg' }
+        { rel: 'apple-touch-icon', href: '/favicon.svg' },
+        // Preconnect to external domains for faster DNS resolution
+        { rel: 'preconnect', href: 'https://plausible.icjia.cloud' },
+        { rel: 'dns-prefetch', href: 'https://plausible.icjia.cloud' }
       ]
     }
   },
@@ -103,11 +106,13 @@ export default defineNuxtConfig({
     payloadExtraction: false
   },
 
-  // Vite CSS optimization to reduce render-blocking resources
+  // Vite optimization to reduce render-blocking resources and improve performance
   vite: {
     build: {
       cssCodeSplit: true, // Split CSS into smaller chunks
       cssMinify: true // Minify CSS for faster loading
+      // Removed manualChunks to avoid circular dependency issues
+      // Nuxt's default code splitting is sufficient
     },
     css: {
       devSourcemap: false // Disable sourcemaps in production for smaller files
