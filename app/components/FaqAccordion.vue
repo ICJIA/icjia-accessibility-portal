@@ -341,11 +341,11 @@ onMounted(async () => {
  */
 function formatDate(dateStr: string): string {
   try {
-    const date = new Date(dateStr);
-    const month = date.toLocaleDateString('en-US', { month: 'short' });
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${month} ${day}, ${year}`;
+    // Parse date components directly to avoid timezone issues
+    const [year, month, day] = dateStr.split('-').map(Number);
+    const date = new Date(year, month - 1, day); // month is 0-indexed
+    const monthName = date.toLocaleDateString('en-US', { month: 'short' });
+    return `${monthName} ${day}, ${year}`;
   } catch {
     return dateStr;
   }

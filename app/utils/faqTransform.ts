@@ -3,7 +3,7 @@ type MiniMarkNode = any
 /**
  * Number of days a question is considered "new"
  */
-const NEW_QUESTION_DAYS = 7
+const NEW_QUESTION_DAYS = 10
 
 function isElementNode(node: MiniMarkNode): node is any[] {
   return Array.isArray(node) && typeof node[0] === 'string'
