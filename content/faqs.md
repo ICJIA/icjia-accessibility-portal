@@ -248,11 +248,11 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
-### I prefer to get information from executive staff. Who should I talk to about accessibility? Can I trust information from web developers and content creators who aren't part of executive staff?
+### Can I trust accessibility information from non-executive staff?
 
 {new:2025-12-30}
 
-**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers and content creators have hands-on experience and are excellent resources — even if they're not in leadership roles. You don't need to trust web developers personally — trust the verified sources these FAQs cite. Every claim links back to official, authoritative sources (DOJ, Illinois DoIT, WCAG standards) that you can verify yourself.
+**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers and content creators have hands-on experience and are excellent resources — even if they're not in leadership roles. Regardless of who compiled these FAQs, every key claim is sourced to official references you can verify (DOJ, Illinois DoIT, W3C/WCAG).
 
 **Full explanation:**
 
@@ -277,7 +277,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 **Why this information is trustworthy (regardless of who compiled it):**
 
 - **All content is sourced and verified** — Every claim links back to official, authoritative sources (DOJ, DoIT, WCAG) that you can verify yourself. These are the same sources legal teams and compliance officers use
-- **Web developers have no reason to mislead** — Web developers are working through accessibility compliance requirements just like everyone else — in some cases, they're dealing with more of it than others since they're implementing accessibility standards across multiple websites. They have no incentive to provide inaccurate information
+- **Web developers have no reason to mislead** — Web developers are working through accessibility compliance requirements just like everyone else — and in many cases, they're handling a lot of the day-to-day accessibility work across multiple websites. They have no incentive to provide inaccurate information
 - **They're sharing what they've learned** — Web developers have been implementing WCAG 2.1 Level AA standards for years and have encountered real-world challenges. They've compiled what they've learned into these FAQs to help others avoid the same pitfalls
 - **The information is verifiable** — You don't have to take anyone's word for it. Every FAQ answer includes links to official sources. If you have concerns, check the sources yourself or go directly to DoIT, DOJ, or W3C documentation
 
@@ -320,7 +320,7 @@ If you've been working on accessibility for years, your expertise is valuable an
 
 Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator, not executive staff, gives you the ground-level perspective that makes accessibility implementation successful.
 
-**The bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. Both perspectives are needed, and both are valuable. You may or may not trust specific web developers personally, but you can trust that this content has been verified and sourced. Every claim can be traced back to DOJ, DoIT, or W3C sources. Web developers compiled and organized this information — they're working through accessibility compliance just like everyone else (in some cases, more so), and they have no reason to mislead anyone. They've included what they've learned in these FAQs to help others. The point isn't to trust web developers — it's to trust the verified information here, or if you prefer, go directly to the original sources. The FAQs are a practical guide, but the authoritative sources (DOJ, DoIT, W3C) are always the final word.
+**The bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. If you're unsure about any claim, use the linked sources — the authoritative sources (DOJ, DoIT, W3C) are always the final word.
 
 **See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#i-prefer-to-talk-to-someone-rather-than-read-faqs) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
 
@@ -430,7 +430,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Here's your quickstart guide:
 
-**DoIT best practice:** Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When possible, publish content as webpage text rather than PDFs.
+**Accessibility best practice:** When possible, publish content as webpage text (HTML) rather than PDFs. HTML webpages are generally easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
 
 **Visual example of accessible vs. inaccessible content:**
 
@@ -676,7 +676,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 {new:2025-12-30}
 
-**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here are some recent ICJIA accessibility reports: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" onclick="event.preventDefault(); window.location.href = 'https://accessibility.icjia.app/docs/accessibility/index.html'; return false;">ICJIA Accessibility Portal (this site)</a> | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site</a> | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site</a>. More reports will be added as each site goes through accessibility audits.
+**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here are some recent ICJIA accessibility reports: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a> | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site</a> | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site</a>. Additional reports may be added as sites are audited.
 
 **Full explanation:**
 
@@ -686,7 +686,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 - **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer (similar to this portal)
 - **Reports are site-specific** — Each website will have its own report documenting that site's accessibility status
-- **Available reports** — These are some recent ICJIA accessibility reports. More will be added as each site goes through accessibility audits:
+- **Available reports** — These are some recent ICJIA accessibility reports. Additional reports may be added as sites are audited:
   - <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a>
   - <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site (r3.illinois.gov)</a>
   - <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site (i2i.illinois.gov)</a>
@@ -1811,7 +1811,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
 
-**DoIT best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a document format, ensure it's accessible.
+**Accessibility best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a document format, ensure it's accessible.
 
 - PDFs
 - Word documents
@@ -1893,7 +1893,7 @@ Key steps for accessible Word documents:
 
 **See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
 
-**DoIT best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a PDF, follow the steps below.
+**Accessibility best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a PDF, follow the steps below.
 
 The best approach depends on the source:
 
@@ -2011,7 +2011,7 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
-**DoIT best practice for newsletters:** Illinois DoIT generally recommends publishing newsletter content as webpage text when feasible instead of as PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage description that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF.
+**Accessibility best practice for newsletters:** When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
 
 **Email accessibility essentials:**
 
