@@ -171,8 +171,13 @@ To deploy:
 │   ├── sitemap.xml          # Auto-generated sitemap (excludes /docs/ routes)
 │   └── docs/
 │       ├── index.html       # Documentation portal index
-│       └── accessibility/
-│           └── index.html   # Accessibility audit report (generated)
+│       ├── accessibility/
+│       │   ├── index.html   # Accessibility audit report (generated)
+│       │   ├── errors.json  # Accessibility errors data
+│       │   └── violations.json  # Accessibility violations data
+│       └── lighthouse/
+│           ├── index.html   # Lighthouse audit report (generated)
+│           └── report.json  # Lighthouse audit data
 ├── scripts/
 │   ├── generate-routes.js  # Routes generation script (scans pages and content)
 │   ├── generate-sitemap.js  # Sitemap generation script
@@ -267,6 +272,47 @@ yarn generate:accessibility
 - Or access via the documentation portal: `http://localhost:[port]/docs`
 - The report is also available in the footer navigation (Accessibility Report link)
 
+#### 3. Lighthouse Performance Audit (`yarn audit:lighthouse`)
+
+A performance and best practices audit using Google Lighthouse that generates comprehensive reports for all pages.
+
+```bash
+# First, start a server (choose one):
+yarn dev              # Development server (port 3000)
+yarn preview          # Preview server (port 3000)
+yarn generate:serve  # Generated site server (port 5150)
+
+# Then, in another terminal, run the Lighthouse audit:
+yarn audit:lighthouse
+```
+
+**Features:**
+
+- **Uses sitemap.xml** - Automatically audits all pages listed in the sitemap
+- **Comprehensive metrics** - Tests performance, accessibility, best practices, SEO, and PWA (if applicable)
+- **HTML report generation** - Creates detailed HTML reports for each page
+- **JSON data export** - Generates JSON data files for programmatic analysis
+- **Report location** - Generated at `/public/docs/lighthouse/index.html` and accessible at `/docs/lighthouse`
+- **Documentation portal** - Report is accessible via the documentation portal at `/docs`
+
+**Report Contents:**
+
+- Performance scores and metrics (LCP, FID, CLS, etc.)
+- Accessibility scores (powered by axe-core)
+- Best practices recommendations
+- SEO analysis
+- Detailed recommendations for each metric
+
+**Requirements:**
+
+- A server must be running (dev, preview, or generate:serve)
+- Chrome/Chromium must be available (Lighthouse uses Chrome Launcher)
+
+**Accessing the Report:**
+
+- After generation, view the report at: `http://localhost:[port]/docs/lighthouse`
+- Or access via the documentation portal: `http://localhost:[port]/docs`
+
 #### Why axe-core?
 
 **axe-core** is the industry-standard accessibility testing engine used by major tools and organizations worldwide. Here's why it's as effective as commercial solutions like SiteImprove or Google Lighthouse:
@@ -332,7 +378,7 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 - ✅ Accessibility features implemented and tested
 - ✅ SEO optimized with proper meta tags
 
-**Last Updated**: December 29, 2025
+**Last Updated**: December 30, 2025
 
 **Node Version**: 22.14.0  
 **Nuxt Version**: 4.0.0+  
