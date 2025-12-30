@@ -90,6 +90,179 @@ const AXE_RULE_CONFIG = {
 };
 
 /**
+ * File Paths Configuration
+ *
+ * Configure where the script should look for the sitemap and where to save reports.
+ * All paths are relative to the script's directory (__dirname).
+ * These will be constructed after imports are loaded.
+ */
+const SITEMAP_PATH_CONFIG = "public/sitemap.xml"; // Relative to script directory
+const OUTPUT_DIR_CONFIG = "public/docs/accessibility"; // Relative to script directory
+const REPORT_FILE_NAME = "index.html"; // Filename in OUTPUT_DIR
+
+/**
+ * Viewport Configuration
+ *
+ * Define the viewport sizes to test. Each viewport will be tested for every URL.
+ */
+const VIEWPORTS = [
+  { width: 1920, height: 1080, name: "desktop" },
+  { width: 768, height: 1024, name: "tablet" },
+  { width: 375, height: 812, name: "mobile" },
+];
+
+/**
+ * Theme Configuration
+ *
+ * Configure which themes to test and how to switch between them.
+ * The script will automatically detect theme switching mechanisms, or you can configure them manually.
+ */
+const THEME_CONFIG = {
+  themes: [{ name: "dark", value: "dark" }], // Default: dark mode only
+  switching: {
+    mode: "none", // Default: no theme switching (single theme site)
+    // For mode: "auto" - automatically detects Vuetify-style theme toggle
+    // For mode: "manual" - provide:
+    //   toggleSelector: 'input[type="checkbox"][role="switch"]',
+    //   darkClass: "v-theme--dark",
+    //   localStorageKey: "theme",
+  },
+};
+
+/**
+ * Skip Link Configuration
+ *
+ * Configure how the script should detect and verify skip links on your site.
+ */
+const SKIP_LINK_CONFIG = {
+  selector: 'a[href="#main-content"], a.skip-link, a[class*="skip"]',
+  targetId: "main-content", // Without the # symbol
+};
+
+/**
+ * Axe Exclude Selectors
+ *
+ * CSS selectors for elements that should be excluded from accessibility testing.
+ * These are typically framework-specific wrapper elements that don't need to be tested.
+ */
+const AXE_EXCLUDE_SELECTORS = [["#__nuxt"]]; // Default: Nuxt root container
+
+/**
+ * Development Server Command
+ *
+ * The command to start the development server. This is used when TARGET_ENV is "development"
+ * and the server is not already running.
+ */
+const DEV_SERVER_COMMAND = { command: "npm", args: ["run", "dev"] };
+
+/**
+ * Site Information Configuration
+ *
+ * Information about your site for display in the HTML report.
+ */
+const SITE_INFO = {
+  name: "ICJIA Accessibility Portal",
+  description:
+    "Accessibility compliance portal for Illinois Criminal Justice Information Authority",
+};
+
+/**
+ * Compliance Standards Configuration
+ *
+ * Define which accessibility standards your site needs to comply with.
+ * This information is displayed in the HTML report.
+ */
+const COMPLIANCE_STANDARDS = [
+  {
+    name: "IITAA Accessibility Standards for Illinois",
+    description:
+      "The Illinois Information Technology Accessibility (IITAA) standards require that all state websites and digital services be accessible to individuals with disabilities. These standards align with WCAG 2.1 Level AA and Section 508 requirements, ensuring that Illinois state websites are usable by all residents, including those using assistive technologies.",
+    links: [
+      {
+        text: "IITAA Standards Documentation",
+        url: "https://doit.illinois.gov/initiatives/accessibility/iitaa.html",
+      },
+      {
+        text: "IITAA Accessibility Requirements",
+        url: "https://doit.illinois.gov/initiatives/accessibility/iitaa.html",
+      },
+    ],
+  },
+  {
+    name: "WCAG 2.1 Level AA Guidelines",
+    description:
+      "The Web Content Accessibility Guidelines (WCAG) 2.1 Level AA are internationally recognized standards for web accessibility. These guidelines provide a comprehensive framework for making web content accessible to people with disabilities, including those with visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.",
+    links: [
+      {
+        text: "WCAG 2.1 Quick Reference",
+        url: "https://www.w3.org/WAI/WCAG21/quickref/",
+      },
+      {
+        text: "Understanding WCAG 2.1",
+        url: "https://www.w3.org/WAI/WCAG21/Understanding/",
+      },
+      {
+        text: "WCAG 2.1 Guidelines",
+        url: "https://www.w3.org/WAI/WCAG21/guidelines/",
+      },
+    ],
+  },
+  {
+    name: "ADA Title II Requirements",
+    description:
+      "Americans with Disabilities Act (ADA) Title II requires that state and local governments ensure their services, programs, and activities are accessible to people with disabilities. This includes websites and digital services. Title II applies to all state and local government entities, including public universities, libraries, and other government-operated websites.",
+    links: [
+      {
+        text: "ADA Title II Overview",
+        url: "https://www.ada.gov/topics/ada-state-and-local-governments/",
+      },
+      {
+        text: "ADA Title II Web Rule",
+        url: "https://www.ada.gov/resources/2024-03-08-web-rule/",
+      },
+      {
+        text: "ADA Web Accessibility Requirements",
+        url: "https://www.ada.gov/resources/2024-03-08-web-rule/",
+      },
+    ],
+  },
+];
+
+/**
+ * Framework Information Configuration
+ *
+ * Information about the frameworks used in your application.
+ * This is displayed in the HTML report to explain why certain rules may be disabled.
+ */
+const FRAMEWORK_INFO = {
+  name: "Nuxt and Vuetify",
+  description: "This accessibility portal is built using Nuxt and Vuetify",
+  frameworks: [
+    {
+      name: "Nuxt",
+      description:
+        "Nuxt is a Vue.js-based framework that provides server-side rendering, static site generation, and a powerful development experience for building modern web applications.",
+    },
+    {
+      name: "Vuetify",
+      description:
+        "Vuetify is a Vue.js component framework that provides Material Design components and a comprehensive set of UI elements.",
+    },
+  ],
+};
+
+/**
+ * Axe-core Version
+ *
+ * The version of axe-core being used. Will be read from package.json after imports.
+ * Set a default value here, will be overridden after imports are loaded.
+ */
+const AXE_VERSION_DEFAULT = "4.11.0";
+
+// Note: SITEMAP_PATH, OUTPUT_DIR, REPORT_FILE, and AXE_VERSION will be constructed
+// after imports are loaded (see below)
+
+/**
  * ============================================================================
  * END OF DEVELOPER CONFIGURATION
  * ============================================================================
@@ -129,25 +302,33 @@ import { spawn } from "child_process";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Construct file paths from configuration
+const SITEMAP_PATH = path.join(__dirname, ...SITEMAP_PATH_CONFIG.split("/"));
+const OUTPUT_DIR = path.join(__dirname, ...OUTPUT_DIR_CONFIG.split("/"));
+const REPORT_FILE = path.join(OUTPUT_DIR, REPORT_FILE_NAME);
+
+// Read axe-core version from package.json
+let AXE_VERSION = AXE_VERSION_DEFAULT;
+try {
+  const packageJson = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "package.json"), "utf8")
+  );
+  AXE_VERSION =
+    packageJson.devDependencies?.["axe-core"]?.replace(/[\^~]/, "") ||
+    packageJson.dependencies?.["axe-core"]?.replace(/[\^~]/, "") ||
+    AXE_VERSION_DEFAULT;
+} catch (e) {
+  // Use fallback
+}
+
 // Determine base URL based on target environment
 const BASE_URL =
   TARGET_ENV === "production"
     ? PRODUCTION_URL
     : `http://localhost:${DEV_SERVER_PORT}`;
 
-const SITEMAP_PATH = path.join(__dirname, "public", "sitemap.xml");
-const OUTPUT_DIR = path.join(__dirname, "public", "docs", "accessibility");
-const REPORT_FILE = path.join(OUTPUT_DIR, "index.html");
-
-const VIEWPORTS = [
-  { width: 1920, height: 1080, name: "desktop" },
-  { width: 768, height: 1024, name: "tablet" },
-  { width: 375, height: 812, name: "mobile" },
-];
-
-// No theme switching - site is permanently dark mode
-// Keeping THEMES array for compatibility with report generation, but only dark is used
-const THEMES = [{ name: "dark", value: "dark" }];
+// For backward compatibility, create THEMES array from THEME_CONFIG
+const THEMES = THEME_CONFIG.themes;
 
 /**
  * Check if the target server is accessible
@@ -181,12 +362,16 @@ async function checkServer() {
  */
 async function startDevServer() {
   return new Promise((resolve, reject) => {
-    // Spawn the dev server process
-    const devServer = spawn("npm", ["run", "dev"], {
-      cwd: __dirname,
-      stdio: "pipe",
-      shell: true,
-    });
+    // Spawn the dev server process using configured command
+    const devServer = spawn(
+      DEV_SERVER_COMMAND.command,
+      DEV_SERVER_COMMAND.args,
+      {
+        cwd: __dirname,
+        stdio: "pipe",
+        shell: true,
+      }
+    );
 
     let serverReady = false;
 
@@ -286,134 +471,140 @@ async function parseSitemap() {
  */
 async function runAxeAudit(page) {
   await page.addScriptTag({ content: axeCore.source });
-  // Pass AXE_RULE_CONFIG values into the browser context
-  return await page.evaluate(async (ruleConfig) => {
-    // Configure axe to exclude rules that can't be fixed due to framework limitations
-    // Enable best practice rules for enhanced accessibility testing
+  // Pass AXE_RULE_CONFIG and AXE_EXCLUDE_SELECTORS into the browser context
+  return await page.evaluate(
+    async (ruleConfig, excludeSelectors) => {
+      // Configure axe to exclude rules that can't be fixed due to framework limitations
+      // Enable best practice rules for enhanced accessibility testing
 
-    // Build rules object - explicitly set each rule from AXE_RULE_CONFIG
-    // This ensures rules are dynamically applied as configured
-    const rulesConfig = {};
+      // Build rules object - explicitly set each rule from AXE_RULE_CONFIG
+      // This ensures rules are dynamically applied as configured
+      const rulesConfig = {};
 
-    // Framework-specific rules
-    if (ruleConfig.hasOwnProperty("aria-allowed-role")) {
-      rulesConfig["aria-allowed-role"] = {
-        enabled: ruleConfig["aria-allowed-role"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("scrollable-region-focusable")) {
-      rulesConfig["scrollable-region-focusable"] = {
-        enabled: ruleConfig["scrollable-region-focusable"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("landmark-banner-is-top-level")) {
-      rulesConfig["landmark-banner-is-top-level"] = {
-        enabled: ruleConfig["landmark-banner-is-top-level"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("landmark-contentinfo-is-top-level")) {
-      rulesConfig["landmark-contentinfo-is-top-level"] = {
-        enabled: ruleConfig["landmark-contentinfo-is-top-level"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("landmark-main-is-top-level")) {
-      rulesConfig["landmark-main-is-top-level"] = {
-        enabled: ruleConfig["landmark-main-is-top-level"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("landmark-unique")) {
-      rulesConfig["landmark-unique"] = {
-        enabled: ruleConfig["landmark-unique"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("region")) {
-      rulesConfig["region"] = { enabled: ruleConfig["region"] };
-    }
+      // Framework-specific rules
+      if (ruleConfig.hasOwnProperty("aria-allowed-role")) {
+        rulesConfig["aria-allowed-role"] = {
+          enabled: ruleConfig["aria-allowed-role"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("scrollable-region-focusable")) {
+        rulesConfig["scrollable-region-focusable"] = {
+          enabled: ruleConfig["scrollable-region-focusable"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("landmark-banner-is-top-level")) {
+        rulesConfig["landmark-banner-is-top-level"] = {
+          enabled: ruleConfig["landmark-banner-is-top-level"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("landmark-contentinfo-is-top-level")) {
+        rulesConfig["landmark-contentinfo-is-top-level"] = {
+          enabled: ruleConfig["landmark-contentinfo-is-top-level"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("landmark-main-is-top-level")) {
+        rulesConfig["landmark-main-is-top-level"] = {
+          enabled: ruleConfig["landmark-main-is-top-level"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("landmark-unique")) {
+        rulesConfig["landmark-unique"] = {
+          enabled: ruleConfig["landmark-unique"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("region")) {
+        rulesConfig["region"] = { enabled: ruleConfig["region"] };
+      }
 
-    // Best practice rules (always enabled)
-    rulesConfig["meta-viewport"] = { enabled: true };
-    rulesConfig["frame-title"] = { enabled: true };
-    rulesConfig["html-xml-lang-mismatch"] = { enabled: true };
+      // Best practice rules (always enabled)
+      rulesConfig["meta-viewport"] = { enabled: true };
+      rulesConfig["frame-title"] = { enabled: true };
+      rulesConfig["html-xml-lang-mismatch"] = { enabled: true };
 
-    // Experimental rules - explicitly enable/disable based on config
-    // These rules need to be explicitly set to run, even if they're experimental
-    if (ruleConfig.hasOwnProperty("css-orientation-lock")) {
-      rulesConfig["css-orientation-lock"] = {
-        enabled: ruleConfig["css-orientation-lock"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("focus-order-semantics")) {
-      rulesConfig["focus-order-semantics"] = {
-        enabled: ruleConfig["focus-order-semantics"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("hidden-content")) {
-      rulesConfig["hidden-content"] = { enabled: ruleConfig["hidden-content"] };
-    }
-    if (ruleConfig.hasOwnProperty("identical-links-same-purpose")) {
-      rulesConfig["identical-links-same-purpose"] = {
-        enabled: ruleConfig["identical-links-same-purpose"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("label-content-name-mismatch")) {
-      rulesConfig["label-content-name-mismatch"] = {
-        enabled: ruleConfig["label-content-name-mismatch"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("link-in-text-block")) {
-      rulesConfig["link-in-text-block"] = {
-        enabled: ruleConfig["link-in-text-block"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("no-autoplay-audio")) {
-      rulesConfig["no-autoplay-audio"] = {
-        enabled: ruleConfig["no-autoplay-audio"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("page-has-heading-one")) {
-      rulesConfig["page-has-heading-one"] = {
-        enabled: ruleConfig["page-has-heading-one"],
-      };
-    }
-    if (ruleConfig.hasOwnProperty("presentation-role-conflict")) {
-      rulesConfig["presentation-role-conflict"] = {
-        enabled: ruleConfig["presentation-role-conflict"],
-      };
-    }
+      // Experimental rules - explicitly enable/disable based on config
+      // These rules need to be explicitly set to run, even if they're experimental
+      if (ruleConfig.hasOwnProperty("css-orientation-lock")) {
+        rulesConfig["css-orientation-lock"] = {
+          enabled: ruleConfig["css-orientation-lock"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("focus-order-semantics")) {
+        rulesConfig["focus-order-semantics"] = {
+          enabled: ruleConfig["focus-order-semantics"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("hidden-content")) {
+        rulesConfig["hidden-content"] = {
+          enabled: ruleConfig["hidden-content"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("identical-links-same-purpose")) {
+        rulesConfig["identical-links-same-purpose"] = {
+          enabled: ruleConfig["identical-links-same-purpose"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("label-content-name-mismatch")) {
+        rulesConfig["label-content-name-mismatch"] = {
+          enabled: ruleConfig["label-content-name-mismatch"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("link-in-text-block")) {
+        rulesConfig["link-in-text-block"] = {
+          enabled: ruleConfig["link-in-text-block"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("no-autoplay-audio")) {
+        rulesConfig["no-autoplay-audio"] = {
+          enabled: ruleConfig["no-autoplay-audio"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("page-has-heading-one")) {
+        rulesConfig["page-has-heading-one"] = {
+          enabled: ruleConfig["page-has-heading-one"],
+        };
+      }
+      if (ruleConfig.hasOwnProperty("presentation-role-conflict")) {
+        rulesConfig["presentation-role-conflict"] = {
+          enabled: ruleConfig["presentation-role-conflict"],
+        };
+      }
 
-    // Build tags array - always include base tags, add experimental if any experimental rules enabled
-    const baseTags = [
-      "wcag2a",
-      "wcag2aa",
-      "wcag21a",
-      "wcag21aa",
-      "best-practice",
-    ];
-    const experimentalRules = [
-      "css-orientation-lock",
-      "focus-order-semantics",
-      "hidden-content",
-      "identical-links-same-purpose",
-      "label-content-name-mismatch",
-      "link-in-text-block",
-      "no-autoplay-audio",
-      "page-has-heading-one",
-      "presentation-role-conflict",
-    ];
-    const hasExperimental = experimentalRules.some((rule) => ruleConfig[rule]);
-    const tags = hasExperimental ? [...baseTags, "experimental"] : baseTags;
+      // Build tags array - always include base tags, add experimental if any experimental rules enabled
+      const baseTags = [
+        "wcag2a",
+        "wcag2aa",
+        "wcag21a",
+        "wcag21aa",
+        "best-practice",
+      ];
+      const experimentalRules = [
+        "css-orientation-lock",
+        "focus-order-semantics",
+        "hidden-content",
+        "identical-links-same-purpose",
+        "label-content-name-mismatch",
+        "link-in-text-block",
+        "no-autoplay-audio",
+        "page-has-heading-one",
+        "presentation-role-conflict",
+      ];
+      const hasExperimental = experimentalRules.some(
+        (rule) => ruleConfig[rule]
+      );
+      const tags = hasExperimental ? [...baseTags, "experimental"] : baseTags;
 
-    // When rules are explicitly set in rulesConfig, they should run regardless of tags
-    // However, we still need tags to get the base set of rules
-    // Explicitly enabled rules in rulesConfig will override tag filtering
-    return await axe.run({
-      exclude: [
-        ["#__nuxt"], // Exclude Nuxt root container - it's a framework wrapper
-      ],
-      rules: rulesConfig,
-      tags: tags,
-    });
-  }, AXE_RULE_CONFIG);
+      // When rules are explicitly set in rulesConfig, they should run regardless of tags
+      // However, we still need tags to get the base set of rules
+      // Explicitly enabled rules in rulesConfig will override tag filtering
+      return await axe.run({
+        exclude: excludeSelectors, // Use configured exclude selectors
+        rules: rulesConfig,
+        tags: tags,
+      });
+    },
+    AXE_RULE_CONFIG,
+    AXE_EXCLUDE_SELECTORS
+  );
 }
 
 /**
@@ -423,17 +614,16 @@ async function runAxeAudit(page) {
  * @returns {Promise<{exists: boolean, hasTarget: boolean, keyboardAccessible: boolean, visibleOnFocus: boolean, issues: string[]}>}
  */
 async function verifySkipLink(page) {
-  return await page.evaluate(() => {
+  return await page.evaluate((skipLinkConfig) => {
     const issues = [];
     let exists = false;
     let hasTarget = false;
     let keyboardAccessible = false;
     let visibleOnFocus = false;
+    const targetId = `#${skipLinkConfig.targetId}`;
 
-    // Find skip link - look for links with href="#main-content" or class containing "skip"
-    const skipLink = document.querySelector(
-      'a[href="#main-content"], a.skip-link, a[class*="skip"]'
-    );
+    // Find skip link using configured selector
+    const skipLink = document.querySelector(skipLinkConfig.selector);
 
     if (!skipLink) {
       issues.push("Skip link not found on page");
@@ -444,16 +634,16 @@ async function verifySkipLink(page) {
 
     // Check if skip link has correct href
     const href = skipLink.getAttribute("href");
-    if (href === "#main-content") {
+    if (href === targetId) {
       hasTarget = true;
     } else {
-      issues.push(`Skip link href is "${href}" but should be "#main-content"`);
+      issues.push(`Skip link href is "${href}" but should be "${targetId}"`);
     }
 
     // Check if main content target exists
-    const mainContent = document.getElementById("main-content");
+    const mainContent = document.getElementById(skipLinkConfig.targetId);
     if (!mainContent) {
-      issues.push("Skip link target (#main-content) not found on page");
+      issues.push(`Skip link target (${targetId}) not found on page`);
       hasTarget = false;
     } else {
       // Check if target is focusable (has tabindex or is naturally focusable)
@@ -467,7 +657,7 @@ async function verifySkipLink(page) {
         // Target is focusable
       } else {
         issues.push(
-          "Skip link target (#main-content) should have tabindex='-1' for programmatic focus"
+          `Skip link target (${targetId}) should have tabindex='-1' for programmatic focus`
         );
       }
     }
@@ -515,7 +705,7 @@ async function verifySkipLink(page) {
     }
 
     return { exists, hasTarget, keyboardAccessible, visibleOnFocus, issues };
-  });
+  }, SKIP_LINK_CONFIG);
 }
 
 /**
@@ -734,8 +924,8 @@ function generateHTMLReport(results) {
     };
   });
 
-  // Get axe-core version from the package
-  const axeVersion = "4.11.0";
+  // Get axe-core version from config (already loaded)
+  const axeVersion = AXE_VERSION;
 
   // Generate HTML matching ipsumify.com style
   const html = `<!DOCTYPE html>
@@ -1197,14 +1387,15 @@ function generateHTMLReport(results) {
 </head>
 <body>
   <div class="container">
-    <h1>🔍 Accessibility Audit Report</h1>
+    <h1>🔍 ${SITE_INFO.name} - Accessibility Audit Report</h1>
+    ${SITE_INFO.description ? `<p class="meta" style="margin-top: 0.5rem; margin-bottom: 1rem;">${escapeHtml(SITE_INFO.description)}</p>` : ""}
     <div class="meta">
       <p><strong>Generated:</strong> ${new Date(timestamp).toLocaleString()}</p>
       <p><strong>Environment:</strong> <a href="#" onclick="openEnvironmentModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-environment" aria-label="Environment: ${TARGET_ENV === "production" ? "Production" : "Development"} - More info about environments"><span style="font-weight: 600; color: ${TARGET_ENV === "production" ? "#198754" : "#0d6efd"};">${TARGET_ENV === "production" ? "Production" : "Development"}</span><span class="tooltip" id="tooltip-environment" role="tooltip">More info about environments</span></a> (${BASE_URL})</p>
       <p><strong>axe-core version:</strong> ${axeVersion}</p>
       <p><strong>Pages tested:</strong> ${uniquePages}</p>
       <p><strong>Viewports tested:</strong> ${VIEWPORTS.map((v) => v.name).join(", ")}</p>
-      <p><strong>Themes tested:</strong> dark</p>
+      <p><strong>Themes tested:</strong> ${THEMES.map((t) => t.name).join(", ")}</p>
       <p><strong>Rule categories:</strong> WCAG 2.1 AA (${wcagRules.length} rules), Best Practice (${bestPracticeRules.length} rules)${experimentalRules.length > 0 ? `, Experimental (${experimentalRules.length} rules)` : ""}${otherRules.length > 0 ? `, Other (${otherRules.length} rules)` : ""}</p>
       ${frameworkRulesStatus.enabled.length > 0 ? `<p><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Framework-specific rules enabled: More info about framework-specifics"><span>Framework-specific rules enabled:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.enabled.join(", ")}</p>` : ""}
       ${frameworkRulesStatus.disabled.length > 0 ? `<p style="color: #6c757d;"><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Framework-specific rules disabled: More info about framework-specifics"><span>Framework-specific rules disabled:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.disabled.join(", ")}</p>` : ""}
@@ -1329,28 +1520,27 @@ function generateHTMLReport(results) {
         <h2>Accessibility Standards & Compliance</h2>
         <p>The accessibility tests performed by axe-core are designed to ensure compliance with the following standards and requirements:</p>
         
-        <h3>IITAA Accessibility Standards for Illinois</h3>
-        <p>The Illinois Information Technology Accessibility (IITAA) standards require that all state websites and digital services be accessible to individuals with disabilities. These standards align with WCAG 2.1 Level AA and Section 508 requirements, ensuring that Illinois state websites are usable by all residents, including those using assistive technologies.</p>
+        ${COMPLIANCE_STANDARDS.map(
+          (standard) => `
+        <h3>${escapeHtml(standard.name)}</h3>
+        <p>${escapeHtml(standard.description)}</p>
+        ${
+          standard.links && standard.links.length > 0
+            ? `
         <ul>
-          <li><a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Standards Documentation</a></li>
-          <li><a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Accessibility Requirements</a></li>
+          ${standard.links
+            .map(
+              (link) => `
+          <li><a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.text)}</a></li>
+          `
+            )
+            .join("")}
         </ul>
-        
-        <h3>WCAG 2.1 Level AA Guidelines</h3>
-        <p>The Web Content Accessibility Guidelines (WCAG) 2.1 Level AA are internationally recognized standards for web accessibility. These guidelines provide a comprehensive framework for making web content accessible to people with disabilities, including those with visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.</p>
-        <ul>
-          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a></li>
-          <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" target="_blank" rel="noopener noreferrer">Understanding WCAG 2.1</a></li>
-          <li><a href="https://www.w3.org/WAI/WCAG21/guidelines/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Guidelines</a></li>
-        </ul>
-        
-        <h3>ADA Title II Requirements</h3>
-        <p>Americans with Disabilities Act (ADA) Title II requires that state and local governments ensure their services, programs, and activities are accessible to people with disabilities. This includes websites and digital services. Title II applies to all state and local government entities, including public universities, libraries, and other government-operated websites.</p>
-        <ul>
-          <li><a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">ADA Title II Overview</a></li>
-          <li><a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a></li>
-          <li><a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Web Accessibility Requirements</a></li>
-        </ul>
+        `
+            : ""
+        }
+        `
+        ).join("")}
       </div>
     </div>
     
@@ -1383,7 +1573,7 @@ function generateHTMLReport(results) {
             <li style="margin-bottom: 0.25rem;"><strong>${uniqueTestRulesCount} rules</strong> (shown in list below)</li>
             <li style="margin-bottom: 0.25rem;">× <strong>${uniquePages} pages</strong> tested</li>
             <li style="margin-bottom: 0.25rem;">× <strong>${VIEWPORTS.length} viewports</strong> (${VIEWPORTS.map((v) => v.name).join(", ")})</li>
-            <li style="margin-bottom: 0.25rem;">× <strong>${THEMES.length} theme</strong> (dark)</li>
+            <li style="margin-bottom: 0.25rem;">× <strong>${THEME_CONFIG.themes.length} theme${THEME_CONFIG.themes.length !== 1 ? "s" : ""}</strong> (${THEME_CONFIG.themes.map((t) => t.name).join(", ")})</li>
             <li style="margin-bottom: 0.25rem;">= <strong>${pageViewportCombinations} page/viewport combinations</strong></li>
           </ul>
           <p style="margin: 0 0 0.75rem 0; padding: 0.5rem; background: #e7f3ff; border-radius: 4px;">
@@ -1535,16 +1725,27 @@ function generateHTMLReport(results) {
         
         <h3>This Application's Framework</h3>
         <p>
-          This accessibility portal is built using <strong>Nuxt</strong> and <strong>Vuetify</strong>:
+          ${escapeHtml(FRAMEWORK_INFO.description)}:
         </p>
+        ${
+          FRAMEWORK_INFO.frameworks && FRAMEWORK_INFO.frameworks.length > 0
+            ? `
         <ul>
-          <li><strong>Nuxt</strong> is a Vue.js-based framework that provides server-side rendering, static site generation, and a powerful development experience for building modern web applications.</li>
-          <li><strong>Vuetify</strong> is a Vue.js component framework that provides Material Design components and a comprehensive set of UI elements.</li>
+          ${FRAMEWORK_INFO.frameworks
+            .map(
+              (framework) => `
+          <li><strong>${escapeHtml(framework.name)}</strong> ${escapeHtml(framework.description)}</li>
+          `
+            )
+            .join("")}
         </ul>
+        `
+            : ""
+        }
         
         <h3>Why Some Rules May Not Work</h3>
         <p>
-          Some axe-core accessibility rules may conflict with how Nuxt and Vuetify structure and render HTML pages. These frameworks:
+          Some axe-core accessibility rules may conflict with how ${escapeHtml(FRAMEWORK_INFO.name)} structure and render HTML pages. These frameworks:
         </p>
         <ul>
           <li>Create wrapper elements and nested structures that may not match traditional HTML patterns</li>
@@ -1555,7 +1756,7 @@ function generateHTMLReport(results) {
         
         <h3>Accessibility Assurance</h3>
         <p style="padding: 0.75rem; background: #d1e7dd; border-left: 3px solid #198754; border-radius: 4px; margin-top: 1rem;">
-          <strong>✅ Important:</strong> Despite these framework-specific rule configurations, this website remains fully accessible and compliant with WCAG 2.1 Level AA standards. The rules that are disabled or adjusted are those that produce <em>false positives</em> due to framework structure, not actual accessibility issues. All accessibility requirements are met through proper implementation of semantic HTML, ARIA attributes, keyboard navigation, and other accessibility best practices within the Nuxt and Vuetify framework architecture.
+          <strong>✅ Important:</strong> Despite these framework-specific rule configurations, this website remains fully accessible and compliant with WCAG 2.1 Level AA standards. The rules that are disabled or adjusted are those that produce <em>false positives</em> due to framework structure, not actual accessibility issues. All accessibility requirements are met through proper implementation of semantic HTML, ARIA attributes, keyboard navigation, and other accessibility best practices within the ${escapeHtml(FRAMEWORK_INFO.name)} framework architecture.
         </p>
         
         ${
@@ -2042,7 +2243,93 @@ async function runAudit() {
           // Wait a bit for any dynamic content to load
           await new Promise((resolve) => setTimeout(resolve, 2000));
 
-          // No theme switching needed - site is permanently dark mode
+          // Theme switching logic based on THEME_CONFIG
+          if (THEME_CONFIG.switching.mode !== "none") {
+            await page.evaluate(
+              async (themeConfig) => {
+                const themeValue = themeConfig.themeValue;
+                const switching = themeConfig.switching;
+
+                if (switching.mode === "auto") {
+                  // Automatically detect theme toggle switch (Vuetify pattern)
+                  const themeSwitch = document.querySelector(
+                    'input[type="checkbox"][role="switch"]'
+                  );
+                  if (themeSwitch) {
+                    // Check current theme state
+                    const currentIsDark =
+                      document.body.classList.contains("v-theme--dark");
+                    const targetIsDark = themeValue === "dark";
+
+                    // Only toggle if needed
+                    if (currentIsDark !== targetIsDark) {
+                      themeSwitch.click();
+                      // Wait for theme transition
+                      await new Promise((resolve) => setTimeout(resolve, 500));
+                    }
+                  } else {
+                    // Fallback: try to set via localStorage and force theme
+                    if (typeof localStorage !== "undefined") {
+                      localStorage.setItem("theme", themeValue);
+                    }
+                    // Force theme by manipulating body class
+                    if (themeValue === "dark") {
+                      document.body.classList.add("v-theme--dark");
+                    } else {
+                      document.body.classList.remove("v-theme--dark");
+                    }
+                  }
+                } else if (switching.mode === "manual") {
+                  // Use manual configuration
+                  const themeSwitch = document.querySelector(
+                    switching.toggleSelector
+                  );
+                  if (themeSwitch) {
+                    const darkClass = switching.darkClass || "v-theme--dark";
+                    const currentIsDark =
+                      document.body.classList.contains(darkClass);
+                    const targetIsDark = themeValue === "dark";
+
+                    if (currentIsDark !== targetIsDark) {
+                      themeSwitch.click();
+                      await new Promise((resolve) => setTimeout(resolve, 500));
+                    }
+                  } else {
+                    // Fallback: use localStorage and classes
+                    if (
+                      switching.localStorageKey &&
+                      typeof localStorage !== "undefined"
+                    ) {
+                      localStorage.setItem(
+                        switching.localStorageKey,
+                        themeValue
+                      );
+                    }
+                    if (switching.darkClass) {
+                      if (themeValue === "dark") {
+                        document.body.classList.add(switching.darkClass);
+                        if (switching.lightClass) {
+                          document.body.classList.remove(switching.lightClass);
+                        }
+                      } else {
+                        document.body.classList.remove(switching.darkClass);
+                        if (switching.lightClass) {
+                          document.body.classList.add(switching.lightClass);
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                themeValue: theme.value,
+                switching: THEME_CONFIG.switching,
+              }
+            );
+
+            // Wait for theme to apply and any transitions
+            await new Promise((resolve) => setTimeout(resolve, 800));
+          }
 
           // Check for Vite error overlay - if present, the app has errors that need to be fixed
           const hasErrorOverlay = await page.evaluate(() => {
@@ -2303,7 +2590,9 @@ async function runAudit() {
   console.log(`   Total tests run: ${totalTestsRun}`);
   console.log(`   Pages tested: ${uniquePages}`);
   console.log(`   Viewports tested: ${VIEWPORTS.length}`);
-  console.log(`   Theme: Dark (permanent)`);
+  console.log(
+    `   Theme${THEME_CONFIG.themes.length !== 1 ? "s" : ""}: ${THEME_CONFIG.themes.map((t) => t.name).join(", ")}`
+  );
   console.log(`   Total violations: ${totalViolations}`);
   console.log(`   Total passes: ${totalPasses}`);
   console.log(`   Pages with violations: ${pagesWithViolations}`);
