@@ -184,6 +184,16 @@ const processLinks = () => {
         return;
       }
       
+      // Handle /docs/ links - force full page navigation to bypass Nuxt router
+      if (href && (href.startsWith('/docs/') || href.includes('/docs/accessibility'))) {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          window.location.href = href;
+        }, { capture: true });
+        return;
+      }
+      
       // Only add target="_blank" to external links if not already set
       if (!link.hasAttribute('target')) {
         link.setAttribute('target', '_blank');

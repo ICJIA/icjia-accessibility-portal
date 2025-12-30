@@ -99,7 +99,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 ### Can managers delay accessibility work to "get more information first"?
 
-**The April 24, 2026 deadline is a legal requirement that cannot be extended.** While it's completely reasonable for managers to want clarity on scope, timeline, and resources before starting work, the deadline is firm — accessibility work needs to begin now, even as you gather more information.
+**The April 24, 2026 deadline is a fixed legal requirement under the ADA Title II web rule.** The rule does not include a routine extension process. While it's completely reasonable for managers to want clarity on scope, timeline, and resources before starting work, the deadline is firm — accessibility work needs to begin now, even as you gather more information.
 
 **Who to ask (so you get answers without losing time):**
 
@@ -116,7 +116,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **What managers cannot do:**
 
-- **Delay the work** — The deadline is firm and cannot be extended
+- **Delay the work** — The deadline is firm (the rule does not include a routine extension process)
 - **Treat it as optional** — It's a legal requirement, not a "nice to have"
 - **Push it to "later"** — Waiting makes the work more expensive and increases legal risk
 
@@ -252,12 +252,12 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 {new:2025-12-28}
 
-**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training. These FAQs are as comprehensive as possible and provide short, direct answers to accessibility questions. This FAQ website is as good as any presentation DoIT might give about content accessibility — it presents all the information that would be in any presentation.
+**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training. A DoIT presentation can be very helpful for Q&A and agency-specific guidance, but it's not a prerequisite for beginning accessibility work.
 
 **Why start now:**
 
 - **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens
-- **This FAQ content is comprehensive** — These FAQs are as comprehensive as possible and provide short, direct answers. The information here contains everything that would be covered in a presentation about content accessibility. There's no secret information you'll get from a presentation that isn't already here
+- **The basics are available now** — These FAQs cover the core requirements and common fixes. A presentation adds context and Q&A, but you can begin with the fundamentals today.
 - **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done
 - **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there
 
@@ -285,20 +285,23 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 **Important reality check:**
 
 - **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content
-- **All the information is already here** — This FAQ website is as good as any presentation DoIT might give about content accessibility. It presents all the information that would be in any presentation, with short, direct answers. The presentation format may help some people learn better, but the content is the same
+- **The baseline guidance is already here** — This FAQ is a strong starting point. Use the presentation to ask questions, confirm edge cases, and get agency-specific guidance.
 - **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June
 
 **Official resources and quick reads:**
 
 - **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a> — State-specific accessibility resources and training
 - **IITAA (Illinois Information Technology Accessibility Act)** — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a> — Illinois state accessibility requirements
+- **IITAA 2.1 update (effective date + what changed)** — <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html</a>
 - **ADA Title II Web Rule** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a> — Federal accessibility requirements and deadlines
+- **Federal Register (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state</a>
+- **More resources** — <a href="/links" target="_self">Accessibility Links</a>
 - **Quick reads about accessibility:**
   - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> — Quick overview of WCAG 2.1 standards
   - <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed WCAG checklist
   - <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple accessibility checklist format
 
-**Bottom line:** Start making your content accessible now using the information in these FAQs. These FAQs are as comprehensive as possible and provide short, direct answers — they're as good as any presentation DoIT might give about content accessibility. The DoIT presentation gives you a chance to ask questions, but it's not a prerequisite for beginning the work — and it won't speed up compliance. The work is difficult and time-consuming regardless of when you receive training.
+**Bottom line:** Start making your content accessible now using the information in these FAQs. Use a DoIT presentation to ask questions and confirm how the requirements apply to your specific agency, but don't delay the work until training happens.
 
 **See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
 
@@ -351,7 +354,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Here's your quickstart guide:
 
-**DoIT best practice:** Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When possible, publish content as webpage text rather than PDFs.
+**DoIT best practice:** Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When possible, publish content as webpage text rather than PDFs.
 
 **Visual example of accessible vs. inaccessible content:**
 
@@ -498,6 +501,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - **It applies to everything** — Websites, documents, videos, social media, mobile apps
 - **It's not optional** — This is a legal requirement under ADA Title II and IITAA
 - **Read the basics** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary of requirements
+- **Primary source (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (April 24, 2024)</a>
 
 **2. Assess your current state:**
 
@@ -553,6 +557,69 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning and Managing Web Accessibility</a> — Strategic guidance for organizations
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
 - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
+- <a href="/links" target="_self">Accessibility Links</a> — Curated links page (DOJ/DoIT/W3C and tools)
+
+### What exactly am I accountable for as a manager (vs. what my team is accountable for)?
+
+{new:2025-12-30}
+
+**Quick answer:** You’re accountable for **making accessibility possible and expected**: ownership, priorities, time/tools/training, and accountability. Your team is accountable for **creating and maintaining accessible content and systems** in their day-to-day work.
+
+**Manager accountabilities (what you control):**
+
+- **Ownership** — Name a coordinator/owner and make reporting routine
+- **Resourcing** — Allocate time, tools, and training (and remove blockers)
+- **Process** — Require accessibility checks before publish/purchase/launch
+- **Accountability** — Define responsibilities clearly and track progress to the deadline
+
+**Team accountabilities (what they do):**
+
+- **Content creators** — headings, link text, alt text, accessible documents, captions/transcripts
+- **Developers/IT** — accessible code, testing, fixing defects, vendor integration requirements
+- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs before purchase
+
+**Helpful framing:** Accessibility is a compliance deliverable like security and privacy — it needs ownership, a plan, and execution across roles.
+
+### How can I track and demonstrate “good-faith progress” toward compliance?
+
+{new:2025-12-30}
+
+**Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what’s next).
+
+**Practical manager artifacts (simple, defensible):**
+
+1. **Inventory** of public-facing content/tools (web, PDFs, forms, videos, social, vendor tools)
+2. **Prioritized backlog** (top services + top traffic + complete blockers first)
+3. **Milestones** (monthly/quarterly targets through April 2026)
+4. **Evidence** (audit results, remediation logs, training completion, procurement language)
+5. **Escalation path** (who decides tradeoffs when priorities conflict)
+
+**Why this helps:** It prevents “we didn’t know” and gives leadership a concrete way to support resourcing decisions.
+
+### ICJIA has many public sites. Where can I see the audit reports for each site?
+
+{new:2025-12-30}
+
+**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here's the accessibility report for this website: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" onclick="event.preventDefault(); window.location.href = 'https://accessibility.icjia.app/docs/accessibility/index.html'; return false;">Accessibility Report for this portal</a>
+
+**Full explanation:**
+
+**Web developers are working through adding reports for each site.** The goal is to provide accessibility reports for all ICJIA public websites. These reports are being added systematically as web developers audit and document each site.
+
+**How to find reports:**
+
+- **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer (similar to this portal)
+- **Reports are site-specific** — Each website will have its own report documenting that site's accessibility status
+
+**Important limitations:**
+
+- **These reports cover websites only** — The accessibility reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to run automated accessibility tests for the websites themselves (HTML structure, navigation, forms, etc.)
+- **They do NOT cover content files** — The reports do not test or document accessibility of PDFs, Excel files, Word documents, PowerPoint presentations, or other content files hosted on the sites. Content accessibility is the responsibility of content creators, not web developers.
+- **Automated testing has limits** — While axe-core catches many issues, manual testing with keyboard navigation and screen readers is still required for full compliance
+
+**What this means for content creators:**
+
+If you're creating documents, PDFs, or other content files, you're responsible for making those accessible — the website accessibility reports don't cover your content. See: [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible) | [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) | [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible)
 
 ### Who should be our agency's accessibility coordinator?
 
@@ -634,7 +701,7 @@ Your training in accessibility best practices and your current work solving acce
 
 **Why this matters for Illinois state agencies:**
 
-1. **State agency status** — Illinois state agencies fall under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 2024) require WCAG 2.1 Level AA compliance.
+1. **State agency status** — Illinois state agencies fall under the Illinois Information Technology Accessibility Act (IITAA), which has required accessible digital content since 2008. The current IITAA 2.1 Standards (effective June 24, 2024) require WCAG 2.1 Level AA compliance.
 
 2. **Public service mission** — State agencies provide information, research, and resources to Illinois residents. Under ADA Title II, all public-facing digital content must be accessible to people with disabilities.
 
@@ -655,8 +722,10 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 **References:**
 
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
+- <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 Update (DoIT)</a> — Effective date + what changed
 - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register (Final Rule)</a> — Full legal text
 
 ### If this has been a requirement, why hasn't your agency been doing this all along?
 
@@ -724,7 +793,7 @@ While enforcement is typically at the agency level, individuals may experience:
 
 **Full explanation:**
 
-**The April 24, 2026 deadline is a firm legal requirement under the ADA Title II web accessibility rule.** There is no formal extension process, and non-compliance exposes agencies to enforcement actions, complaints, and lawsuits.
+**The April 24, 2026 deadline is a firm legal requirement under the ADA Title II web accessibility rule.** The rule does not include a routine extension process, and non-compliance exposes agencies to enforcement actions, complaints, and lawsuits.
 
 **However, the reality is that some agencies may not achieve 100% compliance by the deadline.** Here's what you should do:
 
@@ -892,7 +961,7 @@ A small state agency with 5 staff and 200+ documents might:
 
 ### What is the IITAA?
 
-**The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 2024) require conformance with WCAG 2.1 Level AA.
+**The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 24, 2024) require conformance with WCAG 2.1 Level AA.
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
@@ -1129,7 +1198,7 @@ For WCAG 2.1 Level AA:
 Yes, for WCAG 2.1 Level AA compliance:
 
 - **Pre-recorded video with audio** — Requires synchronized captions
-- **Live video with audio** — Requires captions (can be auto-generated with corrections)
+- **Live video with audio** — Requires live captions (accuracy matters; auto-captions may need human support)
 - **Pre-recorded audio only** — Requires a text transcript
 - **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track. For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
@@ -1187,7 +1256,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 **Step-by-step mobile app accessibility workflow:**
 
 1. **Design phase:**
-   - Ensure touch targets are at least 44x44 points
+   - Aim for touch targets of at least 44x44 points (strong usability best practice)
    - Design with sufficient color contrast
    - Plan for text scaling (support Dynamic Type/Large Text)
    - Avoid relying solely on color to convey information
@@ -1670,7 +1739,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
 
-**DoIT best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a document format, ensure it's accessible.
+**DoIT best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a document format, ensure it's accessible.
 
 - PDFs
 - Word documents
@@ -1752,7 +1821,7 @@ Key steps for accessible Word documents:
 
 **See also:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#my-documents-look-fine--why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible)
 
-**DoIT best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. Illinois DoIT recommends — and has always recommended — that webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a PDF, follow the steps below.
+**DoIT best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. Illinois DoIT generally recommends publishing content as webpage text when feasible instead of relying on PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. If you must use a PDF, follow the steps below.
 
 The best approach depends on the source:
 
@@ -1870,7 +1939,7 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
-**DoIT best practice for newsletters:** Illinois DoIT recommends — and has always recommended — that newsletter content published as webpage text is more accessible than PDF files. Actual text on a webpage (for newsletters, news items, etc.) is always more accessible than a brief webpage description with a link to a PDF file that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF.
+**DoIT best practice for newsletters:** Illinois DoIT generally recommends publishing newsletter content as webpage text when feasible instead of as PDFs. In practice, HTML webpage text is often easier to make and keep accessible than PDFs—especially when the alternative is a short webpage description that links to a PDF that may or may not be accessible. This DoIT best practice aligns with WCAG 2.1 Level AA rules and ADA Title II requirements. When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF.
 
 **Email accessibility essentials:**
 
@@ -1880,7 +1949,7 @@ Many state agencies send newsletters, announcements, and other email communicati
 | **Links**         | Use descriptive link text ("View the 2025 report" not "Click here")                      |
 | **Structure**     | Use heading styles if your email platform supports them; keep layouts simple             |
 | **Color**         | Don't rely on color alone to convey meaning; ensure sufficient contrast                  |
-| **Plain text**    | Always include a plain-text version of HTML emails                                       |
+| **Plain text**    | Include a plain-text version of HTML emails when possible                                |
 | **Critical info** | Put essential information in text, not just in images or graphics                        |
 
 **Platform-specific tips:**
@@ -1937,7 +2006,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (before the compliance deadline) are exempt.
+**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) are generally exempt unless they're currently used to provide or facilitate access to services, programs, or activities.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
