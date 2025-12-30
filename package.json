@@ -6,7 +6,6 @@
     "scripts": {
         "generate:routes": "node scripts/generate-routes.js",
         "generate:sitemap": "node scripts/generate-sitemap.js",
-        "generate:accessibility": "node scripts/generate-accessibility-report.js",
         "ensure:accessibility-report": "node scripts/ensure-accessibility-report.js",
         "predev": "echo '📋 Step 1/4: Ensuring accessibility report exists...' && npm run ensure:accessibility-report && echo '📋 Step 2/4: Generating routes.json...' && npm run generate:routes && echo '📄 Step 3/4: Generating sitemap...' && npm run generate:sitemap",
         "dev": "nuxt dev",
@@ -37,10 +36,13 @@
     "devDependencies": {
         "@axe-core/cli": "^4.11.0",
         "@axe-core/playwright": "^4.11.0",
+        "axe-core": "^4.11.0",
         "netlify-cli": "^23.12.3",
         "playwright": "^1.57.0",
         "playwright-core": "^1.57.0",
-        "sass": "^1.80.0"
+        "puppeteer": "^23.11.1",
+        "sass": "^1.80.0",
+        "xml2js": "^0.6.2"
     },
     "resolutions": {
         "node-sass": "npm:sass@^1.80.0"

@@ -95,7 +95,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **Example:** If you create a PDF report, the web team cannot add alt text to your images, fix your heading structure, or make your tables accessible. Those are content decisions only you can make as the document creator.
 
-**The cost of waiting:** Fixing accessibility issues after development is typically **3-10 times more expensive** than building accessibility in from the start.
+**The cost of waiting:** Fixing accessibility issues after development is typically **significantly more expensive** than building accessibility in from the start—industry estimates suggest remediation costs can be several times higher than proactive design.
 
 ### Can managers delay accessibility work to "get more information first"?
 
@@ -202,6 +202,8 @@ WCAG has three conformance levels:
 
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
+**Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 AA is compliant with current legal requirements. WCAG versions are backward-compatible, so meeting 2.2 also means meeting 2.1 and 2.0.
+
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
 **No. Accessibility is an organization-wide responsibility.** IT and web teams can fix technical barriers, but they can’t retroactively “repair” inaccessible content, designs, or procurement decisions without rework.
@@ -216,7 +218,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Why “IT will fix it later” fails:**
 
-- Accessibility is cheapest when done early; retrofits can be **3–10×** more expensive.
+- Accessibility is cheapest when done early; retrofits can be **significantly more expensive**—industry estimates suggest remediation costs can be several times higher than proactive design.
 - A PDF without headings/alt text, a low-contrast design, or an inaccessible vendor tool can’t be “patched” by IT without changing the original work.
 
 **Best practice:** Plan for accessibility early — address it in **content + design + procurement + build** from the start, not at the end. (This is sometimes called "shifting left" in project management terminology.)
@@ -317,7 +319,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 | **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color                                     |
 | **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                  |
 | **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's legally required and benefits everyone.                            |
-| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio; avoid text smaller than 14px                              |
+| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability                              |
 | **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible                      |
 | **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                      |
 
@@ -326,7 +328,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - **Autoplaying audio or video** — Always give users control
 - **Removing focus indicators** — The blue outline helps keyboard users know where they are
 - **Using placeholder text as labels** — Placeholder text disappears when you start typing
-- **Making clickable areas too small** — Buttons and links should be at least 44x44 pixels
+- **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (this is strongly recommended best practice, though not strictly required by WCAG 2.1 AA)
 - **Flashing or blinking content** — Can trigger seizures; avoid flashing more than 3 times per second
 
 **The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll be ahead of most content creators.
@@ -890,7 +892,7 @@ A small state agency with 5 staff and 200+ documents might:
 
 ### What is the IITAA?
 
-**The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards require conformance with WCAG 2.1 Level AA.
+**The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 2024) require conformance with WCAG 2.1 Level AA.
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
@@ -1007,16 +1009,16 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 - **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
 - **ADA Title II (Public Services):** <a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-state-and-local-governments/</a>
 - **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
-- **Overview of ADA Titles:** <a href="https://www.ada.gov/ada_intro.htm" target="_blank" rel="noopener noreferrer">https://www.ada.gov/ada_intro.htm</a>
+- **Overview of ADA Titles:** <a href="https://www.ada.gov/topics/intro-to-ada/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/intro-to-ada/</a>
 
 ### When must we comply with the ADA Title II rule?
 
-| Entity Size                  | Compliance Deadline |
-| ---------------------------- | ------------------- |
-| Population of 50,000 or more | **April 24, 2026**  |
-| Population less than 50,000  | April 26, 2027      |
+| Entity Size                                      | Compliance Deadline |
+| ------------------------------------------------ | ------------------- |
+| Entities serving populations of 50,000 or more   | **April 24, 2026**  |
+| Entities serving populations under 50,000        | April 26, 2027      |
 
-For most Illinois state agencies, the deadline is **April 24, 2026**.
+For most Illinois state agencies, the deadline is **April 24, 2026** (since Illinois has over 12 million residents).
 
 ### Does ADA Title II apply to internal documents?
 
@@ -1035,7 +1037,7 @@ For most Illinois state agencies, the deadline is **April 24, 2026**.
 Yes, limited exceptions exist for:
 
 1. **Archived content** — Content created before the compliance date that is not currently used for services
-2. **Pre-existing documents** — Documents created before the deadline (unless used to apply for or access services)
+2. **Pre-existing conventional electronic documents** — Documents created before the compliance date, **unless** currently used by the public to participate in or benefit from the entity's services, programs, or activities
 3. **Third-party content** — Content posted by third parties not under contract
 4. **Password-protected individual documents** — Documents specific to one person's account
 5. **Pre-existing social media posts** — Posts made before the compliance deadline
@@ -1111,9 +1113,9 @@ Use a combination of automated and manual testing:
 
 For WCAG 2.1 Level AA:
 
-- **Normal text** (under 18pt or 14pt bold): **4.5:1** contrast ratio
-- **Large text** (18pt+ or 14pt+ bold): **3:1** contrast ratio
-- **UI components and graphics**: **3:1** contrast ratio
+- **Normal text** (smaller than 18pt regular or 14pt bold): **4.5:1** contrast ratio
+- **Large text** (18pt+ regular or 14pt+ bold): **3:1** contrast ratio
+- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG SC 1.4.11)
 
 **Check contrast:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
@@ -1129,7 +1131,7 @@ Yes, for WCAG 2.1 Level AA compliance:
 - **Pre-recorded video with audio** — Requires synchronized captions
 - **Live video with audio** — Requires captions (can be auto-generated with corrections)
 - **Pre-recorded audio only** — Requires a text transcript
-- **Video with essential visual content** — May require audio description
+- **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track. For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
 **WCAG Reference:**
 
@@ -1153,7 +1155,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
    - **Android:** TalkBack (built-in)
    - Content must be properly labeled and navigable
 
-2. **Touch target size** — Interactive elements must be at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) to accommodate users with motor disabilities
+2. **Touch target size** — While WCAG 2.1 AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. This is considered essential best practice for users with motor disabilities.
 
 3. **Color contrast** — Same 4.5:1 ratio for normal text, 3:1 for large text as web content
 
@@ -1531,11 +1533,9 @@ Alt text is a brief written description of an image that screen readers read alo
 
 ### How long should alt text be?
 
-**Best practice: Aim for 125 characters or fewer** — this is about 15-25 words. This guideline exists because some older screen readers truncated alt text at 125 characters, and shorter descriptions are generally easier for users to process.
+**Best practice: Keep alt text concise—aim for 1-2 sentences in most cases.** The commonly cited "125 character limit" isn't a technical requirement (modern screen readers handle longer text just fine), but brevity helps users process information quickly.
 
-**However, modern screen readers handle longer alt text just fine.** Most current screen readers (NVDA, JAWS, VoiceOver) will read alt text of any length without truncation. The 125-character limit is a best practice guideline, not a technical requirement.
-
-- **Ideal:** 125 characters or less (concise and scannable)
+- **Ideal:** Concise and scannable (roughly 15-25 words)
 - **Acceptable:** Longer alt text when the image requires detailed description
 - **Too short:** Single words like "photo" or "image" don't help anyone
 - **Consider alternatives:** If you need extensive description (charts, infographics, diagrams), use a visible caption, long description, or linked text instead of cramming everything into alt text
@@ -1911,7 +1911,7 @@ Many state agencies send newsletters, announcements, and other email communicati
 
 1. **Image-only emails** — If the entire message is a graphic, users who can't see images (or have them blocked) get nothing
 2. **"Click here" links** — Screen readers often read links out of context; "View the 2025 Annual Report" is much better
-3. **Tiny text in images** — Text in graphics should be at least 14pt equivalent
+3. **Text in images** — Avoid putting text in images when possible; if you must, ensure sufficient contrast (4.5:1 for normal text, 3:1 for large text)
 4. **Low contrast** — Light gray text on white backgrounds is hard to read for everyone
 5. **Complex layouts** — Multi-column layouts often break in email clients and screen readers
 
@@ -2128,7 +2128,7 @@ Illinois DoIT recommends including language similar to:
 
 {new:2025-12-27}
 
-**Alt text (Alternative text)** — A brief written description of an image that screen readers read aloud to users who can't see the image. Example: "Director Smith presenting award to Officer Jones at the annual ceremony." Best practice: 125 characters or fewer.
+**Alt text (Alternative text)** — A brief written description of an image that screen readers read aloud to users who can't see the image. Example: "Director Smith presenting award to Officer Jones at the annual ceremony." Best practice: Keep concise (roughly 15-25 words), though modern screen readers handle longer text when needed.
 
 **ARIA (Accessible Rich Internet Applications)** — Code attributes that provide additional information to screen readers when standard HTML isn't enough. Think of it as labels and instructions for assistive technology. Web developers typically handle ARIA implementation. <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">Learn about ARIA Authoring Practices</a>
 
@@ -2138,8 +2138,8 @@ Illinois DoIT recommends including language similar to:
 
 **Color contrast ratio** — A measure of how readable text is against its background. WCAG 2.1 Level AA requires:
 
-- **4.5:1** for normal text (under 18pt or 14pt bold)
-- **3:1** for large text (18pt+ or 14pt+ bold)
+- **4.5:1** for normal text (smaller than 18pt regular or 14pt bold)
+- **3:1** for large text (18pt+ regular or 14pt+ bold)
   <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">Test color contrast with WebAIM Contrast Checker</a>
 
 **Focus indicator** — The visual outline that shows which element on a page is currently selected when navigating with a keyboard (usually by pressing Tab). Should be clearly visible so keyboard users know where they are.

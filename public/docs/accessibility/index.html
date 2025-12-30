@@ -3,491 +3,820 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accessibility Audit Report - WCAG 2.1 AA Compliance</title>
+  <title>Accessibility Audit Report - 12/30/2025</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    :root {
-      --bg-primary: #0F172A;
-      --bg-surface: #1E293B;
-      --bg-surface-variant: #1A2332;
-      --text-primary: #F8FAFC;
-      --text-secondary: #CBD5E1;
-      --accent: #60A5FA;
-      --accent-dark: #3B82F6;
-      --success: #81C784;
-      --error: #CF6679;
-      --warning: #FFB74D;
-      --border: rgba(96, 165, 250, 0.2);
-    }
-
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
-      padding: 2rem;
+      color: #333;
+      background: #fff;
+      padding: 20px;
     }
-
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-
-    header {
-      background: var(--bg-surface);
-      padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
-    }
-
+    
     h1 {
-      color: var(--accent);
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-
-    .subtitle {
-      color: var(--text-secondary);
-      font-size: 1rem;
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-
-    .timestamp {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-top: 1rem;
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-
-    .summary {
+    
+    .meta {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 2rem;
+    }
+    
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
-
-    .summary-card {
-      background: var(--bg-surface);
+    
+    .stat-card {
       padding: 1.5rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
+      text-align: center;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      transition: all 0.2s ease;
     }
-
-    .summary-card h3 {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+    
+    .stat-card.clickable {
+      cursor: pointer;
     }
-
-    .summary-card .value {
-      font-size: 2rem;
+    
+    .stat-card.clickable:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .stat-card .click-hint {
+      font-size: 0.75rem;
+      color: #6c757d;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+    
+    .stat-card.success {
+      background: #d1e7dd;
+      border-color: #badbcc;
+      color: #0f5132;
+    }
+    
+    .stat-card.error {
+      background: #f8d7da;
+      border-color: #f5c2c7;
+      color: #842029;
+    }
+    
+    .stat-card.warning {
+      background: #fff3cd;
+      border-color: #ffecb5;
+      color: #856404;
+    }
+    
+    .stat-card .number {
+      font-size: 2.5rem;
       font-weight: bold;
-      color: var(--text-primary);
+      margin: 0.5rem 0;
     }
-
-    .summary-card.success .value {
-      color: var(--success);
+    
+    .stat-card .label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
     }
-
-    .summary-card.error .value {
-      color: var(--error);
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      overflow: hidden;
     }
-
-    .status-badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+    
+    thead {
+      background: #f8f9fa;
+    }
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    th {
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-top: 1rem;
+      color: #495057;
     }
-
-    .status-badge.passed {
-      background: rgba(129, 199, 132, 0.2);
-      color: var(--success);
-      border: 1px solid var(--success);
+    
+    tr:last-child td {
+      border-bottom: none;
     }
-
-    .status-badge.failed {
-      background: rgba(207, 102, 121, 0.2);
-      color: var(--error);
-      border: 1px solid var(--error);
+    
+    .status-pass {
+      color: #198754;
+      font-weight: 600;
     }
-
-    .pages-section {
-      background: var(--bg-surface);
+    
+    .status-fail {
+      color: #dc3545;
+      font-weight: 600;
+    }
+    
+    .status-warning {
+      color: #856404;
+      font-weight: 600;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      overflow: auto;
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
       padding: 2rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      margin-bottom: 2rem;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
-
-    .pages-section h2 {
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      font-size: 1.5rem;
-    }
-
-    .page-result {
-      background: var(--bg-surface-variant);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--border);
-    }
-
-    .page-result.passed {
-      border-left-color: var(--success);
-    }
-
-    .page-result.failed {
-      border-left-color: var(--error);
-    }
-
-    .page-header {
+    
+    .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #dee2e6;
     }
-
-    .page-path {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .page-url {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      font-family: monospace;
-      margin-top: 0.25rem;
-    }
-
-    .page-url a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.2s ease;
-    }
-
-    .page-url a:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    .page-url a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    .violations-list {
-      margin-top: 1rem;
-    }
-
-    .violation {
-      background: var(--bg-primary);
-      padding: 1rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      border: 1px solid var(--border);
-    }
-
-    .violation-header {
+    
+    .modal-close {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #999;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      width: 30px;
+      height: 30px;
       display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 0.5rem;
+      align-items: center;
+      justify-content: center;
     }
-
-    .violation-id {
-      font-weight: 600;
-      color: var(--accent);
-      font-family: monospace;
+    
+    .modal-close:hover {
+      color: #333;
     }
-
-    .violation-impact {
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
+    
+    .test-list {
+      list-style: none;
+      padding: 0;
     }
-
-    .violation-impact.critical {
-      background: rgba(207, 102, 121, 0.3);
-      color: var(--error);
-    }
-
-    .violation-impact.serious {
-      background: rgba(255, 183, 77, 0.3);
-      color: var(--warning);
-    }
-
-    .violation-impact.moderate {
-      background: rgba(255, 183, 77, 0.2);
-      color: var(--warning);
-    }
-
-    .violation-impact.minor {
-      background: rgba(96, 165, 250, 0.2);
-      color: var(--accent);
-    }
-
-    .violation-description {
-      color: var(--text-secondary);
-      margin-bottom: 0.5rem;
-    }
-
-    .violation-help {
-      margin-top: 0.5rem;
-    }
-
-    .violation-help a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .violation-help a:hover {
-      text-decoration: underline;
-    }
-
-    .violation-nodes {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .violation-node {
-      background: var(--bg-surface);
+    
+    .test-item {
       padding: 0.75rem;
-      border-radius: 4px;
       margin-bottom: 0.5rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+      border-left: 3px solid #0d6efd;
+    }
+    
+    .test-id {
       font-family: monospace;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      overflow-x: auto;
+      font-weight: 600;
+      color: #0d6efd;
+      margin-right: 0.5rem;
     }
-
-    .error-message {
-      background: rgba(207, 102, 121, 0.2);
-      border: 1px solid var(--error);
-      color: var(--error);
-      padding: 1rem;
-      border-radius: 6px;
-      margin-top: 1rem;
+    
+    .test-description {
+      color: #495057;
     }
-
-    footer {
-      text-align: center;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+    
+    .info-section {
       margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--border);
+      border-top: 2px solid #dee2e6;
     }
-
-    .tool-info {
-      background: var(--bg-surface);
-      padding: 2rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+    
+    .info-block {
+      background: #ffffff;
+      border-left: 4px solid #0d6efd;
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-
-    .tool-info h3 {
-      color: var(--accent);
+    
+    .info-block h2 {
+      color: #0d6efd;
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .info-block h3 {
+      color: #212529;
       font-size: 1.25rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .info-block h3:first-of-type {
+      margin-top: 1rem;
+    }
+    
+    .info-block h4 {
+      color: #212529;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .info-block p {
+      color: #495057;
+      line-height: 1.6;
       margin-bottom: 1rem;
     }
-
-    .tool-info p {
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 1rem;
+    
+    .info-block ul {
+      margin-left: 1.5rem;
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-left: 0;
+      list-style-position: outside;
     }
-
-    .tool-info a {
-      color: var(--accent);
+    
+    .info-block li {
+      margin-bottom: 0.75rem;
+      color: #495057;
+      line-height: 1.6;
+    }
+    
+    .info-block li strong {
+      color: #212529;
+      font-weight: 600;
+    }
+    
+    .info-block a {
+      color: #0d6efd;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    
+    .info-block a:hover {
+      color: #0a58ca;
+      text-decoration-thickness: 2px;
+    }
+    
+    .info-section ul {
+      margin-left: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .info-section li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-section a {
+      color: #0d6efd;
       text-decoration: none;
     }
-
-    .tool-info a:hover {
+    
+    .info-section a:hover {
       text-decoration: underline;
     }
-
-    .tool-info ul {
-      text-align: left;
-      max-width: 800px;
-      margin: 1rem auto;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      padding-left: 2rem;
+    
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #dee2e6;
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.875rem;
     }
-
-    .tool-info li {
-      margin-bottom: 0.75rem;
-    }
-
-    .tool-info li strong {
-      color: var(--text-primary);
-    }
-
+    
     @media (max-width: 768px) {
-      body {
+      table {
+        font-size: 0.875rem;
+      }
+      
+      th, td {
+        padding: 0.5rem;
+      }
+      
+      .modal-content {
+        width: 95%;
+        margin: 10% auto;
         padding: 1rem;
-      }
-
-      .summary {
-        grid-template-columns: 1fr;
-      }
-
-      .page-header {
-        flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>🔍 Accessibility Audit Report</h1>
-      <p class="subtitle">WCAG 2.1 AA Compliance Testing</p>
-      <div class="timestamp">Generated: December 23, 2025 at 01:08:51 PM CST</div>
-      <div class="status-badge passed">
-        ✅ All Pages Pass WCAG 2.1 AA
-      </div>
-    </header>
-
-    <div class="summary">
-      <div class="summary-card">
-        <h3>Total Pages</h3>
-        <div class="value">3</div>
-      </div>
-      <div class="summary-card success">
-        <h3>Pages Passed</h3>
-        <div class="value">3</div>
-      </div>
-      <div class="summary-card ">
-        <h3>Pages Failed</h3>
-        <div class="value">0</div>
-      </div>
-      <div class="summary-card ">
-        <h3>Total Violations</h3>
-        <div class="value">0</div>
-      </div>
+    <h1>🔍 Accessibility Audit Report</h1>
+    <div class="meta">
+      <p><strong>Generated:</strong> 12/30/2025, 8:40:55 AM</p>
+      <p><strong>axe-core version:</strong> 4.11.0</p>
+      <p><strong>Pages tested:</strong> 3</p>
+      <p><strong>Viewports tested:</strong> desktop, tablet, mobile</p>
+      <p><strong>Themes tested:</strong> dark</p>
+      <p><strong>Rule categories:</strong> WCAG 2.1 AA (7 rules), Best Practice (4 rules)</p>
+      <p><strong>Framework-specific rules enabled:</strong> aria-allowed-role, scrollable-region-focusable, landmark-banner-is-top-level, landmark-contentinfo-is-top-level, landmark-main-is-top-level, landmark-unique, no-autoplay-audio, page-has-heading-one, focus-order-semantics, link-in-text-block</p>
+      <p style="color: #6c757d;"><strong>Framework-specific rules disabled:</strong> region, css-orientation-lock, identical-links-same-purpose, hidden-content, label-content-name-mismatch, presentation-role-conflict</p>
     </div>
-
     
-
-    <div class="pages-section">
-      <h2>Page Results</h2>
-      
-      <div class="page-result passed">
-        <div class="page-header">
-          <div>
-            <div class="page-path">✅ /</div>
-            <div class="page-url">
-              <a href="/" target="_blank" rel="noopener noreferrer" aria-label="Open / in new tab">
-                /
-              </a>
-            </div>
-          </div>
-          <div class="status-badge passed">
-            Passed
-          </div>
-        </div>
-        
-        
-        <div style="color: var(--success); margin-top: 1rem;">
-          ✓ This page passes all WCAG 2.1 AA accessibility checks.
-        </div>
-        
+    <div class="stats-grid">
+      <div class="stat-card success">
+        <div class="label">Total Violations</div>
+        <div class="number">0</div>
       </div>
-      
-      <div class="page-result passed">
-        <div class="page-header">
-          <div>
-            <div class="page-path">✅ /faqs</div>
-            <div class="page-url">
-              <a href="/faqs" target="_blank" rel="noopener noreferrer" aria-label="Open /faqs in new tab">
-                /faqs
-              </a>
-            </div>
-          </div>
-          <div class="status-badge passed">
-            Passed
-          </div>
-        </div>
-        
-        
-        <div style="color: var(--success); margin-top: 1rem;">
-          ✓ This page passes all WCAG 2.1 AA accessibility checks.
-        </div>
-        
+      <div class="stat-card success">
+        <div class="label">Total Passes</div>
+        <div class="number">99</div>
       </div>
-      
-      <div class="page-result passed">
-        <div class="page-header">
-          <div>
-            <div class="page-path">✅ /links</div>
-            <div class="page-url">
-              <a href="/links" target="_blank" rel="noopener noreferrer" aria-label="Open /links in new tab">
-                /links
-              </a>
-            </div>
-          </div>
-          <div class="status-badge passed">
-            Passed
-          </div>
-        </div>
-        
-        
-        <div style="color: var(--success); margin-top: 1rem;">
-          ✓ This page passes all WCAG 2.1 AA accessibility checks.
-        </div>
-        
+      <div class="stat-card success">
+        <div class="label">Pages Passing</div>
+        <div class="number">3</div>
       </div>
-      
+      <div class="stat-card clickable" id="totalTestsCard" onclick="openTestsModal()">
+        <div class="label">Total Tests Run</div>
+        <div class="number">801</div>
+        <div class="click-hint">click to view tests</div>
+      </div>
+      <div class="stat-card success">
+        <div class="label">Skip Links</div>
+        <div class="number">9/9</div>
+        <div class="click-hint" style="font-size: 0.7rem;">all working</div>
+      </div>
     </div>
-
-    <div class="tool-info">
-      <h3>About axe-core</h3>
-      <p>
-        This accessibility audit was generated using <strong>axe-core</strong>, 
-        one of the most comprehensive and trusted accessibility testing tools available. 
-        axe-core is developed by Deque Systems and is used by major organizations worldwide 
-        to ensure digital accessibility compliance.
-      </p>
-      <p>
-        <strong>Why axe-core is considered one of the best accessibility checkers:</strong>
-      </p>
-      <ul>
-        <li><strong>Comprehensive Coverage:</strong> Tests against WCAG 2.1 Level A and AA guidelines, covering over 50 accessibility rules</li>
-        <li><strong>Industry Standard:</strong> Used by Google, Microsoft, and thousands of organizations worldwide</li>
-        <li><strong>Open Source:</strong> Free, open-source tool with active community support and continuous improvements</li>
-        <li><strong>Accurate Results:</strong> Low false-positive rate with detailed, actionable violation reports</li>
-        <li><strong>Automated Testing:</strong> Integrates seamlessly with CI/CD pipelines and development workflows</li>
-        <li><strong>Browser Integration:</strong> Works with all major browsers and testing frameworks</li>
-      </ul>
-      <p style="margin-top: 1rem;">
-        <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">Learn more about axe-core →</a> | 
-        <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">GitHub Repository →</a>
-      </p>
+    
+    <h2>📋 All Tested Pages</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Viewport</th>
+          <th>Theme</th>
+          <th>Violations</th>
+          <th>Passes</th>
+          <th>Incomplete</th>
+          <th>Total Tests</th>
+          <th>Status</th>
+          <th>Skip Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>/</td>
+          <td>desktop</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/</td>
+          <td>tablet</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/</td>
+          <td>mobile</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/faqs</td>
+          <td>desktop</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/faqs</td>
+          <td>tablet</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/faqs</td>
+          <td>mobile</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/links</td>
+          <td>desktop</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/links</td>
+          <td>tablet</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+        <tr>
+          <td>/links</td>
+          <td>mobile</td>
+          <td>dark</td>
+          <td>0</td>
+          <td>11</td>
+          <td>0</td>
+          <td><strong>11</strong></td>
+          <td class="status-pass">✅ Pass</td>
+          <td class="status-pass" title="">✅ OK</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    <div class="info-section">
+      <div class="info-block">
+        <h2>About axe-core</h2>
+        <p><strong>axe-core</strong> is an open-source accessibility testing engine developed by Deque Systems. It is one of the most comprehensive and widely-used tools for automated accessibility testing on the web.</p>
+        
+        <h3>What does axe-core test for?</h3>
+        <p>axe-core performs automated checks against the Web Content Accessibility Guidelines (WCAG) and other accessibility standards. The tests check for:</p>
+        <ul>
+          <li><strong>Semantic HTML:</strong> Proper use of HTML elements, ARIA attributes, and landmarks</li>
+          <li><strong>Keyboard Navigation:</strong> All interactive elements must be keyboard accessible</li>
+          <li><strong>Color Contrast:</strong> Text must meet WCAG contrast ratio requirements (4.5:1 for normal text, 3:1 for large text)</li>
+          <li><strong>Focus Management:</strong> Visible focus indicators and logical tab order</li>
+          <li><strong>Form Labels:</strong> All form inputs must have associated labels</li>
+          <li><strong>Image Alt Text:</strong> Images must have appropriate alternative text</li>
+          <li><strong>Heading Structure:</strong> Proper heading hierarchy (h1 → h2 → h3, etc.)</li>
+          <li><strong>Landmark Regions:</strong> Proper use of ARIA landmarks (banner, main, navigation, contentinfo, etc.)</li>
+          <li><strong>Interactive Elements:</strong> Buttons, links, and controls must have accessible names</li>
+          <li><strong>Language Attributes:</strong> HTML lang attribute must be set</li>
+        </ul>
+        
+        <h3>Why is axe-core critical for accessibility?</h3>
+        <ul>
+          <li><strong>Automated Testing:</strong> Catches accessibility issues early in development, before manual testing</li>
+          <li><strong>Comprehensive Coverage:</strong> Tests for 50+ accessibility rules covering WCAG 2.1 Level A and AA standards</li>
+        </ul>
+        
+        <h3>Rule Categories in This Audit</h3>
+        <p>This audit includes three categories of accessibility rules:</p>
+        <ul>
+          <li><strong>WCAG 2.1 Level A & AA Rules:</strong> These rules test for compliance with Web Content Accessibility Guidelines 2.1 Level A and AA standards. These are required for legal compliance with ADA Title II, IITAA, and Section 508.</li>
+          <li><strong>Best Practice Rules:</strong> These rules test for accessibility best practices that are recommended but not explicitly required by WCAG 2.1 AA. They help improve overall accessibility and user experience. Examples include:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li><strong>meta-viewport:</strong> Ensures viewport meta tag is present for responsive design</li>
+              <li><strong>frame-title:</strong> Ensures iframes have descriptive titles</li>
+              <li><strong>html-xml-lang-mismatch:</strong> Checks for consistency between HTML lang and XML lang attributes</li>
+            </ul>
+          </li>
+          
+          <li><strong>Experimental/Cutting-edge Rules:</strong> These are cutting-edge accessibility rules that are still being validated. They may catch issues that standard rules miss, but may also have false positives. Currently enabled: <strong>no-autoplay-audio, page-has-heading-one, focus-order-semantics, link-in-text-block</strong>. Examples include:
+            <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+              <li><strong>css-orientation-lock:</strong> Checks for orientation lock (WCAG 2.1 SC 1.3.4)</li>
+              <li><strong>focus-order-semantics:</strong> Checks focus order matches DOM order</li>
+              <li><strong>no-autoplay-audio:</strong> Checks for autoplay audio (WCAG 2.1 SC 1.4.2)</li>
+              <li><strong>page-has-heading-one:</strong> Checks for h1 on page</li>
+            </ul>
+          </li>
+          
+        </ul>
+        
+        <h3>Framework-Specific Rule Configuration</h3>
+        <p><strong>What are "framework-specific" rules?</strong></p>
+        <p>
+          Some axe-core rules may conflict with how modern web frameworks (like Nuxt and Vuetify) structure their HTML and components. 
+          These frameworks often create wrapper elements, duplicate landmarks, or use ARIA attributes in ways that can trigger false positives 
+          from certain accessibility rules. "Framework-specific" rules are those that may need to be toggled on or off depending on 
+          whether they work correctly with your specific framework setup.
+        </p>
+        
+        <p><strong>Why are some rules enabled and others disabled?</strong></p>
+        <p>
+          Rules are configured based on their compatibility with Nuxt/Vuetify:
+        </p>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          <li><strong>Enabled rules</strong> are being tested to verify they work correctly with the framework. If they cause false positives or conflicts, they should be disabled.</li>
+          <li><strong>Disabled rules</strong> are known to conflict with framework structure (e.g., landmark rules that don't work with framework-created nested structures).</li>
+        </ul>
+        
+        
+        <p style="margin-top: 1rem;"><strong>Currently Enabled (10 rules):</strong></p>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
+          These rules are enabled to test compatibility with Nuxt/Vuetify. Monitor the audit results to see if they produce false positives or valid issues.
+        </p>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          <li><strong>aria-allowed-role:</strong> Checks if ARIA roles are used correctly. May conflict with Vuetify component ARIA usage. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>scrollable-region-focusable:</strong> Ensures scrollable regions are keyboard accessible. May conflict with framework-managed scrollable containers. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-banner-is-top-level:</strong> Checks that banner landmarks are top-level (not nested). Framework may create nested banners that conflict with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-contentinfo-is-top-level:</strong> Checks that contentinfo landmarks are top-level (not nested). Framework may create nested contentinfo that conflicts with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-main-is-top-level:</strong> Checks that main landmarks are top-level (not nested). Framework may create nested main landmarks that conflict with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-unique:</strong> Checks that landmark types are unique on the page. Framework may intentionally create duplicate landmarks (e.g., multiple navigation regions). If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>no-autoplay-audio:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>page-has-heading-one:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>focus-order-semantics:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>link-in-text-block:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li>
+        </ul>
+        
+        
+        
+        <p style="margin-top: 1rem;"><strong>Currently Disabled (6 rules):</strong></p>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
+          These rules are disabled because they conflict with Nuxt/Vuetify framework structure:
+        </p>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          <li><strong>region:</strong> Framework structure handles ARIA regions properly, but this rule conflicts with the implementation.</li><li><strong>css-orientation-lock:</strong> Disabled due to framework structure conflicts.</li><li><strong>identical-links-same-purpose:</strong> Disabled due to framework structure conflicts.</li><li><strong>hidden-content:</strong> Disabled due to framework structure conflicts.</li><li><strong>label-content-name-mismatch:</strong> Disabled due to framework structure conflicts.</li><li><strong>presentation-role-conflict:</strong> Disabled due to framework structure conflicts.</li>
+        </ul>
+        
+        
+        <p style="margin-top: 1.5rem; padding: 0.75rem; background: #fff3cd; border-left: 3px solid #ffc107; border-radius: 4px;">
+          <strong>How to Toggle Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant at the top of <code>audit-accessibility.js</code> (around line 32). 
+          Set a rule to <code>true</code> to enable it, or <code>false</code> to disable it. After changing the configuration, re-run the audit to see the updated results.
+        </p>
+      </div>
+      
+      <div class="info-block">
+        <h2>Accessibility Standards & Compliance</h2>
+        <p>The accessibility tests performed by axe-core are designed to ensure compliance with the following standards and requirements:</p>
+        
+        <h3>IITAA Accessibility Standards for Illinois</h3>
+        <p>The Illinois Information Technology Accessibility (IITAA) standards require that all state websites and digital services be accessible to individuals with disabilities. These standards align with WCAG 2.1 Level AA and Section 508 requirements, ensuring that Illinois state websites are usable by all residents, including those using assistive technologies.</p>
+        <ul>
+          <li><a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Standards Documentation</a></li>
+          <li><a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Accessibility Requirements</a></li>
+        </ul>
+        
+        <h3>WCAG 2.1 Level AA Guidelines</h3>
+        <p>The Web Content Accessibility Guidelines (WCAG) 2.1 Level AA are internationally recognized standards for web accessibility. These guidelines provide a comprehensive framework for making web content accessible to people with disabilities, including those with visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.</p>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" target="_blank" rel="noopener noreferrer">Understanding WCAG 2.1</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/guidelines/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Guidelines</a></li>
+        </ul>
+        
+        <h3>ADA Title II Requirements</h3>
+        <p>Americans with Disabilities Act (ADA) Title II requires that state and local governments ensure their services, programs, and activities are accessible to people with disabilities. This includes websites and digital services. Title II applies to all state and local government entities, including public universities, libraries, and other government-operated websites.</p>
+        <ul>
+          <li><a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">ADA Title II Overview</a></li>
+          <li><a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a></li>
+          <li><a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Web Accessibility Requirements</a></li>
+        </ul>
+      </div>
     </div>
-
+    
     <footer>
-      <p>Generated by <strong>axe-core</strong> accessibility testing tool</p>
-      <p>WCAG 2.1 AA Compliance Standard</p>
+      <p>Generated by <strong>axe-core</strong> 4.11.0 on 12/30/2025, 8:40:55 AM</p>
+      <p>For more information, visit <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a></p>
     </footer>
   </div>
+  
+  <!-- Modal for Test List -->
+  <div id="testsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>axe-core Tests Performed</h2>
+        <button class="modal-close" onclick="closeTestsModal()">&times;</button>
+      </div>
+      <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; border-left: 4px solid #0d6efd;">
+        <p style="margin: 0 0 0.75rem 0; font-weight: 600; font-size: 1rem;">How the Total Tests Run (801) is Calculated:</p>
+        <div style="font-size: 0.9em; color: #495057; line-height: 1.6;">
+          <p style="margin: 0 0 0.75rem 0;">
+            This list shows <strong>11 unique test rule types</strong> (e.g., "color-contrast", "button-name"). 
+            Each rule checks for one specific accessibility issue.
+          </p>
+          
+          <p style="margin: 0 0 0.75rem 0; font-weight: 600;">Step 1: Calculate Maximum Possible Tests</p>
+          <p style="margin: 0 0 0.5rem 0;">
+            Each rule runs once per page/viewport combination:
+          </p>
+          <ul style="margin: 0.5rem 0 0.75rem 1.5rem; padding-left: 0;">
+            <li style="margin-bottom: 0.25rem;"><strong>11 rules</strong> (shown in list below)</li>
+            <li style="margin-bottom: 0.25rem;">× <strong>3 pages</strong> tested</li>
+            <li style="margin-bottom: 0.25rem;">× <strong>3 viewports</strong> (desktop, tablet, mobile)</li>
+            <li style="margin-bottom: 0.25rem;">× <strong>1 theme</strong> (dark)</li>
+            <li style="margin-bottom: 0.25rem;">= <strong>9 page/viewport combinations</strong></li>
+          </ul>
+          <p style="margin: 0 0 0.75rem 0; padding: 0.5rem; background: #e7f3ff; border-radius: 4px;">
+            <strong>Maximum possible tests:</strong> 11 rules × 9 combinations = <strong>99 tests</strong>
+          </p>
+          
+          <p style="margin: 0.75rem 0 0.5rem 0; font-weight: 600;">Step 2: Count Actual Test Results</p>
+          <p style="margin: 0 0 0.5rem 0;">
+            For each page/viewport combination, axe-core runs all applicable rules and returns results:
+          </p>
+          <ul style="margin: 0.5rem 0 0.75rem 1.5rem; padding-left: 0;">
+            <li style="margin-bottom: 0.25rem;"><strong>Passes:</strong> 99 tests that passed (rule found no issues)</li>
+            <li style="margin-bottom: 0.25rem;"><strong>Violations:</strong> 0 tests that found accessibility issues</li>
+            <li style="margin-bottom: 0.25rem;"><strong>Incomplete:</strong> 0 tests that couldn't complete automatically (may need manual review)</li>
+            <li style="margin-bottom: 0.25rem;"><strong>Inapplicable:</strong> 702 tests that didn't apply to that page (e.g., form rules on pages without forms)</li>
+          </ul>
+          <p style="margin: 0 0 0.75rem 0; padding: 0.5rem; background: #d1e7dd; border-radius: 4px;">
+            <strong>Actual tests run:</strong> 99 + 0 + 0 + 702 = <strong>801 tests</strong>
+          </p>
+          
+          <p style="margin: 0.75rem 0 0.5rem 0; font-weight: 600;">Why the Difference?</p>
+          <p style="margin: 0; padding: 0.75rem; background: #fff3cd; border-radius: 4px; border-left: 3px solid #ffc107;">
+            The maximum (99) assumes every rule applies to every page. 
+            The actual total (801) is lower because <strong>-702 tests were inapplicable</strong> — 
+            meaning those rules don't apply to certain pages (e.g., a rule checking for form labels won't run on a page with no forms). 
+            This is normal and expected — not all accessibility rules apply to all pages.
+            <br /><br />
+            <strong>Note:</strong> "Inapplicable" does not mean manual testing is required. It simply means the rule doesn't apply to that particular page's content.
+          </p>
+        </div>
+      </div>
+      <p>The following accessibility test rule types were run on this site using axe-core:</p>
+      
+      
+      <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.1rem; color: #0d6efd; font-weight: 600;">
+        WCAG 2.1 Level A & AA Rules (7 rules)
+      </h3>
+      <p style="font-size: 0.9em; color: #6c757d; margin-bottom: 0.75rem;">
+        These rules test for compliance with Web Content Accessibility Guidelines 2.1 Level A and AA standards.
+      </p>
+      <ul class="test-list">
+        
+        <li class="test-item">
+          <span class="test-id">aria-hidden-body</span>
+          <span class="test-description">Ensure aria-hidden=&quot;true&quot; is not present on the document body.</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">bypass</span>
+          <span class="test-description">Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">document-title</span>
+          <span class="test-description">Ensure each HTML document contains a non-empty &lt;title&gt; element</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">html-has-lang</span>
+          <span class="test-description">Ensure every HTML document has a lang attribute</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">html-lang-valid</span>
+          <span class="test-description">Ensure the lang attribute of the &lt;html&gt; element has a valid value</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">meta-viewport</span>
+          <span class="test-description">Ensure &lt;meta name=&quot;viewport&quot;&gt; does not disable text scaling and zooming</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">scrollable-region-focusable</span>
+          <span class="test-description">Ensure elements that have scrollable content are accessible by keyboard</span>
+        </li>
+        
+      </ul>
+      
+      
+      
+      <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.1rem; color: #856404; font-weight: 600;">
+        Best Practice Rules (4 rules)
+      </h3>
+      <p style="font-size: 0.9em; color: #6c757d; margin-bottom: 0.75rem;">
+        These rules test for accessibility best practices that are recommended but not explicitly required by WCAG 2.1 AA.
+      </p>
+      <ul class="test-list">
+        
+        <li class="test-item">
+          <span class="test-id">landmark-one-main</span>
+          <span class="test-description">Ensure the document has a main landmark</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">meta-viewport-large</span>
+          <span class="test-description">Ensure &lt;meta name=&quot;viewport&quot;&gt; can scale a significant amount</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">page-has-heading-one</span>
+          <span class="test-description">Ensure that the page, or at least one of its frames contains a level-one heading</span>
+        </li>
+        
+        <li class="test-item">
+          <span class="test-id">region</span>
+          <span class="test-description">Ensure all page content is contained by landmarks</span>
+        </li>
+        
+      </ul>
+      
+      
+      
+      
+      
+      
+      <p style="margin-top: 1.5rem; font-size: 0.9em; color: #6c757d;">
+        <strong>Note:</strong> Each test rule may have passed, failed, been incomplete, or been inapplicable depending on the content of each page and viewport combination.
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    function openTestsModal() {
+      document.getElementById('testsModal').style.display = 'block';
+    }
+    
+    function closeTestsModal() {
+      document.getElementById('testsModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById('testsModal');
+      if (event.target == modal) {
+        closeTestsModal();
+      }
+    }
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeTestsModal();
+      }
+    });
+  </script>
 </body>
 </html>
