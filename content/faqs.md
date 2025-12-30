@@ -310,18 +310,18 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Top 10 accessibility mistakes (and what to do instead):**
 
-| ❌ Don't do this                                                                            | ✅ Do this instead                                                                           |
-| ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| **1. Skip alt text on images** — "The image is self-explanatory"                            | Write alt text for every image. If you took the photo for a reason, that reason needs words. |
-| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule"       |
-| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one  | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate.         |
-| **4. Put essential info only in images** — Images may not load or be visible                | Always include the same information as text in the document or caption                       |
-| **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color                                     |
-| **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                  |
-| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's legally required and benefits everyone.                            |
-| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability                              |
-| **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible                      |
-| **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                      |
+| ❌ Don't do this                                                                            | ✅ Do this instead                                                                                     |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **1. Skip alt text on images** — "The image is self-explanatory"                            | Write alt text for every image. If you took the photo for a reason, that reason needs words.           |
+| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule"                 |
+| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one  | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate.                   |
+| **4. Put essential info only in images** — Images may not load or be visible                | Always include the same information as text in the document or caption                                 |
+| **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color                                               |
+| **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                            |
+| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's legally required and benefits everyone.                                      |
+| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability |
+| **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible                                |
+| **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                                |
 
 **Bonus mistakes to avoid:**
 
@@ -1013,10 +1013,10 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 ### When must we comply with the ADA Title II rule?
 
-| Entity Size                                      | Compliance Deadline |
-| ------------------------------------------------ | ------------------- |
-| Entities serving populations of 50,000 or more   | **April 24, 2026**  |
-| Entities serving populations under 50,000        | April 26, 2027      |
+| Entity Size                                    | Compliance Deadline |
+| ---------------------------------------------- | ------------------- |
+| Entities serving populations of 50,000 or more | **April 24, 2026**  |
+| Entities serving populations under 50,000      | April 26, 2027      |
 
 For most Illinois state agencies, the deadline is **April 24, 2026** (since Illinois has over 12 million residents).
 
@@ -1397,7 +1397,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **The bottom line:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
 
-### Is a Learning Management System (LMS) like Docebo WCAG 2.1 compliant?
+### Is a Learning Management System (LMS) like Docebo WCAG 2.1 Level AA compliant?
 
 **Quick answer:** Sometimes partially. Even if the LMS platform is improving, **your course content and configuration still have to be accessible**.
 
