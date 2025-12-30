@@ -67,3 +67,4 @@ linksToFix.forEach(fix => {
 fs.writeFileSync('content/faqs.md', content);
 console.log(`\n✅ Fixed ${linksToFix.length} internal links`);
 
+
