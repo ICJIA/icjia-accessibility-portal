@@ -2292,7 +2292,7 @@ ICJIA web developers maintain this FAQ because they work daily with accessibilit
 
 **Why accuracy matters:**
 
-This FAQ helps dozens (possibly hundreds) of ICJIA staff understand accessibility requirements. If there's incorrect information, it could lead to compliance issues or wasted effort. Corrections are taken seriously and implemented promptly.
+The goal of this FAQ is to help ICJIA staff understand accessibility requirements. If there's incorrect information, it could lead to compliance issues or wasted effort. Corrections are taken seriously and implemented promptly.
 
 **The bottom line:** Every claim in this FAQ is sourced to official references, but errors can happen. If you spot one, report it so it can be fixed immediately.
 
