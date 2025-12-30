@@ -9,6 +9,50 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ---
 
+## Quick Reference: 5 Critical Actions by Role
+
+**If you only have 5 minutes, start here.** These are the most impactful actions for each role to begin accessibility compliance:
+
+### For Content Creators
+
+| Action                                | Time         | Impact                      |
+| ------------------------------------- | ------------ | --------------------------- |
+| 1. Add alt text to images             | 30 sec/image | Required for screen readers |
+| 2. Use heading styles (not just bold) | 0 sec        | Screen reader navigation    |
+| 3. Write descriptive links            | 5 sec        | Context for assistive tech  |
+| 4. Run Accessibility Checker          | 60 sec       | Catches common errors       |
+| 5. Add captions to videos             | 10-15 min    | Legally required            |
+
+**Start here:** [I'm a content creator. Where do I start?](#im-a-content-creator-where-do-i-start)
+
+### For Web Developers
+
+| Action                             | Time   | Impact                      |
+| ---------------------------------- | ------ | --------------------------- |
+| 1. Add axe-core to your build      | 15 min | Catches 30-40% of issues    |
+| 2. Test keyboard navigation        | 5 min  | Critical for accessibility  |
+| 3. Check color contrast (4.5:1)    | 2 min  | Easy fix, high impact       |
+| 4. Ensure visible focus indicators | 10 min | Required for keyboard users |
+| 5. Use semantic HTML (not divs)    | 0 sec  | Foundation of accessibility |
+
+**Start here:** [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start)
+
+### For Managers
+
+| Action                             | Time      | Impact                   |
+| ---------------------------------- | --------- | ------------------------ |
+| 1. Inventory your public content   | 1-2 hours | Know the scope           |
+| 2. Prioritize high-traffic content | 30 min    | Focus limited resources  |
+| 3. Allocate time for training      | 30 min    | Enable your team         |
+| 4. Add accessibility to job duties | 15 min    | Set expectations         |
+| 5. Document your remediation plan  | 1 hour    | Show good-faith progress |
+
+**Start here:** [I'm a manager. Where do I start?](#im-a-manager-where-do-i-start)
+
+**April 24, 2026 deadline is firm.** Start now — every small improvement counts.
+
+---
+
 ## General Accessibility Questions
 
 ### What is digital accessibility?
@@ -2192,6 +2236,65 @@ Illinois DoIT recommends including language similar to:
 
 - <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">ITI VPAT Template</a> — Official VPAT template and guidance
 - <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Section508.gov: How to Create an ACR</a> — Federal guidance on VPATs
+
+---
+
+## About This FAQ
+
+### How often is this FAQ updated?
+
+{new:2025-12-30}
+
+**Quick answer:** This FAQ is actively maintained and updated as new information becomes available, compliance requirements are clarified, or common questions emerge. Recent additions are marked with a "NEW" badge for 7 days.
+
+**Full explanation:**
+
+**Update frequency:**
+
+- **Ongoing updates** — This FAQ is a living document. Updates are made as needed when new guidance is published, requirements are clarified, or staff questions reveal gaps in coverage
+- **Recent changes tracked** — Questions added or substantially revised within the last 7 days are marked with a "NEW" badge
+- **Last updated date** — The overall last-updated date appears at the bottom of the FAQ
+
+**What triggers updates:**
+
+- **New federal or state guidance** — When DOJ, Illinois DoIT, or W3C publishes updated accessibility guidance
+- **Common questions from staff** — When multiple people ask similar questions, we add or expand FAQ entries
+- **Clarifications needed** — When existing answers prove confusing or incomplete based on feedback
+- **Technical developments** — When new tools, techniques, or testing approaches become available
+
+**How to suggest improvements:**
+
+If you have a question that isn't covered here, or if you find information that's unclear or outdated, please contact the ICJIA web development team. Your feedback helps keep this resource accurate and useful.
+
+**Why web developers maintain this FAQ:**
+
+ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [Can I trust accessibility information from non-executive staff?](#can-i-trust-accessibility-information-from-non-exe)
+
+**The bottom line:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 7 days. Check the last-updated date at the bottom for the most recent revision.
+
+### What if I find incorrect information in this FAQ?
+
+{new:2025-12-30}
+
+**Quick answer:** Contact the ICJIA web development team immediately. Since all claims are sourced to official references, discrepancies should be rare — but if you find one, it needs to be corrected promptly.
+
+**What to do if you spot an error:**
+
+1. **Verify the source** — Check the linked reference (DOJ, Illinois DoIT, W3C/WCAG) to confirm the discrepancy
+2. **Note the specific issue** — What question/answer is incorrect? What should it say? What's your source?
+3. **Contact the web development team** — Report the issue so it can be corrected
+
+**Common reasons for apparent discrepancies:**
+
+- **Outdated guidance** — Accessibility standards evolve; if federal or state guidance has changed recently, let us know
+- **Interpretation differences** — Sometimes guidance is ambiguous. If you have conflicting information from DoIT or another authoritative source, share it
+- **Context missing** — Some answers are simplified for brevity. If more context would help, suggest additions
+
+**Why accuracy matters:**
+
+This FAQ helps dozens (possibly hundreds) of ICJIA staff understand accessibility requirements. If there's incorrect information, it could lead to compliance issues or wasted effort. Corrections are taken seriously and implemented promptly.
+
+**The bottom line:** Every claim in this FAQ is sourced to official references, but errors can happen. If you spot one, report it so it can be fixed immediately.
 
 ---
 

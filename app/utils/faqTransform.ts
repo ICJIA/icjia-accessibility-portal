@@ -3,7 +3,7 @@ type MiniMarkNode = any
 /**
  * Number of days a question is considered "new"
  */
-const NEW_QUESTION_DAYS = 14
+const NEW_QUESTION_DAYS = 7
 
 function isElementNode(node: MiniMarkNode): node is any[] {
   return Array.isArray(node) && typeof node[0] === 'string'
@@ -25,7 +25,7 @@ function extractNodeText(node: MiniMarkNode): string {
 }
 
 /**
- * Check if a date string is within the "new" window (default 14 days)
+ * Check if a date string is within the "new" window (default 7 days)
  * @param dateStr - Date string in YYYY-MM-DD format
  * @returns true if the date is within the new window
  */

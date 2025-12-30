@@ -27,9 +27,9 @@
             color="success"
             variant="flat"
             class="new-badge"
-            aria-label="New question"
+            :aria-label="`New question added ${item.newDate ? formatDate(item.newDate) : ''}`"
           >
-            New
+            New{{ item.newDate ? ` (${formatDate(item.newDate)})` : '' }}
           </v-chip>
           <span class="faq-question-text">{{ item.question }}</span>
         </div>
@@ -74,7 +74,7 @@ import { ref, watch, onMounted, nextTick } from "vue";
  * @typedef {Object} FaqItem
  * @property {string} question - FAQ question text
  * @property {MiniMarkNode[]} answer - FAQ answer content as markdown nodes
- * @property {boolean} [isNew] - Whether this FAQ was recently added (within 2 weeks)
+ * @property {boolean} [isNew] - Whether this FAQ was recently added (within 7 days)
  * @property {string} [newDate] - Date the FAQ was added (YYYY-MM-DD format)
  */
 type MiniMarkNode = any;
@@ -333,6 +333,23 @@ onMounted(async () => {
     }
   }
 });
+
+/**
+ * Format date for display in NEW badge
+ * @param {string} dateStr - Date in YYYY-MM-DD format
+ * @returns {string} Formatted date like "Dec 30, 2025"
+ */
+function formatDate(dateStr: string): string {
+  try {
+    const date = new Date(dateStr);
+    const month = date.toLocaleDateString('en-US', { month: 'short' });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `${month} ${day}, ${year}`;
+  } catch {
+    return dateStr;
+  }
+}
 
 // Create a content structure that ContentRenderer can handle
 function createAnswerContent(answerNodes: MiniMarkNode[]) {
