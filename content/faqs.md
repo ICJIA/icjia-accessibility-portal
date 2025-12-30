@@ -1264,6 +1264,286 @@ Yes, limited exceptions exist for:
 
 ---
 
+## Liability and Individual Responsibilities
+
+### After the April 2026 deadline passes, who is liable for inaccessible content?
+
+{new:2025-12-30}
+
+**Quick answer:** Under ADA Title II, **the government entity (the state agency) is legally liable** — not individual employees. The U.S. Department of Justice files complaints against the organization, not individual staff members. However, all employees have professional responsibilities to ensure accessible content within their roles. Understanding your specific responsibilities helps protect both your agency and yourself professionally.
+
+**How ADA Title II enforcement works:**
+
+**The agency is the legal target:**
+
+- **ADA Title II applies to public entities** — The law holds state and local government agencies responsible for compliance, not individual employees
+- **DOJ complaints target the organization** — When the Department of Justice investigates accessibility complaints, they file against the agency (e.g., "Department of Justice v. Illinois Criminal Justice Information Authority"), not against individual employees
+- **The agency faces consequences** — Penalties, consent decrees, and remediation requirements fall on the organization
+
+**Individual employees are generally protected:**
+
+- **No personal financial liability** — Individual state employees are not personally fined or sued under ADA Title II enforcement actions
+- **Performance expectations** — However, accessibility is part of your job duties. Repeated failure to follow agency accessibility policies could be addressed through standard employment processes (performance reviews, training requirements, etc.)
+- **Professional responsibility** — While you won't be named in a DOJ complaint, you have a professional obligation to create accessible content within your role
+
+**See also:** 
+- [What is my liability as a manager?](#liability-and-individual-responsi-what-is-my-liability-as-a-manager)
+- [What is my liability as a web developer?](#liability-and-individual-responsi-what-is-my-liability-as-a-web-developer)
+- [What is my liability as a content creator?](#liability-and-individual-responsi-what-is-my-liability-as-a-content-creator)
+- [What is my liability as someone on executive staff?](#liability-and-individual-responsi-what-is-my-liability-as-someone-on-executive-sta)
+
+**References:**
+
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — Legal text establishing state agency requirements
+- <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II Primer</a> — Explains that Title II applies to "public entities" (state and local governments)
+- <a href="https://www.ada.gov/resources/filing-a-complaint/" target="_blank" rel="noopener noreferrer">DOJ: Filing an ADA Complaint</a> — Describes complaint process against public entities
+
+### What is my liability as a manager?
+
+{new:2025-12-30}
+
+**Quick answer:** You are not personally liable under ADA Title II (the agency is), but you have professional responsibility to ensure your team follows accessibility requirements. Your key responsibilities: allocate resources for accessibility work, ensure staff receive training, hold staff accountable for accessible deliverables, and escalate barriers that your team cannot resolve.
+
+**Your professional responsibilities as a manager:**
+
+**1. Resource allocation:**
+- **Budget for accessibility** — Ensure your team has time and resources to create accessible content
+- **Prioritize accessibility in project planning** — Don't treat accessibility as optional or "nice to have"
+- **Don't create impossible deadlines** — Unrealistic timelines that force staff to skip accessibility checks put your agency at risk
+
+**2. Staff training and support:**
+- **Ensure staff receive accessibility training** — Don't assume staff "already know" accessibility requirements
+- **Provide access to tools** — Screen readers, testing tools, accessible templates
+- **Support staff when they identify barriers** — If a vendor tool isn't accessible, work with procurement to address it
+
+**3. Accountability for deliverables:**
+- **Include accessibility in performance expectations** — Make it clear that accessible content is required, not optional
+- **Review deliverables for accessibility** — Don't approve content that doesn't meet WCAG 2.1 Level AA
+- **Document accessibility issues** — If staff repeatedly produce inaccessible content despite training, address it through normal performance management
+
+**4. Escalation and problem-solving:**
+- **Escalate systemic barriers** — If your team lacks training, tools, or vendor cooperation, escalate to leadership
+- **Work with your agency's accessibility coordinator** — They can provide guidance and help remove barriers
+- **Don't ignore accessibility complaints** — If someone reports an accessibility barrier, treat it seriously
+
+**What protects you professionally:**
+
+- **Document your efforts** — Keep records of accessibility training provided, tools purchased, policies implemented
+- **Follow agency accessibility policies** — If your agency has adopted accessibility standards, ensure your team follows them
+- **Seek guidance when unsure** — Contact your agency's accessibility coordinator or Illinois DoIT for help
+
+**The bottom line:** You won't be named in a DOJ lawsuit, but accessibility is part of your management responsibilities. Ignoring accessibility requirements could be addressed through performance management, and it puts your agency at legal risk.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II Fact Sheet</a> — Describes agency responsibilities
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA Requirements</a> — State agency accessibility obligations
+
+### What is my liability as a web developer?
+
+{new:2025-12-30}
+
+**Quick answer:** You are not personally liable under ADA Title II (the agency is), but you have professional responsibility to build accessible websites and applications. Your key responsibilities: implement WCAG 2.1 Level AA standards in all development work, test for accessibility before deploying, document known accessibility barriers, and escalate issues you cannot resolve (e.g., inaccessible vendor components).
+
+**Your professional responsibilities as a web developer:**
+
+**1. Build accessibility into your work:**
+- **Follow WCAG 2.1 Level AA standards** — This is the legal requirement for state agencies
+- **Use semantic HTML** — Proper heading structure, form labels, alt text for images
+- **Ensure keyboard accessibility** — All interactive elements must work without a mouse
+- **Test with assistive technology** — Use screen readers, keyboard navigation, zoom testing
+
+**2. Test before deployment:**
+- **Run automated tests** — Use tools like axe, WAVE, or Lighthouse
+- **Perform manual testing** — Automated tools catch ~30-40% of accessibility issues; manual testing is essential
+- **Don't deploy content you know is inaccessible** — If you've identified accessibility barriers, fix them before launch
+
+**3. Document and communicate:**
+- **Document known accessibility issues** — If you inherit inaccessible code or use vendor components with barriers, document them
+- **Communicate barriers to management** — If a vendor tool or framework has accessibility issues, escalate it
+- **Provide accessibility guidance to content creators** — Help non-technical staff understand what they need to do
+
+**4. Stay current with standards:**
+- **WCAG 2.1 Level AA is the current standard** — Familiarize yourself with all Level A and Level AA success criteria
+- **Monitor Illinois DoIT guidance** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a>
+- **Seek training when needed** — Accessibility is complex; ongoing learning is part of the job
+
+**What protects you professionally:**
+
+- **Follow established standards** — WCAG 2.1 Level AA is the objective standard; if you meet it, you're doing your job
+- **Document your testing** — Keep records of accessibility tests performed and issues addressed
+- **Escalate unsolvable problems** — If a vendor component is inaccessible and you can't fix it, document it and escalate to management
+
+**Common misconceptions:**
+
+- **"I'm just following the design"** — If a design includes inaccessible patterns, it's your professional responsibility to flag it
+- **"The CMS made me do it"** — You're responsible for ensuring the output is accessible, even if you're working within a CMS or framework
+- **"We'll fix it later"** — Accessibility must be built in from the start; retrofitting is expensive and often incomplete
+
+**The bottom line:** You won't be named in a DOJ lawsuit, but accessibility is a core part of web development. Building inaccessible sites despite knowing the requirements could be addressed through performance management, and it puts your agency at legal risk.
+
+**References:**
+
+- <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Specification</a> — The technical standard
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG Quick Reference</a> — Filterable checklist of all success criteria
+- <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Testing Guidance</a> — State-specific accessibility testing resources
+
+### What is my liability as a content creator?
+
+{new:2025-12-30}
+
+**Quick answer:** You are not personally liable under ADA Title II (the agency is), but you have professional responsibility to create accessible content. Your key responsibilities: use accessible document templates, add alt text to images, structure documents with headings, ensure sufficient color contrast, and test documents before publishing.
+
+**Your professional responsibilities as a content creator:**
+
+**1. Use accessible templates and formatting:**
+- **Start with accessible templates** — Don't create documents from scratch; use pre-built accessible templates
+- **Use built-in heading styles** — Don't fake headings with bold text; use Word/InDesign heading styles
+- **Use built-in list formatting** — Don't create fake lists with dashes or bullets; use the list tools
+- **Add table headers** — If you create tables, mark the header row properly
+
+**2. Provide alternative text for images:**
+- **Every meaningful image needs alt text** — Describe what the image conveys, not just what it shows
+- **Decorative images can be marked as decorative** — If an image is purely decorative, mark it as such
+- **Complex images need longer descriptions** — Charts, graphs, and infographics may need extended descriptions
+
+**3. Ensure readability and usability:**
+- **Check color contrast** — Text must have sufficient contrast against its background (use a <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">contrast checker</a>)
+- **Don't rely on color alone** — Use text labels, patterns, or icons in addition to color
+- **Use plain language** — Clear, simple language benefits everyone, especially people with cognitive disabilities
+- **Provide descriptive link text** — Avoid "click here"; use "Download the 2024 annual report"
+
+**4. Test before publishing:**
+- **Run the built-in accessibility checker** — Microsoft Word, Adobe Acrobat, and other tools have accessibility checkers
+- **Test with a screen reader** — Listen to how your content sounds when read aloud
+- **Ensure logical reading order** — Does the content make sense when read top to bottom?
+
+**What protects you professionally:**
+
+- **Follow agency accessibility policies** — If your agency provides training and templates, use them
+- **Ask for help when unsure** — Contact your web developer, accessibility coordinator, or DoIT for guidance
+- **Document accessibility efforts** — Keep track of training completed and templates used
+
+**Common misconceptions:**
+
+- **"Someone else will fix it"** — Accessibility must be built in from the start; it's not something that can be easily fixed later
+- **"I don't have time"** — Accessibility takes practice, but it becomes second nature. Most tasks (adding alt text, using heading styles) add minimal time
+- **"My content isn't public-facing"** — Internal documents must also be accessible under IITAA and Section 504
+
+**The bottom line:** You won't be named in a DOJ lawsuit, but creating accessible content is part of your job duties. Repeatedly producing inaccessible content despite training could be addressed through performance management, and it puts your agency at legal risk.
+
+**References:**
+
+- <a href="https://www.dhs.gov/sites/default/files/publications/Guidance%20on%20Accessible%20PDFs.pdf" target="_blank" rel="noopener noreferrer">DHS Guidance on Accessible PDFs</a> — Federal guidance on creating accessible documents
+- <a href="https://www.w3.org/WAI/media/av/" target="_blank" rel="noopener noreferrer">W3C Making Audio and Video Media Accessible</a> — Guidance on multimedia accessibility
+- <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Resources</a> — State-specific guidance
+
+### What is my liability as someone on executive staff?
+
+{new:2025-12-30}
+
+**Quick answer:** You are not personally liable under ADA Title II (the agency is), but you have strategic and oversight responsibilities. Your key responsibilities: ensure the agency has an accessibility policy, allocate budget and resources for accessibility work, designate an accessibility coordinator, ensure staff receive training, and monitor compliance agency-wide.
+
+**Your strategic and oversight responsibilities:**
+
+**1. Policy and leadership:**
+- **Adopt an agency accessibility policy** — Make accessibility an official priority with clear expectations
+- **Designate an accessibility coordinator** — Someone needs to own accessibility strategy and compliance tracking
+- **Communicate the importance of accessibility** — Staff take accessibility seriously when leadership does
+
+**2. Resource allocation:**
+- **Budget for accessibility** — Training, tools, testing, remediation, and potentially staff time
+- **Allocate staff time for accessibility work** — Don't expect staff to "fit it in" around other priorities
+- **Invest in accessible tools and platforms** — Cheaper tools that produce inaccessible output cost more in the long run
+
+**3. Training and capacity building:**
+- **Ensure all staff receive accessibility training** — Content creators, web developers, managers, procurement staff
+- **Provide ongoing learning opportunities** — Accessibility standards evolve; one-time training isn't enough
+- **Support staff when they need specialized expertise** — Sometimes you need consultants or expert review
+
+**4. Compliance monitoring and accountability:**
+- **Track accessibility compliance** — Regular audits, testing, and issue tracking
+- **Address barriers systematically** — Don't just fix individual complaints; identify and fix systemic issues
+- **Hold managers accountable** — Accessibility should be part of management performance expectations
+- **Report to Illinois DoIT as required** — State agencies must comply with IITAA reporting requirements
+
+**5. Risk management:**
+- **Understand your agency's accessibility exposure** — How much public-facing content do you have? How accessible is it?
+- **Prioritize high-risk content** — Core services and frequently accessed content should be addressed first
+- **Address complaints promptly** — When someone reports an accessibility barrier, treat it seriously
+- **Consult legal counsel when needed** — If you receive a formal complaint or DOJ inquiry, involve legal immediately
+
+**What protects your agency (and you professionally):**
+
+- **Demonstrate good faith effort** — Document your accessibility efforts, even if you're not 100% compliant yet
+- **Follow Illinois DoIT guidance** — The state accessibility office provides resources and support
+- **Respond to complaints promptly** — DOJ looks favorably on organizations that address barriers quickly
+- **Don't ignore the problem** — Lack of awareness is not a defense after April 2026
+
+**The bottom line:** You won't be named personally in a DOJ lawsuit, but as an executive, you own the agency's accessibility strategy. Failure to address accessibility puts the agency at legal and reputational risk. The DOJ has made clear that accessibility is not optional.
+
+**References:**
+
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — Legal requirements for state agencies
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II Fact Sheet</a> — Summary of agency obligations
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA Requirements</a> — State-specific requirements and resources
+- <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II Primer</a> — Comprehensive overview of Title II compliance
+
+### How can I protect myself professionally while ensuring my agency stays compliant?
+
+{new:2025-12-30}
+
+**Quick answer:** Follow established accessibility standards (WCAG 2.1 Level AA), document your efforts, seek training and guidance when needed, and escalate systemic barriers you cannot resolve. The key is demonstrating good faith effort to create accessible content within your role.
+
+**Practical steps for all roles:**
+
+**1. Get trained:**
+- **Take accessibility training** — Many free resources are available; see [Where can I learn more about accessibility?](#getting-help-where-can-i-learn-more-about-accessibility)
+- **Learn the basics for your role** — You don't need to be an expert in everything, but you need to know your responsibilities
+- **Stay current** — Standards evolve; check Illinois DoIT guidance periodically
+
+**2. Use the right tools:**
+- **Use accessibility checkers** — Microsoft Word, Adobe Acrobat, browser extensions like WAVE or axe
+- **Use accessible templates** — Don't create documents from scratch
+- **Test your work** — Keyboard navigation, screen reader testing, color contrast checks
+
+**3. Document your efforts:**
+- **Keep records of training completed** — Certificates, course completion, workshops attended
+- **Document testing performed** — Accessibility reports, test results, issues identified and fixed
+- **Track time spent on accessibility** — If accessibility work is taking significant time, document it
+
+**4. Communicate and escalate:**
+- **Ask questions when unsure** — Contact your accessibility coordinator, web developer, or Illinois DoIT
+- **Flag accessibility barriers** — If a tool, vendor, or process creates barriers, report it
+- **Don't stay silent** — If you're being pressured to skip accessibility steps, escalate to your manager or accessibility coordinator
+
+**5. Follow agency policies:**
+- **If your agency has accessibility policies, follow them** — Policies exist to protect both the agency and you
+- **Participate in accessibility initiatives** — Audits, remediation efforts, policy development
+- **Take complaints seriously** — If someone reports an accessibility issue with your content, address it promptly
+
+**What doesn't protect you:**
+
+- **"Nobody told me"** — After April 2026, lack of awareness is not a defense. Seek training if you haven't received it
+- **"I didn't have time"** — Accessibility is not optional. If you're being given impossible deadlines, escalate to management
+- **"The vendor made me do it"** — You're responsible for the output, even if you're using third-party tools
+- **"I thought someone else would fix it"** — Accessibility must be built in from the start
+
+**The bottom line for everyone:**
+
+- **You won't be personally sued** — ADA Title II targets the agency, not individual employees
+- **But accessibility is part of your job** — It's a professional responsibility, not optional
+- **Document good faith effort** — Show that you're trying to meet accessibility standards
+- **Seek help when needed** — You don't have to know everything, but you need to know when to ask for help
+
+**References:**
+
+- <a href="https://www.section508.gov/" target="_blank" rel="noopener noreferrer">Section 508 Resources</a> — Federal accessibility guidance (Section 508 closely aligns with WCAG 2.1 Level AA)
+- <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State resources, training, and guidance
+- <a href="https://www.w3.org/WAI/fundamentals/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a> — Foundational accessibility resources
+
+---
+
 ## Website Accessibility
 
 ### How do I test my website for accessibility?
