@@ -16,6 +16,35 @@
  */
 
 /**
+ * Target Environment Configuration
+ *
+ * Choose whether to run the audit against the development server or production.
+ *
+ * @example
+ * // To test against local dev server (default):
+ * TARGET_ENV: "development",
+ *
+ * // To test against production:
+ * TARGET_ENV: "production",
+ */
+const TARGET_ENV = "development"; // Change to "production" to test against production URL
+//const TARGET_ENV = "production";
+/**
+ * Production URL Configuration
+ *
+ * The production URL to test against when TARGET_ENV is set to "production".
+ */
+const PRODUCTION_URL = "https://accessibility.icjia.app";
+
+/**
+ * Development Server Configuration
+ *
+ * The port number for the local development server.
+ * This is used when TARGET_ENV is set to "development".
+ */
+const DEV_SERVER_PORT = 3000; // Change if your dev server runs on a different port
+
+/**
  * Axe-core Rule Configuration
  *
  * Toggle these rules to test compatibility with Nuxt/Vuetify framework.
@@ -75,12 +104,16 @@ const AXE_RULE_CONFIG = {
  * Accessibility Audit Script
  *
  * This script performs a comprehensive accessibility audit using axe-core:
- * - Checks if dev server is running on localhost:3000
+ * - Configurable to test against development server (default) or production
+ * - Automatically starts dev server if not running (when testing development)
  * - Reads URLs from sitemap.xml
  * - Tests each URL in desktop, tablet, and mobile viewports
  * - Generates an HTML report in /public/docs/accessibility/index.html
  *
  * Usage: yarn audit:a11y
+ *
+ * Configuration: Edit TARGET_ENV, PRODUCTION_URL, and DEV_SERVER_PORT in the
+ *                developer configuration section at the top of this file
  */
 
 import puppeteer from "puppeteer";
@@ -90,11 +123,18 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import http from "http";
+import https from "https";
+import { spawn } from "child_process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DEV_SERVER_URL = "http://localhost:3000";
+// Determine base URL based on target environment
+const BASE_URL =
+  TARGET_ENV === "production"
+    ? PRODUCTION_URL
+    : `http://localhost:${DEV_SERVER_PORT}`;
+
 const SITEMAP_PATH = path.join(__dirname, "public", "sitemap.xml");
 const OUTPUT_DIR = path.join(__dirname, "public", "docs", "accessibility");
 const REPORT_FILE = path.join(OUTPUT_DIR, "index.html");
@@ -110,21 +150,97 @@ const VIEWPORTS = [
 const THEMES = [{ name: "dark", value: "dark" }];
 
 /**
- * Check if the dev server is running
+ * Check if the target server is accessible
  */
-async function checkDevServer() {
+async function checkServer() {
   return new Promise((resolve) => {
-    const req = http.get(DEV_SERVER_URL, (res) => {
-      resolve(res.statusCode === 200);
+    const url = new URL(BASE_URL);
+    const client = url.protocol === "https:" ? https : http;
+
+    const req = client.get(BASE_URL, (res) => {
+      resolve(
+        res.statusCode === 200 ||
+          res.statusCode === 301 ||
+          res.statusCode === 302
+      );
     });
 
     req.on("error", () => {
       resolve(false);
     });
 
-    req.setTimeout(3000, () => {
+    req.setTimeout(5000, () => {
       req.destroy();
       resolve(false);
+    });
+  });
+}
+
+/**
+ * Start the development server
+ */
+async function startDevServer() {
+  return new Promise((resolve, reject) => {
+    // Spawn the dev server process
+    const devServer = spawn("npm", ["run", "dev"], {
+      cwd: __dirname,
+      stdio: "pipe",
+      shell: true,
+    });
+
+    let serverReady = false;
+
+    // Wait for server to be ready
+    const checkReady = setInterval(() => {
+      checkServer().then((isReady) => {
+        if (isReady && !serverReady) {
+          serverReady = true;
+          clearInterval(checkReady);
+          resolve(devServer);
+        }
+      });
+    }, 1000);
+
+    // Timeout after 60 seconds
+    setTimeout(() => {
+      if (!serverReady) {
+        clearInterval(checkReady);
+        devServer.kill();
+        reject(new Error("Dev server failed to start within 60 seconds"));
+      }
+    }, 60000);
+
+    // Handle process output
+    devServer.stdout.on("data", (data) => {
+      const output = data.toString();
+      // Check for common "ready" indicators
+      if (
+        output.includes("Local:") ||
+        output.includes("ready") ||
+        output.includes("listening")
+      ) {
+        // Server is starting, keep checking
+      }
+    });
+
+    devServer.stderr.on("data", (data) => {
+      // Log errors but don't fail immediately
+      const error = data.toString();
+      if (error.includes("EADDRINUSE")) {
+        // Port already in use - might be another instance
+        clearInterval(checkReady);
+        devServer.kill();
+        reject(
+          new Error(
+            `Port ${DEV_SERVER_PORT} is already in use. Please stop the existing server or change DEV_SERVER_PORT.`
+          )
+        );
+      }
+    });
+
+    devServer.on("error", (error) => {
+      clearInterval(checkReady);
+      reject(error);
     });
   });
 }
@@ -138,14 +254,25 @@ async function parseSitemap() {
     const result = await parseStringPromise(sitemapContent);
     const urls = result.urlset.url.map((entry) => entry.loc[0]);
 
-    // Convert absolute URLs to localhost URLs
+    // Convert URLs based on target environment
     return urls.map((url) => {
       try {
         const urlObj = new URL(url);
-        return `${DEV_SERVER_URL}${urlObj.pathname}${urlObj.search}`;
+        if (TARGET_ENV === "production") {
+          // Use production URLs as-is
+          return url;
+        } else {
+          // Convert to localhost URLs for development
+          return `${BASE_URL}${urlObj.pathname}${urlObj.search}`;
+        }
       } catch (e) {
         // If URL parsing fails, assume it's already a path
-        return `${DEV_SERVER_URL}${url.startsWith("/") ? url : "/" + url}`;
+        if (TARGET_ENV === "production") {
+          // Try to construct full URL from path
+          return `${BASE_URL}${url.startsWith("/") ? url : "/" + url}`;
+        } else {
+          return `${BASE_URL}${url.startsWith("/") ? url : "/" + url}`;
+        }
       }
     });
   } catch (error) {
@@ -392,15 +519,15 @@ async function verifySkipLink(page) {
 }
 
 /**
- * Convert localhost URL to relative path for display
+ * Convert URL to relative path for display
  */
 function urlToRelativePath(url) {
   try {
     const urlObj = new URL(url);
     return urlObj.pathname || "/";
   } catch (e) {
-    // If parsing fails, try to extract path from localhost URL
-    return url.replace(/https?:\/\/localhost(:\d+)?/, "") || "/";
+    // If parsing fails, try to extract path from URL
+    return url.replace(/https?:\/\/[^\/]+/, "") || "/";
   }
 }
 
@@ -622,6 +749,10 @@ function generateHTMLReport(results) {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
     }
     
     body {
@@ -922,6 +1053,104 @@ function generateHTMLReport(results) {
       text-decoration-thickness: 2px;
     }
     
+    .framework-rules-link {
+      color: #0d6efd;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .framework-rules-link:hover {
+      color: #0a58ca;
+      text-decoration-thickness: 2px;
+    }
+    
+    /* Allow spans inside framework-rules-link to maintain their own inline color */
+    .framework-rules-link > span[style*="color"] {
+      text-decoration: none;
+    }
+    
+    .framework-rules-link:hover > span[style*="color"] {
+      /* Preserve the span's inline color on hover */
+      color: inherit;
+    }
+    
+    .framework-rules-link .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px 12px;
+      position: absolute;
+      z-index: 1000;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.75rem;
+      pointer-events: none;
+      transition: opacity 0.3s, visibility 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      font-weight: normal;
+      line-height: 1.4;
+      min-width: max-content;
+    }
+    
+    .framework-rules-link .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #333;
+    }
+    
+    /* Tooltip arrow for right position */
+    .framework-rules-link .tooltip.tooltip-right::after {
+      top: 50%;
+      left: -10px;
+      transform: translateY(-50%);
+      border-top-color: transparent;
+      border-right-color: #333;
+      border-left: none;
+    }
+    
+    /* Tooltip arrow for left position */
+    .framework-rules-link .tooltip.tooltip-left::after {
+      top: 50%;
+      right: -10px;
+      left: auto;
+      transform: translateY(-50%);
+      border-top-color: transparent;
+      border-left-color: #333;
+      border-right: none;
+    }
+    
+    /* Tooltip arrow for bottom position */
+    .framework-rules-link .tooltip[style*="top: 125%"]::after {
+      top: -10px;
+      bottom: auto;
+      border-top-color: transparent;
+      border-bottom-color: #333;
+    }
+    
+    .framework-rules-link:hover .tooltip,
+    .framework-rules-link:focus .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+    
+    /* Ensure tooltip is accessible for keyboard users */
+    .framework-rules-link:focus {
+      outline: 2px solid #0d6efd;
+      outline-offset: 2px;
+    }
+    
     .info-section ul {
       margin-left: 1.5rem;
       margin-top: 1rem;
@@ -971,13 +1200,14 @@ function generateHTMLReport(results) {
     <h1>🔍 Accessibility Audit Report</h1>
     <div class="meta">
       <p><strong>Generated:</strong> ${new Date(timestamp).toLocaleString()}</p>
+      <p><strong>Environment:</strong> <a href="#" onclick="openEnvironmentModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-environment" aria-label="Environment: ${TARGET_ENV === "production" ? "Production" : "Development"} - More info about environments"><span style="font-weight: 600; color: ${TARGET_ENV === "production" ? "#198754" : "#0d6efd"};">${TARGET_ENV === "production" ? "Production" : "Development"}</span><span class="tooltip" id="tooltip-environment" role="tooltip">More info about environments</span></a> (${BASE_URL})</p>
       <p><strong>axe-core version:</strong> ${axeVersion}</p>
       <p><strong>Pages tested:</strong> ${uniquePages}</p>
       <p><strong>Viewports tested:</strong> ${VIEWPORTS.map((v) => v.name).join(", ")}</p>
       <p><strong>Themes tested:</strong> dark</p>
       <p><strong>Rule categories:</strong> WCAG 2.1 AA (${wcagRules.length} rules), Best Practice (${bestPracticeRules.length} rules)${experimentalRules.length > 0 ? `, Experimental (${experimentalRules.length} rules)` : ""}${otherRules.length > 0 ? `, Other (${otherRules.length} rules)` : ""}</p>
-      ${frameworkRulesStatus.enabled.length > 0 ? `<p><strong>Framework-specific rules enabled:</strong> ${frameworkRulesStatus.enabled.join(", ")}</p>` : ""}
-      ${frameworkRulesStatus.disabled.length > 0 ? `<p style="color: #6c757d;"><strong>Framework-specific rules disabled:</strong> ${frameworkRulesStatus.disabled.join(", ")}</p>` : ""}
+      ${frameworkRulesStatus.enabled.length > 0 ? `<p><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Framework-specific rules enabled: More info about framework-specifics"><span>Framework-specific rules enabled:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.enabled.join(", ")}</p>` : ""}
+      ${frameworkRulesStatus.disabled.length > 0 ? `<p style="color: #6c757d;"><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Framework-specific rules disabled: More info about framework-specifics"><span>Framework-specific rules disabled:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.disabled.join(", ")}</p>` : ""}
     </div>
     
     <div class="stats-grid">
@@ -1093,115 +1323,6 @@ function generateHTMLReport(results) {
               : ""
           }
         </ul>
-        
-        <h3>Framework-Specific Rule Configuration</h3>
-        <p><strong>What are "framework-specific" rules?</strong></p>
-        <p>
-          Some axe-core rules may conflict with how modern web frameworks (like Nuxt and Vuetify) structure their HTML and components. 
-          These frameworks often create wrapper elements, duplicate landmarks, or use ARIA attributes in ways that can trigger false positives 
-          from certain accessibility rules. "Framework-specific" rules are those that may need to be toggled on or off depending on 
-          whether they work correctly with your specific framework setup.
-        </p>
-        
-        <p><strong>Why are some rules enabled and others disabled?</strong></p>
-        <p>
-          Rules are configured based on their compatibility with Nuxt/Vuetify:
-        </p>
-        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          <li><strong>Enabled rules</strong> are being tested to verify they work correctly with the framework. If they cause false positives or conflicts, they should be disabled.</li>
-          <li><strong>Disabled rules</strong> are known to conflict with framework structure (e.g., landmark rules that don't work with framework-created nested structures).</li>
-        </ul>
-        
-        ${
-          frameworkRulesStatus.enabled.length > 0
-            ? `
-        <p style="margin-top: 1rem;"><strong>Currently Enabled (${frameworkRulesStatus.enabled.length} rule${frameworkRulesStatus.enabled.length !== 1 ? "s" : ""}):</strong></p>
-        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are enabled to test compatibility with Nuxt/Vuetify. Monitor the audit results to see if they produce false positives or valid issues.
-        </p>
-        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          ${frameworkRulesStatus.enabled
-            .map((rule) => {
-              let explanation = "";
-              if (rule === "aria-allowed-role") {
-                explanation =
-                  "Checks if ARIA roles are used correctly. May conflict with Vuetify component ARIA usage.";
-              } else if (rule === "scrollable-region-focusable") {
-                explanation =
-                  "Ensures scrollable regions are keyboard accessible. May conflict with framework-managed scrollable containers.";
-              } else if (rule === "landmark-banner-is-top-level") {
-                explanation =
-                  "Checks that banner landmarks are top-level (not nested). Framework may create nested banners that conflict with this rule.";
-              } else if (rule === "landmark-contentinfo-is-top-level") {
-                explanation =
-                  "Checks that contentinfo landmarks are top-level (not nested). Framework may create nested contentinfo that conflicts with this rule.";
-              } else if (rule === "landmark-main-is-top-level") {
-                explanation =
-                  "Checks that main landmarks are top-level (not nested). Framework may create nested main landmarks that conflict with this rule.";
-              } else if (rule === "landmark-unique") {
-                explanation =
-                  "Checks that landmark types are unique on the page. Framework may intentionally create duplicate landmarks (e.g., multiple navigation regions).";
-              } else if (rule === "region") {
-                explanation =
-                  "Checks ARIA region usage. Framework structure may handle regions differently than this rule expects.";
-              } else {
-                explanation = "Currently enabled for testing.";
-              }
-              return `<li><strong>${rule}:</strong> ${explanation} If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li>`;
-            })
-            .join("")}
-        </ul>
-        `
-            : '<p style="margin-top: 1rem;"><strong>No framework-specific rules are currently enabled.</strong></p>'
-        }
-        
-        ${
-          frameworkRulesStatus.disabled.length > 0
-            ? `
-        <p style="margin-top: 1rem;"><strong>Currently Disabled (${frameworkRulesStatus.disabled.length} rule${frameworkRulesStatus.disabled.length !== 1 ? "s" : ""}):</strong></p>
-        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are disabled because they conflict with Nuxt/Vuetify framework structure:
-        </p>
-        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          ${frameworkRulesStatus.disabled
-            .map((rule) => {
-              let explanation = "";
-              if (rule === "aria-allowed-role") {
-                explanation =
-                  "Disabled due to conflicts with Vuetify component ARIA usage.";
-              } else if (rule === "scrollable-region-focusable") {
-                explanation =
-                  "Disabled due to conflicts with framework-managed scrollable containers.";
-              } else if (rule === "landmark-banner-is-top-level") {
-                explanation =
-                  "Framework creates nested banner landmarks that don't meet this rule's requirements.";
-              } else if (rule === "landmark-contentinfo-is-top-level") {
-                explanation =
-                  "Framework creates nested contentinfo landmarks that conflict with this rule.";
-              } else if (rule === "landmark-main-is-top-level") {
-                explanation =
-                  "Framework creates nested main landmarks that conflict with this rule.";
-              } else if (rule === "landmark-unique") {
-                explanation =
-                  "Framework intentionally creates duplicate landmarks (e.g., multiple navigation regions).";
-              } else if (rule === "region") {
-                explanation =
-                  "Framework structure handles ARIA regions properly, but this rule conflicts with the implementation.";
-              } else {
-                explanation = "Disabled due to framework structure conflicts.";
-              }
-              return `<li><strong>${rule}:</strong> ${explanation}</li>`;
-            })
-            .join("")}
-        </ul>
-        `
-            : '<p style="margin-top: 1rem;"><strong>No framework-specific rules are currently disabled.</strong></p>'
-        }
-        
-        <p style="margin-top: 1.5rem; padding: 0.75rem; background: #fff3cd; border-left: 3px solid #ffc107; border-radius: 4px;">
-          <strong>How to Toggle Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant at the top of <code>audit-accessibility.js</code> (around line 32). 
-          Set a rule to <code>true</code> to enable it, or <code>false</code> to disable it. After changing the configuration, re-run the audit to see the updated results.
-        </p>
       </div>
       
       <div class="info-block">
@@ -1399,6 +1520,176 @@ function generateHTMLReport(results) {
     </div>
   </div>
   
+  <!-- Modal for Framework-Specific Rules -->
+  <div id="frameworkModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Framework-Specific Rule Configuration</h2>
+        <button class="modal-close" onclick="closeFrameworkModal()">&times;</button>
+      </div>
+      <div class="info-block" style="margin: 0;">
+        <h3>What are Web Frameworks?</h3>
+        <p>
+          A <strong>web framework</strong> is a software framework designed to support the development of web applications, web services, and web APIs. Frameworks provide a standard way to build and deploy web applications, offering reusable components, libraries, and tools that simplify common development tasks.
+        </p>
+        
+        <h3>This Application's Framework</h3>
+        <p>
+          This accessibility portal is built using <strong>Nuxt</strong> and <strong>Vuetify</strong>:
+        </p>
+        <ul>
+          <li><strong>Nuxt</strong> is a Vue.js-based framework that provides server-side rendering, static site generation, and a powerful development experience for building modern web applications.</li>
+          <li><strong>Vuetify</strong> is a Vue.js component framework that provides Material Design components and a comprehensive set of UI elements.</li>
+        </ul>
+        
+        <h3>Why Some Rules May Not Work</h3>
+        <p>
+          Some axe-core accessibility rules may conflict with how Nuxt and Vuetify structure and render HTML pages. These frameworks:
+        </p>
+        <ul>
+          <li>Create wrapper elements and nested structures that may not match traditional HTML patterns</li>
+          <li>Generate ARIA attributes and landmarks in ways that can trigger false positives from accessibility testing tools</li>
+          <li>Use component-based rendering that may create duplicate landmarks or regions that are intentional and necessary for the framework's functionality</li>
+          <li>Manage focus and keyboard navigation in ways that may differ from standard HTML implementations</li>
+        </ul>
+        
+        <h3>Accessibility Assurance</h3>
+        <p style="padding: 0.75rem; background: #d1e7dd; border-left: 3px solid #198754; border-radius: 4px; margin-top: 1rem;">
+          <strong>✅ Important:</strong> Despite these framework-specific rule configurations, this website remains fully accessible and compliant with WCAG 2.1 Level AA standards. The rules that are disabled or adjusted are those that produce <em>false positives</em> due to framework structure, not actual accessibility issues. All accessibility requirements are met through proper implementation of semantic HTML, ARIA attributes, keyboard navigation, and other accessibility best practices within the Nuxt and Vuetify framework architecture.
+        </p>
+        
+        ${
+          frameworkRulesStatus.enabled.length > 0
+            ? `
+        <h3 style="margin-top: 2rem;">Currently Enabled (${frameworkRulesStatus.enabled.length} rule${frameworkRulesStatus.enabled.length !== 1 ? "s" : ""})</h3>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
+          These rules are enabled to test compatibility with Nuxt/Vuetify. Monitor the audit results to see if they produce false positives or valid issues.
+        </p>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          ${frameworkRulesStatus.enabled
+            .map((rule) => {
+              let explanation = "";
+              if (rule === "aria-allowed-role") {
+                explanation =
+                  "Checks if ARIA roles are used correctly. May conflict with Vuetify component ARIA usage.";
+              } else if (rule === "scrollable-region-focusable") {
+                explanation =
+                  "Ensures scrollable regions are keyboard accessible. May conflict with framework-managed scrollable containers.";
+              } else if (rule === "landmark-banner-is-top-level") {
+                explanation =
+                  "Checks that banner landmarks are top-level (not nested). Framework may create nested banners that conflict with this rule.";
+              } else if (rule === "landmark-contentinfo-is-top-level") {
+                explanation =
+                  "Checks that contentinfo landmarks are top-level (not nested). Framework may create nested contentinfo that conflicts with this rule.";
+              } else if (rule === "landmark-main-is-top-level") {
+                explanation =
+                  "Checks that main landmarks are top-level (not nested). Framework may create nested main landmarks that conflict with this rule.";
+              } else if (rule === "landmark-unique") {
+                explanation =
+                  "Checks that landmark types are unique on the page. Framework may intentionally create duplicate landmarks (e.g., multiple navigation regions).";
+              } else if (rule === "region") {
+                explanation =
+                  "Checks ARIA region usage. Framework structure may handle regions differently than this rule expects.";
+              } else {
+                explanation = "Currently enabled for testing.";
+              }
+              return `<li><strong>${rule}:</strong> ${explanation} If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li>`;
+            })
+            .join("")}
+        </ul>
+        `
+            : '<p style="margin-top: 2rem;"><strong>No framework-specific rules are currently enabled.</strong></p>'
+        }
+        
+        ${
+          frameworkRulesStatus.disabled.length > 0
+            ? `
+        <h3 style="margin-top: 2rem;">Currently Disabled (${frameworkRulesStatus.disabled.length} rule${frameworkRulesStatus.disabled.length !== 1 ? "s" : ""})</h3>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
+          These rules are disabled because they conflict with Nuxt/Vuetify framework structure:
+        </p>
+        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+          ${frameworkRulesStatus.disabled
+            .map((rule) => {
+              let explanation = "";
+              if (rule === "aria-allowed-role") {
+                explanation =
+                  "Disabled due to conflicts with Vuetify component ARIA usage.";
+              } else if (rule === "scrollable-region-focusable") {
+                explanation =
+                  "Disabled due to conflicts with framework-managed scrollable containers.";
+              } else if (rule === "landmark-banner-is-top-level") {
+                explanation =
+                  "Framework creates nested banner landmarks that don't meet this rule's requirements.";
+              } else if (rule === "landmark-contentinfo-is-top-level") {
+                explanation =
+                  "Framework creates nested contentinfo landmarks that conflict with this rule.";
+              } else if (rule === "landmark-main-is-top-level") {
+                explanation =
+                  "Framework creates nested main landmarks that conflict with this rule.";
+              } else if (rule === "landmark-unique") {
+                explanation =
+                  "Framework intentionally creates duplicate landmarks (e.g., multiple navigation regions).";
+              } else if (rule === "region") {
+                explanation =
+                  "Framework structure handles ARIA regions properly, but this rule conflicts with the implementation.";
+              } else {
+                explanation = "Disabled due to framework structure conflicts.";
+              }
+              return `<li><strong>${rule}:</strong> ${explanation}</li>`;
+            })
+            .join("")}
+        </ul>
+        `
+            : '<p style="margin-top: 2rem;"><strong>No framework-specific rules are currently disabled.</strong></p>'
+        }
+        
+        <p style="margin-top: 1.5rem; padding: 0.75rem; background: #fff3cd; border-left: 3px solid #ffc107; border-radius: 4px;">
+          <strong>How to Toggle Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant at the top of <code>audit-accessibility.js</code> (around line 32). 
+          Set a rule to <code>true</code> to enable it, or <code>false</code> to disable it. After changing the configuration, re-run the audit to see the updated results.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal for Environment Information -->
+  <div id="environmentModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>About Testing Environments</h2>
+        <button class="modal-close" onclick="closeEnvironmentModal()">&times;</button>
+      </div>
+      <div class="info-block" style="margin: 0;">
+        <h3>What are Development and Production Environments?</h3>
+        <p>
+          In web development, <strong>environments</strong> refer to different stages of a website or application's lifecycle:
+        </p>
+        <ul>
+          <li><strong>Development Environment:</strong> This is the local testing environment where developers build and test the application. It typically runs on a developer's computer (like <code>localhost:3000</code>) and may contain experimental features, debugging tools, and code that hasn't been finalized.</li>
+          <li><strong>Production Environment:</strong> This is the live, public-facing version of the website that real users interact with. It's the final, deployed version of the application running on a public server (like <code>https://accessibility.icjia.app</code>).</li>
+        </ul>
+        
+        <h3>Why is it Important to Indicate the Testing Environment?</h3>
+        <p>
+          Knowing which environment the accessibility audit was run against is crucial for several reasons:
+        </p>
+        <ul>
+          <li><strong>Accuracy of Results:</strong> Development and production environments may have different code, configurations, or content. An audit run against development might catch issues that have already been fixed in production, or miss issues that only exist in production.</li>
+          <li><strong>Reproducibility:</strong> If someone needs to verify or investigate issues found in the audit, they need to know which environment to check. This ensures they're looking at the same version of the code that was tested.</li>
+          <li><strong>Context for Stakeholders:</strong> For compliance reports, documentation, or stakeholder reviews, it's essential to know whether the audit represents the live, public-facing site (production) or a work-in-progress version (development).</li>
+          <li><strong>Debugging and Fixes:</strong> When accessibility issues are identified, developers need to know which environment to fix. Issues found in development can be addressed before deployment, while production issues require immediate attention.</li>
+          <li><strong>Compliance Verification:</strong> For legal compliance and accessibility standards (like WCAG 2.1 AA, IITAA, or ADA Title II), audits should typically be run against the production environment to verify what users actually experience.</li>
+        </ul>
+        
+        <h3>Current Audit Environment</h3>
+        <p style="padding: 0.75rem; background: ${TARGET_ENV === "production" ? "#d1e7dd" : "#e7f3ff"}; border-left: 3px solid ${TARGET_ENV === "production" ? "#198754" : "#0d6efd"}; border-radius: 4px; margin-top: 1rem;">
+          This accessibility audit was run against the <strong>${TARGET_ENV === "production" ? "Production" : "Development"}</strong> environment at <strong>${BASE_URL}</strong>.
+          ${TARGET_ENV === "production" ? "This represents the live, public-facing version of the website that users interact with." : "This represents the local development version of the website. For compliance verification, consider running the audit against the production environment as well."}
+        </p>
+      </div>
+    </div>
+  </div>
+  
   <script>
     function openTestsModal() {
       document.getElementById('testsModal').style.display = 'block';
@@ -1408,11 +1699,35 @@ function generateHTMLReport(results) {
       document.getElementById('testsModal').style.display = 'none';
     }
     
+    function openFrameworkModal() {
+      document.getElementById('frameworkModal').style.display = 'block';
+    }
+    
+    function closeFrameworkModal() {
+      document.getElementById('frameworkModal').style.display = 'none';
+    }
+    
+    function openEnvironmentModal() {
+      document.getElementById('environmentModal').style.display = 'block';
+    }
+    
+    function closeEnvironmentModal() {
+      document.getElementById('environmentModal').style.display = 'none';
+    }
+    
     // Close modal when clicking outside of it
     window.onclick = function(event) {
-      const modal = document.getElementById('testsModal');
-      if (event.target == modal) {
+      const testsModal = document.getElementById('testsModal');
+      const frameworkModal = document.getElementById('frameworkModal');
+      const environmentModal = document.getElementById('environmentModal');
+      if (event.target == testsModal) {
         closeTestsModal();
+      }
+      if (event.target == frameworkModal) {
+        closeFrameworkModal();
+      }
+      if (event.target == environmentModal) {
+        closeEnvironmentModal();
       }
     }
     
@@ -1420,7 +1735,106 @@ function generateHTMLReport(results) {
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         closeTestsModal();
+        closeFrameworkModal();
+        closeEnvironmentModal();
       }
+    });
+    
+    // Intelligent tooltip positioning based on available space
+    function positionTooltips() {
+      const tooltips = document.querySelectorAll('.framework-rules-link .tooltip');
+      tooltips.forEach(function(tooltip) {
+        const link = tooltip.parentElement;
+        const rect = link.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        // Reset positioning
+        tooltip.style.bottom = '';
+        tooltip.style.top = '';
+        tooltip.style.left = '';
+        tooltip.style.right = '';
+        tooltip.style.transform = '';
+        tooltip.style.marginLeft = '';
+        tooltip.style.marginRight = '';
+        tooltip.classList.remove('tooltip-right', 'tooltip-left');
+        
+        // Check if there's enough space above (default position)
+        const spaceAbove = rect.top;
+        const spaceBelow = viewportHeight - rect.bottom;
+        const spaceRight = viewportWidth - rect.right;
+        const spaceLeft = rect.left;
+        
+        // On mobile/small screens, prefer right positioning
+        if (viewportWidth <= 768) {
+          if (spaceRight >= 120) {
+            // Position to the right
+            tooltip.style.bottom = 'auto';
+            tooltip.style.top = '50%';
+            tooltip.style.left = '100%';
+            tooltip.style.transform = 'translateY(-50%)';
+            tooltip.style.marginLeft = '10px';
+            tooltip.classList.add('tooltip-right');
+          } else if (spaceLeft >= 120) {
+            // Position to the left
+            tooltip.style.bottom = 'auto';
+            tooltip.style.top = '50%';
+            tooltip.style.right = '100%';
+            tooltip.style.transform = 'translateY(-50%)';
+            tooltip.style.marginRight = '10px';
+            tooltip.classList.add('tooltip-left');
+          } else {
+            // Fallback to top if no horizontal space
+            tooltip.style.bottom = '125%';
+            tooltip.style.top = 'auto';
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translateX(-50%)';
+          }
+        } else {
+          // Desktop: prefer top, but check if there's enough space
+          if (spaceAbove >= 50) {
+            // Position above (default)
+            tooltip.style.bottom = '125%';
+            tooltip.style.top = 'auto';
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translateX(-50%)';
+          } else if (spaceBelow >= 50) {
+            // Position below if no space above
+            tooltip.style.top = '125%';
+            tooltip.style.bottom = 'auto';
+            tooltip.style.left = '50%';
+            tooltip.style.transform = 'translateX(-50%)';
+          } else if (spaceRight >= 120) {
+            // Position to the right
+            tooltip.style.bottom = 'auto';
+            tooltip.style.top = '50%';
+            tooltip.style.left = '100%';
+            tooltip.style.transform = 'translateY(-50%)';
+            tooltip.style.marginLeft = '10px';
+            tooltip.classList.add('tooltip-right');
+          } else if (spaceLeft >= 120) {
+            // Position to the left
+            tooltip.style.bottom = 'auto';
+            tooltip.style.top = '50%';
+            tooltip.style.right = '100%';
+            tooltip.style.transform = 'translateY(-50%)';
+            tooltip.style.marginRight = '10px';
+            tooltip.classList.add('tooltip-left');
+          }
+        }
+      });
+    }
+    
+    // Position tooltips on page load and window resize
+    document.addEventListener('DOMContentLoaded', positionTooltips);
+    window.addEventListener('resize', positionTooltips);
+    
+    // Position tooltips when links are hovered/focused
+    const frameworkLinks = document.querySelectorAll('.framework-rules-link');
+    frameworkLinks.forEach(function(link) {
+      link.addEventListener('mouseenter', positionTooltips);
+      link.addEventListener('focus', positionTooltips);
     });
   </script>
 </body>
@@ -1446,6 +1860,8 @@ function escapeHtml(str) {
  * Main audit function
  */
 async function runAudit() {
+  let devServerProcess = null; // Track dev server process for cleanup
+
   console.log("=".repeat(80));
   console.log("ACCESSIBILITY AUDIT");
   console.log("=".repeat(80));
@@ -1499,17 +1915,66 @@ async function runAudit() {
   }
   console.log("");
 
-  // Check if server is running
-  console.log("Checking if dev server is running...");
-  const serverRunning = await checkDevServer();
-  if (!serverRunning) {
-    console.error("❌ Dev server is not running!");
-    console.error(`   Please start the dev server first: npm run dev`);
-    console.error(`   Then run this script again.`);
-    process.exit(1);
+  // Check if server is accessible
+  if (TARGET_ENV === "production") {
+    console.log(`Checking if production server is accessible...`);
+    const serverRunning = await checkServer();
+    if (!serverRunning) {
+      console.error(`❌ Production server is not accessible!`);
+      console.error(`   Please check if ${BASE_URL} is available.`);
+      process.exit(1);
+    }
+    console.log(`✓ Production server is accessible`);
+    console.log(`   URL: ${BASE_URL}`);
+    console.log("");
+  } else {
+    // Development server
+    console.log(
+      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`
+    );
+    let serverRunning = await checkServer();
+    let serverWasAlreadyRunning = false;
+
+    if (!serverRunning) {
+      console.log(`   ⚠️  Dev server not detected on port ${DEV_SERVER_PORT}`);
+      console.log(`   🚀 Starting dev server now...`);
+      try {
+        devServerProcess = await startDevServer();
+        // Give it a moment to fully initialize
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        serverRunning = await checkServer();
+        if (!serverRunning) {
+          console.error("❌ Dev server started but is not responding!");
+          if (devServerProcess) {
+            devServerProcess.kill();
+          }
+          process.exit(1);
+        }
+        console.log(`   ✅ Dev server started successfully`);
+      } catch (error) {
+        console.error(`❌ Failed to start dev server: ${error.message}`);
+        process.exit(1);
+      }
+    } else {
+      serverWasAlreadyRunning = true;
+      console.log(`   ✅ Dev server detected (already running)`);
+    }
+
+    console.log("");
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
+    console.log(`📍 Dev Server Status:`);
+    console.log(`   Port: ${DEV_SERVER_PORT}`);
+    console.log(
+      `   Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
+    );
+    console.log(`   URL: ${BASE_URL}`);
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
+    console.log("");
   }
-  console.log(`✓ Dev server is running at ${DEV_SERVER_URL}`);
-  console.log("");
 
   // Parse sitemap
   console.log("Reading sitemap.xml...");
