@@ -202,7 +202,7 @@ WCAG has three conformance levels:
 
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
-**Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 AA is compliant with current legal requirements. WCAG versions are backward-compatible, so meeting 2.2 also means meeting 2.1 and 2.0.
+**Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 Level AA is compliant with current legal requirements. WCAG versions are backward-compatible, so meeting 2.2 also means meeting 2.1 and 2.0.
 
 ### Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?
 
@@ -212,7 +212,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 - **Content creators**: headings, links, alt text, document structure, captions/transcripts
 - **Designers**: contrast, focus visibility, layouts that work with keyboard/screen readers
-- **Procurement/program teams**: require WCAG 2.1 AA in contracts; avoid buying inaccessible tools
+- **Procurement/program teams**: require WCAG 2.1 Level AA in contracts; avoid buying inaccessible tools
 - **Web/IT**: accessible code, testing, fixes, platform configuration
 - **Managers/leaders**: time, tools, training, accountability
 
@@ -328,8 +328,8 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - **Autoplaying audio or video** — Always give users control
 - **Removing focus indicators** — The blue outline helps keyboard users know where they are
 - **Using placeholder text as labels** — Placeholder text disappears when you start typing
-- **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (this is strongly recommended best practice, though not strictly required by WCAG 2.1 AA)
-- **Flashing or blinking content** — Can trigger seizures; avoid flashing more than 3 times per second
+- **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (this is strongly recommended best practice, though not strictly required by WCAG 2.1 Level AA)
+- **Flashing or blinking content** — Can trigger seizures; as a safe rule, avoid any flashing content entirely, or ensure nothing flashes more than 3 times in any one-second period
 
 **The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll be ahead of most content creators.
 
@@ -509,7 +509,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 **3. Build accessibility into your processes:**
 
 - **Include accessibility in project timelines** — Don't treat it as an add-on; build it into initial project plans
-- **Require accessibility in procurement** — Include WCAG 2.1 AA requirements in RFPs and vendor contracts
+- **Require accessibility in procurement** — Include WCAG 2.1 Level AA requirements in RFPs and vendor contracts
 - **Establish content review processes** — Ensure documents and content are checked for accessibility before publication
 - **Create accessibility checkpoints** — Build accessibility reviews into your content approval workflows
 
@@ -825,7 +825,7 @@ A state agency with limited resources might prioritize like this:
 
 {new:2025-12-27}
 
-**Quick answer:** There's no official "minimum" — the law requires full WCAG 2.1 AA compliance. But if you're overwhelmed, here's a pragmatic prioritization: stop creating new barriers immediately, fix the highest-impact issues first, and have a documented plan for the rest.
+**Quick answer:** There's no official "minimum" — the law requires full WCAG 2.1 Level AA compliance. But if you're overwhelmed, here's a pragmatic prioritization: stop creating new barriers immediately, fix the highest-impact issues first, and have a documented plan for the rest.
 
 **Full explanation:**
 
@@ -838,7 +838,7 @@ A state agency with limited resources might prioritize like this:
 - All new documents use heading styles and alt text
 - All new videos have captions
 - All new web content is keyboard-accessible
-- All new purchases include WCAG 2.1 AA requirements in contracts
+- All new purchases include WCAG 2.1 Level AA requirements in contracts
 
 **2. FIX the biggest barriers first:**
 
@@ -930,7 +930,7 @@ The IITAA covers all "information and communication technology," including:
 
 - **IITAA 1.0** — August 20, 2008 (original standards)
 - **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA)
-- **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 AA)
+- **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 Level AA)
 
 ### Where can I get IITAA training?
 
@@ -968,7 +968,7 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 **Quick answer:** **Title I** covers **employment** and reasonable accommodations for employees. **Title II** covers **public services** and requires state and local governments to proactively make public-facing digital content meet **WCAG 2.1 Level AA** by the compliance deadline.
 
-**The key difference:** Title I is about **individual workplace accommodations**. Title II is about **equitable public access** to government services — including digital services — using a **measurable standard** (WCAG 2.1 AA).
+**The key difference:** Title I is about **individual workplace accommodations**. Title II is about **equitable public access** to government services — including digital services — using a **measurable standard** (WCAG 2.1 Level AA).
 
 **Title I (Employment):**
 
@@ -1069,7 +1069,7 @@ Use a combination of automated and manual testing:
 
 - Keyboard navigation — Can you access everything without a mouse?
 - Screen reader testing — Does content make sense when read aloud?
-- Zoom testing — Does content remain usable at 200% zoom?
+- Zoom and reflow testing — Does content remain usable at 200% zoom? At 400% zoom (or 320px viewport width), does content reflow without requiring horizontal scrolling?
 - Color contrast — Is text readable against its background?
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
@@ -1113,8 +1113,8 @@ Use a combination of automated and manual testing:
 
 For WCAG 2.1 Level AA:
 
-- **Normal text** (smaller than 18pt regular or 14pt bold): **4.5:1** contrast ratio
-- **Large text** (18pt+ regular or 14pt+ bold): **3:1** contrast ratio
+- **Normal text** (smaller than 18pt/~24px regular or 14pt/~19px bold): **4.5:1** contrast ratio
+- **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio
 - **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG SC 1.4.11)
 
 **Check contrast:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
@@ -1155,7 +1155,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
    - **Android:** TalkBack (built-in)
    - Content must be properly labeled and navigable
 
-2. **Touch target size** — While WCAG 2.1 AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. This is considered essential best practice for users with motor disabilities.
+2. **Touch target size** — While WCAG 2.1 Level AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. This is considered essential best practice for users with motor disabilities.
 
 3. **Color contrast** — Same 4.5:1 ratio for normal text, 3:1 for large text as web content
 
@@ -1272,7 +1272,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 - Not accessible to the general public
 - Protected by authentication (login required)
 
-...are generally **exempt from ADA Title II WCAG 2.1 AA requirements**.
+...are generally **exempt from ADA Title II WCAG 2.1 Level AA requirements**.
 
 **However, other legal requirements may still apply:**
 
@@ -2029,7 +2029,7 @@ Illinois DoIT recommends including language similar to:
 2. **Check the version** — Ensure it covers the exact product and version you're purchasing
 3. **Look for "Supports"** — Products with many "Partially Supports" or "Does Not Support" ratings may require accessible alternatives
 4. **Ask about remediation** — If issues exist, ask the vendor for a remediation timeline
-5. **Include in contracts** — Require WCAG 2.1 AA compliance and ongoing accessibility support
+5. **Include in contracts** — Require WCAG 2.1 Level AA compliance and ongoing accessibility support
 
 **Where to find VPATs:**
 
