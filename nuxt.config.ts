@@ -98,6 +98,22 @@ export default defineNuxtConfig({
     transpile: ['vuetify']
   },
 
+  // Optimize CSS loading to reduce render-blocking
+  experimental: {
+    payloadExtraction: false
+  },
+
+  // Vite CSS optimization to reduce render-blocking resources
+  vite: {
+    build: {
+      cssCodeSplit: true, // Split CSS into smaller chunks
+      cssMinify: true // Minify CSS for faster loading
+    },
+    css: {
+      devSourcemap: false // Disable sourcemaps in production for smaller files
+    }
+  },
+
   nitro: import.meta.dev ? {} : {
     preset: 'static',
     prerender: {

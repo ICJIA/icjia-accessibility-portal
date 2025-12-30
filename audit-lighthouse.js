@@ -17,20 +17,27 @@
 /**
  * Target Environment Configuration
  *
- * Choose whether to run the audit against the development server or production.
+ * Choose whether to run the audit against the development server, generated static site, or production.
  *
- * DEFAULT: "production" - Tests against the live production server.
- *          This is recommended for accurate performance metrics and real-world testing.
- *          The script will NOT start or interact with a local dev server.
+ * OPTIONS:
+ * - "production" - Tests against the live production server (recommended for real-world metrics)
+ * - "generated" - Tests against the locally generated static site (default: port 3000)
+ *                 Requires running 'yarn generate' first. The script will start a local server
+ *                 to serve the generated site from .output/public
+ * - "development" - Tests against the local development server (runs on LOCAL_SERVER_PORT)
  *
  * @example
- * // To test against production (default - recommended):
- * TARGET_ENV: "production",
+ * // To test against production:
+ * const TARGET_ENV = "production";
+ *
+ * // To test against generated static site (recommended for testing optimizations):
+ * const TARGET_ENV = "generated";
  *
  * // To test against local dev server:
- * //const TARGET_ENV = "development";
+ * const TARGET_ENV = "development";
  */
-const TARGET_ENV = "production"; // Default: test against production URL (recommended)
+const TARGET_ENV = "generated"; // Default: test against locally generated static site
+//const TARGET_ENV = "production"; // Uncomment to test against production URL
 //const TARGET_ENV = "development"; // Uncomment to test against local dev server
 
 /**
@@ -41,12 +48,13 @@ const TARGET_ENV = "production"; // Default: test against production URL (recomm
 const PRODUCTION_URL = "https://accessibility.icjia.app";
 
 /**
- * Development Server Configuration
+ * Server Port Configuration
  *
- * The port number for the local development server.
- * This is used when TARGET_ENV is set to "development".
+ * The port number for local servers.
+ * - Used for generated static site when TARGET_ENV is "generated" (matches yarn generate:serve port)
+ * - Used for development server when TARGET_ENV is "development"
  */
-const DEV_SERVER_PORT = 3000; // Change if your dev server runs on a different port
+const LOCAL_SERVER_PORT = 5150; // Port for local server (generated or dev)
 
 /**
  * File Paths Configuration
@@ -138,7 +146,7 @@ const SITE_INFO = {
  *
  * Usage: npm run audit:lighthouse
  *
- * Configuration: Edit TARGET_ENV, PRODUCTION_URL, and DEV_SERVER_PORT in the
+ * Configuration: Edit TARGET_ENV, PRODUCTION_URL, and LOCAL_SERVER_PORT in the
  *                developer configuration section at the top of this file
  */
 
@@ -165,7 +173,7 @@ const JSON_REPORT_FILE = path.join(OUTPUT_DIR, JSON_REPORT_FILE_NAME);
 const BASE_URL =
   TARGET_ENV === "production"
     ? PRODUCTION_URL
-    : `http://localhost:${DEV_SERVER_PORT}`;
+    : `http://localhost:${LOCAL_SERVER_PORT}`;
 
 /**
  * Check if the target server is accessible
@@ -190,6 +198,97 @@ async function checkServer() {
     req.setTimeout(5000, () => {
       req.destroy();
       resolve(false);
+    });
+  });
+}
+
+/**
+ * Start a static file server for the generated site
+ */
+async function startGeneratedSiteServer() {
+  return new Promise((resolve, reject) => {
+    const generatedDir = path.join(__dirname, ".output", "public");
+
+    // Check if generated directory exists
+    if (!fs.existsSync(generatedDir)) {
+      reject(
+        new Error(
+          `Generated site not found at ${generatedDir}. Please run 'yarn generate' first.`
+        )
+      );
+      return;
+    }
+
+    // Use Node's built-in http server with a simple static file handler
+    const server = http.createServer((req, res) => {
+      let filePath = path.join(
+        generatedDir,
+        req.url === "/" ? "index.html" : req.url
+      );
+
+      // Handle directory requests
+      if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+        filePath = path.join(filePath, "index.html");
+      }
+
+      // Check if file exists
+      if (!fs.existsSync(filePath)) {
+        // Try index.html for SPA routing
+        const indexPath = path.join(generatedDir, "index.html");
+        if (fs.existsSync(indexPath)) {
+          filePath = indexPath;
+        } else {
+          res.writeHead(404);
+          res.end("Not Found");
+          return;
+        }
+      }
+
+      // Determine content type
+      const ext = path.extname(filePath).toLowerCase();
+      const contentTypes = {
+        ".html": "text/html",
+        ".css": "text/css",
+        ".js": "application/javascript",
+        ".json": "application/json",
+        ".png": "image/png",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".gif": "image/gif",
+        ".svg": "image/svg+xml",
+        ".woff": "font/woff",
+        ".woff2": "font/woff2",
+        ".ttf": "font/ttf",
+        ".eot": "application/vnd.ms-fontobject",
+      };
+      const contentType = contentTypes[ext] || "application/octet-stream";
+
+      // Read and serve file
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+          res.writeHead(500);
+          res.end("Error reading file");
+          return;
+        }
+        res.writeHead(200, { "Content-Type": contentType });
+        res.end(data);
+      });
+    });
+
+    server.listen(LOCAL_SERVER_PORT, () => {
+      resolve(server);
+    });
+
+    server.on("error", (error) => {
+      if (error.code === "EADDRINUSE") {
+        reject(
+          new Error(
+            `Port ${LOCAL_SERVER_PORT} is already in use. Please stop the existing server or change LOCAL_SERVER_PORT.`
+          )
+        );
+      } else {
+        reject(error);
+      }
     });
   });
 }
@@ -254,7 +353,7 @@ async function startDevServer() {
         devServer.kill();
         reject(
           new Error(
-            `Port ${DEV_SERVER_PORT} is already in use. Please stop the existing server or change DEV_SERVER_PORT.`
+            `Port ${LOCAL_SERVER_PORT} is already in use. Please stop the existing server or change LOCAL_SERVER_PORT.`
           )
         );
       }
@@ -1362,6 +1461,7 @@ function generateHTMLReport(results) {
  */
 async function runAudit() {
   let devServerProcess = null; // Track dev server process for cleanup
+  let generatedSiteServer = null; // Track generated site server for cleanup
 
   console.log("=".repeat(80));
   console.log("LIGHTHOUSE AUDIT");
@@ -1383,16 +1483,72 @@ async function runAudit() {
     console.log(`✓ Production server is accessible`);
     console.log(`   URL: ${BASE_URL}`);
     console.log("");
-  } else {
-    // Development server
+  } else if (TARGET_ENV === "generated") {
+    // Generated static site
     console.log(
-      `Checking if dev server is running on port ${DEV_SERVER_PORT}...`
+      `Checking if generated site server is running on port ${LOCAL_SERVER_PORT}...`
     );
     let serverRunning = await checkServer();
     let serverWasAlreadyRunning = false;
 
     if (!serverRunning) {
-      console.log(`   ⚠️  Dev server not detected on port ${DEV_SERVER_PORT}`);
+      console.log(
+        `   ⚠️  Generated site server not detected on port ${LOCAL_SERVER_PORT}`
+      );
+      console.log(`   🚀 Starting generated site server now...`);
+      try {
+        generatedSiteServer = await startGeneratedSiteServer();
+        // Give it a moment to fully initialize
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        serverRunning = await checkServer();
+        if (!serverRunning) {
+          console.error(
+            "❌ Generated site server started but is not responding!"
+          );
+          if (generatedSiteServer) {
+            generatedSiteServer.close();
+          }
+          process.exit(1);
+        }
+        console.log(`   ✅ Generated site server started successfully`);
+      } catch (error) {
+        console.error(
+          `❌ Failed to start generated site server: ${error.message}`
+        );
+        process.exit(1);
+      }
+    } else {
+      serverWasAlreadyRunning = true;
+      console.log(`   ✅ Generated site server detected (already running)`);
+    }
+
+    console.log("");
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
+    console.log(`📍 Generated Site Server Status:`);
+    console.log(`   Port: ${LOCAL_SERVER_PORT}`);
+    console.log(
+      `   Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
+    );
+    console.log(`   URL: ${BASE_URL}`);
+    console.log(`   Directory: .output/public`);
+    console.log(
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    );
+    console.log("");
+  } else {
+    // Development server
+    console.log(
+      `Checking if dev server is running on port ${LOCAL_SERVER_PORT}...`
+    );
+    let serverRunning = await checkServer();
+    let serverWasAlreadyRunning = false;
+
+    if (!serverRunning) {
+      console.log(
+        `   ⚠️  Dev server not detected on port ${LOCAL_SERVER_PORT}`
+      );
       console.log(`   🚀 Starting dev server now...`);
       try {
         devServerProcess = await startDevServer();
@@ -1421,7 +1577,7 @@ async function runAudit() {
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     );
     console.log(`📍 Dev Server Status:`);
-    console.log(`   Port: ${DEV_SERVER_PORT}`);
+    console.log(`   Port: ${LOCAL_SERVER_PORT}`);
     console.log(
       `   Status: ${serverWasAlreadyRunning ? "Already running" : "Started by audit script"}`
     );
@@ -1505,11 +1661,17 @@ async function runAudit() {
     }
   }
 
-  // Cleanup dev server if we started it
+  // Cleanup servers if we started them
   if (devServerProcess) {
     console.log("\n🛑 Stopping dev server...");
     devServerProcess.kill();
     console.log("✓ Dev server stopped");
+  }
+
+  if (generatedSiteServer) {
+    console.log("\n🛑 Stopping generated site server...");
+    generatedSiteServer.close();
+    console.log("✓ Generated site server stopped");
   }
 
   // Generate HTML report
