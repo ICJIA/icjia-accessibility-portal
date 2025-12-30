@@ -701,11 +701,40 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 If you're creating documents, PDFs, or other content files, you're responsible for making those accessible — the website accessibility reports don't cover your content. See: [Do all documents need to be accessible?](#do-all-documents-need-to-be-accessible) | [How do I make a PDF accessible?](#how-do-i-make-a-pdf-accessible) | [How do I make a Word document accessible?](#how-do-i-make-a-word-document-accessible)
 
-### Who should be our agency's accessibility coordinator?
+### Do we need an accessibility coordinator? Can't the web developer just take care of it?
 
 {new:2025-12-28}
 
-**Quick answer:** The accessibility coordinator should be someone in executive or compliance roles who has organizational authority to set policy, allocate resources, and make strategic decisions. While web developers and content creators have valuable technical expertise, the coordinator role requires someone who can make agency-wide decisions and set policy — not just implement technical solutions.
+**Quick answer:** Yes, you need an accessibility coordinator. Web developers can't just handle accessibility on their own because: (1) accessibility is much bigger than just websites — it includes documents, videos, social media, mobile apps, and third-party tools; (2) web developers are busy doing the technical implementation work; (3) accessibility requires organizational policy, resource allocation, and strategic decisions that web developers typically don't have authority to make. The coordinator should be someone in executive or compliance roles who can set policy, allocate resources, and coordinate across departments.
+
+**Why web developers can't just handle it:**
+
+**Accessibility is bigger than websites:**
+
+- **Websites** — Web developers handle this, but it's only one part of accessibility compliance
+- **Documents** — PDFs, Word files, Excel spreadsheets (content creators' responsibility)
+- **Videos** — Captions, transcripts (content creators' responsibility)
+- **Social media** — Accessible posts, alt text, captions (communications teams' responsibility)
+- **Mobile apps** — If your agency has apps, they need accessibility too
+- **Third-party tools** — Procurement decisions, vendor accessibility requirements (procurement/legal teams' responsibility)
+
+Web developers can't set policy or allocate resources for all of these areas — they can only implement accessibility for websites.
+
+**Web developers are busy doing the work:**
+
+- Web developers are actively implementing accessibility standards, fixing issues, and testing websites
+- They're doing the technical compliance work, not coordinating organizational strategy
+- They need someone to gather information from them and report progress to leadership
+- They don't have time to coordinate across departments or set agency-wide policy
+
+**Accessibility requires organizational authority:**
+
+- **Policy decisions** — Setting accessibility standards, priorities, and processes agency-wide
+- **Resource allocation** — Approving budgets, training, tools, and time allocation
+- **Cross-department coordination** — Working with IT, communications, legal, procurement, and content teams
+- **Strategic reporting** — Reporting compliance status, risks, and progress to executive staff
+
+Web developers typically don't have this organizational authority — they're technical implementers, not policy setters.
 
 **What the coordinator does:**
 
@@ -732,7 +761,7 @@ The accessibility coordinator should be someone who has organizational authority
 - **Accessibility coordinator** = Sets policy, allocates resources, makes strategic decisions, coordinates with technical teams, reports to executive staff (needs organizational authority)
 - **Web developers and content creators** = Provide technical expertise, implement solutions, do the actual compliance work (valuable resources, but typically not policy setters)
 
-**Bottom line:** The accessibility coordinator needs organizational authority to set policy and allocate resources. The coordinator should meet with web developers and content creators who are doing the compliance work, gather information from them, and report back to executive staff. Web developers and content creators are essential technical resources, but they're busy doing the work — the coordinator's role is to coordinate, gather information, and make strategic decisions at the organizational level.
+**Bottom line:** Yes, you need an accessibility coordinator. Web developers are essential for implementing website accessibility, but accessibility compliance is much bigger than just websites — it requires organizational policy, resource allocation, and coordination across departments. The coordinator should meet with web developers and content creators who are doing the compliance work, gather information from them, and report back to executive staff. Web developers and content creators are essential technical resources, but they're busy doing the work — the coordinator's role is to coordinate, gather information, and make strategic decisions at the organizational level.
 
 ---
 
