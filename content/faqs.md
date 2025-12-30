@@ -248,6 +248,82 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
+### I prefer to get information from executive staff. Who should I talk to about accessibility? Can I trust information from web developers and content creators who aren't part of executive staff?
+
+{new:2025-12-30}
+
+**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers and content creators have hands-on experience and are excellent resources — even if they're not in leadership roles. You don't need to trust web developers personally — trust the verified sources these FAQs cite. Every claim links back to official, authoritative sources (DOJ, Illinois DoIT, WCAG standards) that you can verify yourself.
+
+**Full explanation:**
+
+**Understanding the different roles:**
+
+**For strategic and legal questions (scope, timeline, organizational impact):**
+
+- **Your agency's accessibility coordinator** — This person (often in executive or compliance roles) understands the full scope of requirements across all content types
+- **Executive staff** — They own the agency's accessibility plan and can address resource allocation, priorities, and organizational strategy
+- **Illinois DoIT Office of Information Accessibility** — For legal/mandate questions: DoIT.Accessibility@Illinois.gov
+
+**For practical implementation questions (how to fix issues, what tools to use, testing approaches):**
+
+- **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches. Their expertise is valuable even if they're not in executive roles.
+- **Recent ICJIA content creators** — Several content creators from ICJIA's research and analysis unit have been trained on accessibility best practices and are already solving accessibility issues in their work.
+
+**The key distinction:**
+
+- **Scope and strategy** = Executive staff.
+- **Implementation and technical details** = Web developers, technical teams, and recent content creators.
+
+**Why this information is trustworthy (regardless of who compiled it):**
+
+- **All content is sourced and verified** — Every claim links back to official, authoritative sources (DOJ, DoIT, WCAG) that you can verify yourself. These are the same sources legal teams and compliance officers use
+- **Web developers have no reason to mislead** — Web developers are working through accessibility compliance requirements just like everyone else — in some cases, they're dealing with more of it than others since they're implementing accessibility standards across multiple websites. They have no incentive to provide inaccurate information
+- **They're sharing what they've learned** — Web developers have been implementing WCAG 2.1 Level AA standards for years and have encountered real-world challenges. They've compiled what they've learned into these FAQs to help others avoid the same pitfalls
+- **The information is verifiable** — You don't have to take anyone's word for it. Every FAQ answer includes links to official sources. If you have concerns, check the sources yourself or go directly to DoIT, DOJ, or W3C documentation
+
+**These FAQs are based on official, verifiable sources:**
+
+- **Legal requirements** — All information about deadlines, standards, and requirements comes directly from:
+  - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — The actual legal text
+  - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ ADA Title II Fact Sheet</a> — Official DOJ summary
+  - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA Requirements</a> — Official state guidance
+
+- **Technical standards** — WCAG requirements come from:
+  - <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Specification</a> — The official standard
+  - <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG Quick Reference</a> — Filterable checklist
+
+- **State guidance** — Illinois-specific information comes from:
+  - <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA 2.1 Update</a> — Official announcement of effective dates
+  - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — Official state resources
+
+**What web developers did (and didn't do):**
+
+- **Did:** Compiled information from official sources, organized it into a practical format, added examples and workflows based on real-world experience
+- **Did:** Cross-referenced multiple sources to ensure accuracy and consistency
+- **Did:** Included direct links to official sources so you can verify everything yourself
+- **Did NOT:** Create new legal requirements or standards
+- **Did NOT:** Interpret legal requirements without citing sources
+- **Did NOT:** Add opinions or unsupported claims
+
+**How to verify for yourself:**
+
+1. **Check the sources** — Every FAQ answer includes "References" sections with links to official sources
+2. **Compare with DoIT guidance** — The information here aligns with what Illinois DoIT publishes
+3. **Verify legal requirements** — Links to Federal Register and DOJ documents let you read the actual legal text
+4. **Cross-reference WCAG** — Technical requirements link directly to W3C WCAG documentation
+
+**For web developers and technical teams:**
+
+If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. The fact that you're not in executive staff doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
+
+**For content creators already creating accessible content:**
+
+Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator, not executive staff, gives you the ground-level perspective that makes accessibility implementation successful.
+
+**The bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. Both perspectives are needed, and both are valuable. You may or may not trust specific web developers personally, but you can trust that this content has been verified and sourced. Every claim can be traced back to DOJ, DoIT, or W3C sources. Web developers compiled and organized this information — they're working through accessibility compliance just like everyone else (in some cases, more so), and they have no reason to mislead anyone. They've included what they've learned in these FAQs to help others. The point isn't to trust web developers — it's to trust the verified information here, or if you prefer, go directly to the original sources. The FAQs are a practical guide, but the authoritative sources (DOJ, DoIT, W3C) are always the final word.
+
+**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#i-prefer-to-talk-to-someone-rather-than-read-faqs) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
+
 ### I'm waiting for a presentation on accessibility. Should I start work in my unit based on the info in this FAQ or wait for the DoIT presentation?
 
 {new:2025-12-28}
@@ -653,43 +729,6 @@ The accessibility coordinator should be someone who has organizational authority
 - **Web developers and content creators** = Provide technical expertise, implement solutions, do the actual compliance work (valuable resources, but typically not policy setters)
 
 **Bottom line:** The accessibility coordinator needs organizational authority to set policy and allocate resources. The coordinator should meet with web developers and content creators who are doing the compliance work, gather information from them, and report back to executive staff. Web developers and content creators are essential technical resources, but they're busy doing the work — the coordinator's role is to coordinate, gather information, and make strategic decisions at the organizational level.
-
-**See also:** [I want to understand the full scope of accessibility requirements, but web developers and content creators aren't part of executive staff. Who should I talk to?](#getting-started-i-want-to-understand-the-full-scope-of-accessibili) for more on who to consult for different types of questions.
-
-### I want to understand the full scope of accessibility requirements, but web developers and content creators aren't part of executive staff. Who should I talk to?
-
-{new:2025-12-27}
-
-**Quick answer:** For strategic and legal questions about scope, timeline, and organizational impact, talk to your agency's accessibility coordinator or executive staff. For practical implementation questions, your web developers and content creators who are now making accessible content have hands-on experience and are excellent resources — even if they're not in leadership roles.
-
-**Understanding the different roles:**
-
-**For strategic and legal questions (scope, timeline, organizational impact):**
-
-- **Your agency's accessibility coordinator** — This person (often in executive or compliance roles) understands the full scope of requirements across all content types
-- **Executive staff** — They own the agency's accessibility plan and can address resource allocation, priorities, and organizational strategy
-- **Illinois DoIT Office of Information Accessibility** — For legal/mandate questions: DoIT.Accessibility@Illinois.gov
-
-**For practical implementation questions (how to fix issues, what tools to use, testing approaches):**
-
-- **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches. Their expertise is valuable even if they're not in executive roles.
-
-- **Recent ICJIA content creators** — Several content creators from ICJIA's research and analysis unit have been trained on accessibility best practices and are already solving accessibility issues in their work.
-
-**The key distinction:**
-
-- **Scope and strategy** = Executive staff.
-- **Implementation and technical details** = Web developers, technical teams, and recent content creators.
-
-**For web developers and technical teams:**
-
-If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. The fact that you're not in executive staff doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
-
-**For content creators already creating accessible content:**
-
-Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator, not executive staff, gives you the ground-level perspective that makes accessibility implementation successful.
-
-**Bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. Both perspectives are needed, and both are valuable.
 
 ---
 
@@ -1143,7 +1182,7 @@ Use a combination of automated and manual testing:
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
+**See also:** [What are the most common website accessibility issues?](#what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#im-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
 
 **WCAG References:**
 
@@ -1315,13 +1354,13 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 1. **Request accessibility documentation** (VPAT/ACR) from vendors before purchasing
 2. **Include accessibility requirements in contracts** (require WCAG 2.1 Level AA)
-3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#third-party-tool-testing))
+3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do))
 4. **Provide an accessible alternative** if the tool can't be made accessible:
    - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
    - **Maps:** accessible lists/tables of locations + text explanation of what the map shows
    - **Other tools:** equivalent accessible methods to complete the same service
 
-**For specific tools:** See questions below about [DocuSign](#our-agency-uses-docusign), [LMS systems](#is-a-learning-management-system-lms-like-docebo-wcag-21-compliant), and [existing content like Tableau or ArcGIS](#if-we-have-existing-content-like-tableau-dashboards-arcgis-maps-or-docebo-online-courses-do-those-fall-into-the-exemption-category-or-do-they-need-to-be-made-immediately-accessible).
+**For specific tools:** See questions below about [DocuSign](#our-agency-uses-docusign-to-digitally-sign-documen), [LMS systems](#is-a-learning-management-system-lms-like-docebo-wc), and [existing content like Tableau or ArcGIS](#if-we-have-existing-content-like-tableau-dashboard).
 
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
 
@@ -1461,7 +1500,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can’t “fix” an inaccessible document.
 2. **Request DocuSign’s current VPAT/ACR** for your version and configuration.
-3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#third-party-tool-testing)
+3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
 4. **Have an accessible alternative** if a user can’t complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
 
 **The bottom line:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
@@ -1485,7 +1524,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 4. **Structure** — Clear headings and descriptive link text; predictable navigation and module names.
 5. **Interactivity** — Quizzes/forms are keyboard accessible, with clear labels and error messages.
 6. **Color** — Sufficient contrast and no “color-only” meaning.
-7. **Test the course** using: [How do I test third-party tool compliance?](#third-party-tool-testing)
+7. **Test the course** using: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
 
 **Resources:**
 
@@ -1510,7 +1549,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 3. **Make it accessible or provide an equivalent accessible alternative**, such as:
    - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
    - **Courses:** accessible documents + captions/transcripts + accessible quiz interactions
-4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#third-party-tool-testing)
+4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#how-do-i-test-third-party-tool-compliance-what-do)
 5. **Document** what you changed, what remains, and the alternatives you provide
 
 **Tool-specific notes (common pain points):**
