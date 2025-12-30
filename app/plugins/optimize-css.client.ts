@@ -104,9 +104,9 @@ function optimizeCSS() {
     link.setAttribute('media', 'print')
     
     // Use onload to switch media back to 'all' once loaded
-    link.onload = function() {
-      this.setAttribute('media', originalMedia)
-      this.onload = null // Clean up
+    link.onload = () => {
+      link.setAttribute('media', originalMedia)
+      link.onload = null // Clean up
     }
 
     // Fallback: if onload doesn't fire within 200ms, switch media anyway
