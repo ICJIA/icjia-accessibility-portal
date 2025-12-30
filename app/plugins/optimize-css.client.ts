@@ -14,7 +14,7 @@
  * the initial page load to prevent interfering with component initialization.
  * Set ENABLE_CSS_OPTIMIZATION to false to disable this plugin.
  */
-const ENABLE_CSS_OPTIMIZATION = false // Set to false to disable CSS optimization
+const ENABLE_CSS_OPTIMIZATION = true // Set to false to disable CSS optimization
 
 export default defineNuxtPlugin(() => {
   // Only run on client side
