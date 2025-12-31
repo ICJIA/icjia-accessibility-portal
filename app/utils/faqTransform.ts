@@ -5,12 +5,33 @@ type MiniMarkNode = any
  */
 const NEW_QUESTION_DAYS = 10
 
+/**
+ * Calculate days remaining until the deadline (April 24, 2026)
+ */
+function getDaysUntilDeadline(): number {
+  const deadline = new Date('2026-04-24T00:00:00').getTime()
+  const now = Date.now()
+  const distance = deadline - now
+  if (distance <= 0) return 0
+  return Math.floor(distance / (1000 * 60 * 60 * 24))
+}
+
 function isElementNode(node: MiniMarkNode): node is any[] {
   return Array.isArray(node) && typeof node[0] === 'string'
 }
 
 function tagName(node: any[]): string {
   return node[0]
+}
+
+/**
+ * Replace dynamic placeholders in text nodes
+ * @param text - Text that might contain placeholders
+ * @returns Text with placeholders replaced
+ */
+function replaceDynamicPlaceholders(text: string): string {
+  const daysUntilDeadline = getDaysUntilDeadline()
+  return text.replace(/\{days_until_deadline\}/g, daysUntilDeadline.toString())
 }
 
 /**
@@ -78,26 +99,35 @@ export function extractNewDate(answerNodes: MiniMarkNode[]): string | null {
 
 /**
  * Remove the "new" tag from answer nodes so it doesn't display
+ * Also replaces dynamic placeholders like {days_until_deadline}
  * @param answerNodes - Array of answer nodes
- * @returns Filtered array without the new tag
+ * @returns Filtered array without the new tag and with dynamic values replaced
  */
 export function filterNewComments(answerNodes: MiniMarkNode[]): MiniMarkNode[] {
   const newTagFullPattern = /(?:\{new:\s*\d{4}-\d{2}-\d{2}\}|<!--\s*new:\s*\d{4}-\d{2}-\d{2}\s*-->)/g
   
   return answerNodes.map(node => {
     if (typeof node === 'string') {
-      // Remove the new tag from strings
-      const cleaned = node.replace(newTagFullPattern, '').trim()
+      // Remove the new tag from strings and replace dynamic placeholders
+      let cleaned = node.replace(newTagFullPattern, '').trim()
+      cleaned = replaceDynamicPlaceholders(cleaned)
       return cleaned
     }
-    // Handle paragraph nodes that might contain the tag
+    // Handle paragraph nodes that might contain the tag or placeholders
     if (isElementNode(node) && tagName(node) === 'p') {
-      const text = extractNodeText(node)
+      // Process text content recursively
+      const processedNode = processNodeForDynamicContent(node)
+      const text = extractNodeText(processedNode)
       // If the paragraph only contains the new tag, filter it out by returning null
       const cleaned = text.replace(newTagFullPattern, '').trim()
       if (cleaned === '') {
         return null // Will be filtered below
       }
+      return processedNode
+    }
+    // Process other element nodes recursively
+    if (isElementNode(node)) {
+      return processNodeForDynamicContent(node)
     }
     return node
   }).filter(node => {
@@ -106,6 +136,24 @@ export function filterNewComments(answerNodes: MiniMarkNode[]): MiniMarkNode[] {
     if (typeof node === 'string' && node.trim() === '') return false
     return true
   })
+}
+
+/**
+ * Process a node recursively to replace dynamic placeholders
+ * @param node - Node to process
+ * @returns Processed node with dynamic content replaced
+ */
+function processNodeForDynamicContent(node: MiniMarkNode): MiniMarkNode {
+  if (typeof node === 'string') {
+    return replaceDynamicPlaceholders(node)
+  }
+  if (isElementNode(node)) {
+    // Node structure: [tagName, attributes, ...children]
+    const [tag, attrs, ...children] = node
+    const processedChildren = children.map(child => processNodeForDynamicContent(child))
+    return [tag, attrs, ...processedChildren]
+  }
+  return node
 }
 
 /**
