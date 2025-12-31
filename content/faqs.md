@@ -445,41 +445,59 @@ Your training in accessibility best practices and your current work solving acce
 
 {new:2025-12-28}
 
-**Quick answer:** Start work now. Don't wait for a presentation. The April 24, 2026 deadline doesn't change based on when you receive training. A DoIT presentation can be very helpful for Q&A and agency-specific guidance, but it's not a prerequisite for beginning accessibility work.
+**Quick answer:** Start now. With {days_until_deadline} days until the April 24, 2026 deadline, time is limited. Begin accessibility work immediately using the role-specific guidance below. Once your agency designates an accessibility coordinator, they can arrange DoIT presentations tailored to your agency's needs—but those presentations should supplement work already in progress, not be a prerequisite for starting.
 
-**Why start now:**
+**Start today based on your role:**
 
-- **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens.
-- **The basics are available now** — These FAQs cover the core requirements and common fixes. A presentation adds context and Q&A, but you can begin with the fundamentals today.
-- **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done.
-- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there.
+**If you're executive staff:**
+1. **Designate an accessibility coordinator** — This is your most urgent action. The coordinator can then work with DoIT to arrange appropriate presentations and training.
+2. **Allocate resources** — Budget for accessibility tools, training, and staff time. This work requires dedicated resources.
+3. **Set agency-wide expectations** — Make clear that accessibility is a priority and all staff should begin using available resources now.
+4. **Review high-visibility content** — Identify your agency's most public-facing content (main website, key publications) and ensure it's prioritized for accessibility work.
 
-**What you can start doing today:**
+**If you're a manager:**
+1. **Review staff responsibilities** — Identify who creates content, manages websites, or produces documents in your unit.
+2. **Direct staff to this FAQ** — Specifically point staff to role-based guidance: [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) | [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start)
+3. **Build accessibility into workflows** — Add accessibility checks to content approval processes now, not later.
+4. **Inventory your content** — Identify what needs remediation (websites, PDFs, videos, social media) so you understand the scope.
 
-1. **Add alt text to images** — Every image needs a brief description
-2. **Use heading styles** — Use Heading 1, Heading 2, Heading 3 instead of just making text bold
-3. **Write descriptive links** — Instead of "click here," write "Download the 2025 Annual Report"
-4. **Check color contrast** — Make sure text is dark enough against its background (4.5:1 ratio for normal text)
-5. **Add captions to videos** — All videos need captions
+**If you're a content creator:**
+1. **Fix the basics in new content** — Add alt text to images, use heading styles, write descriptive links, check color contrast, caption videos.
+2. **Review recent work** — Go back and fix accessibility issues in content you've created in the past 6-12 months.
+3. **Use available tools** — Many are free (see [What are the most common accessibility mistakes to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-to-avoid)).
+4. **Document your questions** — Note what's unclear so you can ask during a future presentation, but don't delay fixable work.
 
-**What to do while waiting for the presentation:**
+**If you're a web developer:**
+1. **Run automated tests** — Use free tools (axe DevTools, WAVE, Lighthouse) to identify issues immediately.
+2. **Fix common code issues** — Missing alt text, poor heading structure, insufficient color contrast, missing ARIA labels.
+3. **Review form accessibility** — Ensure all form inputs have proper labels and error messages.
+4. **Test with keyboard only** — Verify all functionality works without a mouse.
 
-- **Start with your most recent content** — Fix accessibility issues in documents, PDFs, or web pages you've created recently.
-- **Use the resources in these FAQs** — The links and guides here are the same ones DoIT will reference.
-- **Ask your web developers or content creators** — If your unit has people already working on accessibility, they can help you get started.
-- **Request the presentation** — Contact DoIT.Accessibility@Illinois.gov to schedule training, but don't delay work until then.
+**About DoIT presentations:**
 
-**What the presentation provides (that this FAQ doesn't):**
+- **They're valuable, but not prerequisites** — Presentations provide Q&A, clarification, and agency-specific guidance. They don't replace starting the work now.
+- **Coordinate through your accessibility coordinator** — Once designated, your coordinator can work with DoIT to arrange one or several presentations that fit your agency's needs.
+- **The fundamentals don't change** — A presentation won't alter the basic requirements (alt text, captions, keyboard access, color contrast). These are documented here and should be implemented now.
 
-- **A chance to ask questions** — The main value of a presentation is the opportunity to ask specific questions about your agency's situation, get clarification on complex issues, and discuss edge cases.
-- **Interactive discussion** — You can discuss your specific challenges with DoIT staff and other agencies.
-- **Clarification on confusing points** — If something in these FAQs is unclear, you can ask for clarification.
+**What you're not waiting for:**
 
-**Important reality check:**
+- **Permission to start** — These are legal requirements with a fixed deadline. You have authority to begin compliance work now.
+- **Specialized knowledge** — The most common fixes (alt text, heading structure, descriptive links) are straightforward and covered in these FAQs.
+- **Perfect understanding** — You can address clear violations now and ask questions about edge cases later.
 
-- **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content.
-- **The baseline guidance is already here** — This FAQ is a strong starting point. Use the presentation to ask questions, confirm edge cases, and get agency-specific guidance.
-- **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June.
+**Reality check on timing:**
+
+- **The remaining {days_until_deadline} days is limited time** — There is no one-click fix for accessibility. The work requires manual remediation: reviewing every image, document, video, and web page.
+- **Presentations don't speed up the work** — A presentation may clarify requirements, but the actual remediation still takes the same amount of time.
+- **The deadline is the same for everyone** — April 24, 2026 applies regardless of when your agency receives training.
+
+**Practical next steps:**
+
+1. **Start with high-impact, low-effort fixes** — Alt text, descriptive links, heading structure, color contrast.
+2. **Use existing resources** — The links in these FAQs are the same ones DoIT will reference.
+3. **Document your progress** — Track what's been fixed so you can demonstrate progress.
+4. **Note your questions** — Keep a list of unclear items to address in future presentations.
+5. **Contact DoIT for urgent questions** — Email DoIT.Accessibility@Illinois.gov for specific guidance, but don't delay obvious fixes.
 
 **Official resources and quick reads:**
 
@@ -494,7 +512,7 @@ Your training in accessibility best practices and your current work solving acce
   - <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed WCAG checklist
   - <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a> — Simple accessibility checklist format
 
-**Bottom line:** Start making your content accessible now using the information in these FAQs. Use a DoIT presentation to ask questions and confirm how the requirements apply to your specific agency, but don't delay the work until training happens.
+**Bottom line:** The time to start is now. Use the role-specific guidance above to begin work today. Once your agency has an accessibility coordinator, they can coordinate appropriate DoIT presentations—but don't wait for presentations to begin compliance work.
 
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
@@ -2618,14 +2636,14 @@ Illinois DoIT recommends including language similar to:
 
 {new:2025-12-30}
 
-**Quick answer:** This FAQ is actively maintained and updated as new information becomes available, compliance requirements are clarified, or common questions emerge. Recent additions are marked with a "NEW" badge for 7 days.
+**Quick answer:** This FAQ is actively maintained and updated as new information becomes available, compliance requirements are clarified, or common questions emerge. Recent additions are marked with a "NEW" badge for 10 days.
 
 **Full explanation:**
 
 **Update frequency:**
 
 - **Ongoing updates** — This FAQ is a living document. Updates are made as needed when new guidance is published, requirements are clarified, or staff questions reveal gaps in coverage
-- **Recent changes tracked** — Questions added or substantially revised within the last 7 days are marked with a "NEW" badge
+- **Recent changes tracked** — Questions added or substantially revised within the last 10 days are marked with a "NEW" badge
 - **Last updated date** — The overall last-updated date appears at the bottom of the FAQ
 
 **What triggers updates:**
@@ -2643,7 +2661,7 @@ If you have a question that isn't covered here, or if you find information that'
 
 ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [This website was generated by a web developer not on executive staff. Why should I trust this information?](#common-concerns-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information)
 
-**The bottom line:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 7 days. Check the last-updated date at the bottom for the most recent revision.
+**The bottom line:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 10 days. Check the last-updated date at the bottom for the most recent revision.
 
 ### Why are ICJIA staff creating this FAQ? Shouldn't DoIT handle accessibility information?
 
