@@ -23,7 +23,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 | 2. Use heading styles (not just bold) | 0 sec        | Screen reader navigation    |
 | 3. Write descriptive links            | 5 sec        | Context for assistive tech  |
 | 4. Run Accessibility Checker          | 60 sec       | Catches common errors       |
-| 5. Add captions to videos             | 10-15 min    | Legally required            |
+| 5. Add captions to videos             | 10-15 min    | Compliance requirement      |
 
 **Start here:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
 
@@ -57,15 +57,15 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ### For Executive Staff
 
-**What accessibility means for you:** You own the agency's accessibility strategy and compliance. You set policy, allocate budget, designate coordinators, and ensure accountability. After April 2026, if the agency faces DOJ complaints, you'll be responsible for demonstrating good-faith compliance efforts. Your leadership determines whether accessibility is treated as a priority or an afterthought.
+**What accessibility means for you:** You own the agency's accessibility strategy and compliance. You set policy, allocate budget, designate coordinators, and ensure accountability. After April 2026, if the agency faces DOJ complaints, you'll be responsible for demonstrating good-faith compliance efforts. Your leadership decisions determine how accessibility is prioritized within the agency.
 
-| Action                                 | Time      | Impact                      |
-| -------------------------------------- | --------- | --------------------------- |
-| 1. Designate an accessibility coordinator | 30 min | Someone must own this       |
-| 2. Adopt an agency accessibility policy   | 1-2 hours | Set clear expectations      |
-| 3. Budget for training and tools          | 1 hour    | Enable compliance           |
-| 4. Require accessibility in procurement   | 30 min    | Prevent vendor barriers     |
-| 5. Track compliance agency-wide           | Ongoing   | Know your risk exposure     |
+| Action                                    | Time      | Impact                  |
+| ----------------------------------------- | --------- | ----------------------- |
+| 1. Designate an accessibility coordinator | 30 min    | Someone must own this   |
+| 2. Adopt an agency accessibility policy   | 1-2 hours | Set clear expectations  |
+| 3. Budget for training and tools          | 1 hour    | Enable compliance       |
+| 4. Require accessibility in procurement   | 30 min    | Prevent vendor barriers |
+| 5. Track compliance agency-wide           | Ongoing   | Know your risk exposure |
 
 ---
 
@@ -73,7 +73,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ---
 
-## General Accessibility Questions
+## Understanding Accessibility
 
 ### What is digital accessibility?
 
@@ -83,37 +83,52 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
+---
+
+## Getting Oriented
+
 ### Why is this FAQ so long?
 
 {new:2025-12-30}
 
-**Quick answer:** Accessibility is complex — there's no one-click fix, and it touches every role and content type. This FAQ is comprehensive because it needs to address questions from content creators, web developers, managers, and procurement staff. It covers websites, documents, videos, social media, and third-party tools.
+**Quick answer:** Accessibility touches every role and content type. This FAQ is comprehensive so you can find answers specific to your situation without searching multiple sources.
 
 **Full explanation:**
 
-**Accessibility is genuinely complicated:**
-
-- **There's no single solution** — Unlike some compliance requirements that can be addressed with one policy change or software update, accessibility requires ongoing attention across every piece of digital content
-- **It affects every role** — Content creators, web developers, designers, managers, procurement staff, and communications teams all have different responsibilities and different questions
-- **It covers many content types** — Websites, PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, videos, social media posts, mobile apps, and third-party tools each have unique accessibility considerations
-- **The standards are detailed** — WCAG 2.1 Level AA contains dozens of specific criteria, and applying them correctly requires understanding both the technical requirements and the real-world use cases
-
-**Why this FAQ can't be shorter:**
-
-1. **Different audiences need different information** — A content creator doesn't need to know about ARIA attributes, but a web developer does. A manager needs to know about resource allocation, but that's not relevant to someone writing alt text
-2. **Real-world scenarios vary** — "Do I need to make this accessible?" depends on whether you're talking about a new document, archived content, a third-party tool, or a password-protected intranet
-3. **Context prevents mistakes** — Brief answers can be misinterpreted. Explaining _why_ something is required (not just _that_ it's required) helps people make good decisions when they encounter situations not explicitly covered here
-4. **Examples are essential** — Showing what accessible vs. inaccessible content looks like takes space, but it's the most effective way to teach accessibility practices
+Accessibility requirements apply differently depending on whether you're a content creator, web developer, manager, or procurement officer — and whether you're working on websites, documents, videos, or third-party tools. Rather than creating separate guides for each audience, this FAQ consolidates everything in one searchable reference.
 
 **How to use this FAQ efficiently:**
 
-- **Use the Quick Reference section at the top** — Scroll to the top of this page to see the [Quick Reference: 5 Critical Actions by Role](#quick-reference-5-critical-actions-by-role) tables showing the 5 most critical actions for your role
-- **Start with your role** — Jump to [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start), [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start), or [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
-- **Use the search function** — Press Ctrl+F (or Cmd+F on Mac) to find specific topics
-- **Follow the "See also" links** — Related questions are cross-referenced to help you find relevant information quickly
-- **Don't try to read it all** — This is a reference guide, not a book. Look up what you need when you need it
+- **Start with the [Quick Reference](#quick-reference-5-critical-actions-by-role)** at the top — 5 critical actions for each role
+- **Jump to your role** — [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) | [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) | [Managers](#getting-started-i-m-a-manager-where-do-i-start)
+- **Search (Ctrl+F / Cmd+F)** for specific topics
+- **Follow "See also" links** for related questions
+- **Use it as a reference** — don't try to read it all at once
 
-**The bottom line:** Yes, this FAQ is long — because accessibility is complex, and providing accurate, actionable guidance for diverse roles and situations requires detail. However, you don't need to read it all. Use it as a reference when specific questions arise, and start with the [Quick Reference section at the top](#quick-reference-5-critical-act) or the "Where do I start?" questions for your role.
+**The bottom line:** You don't need to read everything. Find your role, focus on what applies to your work, and look up specific questions as they arise.
+
+### I prefer to talk to someone rather than read FAQs. Who can I ask?
+
+{new:2025-12-31}
+
+**Questions are welcome, and there are many ways to learn.** Whether you prefer reading, watching videos, hands-on practice, or talking to someone, resources exist for you. The work and deadline remain the same regardless of format — you'll still need to make your content accessible.
+
+**Who to contact for what:**
+
+| Question Type                                      | Who to Ask                                            | Contact                         |
+| -------------------------------------------------- | ----------------------------------------------------- | ------------------------------- |
+| **Agency-wide strategy, scope, timeline**          | Your accessibility coordinator or executive staff     | (Check with your agency)        |
+| **IITAA and ADA Title II compliance requirements** | Illinois DoIT Office of Information Accessibility     | DoIT.Accessibility@Illinois.gov |
+| **Practical how-to (websites, testing, tools)**    | Your web development team                             | (Check with your agency)        |
+| **Document accessibility (Word, PDF, PPT)**        | Trained content creators or accessibility coordinator | (Check with your agency)        |
+
+**Other learning formats:**
+
+- **Videos:** <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Primer</a> | <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Accessibility Introduction</a>
+- **Hands-on:** <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Try WAVE on any website</a> | <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA (free screen reader)</a>
+- **Courses:** <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Training</a> | <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">Section508.gov Training</a>
+
+**Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
 ### How does digital accessibility and compliance fit into an agency's DEIA mission?
 
@@ -163,12 +178,12 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **Everything digital and public-facing.** The deadline applies to all public-facing digital content, not just websites:
 
-- **Websites and web applications** — All pages and interactive features
-- **Documents** — PDFs, Word documents, Excel spreadsheets, PowerPoint presentations
-- **Multimedia** — Videos (must have captions), audio (must have transcripts)
-- **Mobile apps** — Any apps provided to the public
-- **Social media** — Posts, images, and videos shared on social platforms (going forward)
-- **Third-party content** — Embedded tools, maps, dashboards, widgets provided through contracts
+- **Websites and web applications** — All pages and interactive features.
+- **Documents** — PDFs, Word documents, Excel spreadsheets, PowerPoint presentations.
+- **Multimedia** — Videos (must have captions), audio (must have transcripts).
+- **Mobile apps** — Any apps provided to the public.
+- **Social media** — Posts, images, and videos shared on social platforms (going forward).
+- **Third-party content** — Embedded tools, maps, dashboards, widgets provided through contracts.
 
 **Why the scope is so broad:** Government services have moved online rapidly, especially since 2020. What used to be in-person services are now digital, making digital accessibility essential for equal access.
 
@@ -176,18 +191,22 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **See also:** [How do I make mobile apps accessible?](#website-accessibility-how-do-i-make-mobile-apps-accessible)
 
+---
+
+## Common Concerns
+
 ### Why does accessibility compliance require everyone's participation?
 
 **Because web developers can only fix technical issues — they can't fix content.**
 
 While web developers handle technical implementation (code structure, keyboard navigation, ARIA attributes that help screen readers understand interactive elements), they **cannot** fix content created by others. Achieving compliance requires:
 
-- **Content creators** — Write alt text for images, use proper heading styles, make documents accessible, add captions to videos
-- **Designers** — Ensure color contrast meets requirements, design with keyboard navigation in mind
-- **Procurement staff** — Include accessibility requirements in contracts for third-party tools
-- **Web developers** — Implement technical accessibility standards, test with assistive technologies
-- **Project managers** — Include accessibility in timelines and ensure it's addressed from project start
-- **Leadership** — Allocate time, budget, and resources
+- **Content creators** — Write alt text for images, use proper heading styles, make documents accessible, add captions to videos.
+- **Designers** — Ensure color contrast meets requirements, design with keyboard navigation in mind.
+- **Procurement staff** — Include accessibility requirements in contracts for third-party tools.
+- **Web developers** — Implement technical accessibility standards, test with assistive technologies.
+- **Project managers** — Include accessibility in timelines and ensure it's addressed from project start.
+- **Leadership** — Allocate time, budget, and resources.
 
 **Example:** If you create a PDF report, the web team cannot add alt text to your images, fix your heading structure, or make your tables accessible. Those are content decisions only you can make as the document creator.
 
@@ -205,21 +224,21 @@ While web developers handle technical implementation (code structure, keyboard n
 **Who to ask (so you get answers without losing time):**
 
 - **Your web developers** — Web teams have been working on accessibility for years and can share practical guidance on common barriers, testing, and what “good” looks like. They write code (not your documents), but they’re often the best starting point for accessibility questions in general — especially as timelines get tight.
-- **Illinois DoIT Office of Information Accessibility** — Best source for questions about the **specific legal mandates** (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov
+- **Illinois DoIT Office of Information Accessibility** — Best source for questions about the **specific compliance requirements** (IITAA + ADA Title II), timelines, and state guidance: DoIT.Accessibility@Illinois.gov.
 
 **What managers can do:**
 
-- **Ask questions** — Understand what accessibility means for your team's work
-- **Clarify scope** — Get a clear picture of what needs to be done
-- **Plan resources** — Allocate time and budget needed for compliance
-- **Prioritize work** — Determine what needs to be done first
-- **Learn while doing** — Start the work now and adjust plans as you gain understanding
+- **Ask questions** — Understand what accessibility means for your team's work.
+- **Clarify scope** — Get a clear picture of what needs to be done.
+- **Plan resources** — Allocate time and budget needed for compliance.
+- **Prioritize work** — Determine what needs to be done first.
+- **Learn while doing** — Start the work now and adjust plans as you gain understanding.
 
 **What managers cannot do:**
 
-- **Delay the work** — The deadline is firm (the rule does not include a routine extension process)
-- **Treat it as optional** — It's a compliance requirement under ADA Title II and IITAA, not a "nice to have"
-- **Push it to "later"** — Waiting makes the work more expensive and increases legal risk
+- **Delay the work** — The deadline is firm (the rule does not include a routine extension process).
+- **Treat it as optional** — It's a compliance requirement under ADA Title II and IITAA, not a "nice to have".
+- **Push it to "later"** — Waiting makes the work more expensive and increases legal risk.
 
 **The reality:** Waiting until you fully understand everything will only make compliance harder to achieve. The best approach is to start the work now, ask questions along the way, and adjust plans as you gain more understanding.
 
@@ -235,13 +254,13 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **The real time investment:**
 
-| Task                                                       | Extra Time    | Notes                                             |
-| ---------------------------------------------------------- | ------------- | ------------------------------------------------- |
-| Adding alt text to an image                                | 30 seconds    | You know what's in the image — just describe it   |
-| Using heading styles instead of bold                       | 0 seconds     | Same number of clicks, different button           |
-| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds     | Better for everyone, not just accessibility       |
-| Running the Accessibility Checker in Word                  | 60 seconds    | Built into Microsoft Office — one click           |
-| Adding captions to a 5-minute video                        | 10-15 minutes | This one does take time (but is legally required) |
+| Task                                                       | Extra Time    | Notes                                                     |
+| ---------------------------------------------------------- | ------------- | --------------------------------------------------------- |
+| Adding alt text to an image                                | 30 seconds    | You know what's in the image — just describe it           |
+| Using heading styles instead of bold                       | 0 seconds     | Same number of clicks, different button                   |
+| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds     | Better for everyone, not just accessibility               |
+| Running the Accessibility Checker in Word                  | 60 seconds    | Built into Microsoft Office — one click                   |
+| Adding captions to a 5-minute video                        | 10-15 minutes | This one does take time (but is a compliance requirement) |
 
 **What actually takes time:**
 
@@ -251,7 +270,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **What to tell your manager:**
 
-If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is now required by law. I need either (a) time allocated for training and remediation, or (b) clarity on what gets deprioritized to make room for this."_
+If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a compliance requirement under ADA Title II and IITAA. I need either (a) time allocated for training and remediation, or (b) clarity on what gets deprioritized to make room for this."_
 
 **The reality:** Accessibility is a compliance requirement under ADA Title II and IITAA, not optional. However, managers do need to allocate realistic time and resources for staff to learn and implement accessibility practices. If you're genuinely overloaded, the solution isn't to skip accessibility — it's to work with your manager to prioritize and allocate time appropriately.
 
@@ -278,10 +297,10 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is now 
 
 When digital content isn't accessible, agencies exclude Illinois residents with disabilities from accessing government information and services. Common disabilities include:
 
-- **Vision impairments** — Blindness, low vision, color blindness
-- **Hearing impairments** — Deafness, hearing loss
-- **Motor disabilities** — Difficulty using a mouse, limited hand mobility
-- **Cognitive disabilities** — Learning disabilities, memory difficulties, attention disorders
+- **Vision impairments** — Blindness, low vision, color blindness.
+- **Hearing impairments** — Deafness, hearing loss.
+- **Motor disabilities** — Difficulty using a mouse, limited hand mobility.
+- **Cognitive disabilities** — Learning disabilities, memory difficulties, attention disorders.
 
 **Why this matters:** Accessible digital content isn't just about legal compliance — it's about ensuring equal access to government services for Illinois residents with disabilities, as required by IITAA.
 
@@ -311,9 +330,9 @@ WCAG is organized around four principles, known as **POUR**:
 
 WCAG has three conformance levels:
 
-- **Level A** — Minimum accessibility (must meet)
-- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_
-- **Level AAA** — Enhanced accessibility (may meet where feasible)
+- **Level A** — Minimum accessibility (must meet).
+- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_.
+- **Level AAA** — Enhanced accessibility (may meet where feasible).
 
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
 
@@ -330,13 +349,13 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **Who owns what (high-level):**
 
-- **Content creators**: headings, links, alt text, document structure, captions/transcripts
-- **Designers**: contrast, focus visibility, layouts that work with keyboard/screen readers
-- **Procurement/program teams**: require WCAG 2.1 Level AA in contracts; avoid buying inaccessible tools
-- **Web/IT**: accessible code, testing, fixes, platform configuration
-- **Managers/leaders**: time, tools, training, accountability
+- **Content creators**: headings, link text, alt text, accessible documents, captions/transcripts.
+- **Designers**: contrast, focus visibility, layouts that work with keyboard/screen readers.
+- **Procurement/program teams**: require WCAG 2.1 Level AA in contracts; avoid buying inaccessible tools.
+- **Web/IT**: accessible code, testing, fixes, platform configuration.
+- **Managers/leaders**: time, tools, training, accountability.
 
-**Why “IT will fix it later” fails:**
+**Why waiting for "IT will fix it later" doesn't work:**
 
 - Accessibility is cheapest when done early; retrofits can be **significantly more expensive**—industry estimates suggest remediation costs can be several times higher than proactive design.
 - A PDF without headings/alt text, a low-contrast design, or an inaccessible vendor tool can’t be “patched” by IT without changing the original work.
@@ -348,25 +367,6 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 - <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C WAI: Planning and Managing Web Accessibility</a>
 - <a href="https://www.section508.gov/manage/section-508-program-team-roles-and-responsibilities/" target="_blank" rel="noopener noreferrer">Section508.gov: Roles and Responsibilities</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Applies to all state and local government employees involved in digital content
-
-### I prefer to talk to someone rather than read FAQs. Who can I ask?
-
-**Questions are welcome, and there are many ways to learn.** Whether you prefer reading, watching videos, hands-on practice, or talking to someone, resources exist for you. That said, the work and deadline remain the same regardless of format — you'll still need to make your content accessible. Here's who to ask:
-
-**Find your agency's accessibility coordinator.** Every agency should have someone responsible for accessibility planning and compliance. This person can answer general questions, provide presentations, and connect you to resources. The owner of your agency's accessibility plan is executive staff — not the web developers.
-
-**For practical accessibility questions, ask your web developers.** ICJIA web developers have been working on website accessibility for years and are happy to share what they know. They're your best first stop for practical guidance on web content. However, keep in mind that web developers implement _web_ accessibility — the Title II rule is much bigger than just websites (it covers documents, videos, social media, mobile apps, and third-party tools).
-
-**For questions about IITAA and ADA Title II requirements, ask DoIT.** The Illinois DoIT Office of Information Accessibility has a dedicated accessibility coordinator who can answer questions about specific compliance requirements, timelines, and state guidance: DoIT.Accessibility@Illinois.gov
-
-**Other learning formats (if FAQs aren't your thing):**
-
-- **Videos:** <a href="https://www.ada.gov/resources/title-ii-primer/" target="_blank" rel="noopener noreferrer">ADA.gov Title II Primer</a> | <a href="https://www.w3.org/WAI/videos/standards-and-benefits/" target="_blank" rel="noopener noreferrer">W3C Accessibility Introduction</a> | <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LnZQBAOWJh2Z1dZn" target="_blank" rel="noopener noreferrer">Google Accessibility Fundamentals</a>
-- **Hands-on:** <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">Try WAVE on any website</a> | <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">Download NVDA (free screen reader)</a>
-- **Courses:** <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Training</a> | <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">Section508.gov Training</a>
-- **Quick references:** <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> | <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> | <a href="https://www.a11yproject.com/checklist/" target="_blank" rel="noopener noreferrer">A11Y Project Checklist</a>
-
-**Bottom line:** Ask questions, use whatever format works for you — but start the work now. The April 24, 2026 deadline applies regardless of how you prefer to learn.
 
 ### This website was generated by a web developer not on executive staff. Why should I trust this information?
 
@@ -380,23 +380,23 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **For strategic and legal questions (scope, timeline, organizational impact):**
 
-- **Your agency's accessibility coordinator** — This person (often in executive or compliance roles) understands the full scope of requirements across all content types
-- **Executive staff** — They own the agency's accessibility plan and can address resource allocation, priorities, and organizational strategy
-- **Illinois DoIT Office of Information Accessibility** — For legal/mandate questions: DoIT.Accessibility@Illinois.gov
+- **Your agency's accessibility coordinator** — This person (often in executive or compliance roles) understands the full scope of requirements across all content types.
+- **Executive staff** — They own the agency's accessibility plan and can address resource allocation, priorities, and organizational strategy.
+- **Illinois DoIT Office of Information Accessibility** — For questions about IITAA and ADA Title II requirements: DoIT.Accessibility@Illinois.gov.
 
 **For practical implementation questions (how to fix issues, what tools to use, testing approaches):**
 
-- **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches
-- **Recent ICJIA content creators** — Several content creators from ICJIA's research and analysis unit have been trained on accessibility best practices and are already solving accessibility issues in their work
+- **Your web developers** — Many web teams have been implementing accessibility standards for years. They understand WCAG 2.1 Level AA requirements, testing tools, common barriers, and remediation approaches.
+- **Recent ICJIA content creators** — Several content creators from ICJIA's research and analysis unit have been trained on accessibility best practices and are already solving accessibility issues in their work.
 
 **Important:** These role distinctions are about who can best answer specific types of questions — not about who has the "authority" to provide accurate information. The technical requirements are the same whether explained by executive staff or by practitioners in the field.
 
 **Why this information is trustworthy (regardless of who compiled it):**
 
-- **All content is sourced and verified** — Every claim links back to official, authoritative sources (DOJ, DoIT, WCAG) that you can verify yourself. These are the same sources legal teams and compliance officers use
-- **It's based on standard accessibility knowledge** — Any web developer or accessibility professional experienced in WCAG 2.1 Level AA compliance would create similar guidance based on the same official sources. This FAQ isn't one person's interpretation; it's a practical compilation of established requirements
-- **The questions are universal** — These are the same questions that come up repeatedly across organizations implementing accessibility compliance. They're addressed here to save everyone time
-- **The information is verifiable** — You don't have to trust anyone personally. Every FAQ answer includes links to official sources. If you have concerns, check the sources yourself or go directly to DoIT, DOJ, or W3C documentation
+- **All content is sourced and verified** — Every claim links back to official, authoritative sources (DOJ, DoIT, WCAG) that you can verify yourself. These are the same sources legal teams and compliance officers use.
+- **It's based on standard accessibility knowledge** — Any web developer or accessibility professional experienced in WCAG 2.1 Level AA compliance would create similar guidance based on the same official sources. This FAQ isn't one person's interpretation; it's a practical compilation of established requirements.
+- **The questions are universal** — These are the same questions that come up repeatedly across organizations implementing accessibility compliance. They're addressed here to save everyone time.
+- **The information is verifiable** — You don't have to trust anyone personally. Every FAQ answer includes links to official sources. If you have concerns, check the sources yourself or go directly to DoIT, DOJ, or W3C documentation.
 
 **These FAQs are based on official, verifiable sources:**
 
@@ -415,31 +415,31 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 **What web developers did (and didn't do):**
 
-- **Did:** Compiled information from official sources, organized it into a practical format, added examples and workflows based on real-world experience
-- **Did:** Cross-referenced multiple sources to ensure accuracy and consistency
-- **Did:** Included direct links to official sources so you can verify everything yourself
-- **Did NOT:** Create new requirements or standards beyond what ADA Title II and IITAA specify
-- **Did NOT:** Interpret requirements without citing official sources
-- **Did NOT:** Add opinions or unsupported claims
+- **Did:** Compiled information from official sources, organized it into a practical format, added examples and workflows based on real-world experience.
+- **Did:** Cross-referenced multiple sources to ensure accuracy and consistency.
+- **Did:** Included direct links to official sources so you can verify everything yourself.
+- **Did NOT:** Create new requirements or standards beyond what ADA Title II and IITAA specify.
+- **Did NOT:** Interpret requirements without citing official sources.
+- **Did NOT:** Add opinions or unsupported claims.
 
 **How to verify for yourself:**
 
-1. **Check the sources** — Every FAQ answer includes "References" sections with links to official sources
-2. **Compare with DoIT guidance** — The information here aligns with what Illinois DoIT publishes
-3. **Verify requirements** — Links to Federal Register and DOJ documents let you read the actual rule text
-4. **Cross-reference WCAG** — Technical requirements link directly to W3C WCAG documentation
+1. **Check the sources** — Every FAQ answer includes "References" sections with links to official sources.
+2. **Compare with DoIT guidance** — The information here aligns with what Illinois DoIT publishes.
+3. **Verify requirements** — Links to Federal Register and DOJ documents let you read the actual rule text.
+4. **Cross-reference WCAG** — Technical requirements link directly to W3C WCAG documentation.
 
 **For web developers and technical teams:**
 
-If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. The fact that you're not in executive staff doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
+If you've been working on accessibility for years, your expertise is valuable and needed. Managers may initially seek executive staff for strategic questions, but your practical knowledge is essential for implementation. Don't hesitate to share what you know — your hands-on experience with WCAG 2.1 Level AA, testing tools, and remediation approaches is exactly what teams need to succeed. Your role as a practitioner doesn't diminish your expertise; it means you have the practical, day-to-day knowledge that makes accessibility work.
 
 **For content creators already creating accessible content:**
 
-Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator, not executive staff, gives you the ground-level perspective that makes accessibility implementation successful.
+Your training in accessibility best practices and your current work solving accessibility issues means you have real-world expertise that matters. While managers may turn to executive staff for high-level strategy, your day-to-day experience creating accessible documents, testing content, and applying WCAG 2.1 Level AA standards is what actually gets the work done. Speak up about what you know — your practical skills with document remediation, testing tools, and accessibility workflows are exactly what your agency needs. Your role as a content creator gives you the ground-level perspective that makes accessibility implementation successful.
 
 **The bottom line:** Different questions require different people. For "what's the full scope?" talk to leadership. For "how do I fix this?" talk to your web developers or recent content creators. If you're unsure about any claim, use the linked sources — the authoritative sources (DOJ, DoIT, W3C) are always the final word.
 
-**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#general-accessibility-questions-i-prefer-to-talk-to-someone-rather-than-read-faqs-who-can-i-ask) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
+**See also:** [I prefer to talk to someone rather than read FAQs. Who can I ask?](#getting-oriented-i-prefer-to-talk-to-someone-rather-than-read-faqs-who-can-i-ask) — This question covers who to contact for different types of accessibility questions, including DoIT for legal/mandate questions (DoIT.Accessibility@Illinois.gov)
 
 ### I'm waiting for a presentation on accessibility. Should I start work in my unit based on the info in this FAQ or wait for the DoIT presentation?
 
@@ -449,10 +449,10 @@ Your training in accessibility best practices and your current work solving acce
 
 **Why start now:**
 
-- **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens
+- **The deadline is firm** — April 24, 2026 applies to everyone, regardless of when training happens.
 - **The basics are available now** — These FAQs cover the core requirements and common fixes. A presentation adds context and Q&A, but you can begin with the fundamentals today.
-- **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done
-- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#general-accessibility-questions-what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there
+- **The work is difficult and time-consuming** — There is no one-click fix for accessibility. Making content accessible requires manual work: adding alt text, fixing heading structure, remediating PDFs, adding captions. A presentation may clarify requirements, but it won't speed up compliance — the work still needs to be done.
+- **You can learn as you go** — Start with the most common issues (see: [What are the most common accessibility mistakes to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-to-avoid)) and build from there.
 
 **What you can start doing today:**
 
@@ -464,31 +464,31 @@ Your training in accessibility best practices and your current work solving acce
 
 **What to do while waiting for the presentation:**
 
-- **Start with your most recent content** — Fix accessibility issues in documents, PDFs, or web pages you've created recently
-- **Use the resources in these FAQs** — The links and guides here are the same ones DoIT will reference
-- **Ask your web developers or content creators** — If your unit has people already working on accessibility, they can help you get started
-- **Request the presentation** — Contact DoIT.Accessibility@Illinois.gov to schedule training, but don't delay work until then
+- **Start with your most recent content** — Fix accessibility issues in documents, PDFs, or web pages you've created recently.
+- **Use the resources in these FAQs** — The links and guides here are the same ones DoIT will reference.
+- **Ask your web developers or content creators** — If your unit has people already working on accessibility, they can help you get started.
+- **Request the presentation** — Contact DoIT.Accessibility@Illinois.gov to schedule training, but don't delay work until then.
 
 **What the presentation provides (that this FAQ doesn't):**
 
-- **A chance to ask questions** — The main value of a presentation is the opportunity to ask specific questions about your agency's situation, get clarification on complex issues, and discuss edge cases
-- **Interactive discussion** — You can discuss your specific challenges with DoIT staff and other agencies
-- **Clarification on confusing points** — If something in these FAQs is unclear, you can ask for clarification
+- **A chance to ask questions** — The main value of a presentation is the opportunity to ask specific questions about your agency's situation, get clarification on complex issues, and discuss edge cases.
+- **Interactive discussion** — You can discuss your specific challenges with DoIT staff and other agencies.
+- **Clarification on confusing points** — If something in these FAQs is unclear, you can ask for clarification.
 
 **Important reality check:**
 
-- **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content
+- **The presentation won't speed up compliance** — A presentation may clarify requirements, but it won't make the work faster. There is no one-click fix for accessibility. The work is difficult and requires manual remediation of content.
 - **The baseline guidance is already here** — This FAQ is a strong starting point. Use the presentation to ask questions, confirm edge cases, and get agency-specific guidance.
-- **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June
+- **The deadline doesn't wait** — April 24, 2026 is the same for everyone, whether you receive training in January or June.
 
 **Official resources and quick reads:**
 
-- **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a> — State-specific accessibility resources and training
-- **IITAA (Illinois Information Technology Accessibility Act)** — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a> — Illinois state accessibility requirements
-- **IITAA 2.1 update (effective date + what changed)** — <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html</a>
-- **ADA Title II Web Rule** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a> — Federal accessibility requirements and deadlines
-- **Federal Register (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state</a>
-- **More resources** — <a href="/links" target="_self">Accessibility Links</a>
+- **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a> — State-specific accessibility resources and training.
+- **IITAA (Illinois Information Technology Accessibility Act)** — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a> — Illinois state accessibility requirements.
+- **IITAA 2.1 update (effective date + what changed)** — <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html</a>.
+- **ADA Title II Web Rule** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a> — Federal accessibility requirements and deadlines.
+- **Federal Register (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state</a>.
+- **More resources** — <a href="/links" target="_self">Accessibility Links</a>.
 - **Quick reads about accessibility:**
   - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">WCAG 2 at a Glance</a> — Quick overview of WCAG 2.1 standards
   - <a href="https://webaim.org/resources/quickref/" target="_blank" rel="noopener noreferrer">WebAIM Quick Reference</a> — Condensed WCAG checklist
@@ -502,7 +502,7 @@ Your training in accessibility best practices and your current work solving acce
 
 {new:2025-12-27}
 
-**Quick answer:** Most accessibility failures come from a small set of common mistakes. Avoid these 10 things and you'll prevent the majority of accessibility issues.
+**Quick answer:** Most accessibility issues come from a small set of common mistakes. Avoid these 10 things and you'll prevent the majority of accessibility problems.
 
 **Top 10 accessibility mistakes (and what to do instead):**
 
@@ -514,20 +514,20 @@ Your training in accessibility best practices and your current work solving acce
 | **4. Put essential info only in images** — Images may not load or be visible                | Always include the same information as text in the document or caption                                 |
 | **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color                                               |
 | **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                            |
-| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's legally required and benefits everyone.                                      |
+| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's a compliance requirement and benefits everyone.                              |
 | **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability |
 | **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible                                |
 | **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                                |
 
 **Bonus mistakes to avoid:**
 
-- **Autoplaying audio or video** — Always give users control
-- **Removing focus indicators** — The blue outline helps keyboard users know where they are
-- **Using placeholder text as labels** — Placeholder text disappears when you start typing
-- **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (this is strongly recommended best practice, though not strictly required by WCAG 2.1 Level AA)
-- **Flashing or blinking content** — Can trigger seizures; as a safe rule, avoid any flashing content entirely, or ensure nothing flashes more than 3 times in any one-second period
+- **Autoplaying audio or video** — Always give users control.
+- **Removing focus indicators** — The blue outline helps keyboard users know where they are.
+- **Using placeholder text as labels** — Placeholder text disappears when you start typing.
+- **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (this is strongly recommended best practice, though not strictly required by WCAG 2.1 Level AA).
+- **Flashing or blinking content** — Can trigger seizures; as a safe rule, avoid any flashing content entirely, or ensure nothing flashes more than 3 times in any one-second period.
 
-**The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll be ahead of most content creators.
+**The bottom line:** Most accessibility issues aren't complicated — they're just habits we haven't formed yet. Avoid these common mistakes and you'll address the majority of accessibility barriers.
 
 **Quick self-check:** Before publishing any content, ask yourself:
 
@@ -572,22 +572,22 @@ _Accessible approach:_ Full report content published as webpage text with proper
 
 **Learn the details (30 minutes each):**
 
-- **Alt text for images** — <a href="https://webaim.org/techniques/alttext/" target="_blank" rel="noopener noreferrer">WebAIM: Alternative Text</a> — When to describe images vs. mark them as decorative
-- **Heading structure** — <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank" rel="noopener noreferrer">W3C: Headings</a> — How screen readers use headings for navigation
-- **Meaningful link text** — <a href="https://webaim.org/techniques/hypertext/" target="_blank" rel="noopener noreferrer">WebAIM: Links and Hypertext</a> — Writing links that make sense out of context
-- **Color contrast** — <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a> — Testing tool and guidance (need 4.5:1 for normal text)
+- **Alt text for images** — <a href="https://webaim.org/techniques/alttext/" target="_blank" rel="noopener noreferrer">WebAIM: Alternative Text</a> — When to describe images vs. mark them as decorative.
+- **Heading structure** — <a href="https://www.w3.org/WAI/tutorials/page-structure/headings/" target="_blank" rel="noopener noreferrer">W3C: Headings</a> — How screen readers use headings for navigation.
+- **Meaningful link text** — <a href="https://webaim.org/techniques/hypertext/" target="_blank" rel="noopener noreferrer">WebAIM: Links and Hypertext</a> — Writing links that make sense out of context.
+- **Color contrast** — <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a> — Testing tool and guidance (need 4.5:1 for normal text).
 
 **Document-specific resources:**
 
-- **Word documents** — <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Word Documents</a> (15-20 min read)
-- **PDFs** — <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a> (20-30 min read)
-- **PowerPoint** — <a href="https://www.section508.gov/create/presentations/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Presentations</a> (15-20 min read)
-- **Excel** — <a href="https://www.section508.gov/create/documents/excel/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Excel Documents</a> (15-20 min read)
+- **Word documents** — <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Word Documents</a> (15-20 min read).
+- **PDFs** — <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a> (20-30 min read).
+- **PowerPoint** — <a href="https://www.section508.gov/create/presentations/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Presentations</a> (15-20 min read).
+- **Excel** — <a href="https://www.section508.gov/create/documents/excel/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Excel Documents</a> (15-20 min read).
 
 **Video and multimedia:**
 
-- **Captions** — <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Captions</a> — All videos need captions (10 min read)
-- **Transcripts** — <a href="https://www.w3.org/WAI/media/av/transcripts/" target="_blank" rel="noopener noreferrer">W3C: Transcripts</a> — Audio content needs transcripts (10 min read)
+- **Captions** — <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Captions</a> — All videos need captions (10 min read).
+- **Transcripts** — <a href="https://www.w3.org/WAI/media/av/transcripts/" target="_blank" rel="noopener noreferrer">W3C: Transcripts</a> — Audio content needs transcripts (10 min read).
 
 **Quick reference tools:**
 
@@ -596,8 +596,8 @@ _Accessible approach:_ Full report content published as webpage text with proper
 
 **Training opportunities:**
 
-- **Illinois DoIT Training** — <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Request free accessibility training</a> (email: DoIT.Accessibility@Illinois.gov)
-- **W3C Course** — <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">Free Introduction to Web Accessibility course</a> (self-paced, ~4 hours)
+- **Illinois DoIT Training** — <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Request free accessibility training</a> (email: DoIT.Accessibility@Illinois.gov).
+- **W3C Course** — <a href="https://www.edx.org/learn/web-accessibility/the-world-wide-web-consortium-w3c-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">Free Introduction to Web Accessibility course</a> (self-paced, ~4 hours).
 
 **The key mindset shift:** Think about how someone using a screen reader (software that reads content aloud) or keyboard navigation would experience your content. If they can't see images, colors, or mouse interactions, can they still understand and use your content? If not, you need to provide alternatives.
 
@@ -614,16 +614,16 @@ _Accessible approach:_ Full report content published as webpage text with proper
 
 **Core technical standards:**
 
-- **WCAG Quick Reference** — <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Quick Reference</a> — Filter by Level AA
-- **ARIA Authoring Practices** — <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA APG</a> (use semantic HTML first; ARIA second)
-- **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a>
+- **WCAG Quick Reference** — <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C WCAG 2.1 Quick Reference</a> — Filter by Level AA.
+- **ARIA Authoring Practices** — <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">W3C ARIA APG</a> (use semantic HTML first; ARIA second).
+- **MDN Accessibility Guide** — <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener noreferrer">Mozilla: Accessibility</a>.
 
 **See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues)
 
 **Essential development practices:**
 
-- **Focus management** — Visible focus indicators and logical tab order: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank" rel="noopener noreferrer">WCAG: Focus Visible</a>
-- **Automate what you can** — Add <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">eslint-plugin-jsx-a11y</a> and use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> in CI/tests where feasible
+- **Focus management** — Visible focus indicators and logical tab order: <a href="https://www.w3.org/WAI/WCAG21/Understanding/focus-visible.html" target="_blank" rel="noopener noreferrer">WCAG: Focus Visible</a>.
+- **Automate what you can** — Add <a href="https://github.com/jsx-eslint/eslint-plugin-jsx-a11y" target="_blank" rel="noopener noreferrer">eslint-plugin-jsx-a11y</a> and use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> in CI/tests where feasible.
 
 **ARIA usage specifics:**
 
@@ -631,11 +631,11 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **When to use ARIA:**
 
-- **Dynamic content updates** — Use `aria-live` regions to announce changes (e.g., form validation messages, search results)
-- **Complex widgets** — Use ARIA patterns for custom components (accordions, modals, tabs) that don't have native HTML equivalents
-- **Hidden content** — Use `aria-hidden="true"` for decorative elements that screen readers should skip
-- **Form relationships** — Use `aria-describedby` to link error messages to form fields
-- **Button states** — Use `aria-expanded` for collapsible content, `aria-pressed` for toggle buttons
+- **Dynamic content updates** — Use `aria-live` regions to announce changes (e.g., form validation messages, search results).
+- **Complex widgets** — Use ARIA patterns for custom components (accordions, modals, tabs) that don't have native HTML equivalents.
+- **Hidden content** — Use `aria-hidden="true"` for decorative elements that screen readers should skip.
+- **Form relationships** — Use `aria-describedby` to link error messages to form fields.
+- **Button states** — Use `aria-expanded` for collapsible content, `aria-pressed` for toggle buttons.
 
 **ARIA best practices:**
 
@@ -646,10 +646,10 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **Common ARIA patterns:**
 
-- **Error messages:** `<input aria-describedby="error-id">` + `<div id="error-id" role="alert">Error text</div>`
-- **Skip links:** `<a href="#main" aria-label="Skip to main content">Skip to content</a>`
-- **Modal dialogs:** `role="dialog"` + `aria-labelledby` + `aria-modal="true"` + focus trap
-- **Progress indicators:** `role="progressbar"` + `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+- **Error messages:** `<input aria-describedby="error-id">` + `<div id="error-id" role="alert">Error text</div>`.
+- **Skip links:** `<a href="#main" aria-label="Skip to main content">Skip to content</a>`.
+- **Modal dialogs:** `role="dialog"` + `aria-labelledby` + `aria-modal="true"` + focus trap.
+- **Progress indicators:** `role="progressbar"` + `aria-valuenow`, `aria-valuemin`, `aria-valuemax`.
 
 **Resources:**
 
@@ -658,8 +658,8 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **Testing tools (integrate into your workflow):**
 
-- **Automated checks** — axe DevTools or WAVE (plus Lighthouse as a secondary signal)
-- **Manual checks** — keyboard-only + at least one screen reader (NVDA or VoiceOver): <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">NVDA download</a>
+- **Automated checks** — axe DevTools or WAVE (plus Lighthouse as a secondary signal).
+- **Manual checks** — keyboard-only + at least one screen reader (NVDA or VoiceOver): <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">NVDA download</a>.
 
 **Deepen skills (optional):** <a href="https://web.dev/learn/accessibility/" target="_blank" rel="noopener noreferrer">web.dev Learn Accessibility</a> and Illinois DoIT training: <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/training.html</a>
 
@@ -690,53 +690,53 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **1. Understand the compliance requirements and timeline:**
 
-- **The deadline is firm** — April 24, 2026 for WCAG 2.1 Level AA compliance
-- **It applies to everything** — Websites, documents, videos, social media, mobile apps
-- **It's not optional** — This is a compliance requirement under ADA Title II and IITAA
-- **Read the basics** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary of requirements
-- **Primary source (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (April 24, 2024)</a>
+- **The deadline is firm** — April 24, 2026 for WCAG 2.1 Level AA compliance.
+- **It applies to everything** — Websites, documents, videos, social media, mobile apps.
+- **It's not optional** — This is a compliance requirement under ADA Title II and IITAA.
+- **Read the basics** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary of requirements.
+- **Primary source (final rule text)** — <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (April 24, 2024)</a>.
 
 **2. Assess your current state:**
 
-- **Audit existing content** — Identify all public-facing digital content (websites, documents, videos, social media)
-- **Prioritize by impact** — Focus on high-traffic pages, frequently accessed documents, and critical services first
-- **Identify gaps** — Use automated tools and manual testing to find accessibility issues
-- **Estimate remediation effort** — Understand the scope of work needed
+- **Audit existing content** — Identify all public-facing digital content (websites, documents, videos, social media).
+- **Prioritize by impact** — Focus on high-traffic pages, frequently accessed documents, and critical services first.
+- **Identify gaps** — Use automated tools and manual testing to find accessibility issues.
+- **Estimate remediation effort** — Understand the scope of work needed.
 
 **3. Build accessibility into your processes:**
 
-- **Include accessibility in project timelines** — Don't treat it as an add-on; build it into initial project plans
-- **Require accessibility in procurement** — Include WCAG 2.1 Level AA requirements in RFPs and vendor contracts
-- **Establish content review processes** — Ensure documents and content are checked for accessibility before publication
-- **Create accessibility checkpoints** — Build accessibility reviews into your content approval workflows
+- **Include accessibility in project timelines** — Don't treat it as an add-on; build it into initial project plans.
+- **Require accessibility in procurement** — Include WCAG 2.1 Level AA requirements in RFPs and vendor contracts.
+- **Establish content review processes** — Ensure documents and content are checked for accessibility before publication.
+- **Create accessibility checkpoints** — Build accessibility reviews into your content approval workflows.
 
 **4. Allocate resources strategically:**
 
-- **Training budget** — Invest in accessibility training for content creators, developers, and designers
-- **Tools and software** — Provide accessibility testing tools (WAVE, axe DevTools, PDF accessibility checkers)
-- **Time allocation** — Recognize that creating accessible content may take slightly longer initially
-- **Expert support** — Consider accessibility consultants or specialists for complex projects
+- **Training budget** — Invest in accessibility training for content creators, developers, and designers.
+- **Tools and software** — Provide accessibility testing tools (WAVE, axe DevTools, PDF accessibility checkers).
+- **Time allocation** — Recognize that creating accessible content may take slightly longer initially.
+- **Expert support** — Consider accessibility consultants or specialists for complex projects.
 
 **5. Support your team:**
 
-- **Make it a priority** — Communicate that accessibility is important and expected
-- **Remove barriers** — Ensure staff have access to training, tools, and time needed
-- **Celebrate progress** — Recognize teams and individuals who successfully implement accessibility
-- **Learn alongside your team** — Attend training sessions to understand what your team is learning
+- **Make it a priority** — Communicate that accessibility is important and expected.
+- **Remove barriers** — Ensure staff have access to training, tools, and time needed.
+- **Celebrate progress** — Recognize teams and individuals who successfully implement accessibility.
+- **Learn alongside your team** — Attend training sessions to understand what your team is learning.
 
 **6. Establish accountability:**
 
-- **Assign responsibilities** — Clearly define who is responsible for accessibility in each area
-- **Set expectations** — Make accessibility part of job descriptions and performance expectations
-- **Track progress** — Monitor compliance status and remediation efforts
-- **Regular check-ins** — Include accessibility in regular team meetings and project reviews
+- **Assign responsibilities** — Clearly define who is responsible for accessibility in each area.
+- **Set expectations** — Make accessibility part of job descriptions and performance expectations.
+- **Track progress** — Monitor compliance status and remediation efforts.
+- **Regular check-ins** — Include accessibility in regular team meetings and project reviews.
 
 **7. Connect with resources:**
 
-- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — Website: <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a>
-- **Accessibility coordinators** — Identify or designate an accessibility coordinator in your organization
-- **Peer networks** — Connect with other managers facing similar challenges
-- **Legal/compliance team** — Work with your legal or compliance office to understand requirements
+- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — Website: <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a>.
+- **Accessibility coordinators** — Identify or designate an accessibility coordinator in your organization.
+- **Peer networks** — Connect with other managers facing similar challenges.
+- **Legal/compliance team** — Work with your legal or compliance office to understand requirements.
 
 **8. Keep it sustainable (so it doesn't collapse after one push):**
 
@@ -760,16 +760,16 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **Manager accountabilities (what you control):**
 
-- **Ownership** — Name a coordinator/owner and make reporting routine
-- **Resourcing** — Allocate time, tools, and training (and remove blockers)
-- **Process** — Require accessibility checks before publish/purchase/launch
-- **Accountability** — Define responsibilities clearly and track progress to the deadline
+- **Ownership** — Name a coordinator/owner and make reporting routine.
+- **Resourcing** — Allocate time, tools, and training (and remove blockers).
+- **Process** — Require accessibility checks before publish/purchase/launch.
+- **Accountability** — Define responsibilities clearly and track progress to the deadline.
 
 **Team accountabilities (what they do):**
 
-- **Content creators** — headings, link text, alt text, accessible documents, captions/transcripts
-- **Developers/IT** — accessible code, testing, fixing defects, vendor integration requirements
-- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs before purchase
+- **Content creators** — headings, link text, alt text, accessible documents, captions/transcripts.
+- **Developers/IT** — accessible code, testing, fixing defects, vendor integration requirements.
+- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs before purchase.
 
 **Helpful framing:** Accessibility is a compliance deliverable like security and privacy — it needs ownership, a plan, and execution across roles.
 
@@ -787,69 +787,44 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 4. **Evidence** (audit results, remediation logs, training completion, procurement language)
 5. **Escalation path** (who decides tradeoffs when priorities conflict)
 
-**Why this helps:** It prevents “we didn’t know” and gives leadership a concrete way to support resourcing decisions.
+**Why this helps:** It prevents "we didn't know" and gives leadership a concrete way to support resourcing decisions.
 
-### ICJIA has many public sites. Where can I see the audit reports for each site?
+---
 
-{new:2025-12-30}
-
-**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here are some recent ICJIA accessibility reports: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a> | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site</a> | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site</a>. Additional reports will be added as sites are audited and remediated.
-
-**Full explanation:**
-
-**Web developers are working through adding reports for each site.** The goal is to provide accessibility reports for all ICJIA public websites. These reports are being added systematically as web developers audit and document each site.
-
-**How to find reports:**
-
-- **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer (similar to this portal)
-- **Reports are site-specific** — Each website will have its own report documenting that site's accessibility status
-- **Available reports** — These are some recent ICJIA accessibility reports. Additional reports will be added as sites are audited and remediated:
-  - <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a>
-  - <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site (r3.illinois.gov)</a>
-  - <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site (i2i.illinois.gov)</a>
-
-**Important limitations:**
-
-- **These reports cover websites only** — The accessibility reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to run automated accessibility tests for the websites themselves (HTML structure, navigation, forms, etc.)
-- **They do NOT cover content files** — The reports do not test or document accessibility of PDFs, Excel files, Word documents, PowerPoint presentations, or other content files hosted on the sites. Content accessibility is the responsibility of content creators, not web developers.
-- **Automated testing has limits** — While axe-core catches many issues, manual testing with keyboard navigation and screen readers is still required for full compliance
-
-**What this means for content creators:**
-
-If you're creating documents, PDFs, or other content files, you're responsible for making those accessible — the website accessibility reports don't cover your content. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible) | [How do I make a Word document accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-word-document-accessible)
+## State Agency Applicability
 
 ### Do we need an accessibility coordinator? Can't the web developer just take care of it?
 
 {new:2025-12-28}
 
-**Quick answer:** Yes, you need an accessibility coordinator. Web developers can't just handle accessibility on their own because: (1) accessibility is much bigger than just websites — it includes documents, videos, social media, mobile apps, and third-party tools; (2) web developers are busy doing the technical implementation work; (3) accessibility requires organizational policy, resource allocation, and strategic decisions that web developers typically don't have authority to make. The coordinator should be someone in executive or compliance roles who can set policy, allocate resources, and coordinate across departments.
+**Quick answer:** Yes, you need an accessibility coordinator. Web developers can't handle accessibility alone because: (1) accessibility covers documents, videos, social media, mobile apps, and third-party tools — not just websites; (2) web developers are busy with technical implementation; (3) accessibility requires organizational policy and resource allocation decisions that web developers typically can't make. The coordinator should be someone in executive or compliance roles.
 
 **Why web developers can't just handle it:**
 
 **Accessibility is bigger than websites:**
 
-- **Websites** — Web developers handle this, but it's only one part of accessibility compliance
-- **Documents** — PDFs, Word files, Excel spreadsheets (content creators' responsibility)
-- **Videos** — Captions, transcripts (content creators' responsibility)
-- **Social media** — Accessible posts, alt text, captions (communications teams' responsibility)
-- **Mobile apps** — If your agency has apps, they need accessibility too
-- **Third-party tools** — Procurement decisions, vendor accessibility requirements (procurement/legal teams' responsibility)
+- **Websites** — Web developers handle this, but it's only one part of accessibility compliance.
+- **Documents** — PDFs, Word files, Excel spreadsheets (content creators' responsibility).
+- **Videos** — Captions, transcripts (content creators' responsibility).
+- **Social media** — Accessible posts, alt text, captions (communications teams' responsibility).
+- **Mobile apps** — If your agency has apps, they need accessibility too.
+- **Third-party tools** — Procurement decisions, vendor accessibility requirements (procurement/legal teams' responsibility).
 
 Web developers can't set policy or allocate resources for all of these areas — they can only implement accessibility for websites.
 
 **Web developers are busy doing the work:**
 
-- Web developers are actively implementing accessibility standards, fixing issues, and testing websites
-- They're doing the technical compliance work, not coordinating organizational strategy
-- They need someone to gather information from them and report progress to leadership
-- They don't have time to coordinate across departments or set agency-wide policy
+- Web developers are actively implementing accessibility standards, fixing issues, and testing websites.
+- They're doing the technical compliance work, not coordinating organizational strategy.
+- They need someone to gather information from them and report progress to leadership.
+- They don't have time to coordinate across departments or set agency-wide policy.
 
 **Accessibility requires organizational authority:**
 
-- **Policy decisions** — Setting accessibility standards, priorities, and processes agency-wide
-- **Resource allocation** — Approving budgets, training, tools, and time allocation
-- **Cross-department coordination** — Working with IT, communications, legal, procurement, and content teams
-- **Strategic reporting** — Reporting compliance status, risks, and progress to executive staff
+- **Policy decisions** — Setting accessibility standards, priorities, and processes agency-wide.
+- **Resource allocation** — Approving budgets, training, tools, and time allocation.
+- **Cross-department coordination** — Working with IT, communications, legal, procurement, and content teams.
+- **Strategic reporting** — Reporting compliance status, risks, and progress to executive staff.
 
 Web developers typically don't have this organizational authority — they're technical implementers, not policy setters.
 
@@ -857,32 +832,28 @@ Web developers typically don't have this organizational authority — they're te
 
 The accessibility coordinator needs to:
 
-- **Set organizational policy** — Make decisions about accessibility standards, priorities, and processes that apply agency-wide
-- **Allocate resources** — Approve budgets, training, tools, and time allocation for accessibility work
+- **Set organizational policy** — Make decisions about accessibility standards, priorities, and processes that apply agency-wide.
+- **Allocate resources** — Approve budgets, training, tools, and time allocation for accessibility work.
 - **Coordinate with technical teams** — Meet with and talk to web developers and content creators who are currently involved in accessibility compliance work. These teams are busy doing the actual compliance work, so the coordinator should gather information from them and report back to executive staff about progress, challenges, and resource needs.
-- **Report to executive staff** — Provide updates on compliance status, risks, and progress to leadership
+- **Report to executive staff** — Provide updates on compliance status, risks, and progress to leadership.
 
 **Who should be the coordinator:**
 
 The accessibility coordinator should be someone who has organizational authority (often in executive, compliance, or management roles) and can:
 
-- Make policy decisions and allocate resources
-- Understand the full scope (websites, documents, videos, social media, mobile apps, third-party tools)
-- Coordinate across departments (IT, communications, legal, procurement, content teams)
-- Report to executive staff with strategic recommendations
+- Make policy decisions and allocate resources.
+- Understand the full scope (websites, documents, videos, social media, mobile apps, third-party tools).
+- Coordinate across departments (IT, communications, legal, procurement, content teams).
+- Report to executive staff with strategic recommendations.
 
 **Common coordinator roles:** Compliance officer, IT director/manager, communications director, program manager, or executive staff member.
 
 **The key distinction:**
 
-- **Accessibility coordinator** = Sets policy, allocates resources, makes strategic decisions, coordinates with technical teams, reports to executive staff (needs organizational authority)
-- **Web developers and content creators** = Provide technical expertise, implement solutions, do the actual compliance work (valuable resources, but typically not policy setters)
+- **Accessibility coordinator** = Sets policy, allocates resources, makes strategic decisions, coordinates with technical teams, reports to executive staff (needs organizational authority).
+- **Web developers and content creators** = Provide technical expertise, implement solutions, do the actual compliance work (valuable resources, but typically not policy setters).
 
 **Bottom line:** Yes, you need an accessibility coordinator. Web developers are essential for implementing website accessibility, but accessibility compliance is much bigger than just websites — it requires organizational policy, resource allocation, and coordination across departments. The coordinator should meet with web developers and content creators who are doing the compliance work, gather information from them, and report back to executive staff. Web developers and content creators are essential technical resources, but they're busy doing the work — the coordinator's role is to coordinate, gather information, and make strategic decisions at the organizational level.
-
----
-
-## State Agency Applicability
 
 ### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
 
@@ -902,7 +873,7 @@ The accessibility coordinator should be someone who has organizational authority
 
 **The reality of digital accessibility now:**
 
-Accessibility is no longer just "best practice" — it's the law. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
+Accessibility is no longer just "best practice" — it's a compliance requirement under ADA Title II and IITAA. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
 
 **The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
 
@@ -945,30 +916,30 @@ Accessibility is no longer just "best practice" — it's the law. The 2026 deadl
 
 **Legal and enforcement consequences:**
 
-- **Department of Justice investigations** — The DOJ can investigate complaints and pursue enforcement actions against non-compliant agencies
-- **Complaints and lawsuits** — Individuals with disabilities can file complaints with the DOJ or pursue private lawsuits under the ADA
-- **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content
-- **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust
+- **Department of Justice investigations** — The DOJ can investigate complaints and pursue enforcement actions against non-compliant agencies.
+- **Complaints and lawsuits** — Individuals with disabilities can file complaints with the DOJ or pursue private lawsuits under the ADA.
+- **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content.
+- **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust.
 
 **What this means for you personally:**
 
 While enforcement is typically at the agency level, individuals may experience:
 
-- **Required remediation** — You may be asked to fix inaccessible content you created
-- **Mandatory training** — Staff who create inaccessible content may be required to complete accessibility training
-- **Performance expectations** — Accessibility compliance may become part of job responsibilities and performance evaluations
-- **Increased workload** — Emergency remediation is stressful and time-consuming; building accessibility in from the start prevents this
+- **Required remediation** — You may be asked to fix inaccessible content you created.
+- **Mandatory training** — Staff who create inaccessible content may be required to complete accessibility training.
+- **Performance expectations** — Accessibility compliance may become part of job responsibilities and performance evaluations.
+- **Increased workload** — Emergency remediation is stressful and time-consuming; building accessibility in from the start prevents this.
 
 **Operational impacts:**
 
-- **Service disruptions** — If complaints or lawsuits result in court orders, agencies may need to temporarily remove or restrict access to non-compliant content
-- **Resource reallocation** — Emergency remediation efforts can divert staff time and budget from other priorities
-- **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed
-- **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements
+- **Service disruptions** — If complaints or lawsuits result in court orders, agencies may need to temporarily remove or restrict access to non-compliant content.
+- **Resource reallocation** — Emergency remediation efforts can divert staff time and budget from other priorities.
+- **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed.
+- **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements.
 
 **The bottom line:** If it's digital and public-facing, it needs to be accessible by April 24, 2026. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
 
-**See also:** [What does the April 2026 deadline cover?](#general-accessibility-questions-what-does-the-april-2026-deadline-cover) for details on what content is included.
+**See also:** [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover) for details on what content is included.
 
 **References:**
 
@@ -1034,22 +1005,22 @@ While enforcement is typically at the agency level, individuals may experience:
 
 **Tier 1: Fix First (Highest Impact)**
 
-- **Critical services** — Applications, forms, and information people need to access benefits, report issues, or fulfill program requirements
-- **High-traffic pages** — Your homepage, main navigation, and most-visited content
-- **Complete blockers** — Issues that prevent access entirely (missing form labels, inaccessible login, no keyboard navigation)
-- **New content** — Stop creating new barriers; make all new content accessible immediately
+- **Critical services** — Applications, forms, and information people need to access benefits, report issues, or fulfill program requirements.
+- **High-traffic pages** — Your homepage, main navigation, and most-visited content.
+- **Complete blockers** — Issues that prevent access entirely (missing form labels, inaccessible login, no keyboard navigation).
+- **New content** — Stop creating new barriers; make all new content accessible immediately.
 
 **Tier 2: Fix Next (High Impact)**
 
-- **Frequently used documents** — Annual reports, guides, forms that get regular downloads
-- **Video content** — Add captions to videos, starting with the most viewed
-- **Third-party tools** — Audit embedded tools and widgets; request VPATs and remediation timelines
+- **Frequently used documents** — Annual reports, guides, forms that get regular downloads.
+- **Video content** — Add captions to videos, starting with the most viewed.
+- **Third-party tools** — Audit embedded tools and widgets; request VPATs and remediation timelines.
 
 **Tier 3: Fix Systematically (Ongoing)**
 
-- **Archive content** — Older documents and pages with lower traffic
-- **Social media backlog** — Historical posts (new posts should be accessible from now on)
-- **Comprehensive remediation** — Work through remaining issues methodically
+- **Archive content** — Older documents and pages with lower traffic.
+- **Social media backlog** — Historical posts (new posts should be accessible from now on).
+- **Comprehensive remediation** — Work through remaining issues methodically.
 
 **Practical steps to get started:**
 
@@ -1063,11 +1034,11 @@ While enforcement is typically at the agency level, individuals may experience:
 
 A state agency with limited resources might prioritize like this:
 
-- **Week 1-2:** Homepage and main navigation (highest traffic)
-- **Week 3-4:** Online application forms (critical services)
-- **Month 2:** Top 10 most-downloaded PDFs (frequently used documents)
-- **Month 3:** Video captions for training materials (high-impact multimedia)
-- **Ongoing:** All new content created accessibly, archive content as time permits
+- **Week 1-2:** Homepage and main navigation (highest traffic).
+- **Week 3-4:** Online application forms (critical services).
+- **Month 2:** Top 10 most-downloaded PDFs (frequently used documents).
+- **Month 3:** Video captions for training materials (high-impact multimedia).
+- **Ongoing:** All new content created accessibly, archive content as time permits.
 
 **What agencies like yours actually do:**
 
@@ -1141,11 +1112,11 @@ A state agency with limited resources might prioritize like this:
 
 A small state agency with 5 staff and 200+ documents might:
 
-- **Immediately:** Require all new content to be accessible (stop the bleeding)
-- **Month 1:** Fix homepage, main navigation, and top 3 application forms
-- **Month 2-3:** Remediate top 10 most-downloaded PDFs
-- **Month 4-6:** Add captions to all training videos
-- **Ongoing:** Document remaining issues, provide accessible alternatives upon request, continue remediation
+- **Immediately:** Require all new content to be accessible (stop the bleeding).
+- **Month 1:** Fix homepage, main navigation, and top 3 application forms.
+- **Month 2-3:** Remediate top 10 most-downloaded PDFs.
+- **Month 4-6:** Add captions to all training videos.
+- **Ongoing:** Document remaining issues, provide accessible alternatives upon request, continue remediation.
 
 **The bottom line:** The compliance requirement is full WCAG 2.1 Level AA conformance, and "we only did the minimum" won't protect you from complaints about content you didn't fix. But strategic prioritization — documented and actively progressing — is far better than paralysis. Start with the biggest barriers, stop creating new ones, and keep moving.
 
@@ -1196,9 +1167,9 @@ The IITAA covers all "information and communication technology," including:
 
 ### When did the current IITAA standards take effect?
 
-- **IITAA 1.0** — August 20, 2008 (original standards)
-- **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA)
-- **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 Level AA)
+- **IITAA 1.0** — August 20, 2008 (original standards).
+- **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA).
+- **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 Level AA).
 
 ### Where can I get IITAA training?
 
@@ -1294,9 +1265,9 @@ For most Illinois state agencies, the deadline is **April 24, 2026** (since Illi
 
 **However**, internal content may still need to be accessible under:
 
-- **ADA Title I** — Employers must provide reasonable accommodations for employees with disabilities, which could include making internal systems accessible
-- **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities
-- **IITAA** — Illinois law covers intranets and internal systems used by state employees
+- **ADA Title I** — Employers must provide reasonable accommodations for employees with disabilities, which could include making internal systems accessible.
+- **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities.
+- **IITAA** — Illinois law covers intranets and internal systems used by state employees.
 
 **Best practice:** Make internal documents accessible proactively. It's easier than retrofitting later, and you may have employees with disabilities who need access.
 
@@ -1331,17 +1302,17 @@ Yes, limited exceptions exist for:
 
 **The agency is the legal target:**
 
-- **ADA Title II applies to public entities** — The law holds state and local government agencies responsible for compliance, not individual employees
-- **DOJ complaints target the organization** — When the Department of Justice investigates accessibility complaints, they file against the agency (e.g., "Department of Justice v. Illinois Criminal Justice Information Authority"), not against individual employees
-- **The agency faces consequences** — Penalties, consent decrees, and remediation requirements fall on the organization
+- **ADA Title II applies to public entities** — The law holds state and local government agencies responsible for compliance, not individual employees.
+- **DOJ complaints target the organization** — When the Department of Justice investigates accessibility complaints, they file against the agency (e.g., "Department of Justice v. Illinois Criminal Justice Information Authority"), not against individual employees.
+- **The agency faces consequences** — Penalties, consent decrees, and remediation requirements fall on the organization.
 
 **Individual employees are generally protected:**
 
-- **No personal financial liability** — Individual state employees are not personally fined or sued under ADA Title II enforcement actions
-- **Performance expectations** — However, accessibility is part of your job duties. Repeated failure to follow agency accessibility policies could be addressed through standard employment processes (performance reviews, training requirements, etc.)
-- **Professional responsibility** — While you won't be named in a DOJ complaint, you have a professional obligation to create accessible content within your role
+- **No personal financial liability** — Individual state employees are not personally fined or sued under ADA Title II enforcement actions.
+- **Performance expectations** — However, accessibility is part of your job duties. Repeated failure to follow agency accessibility policies could be addressed through standard employment processes (performance reviews, training requirements, etc.).
+- **Professional responsibility** — While you won't be named in a DOJ complaint, you have a professional obligation to create accessible content within your role.
 
-**See also:** 
+**See also:**
 - [What is my liability as a manager?](#liability-and-individual-responsibilities-what-is-my-liability-as-a-manager)
 - [What is my liability as a web developer?](#liability-and-individual-responsibilities-what-is-my-liability-as-a-web-developer)
 - [What is my liability as a content creator?](#liability-and-individual-responsibilities-what-is-my-liability-as-a-content-creator)
@@ -1362,30 +1333,30 @@ Yes, limited exceptions exist for:
 **Your professional responsibilities as a manager:**
 
 **1. Resource allocation:**
-- **Budget for accessibility** — Ensure your team has time and resources to create accessible content
-- **Prioritize accessibility in project planning** — Don't treat accessibility as optional or "nice to have"
-- **Don't create impossible deadlines** — Unrealistic timelines that force staff to skip accessibility checks put your agency at risk
+- **Budget for accessibility** — Ensure your team has time and resources to create accessible content.
+- **Prioritize accessibility in project planning** — Don't treat accessibility as optional or "nice to have".
+- **Don't create impossible deadlines** — Unrealistic timelines that force staff to skip accessibility checks put your agency at risk.
 
 **2. Staff training and support:**
-- **Ensure staff receive accessibility training** — Don't assume staff "already know" accessibility requirements
-- **Provide access to tools** — Screen readers, testing tools, accessible templates
-- **Support staff when they identify barriers** — If a vendor tool isn't accessible, work with procurement to address it
+- **Ensure staff receive accessibility training** — Don't assume staff "already know" accessibility requirements.
+- **Provide access to tools** — Screen readers, testing tools, accessible templates.
+- **Support staff when they identify barriers** — If a vendor tool isn't accessible, work with procurement to address it.
 
 **3. Accountability for deliverables:**
-- **Include accessibility in performance expectations** — Make it clear that accessible content is required, not optional
-- **Review deliverables for accessibility** — Don't approve content that doesn't meet WCAG 2.1 Level AA
-- **Document accessibility issues** — If staff repeatedly produce inaccessible content despite training, address it through normal performance management
+- **Include accessibility in performance expectations** — Make it clear that accessible content is required, not optional.
+- **Review deliverables for accessibility** — Don't approve content that doesn't meet WCAG 2.1 Level AA.
+- **Document accessibility issues** — If staff repeatedly produce inaccessible content despite training, address it through normal performance management.
 
 **4. Escalation and problem-solving:**
-- **Escalate systemic barriers** — If your team lacks training, tools, or vendor cooperation, escalate to leadership
-- **Work with your agency's accessibility coordinator** — They can provide guidance and help remove barriers
-- **Don't ignore accessibility complaints** — If someone reports an accessibility barrier, treat it seriously
+- **Escalate systemic barriers** — If your team lacks training, tools, or vendor cooperation, escalate to leadership.
+- **Work with your agency's accessibility coordinator** — They can provide guidance and help remove barriers.
+- **Don't ignore accessibility complaints** — If someone reports an accessibility barrier, treat it seriously.
 
 **What protects you professionally:**
 
-- **Document your efforts** — Keep records of accessibility training provided, tools purchased, policies implemented
-- **Follow agency accessibility policies** — If your agency has adopted accessibility standards, ensure your team follows them
-- **Seek guidance when unsure** — Contact your agency's accessibility coordinator or Illinois DoIT for help
+- **Document your efforts** — Keep records of accessibility training provided, tools purchased, policies implemented.
+- **Follow agency accessibility policies** — If your agency has adopted accessibility standards, ensure your team follows them.
+- **Seek guidance when unsure** — Contact your agency's accessibility coordinator or Illinois DoIT for help.
 
 **The bottom line:** You won't be named in a DOJ lawsuit, but accessibility is part of your management responsibilities. Ignoring accessibility requirements could be addressed through performance management, and it puts your agency at legal risk.
 
@@ -1403,37 +1374,37 @@ Yes, limited exceptions exist for:
 **Your professional responsibilities as a web developer:**
 
 **1. Build accessibility into your work:**
-- **Follow WCAG 2.1 Level AA standards** — This is the compliance standard required by ADA Title II and IITAA
-- **Use semantic HTML** — Proper heading structure, form labels, alt text for images
-- **Ensure keyboard accessibility** — All interactive elements must work without a mouse
-- **Test with assistive technology** — Use screen readers, keyboard navigation, zoom testing
+- **Follow WCAG 2.1 Level AA standards** — This is the compliance standard required by ADA Title II and IITAA.
+- **Use semantic HTML** — Proper heading structure, form labels, alt text for images.
+- **Ensure keyboard accessibility** — All interactive elements must work without a mouse.
+- **Test with assistive technology** — Use screen readers, keyboard navigation, zoom testing.
 
 **2. Test before deployment:**
-- **Run automated tests** — Use tools like axe, WAVE, or Lighthouse
-- **Perform manual testing** — Automated tools catch ~30-40% of accessibility issues; manual testing is essential
-- **Don't deploy content you know is inaccessible** — If you've identified accessibility barriers, fix them before launch
+- **Run automated tests** — Use tools like axe, WAVE, or Lighthouse.
+- **Perform manual testing** — Automated tools catch ~30-40% of accessibility issues; manual testing is essential.
+- **Don't deploy content you know is inaccessible** — If you've identified accessibility barriers, fix them before launch.
 
 **3. Document and communicate:**
-- **Document known accessibility issues** — If you inherit inaccessible code or use vendor components with barriers, document them
-- **Communicate barriers to management** — If a vendor tool or framework has accessibility issues, escalate it
-- **Provide accessibility guidance to content creators** — Help non-technical staff understand what they need to do
+- **Document known accessibility issues** — If you inherit inaccessible code or use vendor components with barriers, document them.
+- **Communicate barriers to management** — If a vendor tool or framework has accessibility issues, escalate it.
+- **Provide accessibility guidance to content creators** — Help non-technical staff understand what they need to do.
 
 **4. Stay current with standards:**
-- **WCAG 2.1 Level AA is the current standard** — Familiarize yourself with all Level A and Level AA success criteria
-- **Monitor Illinois DoIT guidance** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a>
-- **Seek training when needed** — Accessibility is complex; ongoing learning is part of the job
+- **WCAG 2.1 Level AA is the current standard** — Familiarize yourself with all Level A and Level AA success criteria.
+- **Monitor Illinois DoIT guidance** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a>.
+- **Seek training when needed** — Accessibility is complex; ongoing learning is part of the job.
 
 **What protects you professionally:**
 
-- **Follow established standards** — WCAG 2.1 Level AA is the objective standard; if you meet it, you're doing your job
-- **Document your testing** — Keep records of accessibility tests performed and issues addressed
-- **Escalate unsolvable problems** — If a vendor component is inaccessible and you can't fix it, document it and escalate to management
+- **Follow established standards** — WCAG 2.1 Level AA is the objective standard; if you meet it, you're doing your job.
+- **Document your testing** — Keep records of accessibility tests performed and issues addressed.
+- **Escalate unsolvable problems** — If a vendor component is inaccessible and you can't fix it, document it and escalate to management.
 
 **Common misconceptions:**
 
-- **"I'm just following the design"** — If a design includes inaccessible patterns, it's your professional responsibility to flag it
-- **"The CMS made me do it"** — You're responsible for ensuring the output is accessible, even if you're working within a CMS or framework
-- **"We'll fix it later"** — Accessibility must be built in from the start; retrofitting is expensive and often incomplete
+- **"I'm just following the design"** — If a design includes inaccessible patterns, it's your professional responsibility to flag it.
+- **"The CMS made me do it"** — You're responsible for ensuring the output is accessible, even if you're working within a CMS or framework.
+- **"We'll fix it later"** — Accessibility must be built in from the start; retrofitting is expensive and often incomplete.
 
 **The bottom line:** You won't be named in a DOJ lawsuit, but accessibility is a core part of web development. Building inaccessible sites despite knowing the requirements could be addressed through performance management, and it puts your agency at legal risk.
 
@@ -1452,38 +1423,38 @@ Yes, limited exceptions exist for:
 **Your professional responsibilities as a content creator:**
 
 **1. Use accessible templates and formatting:**
-- **Start with accessible templates** — Don't create documents from scratch; use pre-built accessible templates
-- **Use built-in heading styles** — Don't fake headings with bold text; use Word/InDesign heading styles
-- **Use built-in list formatting** — Don't create fake lists with dashes or bullets; use the list tools
-- **Add table headers** — If you create tables, mark the header row properly
+- **Start with accessible templates** — Don't create documents from scratch; use pre-built accessible templates.
+- **Use built-in heading styles** — Don't fake headings with bold text; use Word/InDesign heading styles.
+- **Use built-in list formatting** — Don't create fake lists with dashes or bullets; use the list tools.
+- **Add table headers** — If you create tables, mark the header row properly.
 
 **2. Provide alternative text for images:**
-- **Every meaningful image needs alt text** — Describe what the image conveys, not just what it shows
-- **Decorative images can be marked as decorative** — If an image is purely decorative, mark it as such
-- **Complex images need longer descriptions** — Charts, graphs, and infographics may need extended descriptions
+- **Every meaningful image needs alt text** — Describe what the image conveys, not just what it shows.
+- **Decorative images can be marked as decorative** — If an image is purely decorative, mark it as such.
+- **Complex images need longer descriptions** — Charts, graphs, and infographics may need extended descriptions.
 
 **3. Ensure readability and usability:**
-- **Check color contrast** — Text must have sufficient contrast against its background (use a <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">contrast checker</a>)
-- **Don't rely on color alone** — Use text labels, patterns, or icons in addition to color
-- **Use plain language** — Clear, simple language benefits everyone, especially people with cognitive disabilities
-- **Provide descriptive link text** — Avoid "click here"; use "Download the 2024 annual report"
+- **Check color contrast** — Text must have sufficient contrast against its background (use a <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">contrast checker</a>).
+- **Don't rely on color alone** — Use text labels, patterns, or icons in addition to color.
+- **Use plain language** — Clear, simple language benefits everyone, especially people with cognitive disabilities.
+- **Provide descriptive link text** — Avoid "click here"; use "Download the 2024 annual report".
 
 **4. Test before publishing:**
-- **Run the built-in accessibility checker** — Microsoft Word, Adobe Acrobat, and other tools have accessibility checkers
-- **Test with a screen reader** — Listen to how your content sounds when read aloud
+- **Run the built-in accessibility checker** — Microsoft Word, Adobe Acrobat, and other tools have accessibility checkers.
+- **Test with a screen reader** — Listen to how your content sounds when read aloud.
 - **Ensure logical reading order** — Does the content make sense when read top to bottom?
 
 **What protects you professionally:**
 
-- **Follow agency accessibility policies** — If your agency provides training and templates, use them
-- **Ask for help when unsure** — Contact your web developer, accessibility coordinator, or DoIT for guidance
-- **Document accessibility efforts** — Keep track of training completed and templates used
+- **Follow agency accessibility policies** — If your agency provides training and templates, use them.
+- **Ask for help when unsure** — Contact your web developer, accessibility coordinator, or DoIT for guidance.
+- **Document accessibility efforts** — Keep track of training completed and templates used.
 
 **Common misconceptions:**
 
-- **"Someone else will fix it"** — Accessibility must be built in from the start; it's not something that can be easily fixed later
-- **"I don't have time"** — Accessibility takes practice, but it becomes second nature. Most tasks (adding alt text, using heading styles) add minimal time
-- **"My content isn't public-facing"** — Internal documents must also be accessible under IITAA and Section 504
+- **"Someone else will fix it"** — Accessibility must be built in from the start; it's not something that can be easily fixed later.
+- **"I don't have time"** — Accessibility takes practice, but it becomes second nature. Most tasks (adding alt text, using heading styles) add minimal time.
+- **"My content isn't public-facing"** — Internal documents must also be accessible under IITAA and Section 504.
 
 **The bottom line:** You won't be named in a DOJ lawsuit, but creating accessible content is part of your job duties. Repeatedly producing inaccessible content despite training could be addressed through performance management, and it puts your agency at legal risk.
 
@@ -1502,38 +1473,38 @@ Yes, limited exceptions exist for:
 **Your strategic and oversight responsibilities:**
 
 **1. Policy and leadership:**
-- **Adopt an agency accessibility policy** — Make accessibility an official priority with clear expectations
-- **Designate an accessibility coordinator** — Someone needs to own accessibility strategy and compliance tracking
-- **Communicate the importance of accessibility** — Staff take accessibility seriously when leadership does
+- **Adopt an agency accessibility policy** — Make accessibility an official priority with clear expectations.
+- **Designate an accessibility coordinator** — Someone needs to own accessibility strategy and compliance tracking.
+- **Communicate the importance of accessibility** — Staff take accessibility seriously when leadership does.
 
 **2. Resource allocation:**
-- **Budget for accessibility** — Training, tools, testing, remediation, and potentially staff time
-- **Allocate staff time for accessibility work** — Don't expect staff to "fit it in" around other priorities
-- **Invest in accessible tools and platforms** — Cheaper tools that produce inaccessible output cost more in the long run
+- **Budget for accessibility** — Training, tools, testing, remediation, and potentially staff time.
+- **Allocate staff time for accessibility work** — Don't expect staff to "fit it in" around other priorities.
+- **Invest in accessible tools and platforms** — Cheaper tools that produce inaccessible output cost more in the long run.
 
 **3. Training and capacity building:**
-- **Ensure all staff receive accessibility training** — Content creators, web developers, managers, procurement staff
-- **Provide ongoing learning opportunities** — Accessibility standards evolve; one-time training isn't enough
-- **Support staff when they need specialized expertise** — Sometimes you need consultants or expert review
+- **Ensure all staff receive accessibility training** — Content creators, web developers, managers, procurement staff.
+- **Provide ongoing learning opportunities** — Accessibility standards evolve; one-time training isn't enough.
+- **Support staff when they need specialized expertise** — Sometimes you need consultants or expert review.
 
 **4. Compliance monitoring and accountability:**
-- **Track accessibility compliance** — Regular audits, testing, and issue tracking
-- **Address barriers systematically** — Don't just fix individual complaints; identify and fix systemic issues
-- **Hold managers accountable** — Accessibility should be part of management performance expectations
-- **Report to Illinois DoIT as required** — State agencies must comply with IITAA reporting requirements
+- **Track accessibility compliance** — Regular audits, testing, and issue tracking.
+- **Address barriers systematically** — Don't just fix individual complaints; identify and fix systemic issues.
+- **Hold managers accountable** — Accessibility should be part of management performance expectations.
+- **Report to Illinois DoIT as required** — State agencies must comply with IITAA reporting requirements.
 
 **5. Risk management:**
 - **Understand your agency's accessibility exposure** — How much public-facing content do you have? How accessible is it?
-- **Prioritize high-risk content** — Core services and frequently accessed content should be addressed first
-- **Address complaints promptly** — When someone reports an accessibility barrier, treat it seriously
-- **Consult legal counsel when needed** — If you receive a formal complaint or DOJ inquiry, involve legal immediately
+- **Prioritize high-risk content** — Core services and frequently accessed content should be addressed first.
+- **Address complaints promptly** — When someone reports an accessibility barrier, treat it seriously.
+- **Consult legal counsel when needed** — If you receive a formal complaint or DOJ inquiry, involve legal immediately.
 
 **What protects your agency (and you professionally):**
 
-- **Demonstrate good faith effort** — Document your accessibility efforts, even if you're not 100% compliant yet
-- **Follow Illinois DoIT guidance** — The state accessibility office provides resources and support
-- **Respond to complaints promptly** — DOJ looks favorably on organizations that address barriers quickly
-- **Don't ignore the problem** — Lack of awareness is not a defense after April 2026
+- **Demonstrate good faith effort** — Document your accessibility efforts, even if you're not 100% compliant yet.
+- **Follow Illinois DoIT guidance** — The state accessibility office provides resources and support.
+- **Respond to complaints promptly** — DOJ looks favorably on organizations that address barriers quickly.
+- **Don't ignore the problem** — Lack of awareness is not a defense after April 2026.
 
 **The bottom line:** You won't be named personally in a DOJ lawsuit, but as an executive, you own the agency's accessibility strategy. Failure to address accessibility puts the agency at legal and reputational risk. The DOJ has made clear that accessibility is not optional.
 
@@ -1553,43 +1524,43 @@ Yes, limited exceptions exist for:
 **Practical steps for all roles:**
 
 **1. Get trained:**
-- **Take accessibility training** — Many free resources are available; see [Where can I learn more about accessibility?](#getting-help-where-can-i-learn-more-about-accessibility)
-- **Learn the basics for your role** — You don't need to be an expert in everything, but you need to know your responsibilities
-- **Stay current** — Standards evolve; check Illinois DoIT guidance periodically
+- **Take accessibility training** — Many free resources are available; see [Where can I learn more about accessibility?](#getting-help-where-can-i-learn-more-about-accessibility).
+- **Learn the basics for your role** — You don't need to be an expert in everything, but you need to know your responsibilities.
+- **Stay current** — Standards evolve; check Illinois DoIT guidance periodically.
 
 **2. Use the right tools:**
-- **Use accessibility checkers** — Microsoft Word, Adobe Acrobat, browser extensions like WAVE or axe
-- **Use accessible templates** — Don't create documents from scratch
-- **Test your work** — Keyboard navigation, screen reader testing, color contrast checks
+- **Use accessibility checkers** — Microsoft Word, Adobe Acrobat, browser extensions like WAVE or axe.
+- **Use accessible templates** — Don't create documents from scratch.
+- **Test your work** — Keyboard navigation, screen reader testing, color contrast checks.
 
 **3. Document your efforts:**
-- **Keep records of training completed** — Certificates, course completion, workshops attended
-- **Document testing performed** — Accessibility reports, test results, issues identified and fixed
-- **Track time spent on accessibility** — If accessibility work is taking significant time, document it
+- **Keep records of training completed** — Certificates, course completion, workshops attended.
+- **Document testing performed** — Accessibility reports, test results, issues identified and fixed.
+- **Track time spent on accessibility** — If accessibility work is taking significant time, document it.
 
 **4. Communicate and escalate:**
-- **Ask questions when unsure** — Contact your accessibility coordinator, web developer, or Illinois DoIT
-- **Flag accessibility barriers** — If a tool, vendor, or process creates barriers, report it
-- **Don't stay silent** — If you're being pressured to skip accessibility steps, escalate to your manager or accessibility coordinator
+- **Ask questions when unsure** — Contact your accessibility coordinator, web developer, or Illinois DoIT.
+- **Flag accessibility barriers** — If a tool, vendor, or process creates barriers, report it.
+- **Don't stay silent** — If you're being pressured to skip accessibility steps, escalate to your manager or accessibility coordinator.
 
 **5. Follow agency policies:**
-- **If your agency has accessibility policies, follow them** — Policies exist to protect both the agency and you
-- **Participate in accessibility initiatives** — Audits, remediation efforts, policy development
-- **Take complaints seriously** — If someone reports an accessibility issue with your content, address it promptly
+- **If your agency has accessibility policies, follow them** — Policies exist to protect both the agency and you.
+- **Participate in accessibility initiatives** — Audits, remediation efforts, policy development.
+- **Take complaints seriously** — If someone reports an accessibility issue with your content, address it promptly.
 
 **What doesn't protect you:**
 
-- **"Nobody told me"** — After April 2026, lack of awareness is not a defense. Seek training if you haven't received it
-- **"I didn't have time"** — Accessibility is not optional. If you're being given impossible deadlines, escalate to management
-- **"The vendor made me do it"** — You're responsible for the output, even if you're using third-party tools
-- **"I thought someone else would fix it"** — Accessibility must be built in from the start
+- **"Nobody told me"** — After April 2026, lack of awareness is not a defense. Seek training if you haven't received it.
+- **"I didn't have time"** — Accessibility is not optional. If you're being given impossible deadlines, escalate to management.
+- **"The vendor made me do it"** — You're responsible for the output, even if you're using third-party tools.
+- **"I thought someone else would fix it"** — Accessibility must be built in from the start.
 
 **The bottom line for everyone:**
 
-- **You won't be personally sued** — ADA Title II targets the agency, not individual employees
-- **But accessibility is part of your job** — It's a professional responsibility, not optional
-- **Document good faith effort** — Show that you're trying to meet accessibility standards
-- **Seek help when needed** — You don't have to know everything, but you need to know when to ask for help
+- **You won't be personally sued** — ADA Title II targets the agency, not individual employees.
+- **But accessibility is part of your job** — It's a professional responsibility, not optional.
+- **Document good faith effort** — Show that you're trying to meet accessibility standards.
+- **Seek help when needed** — You don't have to know everything, but you need to know when to ask for help.
 
 **References:**
 
@@ -1613,7 +1584,7 @@ Use a combination of automated and manual testing:
 - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a> (browser extension)
 - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a> (browser extension)
 - **ANDI** — <a href="https://www.ssa.gov/accessibility/andi/help/install.html" target="_blank" rel="noopener noreferrer">https://www.ssa.gov/accessibility/andi/help/install.html</a> (bookmarklet)
-- **Lighthouse** — Built into Chrome DevTools
+- **Lighthouse** — Built into Chrome DevTools.
 
 **Manual Testing:**
 
@@ -1635,7 +1606,7 @@ Use a combination of automated and manual testing:
 
 ### What are the most common website accessibility issues?
 
-**See also:** [What are the most common accessibility mistakes to avoid?](#general-accessibility-questions-what-are-the-most-common-accessibility-mistakes-to-avoid) | [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
+**See also:** [What are the most common accessibility mistakes to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-to-avoid) | [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
 1. **Missing or inadequate alt text** for images
 2. **Poor color contrast** between text and background
@@ -1663,9 +1634,9 @@ Use a combination of automated and manual testing:
 
 For WCAG 2.1 Level AA:
 
-- **Normal text** (smaller than 18pt/~24px regular or 14pt/~19px bold): **4.5:1** contrast ratio
-- **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio
-- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG SC 1.4.11)
+- **Normal text** (smaller than 18pt/~24px regular or 14pt/~19px bold): **4.5:1** contrast ratio.
+- **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio.
+- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG SC 1.4.11).
 
 **Check contrast:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
@@ -1678,9 +1649,9 @@ For WCAG 2.1 Level AA:
 
 Yes, for WCAG 2.1 Level AA compliance:
 
-- **Pre-recorded video with audio** — Requires synchronized captions
-- **Live video with audio** — Requires live captions (accuracy matters; auto-captions may need human support)
-- **Pre-recorded audio only** — Requires a text transcript
+- **Pre-recorded video with audio** — Requires synchronized captions.
+- **Live video with audio** — Requires live captions (accuracy matters; auto-captions may need human support).
+- **Pre-recorded audio only** — Requires a text transcript.
 - **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track. For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
 **References:**
@@ -1767,11 +1738,11 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **Common mobile accessibility mistakes:**
 
-- **Too-small touch targets** — Buttons or links that are hard to tap
-- **Missing labels** — Icons without text descriptions
-- **Poor focus management** — Focus gets lost or trapped
-- **Inaccessible gestures** — Complex swipe patterns that can't be performed with assistive technology
-- **No keyboard support** — App doesn't work with external keyboards
+- **Too-small touch targets** — Buttons or links that are hard to tap.
+- **Missing labels** — Icons without text descriptions.
+- **Poor focus management** — Focus gets lost or trapped.
+- **Inaccessible gestures** — Complex swipe patterns that can't be performed with assistive technology.
+- **No keyboard support** — App doesn't work with external keyboards.
 
 **Resources:**
 
@@ -1780,7 +1751,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 - <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
-**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#general-accessibility-questions-what-does-the-april-2026-deadline-cover)
+**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover)
 
 ### What about third-party widgets, embedded content, dashboards, and maps?
 
@@ -1874,7 +1845,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **For new documents (created after April 24, 2026):**
 
-- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint) must be accessible
+- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint) must be accessible.
 - Make accessibility part of your document creation workflow
 - This includes documents created internally or received from external sources
 
@@ -1885,7 +1856,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
   - Frequently accessed documents
   - Documents required for services or job functions
   - Documents linked from main pages
-- **Archived documents** — May remain as-is unless someone requests access, at which point you must provide an accessible version
+- **Archived documents** — May remain as-is unless someone requests access, at which point you must provide an accessible version.
 
 **Key principle:** The requirement is to ensure people with disabilities can access the information they need. If a document is truly archived and never accessed, it may not need immediate remediation. But if anyone needs it, you must provide an accessible version.
 
@@ -1923,7 +1894,7 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **Procurement/contract expectations (what to ask for):**
 
-- **VPAT/ACR** for the exact product/version you’re buying/using
+- **VPAT/ACR** for the exact product/version you're buying/using.
 - A list of **known issues** + vendor **remediation timeline**
 - Contract language requiring **WCAG 2.1 Level AA** and support for accessibility fixes
 
@@ -1986,8 +1957,8 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **The key distinction:**
 
-- **Currently used for services** = Must be accessible
-- **Archived/not currently used** = May be exempt, but must provide accessible alternatives upon request
+- **Currently used for services** = Must be accessible.
+- **Archived/not currently used** = May be exempt, but must provide accessible alternatives upon request.
 
 **What to do (works for dashboards, maps, and courses):**
 
@@ -2039,10 +2010,10 @@ When you create a document, you see formatted text, images, and layout. But some
 
 **Why this matters:**
 
-- **Screen readers can't "see"** — they read the document's underlying structure, not its visual appearance
-- **Keyboard users can't click** — they navigate using Tab and arrow keys, which require proper structure
-- **Users with low vision may zoom 200%+** — the document must reflow properly
-- **Users with cognitive disabilities** — benefit from clear headings, simple language, and logical organization
+- **Screen readers can't "see"** — they read the document's underlying structure, not its visual appearance.
+- **Keyboard users can't click** — they navigate using Tab and arrow keys, which require proper structure.
+- **Users with low vision may zoom 200%+** — the document must reflow properly.
+- **Users with cognitive disabilities** — benefit from clear headings, simple language, and logical organization.
 
 **The good news:** Making documents accessible usually makes them better organized and easier to use for everyone.
 
@@ -2060,10 +2031,10 @@ Alt text is a brief written description of an image that screen readers read alo
 
 **How to write good alt text for event photos:**
 
-- **Be specific and concise** — Describe what's actually happening in the photo
-- **Include relevant names** — If someone is being recognized, name them
+- **Be specific and concise** — Describe what's actually happening in the photo.
+- **Include relevant names** — If someone is being recognized, name them.
 - **Describe the context** — What event is this? What's the setting?
-- **Keep it brief** — Usually 1-2 sentences is sufficient
+- **Keep it brief** — Usually 1-2 sentences is sufficient.
 
 **Examples:**
 
@@ -2076,11 +2047,11 @@ Alt text is a brief written description of an image that screen readers read alo
 
 **Where to add alt text:**
 
-- **Website/CMS** — Look for the "alt text" or "image description" field when uploading
-- **Word documents** — Right-click image > Edit Alt Text
-- **PowerPoint** — Right-click image > Edit Alt Text
-- **Social media** — Each platform has an alt text option (see Social Media Accessibility section)
-- **Email** — Outlook and Gmail both support alt text for images
+- **Website/CMS** — Look for the "alt text" or "image description" field when uploading.
+- **Word documents** — Right-click image > Edit Alt Text.
+- **PowerPoint** — Right-click image > Edit Alt Text.
+- **Social media** — Each platform has an alt text option (see Social Media Accessibility section).
+- **Email** — Outlook and Gmail both support alt text for images.
 
 **WCAG Reference:**
 
@@ -2090,10 +2061,10 @@ Alt text is a brief written description of an image that screen readers read alo
 
 **Best practice: Keep alt text concise—aim for 1-2 sentences in most cases.** The commonly cited "125 character limit" isn't a technical requirement (modern screen readers handle longer text just fine), but brevity helps users process information quickly.
 
-- **Ideal:** Concise and scannable (roughly 15-25 words)
-- **Acceptable:** Longer alt text when the image requires detailed description
-- **Too short:** Single words like "photo" or "image" don't help anyone
-- **Consider alternatives:** If you need extensive description (charts, infographics, diagrams), use a visible caption, long description, or linked text instead of cramming everything into alt text
+- **Ideal:** Concise and scannable (roughly 15-25 words).
+- **Acceptable:** Longer alt text when the image requires detailed description.
+- **Too short:** Single words like "photo" or "image" don't help anyone.
+- **Consider alternatives:** If you need extensive description (charts, infographics, diagrams), use a visible caption, long description, or linked text instead of cramming everything into alt text.
 
 **The key principle:** Alt text should be **concise but complete**. Describe what's meaningful about the image in as few words as necessary — but don't sacrifice clarity just to hit an arbitrary character limit.
 
@@ -2118,7 +2089,7 @@ Some images — like charts, graphs, infographics, or images containing lots of 
 **Example for a chart:**
 
 - **Alt text:** "Line graph showing agency grant funding from 2020-2025. Full data in table below."
-- **Below the image:** An accessible HTML table with the actual numbers
+- **Below the image:** An accessible HTML table with the actual numbers.
 
 **For infographics or images with lots of text:**
 
@@ -2136,8 +2107,8 @@ Some images — like charts, graphs, infographics, or images containing lots of 
 
 **General rule for complex images:**
 
-- **Alt text:** Brief summary + tell users where to find more detail
-- **Long description:** Provide full information in accessible text format nearby or linked
+- **Alt text:** Brief summary + tell users where to find more detail.
+- **Long description:** Provide full information in accessible text format nearby or linked.
 
 **Example patterns:**
 
@@ -2159,10 +2130,10 @@ Sharing infographics, charts, or images with text on platforms like social media
 
 **Social media (Facebook, X/Twitter, Instagram, LinkedIn):**
 
-- **Alt text limits vary** — Most platforms allow 100-1000 characters for alt text, but keep it concise
-- **Use the post text** — Put key information in the post caption itself, not just the image
-- **Link to more** — If sharing a complex infographic, link to a webpage with the full accessible version
-- **Don't rely on the image alone** — If the image contains important text or data, repeat it in your post
+- **Alt text limits vary** — Most platforms allow 100-1000 characters for alt text, but keep it concise.
+- **Use the post text** — Put key information in the post caption itself, not just the image.
+- **Link to more** — If sharing a complex infographic, link to a webpage with the full accessible version.
+- **Don't rely on the image alone** — If the image contains important text or data, repeat it in your post.
 
 **Example social media approach:**
 
@@ -2172,10 +2143,10 @@ Sharing infographics, charts, or images with text on platforms like social media
 
 **Constant Contact and email marketing:**
 
-- **Alt text field:** Constant Contact has an alt text field for images — use it
-- **Character limit:** Keep alt text brief since email clients vary in support
-- **Avoid image-only emails** — Don't put critical information only in images; many users have images disabled by default
-- **Provide text version** — Key messages should appear as actual text in the email, not just in graphics
+- **Alt text field:** Constant Contact has an alt text field for images — use it.
+- **Character limit:** Keep alt text brief since email clients vary in support.
+- **Avoid image-only emails** — Don't put critical information only in images; many users have images disabled by default.
+- **Provide text version** — Key messages should appear as actual text in the email, not just in graphics.
 
 **Example email approach:**
 
@@ -2328,7 +2299,7 @@ Key steps for accessible Word documents:
 
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
-**Accessibility best practice:** Before creating a PDF, consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a PDF, follow the steps below.
+**Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
 
 The best approach depends on the source:
 
@@ -2449,7 +2420,7 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
-**Accessibility best practice for newsletters:** When creating newsletters, consider publishing the full content as a webpage and linking to it from your email, rather than attaching or linking to a PDF. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The University of Illinois CITL PDF Accessibility Guide similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
+**Best practice for newsletters:** Consider publishing newsletter content as a webpage and linking to it from your email, rather than attaching a PDF. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for why HTML is generally easier to make accessible than PDFs.
 
 **Email accessibility essentials:**
 
@@ -2670,9 +2641,55 @@ If you have a question that isn't covered here, or if you find information that'
 
 **Why web developers maintain this FAQ:**
 
-ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [This website was generated by a web developer not on executive staff. Why should I trust this information?](#general-accessibility-questions-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information)
+ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [This website was generated by a web developer not on executive staff. Why should I trust this information?](#common-concerns-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information)
 
 **The bottom line:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 7 days. Check the last-updated date at the bottom for the most recent revision.
+
+### Why are ICJIA staff creating this FAQ? Shouldn't DoIT handle accessibility information?
+
+{new:2025-12-31}
+
+**Quick answer:** DoIT provides official guidance and training, and the legal requirements come from IITAA and the ADA Title II web rule. ICJIA staff created this FAQ as an ICJIA-specific, plain-language companion to help colleagues across roles stay oriented to the compliance deadlines and apply the requirements in day-to-day work.
+
+**Full explanation:**
+
+**Why ICJIA staff took the initiative:**
+
+ICJIA staff across roles (including people doing day-to-day remediation work) have been attending DoIT accessibility seminars, reviewing official guidance, and applying accessibility standards across ICJIA websites and content. Like many agencies, keeping sustained attention on accessibility work alongside competing priorities can be difficult. This FAQ is a practical step to support shared understanding and consistent action across ICJIA—something staff can read, assess, and use immediately.
+
+**This FAQ complements (doesn't replace) official sources:**
+
+| Official Source                 | What It Provides                                        | This FAQ's Role                                               |
+| ------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------- |
+| **Illinois DoIT Accessibility** | State-level guidance, training, IITAA requirements      | Translates DoIT guidance into ICJIA-specific context          |
+| **IITAA Compliance Guidelines** | Illinois state accessibility standards and requirements | Explains how IITAA applies to ICJIA's specific content types  |
+| **ADA Title II Web Rule**       | Federal requirements, deadlines, technical standards    | Clarifies federal requirements in practical, actionable terms |
+
+**What this FAQ adds:**
+
+1. **ICJIA-specific context** — Addresses questions that come up specifically at ICJIA (see: [ICJIA-Specific Information](#icjia-specific-information))
+2. **Role-based entry points** — Organized so content creators, web developers, managers, and executive staff can find what they need quickly (see: [Getting Started](#getting-started))
+3. **Practical workflows** — Step-by-step guidance for common tasks like making documents accessible (see: [Content Accessibility](#content-accessibility-documents-pdfs-presentations))
+4. **Consolidated reference** — One place to find answers without navigating multiple government websites
+
+**The goal:**
+
+This FAQ isn't meant to replace DoIT's resources or official guidance. Instead, it's designed to:
+
+- **Heighten awareness** about accessibility requirements across ICJIA
+- **Make compliance requirements accessible** to staff who may not have time to read through multiple government websites
+- **Provide practical, actionable guidance** that ICJIA staff can apply immediately
+- **Support agency-wide compliance** by making accessibility information easier to find and understand
+- **Support ICJIA's DEIA mission** — Accessibility is how DEIA commitments become real in digital work (see: [How does digital accessibility and compliance fit into an agency's DEIA mission?](#getting-oriented-how-does-digital-accessibility-and-compliance-fit-into-an-agency-s-deia-mission))
+
+**See also:**
+
+- [Compliance Requirements (IITAA and ADA Title II)](#compliance-requirements-iitaa-and-ada-title-ii) — Where the legal requirements and standards are summarized
+- [I prefer to talk to someone rather than read FAQs. Who can I ask?](#getting-oriented-i-prefer-to-talk-to-someone-rather-than-read-faqs-who-can-i-ask) — Who to contact (including DoIT) for official guidance and questions
+- [Getting Help](#getting-help) — Official resources and training links
+- [This website was generated by a web developer not on executive staff. Why should I trust this information?](#common-concerns-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information) — How this FAQ is sourced to official references
+
+**The bottom line:** ICJIA staff created this FAQ to support agency-wide accessibility compliance by making it easier for colleagues to find, understand, and apply official requirements in ICJIA’s day-to-day work.
 
 ### What if I find incorrect information in this FAQ?
 
@@ -2698,53 +2715,132 @@ The goal of this FAQ is to help ICJIA staff understand accessibility requirement
 
 **The bottom line:** Every claim in this FAQ is sourced to official references, but errors can happen. If you spot one, report it so it can be fixed immediately.
 
-### The tone of this FAQ feels directive. Can we have a conversation about accessibility requirements instead?
+### This FAQ tells me what I must do. Can the tone be more collaborative?
 
 {new:2025-12-30}
 
-**Quick answer:** Absolutely. This FAQ is meant to inform, not dictate — and your feedback about tone is valuable. The directive language reflects the urgency of federal and state compliance requirements, but the goal is collaborative problem-solving, not top-down mandates. Let's talk about what would make this resource more useful for your needs.
+**Quick answer:** You're right to raise this. The FAQ uses direct language ("must," "required," "need to") because these are legal obligations with a firm deadline — but if the tone isn't working, speak up now. Contact executive staff, your agency accessibility coordinator, or the web development team. Don't wait. If something needs to change, initiate that conversation.
 
-**Why the tone may feel directive:**
+**Why the direct language exists:**
 
-**Compliance requirements are firm:**
+The April 24, 2026 deadline and WCAG 2.1 Level AA requirements come from federal and state law — not from this FAQ, not from web developers, not from internal policy. The FAQ reflects those legal obligations as clearly as possible. When it says "you must add alt text to images," that's because the law requires it for compliance, not because someone is giving orders.
 
-- **The April 2026 deadline is specified in the ADA Title II rule** — This FAQ reflects DOJ and Illinois DoIT requirements, not personal preferences or internal policies
-- **Compliance is non-negotiable** — The language mirrors the binding nature of ADA Title II and IITAA requirements
-- **"Must" vs. "should"** — When the law requires something (e.g., "websites must meet WCAG 2.1 Level AA"), that's stated directly to avoid ambiguity
+**What we're trying to convey (vs. what it might sound like):**
 
-**Clarity over softness:**
-
-- **Clear expectations help everyone** — Ambiguous guidance like "consider accessibility" is less useful than "add alt text to all meaningful images"
-- **Managers need actionable steps** — Vague advice doesn't help you plan budgets, allocate resources, or set staff expectations
-- **Time is short** — With {days_until_deadline} days until the deadline, indirect language could create confusion about what's actually required
+| What It Might Sound Like    | What We Actually Mean                                                       |
+| --------------------------- | --------------------------------------------------------------------------- |
+| "You must do this now"      | "The law requires this by April 2026 — let's figure out how together."      |
+| "This is non-negotiable"    | "The deadline is firm, but we have choices about how we approach the work." |
+| "Follow these instructions" | "Here's what works based on accessibility standards and experience."        |
 
 **What this FAQ is NOT:**
 
-- **Not ICJIA policy** — This FAQ explains federal and state accessibility requirements under ADA Title II and IITAA. It's not internal ICJIA directives or web developer preferences
-- **Not telling executive staff what to do** — It's providing information about compliance requirements that apply to all Illinois state agencies under ADA Title II and IITAA
-- **Not a substitute for conversation** — If you have questions, concerns, or need clarification, that dialogue is essential
+- **Not ICJIA policy or directives** — It explains federal (ADA Title II) and state (IITAA) requirements that apply to all Illinois agencies.
+- **Not telling anyone what to do** — It provides information about legal requirements and practical approaches.
+- **Not a substitute for conversation** — Dialogue, questions, and collaborative problem-solving are essential.
+- **Not saying "do it my way"** — Multiple approaches can work; these are tested practices, not the only practices.
 
-**What you can do if the tone isn't working:**
+**If the tone isn't working — be proactive:**
 
-1. **Share specific concerns** — Which sections feel overly directive? What would be more helpful?
-2. **Request a conversation** — If you'd prefer to discuss accessibility requirements in person or via meeting rather than reading an FAQ, reach out to the web development team or your accessibility coordinator
-3. **Suggest alternative framing** — If certain language feels like it's "telling you what to do," propose revisions that convey the same compliance requirements in a more collaborative tone
-4. **Focus on the sources** — The FAQ cites DOJ, Illinois DoIT, and W3C at every turn. If the tone feels off, go directly to those official sources — they're authoritative and may feel more neutral
+Don't wait for someone else to fix this. If the FAQ's language feels like directives rather than support, or if it's creating resistance rather than collaboration, that's a problem that needs addressing. Here's what to do:
 
-**The bottom line:**
+1. **Contact executive staff** — If the overall approach or tone needs organizational discussion.
+2. **Contact your accessibility coordinator** — They can address concerns about how accessibility is being communicated across the agency.
+3. **Contact the web development team** — They created this FAQ and can revise specific language, add clarifications, or adjust the framing.
+4. **Be specific** — Which sections feel overly directive? What alternative language would work better while maintaining accuracy?
+5. **Suggest improvements** — If you see ways to make this more collaborative while keeping it clear and actionable, speak up.
 
-This FAQ aims to provide clear, actionable information about accessibility requirements in a time-sensitive situation. If the tone feels like it's "telling executive staff what to do," that's not the intent — the federal government is setting these requirements for all state agencies. 
+**Why collaboration matters:**
 
-**That said:** Tone matters, and conversation matters even more. Agency-wide collaboration, dialogue between staff levels, and thoughtful discussion about implementation are essential components of successful accessibility work. If this resource would be more useful with different framing, that feedback is welcome and valued.
+Accessibility compliance is a team effort. No one person dictates how it gets done. The FAQ provides a shared foundation of information, but the actual work requires ongoing dialogue, coordination, and mutual support across all roles and levels.
 
-**However:** While conversation is always important — and a key component of effective agency-wide collaboration — the conversation doesn't pause or extend the April 24, 2026 deadline. The compliance requirements remain unchanged regardless of how we discuss them or frame them. The goal of this FAQ is to facilitate rapid, agency-wide understanding and investment in accessibility across all units and staff hierarchies, precisely because time is limited.
+**Be direct and proactive about what you need based on the information in this FAQ:**
 
-**In other words:** Let's absolutely have the conversation about tone, framing, and collaborative approaches to accessibility — but let's have it quickly, and let's have it while also taking concrete action toward compliance. Conversation and action must happen simultaneously, not sequentially.
+Different people can help with different aspects. Reach out. Request specifics.
 
-**References:**
+- **Agency web developers and content creators** — They can answer practical questions about implementing accessibility in your day-to-day work. They've attended DoIT seminars, work with accessibility standards regularly, and can help you understand how to apply the requirements to your specific content or projects.
+- **Executive staff** — They can clarify organizational goals, priorities, and initiatives related to accessibility. If you need strategic direction or resource allocation decisions, executive staff can provide that context.
+- **Agency accessibility coordinators** — They work with DoIT on compliance requirements and can address questions about official guidance, training opportunities, and how IITAA and ADA Title II requirements apply to your agency's specific situation.
 
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — The source of the federal compliance requirements
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA Requirements</a> — State accessibility obligations
+**If you need something specific:**
+
+- More conversation and less documentation? Initiate that request with executive staff or your accessibility coordinator.
+- The "why" explained before the "how"? Ask your accessibility coordinator or web developers.
+- Collaborative problem-solving rather than step-by-step instructions? Request that approach from your manager or accessibility coordinator.
+- Better ways to approach accessibility work at ICJIA? Propose them to executive staff or your accessibility coordinator.
+
+**The bottom line:** If this FAQ feels like you're being told what to do rather than being supported in meeting legal requirements, speak up. Accessibility compliance works through collaboration, not mandates. Contact executive staff, your accessibility coordinator, or the web development team now — and help make this resource work better for everyone. Be proactive about getting it fixed.
+
+---
+
+## ICJIA-Specific Information
+
+This section contains information specific to the Illinois Criminal Justice Information Authority (ICJIA). If you work for a different Illinois state agency, the general principles apply, but the specific resources and contacts may differ.
+
+### ICJIA has many public sites. Where can I see the audit reports for each site?
+
+{new:2025-12-30}
+
+**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites.
+
+**Available reports:**
+
+| Site                                   | Accessibility Report                                                                                                                |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ICJIA Accessibility Portal (this site) | <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>   |
+| R3 (r3.illinois.gov)                   | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>  |
+| i2i (i2i.illinois.gov)                 | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a> |
+
+Additional reports will be added as sites are audited and remediated.
+
+**How to find reports:**
+
+- **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer.
+- **Reports are site-specific** — Each website has its own report documenting that site's accessibility status.
+
+**Important limitations:**
+
+- **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They do NOT cover PDFs, Word documents, Excel files, or other content files.
+- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+- **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still required for full compliance.
+
+### How do we handle accessibility complaints?
+
+{new:2025-12-31}
+
+**Quick answer:** This process is being finalized with the accessibility coordinator. The information below is provisional and will be updated once the formal complaint handling procedure is established.
+
+**Provisional guidance (pending coordinator review):**
+
+**If someone reports an accessibility barrier:**
+
+1. **Acknowledge promptly** — Thank the person for reporting and let them know you're looking into it
+2. **Document the issue** — Record what barrier was reported, where it occurs, and contact information if provided
+3. **Assess and prioritize** — Determine severity (complete blocker vs. inconvenience) and which content/system is affected
+4. **Route to appropriate team** — Website issues → web developers; document issues → content owner; third-party tools → procurement/vendor contact
+5. **Provide timeline** — Give the reporter an estimate of when they can expect resolution or follow-up
+6. **Track resolution** — Document what was fixed and when
+
+**What constitutes a complaint vs. a request:**
+
+| Type                         | Example                                                        | Initial Response                                       |
+| ---------------------------- | -------------------------------------------------------------- | ------------------------------------------------------ |
+| **Complaint/barrier report** | "I can't access [specific content] because [specific barrier]" | Prioritize investigation and resolution                |
+| **Accommodation request**    | "I need [specific format] for [specific document]"             | Provide alternative format while addressing root cause |
+| **General feedback**         | "Your website is hard to use"                                  | Thank them and ask for specific examples               |
+
+**For formal ADA complaints:**
+
+Under ADA Title II, individuals may file complaints with the U.S. Department of Justice or pursue private legal action. If your agency receives a formal complaint:
+
+1. **Notify executive staff immediately** — This requires leadership involvement
+2. **Contact your agency's legal counsel** — They will guide the formal response
+3. **Document everything** — Preserve records of the complaint, your accessibility efforts, and any communication
+4. **Coordinate with the accessibility coordinator** — They should be involved in the response
+
+**The goal:** Treat accessibility reports as service improvement opportunities, not as problems to defend against. Most people who report barriers just want to access the service — they're not looking for legal action.
+
+**This section will be updated** once ICJIA's accessibility coordinator establishes the formal complaint handling procedure. Contact the accessibility coordinator for the current process.
 
 ---
 

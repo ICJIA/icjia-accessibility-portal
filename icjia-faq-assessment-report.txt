@@ -1,0 +1,324 @@
+ICJIA ACCESSIBILITY FAQ ASSESSMENT REPORT
+==========================================
+Generated: December 31, 2025
+Document Reviewed: Digital Accessibility FAQ for Illinois State Agency Employees
+
+==========================================
+OVERALL GRADE: A- (92/100)
+==========================================
+
+This is a comprehensive, well-sourced, and professionally written FAQ 
+that would serve your agency well. The verification work confirms the 
+factual accuracy. The document is ready for leadership review with 
+only minor refinements needed.
+
+==========================================
+EXECUTIVE SUMMARY
+==========================================
+
+STRENGTHS:
+• Factually accurate and properly sourced to authoritative references
+• Comprehensive coverage of roles, content types, and scenarios
+• Practical, actionable guidance with clear examples
+• Diplomatic tone that explains *why* without being preachy
+• Smart structure with quick-reference tables and role-based entry points
+
+AREAS FOR IMPROVEMENT:
+• Some redundancy between sections that could be consolidated
+• A few tone inconsistencies in newer sections
+• Minor structural issues in question organization
+• One claim still needs softened attribution (PDF/HTML recommendation)
+
+==========================================
+1. ACCURACY ASSESSMENT: ✅ VERIFIED
+==========================================
+
+All major claims trace to authoritative sources:
+
+CLAIM                              SOURCE                        STATUS
+─────────────────────────────────────────────────────────────────────────
+April 24, 2026 deadline            Federal Register 89 FR 31320  ✅ Exact
+WCAG 2.1 Level AA standard         ADA Title II Rule §35.200     ✅ Exact
+IITAA 2.1 effective June 24, 2024  Illinois DoIT                 ✅ Exact
+Five exceptions to rule            §35.201                       ✅ Complete
+Third-party tool responsibility    ADA.gov Fact Sheet            ✅ Verified
+No routine extension process       Federal Register (full text)  ✅ Verified
+Title II applies since 1996        ADA.gov / Fed. Register       ✅ Verified
+
+ONE MINOR ATTRIBUTION ISSUE REMAINS:
+
+The FAQ states: "As Illinois DoIT generally recommends, publishing 
+content as webpage text when feasible..."
+
+ISSUE: DoIT's PDF guide doesn't explicitly state this. The recommendation 
+comes from CITL (University of Illinois) and general best practice sources 
+(Cornell IT, WebAIM).
+
+RECOMMENDATION: Change to:
+"Accessibility experts generally recommend publishing content as webpage 
+text when feasible. As Cornell IT notes, 'Remediating PDFs for web 
+accessibility can be more time consuming than creating a webpage.'"
+
+==========================================
+2. TONE ASSESSMENT: A-
+==========================================
+
+WHAT WORKS WELL:
+• Direct without being condescending
+• Explains the "why" behind requirements
+• Acknowledges real constraints (time, resources, competing priorities)
+• Uses "you" appropriately to connect with readers
+• Avoids jargon or explains it when used
+
+MINOR TONE ISSUES TO ADDRESS:
+
+1. "Why is this FAQ so long?" — The opening reads slightly defensive.
+   
+   CURRENT: "Accessibility is complex — there's no one-click fix..."
+   
+   SUGGESTED: "Accessibility touches every role and content type. This 
+   FAQ is comprehensive so you can find answers specific to your 
+   situation without searching multiple sources."
+
+2. "The tone of this FAQ feels directive" question — Well-handled but 
+   could be shorter. Currently ~800 words; could be tightened to ~400 
+   words without losing substance.
+
+3. Liability section (commented out) — Good decision to comment this 
+   out for now. If activated, have legal review the framing.
+
+==========================================
+3. STRUCTURE ASSESSMENT: B+
+==========================================
+
+STRONG POINTS:
+• Role-based quick reference at top is excellent
+• Logical progression from general → specific
+• Good use of "See also" cross-references
+• Tables improve scannability
+
+STRUCTURAL ISSUES TO ADDRESS:
+
+A. SECTION ORGANIZATION PROBLEMS
+
+"General Accessibility Questions" is too long (14 questions). 
+Consider splitting:
+
+CURRENT                              SUGGESTED SPLIT
+─────────────────────────────────────────────────────────────────────────
+General Accessibility Questions      Understanding Accessibility (5 Qs):
+(14 Qs)                               - What is digital accessibility
+                                      - Why deadline exists
+                                      - What WCAG means
+                                     
+                                     Getting Oriented (5 Qs):
+                                      - FAQ length explanation
+                                      - Who to ask
+                                      - Trust/sourcing
+                                      - Waiting for presentation
+                                     
+                                     Common Concerns (4 Qs):
+                                      - Workload concerns
+                                      - Common mistakes
+                                      - DEIA connection
+                                      - Everyone's responsibility
+
+B. QUESTIONS IN WRONG SECTIONS
+
+QUESTION                                    CURRENT          BETTER LOCATION
+─────────────────────────────────────────────────────────────────────────────
+"Do we need an accessibility coordinator?" Getting Started  State Agency or 
+                                                            new "Agency Planning"
+"What am I accountable for as manager?"    Getting Started  After "I'm a manager"
+"Track good-faith progress"                Getting Started  State Agency 
+                                                            (compliance-focused)
+"ICJIA audit reports"                      Getting Started  ICJIA-Specific or
+                                                            Website Accessibility
+
+C. MISSING LOGICAL FLOW
+
+The "Getting Started" section mixes:
+• Role-based starting points (good)
+• Manager accountability (should follow manager start)
+• Agency-wide planning (belongs elsewhere)
+• ICJIA-specific content (needs its own home)
+
+RECOMMENDED "GETTING STARTED" STRUCTURE:
+1. I'm a content creator. Where do I start?
+2. I'm a web developer. Where do I start?
+3. I'm a manager. Where do I start?
+4. What exactly am I accountable for as a manager?
+5. How can I track "good-faith progress"?
+
+Move coordinator and ICJIA-specific questions elsewhere.
+
+==========================================
+4. REDUNDANCY ASSESSMENT: B
+==========================================
+
+REDUNDANT CONTENT IDENTIFIED:
+
+TOPIC                    APPEARS IN                      RECOMMENDATION
+─────────────────────────────────────────────────────────────────────────
+PDF vs. HTML             4 questions (content creator,   Keep full explanation
+recommendation           documents, PDF, emails)         in ONE place; cross-
+                                                         reference from others
+
+April 2026 deadline      8+ questions                    Acceptable repetition
+is firm                                                  for emphasis
+
+"Run Accessibility       Word, PDF, Excel, PPT           Acceptable (contextual)
+Checker"                 sections
+
+Who to contact           4+ questions                    Could consolidate into
+(DoIT, web developers)                                   one definitive answer
+
+Third-party tool         5 questions (widgets,           Good progressive detail,
+responsibility           testing, DocuSign, LMS,         but intro could be
+                         Tableau)                        shorter
+
+SPECIFIC CONSOLIDATION OPPORTUNITIES:
+
+1. PDF/HTML RECOMMENDATION appears in 4 places with nearly identical 
+   wording. Suggest:
+   
+   • Keep full explanation in "Do all documents need to be accessible?"
+   • In other locations, use: "Best practice: Consider publishing as 
+     webpage text instead of PDF when feasible. See: [Do all documents 
+     need to be accessible?] for details."
+
+2. "WHO TO CONTACT" guidance appears in:
+   • "I prefer to talk to someone..."
+   • "Can managers delay accessibility work..."
+   • "This website was generated by a web developer..."
+   • "I'm waiting for a presentation..."
+   
+   Consider creating one definitive "Who to contact for what" question 
+   and cross-referencing.
+
+==========================================
+5. COMPLETENESS ASSESSMENT: A
+==========================================
+
+ALL MAJOR TOPICS COVERED:
+✅ Federal requirements (ADA Title II)
+✅ State requirements (IITAA)
+✅ Role-based guidance (content creators, developers, managers, execs)
+✅ Content types (web, documents, video, social media)
+✅ Procurement and VPATs
+✅ Third-party tools
+✅ Testing approaches
+✅ Prioritization with limited resources
+✅ Glossary of terms
+
+MINOR GAPS TO CONSIDER ADDING (OPTIONAL):
+
+TOPIC                                      PRIORITY   NOTES
+─────────────────────────────────────────────────────────────────────────
+Accessibility statements                   Low        What should be on 
+                                                      agency websites
+Complaint handling                         Medium     What happens if someone
+                                                      reports an issue
+Reasonable accommodations vs.              Low        Some staff confuse
+proactive accessibility                               Title I and Title II
+Archive/sunset policy                      Low        When can old content be
+                                                      removed vs. remediated
+
+==========================================
+TRIAGED IMPROVEMENT LIST
+==========================================
+
+TIER 1: FIX BEFORE SHARING (30 minutes)
+─────────────────────────────────────────
+
+1. SOFTEN PDF/HTML ATTRIBUTION
+   Change "Illinois DoIT generally recommends" to cite Cornell IT/CITL 
+   directly or frame as "accessibility best practice"
+
+2. MOVE MISPLACED QUESTIONS
+   At minimum, move "ICJIA has many public sites" out of Getting Started
+
+3. TIGHTEN "WHY IS THIS FAQ SO LONG?"
+   Remove defensive tone from quick answer
+
+TIER 2: IMPROVE WHEN POSSIBLE (1-2 hours)
+─────────────────────────────────────────
+
+4. SPLIT "GENERAL ACCESSIBILITY QUESTIONS"
+   Too many questions in one bucket; break into 2-3 subsections
+
+5. CONSOLIDATE "WHO TO CONTACT" GUIDANCE
+   Create one definitive answer and cross-reference
+
+6. REDUCE PDF/HTML REPETITION
+   Keep full explanation in one place; use brief cross-references elsewhere
+
+7. SHORTEN "THE TONE FEELS DIRECTIVE" ANSWER
+   Cut from ~800 words to ~400 words
+
+TIER 3: NICE TO HAVE (future updates)
+─────────────────────────────────────────
+
+8. ADD "HOW DO WE HANDLE ACCESSIBILITY COMPLAINTS?"
+   Practical gap in current coverage
+
+9. CREATE ICJIA-SPECIFIC SECTION
+   For audit reports, agency-specific tools, internal resources
+
+10. REVIEW GETTING STARTED SECTION STRUCTURE
+    Ensure logical flow from role → accountability → tracking
+
+==========================================
+FINAL RECOMMENDATION
+==========================================
+
+THIS FAQ IS READY FOR LEADERSHIP REVIEW.
+
+The factual content is accurate and well-sourced. The tone is appropriate 
+for the audience and situation. The structure works well enough that 
+readers will find what they need.
+
+The Tier 1 fixes are minor and take 30 minutes. Make those changes, then 
+share with confidence. The Tier 2 improvements can happen in a future 
+revision after you've gathered feedback on how people actually use the 
+document.
+
+FOR YOUR DUBIOUS AUDIENCE:
+
+Every claim links to DOJ, DoIT, or W3C. If they want to challenge 
+something, they're challenging the Department of Justice, not you. The 
+FAQ doesn't add requirements beyond what the law specifies — it just 
+explains those requirements clearly.
+
+The comprehensive source verification performed earlier confirms:
+• Federal deadlines: Exact match to Federal Register
+• Illinois requirements: Exact match to DoIT documentation
+• Technical standards: Exact match to WCAG/W3C
+• Exceptions: Complete and accurate per §35.201
+• No unsupported claims that could undermine credibility
+
+==========================================
+KEY SOURCE URLS FOR REFERENCE
+==========================================
+
+Federal Rule (Full Text - 77 pages):
+https://www.federalregister.gov/documents/2024/04/24/2024-07758/
+
+ADA.gov Fact Sheet (Plain Language):
+https://www.ada.gov/resources/2024-03-08-web-rule/
+
+ADA.gov First Steps Guide:
+https://www.ada.gov/resources/web-rule-first-steps/
+
+Illinois IITAA:
+https://doit.illinois.gov/initiatives/accessibility/iitaa.html
+
+Illinois IITAA 2.1 Standards:
+https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-2-1-standards.html
+
+W3C WCAG 2.1:
+https://www.w3.org/TR/WCAG21/
+
+==========================================
+END OF ASSESSMENT REPORT
+==========================================
