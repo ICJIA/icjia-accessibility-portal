@@ -170,20 +170,7 @@ watch(expandedPanels, (newValue) => {
   }
 });
 
-/**
- * Generates a URL-friendly slug from question text
- * @param {string} text - Text to convert to slug
- * @returns {string} URL-friendly slug
- */
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .substring(0, 50) // Limit length
-    .replace(/-$/, ""); // Remove trailing hyphen
-}
+const { slugify, getQuestionId: getQuestionIdUtil } = useSlugify();
 
 /**
  * Gets the full ID for a question (with optional section prefix)
@@ -191,8 +178,10 @@ function slugify(text: string): string {
  * @returns {string} Full question ID
  */
 function getQuestionId(question: string): string {
-  const slug = slugify(question);
-  return props.sectionId ? `${props.sectionId}-${slug}` : slug;
+  if (props.sectionId) {
+    return getQuestionIdUtil(props.sectionId, question);
+  }
+  return slugify(question);
 }
 
 /**

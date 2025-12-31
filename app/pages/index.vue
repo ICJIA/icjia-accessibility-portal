@@ -511,20 +511,7 @@ function replaceDeadlineText(node: any): any {
   return node;
 }
 
-/**
- * Generates a URL-friendly slug from text
- * @param {string} text - Text to convert to slug
- * @returns {string} URL-friendly slug
- */
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .substring(0, 30)
-    .replace(/-$/, "");
-}
+const { slugify, getQuestionId: getQuestionIdFromComposable } = useSlugify();
 
 /**
  * Processed FAQ items from markdown content
