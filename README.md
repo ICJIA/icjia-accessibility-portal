@@ -1,66 +1,123 @@
 # ICJIA Accessibility Portal
 
-A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including FAQs and Links to ensure compliance and provide a centralized resource for accessibility information.
+A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
+
+[![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.0.0+-00DC82)](https://nuxt.com)
+[![Vue 3](https://img.shields.io/badge/Vue-3.5.13+-42b883)](https://vuejs.org)
 
 ## Purpose
 
 This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 24, 2026 guideline**. The portal includes:
 
-- **FAQs**: Frequently asked questions about accessibility requirements and compliance
-- **Links**: Curated collection of accessibility resources and related information
+- **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation
+  - Dynamic countdown timer showing days until the April 24, 2026 deadline
+  - "New" badge system for recently added questions (auto-expires after 10 days)
+  - Searchable accordion interface with proper ARIA attributes
+- **Links**: Curated collection of accessibility resources, tools, and related information organized by category
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
+
+## Quick Start
+
+```bash
+# Prerequisites: Node.js 22.14.0 (check .nvmrc)
+nvm use
+
+# Install dependencies
+yarn install
+
+# Start development server
+yarn dev
+
+# Visit http://localhost:3000
+```
+
+For production deployment:
+
+```bash
+# Generate static site
+yarn generate
+
+# Preview locally
+yarn generate:serve
+
+# Or deploy to Netlify automatically via Git push
+```
 
 ## Tech Stack
 
 ### Core Framework
 
-- **Nuxt 4** - Vue.js framework with static site generation
-- **Vue 3** - Progressive JavaScript framework
-- **TypeScript** - Type-safe JavaScript
+- **Nuxt 4** - Vue.js framework with static site generation and server-side rendering
+- **Vue 3** - Progressive JavaScript framework with Composition API
+- **TypeScript** - Type-safe JavaScript with enhanced IDE support
 
 ### UI & Styling
 
-- **Vuetify 3** - Material Design component library
-- **Sass** - CSS preprocessor
-- **Material Design Icons (MDI)** - Icon library
+- **Vuetify 3** - Material Design component library with comprehensive accessibility support
+- **Sass** - CSS preprocessor for maintainable stylesheets
+- **Material Design Icons (MDI)** - Extensive icon library with 7,000+ icons
 
 ### Content & Data
 
-- **Nuxt Content 3** - Markdown-based content management
-- **Zod** - TypeScript-first schema validation
+- **Nuxt Content 3** - File-based CMS with markdown support and query API
+- **Zod** - TypeScript-first schema validation for content and configuration
+- **better-sqlite3** - High-performance SQLite3 with synchronous API (used by Nuxt Content)
+
+### Search & Discovery
+
+- **Fuse.js** - Lightweight fuzzy-search library for client-side search
 
 ### Development Tools
 
 - **Vite** - Next-generation frontend build tool (via Nuxt)
-- **Yarn** - Package manager
-- **Playwright** - End-to-end testing framework
-- **axe-core** - Accessibility testing engine
+- **Yarn** - Fast, reliable package manager
+- **Playwright** - End-to-end testing and browser automation
+- **axe-core** - Accessibility testing engine (WCAG 2.1 AA compliance)
+- **Lighthouse** - Performance, accessibility, and best practices auditing
 
 ### Analytics
 
-- **Plausible Analytics** - Privacy-friendly web analytics
+- **Plausible Analytics** - Privacy-friendly, GDPR-compliant web analytics
 
 ### Deployment
 
-- **Netlify** - Static site hosting and deployment
+- **Netlify** - Static site hosting with automatic deployments, custom headers, and CDN
 
 ## Features
 
-- **WCAG 2.1 AA Compliant** - Verified with automated accessibility audits using **axe-core** (all pages pass)
-- **Accessibility Enhancements**:
-  - Skip navigation link for keyboard users
-  - ARIA live regions for dynamic content (countdown timer)
-  - ARIA describedby relationships for FAQ accordions
+### Accessibility (WCAG 2.1 AA Compliant)
+
+- **100% Accessible** - All pages verified with automated accessibility audits using **axe-core** (zero violations)
+- **Skip Navigation** - Skip link for keyboard users to jump to main content
+- **ARIA Support**:
+  - Live regions for dynamic content (countdown timer with `aria-live="polite"`)
+  - `aria-describedby` relationships linking FAQ questions to answers
+  - `aria-current="page"` on active navigation items
   - Proper ARIA labels on all interactive elements
-  - aria-current="page" on active navigation items
-  - Decorative icons properly marked with aria-hidden
+  - Decorative icons marked with `aria-hidden="true"`
+- **Keyboard Navigation** - Fully keyboard navigable with visible focus indicators
+- **Screen Reader Friendly** - Semantic HTML with proper heading hierarchy
+- **Color Contrast** - WCAG AA compliant contrast ratios throughout
+- **Reduced Motion** - Respects `prefers-reduced-motion` user preference
+
+### Content Features
+
+- **Dynamic Countdown Timer** - Shows days remaining until April 24, 2026 deadline
+- **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
+  - Add `{new:YYYY-MM-DD}` after question heading in markdown
+  - Badge auto-expires after 10 days (configurable)
+- **Markdown-based Content** - Easy content management via Nuxt Content
+- **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
+
+### Design & Performance
+
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-- **Dark Theme** - Dark theme by default
-- **Static Site Generation** - Optimized for Netlify deployment
-- **Automated Testing** - Accessibility audits using **axe-core** (WCAG 2.1 AA compliance)
-- **Content Management** - Markdown-based content via Nuxt Content
-- **Performance** - Optimized static generation with proper caching headers
+- **Dark Theme** - Modern dark theme by default using Vuetify Material Design
+- **Static Site Generation** - Optimized for fast loading and Netlify deployment
+- **Performance Optimized** - Proper caching headers and optimized assets
+- **SEO Ready** - Automated sitemap generation and proper meta tags
 
 ## Prerequisites
 
@@ -80,13 +137,32 @@ yarn install
 # Start development server (runs on http://localhost:3000)
 yarn dev
 
-# Run accessibility audit using axe-core (WCAG 2.1 AA compliance check)
+# Run quick accessibility audit using axe-core (console output)
 yarn audit:a11y
+
+# Run Lighthouse performance audit (requires running server)
+yarn audit:lighthouse
+
+# Run both accessibility and Lighthouse audits
+yarn audit:full
 
 # Generate comprehensive accessibility report (HTML)
 # Note: Requires a running server (dev, preview, or generate:serve)
 yarn generate:accessibility
 ```
+
+### Available Scripts
+
+- `yarn dev` - Start development server with auto-reload
+- `yarn build` - Build for production (SSR mode)
+- `yarn generate` - Generate static site for deployment
+- `yarn preview` - Preview production build locally (port 3000)
+- `yarn generate:serve` - Generate and serve static site (port 5150)
+- `yarn audit:a11y` - Quick accessibility check (console output)
+- `yarn audit:lighthouse` - Full Lighthouse audit (requires server)
+- `yarn audit:full` - Run both accessibility and Lighthouse audits
+- `yarn generate:routes` - Generate routes.json from pages/content
+- `yarn generate:sitemap` - Generate sitemap.xml from routes
 
 ## Building
 
@@ -118,77 +194,122 @@ The build process will:
 
 ## Deployment
 
-This site is configured for deployment on Netlify:
+This site is configured for deployment on Netlify with automatic builds and optimized performance.
+
+### Deployment Configuration
 
 - **Build command**: `yarn generate`
 - **Publish directory**: `.output/public`
-- **Node version**: 22.14.0 (specified in netlify.toml)
+- **Node version**: 22.14.0 (specified in netlify.toml and .nvmrc)
+
+### Security & Performance Headers
 
 The `netlify.toml` file includes:
 
-- Security headers (X-Frame-Options, X-XSS-Protection, etc.)
-- Cache headers for static assets
-- SPA fallback redirects for client-side routing
+- **Security headers**:
+  - X-Frame-Options: DENY (prevents clickjacking)
+  - X-Content-Type-Options: nosniff
+  - X-XSS-Protection: 1; mode=block
+  - Referrer-Policy: strict-origin-when-cross-origin
+- **Cache headers** for static assets (1 year cache for immutable files)
+- **SPA fallback** redirects for client-side routing
+- **Custom 404 handling**
 
-To deploy:
+### Deployment Steps
 
-1. Push code to your Git repository
+#### Automatic Deployment (Recommended)
+
+1. Push code to your Git repository (GitHub, GitLab, Bitbucket)
 2. Connect the repository to Netlify
-3. Netlify will automatically detect the `netlify.toml` configuration
-4. The site will build and deploy automatically on each push
+3. Netlify automatically detects the `netlify.toml` configuration
+4. Site builds and deploys automatically on each push to main branch
+5. Preview deployments created automatically for pull requests
+
+#### Manual Deployment
+
+```bash
+# Generate the static site
+yarn generate
+
+# Deploy using Netlify CLI
+netlify deploy --prod --dir=.output/public
+```
+
+### Build Process
+
+The automated build process:
+
+1. Ensures accessibility report placeholder exists
+2. Generates `routes.json` from pages and content
+3. Generates `sitemap.xml` from routes
+4. Builds/generates the Nuxt application
+5. Regenerates routes.json with Nuxt-discovered routes
+6. Updates sitemap with final routes
+7. Optimizes and outputs to `.output/public/`
+
+**Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not indexed for SEO purposes).
 
 ## Project Structure
 
 ```
 ├── app/
-│   ├── app.vue              # Root app component
+│   ├── app.vue                 # Root app component
 │   ├── layouts/
-│   │   └── default.vue      # Default layout with navbar and footer
+│   │   └── default.vue         # Default layout with navbar and footer
 │   ├── pages/
-│   │   ├── index.vue        # Home page with countdown timer and FAQs
-│   │   └── links.vue        # Accessibility links page
+│   │   ├── index.vue           # Home page with countdown timer and FAQs
+│   │   ├── faqs.vue            # Dedicated FAQ page
+│   │   └── links.vue           # Accessibility links page
 │   ├── components/
-│   │   ├── SkipLink.vue     # Skip to main content link
-│   │   ├── AppNavbar.vue    # Navigation bar with aria-current support
-│   │   ├── AppFooter.vue    # Footer component
+│   │   ├── SkipLink.vue        # Skip to main content link
+│   │   ├── AppNavbar.vue       # Navigation bar with aria-current support
+│   │   ├── AppFooter.vue       # Footer component
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   └── FaqAccordion.vue    # FAQ accordion with aria-describedby
 │   ├── composables/
-│   │   └── useFaqCollapse.ts  # Composable for FAQ collapse state
+│   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
+│   │   ├── useFaqCollapse.ts        # Composable for FAQ collapse state
+│   │   └── useSlugify.ts            # Composable for creating URL slugs
 │   ├── plugins/
 │   │   ├── content-links.client.ts  # Plugin to add target="_blank" to content links
-│   │   └── ensure-accessibility-report.server.ts  # Server plugin to ensure report exists
+│   │   ├── ensure-accessibility-report.server.ts  # Server plugin for report placeholder
+│   │   └── optimize-css.client.ts   # Client plugin for CSS optimization
 │   ├── utils/
-│   │   └── faqTransform.ts  # Utility to transform FAQ content
-│   └── error.vue            # Error page component
+│   │   └── faqTransform.ts     # Utility to transform FAQ content and handle "new" badges
+│   ├── router.options.ts       # Custom router configuration
+│   └── error.vue               # Error page component
 ├── content/
-│   ├── links.md             # Accessibility links content
-│   └── faqs.md              # FAQ content
+│   ├── faqs.md                 # FAQ content (with "new" badge support)
+│   └── links.md                # Accessibility links content
 ├── public/
-│   ├── favicon.svg          # Site favicon
-│   ├── icjia-logo.png       # ICJIA logo
-│   ├── robots.txt           # Robots.txt (disallows all indexing)
-│   ├── sitemap.xml          # Auto-generated sitemap (excludes /docs/ routes)
+│   ├── favicon.svg             # Site favicon
+│   ├── icjia-logo.png          # ICJIA logo
+│   ├── robots.txt              # Robots.txt (disallows all indexing)
+│   ├── sitemap.xml             # Auto-generated sitemap (excludes /docs/ routes)
 │   └── docs/
-│       ├── index.html       # Documentation portal index
+│       ├── index.html          # Documentation portal index
 │       ├── accessibility/
-│       │   ├── index.html   # Accessibility audit report (generated)
-│       │   ├── errors.json  # Accessibility errors data
-│       │   └── violations.json  # Accessibility violations data
+│       │   ├── index.html      # Accessibility audit report (generated)
+│       │   ├── errors.json     # Accessibility errors data
+│       │   └── violations.json # Accessibility violations data
 │       └── lighthouse/
-│           ├── index.html   # Lighthouse audit report (generated)
-│           └── report.json  # Lighthouse audit data
+│           ├── index.html      # Lighthouse audit report (generated)
+│           └── report.json     # Lighthouse audit data
 ├── scripts/
-│   ├── generate-routes.js  # Routes generation script (scans pages and content)
-│   ├── generate-sitemap.js  # Sitemap generation script
-│   ├── generate-accessibility-report.js  # Accessibility report generator
+│   ├── generate-routes.js      # Routes generation script (scans pages and content)
+│   ├── generate-sitemap.js     # Sitemap generation script
 │   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
-├── audit-accessibility.js   # Legacy accessibility audit script (console output)
-├── content.config.ts        # Nuxt Content configuration
-├── LICENSE                  # MIT License
-├── netlify.toml            # Netlify deployment configuration
-├── nuxt.config.ts          # Nuxt configuration
-└── routes.json             # Auto-generated routes list (from Nuxt build)
+├── markdown-documentation/     # Project documentation and audit results
+│   ├── PROJECT_REVIEW.md       # Comprehensive project review
+│   ├── FAQ_NEW_TAG_SYSTEM.md   # Documentation for "new" badge system
+│   ├── ACCESSIBILITY_AUDIT_RESULTS.md  # Latest audit results
+│   └── (other documentation files)
+├── audit-accessibility.js      # Accessibility audit script (console output)
+├── audit-lighthouse.js         # Lighthouse audit script (HTML reports)
+├── content.config.ts           # Nuxt Content configuration
+├── netlify.toml                # Netlify deployment configuration
+├── nuxt.config.ts              # Nuxt configuration
+└── routes.json                 # Auto-generated routes list (from Nuxt build)
 ```
 
 ## Accessibility
@@ -272,6 +393,55 @@ yarn generate:accessibility
 - Or access via the documentation portal: `http://localhost:[port]/docs`
 - The report is also available in the footer navigation (Accessibility Report link)
 
+## Content Management
+
+### Adding New FAQ Questions
+
+1. Edit `content/faqs.md`
+2. Add your question as an H3 heading (`###`)
+3. Add the "new" badge tag on the next line (optional):
+
+```markdown
+### Your New Question Here?
+
+{new:2025-12-31}
+
+**Quick answer:** Your answer here...
+```
+
+The "New" badge will:
+
+- Display automatically for 10 days from the specified date
+- Appear as a green chip next to the question
+- Auto-expire without any manual cleanup needed
+
+For more details, see `markdown-documentation/FAQ_NEW_TAG_SYSTEM.md`.
+
+### Adding Links
+
+1. Edit `content/links.md`
+2. Add your link using markdown syntax:
+
+```markdown
+- [Link Title](https://example.com) - Description of the link
+```
+
+Links automatically open in new tabs with proper accessibility attributes.
+
+### Dynamic Placeholders
+
+Content can include dynamic placeholders that auto-update:
+
+- `{days_until_deadline}` - Shows days remaining until April 24, 2026
+
+Example:
+
+```markdown
+There are {days_until_deadline} days until the deadline.
+```
+
+This automatically updates without rebuilding the site.
+
 #### 3. Lighthouse Performance Audit (`yarn audit:lighthouse`)
 
 A performance and best practices audit using Google Lighthouse that generates comprehensive reports for all pages.
@@ -353,7 +523,16 @@ yarn audit:lighthouse
 
 #### Current Audit Status
 
-All pages currently pass with **no violations** detected. The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards.
+✅ **All pages currently pass with zero violations detected.**
+
+Latest audit results:
+
+- **Total Pages Tested**: 4 (/, /faqs, /links, /search)
+- **WCAG 2.1 AA Violations**: 0
+- **Accessibility Score**: 100%
+- **Last Audited**: December 2025
+
+The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available in `markdown-documentation/ACCESSIBILITY_AUDIT_RESULTS.md`.
 
 #### Sitemap Generation
 
@@ -367,28 +546,205 @@ The project includes automated sitemap generation that runs during build, genera
 
 The sitemap is generated at `public/sitemap.xml` and includes all public pages with proper priority and change frequency settings.
 
+## Documentation
+
+### Project Documentation
+
+Comprehensive documentation is available in the `markdown-documentation/` folder:
+
+- **PROJECT_REVIEW.md** - Complete project review with improvement suggestions
+- **FAQ_NEW_TAG_SYSTEM.md** - Guide for using the "new" badge system
+- **ACCESSIBILITY_AUDIT_RESULTS.md** - Latest accessibility audit results
+- **FAQ_COMPREHENSIVE_ASSESSMENT.md** - Detailed FAQ content assessment
+- **CONFIGURATION_ABSTRACTION.md** - Configuration management guide
+- And more technical documentation files
+
+### Live Documentation Portal
+
+The application includes a built-in documentation portal at `/docs/` with:
+
+- **Accessibility Reports** (`/docs/accessibility/`) - Automated accessibility audit results
+- **Lighthouse Reports** (`/docs/lighthouse/`) - Performance audit results
+- **Portal Index** (`/docs/`) - Central hub for all documentation
+
+Access the documentation portal:
+
+- Development: `http://localhost:3000/docs`
+- Production: `https://your-domain.com/docs`
+
+### Audit Reports
+
+Generate and view comprehensive audit reports:
+
+```bash
+# Start server first
+yarn dev  # or yarn generate:serve
+
+# Generate accessibility report
+yarn generate:accessibility
+
+# Generate Lighthouse report
+yarn audit:lighthouse
+```
+
+Reports include:
+
+- Summary statistics
+- Detailed violation information
+- Remediation guidance
+- Historical comparisons
+- Element-level details
+
 ## Project Status
 
 **Current Status**: ✅ Production Ready
 
-- ✅ All pages pass WCAG 2.1 AA compliance
+### Completed Features
+
+- ✅ All pages pass WCAG 2.1 AA compliance (zero violations)
 - ✅ Fully responsive design (mobile, tablet, desktop)
-- ✅ Dark theme (default)
-- ✅ Static site generation optimized
-- ✅ Accessibility features implemented and tested
-- ✅ SEO optimized with proper meta tags
+- ✅ Dark theme with proper contrast ratios
+- ✅ Static site generation optimized for Netlify
+- ✅ Comprehensive accessibility features:
+  - Skip navigation link
+  - ARIA live regions for dynamic content
+  - Proper focus management
+  - Keyboard navigation support
+  - Screen reader optimized
+- ✅ SEO optimized with automated sitemap generation
+- ✅ "New" badge system for FAQ questions
+- ✅ Dynamic countdown timer (April 24, 2026 deadline)
+- ✅ Automated accessibility and Lighthouse audits
+- ✅ Documentation portal with audit reports
 
-**Last Updated**: December 30, 2025
+### Recent Updates (December 2025)
 
-**Node Version**: 22.14.0  
-**Nuxt Version**: 4.0.0+  
-**Vue Version**: 3.5.13+  
-**Vuetify Version**: 3.11.3+
+- Enhanced FAQ system with auto-expiring "New" badges
+- Improved accessibility with comprehensive ARIA support
+- Added Lighthouse performance auditing
+- Implemented dynamic content placeholders
+- Added comprehensive project documentation
+- Optimized CSS and performance
+- Enhanced content management system
+
+### Version Information
+
+**Last Updated**: December 31, 2025
+
+**Core Dependencies**:
+
+- Node.js: 22.14.0
+- Nuxt: 4.0.0+
+- Vue: 3.5.13+
+- Vuetify: 3.11.3+
+- Nuxt Content: 3.9.0+
+
+**Testing Tools**:
+
+- axe-core: 4.11.0+ (accessibility testing)
+- Playwright: 1.57.0+ (browser automation)
+- Lighthouse: 12.0.0+ (performance auditing)
+
+### Future Enhancements
+
+Potential improvements documented in `markdown-documentation/PROJECT_REVIEW.md`:
+
+**High Priority**:
+
+- Enhanced meta tags for social sharing (Open Graph, Twitter Cards)
+- Image optimization (WebP format)
+- TypeScript type improvements
+
+**Medium Priority**:
+
+- Unit and integration tests
+- Component documentation
+- Visual regression testing
+
+**Low Priority**:
+
+- PWA support for offline access
+- Internationalization (i18n)
+- Advanced analytics
+
+## Contributing
+
+### Development Workflow
+
+1. **Fork & Clone** the repository
+2. **Create a feature branch**: `git checkout -b feature/your-feature-name`
+3. **Make changes** and test thoroughly
+4. **Run audits**: `yarn audit:a11y` to ensure accessibility compliance
+5. **Commit changes**: Use clear, descriptive commit messages
+6. **Push to your fork**: `git push origin feature/your-feature-name`
+7. **Submit a Pull Request** with detailed description
+
+### Code Standards
+
+- **Accessibility First**: All changes must maintain WCAG 2.1 AA compliance
+- **TypeScript**: Use proper types, avoid `any` when possible
+- **Vue 3 Composition API**: Use `<script setup>` syntax
+- **Semantic HTML**: Use proper HTML5 semantic elements
+- **ARIA Labels**: Include proper ARIA attributes for interactive elements
+- **Testing**: Run accessibility audits before submitting
+
+### Content Guidelines
+
+When adding or updating content:
+
+- Use clear, plain language (avoid jargon)
+- Maintain consistent tone (professional but approachable)
+- Check spelling and grammar
+- Use markdown best practices
+- Test with screen readers when possible
+
+### Accessibility Testing
+
+Before submitting changes:
+
+```bash
+# Run quick accessibility audit
+yarn audit:a11y
+
+# Generate full accessibility report
+yarn dev  # in one terminal
+yarn generate:accessibility  # in another terminal
+```
+
+Ensure zero violations on all pages.
+
+## Support & Resources
+
+### Getting Help
+
+- **Issues**: Report bugs or request features via GitHub Issues
+- **Documentation**: See `markdown-documentation/` folder
+- **WCAG Guidelines**: [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/WAI/WCAG21/quickref/)
+- **ADA Title II**: [ADA.gov Guidance](https://www.ada.gov/)
+
+### Useful Links
+
+- **Nuxt 4 Documentation**: https://nuxt.com/docs
+- **Vuetify 3 Documentation**: https://vuetifyjs.com/
+- **axe-core Rules**: https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md
+- **WCAG Quick Reference**: https://www.w3.org/WAI/WCAG21/quickref/
 
 ## License
 
-This project is licensed under the MIT License.
+MIT License
 
 Copyright (c) 2025 Illinois Criminal Justice Information Authority
 
-See the [LICENSE](LICENSE) file for the full license text.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+See the [LICENSE](LICENSE) file for the complete license text.
+
+---
+
+**Built with accessibility in mind for the Illinois Criminal Justice Information Authority**
+
+For questions or support, please open an issue on GitHub.
