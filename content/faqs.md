@@ -793,7 +793,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 {new:2025-12-30}
 
-**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here are some recent ICJIA accessibility reports: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a> | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site</a> | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site</a>. Additional reports may be added as sites are audited.
+**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Here are some recent ICJIA accessibility reports: <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a> | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site</a> | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site</a>. Additional reports will be added as sites are audited and remediated.
 
 **Full explanation:**
 
@@ -803,7 +803,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 - **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer (similar to this portal)
 - **Reports are site-specific** — Each website will have its own report documenting that site's accessibility status
-- **Available reports** — These are some recent ICJIA accessibility reports. Additional reports may be added as sites are audited:
+- **Available reports** — These are some recent ICJIA accessibility reports. Additional reports will be added as sites are audited and remediated:
   - <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">ICJIA Accessibility Portal (this site)</a>
   - <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">R3 site (r3.illinois.gov)</a>
   - <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">i2i site (i2i.illinois.gov)</a>
