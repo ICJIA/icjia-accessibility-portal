@@ -202,220 +202,428 @@ function generateHTMLReport(testResults, outputPath, rootDir) {
     mkdirSync(reportDir, { recursive: true });
   }
 
-  const { summary, testResults: results } = testResults;
+  const { summary, testResults: results, projectStats } = testResults;
   const passRate =
     summary.totalTests > 0
       ? ((summary.passedTests / summary.totalTests) * 100).toFixed(1)
       : 0;
+  
+  const generatedDate = new Date(summary.generatedAt || Date.now());
+  const formattedDate = generatedDate.toLocaleDateString();
+  const formattedTime = generatedDate.toLocaleTimeString();
+
+  // Generate project stats HTML
+  let projectStatsHTML = "";
+  if (projectStats && Object.keys(projectStats).length > 0) {
+    projectStatsHTML = Object.entries(projectStats)
+      .map(([project, stats]) => {
+        const projectStatus = stats.failed > 0 ? "error" : "success";
+        return `
+        <tr>
+          <td><strong>${project}</strong></td>
+          <td>${stats.total}</td>
+          <td class="status-pass">${stats.passed}</td>
+          <td class="status-${projectStatus}">${stats.failed}</td>
+          <td class="status-${stats.failed > 0 ? "fail" : "pass"}">${stats.failed > 0 ? "❌ Fail" : "✅ Pass"}</td>
+        </tr>`;
+      })
+      .join("");
+  }
 
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Results - ICJIA Accessibility Portal</title>
+  <title>Test Results Report - ${formattedDate}</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #0F172A;
-      color: #E2E8F0;
       line-height: 1.6;
-      padding: 2rem;
+      color: #333;
+      background: #fff;
+      padding: 20px;
     }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    header {
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid #334155;
-    }
+    
     h1 {
-      color: #60A5FA;
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .summary {
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .meta {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 2rem;
+    }
+    
+    .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
-    .summary-card {
-      background: #1E293B;
-      border: 1px solid #334155;
-      border-radius: 8px;
+    
+    .stat-card {
       padding: 1.5rem;
+      border-radius: 8px;
       text-align: center;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      transition: all 0.2s ease;
     }
-    .summary-card.passed {
-      border-color: #81C784;
+    
+    .stat-card.success {
+      background: #d1e7dd;
+      border-color: #badbcc;
+      color: #0f5132;
     }
-    .summary-card.failed {
-      border-color: #CF6679;
+    
+    .stat-card.error {
+      background: #f8d7da;
+      border-color: #f5c2c7;
+      color: #842029;
     }
-    .summary-card.skipped {
-      border-color: #FFB74D;
+    
+    .stat-card.warning {
+      background: #fff3cd;
+      border-color: #ffecb5;
+      color: #856404;
     }
-    .summary-card.total {
-      border-color: #60A5FA;
-    }
-    .summary-card h3 {
+    
+    .stat-card .number {
       font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
     }
-    .summary-card.passed h3 {
-      color: #81C784;
+    
+    .stat-card .label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
     }
-    .summary-card.failed h3 {
-      color: #CF6679;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .summary-card.skipped h3 {
-      color: #FFB74D;
+    
+    thead {
+      background: #f8f9fa;
     }
-    .summary-card.total h3 {
-      color: #60A5FA;
+    
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
     }
-    .summary-card p {
-      color: #CBD5E1;
-      font-size: 0.9rem;
+    
+    th {
+      font-weight: 600;
+      color: #495057;
     }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .status-pass {
+      color: #198754;
+      font-weight: 600;
+    }
+    
+    .status-fail {
+      color: #dc3545;
+      font-weight: 600;
+    }
+    
+    .status-warning {
+      color: #856404;
+      font-weight: 600;
+    }
+    
     .test-file {
-      background: #1E293B;
-      border: 1px solid #334155;
+      background: white;
+      border: 1px solid #dee2e6;
       border-radius: 8px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
+    
     .test-file-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid #dee2e6;
     }
+    
     .test-file-name {
       font-weight: 600;
-      color: #F8FAFC;
+      color: #212529;
       font-size: 1.1rem;
     }
+    
     .test-file-status {
       padding: 0.25rem 0.75rem;
       border-radius: 4px;
       font-size: 0.85rem;
       font-weight: 600;
     }
+    
     .test-file-status.passed {
-      background: #81C784;
-      color: #0F172A;
+      background: #d1e7dd;
+      color: #0f5132;
     }
+    
     .test-file-status.failed {
-      background: #CF6679;
-      color: #0F172A;
+      background: #f8d7da;
+      color: #842029;
     }
+    
     .test-file-status.skipped {
-      background: #FFB74D;
-      color: #0F172A;
+      background: #fff3cd;
+      color: #856404;
     }
+    
     .test-case {
       padding: 0.75rem;
       margin-bottom: 0.5rem;
       border-radius: 4px;
-      background: #0F172A;
+      background: #f8f9fa;
     }
+    
     .test-case.passed {
-      border-left: 3px solid #81C784;
+      border-left: 3px solid #198754;
     }
+    
     .test-case.failed {
-      border-left: 3px solid #CF6679;
+      border-left: 3px solid #dc3545;
     }
+    
     .test-case.skipped {
-      border-left: 3px solid #FFB74D;
+      border-left: 3px solid #ffc107;
     }
+    
     .test-case-title {
       font-weight: 500;
-      color: #F8FAFC;
+      color: #212529;
       margin-bottom: 0.25rem;
     }
+    
     .test-case-duration {
       font-size: 0.85rem;
-      color: #94A3B8;
+      color: #6c757d;
     }
+    
     .failure-message {
       margin-top: 0.5rem;
       padding: 0.75rem;
-      background: #1E293B;
+      background: #f8d7da;
       border-radius: 4px;
-      border-left: 3px solid #CF6679;
+      border-left: 3px solid #dc3545;
     }
+    
     .failure-message pre {
-      color: #FCA5A5;
+      color: #842029;
       font-size: 0.85rem;
       white-space: pre-wrap;
       word-wrap: break-word;
     }
-    .meta {
-      color: #94A3B8;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #334155;
+    
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: #0d6efd;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      z-index: 10000;
+      border-radius: 0 0 4px 0;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.5;
+      clip: auto;
+      clip-path: none;
+      transition: top 0.2s ease-in-out;
     }
-    .no-tests {
+    
+    .skip-link:focus {
+      top: 0;
+      left: 0;
+      outline: 3px solid #0d6efd;
+      outline-offset: 2px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+    
+    .skip-link:focus-visible {
+      top: 0;
+      left: 0;
+      outline: 3px solid #0d6efd;
+      outline-offset: 2px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .skip-link {
+        transition: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.875rem;
+      }
+      
+      th, td {
+        padding: 0.5rem;
+      }
+    }
+    
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #dee2e6;
       text-align: center;
-      padding: 3rem;
-      color: #94A3B8;
+      color: #6c757d;
+      font-size: 0.875rem;
     }
   </style>
 </head>
 <body>
+  <!-- Skip Link -->
+  <a
+    href="#main-content"
+    class="skip-link"
+    id="skip-link"
+  >
+    Skip to main content
+  </a>
+  
   <div class="container">
-    <header>
-      <h1>🧪 Test Results</h1>
-      <p class="meta">Generated: ${new Date(summary.generatedAt || Date.now()).toLocaleString()}</p>
-    </header>
-
-    <div class="summary">
-      <div class="summary-card total">
-        <h3>${summary.totalTests}</h3>
-        <p>Total Tests</p>
-      </div>
-      <div class="summary-card passed">
-        <h3>${summary.passedTests}</h3>
-        <p>Passed</p>
-      </div>
-      <div class="summary-card failed">
-        <h3>${summary.failedTests}</h3>
-        <p>Failed</p>
-      </div>
-      <div class="summary-card skipped">
-        <h3>${summary.skippedTests}</h3>
-        <p>Skipped</p>
-      </div>
-      <div class="summary-card">
-        <h3>${passRate}%</h3>
-        <p>Pass Rate</p>
-      </div>
-      <div class="summary-card">
-        <h3>${(summary.duration / 1000).toFixed(2)}s</h3>
-        <p>Duration</p>
-      </div>
-    </div>
-
-    ${generateTestFilesHTML(results, rootDir)}
-
+    <main id="main-content" tabindex="-1">
+    <h1>🧪 ICJIA Accessibility Portal - Test Results Report</h1>
+    <p class="meta" style="margin-top: 0.5rem; margin-bottom: 1rem;">Comprehensive test results for unit, Nuxt, and E2E tests</p>
     <div class="meta">
-      <p>Test execution completed at ${new Date().toLocaleString()}</p>
-      <p>Total duration: ${(summary.duration / 1000).toFixed(2)} seconds</p>
+      <p><strong>Generated:</strong> ${formattedDate}, ${formattedTime}</p>
+      <p><strong>Total Tests:</strong> ${summary.totalTests}</p>
+      <p><strong>Duration:</strong> ${(summary.duration / 1000).toFixed(2)} seconds</p>
     </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card ${summary.failedTests > 0 ? "error" : "success"}">
+        <div class="label">Total Tests</div>
+        <div class="number">${summary.totalTests}</div>
+      </div>
+      <div class="stat-card success">
+        <div class="label">Passed</div>
+        <div class="number">${summary.passedTests}</div>
+      </div>
+      <div class="stat-card ${summary.failedTests > 0 ? "error" : "success"}">
+        <div class="label">Failed</div>
+        <div class="number">${summary.failedTests}</div>
+      </div>
+      <div class="stat-card ${summary.skippedTests > 0 ? "warning" : "success"}">
+        <div class="label">Skipped</div>
+        <div class="number">${summary.skippedTests}</div>
+      </div>
+      <div class="stat-card ${summary.failedTests > 0 ? "error" : "success"}">
+        <div class="label">Pass Rate</div>
+        <div class="number">${passRate}%</div>
+      </div>
+    </div>
+    
+    ${projectStatsHTML ? `
+    <h2>📋 Test Results by Project</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Total Tests</th>
+          <th>Passed</th>
+          <th>Failed</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${projectStatsHTML}
+      </tbody>
+    </table>
+    ` : ""}
+    
+    <h2>📋 All Test Files</h2>
+    ${generateTestFilesHTML(results, rootDir)}
+    
+    <footer>
+      <p>Generated on ${formattedDate}, ${formattedTime}</p>
+      <p>Total duration: ${(summary.duration / 1000).toFixed(2)} seconds</p>
+    </footer>
+    </main>
   </div>
+  
+  <script>
+    // Skip Link Handler
+    (function() {
+      const skipLink = document.getElementById('skip-link');
+      if (skipLink) {
+        const handleSkipLink = function(e) {
+          e.preventDefault();
+          const target = document.getElementById('main-content');
+          if (target) {
+            target.focus();
+            const prefersReducedMotion = window.matchMedia(
+              '(prefers-reduced-motion: reduce)'
+            ).matches;
+            target.scrollIntoView({
+              behavior: prefersReducedMotion ? 'auto' : 'smooth',
+              block: 'start',
+            });
+          }
+        };
+        
+        skipLink.addEventListener('click', handleSkipLink);
+        skipLink.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            handleSkipLink(e);
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>`;
 
@@ -427,7 +635,7 @@ function generateHTMLReport(testResults, outputPath, rootDir) {
  */
 function generateTestFilesHTML(results, rootDir) {
   if (results.length === 0) {
-    return '<div class="no-tests"><p>No test results available</p></div>';
+    return '<div style="text-align: center; padding: 3rem; color: #6c757d;"><p>No test results available</p></div>';
   }
 
   return results
@@ -435,12 +643,17 @@ function generateTestFilesHTML(results, rootDir) {
       const status = testFile.status || "unknown";
       const statusClass = status.toLowerCase();
       const testCases = testFile.assertionResults || [];
-      const fileName = testFile.name.replace(rootDir, "");
+      const fileName = testFile.name.replace(rootDir, "").replace(/\\/g, "/");
+
+      // Count test cases by status
+      const passedCount = testCases.filter((tc) => tc.status === "passed").length;
+      const failedCount = testCases.filter((tc) => tc.status === "failed").length;
+      const skippedCount = testCases.filter((tc) => tc.status === "skipped").length;
 
       let testCasesHTML = "";
       if (testCases.length === 0) {
         testCasesHTML =
-          '<p style="color: #94A3B8;">No test cases in this file</p>';
+          '<p style="color: #6c757d;">No test cases in this file</p>';
       } else {
         testCasesHTML = testCases
           .map((testCase) => {
@@ -463,9 +676,11 @@ function generateTestFilesHTML(results, rootDir) {
               failureHTML = `<div class="failure-message"><pre>${failureText}</pre></div>`;
             }
 
+            const statusIcon = caseStatus === "passed" ? "✅" : caseStatus === "failed" ? "❌" : "⚠️";
+
             return `
       <div class="test-case ${caseClass}">
-        <div class="test-case-title">${title}</div>
+        <div class="test-case-title">${statusIcon} ${title}</div>
         <div class="test-case-duration">Duration: ${duration}</div>
         ${failureHTML}
       </div>`;
@@ -477,7 +692,12 @@ function generateTestFilesHTML(results, rootDir) {
     <div class="test-file">
       <div class="test-file-header">
         <div class="test-file-name">${fileName}</div>
-        <span class="test-file-status ${statusClass}">${status.toUpperCase()}</span>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 0.85rem; color: #6c757d;">
+            ${passedCount} passed, ${failedCount} failed, ${skippedCount} skipped
+          </span>
+          <span class="test-file-status ${statusClass}">${status.toUpperCase()}</span>
+        </div>
       </div>
       ${testCasesHTML}
     </div>`;

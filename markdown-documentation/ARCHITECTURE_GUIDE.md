@@ -1585,7 +1585,7 @@ After implementing the fix:
 - Build fails during `yarn install` on Netlify
 - Error: `@oxc-minify/binding-darwin-arm64@0.106.0: The platform "linux" is incompatible with this module`
 - Error: `The CPU architecture "x64" is incompatible with this module`
-- Similar errors for `@oxc-parser/binding-darwin-arm64`, `@oxc-transform/binding-darwin-arm64`, `@rollup/rollup-darwin-arm64`
+- Similar errors for `@oxc-parser/binding-darwin-arm64`, `@oxc-transform /binding-darwin-arm64`, `@rollup/rollup-darwin-arm64`
 
 **Root Cause**:
 
