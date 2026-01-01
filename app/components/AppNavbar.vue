@@ -29,24 +29,26 @@
       <v-spacer />
 
       <!-- Navigation Links -->
-      <v-btn
-        v-for="item in navItems"
-        :key="item.to"
-        :href="item.to"
-        variant="text"
-        class="nav-btn d-none d-sm-flex"
-        :prepend-icon="item.icon"
-        :aria-label="`Navigate to ${item.title}`"
-        :aria-current="route.path === item.to ? 'page' : undefined"
-      >
-        {{ item.title }}
-      </v-btn>
+      <template v-if="showDesktopNav">
+        <v-btn
+          v-for="item in navItems"
+          :key="item.to"
+          :href="item.to"
+          variant="text"
+          class="nav-btn"
+          :prepend-icon="item.icon"
+          :aria-label="`Navigate to ${item.title}`"
+          :aria-current="route.path === item.to ? 'page' : undefined"
+        >
+          {{ item.title }}
+        </v-btn>
+      </template>
 
       <!-- Mobile Navigation Menu -->
       <v-menu
-        v-if="mobile"
+        v-if="showMobileMenu"
         location="bottom"
-        class="d-flex d-sm-none"
+        class="d-flex"
         v-model="menuOpen"
       >
         <template #activator="{ props }">
@@ -84,11 +86,12 @@
 
       <!-- Desktop External ICJIA Link -->
       <v-btn
+        v-if="showDesktopNav"
         href="https://icjia.illinois.gov"
         target="_blank"
         rel="noopener noreferrer"
         variant="text"
-        class="mx-1 d-none d-sm-flex"
+        class="mx-1"
         prepend-icon="mdi-open-in-new"
       >
         ICJIA Website
@@ -104,11 +107,16 @@
  * and mobile menu support. Includes aria-current support for active page indication.
  */
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useDisplay } from "vuetify";
 
 /** @type {import('vuetify').DisplayInstance} Vuetify display instance for responsive behavior */
-const { mobile } = useDisplay();
+const { width } = useDisplay();
+
+// Use width directly to ensure consistent breakpoint at 960px
+// We want: show hamburger when <= 960px, show buttons when > 960px
+const showMobileMenu = computed(() => width.value < 961);
+const showDesktopNav = computed(() => width.value >= 961);
 
 /** @type {import('vue-router').RouteLocationNormalized} Current route object */
 const route = useRoute();
