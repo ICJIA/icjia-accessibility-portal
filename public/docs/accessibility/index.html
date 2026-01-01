@@ -532,15 +532,15 @@
     <h1>🔍 ICJIA Accessibility Portal - Accessibility Audit Report</h1>
     <p class="meta" style="margin-top: 0.5rem; margin-bottom: 1rem;">Accessibility compliance portal for Illinois Criminal Justice Information Authority</p>
     <div class="meta">
-      <p><strong>Generated:</strong> 1/1/2026, 10:19:41 AM</p>
+      <p><strong>Generated:</strong> 1/1/2026, 12:23:13 PM</p>
       <p><strong>Environment:</strong> <a href="#" onclick="openEnvironmentModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-environment" aria-label="Environment: Development - More info about environments"><span style="font-weight: 600; color: #0d6efd;">Development</span><span class="tooltip" id="tooltip-environment" role="tooltip">More info about environments</span></a> (http://localhost:3000)</p>
       <p><strong>axe-core version:</strong> 4.11.0</p>
       <p><strong>Pages tested:</strong> 4</p>
       <p><strong>Viewports tested:</strong> desktop, tablet, mobile</p>
       <p><strong>Themes tested:</strong> dark</p>
       <p><strong>Rule categories:</strong> WCAG 2.1 AA (7 rules), Best Practice (4 rules)</p>
-      <p><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Framework-specific rules enabled: More info about framework-specifics"><span>Framework-specific rules enabled:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">More info about framework-specifics</span></a></strong> aria-allowed-role, scrollable-region-focusable, landmark-banner-is-top-level, landmark-contentinfo-is-top-level, landmark-main-is-top-level, landmark-unique, no-autoplay-audio, page-has-heading-one, focus-order-semantics, link-in-text-block</p>
-      <p style="color: #6c757d;"><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Framework-specific rules disabled: More info about framework-specifics"><span>Framework-specific rules disabled:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">More info about framework-specifics</span></a></strong> region, css-orientation-lock, identical-links-same-purpose, hidden-content, label-content-name-mismatch, presentation-role-conflict</p>
+      <p><strong><a href="#" onclick="openConfiguredRulesModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Configured rules enabled: 15 rules - Click for details"><span style="color: #198754;">✅ Enabled Rules:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">Click to see all enabled rules and their descriptions</span></a></strong> <span style="color: #198754; font-weight: 600;">15 rules</span> (aria-allowed-role, scrollable-region-focusable, landmark-banner-is-top-level, landmark-contentinfo-is-top-level, landmark-main-is-top-level, landmark-unique, css-orientation-lock, no-autoplay-audio, page-has-heading-one, focus-order-semantics, identical-links-same-purpose, link-in-text-block, hidden-content, label-content-name-mismatch, presentation-role-conflict)</p>
+      <p style="color: #6c757d;"><strong><a href="#" onclick="openConfiguredRulesModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Configured rules disabled: 1 rules - Click for details"><span style="color: #6c757d;">❌ Disabled Rules:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">Click to see all disabled rules and why they're disabled</span></a></strong> <span style="color: #6c757d; font-weight: 600;">1 rule</span> (region)</p>
     </div>
     
     <div class="stats-grid">
@@ -770,7 +770,7 @@
             </ul>
           </li>
           
-          <li><strong>Experimental/Cutting-edge Rules:</strong> These are cutting-edge accessibility rules that are still being validated. They may catch issues that standard rules miss, but may also have false positives. Currently enabled: <strong>no-autoplay-audio, page-has-heading-one, focus-order-semantics, link-in-text-block</strong>. Examples include:
+          <li><strong>Experimental/Cutting-edge Rules:</strong> These are cutting-edge accessibility rules that are still being validated. They may catch issues that standard rules miss, but may also have false positives. Currently enabled: <strong>css-orientation-lock, no-autoplay-audio, page-has-heading-one, focus-order-semantics, identical-links-same-purpose, link-in-text-block, hidden-content, label-content-name-mismatch, presentation-role-conflict</strong>. Examples include:
             <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
               <li><strong>css-orientation-lock:</strong> Checks for orientation lock (WCAG 2.1 SC 1.3.4)</li>
               <li><strong>focus-order-semantics:</strong> Checks focus order matches DOM order</li>
@@ -780,6 +780,39 @@
           </li>
           
         </ul>
+        
+        <h3 style="margin-top: 2rem;">Configured Rules Status</h3>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 1rem;">
+          This audit uses a custom rule configuration (<code>AXE_RULE_CONFIG</code>) that allows specific rules to be enabled or disabled via boolean values. This configuration is dynamically read from the audit script.
+        </p>
+        
+        
+        <div style="margin: 1rem 0; padding: 1rem; background: #d1e7dd; border-left: 4px solid #198754; border-radius: 4px;">
+          <h4 style="color: #198754; margin-top: 0; margin-bottom: 0.75rem;">✅ Enabled Rules (15)</h4>
+          <p style="margin: 0 0 0.5rem 0; font-size: 0.9em; color: #495057;">
+            The following rules are currently <strong>enabled</strong> and will be tested:
+          </p>
+          <ul style="margin: 0.5rem 0 0 1.5rem; padding-left: 0;">
+            <li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">aria-allowed-role:</strong> <span style="color: #495057;">Ensures ARIA roles are used correctly and are allowed for the element</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">scrollable-region-focusable:</strong> <span style="color: #495057;">Ensures scrollable regions are keyboard accessible</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">landmark-banner-is-top-level:</strong> <span style="color: #495057;">Ensures banner landmarks are at the top level</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">landmark-contentinfo-is-top-level:</strong> <span style="color: #495057;">Ensures contentinfo landmarks are at the top level</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">landmark-main-is-top-level:</strong> <span style="color: #495057;">Ensures main landmarks are at the top level</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">landmark-unique:</strong> <span style="color: #495057;">Ensures landmarks are unique</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">css-orientation-lock:</strong> <span style="color: #495057;">Checks for orientation lock (WCAG 2.1 SC 1.3.4)</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">no-autoplay-audio:</strong> <span style="color: #495057;">Checks for autoplay audio (WCAG 2.1 SC 1.4.2)</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">page-has-heading-one:</strong> <span style="color: #495057;">Ensures page has at least one h1 heading</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">focus-order-semantics:</strong> <span style="color: #495057;">Checks focus order matches DOM order</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">identical-links-same-purpose:</strong> <span style="color: #495057;">Checks for duplicate links with same purpose</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">link-in-text-block:</strong> <span style="color: #495057;">Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">hidden-content:</strong> <span style="color: #495057;">Checks for hidden content that should be visible</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">label-content-name-mismatch:</strong> <span style="color: #495057;">Checks if label text matches accessible name</span></li><li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">presentation-role-conflict:</strong> <span style="color: #495057;">Checks for presentation role conflicts</span></li>
+          </ul>
+        </div>
+        
+        
+        
+        <div style="margin: 1rem 0; padding: 1rem; background: #f8f9fa; border-left: 4px solid #6c757d; border-radius: 4px;">
+          <h4 style="color: #6c757d; margin-top: 0; margin-bottom: 0.75rem;">❌ Disabled Rules (1)</h4>
+          <p style="margin: 0 0 0.5rem 0; font-size: 0.9em; color: #495057;">
+            The following rules are currently <strong>disabled</strong>:
+          </p>
+          <ul style="margin: 0.5rem 0 0 1.5rem; padding-left: 0;">
+            <li style="margin-bottom: 0.5rem;"><strong style="color: #6c757d;">region:</strong> <span style="color: #495057;">Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure.</span></li>
+          </ul>
+        </div>
+        
+        
+        <p style="margin-top: 1rem; padding: 0.75rem; background: #e7f3ff; border-left: 3px solid #0d6efd; border-radius: 4px; font-size: 0.9em;">
+          <strong>💡 How to Change Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant in <code>audit-accessibility.js</code> (around line 85). Set any rule to <code>true</code> to enable it, or <code>false</code> to disable it. Rules are controlled via simple boolean values and are dynamically reflected in this report.
+        </p>
       </div>
       
       <div class="info-block">
@@ -831,7 +864,7 @@
     </div>
     
     <footer>
-      <p>Generated by <strong>axe-core</strong> 4.11.0 on 1/1/2026, 10:19:41 AM</p>
+      <p>Generated by <strong>axe-core</strong> 4.11.0 on 1/1/2026, 12:23:13 PM</p>
       <p>For more information, visit <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a></p>
     </footer>
     </main>
@@ -983,12 +1016,12 @@
     </div>
   </div>
   
-  <!-- Modal for Framework-Specific Rules -->
-  <div id="frameworkModal" class="modal">
+  <!-- Modal for Configured Rules -->
+  <div id="configuredRulesModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Framework-Specific Rule Configuration</h2>
-        <button class="modal-close" onclick="closeFrameworkModal()">&times;</button>
+        <h2>Configured Accessibility Rules</h2>
+        <button class="modal-close" onclick="closeConfiguredRulesModal()">&times;</button>
       </div>
       <div class="info-block" style="margin: 0;">
         <h3>What are Web Frameworks?</h3>
@@ -1027,22 +1060,22 @@
         </p>
         
         
-        <h3 style="margin-top: 2rem;">Currently Enabled (10 rules)</h3>
+        <h3 style="margin-top: 2rem; color: #198754;">✅ Enabled Rules (15 rules)</h3>
         <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are enabled to test compatibility with Nuxt/Vuetify. Monitor the audit results to see if they produce false positives or valid issues.
+          These rules are currently enabled and will be tested during the audit:
         </p>
         <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          <li><strong>aria-allowed-role:</strong> Checks if ARIA roles are used correctly. May conflict with Vuetify component ARIA usage. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>scrollable-region-focusable:</strong> Ensures scrollable regions are keyboard accessible. May conflict with framework-managed scrollable containers. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-banner-is-top-level:</strong> Checks that banner landmarks are top-level (not nested). Framework may create nested banners that conflict with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-contentinfo-is-top-level:</strong> Checks that contentinfo landmarks are top-level (not nested). Framework may create nested contentinfo that conflicts with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-main-is-top-level:</strong> Checks that main landmarks are top-level (not nested). Framework may create nested main landmarks that conflict with this rule. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>landmark-unique:</strong> Checks that landmark types are unique on the page. Framework may intentionally create duplicate landmarks (e.g., multiple navigation regions). If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>no-autoplay-audio:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>page-has-heading-one:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>focus-order-semantics:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li><li><strong>link-in-text-block:</strong> Currently enabled for testing. If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li>
+          <li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">aria-allowed-role:</strong> Ensures ARIA roles are used correctly and are allowed for the element</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">scrollable-region-focusable:</strong> Ensures scrollable regions are keyboard accessible</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">landmark-banner-is-top-level:</strong> Ensures banner landmarks are at the top level</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">landmark-contentinfo-is-top-level:</strong> Ensures contentinfo landmarks are at the top level</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">landmark-main-is-top-level:</strong> Ensures main landmarks are at the top level</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">landmark-unique:</strong> Ensures landmarks are unique</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">css-orientation-lock:</strong> Checks for orientation lock (WCAG 2.1 SC 1.3.4)</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">no-autoplay-audio:</strong> Checks for autoplay audio (WCAG 2.1 SC 1.4.2)</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">page-has-heading-one:</strong> Ensures page has at least one h1 heading</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">focus-order-semantics:</strong> Checks focus order matches DOM order</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">identical-links-same-purpose:</strong> Checks for duplicate links with same purpose</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">link-in-text-block:</strong> Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">hidden-content:</strong> Checks for hidden content that should be visible</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">label-content-name-mismatch:</strong> Checks if label text matches accessible name</li><li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">presentation-role-conflict:</strong> Checks for presentation role conflicts</li>
         </ul>
         
         
         
-        <h3 style="margin-top: 2rem;">Currently Disabled (6 rules)</h3>
+        <h3 style="margin-top: 2rem; color: #6c757d;">❌ Disabled Rules (1 rule)</h3>
         <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are disabled because they conflict with Nuxt/Vuetify framework structure:
+          These rules are disabled. The 'region' rule is disabled due to known incompatibility with Nuxt/Vue component structure. All other rules can be enabled by setting them to <code>true</code> in <code>AXE_RULE_CONFIG</code>.
         </p>
         <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          <li><strong>region:</strong> Framework structure handles ARIA regions properly, but this rule conflicts with the implementation.</li><li><strong>css-orientation-lock:</strong> Disabled due to framework structure conflicts.</li><li><strong>identical-links-same-purpose:</strong> Disabled due to framework structure conflicts.</li><li><strong>hidden-content:</strong> Disabled due to framework structure conflicts.</li><li><strong>label-content-name-mismatch:</strong> Disabled due to framework structure conflicts.</li><li><strong>presentation-role-conflict:</strong> Disabled due to framework structure conflicts.</li>
+          <li style="margin-bottom: 0.75rem;"><strong style="color: #6c757d;">region:</strong> Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure, causing false positives.</li>
         </ul>
         
         
@@ -1207,12 +1240,12 @@
       document.getElementById('testsModal').style.display = 'none';
     }
     
-    function openFrameworkModal() {
-      document.getElementById('frameworkModal').style.display = 'block';
+    function openConfiguredRulesModal() {
+      document.getElementById('configuredRulesModal').style.display = 'block';
     }
     
-    function closeFrameworkModal() {
-      document.getElementById('frameworkModal').style.display = 'none';
+    function closeConfiguredRulesModal() {
+      document.getElementById('configuredRulesModal').style.display = 'none';
     }
     
     function openEnvironmentModal() {
@@ -1234,14 +1267,14 @@
     // Close modal when clicking outside of it
     window.onclick = function(event) {
       const testsModal = document.getElementById('testsModal');
-      const frameworkModal = document.getElementById('frameworkModal');
+      const configuredRulesModal = document.getElementById('configuredRulesModal');
       const environmentModal = document.getElementById('environmentModal');
       const skipLinksModal = document.getElementById('skipLinksModal');
       if (event.target == testsModal) {
         closeTestsModal();
       }
-      if (event.target == frameworkModal) {
-        closeFrameworkModal();
+      if (event.target == configuredRulesModal) {
+        closeConfiguredRulesModal();
       }
       if (event.target == environmentModal) {
         closeEnvironmentModal();
@@ -1255,7 +1288,7 @@
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         closeTestsModal();
-        closeFrameworkModal();
+        closeConfiguredRulesModal();
         closeEnvironmentModal();
         closeSkipLinksModal();
       }

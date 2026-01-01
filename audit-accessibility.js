@@ -502,97 +502,22 @@ async function runAxeAudit(page) {
       // Configure axe to exclude rules that can't be fixed due to framework limitations
       // Enable best practice rules for enhanced accessibility testing
 
-      // Build rules object - explicitly set each rule from AXE_RULE_CONFIG
-      // This ensures rules are dynamically applied as configured
+      // Build rules object - dynamically apply all rules from AXE_RULE_CONFIG
+      // This ensures rules are dynamically applied as configured via boolean values
       const rulesConfig = {};
 
-      // Framework-specific rules
-      if (ruleConfig.hasOwnProperty("aria-allowed-role")) {
-        rulesConfig["aria-allowed-role"] = {
-          enabled: ruleConfig["aria-allowed-role"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("scrollable-region-focusable")) {
-        rulesConfig["scrollable-region-focusable"] = {
-          enabled: ruleConfig["scrollable-region-focusable"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("landmark-banner-is-top-level")) {
-        rulesConfig["landmark-banner-is-top-level"] = {
-          enabled: ruleConfig["landmark-banner-is-top-level"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("landmark-contentinfo-is-top-level")) {
-        rulesConfig["landmark-contentinfo-is-top-level"] = {
-          enabled: ruleConfig["landmark-contentinfo-is-top-level"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("landmark-main-is-top-level")) {
-        rulesConfig["landmark-main-is-top-level"] = {
-          enabled: ruleConfig["landmark-main-is-top-level"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("landmark-unique")) {
-        rulesConfig["landmark-unique"] = {
-          enabled: ruleConfig["landmark-unique"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("region")) {
-        rulesConfig["region"] = { enabled: ruleConfig["region"] };
+      // Dynamically apply all rules from ruleConfig
+      // Each rule in AXE_RULE_CONFIG is a boolean that controls whether it's enabled
+      for (const [ruleName, enabled] of Object.entries(ruleConfig)) {
+        if (typeof enabled === 'boolean') {
+          rulesConfig[ruleName] = { enabled: enabled };
+        }
       }
 
-      // Best practice rules (always enabled)
+      // Best practice rules (always enabled, not in AXE_RULE_CONFIG)
       rulesConfig["meta-viewport"] = { enabled: true };
       rulesConfig["frame-title"] = { enabled: true };
       rulesConfig["html-xml-lang-mismatch"] = { enabled: true };
-
-      // Experimental rules - explicitly enable/disable based on config
-      // These rules need to be explicitly set to run, even if they're experimental
-      if (ruleConfig.hasOwnProperty("css-orientation-lock")) {
-        rulesConfig["css-orientation-lock"] = {
-          enabled: ruleConfig["css-orientation-lock"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("focus-order-semantics")) {
-        rulesConfig["focus-order-semantics"] = {
-          enabled: ruleConfig["focus-order-semantics"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("hidden-content")) {
-        rulesConfig["hidden-content"] = {
-          enabled: ruleConfig["hidden-content"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("identical-links-same-purpose")) {
-        rulesConfig["identical-links-same-purpose"] = {
-          enabled: ruleConfig["identical-links-same-purpose"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("label-content-name-mismatch")) {
-        rulesConfig["label-content-name-mismatch"] = {
-          enabled: ruleConfig["label-content-name-mismatch"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("link-in-text-block")) {
-        rulesConfig["link-in-text-block"] = {
-          enabled: ruleConfig["link-in-text-block"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("no-autoplay-audio")) {
-        rulesConfig["no-autoplay-audio"] = {
-          enabled: ruleConfig["no-autoplay-audio"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("page-has-heading-one")) {
-        rulesConfig["page-has-heading-one"] = {
-          enabled: ruleConfig["page-has-heading-one"],
-        };
-      }
-      if (ruleConfig.hasOwnProperty("presentation-role-conflict")) {
-        rulesConfig["presentation-role-conflict"] = {
-          enabled: ruleConfig["presentation-role-conflict"],
-        };
-      }
 
       // Build tags array - always include base tags, add experimental if any experimental rules enabled
       const baseTags = [
@@ -888,14 +813,35 @@ function generateHTMLReport(results) {
     })
     .map(([rule]) => rule);
 
-  // Get list of enabled/disabled framework-specific rules for reporting
-  const frameworkRulesStatus = {
+  // Get list of enabled/disabled configured rules for reporting
+  // This includes all rules from AXE_RULE_CONFIG with their descriptions
+  const configuredRulesStatus = {
     enabled: Object.entries(AXE_RULE_CONFIG)
       .filter(([rule, enabled]) => enabled)
       .map(([rule]) => rule),
     disabled: Object.entries(AXE_RULE_CONFIG)
       .filter(([rule, enabled]) => !enabled)
       .map(([rule]) => rule),
+  };
+
+  // Rule descriptions for display in report
+  const ruleDescriptions = {
+    "aria-allowed-role": "Ensures ARIA roles are used correctly and are allowed for the element",
+    "scrollable-region-focusable": "Ensures scrollable regions are keyboard accessible",
+    "landmark-banner-is-top-level": "Ensures banner landmarks are at the top level",
+    "landmark-contentinfo-is-top-level": "Ensures contentinfo landmarks are at the top level",
+    "landmark-main-is-top-level": "Ensures main landmarks are at the top level",
+    "landmark-unique": "Ensures landmarks are unique",
+    "region": "Ensures all content is contained by a landmark region (disabled for Nuxt/Vue compatibility)",
+    "css-orientation-lock": "Checks for orientation lock (WCAG 2.1 SC 1.3.4)",
+    "no-autoplay-audio": "Checks for autoplay audio (WCAG 2.1 SC 1.4.2)",
+    "page-has-heading-one": "Ensures page has at least one h1 heading",
+    "focus-order-semantics": "Checks focus order matches DOM order",
+    "identical-links-same-purpose": "Checks for duplicate links with same purpose",
+    "link-in-text-block": "Checks link contrast in text blocks (WCAG 2.1 SC 1.4.1)",
+    "hidden-content": "Checks for hidden content that should be visible",
+    "label-content-name-mismatch": "Checks if label text matches accessible name",
+    "presentation-role-conflict": "Checks for presentation role conflicts",
   };
 
   // Calculate skip link statistics
@@ -1494,8 +1440,8 @@ function generateHTMLReport(results) {
       <p><strong>Viewports tested:</strong> ${VIEWPORTS.map((v) => v.name).join(", ")}</p>
       <p><strong>Themes tested:</strong> ${THEMES.map((t) => t.name).join(", ")}</p>
       <p><strong>Rule categories:</strong> WCAG 2.1 AA (${wcagRules.length} rules), Best Practice (${bestPracticeRules.length} rules)${experimentalRules.length > 0 ? `, Experimental (${experimentalRules.length} rules)` : ""}${otherRules.length > 0 ? `, Other (${otherRules.length} rules)` : ""}</p>
-      ${frameworkRulesStatus.enabled.length > 0 ? `<p><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Framework-specific rules enabled: More info about framework-specifics"><span>Framework-specific rules enabled:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.enabled.join(", ")}</p>` : ""}
-      ${frameworkRulesStatus.disabled.length > 0 ? `<p style="color: #6c757d;"><strong><a href="#" onclick="openFrameworkModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Framework-specific rules disabled: More info about framework-specifics"><span>Framework-specific rules disabled:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">More info about framework-specifics</span></a></strong> ${frameworkRulesStatus.disabled.join(", ")}</p>` : ""}
+      ${configuredRulesStatus.enabled.length > 0 ? `<p><strong><a href="#" onclick="openConfiguredRulesModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-enabled" aria-label="Configured rules enabled: ${configuredRulesStatus.enabled.length} rules - Click for details"><span style="color: #198754;">✅ Enabled Rules:</span><span class="tooltip" id="tooltip-enabled" role="tooltip">Click to see all enabled rules and their descriptions</span></a></strong> <span style="color: #198754; font-weight: 600;">${configuredRulesStatus.enabled.length} rule${configuredRulesStatus.enabled.length !== 1 ? "s" : ""}</span> (${configuredRulesStatus.enabled.join(", ")})</p>` : ""}
+      ${configuredRulesStatus.disabled.length > 0 ? `<p style="color: #6c757d;"><strong><a href="#" onclick="openConfiguredRulesModal(); return false;" class="framework-rules-link" aria-describedby="tooltip-disabled" aria-label="Configured rules disabled: ${configuredRulesStatus.disabled.length} rules - Click for details"><span style="color: #6c757d;">❌ Disabled Rules:</span><span class="tooltip" id="tooltip-disabled" role="tooltip">Click to see all disabled rules and why they're disabled</span></a></strong> <span style="color: #6c757d; font-weight: 600;">${configuredRulesStatus.disabled.length} rule${configuredRulesStatus.disabled.length !== 1 ? "s" : ""}</span> (${configuredRulesStatus.disabled.join(", ")})</p>` : ""}
     </div>
     
     <div class="stats-grid">
@@ -1611,6 +1557,63 @@ function generateHTMLReport(results) {
               : ""
           }
         </ul>
+        
+        <h3 style="margin-top: 2rem;">Configured Rules Status</h3>
+        <p style="font-size: 0.95em; color: #495057; margin-bottom: 1rem;">
+          This audit uses a custom rule configuration (<code>AXE_RULE_CONFIG</code>) that allows specific rules to be enabled or disabled via boolean values. This configuration is dynamically read from the audit script.
+        </p>
+        
+        ${
+          configuredRulesStatus.enabled.length > 0
+            ? `
+        <div style="margin: 1rem 0; padding: 1rem; background: #d1e7dd; border-left: 4px solid #198754; border-radius: 4px;">
+          <h4 style="color: #198754; margin-top: 0; margin-bottom: 0.75rem;">✅ Enabled Rules (${configuredRulesStatus.enabled.length})</h4>
+          <p style="margin: 0 0 0.5rem 0; font-size: 0.9em; color: #495057;">
+            The following rules are currently <strong>enabled</strong> and will be tested:
+          </p>
+          <ul style="margin: 0.5rem 0 0 1.5rem; padding-left: 0;">
+            ${configuredRulesStatus.enabled
+              .map((rule) => {
+                const description = ruleDescriptions[rule] || "Accessibility rule.";
+                return `<li style="margin-bottom: 0.5rem;"><strong style="color: #198754;">${rule}:</strong> <span style="color: #495057;">${description}</span></li>`;
+              })
+              .join("")}
+          </ul>
+        </div>
+        `
+            : ""
+        }
+        
+        ${
+          configuredRulesStatus.disabled.length > 0
+            ? `
+        <div style="margin: 1rem 0; padding: 1rem; background: #f8f9fa; border-left: 4px solid #6c757d; border-radius: 4px;">
+          <h4 style="color: #6c757d; margin-top: 0; margin-bottom: 0.75rem;">❌ Disabled Rules (${configuredRulesStatus.disabled.length})</h4>
+          <p style="margin: 0 0 0.5rem 0; font-size: 0.9em; color: #495057;">
+            The following rules are currently <strong>disabled</strong>:
+          </p>
+          <ul style="margin: 0.5rem 0 0 1.5rem; padding-left: 0;">
+            ${configuredRulesStatus.disabled
+              .map((rule) => {
+                let explanation = "";
+                if (rule === "region") {
+                  explanation = "Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure.";
+                } else {
+                  const description = ruleDescriptions[rule] || "Accessibility rule.";
+                  explanation = `${description} Can be enabled by setting to <code>true</code> in <code>AXE_RULE_CONFIG</code>.`;
+                }
+                return `<li style="margin-bottom: 0.5rem;"><strong style="color: #6c757d;">${rule}:</strong> <span style="color: #495057;">${explanation}</span></li>`;
+              })
+              .join("")}
+          </ul>
+        </div>
+        `
+            : ""
+        }
+        
+        <p style="margin-top: 1rem; padding: 0.75rem; background: #e7f3ff; border-left: 3px solid #0d6efd; border-radius: 4px; font-size: 0.9em;">
+          <strong>💡 How to Change Rules:</strong> Edit the <code>AXE_RULE_CONFIG</code> constant in <code>audit-accessibility.js</code> (around line 85). Set any rule to <code>true</code> to enable it, or <code>false</code> to disable it. Rules are controlled via simple boolean values and are dynamically reflected in this report.
+        </p>
       </div>
       
       <div class="info-block">
@@ -1808,12 +1811,12 @@ function generateHTMLReport(results) {
     </div>
   </div>
   
-  <!-- Modal for Framework-Specific Rules -->
-  <div id="frameworkModal" class="modal">
+  <!-- Modal for Configured Rules -->
+  <div id="configuredRulesModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2>Framework-Specific Rule Configuration</h2>
-        <button class="modal-close" onclick="closeFrameworkModal()">&times;</button>
+        <h2>Configured Accessibility Rules</h2>
+        <button class="modal-close" onclick="closeConfiguredRulesModal()">&times;</button>
       </div>
       <div class="info-block" style="margin: 0;">
         <h3>What are Web Frameworks?</h3>
@@ -1858,89 +1861,48 @@ function generateHTMLReport(results) {
         </p>
         
         ${
-          frameworkRulesStatus.enabled.length > 0
+          configuredRulesStatus.enabled.length > 0
             ? `
-        <h3 style="margin-top: 2rem;">Currently Enabled (${frameworkRulesStatus.enabled.length} rule${frameworkRulesStatus.enabled.length !== 1 ? "s" : ""})</h3>
+        <h3 style="margin-top: 2rem; color: #198754;">✅ Enabled Rules (${configuredRulesStatus.enabled.length} rule${configuredRulesStatus.enabled.length !== 1 ? "s" : ""})</h3>
         <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are enabled to test compatibility with Nuxt/Vuetify. Monitor the audit results to see if they produce false positives or valid issues.
+          These rules are currently enabled and will be tested during the audit:
         </p>
         <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          ${frameworkRulesStatus.enabled
+          ${configuredRulesStatus.enabled
             .map((rule) => {
-              let explanation = "";
-              if (rule === "aria-allowed-role") {
-                explanation =
-                  "Checks if ARIA roles are used correctly. May conflict with Vuetify component ARIA usage.";
-              } else if (rule === "scrollable-region-focusable") {
-                explanation =
-                  "Ensures scrollable regions are keyboard accessible. May conflict with framework-managed scrollable containers.";
-              } else if (rule === "landmark-banner-is-top-level") {
-                explanation =
-                  "Checks that banner landmarks are top-level (not nested). Framework may create nested banners that conflict with this rule.";
-              } else if (rule === "landmark-contentinfo-is-top-level") {
-                explanation =
-                  "Checks that contentinfo landmarks are top-level (not nested). Framework may create nested contentinfo that conflicts with this rule.";
-              } else if (rule === "landmark-main-is-top-level") {
-                explanation =
-                  "Checks that main landmarks are top-level (not nested). Framework may create nested main landmarks that conflict with this rule.";
-              } else if (rule === "landmark-unique") {
-                explanation =
-                  "Checks that landmark types are unique on the page. Framework may intentionally create duplicate landmarks (e.g., multiple navigation regions).";
-              } else if (rule === "region") {
-                explanation =
-                  "Checks ARIA region usage. Framework structure may handle regions differently than this rule expects.";
-              } else {
-                explanation = "Currently enabled for testing.";
-              }
-              return `<li><strong>${rule}:</strong> ${explanation} If this rule causes false positives, disable it in the <code>AXE_RULE_CONFIG</code> section.</li>`;
+              const description = ruleDescriptions[rule] || "Accessibility rule enabled for testing.";
+              return `<li style="margin-bottom: 0.75rem;"><strong style="color: #198754;">${rule}:</strong> ${description}</li>`;
             })
             .join("")}
         </ul>
         `
-            : '<p style="margin-top: 2rem;"><strong>No framework-specific rules are currently enabled.</strong></p>'
+            : '<p style="margin-top: 2rem;"><strong>No configured rules are currently enabled.</strong></p>'
         }
         
         ${
-          frameworkRulesStatus.disabled.length > 0
+          configuredRulesStatus.disabled.length > 0
             ? `
-        <h3 style="margin-top: 2rem;">Currently Disabled (${frameworkRulesStatus.disabled.length} rule${frameworkRulesStatus.disabled.length !== 1 ? "s" : ""})</h3>
+        <h3 style="margin-top: 2rem; color: #6c757d;">❌ Disabled Rules (${configuredRulesStatus.disabled.length} rule${configuredRulesStatus.disabled.length !== 1 ? "s" : ""})</h3>
         <p style="font-size: 0.95em; color: #495057; margin-bottom: 0.5rem;">
-          These rules are disabled because they conflict with Nuxt/Vuetify framework structure:
+          These rules are disabled. ${configuredRulesStatus.disabled.includes("region") ? "The 'region' rule is disabled due to known incompatibility with Nuxt/Vue component structure. All other rules can be enabled by setting them to <code>true</code> in <code>AXE_RULE_CONFIG</code>." : "They can be enabled by setting them to <code>true</code> in <code>AXE_RULE_CONFIG</code>."}
         </p>
         <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
-          ${frameworkRulesStatus.disabled
+          ${configuredRulesStatus.disabled
             .map((rule) => {
               let explanation = "";
-              if (rule === "aria-allowed-role") {
+              if (rule === "region") {
                 explanation =
-                  "Disabled due to conflicts with Vuetify component ARIA usage.";
-              } else if (rule === "scrollable-region-focusable") {
-                explanation =
-                  "Disabled due to conflicts with framework-managed scrollable containers.";
-              } else if (rule === "landmark-banner-is-top-level") {
-                explanation =
-                  "Framework creates nested banner landmarks that don't meet this rule's requirements.";
-              } else if (rule === "landmark-contentinfo-is-top-level") {
-                explanation =
-                  "Framework creates nested contentinfo landmarks that conflict with this rule.";
-              } else if (rule === "landmark-main-is-top-level") {
-                explanation =
-                  "Framework creates nested main landmarks that conflict with this rule.";
-              } else if (rule === "landmark-unique") {
-                explanation =
-                  "Framework intentionally creates duplicate landmarks (e.g., multiple navigation regions).";
-              } else if (rule === "region") {
-                explanation =
-                  "Framework structure handles ARIA regions properly, but this rule conflicts with the implementation.";
+                  "Disabled due to known incompatibility with Nuxt/Vue component structure. Vue components dynamically create regions that don't match the expected HTML5 landmark structure, causing false positives.";
               } else {
-                explanation = "Disabled due to framework structure conflicts.";
+                const description = ruleDescriptions[rule] || "Accessibility rule.";
+                explanation = `${description} Currently disabled - can be enabled in <code>AXE_RULE_CONFIG</code>.`;
               }
-              return `<li><strong>${rule}:</strong> ${explanation}</li>`;
+              return `<li style="margin-bottom: 0.75rem;"><strong style="color: #6c757d;">${rule}:</strong> ${explanation}</li>`;
             })
             .join("")}
         </ul>
         `
-            : '<p style="margin-top: 2rem;"><strong>No framework-specific rules are currently disabled.</strong></p>'
+            : '<p style="margin-top: 2rem;"><strong>All configured rules are currently enabled.</strong></p>'
         }
         
         <p style="margin-top: 1.5rem; padding: 0.75rem; background: #fff3cd; border-left: 3px solid #ffc107; border-radius: 4px;">
@@ -2104,12 +2066,12 @@ function generateHTMLReport(results) {
       document.getElementById('testsModal').style.display = 'none';
     }
     
-    function openFrameworkModal() {
-      document.getElementById('frameworkModal').style.display = 'block';
+    function openConfiguredRulesModal() {
+      document.getElementById('configuredRulesModal').style.display = 'block';
     }
     
-    function closeFrameworkModal() {
-      document.getElementById('frameworkModal').style.display = 'none';
+    function closeConfiguredRulesModal() {
+      document.getElementById('configuredRulesModal').style.display = 'none';
     }
     
     function openEnvironmentModal() {
@@ -2131,14 +2093,14 @@ function generateHTMLReport(results) {
     // Close modal when clicking outside of it
     window.onclick = function(event) {
       const testsModal = document.getElementById('testsModal');
-      const frameworkModal = document.getElementById('frameworkModal');
+      const configuredRulesModal = document.getElementById('configuredRulesModal');
       const environmentModal = document.getElementById('environmentModal');
       const skipLinksModal = document.getElementById('skipLinksModal');
       if (event.target == testsModal) {
         closeTestsModal();
       }
-      if (event.target == frameworkModal) {
-        closeFrameworkModal();
+      if (event.target == configuredRulesModal) {
+        closeConfiguredRulesModal();
       }
       if (event.target == environmentModal) {
         closeEnvironmentModal();
@@ -2152,7 +2114,7 @@ function generateHTMLReport(results) {
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         closeTestsModal();
-        closeFrameworkModal();
+        closeConfiguredRulesModal();
         closeEnvironmentModal();
         closeSkipLinksModal();
       }
