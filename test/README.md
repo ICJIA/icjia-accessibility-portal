@@ -20,11 +20,11 @@ The tests are organized into two categories using Vitest projects:
 ## Running Tests
 
 ```bash
-# Run all tests and generate reports (recommended)
-# This runs tests and automatically generates all reports:
-# - test/failed-tests.json (failed tests only)
-# - test/test-results.json (all test results)
-# - public/docs/tests/index.html (HTML report)
+# Run all tests with comprehensive reporting (recommended)
+# Uses the new comprehensive test runner that:
+# - Auto-detects E2E tests
+# - Starts dev server if E2E tests are enabled
+# - Generates all reports with project breakdown
 yarn test
 
 # Run tests without generating reports (faster for development)
@@ -36,23 +36,40 @@ yarn test:unit
 # Run only Nuxt tests
 yarn test:nuxt
 
+# Run only E2E tests (when enabled)
+yarn test:e2e
+
 # Run tests in watch mode (for development)
 yarn test:watch
 
-# Run tests with coverage
-yarn test:coverage
-
-# Generate test reports only (if tests already ran)
-yarn test:reports
+# Legacy test runner (without E2E support)
+yarn test:legacy
 ```
 
 ### Test Reports
 
-Running `yarn test` automatically generates three files:
+Running `yarn test` automatically generates three comprehensive reports:
 
-1. **`test/failed-tests.json`** - Contains only failed tests in a structured format (useful for sharing with LLMs)
-2. **`test/test-results.json`** - Contains all test results (both successful and failed tests)
-3. **`public/docs/tests/index.html`** - HTML report with a visual representation of all test results
+1. **`test/test-results.json`** - Complete test results with project breakdown
+
+   ```json
+   {
+     "summary": { "totalTests": 105, "passedTests": 105, ... },
+     "projectStats": {
+       "unit": { "passed": 37, "failed": 0, "total": 37 },
+       "nuxt": { "passed": 68, "failed": 0, "total": 68 }
+     },
+     "testResults": [...]
+   }
+   ```
+
+2. **`test/failed-tests.json`** - Only failed tests (useful for sharing with LLMs)
+
+3. **`public/docs/tests/index.html`** - Interactive HTML report with:
+   - Summary cards (total, passed, failed, skipped)
+   - **Project breakdown** (unit, nuxt, e2e)
+   - Color-coded test results
+   - Failure messages with syntax highlighting
 
 You can view the HTML report by opening `public/docs/tests/index.html` in a browser or by visiting `/docs/tests` when the app is running.
 
@@ -67,6 +84,7 @@ JSON reports are superior to console output for sharing with LLMs because:
 5. **Focused** - Only contains failed tests, filtering out noise from passing tests
 
 The JSON files include:
+
 - Summary statistics (total, passed, failed, skipped)
 - File paths for each test
 - Test names and full descriptions
@@ -75,6 +93,7 @@ The JSON files include:
 - Generation timestamp
 
 The HTML report provides:
+
 - Visual summary cards showing test statistics
 - Color-coded test status (passed/failed/skipped)
 - Detailed test case information
@@ -95,14 +114,14 @@ The test configuration is in `vitest.config.ts` and uses the project-based setup
 Place pure utility functions that don't need Nuxt runtime in `test/unit/`:
 
 ```typescript
-import { describe, it, expect } from 'vitest'
-import { myFunction } from '../../app/utils/myUtils'
+import { describe, it, expect } from "vitest";
+import { myFunction } from "../../app/utils/myUtils";
 
-describe('myFunction', () => {
-  it('should work correctly', () => {
-    expect(myFunction('input')).toBe('output')
-  })
-})
+describe("myFunction", () => {
+  it("should work correctly", () => {
+    expect(myFunction("input")).toBe("output");
+  });
+});
 ```
 
 ### Nuxt Tests
@@ -110,15 +129,15 @@ describe('myFunction', () => {
 Place tests that need Nuxt runtime (composables, components) in `test/nuxt/`:
 
 ```typescript
-import { describe, it, expect } from 'vitest'
-import { useMyComposable } from '../../app/composables/useMyComposable'
+import { describe, it, expect } from "vitest";
+import { useMyComposable } from "../../app/composables/useMyComposable";
 
-describe('useMyComposable', () => {
-  it('should work in Nuxt environment', () => {
-    const { value } = useMyComposable()
-    expect(value.value).toBeDefined()
-  })
-})
+describe("useMyComposable", () => {
+  it("should work in Nuxt environment", () => {
+    const { value } = useMyComposable();
+    expect(value.value).toBeDefined();
+  });
+});
 ```
 
 ## Best Practices
@@ -128,27 +147,35 @@ describe('useMyComposable', () => {
 3. **Mock external dependencies** - Use Vitest's mocking capabilities for external APIs
 4. **Test accessibility** - Consider adding accessibility checks when testing components
 
-## E2E Tests (Planned)
+## E2E Tests
 
-E2E tests were temporarily removed to maintain a 100% test pass rate. A comprehensive plan for re-implementing them is available in [`test/E2E_TEST_PLAN.md`](./E2E_TEST_PLAN.md).
+E2E test infrastructure is **complete and ready** but temporarily disabled due to a compatibility issue with `@nuxt/test-utils`.
 
-### Quick Summary
+### Status
 
-E2E tests will cover:
-- Critical user flows (navigation, FAQ access, content loading)
-- Accessibility features (keyboard navigation, ARIA attributes)
-- Print functionality
-- Server-side rendering verification
-- Integration testing across the full stack
+⚠️ **Temporarily Disabled** - Upstream issue: https://github.com/nuxt/test-utils/issues/1491
+✅ **Infrastructure Complete** - All helpers, setup, and tests are ready
+📋 **Documentation** - See [`test/e2e/README.md`](./e2e/README.md) for details
 
-### Implementation Status
+### What's Ready
 
-- ✅ **Plan Created** - See `test/E2E_TEST_PLAN.md` for detailed implementation plan
-- ⏳ **Database Isolation** - Need to resolve SQLite conflicts before implementation
-- ⏳ **Test Infrastructure** - Will be set up following the plan
-- ⏳ **Test Implementation** - Will be added incrementally
+- ✅ **Database isolation** - Prevents test conflicts
+- ✅ **Accessibility helpers** - Comprehensive a11y testing utilities
+- ✅ **Navigation helpers** - Routing and meta tag validation
+- ✅ **Setup utilities** - Standard configuration and viewport management
+- ✅ **Initial test suite** - 10 tests for the home page
+- ✅ **Auto-detection** - Test runner automatically detects E2E tests
+- ✅ **Dev server management** - Automatically starts/stops for E2E tests
 
-See [`test/E2E_TEST_PLAN.md`](./E2E_TEST_PLAN.md) for the complete implementation strategy, test coverage plan, and example code.
+### How to Enable
+
+Once the upstream issue is resolved:
+
+1. Uncomment the E2E project in `vitest.config.ts`
+2. Run `yarn test` (dev server will start automatically)
+3. E2E results will appear in all reports
+
+See [`test/e2e/README.md`](./e2e/README.md) for complete documentation.
 
 ## Related Documentation
 
@@ -162,4 +189,3 @@ See [`test/E2E_TEST_PLAN.md`](./E2E_TEST_PLAN.md) for the complete implementatio
 - `vitest` - Test runner
 - `@vue/test-utils` - Vue component testing utilities
 - `happy-dom` - DOM environment for Nuxt tests
-

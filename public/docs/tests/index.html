@@ -31,6 +31,11 @@
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
+    h2 {
+      color: #60A5FA;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
     .summary {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -169,16 +174,16 @@
   <div class="container">
     <header>
       <h1>🧪 Test Results</h1>
-      <p class="meta">Generated: 1/1/2026, 12:44:15 PM</p>
+      <p class="meta">Generated: 1/1/2026, 2:00:57 PM</p>
     </header>
 
     <div class="summary">
       <div class="summary-card total">
-        <h3>62</h3>
+        <h3>105</h3>
         <p>Total Tests</p>
       </div>
       <div class="summary-card passed">
-        <h3>62</h3>
+        <h3>105</h3>
         <p>Passed</p>
       </div>
       <div class="summary-card failed">
@@ -194,8 +199,32 @@
         <p>Pass Rate</p>
       </div>
       <div class="summary-card">
-        <h3>1.35s</h3>
+        <h3>5.72s</h3>
         <p>Duration</p>
+      </div>
+    </div>
+
+    
+    <div style="margin: 2rem 0; padding: 1.5rem; background: #1E293B; border: 1px solid #334155; border-radius: 8px;">
+      <h2 style="color: #60A5FA; margin-bottom: 1rem;">Test Projects</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+        
+          <div style="background: #0F172A; padding: 1rem; border-radius: 4px; border-left: 3px solid #81C784;">
+            <h3 style="color: #F8FAFC; text-transform: capitalize; margin-bottom: 0.5rem;">unit</h3>
+            <p style="color: #94A3B8; font-size: 0.9rem;">
+              37/37 passed
+              
+            </p>
+          </div>
+        
+          <div style="background: #0F172A; padding: 1rem; border-radius: 4px; border-left: 3px solid #81C784;">
+            <h3 style="color: #F8FAFC; text-transform: capitalize; margin-bottom: 0.5rem;">nuxt</h3>
+            <p style="color: #94A3B8; font-size: 0.9rem;">
+              68/68 passed
+              
+            </p>
+          </div>
+        
       </div>
     </div>
 
@@ -208,7 +237,7 @@
       
       <div class="test-case passed">
         <div class="test-case-title">should return true for dates within the new window</div>
-        <div class="test-case-duration">Duration: 1.88ms</div>
+        <div class="test-case-duration">Duration: 1.76ms</div>
         
       </div>
       <div class="test-case passed">
@@ -218,27 +247,27 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return true for today</div>
-        <div class="test-case-duration">Duration: 0.09ms</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return true for dates exactly 10 days ago</div>
-        <div class="test-case-duration">Duration: 0.28ms</div>
+        <div class="test-case-duration">Duration: 0.23ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should extract new date from curly braces format when within window</div>
-        <div class="test-case-duration">Duration: 0.16ms</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should extract new date from HTML comment format when within window</div>
-        <div class="test-case-duration">Duration: 0.09ms</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return null if no new date found</div>
-        <div class="test-case-duration">Duration: 0.09ms</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
         
       </div>
       <div class="test-case passed">
@@ -248,7 +277,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should remove new tag from nodes</div>
-        <div class="test-case-duration">Duration: 0.80ms</div>
+        <div class="test-case-duration">Duration: 0.77ms</div>
         
       </div>
       <div class="test-case passed">
@@ -263,7 +292,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle mixed content with new tags and regular text</div>
-        <div class="test-case-duration">Duration: 0.21ms</div>
+        <div class="test-case-duration">Duration: 0.20ms</div>
         
       </div>
       <div class="test-case passed">
@@ -273,7 +302,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should stop wrapping at next H1, H2, H3, or HR</div>
-        <div class="test-case-duration">Duration: 0.15ms</div>
+        <div class="test-case-duration">Duration: 0.16ms</div>
         
       </div>
       <div class="test-case passed">
@@ -288,12 +317,12 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle non-array input</div>
-        <div class="test-case-duration">Duration: 0.03ms</div>
+        <div class="test-case-duration">Duration: 0.02ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should transform FAQ markdown AST to accordion data</div>
-        <div class="test-case-duration">Duration: 0.19ms</div>
+        <div class="test-case-duration">Duration: 0.18ms</div>
         
       </div>
       <div class="test-case passed">
@@ -303,7 +332,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should stop at H1, H2, or HR</div>
-        <div class="test-case-duration">Duration: 0.10ms</div>
+        <div class="test-case-duration">Duration: 0.09ms</div>
         
       </div>
       <div class="test-case passed">
@@ -313,7 +342,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return empty array for non-array input</div>
-        <div class="test-case-duration">Duration: 0.03ms</div>
+        <div class="test-case-duration">Duration: 0.46ms</div>
         
       </div>
       <div class="test-case passed">
@@ -330,7 +359,7 @@
       
       <div class="test-case passed">
         <div class="test-case-title">should convert text to lowercase</div>
-        <div class="test-case-duration">Duration: 1.25ms</div>
+        <div class="test-case-duration">Duration: 0.80ms</div>
         
       </div>
       <div class="test-case passed">
@@ -340,37 +369,37 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should remove leading and trailing hyphens</div>
-        <div class="test-case-duration">Duration: 0.05ms</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should truncate to maxLength</div>
-        <div class="test-case-duration">Duration: 0.25ms</div>
+        <div class="test-case-duration">Duration: 0.44ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should remove trailing hyphens after truncation</div>
-        <div class="test-case-duration">Duration: 0.11ms</div>
+        <div class="test-case-duration">Duration: 0.31ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle empty string</div>
-        <div class="test-case-duration">Duration: 0.04ms</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle special characters</div>
-        <div class="test-case-duration">Duration: 0.07ms</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle numbers</div>
-        <div class="test-case-duration">Duration: 0.04ms</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should combine section and question slugs</div>
-        <div class="test-case-duration">Duration: 0.28ms</div>
+        <div class="test-case-duration">Duration: 0.22ms</div>
         
       </div>
       <div class="test-case passed">
@@ -407,7 +436,7 @@
       
       <div class="test-case passed">
         <div class="test-case-title">should render FAQ items</div>
-        <div class="test-case-duration">Duration: 16.47ms</div>
+        <div class="test-case-duration">Duration: 18.28ms</div>
         
       </div>
       <div class="test-case passed">
@@ -417,7 +446,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should display new badge when isNew is true</div>
-        <div class="test-case-duration">Duration: 1.55ms</div>
+        <div class="test-case-duration">Duration: 1.51ms</div>
         
       </div>
       <div class="test-case passed">
@@ -427,17 +456,17 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should generate question IDs correctly</div>
-        <div class="test-case-duration">Duration: 1.83ms</div>
+        <div class="test-case-duration">Duration: 1.70ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle empty items array</div>
-        <div class="test-case-duration">Duration: 0.44ms</div>
+        <div class="test-case-duration">Duration: 0.42ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should use sectionId when provided</div>
-        <div class="test-case-duration">Duration: 0.94ms</div>
+        <div class="test-case-duration">Duration: 0.92ms</div>
         
       </div>
     </div>
@@ -449,27 +478,27 @@
       
       <div class="test-case passed">
         <div class="test-case-title">should calculate days remaining correctly</div>
-        <div class="test-case-duration">Duration: 1.63ms</div>
+        <div class="test-case-duration">Duration: 3.05ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return 0 days when deadline has passed</div>
-        <div class="test-case-duration">Duration: 0.43ms</div>
+        <div class="test-case-duration">Duration: 0.59ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should format days remaining text correctly</div>
-        <div class="test-case-duration">Duration: 0.23ms</div>
+        <div class="test-case-duration">Duration: 0.24ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should format "1 day" correctly</div>
-        <div class="test-case-duration">Duration: 0.27ms</div>
+        <div class="test-case-duration">Duration: 0.29ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should format "less than 1 day" when less than 24 hours remain</div>
-        <div class="test-case-duration">Duration: 0.13ms</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
         
       </div>
       <div class="test-case passed">
@@ -479,7 +508,7 @@
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should provide urgency text for different time ranges</div>
-        <div class="test-case-duration">Duration: 0.64ms</div>
+        <div class="test-case-duration">Duration: 0.66ms</div>
         
       </div>
       <div class="test-case passed">
@@ -496,59 +525,295 @@
       
       <div class="test-case passed">
         <div class="test-case-title">should initialize with collapseSignal at 0</div>
-        <div class="test-case-duration">Duration: 0.60ms</div>
+        <div class="test-case-duration">Duration: 1.36ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should initialize with openAccordion as null</div>
-        <div class="test-case-duration">Duration: 0.17ms</div>
+        <div class="test-case-duration">Duration: 0.49ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should increment collapseSignal when collapseAll is called</div>
-        <div class="test-case-duration">Duration: 0.14ms</div>
+        <div class="test-case-duration">Duration: 0.68ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should reset openAccordion when collapseAll is called</div>
-        <div class="test-case-duration">Duration: 0.27ms</div>
+        <div class="test-case-duration">Duration: 0.73ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should set open accordion correctly</div>
-        <div class="test-case-duration">Duration: 0.31ms</div>
+        <div class="test-case-duration">Duration: 1.11ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should close accordion when setOpenAccordion is called with undefined</div>
-        <div class="test-case-duration">Duration: 0.07ms</div>
+        <div class="test-case-duration">Duration: 0.19ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should check if panel is open correctly</div>
-        <div class="test-case-duration">Duration: 0.11ms</div>
+        <div class="test-case-duration">Duration: 0.36ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should get open panel index correctly</div>
-        <div class="test-case-duration">Duration: 0.06ms</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should return undefined when no panel is open</div>
-        <div class="test-case-duration">Duration: 0.11ms</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
         
       </div>
       <div class="test-case passed">
         <div class="test-case-title">should handle multiple accordions correctly</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/usePrintLinks.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should append URL to external links</div>
+        <div class="test-case-duration">Duration: 610.39ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle links without text by using URL</div>
+        <div class="test-case-duration">Duration: 606.27ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should style internal links as bold text</div>
+        <div class="test-case-duration">Duration: 607.50ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should not duplicate URLs if already appended</div>
+        <div class="test-case-duration">Duration: 608.13ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should add text to empty table headers</div>
+        <div class="test-case-duration">Duration: 609.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle headers with only HTML comments</div>
+        <div class="test-case-duration">Duration: 606.79ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should add aria-label to table headers</div>
+        <div class="test-case-duration">Duration: 606.81ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/useSeo.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should set basic SEO meta tags with default values</div>
+        <div class="test-case-duration">Duration: 2.64ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should set custom title with site name suffix</div>
+        <div class="test-case-duration">Duration: 0.55ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should set custom description</div>
+        <div class="test-case-duration">Duration: 0.19ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should build full URL from relative path</div>
+        <div class="test-case-duration">Duration: 0.30ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle URL with leading slash</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle URL without leading slash</div>
+        <div class="test-case-duration">Duration: 0.11ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should build image URL from relative path</div>
+        <div class="test-case-duration">Duration: 0.66ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should use absolute image URL as-is</div>
+        <div class="test-case-duration">Duration: 0.33ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle keywords array</div>
+        <div class="test-case-duration">Duration: 0.78ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle article type with published time</div>
         <div class="test-case-duration">Duration: 0.13ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle noindex and nofollow flags</div>
+        <div class="test-case-duration">Duration: 0.07ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle noindex only</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle nofollow only</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should set custom author</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle all options together</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/useStructuredData.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty FAQ array</div>
+        <div class="test-case-duration">Duration: 0.90ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle FAQ items</div>
+        <div class="test-case-duration">Duration: 0.23ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle single FAQ item</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle FAQ with special characters</div>
+        <div class="test-case-duration">Duration: 0.65ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should work with default values</div>
+        <div class="test-case-duration">Duration: 0.22ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle custom organization name</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle custom URL</div>
+        <div class="test-case-duration">Duration: 0.11ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle custom logo</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle logo with leading slash</div>
+        <div class="test-case-duration">Duration: 0.26ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle logo without leading slash</div>
+        <div class="test-case-duration">Duration: 0.12ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle custom description</div>
+        <div class="test-case-duration">Duration: 0.11ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle contact point</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle all options together</div>
+        <div class="test-case-duration">Duration: 0.09ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should work without search URL</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle search URL with leading slash</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle search URL without leading slash</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty breadcrumb array</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle single breadcrumb</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle multiple breadcrumbs</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle breadcrumbs with URLs with leading slash</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle breadcrumbs with URLs without leading slash</div>
+        <div class="test-case-duration">Duration: 0.84ms</div>
         
       </div>
     </div>
 
     <div class="meta">
-      <p>Test execution completed at 1/1/2026, 12:44:15 PM</p>
-      <p>Total duration: 1.35 seconds</p>
+      <p>Test execution completed at 1/1/2026, 2:00:57 PM</p>
+      <p>Total duration: 5.72 seconds</p>
     </div>
   </div>
 </body>
