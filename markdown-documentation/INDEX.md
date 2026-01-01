@@ -1,7 +1,7 @@
 # Documentation Index
 
-**Last Updated**: January 1, 2026  
-**Total Documents**: 12 (consolidated from 24, plus test documentation)  
+**Last Updated**: January 2026  
+**Total Documents**: 13 (includes accessibility audit script guide)  
 **Purpose**: Quick reference guide to all project documentation
 
 ---
@@ -37,12 +37,13 @@ Complete technical guide covering:
 | **[INDEX.md](INDEX.md)** | Documentation index (this file) | Finding specific documentation |
 | **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)** | Project review with improvement suggestions | Understanding project goals |
 
-### Features & Guides (5 files)
+### Features & Guides (6 files)
 
 | Document | Purpose | When to Read |
 |----------|---------|--------------|
 | **[PRINTER_FRIENDLY_GUIDE.md](PRINTER_FRIENDLY_GUIDE.md)** | Complete printer-friendly FAQ guide | Working on print functionality |
 | **[ACCESSIBILITY_GUIDE.md](ACCESSIBILITY_GUIDE.md)** | All accessibility documentation | Working on accessibility features |
+| **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** | Complete accessibility audit script guide (1355 lines) | Using or customizing the audit script |
 | **[FAQ_CONTENT_GUIDE.md](FAQ_CONTENT_GUIDE.md)** | FAQ management and "new" badge system | Adding/managing FAQ content |
 | **[SEO_GUIDE.md](SEO_GUIDE.md)** | SEO optimization and verification | Improving search rankings |
 | **[CONFIGURATION_ABSTRACTION.md](CONFIGURATION_ABSTRACTION.md)** | Configuration management patterns | Setting up environments |
@@ -87,9 +88,10 @@ Complete technical guide covering:
 👉 Run: `yarn test` (runs all tests and generates reports)
 
 #### Run accessibility audits
+👉 **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete script documentation (1355 lines with challenges & solutions)  
 👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 9: Testing  
 👉 **[ACCESSIBILITY_GUIDE.md](ACCESSIBILITY_GUIDE.md)** - Audit configuration
-👉 Run: `yarn audit:a11y`
+👉 Run: `yarn audit:a11y` or `yarn generate:accessibility`
 
 #### Deploy to production
 👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 6: Build & Deployment  

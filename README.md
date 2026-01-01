@@ -311,6 +311,9 @@ The automated build process:
 │   ├── generate-routes.js      # Routes generation script (scans pages and content) - Fully documented with JSDoc
 │   ├── generate-sitemap.js     # Sitemap generation script - Fully documented with JSDoc
 │   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists - Fully documented with JSDoc
+├── audit-accessibility.js      # Comprehensive accessibility audit script - Tests WCAG 2.1 AA compliance using axe-core
+│                               # Fully documented with 1355-line guide (ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)
+│                               # Supports dev/prod testing, multi-viewport, multi-theme, dynamic rule configuration
 ├── markdown-documentation/     # Project documentation and audit results
 │   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
 │   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
@@ -347,7 +350,22 @@ This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages ha
 
 ### Accessibility Testing
 
-This project includes two accessibility testing tools:
+This project includes comprehensive accessibility testing tools powered by **axe-core**. The audit script is fully documented and can be reused for any website.
+
+#### 📚 Complete Documentation
+
+**For detailed information about the accessibility audit script, see:**
+- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete guide to the audit script (1355 lines with challenges & solutions)
+  - Script architecture and design
+  - Configuration options
+  - Testing modes (development/production)
+  - Viewport and theme testing
+  - Rule configuration
+  - Report generation
+  - Modal windows
+  - Reusing the script for other projects
+  - Troubleshooting guide
+  - **Includes GitHub links to all code snippets**
 
 #### 1. Quick Console Audit (`yarn audit:a11y`)
 
@@ -382,9 +400,14 @@ yarn generate:accessibility
 
 - **Uses sitemap.xml** - Automatically tests all pages listed in the sitemap
 - **Comprehensive testing** - Full WCAG 2.1 AA compliance audit using axe-core
+- **Multi-viewport testing** - Tests desktop, tablet, and mobile viewports
+- **Multi-theme testing** - Tests light/dark themes (if configured)
+- **Skip link verification** - Validates skip link functionality
+- **Dynamic rule configuration** - Enable/disable rules via boolean values
 - **HTML report generation** - Creates a beautiful, dark-themed HTML report
 - **Clickable page links** - All page URLs in the report are clickable and open in new tabs
 - **Detailed violation information** - Includes violation IDs, descriptions, impact levels, affected elements, and remediation guidance
+- **Interactive modals** - Additional information about rules, tests, and configuration
 - **Report location** - Generated at `/public/docs/accessibility/index.html` and accessible at `/docs/accessibility`
 - **Documentation portal** - Report is accessible via the documentation portal at `/docs`
 
@@ -394,7 +417,9 @@ yarn generate:accessibility
 - Violation breakdown by impact level (critical, serious, moderate, minor)
 - Per-page results with pass/fail status
 - Detailed violation information for each page
+- **Configured rules status** - Shows enabled/disabled rules with descriptions
 - Information about axe-core and why it's a trusted accessibility testing tool
+- Interactive modal windows for additional context
 
 **Requirements:**
 
@@ -407,6 +432,34 @@ yarn generate:accessibility
 - After generation, view the report at: `http://localhost:[port]/docs/accessibility`
 - Or access via the documentation portal: `http://localhost:[port]/docs`
 - The report is also available in the footer navigation (Accessibility Report link)
+
+#### 3. Script Configuration
+
+The audit script (`audit-accessibility.js`) is highly configurable:
+
+**Key Configuration Options:**
+- **Environment**: Test against development (`localhost`) or production
+- **Viewports**: Customize desktop, tablet, and mobile sizes
+- **Themes**: Configure single or multiple theme testing
+- **Rules**: Enable/disable specific axe-core rules via booleans
+- **Skip Links**: Configure skip link detection selectors
+- **Exclusions**: Exclude framework-specific wrapper elements
+
+**📁 Script Location**: [`audit-accessibility.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)
+
+**Configuration Section**: [Lines 23-299](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L23-L299)
+
+#### 4. Reusing the Script
+
+The audit script is designed to be reusable for any website:
+
+1. **Copy the script** to your project root
+2. **Install dependencies**: `npm install --save-dev puppeteer axe-core`
+3. **Update configuration** (top of script) - Site info, URLs, paths
+4. **Ensure sitemap.xml exists** - Script automatically reads URLs from sitemap
+5. **Run the script**: `node audit-accessibility.js`
+
+**For complete instructions, see**: [ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md - Reusing This Script](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md#reusing-this-script)
 
 ## Content Management
 
@@ -547,7 +600,7 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 
 ### Project Documentation
 
-Comprehensive documentation is available in the `markdown-documentation/` folder **(consolidated from 24 to 11 files)**:
+Comprehensive documentation is available in the `markdown-documentation/` folder **(consolidated from 24 to 12 files)**:
 
 #### 📐 Core (3 files)
 
@@ -555,10 +608,11 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 - **[INDEX.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/INDEX.md)** - Documentation index and navigation hub
 - **[PROJECT_REVIEW.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PROJECT_REVIEW.md)** - Complete project review with improvement suggestions
 
-#### 🎨 Features & Guides (5 files)
+#### 🎨 Features & Guides (6 files)
 
 - **[PRINTER_FRIENDLY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PRINTER_FRIENDLY_GUIDE.md)** - Complete printer-friendly FAQ guide (overview, implementation, verification)
 - **[ACCESSIBILITY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_GUIDE.md)** - Complete accessibility documentation (audit results, skip links, testing)
+- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete accessibility audit script guide (1355 lines with GitHub links) - Script architecture, configuration, testing modes, challenges & solutions, and reuse instructions
 - **[FAQ_CONTENT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FAQ_CONTENT_GUIDE.md)** - FAQ management ("new" badge system, content guidelines, references)
 - **[SEO_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/SEO_GUIDE.md)** - SEO optimization and verification
 - **[CONFIGURATION_ABSTRACTION.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/CONFIGURATION_ABSTRACTION.md)** - Configuration management guide
@@ -574,7 +628,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 - **[test/E2E_TEST_PLAN.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/E2E_TEST_PLAN.md)** - Comprehensive E2E test implementation plan (coverage, strategy, examples)
 - **[test/README.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/README.md)** - Complete test suite documentation (unit, Nuxt, E2E plans)
 
-**Total**: 12 well-organized documentation files (50% reduction from 24 files)
+**Total**: 13 well-organized documentation files (includes accessibility audit script guide)
 
 ### Live Documentation Portal
 
