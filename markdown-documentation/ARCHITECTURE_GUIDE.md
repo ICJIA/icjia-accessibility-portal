@@ -588,12 +588,333 @@ writeFileSync("public/sitemap.xml", xml);
 
 ### Deployment to Netlify
 
-**Configuration**: `netlify.toml` - [View on GitHub](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml)
+**⚠️ This configuration applies to ALL Vuetify 3 + Nuxt 4 static-generated applications**
+
+**Overview**: Netlify is an excellent platform for deploying static-generated Nuxt applications. This section provides a complete, production-ready configuration that works for any Vuetify 3 + Nuxt 4 application using `nuxt generate`.
+
+#### Build Configuration
+
+**File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml)  
+**Related Files**: [`.nvmrc`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/.nvmrc), [`package.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/package.json)  
+**Netlify Docs**: [Configuration file](https://docs.netlify.com/configure-builds/file-based-configuration/), [Build settings](https://docs.netlify.com/configure-builds/get-started/)
+
+**Key Points**:
+
+1. **Build Command**: `yarn generate` (or `npm run generate`)
+   - This runs Nuxt's static site generation
+   - Outputs to `.output/public/` directory
+
+2. **Publish Directory**: `.output/public`
+   - This is where Nuxt 4 outputs static files after `nuxt generate`
+   - Netlify serves files from this directory
+
+3. **Node Version**: Specify in `netlify.toml` or use `.nvmrc`
+   - Ensures consistent builds across environments
+   - Node 22.14.0+ recommended for Nuxt 4
+
+**Complete Configuration**:
+
+```toml
+[build]
+  # Build command - generates static site
+  command = "yarn generate"
+
+  # Publish directory - where Nuxt outputs static files
+  publish = ".output/public"
+
+[build.environment]
+  # Node version - must match your local development
+  # Check your .nvmrc or package.json engines field
+  NODE_VERSION = "22.14.0"
+
+  # Yarn version (optional, but recommended for consistency)
+  YARN_VERSION = "1.22.22"
+
+  # NPM flags (optional)
+  NPM_FLAGS = "--version"
+
+# SPA fallback - redirects all routes to index.html
+# Required for client-side routing in static-generated Nuxt apps
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = "DENY"
+
+    # XSS protection
+    X-XSS-Protection = "1; mode=block"
+
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+
+    # Referrer policy
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Permissions policy (restrict features)
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/_nuxt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+```
+
+#### Node Version Management
+
+**Option 1: Using `.nvmrc` (Recommended)**
+
+**File**: [`.nvmrc`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/.nvmrc)  
+**Netlify Docs**: [Node.js version](https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript)
+
+Create a `.nvmrc` file in your project root:
+
+```
+22.14.0
+```
+
+Netlify will automatically detect and use this version.
+
+**Option 2: Using `netlify.toml`**
+
+**File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml)  
+**Netlify Docs**: [Build environment variables](https://docs.netlify.com/configure-builds/environment-variables/#netlify-configuration-file)
+
+Specify in `[build.environment]`:
+
+```toml
+[build.environment]
+  NODE_VERSION = "22.14.0"
+```
+
+**Option 3: Using `package.json` engines**
+
+**File**: [`package.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/package.json)  
+**Netlify Docs**: [Node.js version](https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript)
+
+```json
+{
+  "engines": {
+    "node": ">=22.14.0",
+    "npm": ">=10.0.0"
+  }
+}
+```
+
+**Why Node 22.14.0+?**
+
+- Nuxt 4 requires Node 18.18.0 or higher
+- Node 22.x provides better performance and latest features
+- Ensures compatibility with Vuetify 3 and all dependencies
+
+#### Build Process
+
+**Netlify Docs**: [Build process](https://docs.netlify.com/configure-builds/get-started/), [Build lifecycle](https://docs.netlify.com/configure-builds/build-lifecycle/)
+
+**What Happens During Deployment**:
+
+1. **Netlify clones your repository**
+2. **Installs dependencies**: `yarn install` (or `npm install`)
+3. **Runs build command**: `yarn generate`
+   - This executes your `pregenerate` script (if defined)
+   - Runs `nuxt generate` to create static files
+   - Executes your `postgenerate` script (if defined)
+4. **Publishes**: Serves files from `.output/public/`
+5. **Applies configuration**: Redirects, headers, etc.
+
+**Nuxt Deployment Guide**: [Deploy Nuxt to Netlify](https://nuxt.com/docs/getting-started/deployment#netlify)
+
+**Pre/Post Build Scripts** (Optional):
+
+If your `package.json` has pre/post hooks, they run automatically:
+
+```json
+{
+  "scripts": {
+    "pregenerate": "node scripts/generate-routes.js",
+    "generate": "nuxt generate",
+    "postgenerate": "node scripts/generate-sitemap.js"
+  }
+}
+```
+
+#### SPA Fallback Configuration
+
+**Netlify Docs**: [Redirects and rewrites](https://docs.netlify.com/routing/redirects/), [Redirect rules](https://docs.netlify.com/routing/redirects/redirect-options/)
+
+**Why the redirect is needed**:
+
+Static-generated Nuxt apps use client-side routing. When users navigate to routes like `/faqs` or `/links`, Netlify needs to serve `index.html` so Vue Router can handle the route.
+
+**File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (redirects section)
+
+```toml
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**Important**: This redirect must come **after** any specific route redirects you might have.
+
+#### Security Headers
+
+**Netlify Docs**: [Headers](https://docs.netlify.com/routing/headers/), [Custom headers](https://docs.netlify.com/routing/headers/#syntax)
+
+**File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (headers section)
+
+**Why these headers matter**:
+
+- **X-Frame-Options**: Prevents your site from being embedded in iframes (prevents clickjacking)
+- **X-XSS-Protection**: Enables browser XSS filtering
+- **X-Content-Type-Options**: Prevents MIME type sniffing attacks
+- **Referrer-Policy**: Controls referrer information sent with requests
+- **Permissions-Policy**: Restricts browser features (geolocation, camera, etc.)
+
+**Customization**: Adjust these headers based on your application's needs.
+
+#### Cache Control
+
+**Netlify Docs**: [Headers](https://docs.netlify.com/routing/headers/), [Caching](https://docs.netlify.com/edge-functions/overview/#caching)
+
+**File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (cache headers section)
+
+**Strategy**: Aggressive caching for static assets, no cache for HTML
+
+- **Static assets** (`/_nuxt/*`, `*.js`, `*.css`, `*.woff2`): Cache for 1 year (immutable)
+- **HTML files**: No cache headers (default), so updates are immediate
+- **Images**: Consider adding cache headers if you have many images
+
+**Why immutable?**
+
+- Nuxt generates assets with content hashes in filenames
+- If content changes, filename changes, so cache invalidation is automatic
+- Safe to cache aggressively
+
+#### Deployment Triggers
+
+**Netlify Docs**: [Continuous deployment](https://docs.netlify.com/site-deploys/create-deploys/), [Deploy contexts](https://docs.netlify.com/site-deploys/overview/#deploy-contexts), [Branch deploys](https://docs.netlify.com/site-deploys/overview/#branch-deploys)
+
+**Automatic Deployments**:
+
+- **Production**: Push to `main` (or configured branch) → Deploys to production
+- **Preview**: Open pull request → Creates preview deployment
+- **Branch**: Push to any branch → Creates branch deployment
+
+**Manual Deployments**:
+
+- Use Netlify CLI: `netlify deploy --prod`
+- Or trigger from Netlify dashboard
+- **Netlify CLI Docs**: [Deploy command](https://cli.netlify.com/commands/deploy)
+
+#### Environment Variables
+
+**Netlify Docs**: [Environment variables](https://docs.netlify.com/environment-variables/overview/), [Build environment variables](https://docs.netlify.com/configure-builds/environment-variables/)
+
+**Setting in Netlify**:
+
+1. Go to Site settings → Environment variables
+2. Add variables needed for build/runtime
+3. They're available as `process.env.VARIABLE_NAME`
+
+**File**: [`nuxt.config.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts) (runtimeConfig section)
+
+**Common Variables for Nuxt/Vuetify Apps**:
+
+```bash
+# Site URL (for SEO, canonical URLs)
+NUXT_PUBLIC_SITE_URL=https://your-site.netlify.app
+
+# Analytics (if using)
+NUXT_PUBLIC_ANALYTICS_ID=your-id
+
+# API endpoints (if any)
+NUXT_PUBLIC_API_URL=https://api.example.com
+```
+
+**Access in Nuxt**:
+
+```typescript
+// nuxt.config.ts
+export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL || "https://your-site.netlify.app",
+    },
+  },
+});
+```
+
+#### Troubleshooting
+
+**Netlify Docs**: [Troubleshooting builds](https://docs.netlify.com/configure-builds/troubleshooting-tips/), [Build logs](https://docs.netlify.com/configure-builds/get-started/#build-logs)
+
+**Common Issues**:
+
+1. **Build fails with "Command not found"**
+   - Ensure `yarn` or `npm` is available
+   - Check Node version matches `.nvmrc`
+   - **File**: [`.nvmrc`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/.nvmrc)
+
+2. **Routes return 404**
+   - Verify SPA fallback redirect is configured
+   - Check that `publish` directory is `.output/public`
+   - **File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (redirects section)
+   - **Netlify Docs**: [Redirects](https://docs.netlify.com/routing/redirects/)
+
+3. **Assets not loading**
+   - Verify cache headers are set correctly
+   - Check that assets are in `.output/public/_nuxt/`
+   - **File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (headers section)
+
+4. **Build timeout**
+   - Large sites may need longer build time
+   - Check Netlify build logs for specific errors
+   - **Netlify Docs**: [Build settings](https://docs.netlify.com/configure-builds/get-started/#build-settings)
+
+**Quick Checklist**:
+
+- ✅ `netlify.toml` exists in project root
+- ✅ Build command is `yarn generate` (or `npm run generate`)
+- ✅ Publish directory is `.output/public`
+- ✅ Node version specified (`.nvmrc` or `netlify.toml`)
+- ✅ SPA fallback redirect configured
+- ✅ Security headers configured
+- ✅ Cache headers for static assets configured
+
+#### For Any Vuetify 3 + Nuxt 4 Project
+
+**Minimal Configuration** (copy and customize):
 
 ```toml
 [build]
   command = "yarn generate"
   publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22.14.0"
 
 [[redirects]]
   from = "/*"
@@ -608,17 +929,22 @@ writeFileSync("public/sitemap.xml", xml);
     Referrer-Policy = "strict-origin-when-cross-origin"
 ```
 
-**Custom Headers**:
+**This minimal config works for any static-generated Nuxt 4 app**, whether it uses Vuetify or not. Add security headers and cache control as needed for your specific requirements.
 
-- Security headers (XSS protection, etc.)
-- Cache control for assets
-- CORS headers if needed
+#### Additional Resources
 
-**Deployment Trigger**:
+**Netlify Documentation**:
 
-- Git push to main branch
-- Automatic build and deploy
-- Preview deployments for PRs
+- [File-based configuration](https://docs.netlify.com/configure-builds/file-based-configuration/) - Complete guide to `netlify.toml`
+- [Deploy Nuxt to Netlify](https://nuxt.com/docs/getting-started/deployment#netlify) - Official Nuxt deployment guide
+- [Static site deployment](https://docs.netlify.com/site-deploys/overview/) - How Netlify handles static sites
+- [Build optimization](https://docs.netlify.com/configure-builds/optimize-your-build/) - Tips for faster builds
+
+**Project Files**:
+
+- [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) - Complete Netlify configuration
+- [`.nvmrc`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/.nvmrc) - Node version specification
+- [`package.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/package.json) - Build scripts and dependencies
 
 ---
 

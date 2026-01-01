@@ -6,6 +6,7 @@
     "scripts": {
         "generate:routes": "node scripts/generate-routes.js",
         "generate:sitemap": "node scripts/generate-sitemap.js",
+        "generate:docs": "node scripts/generate-architecture-docs.js",
         "ensure:accessibility-report": "node scripts/ensure-accessibility-report.js",
         "predev": "echo '📋 Step 1/4: Ensuring accessibility report exists...' && npm run ensure:accessibility-report && echo '📋 Step 2/4: Generating routes.json...' && npm run generate:routes && echo '📄 Step 3/4: Generating sitemap...' && npm run generate:sitemap",
         "dev": "nuxt dev",

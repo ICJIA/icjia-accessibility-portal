@@ -34,6 +34,17 @@
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
+          href="/docs/architecture"
+          class="footer-link"
+          aria-label="View site architecture documentation"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true"
+            >mdi-file-document-outline</v-icon
+          >
+          <span>Site Architecture</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
           href="/docs/accessibility/"
           class="footer-link"
           aria-label="View accessibility audit report"
