@@ -10,9 +10,15 @@
           @click="handleLogoClick"
         >
           <img
-            src="/icjia-logo.png"
+            src="/icjia-logo-1x.png"
+            srcset="/icjia-logo-1x.png 1x, /icjia-logo-2x.png 2x"
             alt="Illinois Criminal Justice Information Authority"
             class="navbar-logo"
+            loading="eager"
+            fetchpriority="high"
+            width="57"
+            height="40"
+            decoding="async"
           />
           <span class="text-caption ml-3 text-medium-emphasis"
             >Accessibility Portal</span

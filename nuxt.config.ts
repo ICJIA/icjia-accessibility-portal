@@ -16,6 +16,8 @@ export default defineNuxtConfig({
         // Preconnect to external domains for faster DNS resolution
         { rel: 'preconnect', href: 'https://plausible.icjia.cloud' },
         { rel: 'dns-prefetch', href: 'https://plausible.icjia.cloud' }
+        // Note: Logo image doesn't need preload - it's small (1.5KB) and uses
+        // loading="eager" + fetchpriority="high" which is sufficient
       ]
     }
   },

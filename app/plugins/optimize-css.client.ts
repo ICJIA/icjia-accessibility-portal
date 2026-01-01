@@ -8,9 +8,7 @@
  * This improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP)
  * by allowing the browser to render content before all CSS is loaded.
  * 
- * Expected impact: ~2,400ms improvement in render-blocking time
- * 
- * NOTE: This plugin is currently conservative - it only defers CSS added AFTER
+ * NOTE: This plugin is conservative - it only defers CSS added AFTER
  * the initial page load to prevent interfering with component initialization.
  * Set ENABLE_CSS_OPTIMIZATION to false to disable this plugin.
  */
