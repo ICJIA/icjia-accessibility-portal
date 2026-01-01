@@ -1139,9 +1139,20 @@ function filterNewComments(answerNodes) {
 
 - Use serif fonts (Georgia) for print
 - Black and white (except section headers)
-- Include table of contents for navigation
+- Include table of contents for navigation (non-clickable, bold text)
+- Internal links styled as bold text (non-clickable) - section references don't work when printed
+- External links remain functional with URLs appended for print accessibility
 - Show URLs as text for reference
 - Add last-updated date for context
+
+**Link Handling**:
+
+The printer-friendly page uses the [`usePrintLinks` composable`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/usePrintLinks.ts) to automatically process links:
+
+- **Internal links** (href starting with `#`): Converted to bold text, non-clickable (href removed). These indicate section names or question references.
+- **External links** (http/https): Remain functional with URLs appended in parentheses for print accessibility.
+
+This ensures internal section references don't appear as broken links when printed, while external resources remain accessible.
 
 ### Challenge 4: Skip Link Audit Validation
 

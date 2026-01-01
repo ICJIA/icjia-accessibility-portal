@@ -1,7 +1,7 @@
 # Printer-Friendly FAQ Guide
 
-**Last Updated**: January 1, 2026  
-**Version**: 1.0
+**Last Updated**: January 2026  
+**Version**: 1.1
 
 ---
 
@@ -60,10 +60,11 @@ The printer-friendly version **automatically stays in sync** with the main FAQ c
 ### Accessibility
 
 - **Screen Reader Friendly**: Semantic HTML with proper heading hierarchy
-- **Keyboard Navigable**: All links keyboard accessible
+- **Keyboard Navigable**: External links keyboard accessible
 - **High Contrast**: Black text on white background
 - **WCAG 2.1 AA Compliant**: Maintains same compliance as main site
 - **Skip Link**: Includes reusable SkipLink component
+- **Link Handling**: Internal links (section references) are styled as bold text and non-clickable, while external links remain fully functional
 
 ---
 
@@ -119,6 +120,26 @@ The printer-friendly page uses the shared `SkipLink` component via the print lay
 6. **Table of Contents Generation**: Auto-generates TOC
 7. **Print Styling**: Applies print-specific CSS
 
+### Link Handling
+
+The printer-friendly page intelligently handles different types of links:
+
+#### Internal Links (Section References)
+- **Styling**: Bold text, no underline
+- **Functionality**: Non-clickable (href removed)
+- **Purpose**: Indicates section names or question references
+- **Example**: Links to `#section-name` or `#question-id` appear as **bold text**
+
+#### External Links
+- **Styling**: Underlined, clickable
+- **Functionality**: Fully functional links
+- **Purpose**: Links to external resources remain clickable
+- **Example**: Links to `https://example.com` remain clickable with URL appended in parentheses
+
+**Implementation**: The [`usePrintLinks` composable](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/usePrintLinks.ts) automatically processes all links on the printer-friendly page to:
+- Remove internal anchor links (convert to bold text)
+- Keep external links functional with URLs appended for print accessibility
+
 ### URLs in Footer
 
 Footer includes clickable links to production site:
@@ -133,14 +154,15 @@ Footer includes clickable links to production site:
 #### Screen View
 - 8.5" x 11" page simulation with shadow
 - Print instruction banner at top
-- Clickable table of contents
-- Hover effects on links
+- Table of contents (non-clickable, bold text)
+- External links are clickable with hover effects
+- Internal links appear as bold text (non-clickable)
 
 #### Print View
 - Clean black and white output
 - Optimized font sizes (10-11pt)
 - Intelligent page breaks
-- No interactive elements
+- No interactive elements (internal links as bold text, external links with URLs)
 - Professional business document appearance
 
 ### Key CSS Classes
@@ -148,12 +170,29 @@ Footer includes clickable links to production site:
 - `.print-container` - Main wrapper
 - `.print-header` - Header section
 - `.print-toc` - Table of contents
+- `.print-toc-link` - TOC item (non-clickable, bold text)
+- `.print-internal-link` - Internal links styled as bold text (non-clickable)
 - `.print-section` - Major section container
 - `.print-section-heading` - Section heading (H2)
 - `.print-faq-item` - Individual Q&A container
 - `.print-question` - Question heading (H3)
 - `.print-answer` - Answer content
 - `.print-new-badge` - "NEW" badge
+
+### Link Processing
+
+The printer-friendly page uses the [`usePrintLinks` composable](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/usePrintLinks.ts) to automatically process links:
+
+**Internal Links** (href starting with `#`):
+- Removed `href` attribute (non-clickable)
+- Added `print-internal-link` class
+- Styled as bold text with no underline
+- Indicates section references or question titles
+
+**External Links** (http/https):
+- Remain fully functional
+- URL appended in parentheses for print accessibility
+- Underlined and clickable
 
 ---
 
@@ -292,8 +331,10 @@ Tested and verified in:
 - Verify `print-color-adjust: exact` is set
 
 **Q: Table of contents links not working**
-- Links only functional in screen view
-- In print, appear as plain text (intentional)
+- TOC items are intentionally non-clickable (styled as bold text)
+- Internal links throughout the page are converted to bold text (not clickable)
+- This is intentional - internal links don't work when printed
+- External links remain functional and clickable
 
 ---
 

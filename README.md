@@ -16,7 +16,7 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
   - Dynamic countdown timer showing days until the April 24, 2026 deadline
   - "New" badge system for recently added questions (auto-expires after 10 days)
   - Searchable accordion interface with proper ARIA attributes
-  - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF
+  - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
@@ -117,6 +117,8 @@ yarn generate:serve
   - Badge auto-expires after 10 days (configurable)
 - **Printer-Friendly FAQs** - Dedicated printer-friendly version at `/faqs-print`
   - Complete FAQ content in a clean, printable format
+  - Internal links styled as bold text (non-clickable) - section references don't work when printed
+  - External links remain functional with URLs appended for accessibility
   - Table of contents for easy navigation
   - Clear section headings and numbered questions
   - Optimized for printing or saving as PDF
