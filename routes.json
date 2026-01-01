@@ -1,9 +1,11 @@
 {
-  "generated": "2026-01-01T14:12:20.545Z",
+  "generated": "2026-01-01T14:37:28.052Z",
   "routes": [
     "/",
+    "/docs",
+    "/docs/accessibility",
+    "/docs/lighthouse",
     "/faqs",
-    "/faqs-print",
     "/links"
   ]
 }

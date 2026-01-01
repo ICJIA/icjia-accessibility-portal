@@ -13,6 +13,33 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **If you only have 5 minutes, start here.** These are the most impactful actions for each role to begin accessibility compliance:
 
+### Executive Summary
+
+**Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
+
+**What you need to know right now:**
+
+1. **The deadline is real:** April 24, 2026. Illinois state agencies must make web content and mobile apps accessible to people with disabilities (IITAA + ADA Title II).
+
+2. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
+
+3. **The standard is clear:** WCAG 2.1 Level AA. This means proper headings, alt text on images, captions on videos, keyboard navigation, sufficient color contrast, and accessible forms.
+
+4. **Start small, start now:** You don't have to fix everything today. Focus on new content first, then prioritize high-traffic pages and critical services. Every small improvement counts.
+
+5. **Help is available:** This FAQ, your agency's accessibility coordinator, Illinois DoIT training, and free tools like WAVE and axe DevTools can guide you through the process.
+
+**What to do next:**
+
+- Find your role below (Content Creator, Web Developer, Manager, or Executive Staff)
+- Follow the 5 critical actions listed for your role
+- Click "Start here" to get practical step-by-step guidance
+- Don't try to read everything at once — use this as a reference when you have specific questions
+
+**The bottom line:** Accessibility means people with disabilities can use your content. The work is manageable if you start now and focus on practical, high-impact actions. You've got this.
+
+---
+
 ### For Content Creators
 
 **What accessibility means for you:** Every document, image, and video you create must be usable by people with disabilities. This means adding alt text so screen reader users can understand images, using proper heading styles so documents are navigable, and ensuring videos have captions. You're on the front lines of creating accessible content that serves all Illinois residents.
