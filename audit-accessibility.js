@@ -83,34 +83,35 @@ const DEV_SERVER_PORT = 3000; // Change if your dev server runs on a different p
  * "scrollable-region-focusable": true,
  */
 const AXE_RULE_CONFIG = {
-  // Framework-specific rules - may need to be disabled if they conflict with Nuxt/Vuetify
-  "aria-allowed-role": true, // Test if this works with Nuxt/Vuetify components
-  "scrollable-region-focusable": true, // Test if this works with Nuxt/Vuetify scrollable regions
+  // Framework-specific rules - enabled for comprehensive testing
+  "aria-allowed-role": true, // Works with Nuxt/Vuetify components
+  "scrollable-region-focusable": true, // Works with Nuxt/Vuetify scrollable regions
 
-  // Always disabled due to framework limitations
+  // Landmark rules - all enabled for WCAG compliance
   "landmark-banner-is-top-level": true,
   "landmark-contentinfo-is-top-level": true,
   "landmark-main-is-top-level": true,
   "landmark-unique": true,
+  
+  // ❌ DISABLED: Known incompatibility with Nuxt/Vue component structure
+  // The 'region' rule has issues with Vue/Nuxt because components dynamically create
+  // regions that don't match the expected HTML5 landmark structure
   region: false,
 
-  // Experimental/Cutting-edge rules - disabled by default, enable to test latest accessibility checks
-  // These rules are cutting-edge and may not be fully validated yet
+  // WCAG 2.1 Level AA rules - all enabled
+  "css-orientation-lock": true, // WCAG 2.1 SC 1.3.4 - Orientation lock check
+  "no-autoplay-audio": true, // WCAG 2.1 SC 1.4.2 - Autoplay audio check
+  "page-has-heading-one": true, // Best practice - Page should have h1
 
-  // ✅ RECOMMENDED: Safe to enable (low false positive risk, high value)
-  "css-orientation-lock": false, // Checks for orientation lock (WCAG 2.1 SC 1.3.4)
-  "no-autoplay-audio": true, // Checks for autoplay audio (WCAG 2.1 SC 1.4.2)
-  "page-has-heading-one": true, // Checks for h1 on page
-
-  // ⚠️ TEST CAREFULLY: May have false positives but valuable
+  // Focus and navigation rules - all enabled
   "focus-order-semantics": true, // Checks focus order matches DOM order
-  "identical-links-same-purpose": false, // Checks for duplicate links with same purpose
-  "link-in-text-block": true, // Checks link contrast in text blocks
+  "identical-links-same-purpose": true, // Checks for duplicate links with same purpose
+  "link-in-text-block": true, // WCAG 2.1 SC 1.4.1 - Link contrast in text blocks
 
-  // ❌ USE WITH CAUTION: Higher false positive risk or may conflict with frameworks
-  "hidden-content": false, // Checks for hidden content that should be visible
-  "label-content-name-mismatch": false, // Checks if label text matches accessible name
-  "presentation-role-conflict": false, // Checks for presentation role conflicts
+  // Content and labeling rules - all enabled
+  "hidden-content": true, // Checks for hidden content that should be visible
+  "label-content-name-mismatch": true, // Checks if label text matches accessible name
+  "presentation-role-conflict": true, // Checks for presentation role conflicts
 };
 
 /**
