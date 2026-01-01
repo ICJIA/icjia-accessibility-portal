@@ -6,6 +6,8 @@ A modern, accessible portal for the Illinois Criminal Justice Information Author
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.0.0+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.13+-42b883)](https://vuejs.org)
 
+> 📚 **For Developers**: See **[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** for complete technical documentation, implementation details, challenges & solutions, and best practices.
+
 ## Purpose
 
 This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 24, 2026 guideline**. The portal includes:
@@ -92,6 +94,11 @@ yarn generate:serve
 
 - **100% Accessible** - All pages verified with automated accessibility audits using **axe-core** (zero violations)
 - **Skip Navigation** - Skip link for keyboard users to jump to main content
+  - Reusable `SkipLink` component used in all layouts
+  - Positioned off-screen (`top: -100px`) until focused
+  - High z-index (10000) ensures visibility
+  - Includes smooth scroll and respects reduced motion preferences
+  - 100% pass rate in accessibility audits (12/12 skip links working)
 - **ARIA Support**:
   - Live regions for dynamic content (countdown timer with `aria-live="polite"`)
   - `aria-describedby` relationships linking FAQ questions to answers
@@ -262,15 +269,17 @@ The automated build process:
 ├── app/
 │   ├── app.vue                 # Root app component
 │   ├── layouts/
-│   │   └── default.vue         # Default layout with navbar and footer
+│   │   ├── default.vue         # Default layout with navbar and footer
+│   │   └── print.vue           # Printer-friendly layout (no navbar/footer)
 │   ├── pages/
 │   │   ├── index.vue           # Home page with countdown timer and FAQs
 │   │   ├── faqs.vue            # Dedicated FAQ page
+│   │   ├── faqs-print.vue      # Printer-friendly FAQs page
 │   │   └── links.vue           # Accessibility links page
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
 │   │   ├── AppNavbar.vue       # Navigation bar with aria-current support
-│   │   ├── AppFooter.vue       # Footer component
+│   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   └── FaqAccordion.vue    # FAQ accordion with aria-describedby
 │   ├── composables/
@@ -307,10 +316,14 @@ The automated build process:
 │   ├── generate-sitemap.js     # Sitemap generation script
 │   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
 ├── markdown-documentation/     # Project documentation and audit results
-│   ├── PROJECT_REVIEW.md       # Comprehensive project review
-│   ├── FAQ_NEW_TAG_SYSTEM.md   # Documentation for "new" badge system
+│   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
+│   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
+│   ├── FOOTER_REFACTOR.md          # Footer refactor documentation
+│   ├── PROJECT_REVIEW.md           # Comprehensive project review
+│   ├── FAQ_NEW_TAG_SYSTEM.md       # Documentation for "new" badge system
+│   ├── PRINTER_FRIENDLY_FAQ.md     # Printer-friendly feature documentation
 │   ├── ACCESSIBILITY_AUDIT_RESULTS.md  # Latest audit results
-│   └── (other documentation files)
+│   └── (20+ other documentation files)
 ├── audit-accessibility.js      # Accessibility audit script (console output)
 ├── audit-lighthouse.js         # Lighthouse audit script (HTML reports)
 ├── content.config.ts           # Nuxt Content configuration
@@ -555,16 +568,55 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 
 ## Documentation
 
+### 📚 Complete Architecture Guide
+
+**NEW**: For a comprehensive understanding of this application's architecture, implementation details, and best practices, see:
+
+**[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** - Complete guide covering:
+
+- Project architecture and design decisions
+- Content management strategy (markdown parsing, FAQ structure)
+- Accessibility implementation (skip links, ARIA, focus management)
+- Build and deployment process
+- Challenges faced and solutions found
+- Best practices and patterns
+- Testing and validation approach
+- Tips for replicating similar applications
+
+**[📑 Documentation Index](markdown-documentation/INDEX.md)** - Quick reference to all 11 documentation files organized by category
+
+**This guide is essential reading for:**
+
+- Developers new to the codebase
+- LLMs working on this project
+- Teams building similar accessibility-focused applications
+- Anyone wanting to understand the full technical implementation
+
 ### Project Documentation
 
-Comprehensive documentation is available in the `markdown-documentation/` folder:
+Comprehensive documentation is available in the `markdown-documentation/` folder **(consolidated from 24 to 11 files)**:
 
-- **PROJECT_REVIEW.md** - Complete project review with improvement suggestions
-- **FAQ_NEW_TAG_SYSTEM.md** - Guide for using the "new" badge system
-- **ACCESSIBILITY_AUDIT_RESULTS.md** - Latest accessibility audit results
-- **FAQ_COMPREHENSIVE_ASSESSMENT.md** - Detailed FAQ content assessment
-- **CONFIGURATION_ABSTRACTION.md** - Configuration management guide
-- And more technical documentation files
+#### 📐 Core (3 files)
+
+- **[ARCHITECTURE_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md)** ⭐ - **Complete technical guide** (1300+ lines with 30+ GitHub links to source files) - **Start here!**
+- **[INDEX.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/INDEX.md)** - Documentation index and navigation hub
+- **[PROJECT_REVIEW.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PROJECT_REVIEW.md)** - Complete project review with improvement suggestions
+
+#### 🎨 Features & Guides (5 files)
+
+- **[PRINTER_FRIENDLY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PRINTER_FRIENDLY_GUIDE.md)** - Complete printer-friendly FAQ guide (overview, implementation, verification)
+- **[ACCESSIBILITY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_GUIDE.md)** - Complete accessibility documentation (audit results, skip links, testing)
+- **[FAQ_CONTENT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FAQ_CONTENT_GUIDE.md)** - FAQ management ("new" badge system, content guidelines, references)
+- **[SEO_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/SEO_GUIDE.md)** - SEO optimization and verification
+- **[CONFIGURATION_ABSTRACTION.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/CONFIGURATION_ABSTRACTION.md)** - Configuration management guide
+
+#### 📅 History & Updates (3 files)
+
+- **[CONTENT_MAINTENANCE_HISTORY.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/CONTENT_MAINTENANCE_HISTORY.md)** - Chronological log of content fixes and improvements
+- **[FEATURE_UPDATES.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FEATURE_UPDATES.md)** - Log of major feature additions and enhancements
+- **[DOCUMENTATION_HISTORY.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_HISTORY.md)** - Meta-log of documentation updates
+
+**Total**: 11 well-organized documentation files (54% reduction from 24 files)
 
 ### Live Documentation Portal
 
@@ -627,6 +679,14 @@ Reports include:
 ### Recent Updates (January 2026)
 
 - **NEW**: Printer-friendly FAQs page (`/faqs-print`) for easy printing and offline reference
+  - All FAQ content in clean, printable format
+  - Table of contents with question counts
+  - Professional business document styling
+  - Optimized for print and PDF export
+  - Includes clickable links (screen) and reference URLs (print)
+  - Last-updated date for document tracking
+  - Uses custom print layout (no navbar/footer)
+  - 100% accessible (skip link, proper semantics)
 - Enhanced FAQ system with auto-expiring "New" badges
 - Improved accessibility with comprehensive ARIA support
 - Added Lighthouse performance auditing
@@ -634,6 +694,8 @@ Reports include:
 - Added comprehensive project documentation
 - Optimized CSS and performance
 - Enhanced content management system
+- Navigation improvements (Print FAQs link added to navbar and footer)
+- **Footer refactor** - Modern, centered design with clickable ICJIA copyright, GitHub repository, printer-friendly, and accessibility report links. Fully responsive and accessible with proper ARIA labels.
 
 ### Version Information
 
