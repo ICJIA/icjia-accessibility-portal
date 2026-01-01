@@ -66,51 +66,36 @@ The script uses **Puppeteer** (headless Chrome) to:
 
 **📁 Source**: [`audit-accessibility.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    audit-accessibility.js                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                               │
-│  1. Configuration Section (Top of File)                      │
-│     - Environment settings (dev/prod)                        │
-│       [Lines 54-69](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L54-L69)
-│     - Rule configuration (AXE_RULE_CONFIG)                    │
-│       [Lines 85-115](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L85-L115)
-│     - Viewport definitions                                    │
-│       [Lines 133-137](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L133-L137)
-│     - Theme configuration                                     │
-│       [Lines 145-155](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L145-L155)
-│     - Site information                                        │
-│       [Lines 188-277](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L188-L277)
-│                                                               │
-│  2. Core Functions                                           │
-│     - runAxeAudit() - Runs axe-core tests                     │
-│       [Lines 497-633](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L497-L633)
-│     - verifySkipLink() - Validates skip links                 │
-│       [Lines 641-720](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L641-L720)
-│     - generateHTMLReport() - Creates HTML report              │
-│       [Lines 752-2262](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L2262)
-│     - runAudit() - Main orchestration function                │
-│       [Lines 2280-2838](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2280-L2838)
-│                                                               │
-│  3. Server Management                                         │
-│     - Detects running servers                                 │
-│       [Lines 361-383](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L361-L383)
-│     - Auto-starts dev server if needed                        │
-│       [Lines 388-450](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L388-L450)
-│     - Handles server lifecycle                                │
-│       [Lines 2280-2400](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2280-L2400)
-│                                                               │
-│  4. Report Generation                                         │
-│     - HTML report with modals                                 │
-│       [Lines 752-2262](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L2262)
-│     - JSON reports (violations.json, errors.json)            │
-│       [Lines 2716-2750](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2716-L2750)
-│     - Summary statistics                                      │
-│       [Lines 752-900](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L900)
-│                                                               │
-└─────────────────────────────────────────────────────────────┘
-```
+The script is organized into four main sections:
+
+#### 1. Configuration Section (Top of File)
+
+All configuration is at the top of the script (lines 23-299):
+
+- **Environment settings (dev/prod)** - [`Lines 54-69`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L54-L69)
+- **Rule configuration (AXE_RULE_CONFIG)** - [`Lines 85-115`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L85-L115)
+- **Viewport definitions** - [`Lines 133-137`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L133-L137)
+- **Theme configuration** - [`Lines 145-155`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L145-L155)
+- **Site information** - [`Lines 188-277`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L188-L277)
+
+#### 2. Core Functions
+
+- **`runAxeAudit()`** - Runs axe-core tests - [`Lines 497-633`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L497-L633)
+- **`verifySkipLink()`** - Validates skip links - [`Lines 641-720`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L641-L720)
+- **`generateHTMLReport()`** - Creates HTML report - [`Lines 752-2262`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L2262)
+- **`runAudit()`** - Main orchestration function - [`Lines 2280-2838`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2280-L2838)
+
+#### 3. Server Management
+
+- **Detects running servers** - [`Lines 361-383`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L361-L383)
+- **Auto-starts dev server if needed** - [`Lines 388-450`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L388-L450)
+- **Handles server lifecycle** - [`Lines 2280-2400`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2280-L2400)
+
+#### 4. Report Generation
+
+- **HTML report with modals** - [`Lines 752-2262`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L2262)
+- **JSON reports (violations.json, errors.json)** - [`Lines 2716-2750`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L2716-L2750)
+- **Summary statistics** - [`Lines 752-900`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L752-L900)
 
 ### Data Flow
 

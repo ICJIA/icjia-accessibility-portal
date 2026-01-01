@@ -355,6 +355,7 @@ This project includes comprehensive accessibility testing tools powered by **axe
 #### 📚 Complete Documentation
 
 **For detailed information about the accessibility audit script, see:**
+
 - **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete guide to the audit script (1355 lines with challenges & solutions)
   - Script architecture and design
   - Configuration options
@@ -438,6 +439,7 @@ yarn generate:accessibility
 The audit script (`audit-accessibility.js`) is highly configurable:
 
 **Key Configuration Options:**
+
 - **Environment**: Test against development (`localhost`) or production
 - **Viewports**: Customize desktop, tablet, and mobile sizes
 - **Themes**: Configure single or multiple theme testing
