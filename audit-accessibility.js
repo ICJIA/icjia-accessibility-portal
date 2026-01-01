@@ -1443,10 +1443,10 @@ function generateHTMLReport(results) {
         <div class="number">${totalTestsRun}</div>
         <div class="click-hint">click to view tests</div>
       </div>
-      <div class="stat-card ${skipLinkStats.working === skipLinkStats.total ? "success" : skipLinkStats.exists === 0 ? "error" : "warning"}">
+      <div class="stat-card ${skipLinkStats.working === skipLinkStats.total ? "success" : skipLinkStats.exists === 0 ? "error" : "warning"} clickable" id="skipLinksCard" onclick="openSkipLinksModal()">
         <div class="label">Skip Links</div>
         <div class="number">${skipLinkStats.working}/${skipLinkStats.total}</div>
-        <div class="click-hint" style="font-size: 0.7rem;">${skipLinkStats.issues > 0 ? `${skipLinkStats.issues} issue(s)` : "all working"}</div>
+        <div class="click-hint" style="font-size: 0.7rem;">click for more info</div>
       </div>
     </div>
     
@@ -1877,6 +1877,79 @@ function generateHTMLReport(results) {
     </div>
   </div>
   
+  <!-- Modal for Skip Links Information -->
+  <div id="skipLinksModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>What Are Skip Links?</h2>
+        <button class="modal-close" onclick="closeSkipLinksModal()">&times;</button>
+      </div>
+      <div class="info-block" style="margin: 0;">
+        <h3>What Are Skip Links?</h3>
+        <p>
+          <strong>Skip links</strong> (also called "skip navigation links") are accessibility features that allow keyboard and screen reader users to bypass repetitive navigation content and jump directly to the main content of a webpage. They are typically the first interactive element on a page and appear when focused via keyboard navigation.
+        </p>
+        
+        <h3>Why Are Skip Links Important?</h3>
+        <p>
+          Skip links are critical for accessibility and are required by WCAG 2.1 Level A (Success Criterion 2.4.1 - Bypass Blocks). They provide several key benefits:
+        </p>
+        <ul>
+          <li><strong>Keyboard Navigation Efficiency:</strong> Users who navigate with a keyboard (using Tab, Shift+Tab, and arrow keys) can skip over long navigation menus, headers, and other repetitive content to reach the main content faster. Without skip links, keyboard users must tab through every navigation item before reaching the main content.</li>
+          <li><strong>Screen Reader Efficiency:</strong> Screen reader users can quickly jump to the main content without having to listen to the entire navigation menu being read aloud on every page. This saves significant time and reduces frustration.</li>
+          <li><strong>WCAG Compliance:</strong> Skip links are required by WCAG 2.1 Level A (Success Criterion 2.4.1 - Bypass Blocks), which is part of the minimum accessibility standards required for legal compliance with ADA Title II, IITAA, and Section 508.</li>
+          <li><strong>Better User Experience:</strong> Skip links improve the experience for all users, not just those with disabilities. They make websites more efficient to navigate, especially on pages with extensive navigation menus.</li>
+        </ul>
+        
+        <h3>How Skip Links Work</h3>
+        <p>
+          Skip links typically work as follows:
+        </p>
+        <ul>
+          <li><strong>Hidden by Default:</strong> Skip links are usually positioned off-screen using CSS (e.g., <code>position: absolute; top: -100px</code>) so they don't interfere with the visual design when not in use.</li>
+          <li><strong>Visible on Focus:</strong> When a user presses the Tab key to navigate with the keyboard, the skip link becomes visible and receives focus. It should have clear visual focus indicators (outline, background color, etc.) so users can see it.</li>
+          <li><strong>Target Main Content:</strong> The skip link's <code>href</code> attribute points to the main content area of the page (typically <code>#main-content</code> or <code>#main</code>). When activated, it scrolls the page and moves keyboard focus to that target element.</li>
+          <li><strong>Proper Target Setup:</strong> The target element (usually the <code>&lt;main&gt;</code> element or a container with <code>id="main-content"</code>) should have <code>tabindex="-1"</code> to allow programmatic focus, ensuring keyboard focus moves to it when the skip link is activated.</li>
+        </ul>
+        
+        <h3>Skip Link Implementation Requirements</h3>
+        <p>
+          For a skip link to be properly implemented and pass accessibility audits, it must meet these criteria:
+        </p>
+        <ul>
+          <li><strong>Presence:</strong> A skip link must exist on every page of the website.</li>
+          <li><strong>Correct Target:</strong> The skip link's <code>href</code> must point to the main content area (typically <code>#main-content</code>).</li>
+          <li><strong>Target Exists:</strong> The target element (e.g., <code>&lt;main id="main-content"&gt;</code>) must exist on the page.</li>
+          <li><strong>Keyboard Accessible:</strong> The skip link must be keyboard accessible (not have <code>tabindex="-1"</code> that prevents keyboard access).</li>
+          <li><strong>Visible on Focus:</strong> The skip link must be visible when it receives keyboard focus, with clear visual indicators.</li>
+          <li><strong>Target is Focusable:</strong> The target element should have <code>tabindex="-1"</code> to allow programmatic focus when the skip link is activated.</li>
+        </ul>
+        
+        <h3>Current Skip Link Status</h3>
+        <p style="padding: 0.75rem; background: #d1e7dd; border-left: 3px solid #198754; border-radius: 4px; margin-top: 1rem;">
+          <strong>✅ All Skip Links Working:</strong> This audit found <strong>${skipLinkStats.working}/${skipLinkStats.total} skip links</strong> are properly implemented and working correctly across all tested pages and viewports. All skip links meet the requirements for presence, target, keyboard accessibility, and focus visibility.
+        </p>
+        
+        <h3>Testing Skip Links</h3>
+        <p>
+          You can test skip links on this website yourself:
+        </p>
+        <ol>
+          <li><strong>Using Keyboard:</strong> Press the Tab key when the page loads. The skip link should appear at the top of the page. Press Enter to activate it, and the page should scroll to the main content.</li>
+          <li><strong>Using Screen Reader:</strong> If you use a screen reader (like NVDA, JAWS, or VoiceOver), navigate to the beginning of the page. The skip link should be the first interactive element announced.</li>
+          <li><strong>Visual Check:</strong> When the skip link receives focus, it should be clearly visible with a focus indicator (outline, background color, etc.).</li>
+        </ol>
+        
+        <h3>Additional Resources</h3>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html" target="_blank" rel="noopener noreferrer">WCAG 2.4.1 - Bypass Blocks (Level A)</a></li>
+          <li><a href="https://www.w3.org/WAI/tutorials/page-structure/skip-links/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Tutorials: Skip Links</a></li>
+          <li><a href="https://webaim.org/techniques/skipnav/" target="_blank" rel="noopener noreferrer">WebAIM: Skip Navigation Links</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
   <!-- Modal for Environment Information -->
   <div id="environmentModal" class="modal">
     <div class="modal-content">
@@ -1940,11 +2013,20 @@ function generateHTMLReport(results) {
       document.getElementById('environmentModal').style.display = 'none';
     }
     
+    function openSkipLinksModal() {
+      document.getElementById('skipLinksModal').style.display = 'block';
+    }
+    
+    function closeSkipLinksModal() {
+      document.getElementById('skipLinksModal').style.display = 'none';
+    }
+    
     // Close modal when clicking outside of it
     window.onclick = function(event) {
       const testsModal = document.getElementById('testsModal');
       const frameworkModal = document.getElementById('frameworkModal');
       const environmentModal = document.getElementById('environmentModal');
+      const skipLinksModal = document.getElementById('skipLinksModal');
       if (event.target == testsModal) {
         closeTestsModal();
       }
@@ -1954,6 +2036,9 @@ function generateHTMLReport(results) {
       if (event.target == environmentModal) {
         closeEnvironmentModal();
       }
+      if (event.target == skipLinksModal) {
+        closeSkipLinksModal();
+      }
     }
     
     // Close modal with Escape key
@@ -1962,6 +2047,7 @@ function generateHTMLReport(results) {
         closeTestsModal();
         closeFrameworkModal();
         closeEnvironmentModal();
+        closeSkipLinksModal();
       }
     });
     

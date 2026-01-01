@@ -78,7 +78,6 @@ yarn generate:serve
 - **Yarn** - Fast, reliable package manager
 - **Playwright** - End-to-end testing and browser automation
 - **axe-core** - Accessibility testing engine (WCAG 2.1 AA compliance)
-- **Lighthouse** - Performance, accessibility, and best practices auditing
 
 ### Analytics
 
@@ -156,12 +155,6 @@ yarn dev
 # Run quick accessibility audit using axe-core (console output)
 yarn audit:a11y
 
-# Run Lighthouse performance audit (requires running server)
-yarn audit:lighthouse
-
-# Run both accessibility and Lighthouse audits
-yarn audit:full
-
 # Generate comprehensive accessibility report (HTML)
 # Note: Requires a running server (dev, preview, or generate:serve)
 yarn generate:accessibility
@@ -175,8 +168,6 @@ yarn generate:accessibility
 - `yarn preview` - Preview production build locally (port 3000)
 - `yarn generate:serve` - Generate and serve static site (port 5150)
 - `yarn audit:a11y` - Quick accessibility check (console output)
-- `yarn audit:lighthouse` - Full Lighthouse audit (requires server)
-- `yarn audit:full` - Run both accessibility and Lighthouse audits
 - `yarn generate:routes` - Generate routes.json from pages/content
 - `yarn generate:sitemap` - Generate sitemap.xml from routes
 
@@ -316,9 +307,6 @@ The automated build process:
 │       │   ├── index.html      # Accessibility audit report (generated)
 │       │   ├── errors.json     # Accessibility errors data
 │       │   └── violations.json # Accessibility violations data
-│       └── lighthouse/
-│           ├── index.html      # Lighthouse audit report (generated)
-│           └── report.json     # Lighthouse audit data
 ├── scripts/
 │   ├── generate-routes.js      # Routes generation script (scans pages and content) - Fully documented with JSDoc
 │   ├── generate-sitemap.js     # Sitemap generation script - Fully documented with JSDoc
@@ -333,7 +321,6 @@ The automated build process:
 │   ├── ACCESSIBILITY_AUDIT_RESULTS.md  # Latest audit results
 │   └── (20+ other documentation files)
 ├── audit-accessibility.js      # Accessibility audit script (console output)
-├── audit-lighthouse.js         # Lighthouse audit script (HTML reports)
 ├── content.config.ts           # Nuxt Content configuration
 ├── netlify.toml                # Netlify deployment configuration
 ├── nuxt.config.ts              # Nuxt configuration
@@ -470,54 +457,12 @@ There are {days_until_deadline} days until the deadline.
 
 This automatically updates without rebuilding the site.
 
-#### 3. Lighthouse Performance Audit (`yarn audit:lighthouse`)
-
-A performance and best practices audit using Google Lighthouse that generates comprehensive reports for all pages.
-
-```bash
-# First, start a server (choose one):
-yarn dev              # Development server (port 3000)
-yarn preview          # Preview server (port 3000)
-yarn generate:serve  # Generated site server (port 5150)
-
-# Then, in another terminal, run the Lighthouse audit:
-yarn audit:lighthouse
-```
-
-**Features:**
-
-- **Uses sitemap.xml** - Automatically audits all pages listed in the sitemap
-- **Comprehensive metrics** - Tests performance, accessibility, best practices, SEO, and PWA (if applicable)
-- **HTML report generation** - Creates detailed HTML reports for each page
-- **JSON data export** - Generates JSON data files for programmatic analysis
-- **Report location** - Generated at `/public/docs/lighthouse/index.html` and accessible at `/docs/lighthouse`
-- **Documentation portal** - Report is accessible via the documentation portal at `/docs`
-
-**Report Contents:**
-
-- Performance scores and metrics (LCP, FID, CLS, etc.)
-- Accessibility scores (powered by axe-core)
-- Best practices recommendations
-- SEO analysis
-- Detailed recommendations for each metric
-
-**Requirements:**
-
-- A server must be running (dev, preview, or generate:serve)
-- Chrome/Chromium must be available (Lighthouse uses Chrome Launcher)
-
-**Accessing the Report:**
-
-- After generation, view the report at: `http://localhost:[port]/docs/lighthouse`
-- Or access via the documentation portal: `http://localhost:[port]/docs`
-
 #### Why axe-core?
 
-**axe-core** is the industry-standard accessibility testing engine used by major tools and organizations worldwide. Here's why it's as effective as commercial solutions like SiteImprove or Google Lighthouse:
+**axe-core** is the industry-standard accessibility testing engine used by major tools and organizations worldwide. Here's why it's as effective as commercial solutions like SiteImprove:
 
 ##### **Industry Standard & Widely Adopted**
 
-- **Used by Google Lighthouse** - Lighthouse's accessibility audit is powered by axe-core
 - **Used by SiteImprove** - SiteImprove's automated testing incorporates axe-core rules
 - **Used by major companies** - Trusted by Microsoft, Google, Facebook, and thousands of other organizations
 - **Open source and transparent** - Unlike proprietary tools, you can inspect and understand exactly what's being tested
@@ -538,16 +483,16 @@ yarn audit:lighthouse
 
 ##### **Comparison to Other Tools**
 
-| Feature              | axe-core     | SiteImprove | Google Lighthouse       |
-| -------------------- | ------------ | ----------- | ----------------------- |
-| WCAG 2.1 AA Coverage | ✅ Full      | ✅ Full     | ✅ Full (uses axe-core) |
-| Open Source          | ✅ Yes       | ❌ No       | ✅ Yes                  |
-| Cost                 | ✅ Free      | ❌ Paid     | ✅ Free                 |
-| CI/CD Integration    | ✅ Excellent | ⚠️ Limited  | ✅ Good                 |
-| Detailed Reporting   | ✅ Yes       | ✅ Yes      | ⚠️ Basic                |
-| Real Browser Testing | ✅ Yes       | ✅ Yes      | ✅ Yes                  |
+| Feature              | axe-core     | SiteImprove |
+| -------------------- | ------------ | ----------- |
+| WCAG 2.1 AA Coverage | ✅ Full      | ✅ Full     |
+| Open Source          | ✅ Yes       | ❌ No       |
+| Cost                 | ✅ Free      | ❌ Paid     |
+| CI/CD Integration    | ✅ Excellent | ⚠️ Limited  |
+| Detailed Reporting   | ✅ Yes       | ✅ Yes      |
+| Real Browser Testing | ✅ Yes       | ✅ Yes      |
 
-**Conclusion**: axe-core provides the same level of WCAG 2.1 AA compliance testing as commercial tools like SiteImprove, and it's actually the engine that powers Google Lighthouse's accessibility audits. By using axe-core directly, we get the same comprehensive testing with full transparency, no licensing costs, and better integration with our development workflow.
+**Conclusion**: axe-core provides the same level of WCAG 2.1 AA compliance testing as commercial tools like SiteImprove. By using axe-core directly, we get comprehensive testing with full transparency, no licensing costs, and better integration with our development workflow.
 
 #### Current Audit Status
 
@@ -631,7 +576,6 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 The application includes a built-in documentation portal at `/docs/` with:
 
 - **Accessibility Reports** (`/docs/accessibility/`) - Automated accessibility audit results
-- **Lighthouse Reports** (`/docs/lighthouse/`) - Performance audit results
 - **Portal Index** (`/docs/`) - Central hub for all documentation
 
 Access the documentation portal:
@@ -649,9 +593,6 @@ yarn dev  # or yarn generate:serve
 
 # Generate accessibility report
 yarn generate:accessibility
-
-# Generate Lighthouse report
-yarn audit:lighthouse
 ```
 
 Reports include:
@@ -681,7 +622,7 @@ Reports include:
 - ✅ SEO optimized with automated sitemap generation
 - ✅ "New" badge system for FAQ questions
 - ✅ Dynamic countdown timer (April 24, 2026 deadline)
-- ✅ Automated accessibility and Lighthouse audits
+- ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
@@ -698,7 +639,6 @@ Reports include:
   - 100% accessible (skip link, proper semantics)
 - Enhanced FAQ system with auto-expiring "New" badges
 - Improved accessibility with comprehensive ARIA support
-- Added Lighthouse performance auditing
 - Implemented dynamic content placeholders
 - Added comprehensive project documentation
 - Optimized CSS and performance
@@ -722,7 +662,6 @@ Reports include:
 
 - axe-core: 4.11.0+ (accessibility testing)
 - Playwright: 1.57.0+ (browser automation)
-- Lighthouse: 12.0.0+ (performance auditing)
 
 ### Future Enhancements
 

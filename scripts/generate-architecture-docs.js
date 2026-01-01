@@ -18,10 +18,31 @@ function markdownToHtml(markdown) {
   html = html.replace(/\/\*\*[\s\S]*?\*\/\s*/g, '')
 
   // Process code blocks first (before other replacements)
+  // Special handling for ASCII trees (directory structures)
+  // Use a placeholder to prevent paragraph processing from touching code blocks
+  const codeBlockPlaceholders = []
+  let placeholderIndex = 0
+  
   html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
     const language = lang || 'text'
-    const escapedCode = escapeHtml(code.trim())
-    return `<pre><code class="language-${language}">${escapedCode}</code></pre>`
+    const codeContent = code.trim()
+    
+    // Check if this is an ASCII tree (contains tree characters)
+    const isAsciiTree = /[├└│─]/.test(codeContent)
+    
+    // Escape HTML but preserve line breaks
+    const escapedCode = escapeHtml(codeContent)
+    
+    const placeholder = `<!--CODE_BLOCK_PLACEHOLDER_${placeholderIndex}-->`
+    placeholderIndex++
+    
+    if (isAsciiTree) {
+      codeBlockPlaceholders.push(`<pre class="ascii-tree"><code class="language-${language}">${escapedCode}</code></pre>`)
+    } else {
+      codeBlockPlaceholders.push(`<pre><code class="language-${language}">${escapedCode}</code></pre>`)
+    }
+    
+    return placeholder
   })
 
   // Process inline code (but not inside code blocks)
@@ -141,9 +162,29 @@ function markdownToHtml(markdown) {
   const processedLines = []
   let inList = false
   let inTable = false
+  let inCodeBlock = false
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim()
+    const fullLine = lines[i]
+    
+    // Track code blocks
+    if (fullLine.includes('<pre>')) {
+      inCodeBlock = true
+      processedLines.push(fullLine)
+      continue
+    }
+    if (fullLine.includes('</pre>')) {
+      inCodeBlock = false
+      processedLines.push(fullLine)
+      continue
+    }
+    
+    // Skip lines inside code blocks (they're already processed)
+    if (inCodeBlock) {
+      processedLines.push(fullLine)
+      continue
+    }
     
     // Skip empty lines
     if (line === '') {
@@ -153,7 +194,7 @@ function markdownToHtml(markdown) {
 
     // Skip if already HTML
     if (line.match(/^<[h|u|o|p|d|b|h|t|s|/|!]/)) {
-      processedLines.push(lines[i])
+      processedLines.push(fullLine)
       if (line.startsWith('</ul>') || line.startsWith('</ol>')) inList = false
       if (line.startsWith('</table>')) inTable = false
       if (line.startsWith('<table>')) inTable = true
@@ -162,19 +203,19 @@ function markdownToHtml(markdown) {
 
     // Skip list items (already processed)
     if (line.startsWith('<li>')) {
-      processedLines.push(lines[i])
+      processedLines.push(fullLine)
       inList = true
       continue
     }
 
     // Skip table rows (already processed)
     if (line.startsWith('<tr>') || line.startsWith('<th>') || line.startsWith('<td>')) {
-      processedLines.push(lines[i])
+      processedLines.push(fullLine)
       continue
     }
 
     // Process as paragraph
-    processedLines.push(`<p>${processInlineMarkdown(lines[i])}</p>`)
+    processedLines.push(`<p>${processInlineMarkdown(fullLine)}</p>`)
   }
 
   html = processedLines.join('\n')
@@ -182,6 +223,11 @@ function markdownToHtml(markdown) {
   // Clean up empty paragraphs and extra whitespace
   html = html.replace(/<p>\s*<\/p>/g, '')
   html = html.replace(/\n{3,}/g, '\n\n')
+
+  // Restore code blocks from placeholders (at the very end, after all processing)
+  codeBlockPlaceholders.forEach((codeBlock, index) => {
+    html = html.replace(`<!--CODE_BLOCK_PLACEHOLDER_${index}-->`, codeBlock)
+  })
 
   return html
 }
@@ -466,6 +512,24 @@ function generateHtml(content) {
       display: block;
     }
 
+    pre.ascii-tree {
+      background: var(--bg-surface-variant);
+      border: 1px solid var(--code-border);
+      padding: 1.5rem;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    pre.ascii-tree code {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: var(--text-secondary);
+    }
+
     ul, ol {
       margin: 1.5rem 0;
       padding-left: 2rem;
@@ -652,7 +716,6 @@ function generateHtml(content) {
       <nav class="header-nav" aria-label="Documentation navigation">
         <a href="/docs">Documentation Portal</a>
         <a href="/docs/accessibility">Accessibility Report</a>
-        <a href="/docs/lighthouse">Lighthouse Report</a>
         <a href="/">Home</a>
       </nav>
     </div>

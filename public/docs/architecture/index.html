@@ -230,6 +230,24 @@
       display: block;
     }
 
+    pre.ascii-tree {
+      background: var(--bg-surface-variant);
+      border: 1px solid var(--code-border);
+      padding: 1.5rem;
+      overflow-x: auto;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    pre.ascii-tree code {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: var(--text-secondary);
+    }
+
     ul, ol {
       margin: 1.5rem 0;
       padding-left: 2rem;
@@ -416,7 +434,6 @@
       <nav class="header-nav" aria-label="Documentation navigation">
         <a href="/docs">Documentation Portal</a>
         <a href="/docs/accessibility">Accessibility Report</a>
-        <a href="/docs/lighthouse">Lighthouse Report</a>
         <a href="/">Home</a>
       </nav>
     </div>
@@ -470,7 +487,7 @@
 <li><strong>100% WCAG 2.1 AA Compliance</strong> - Zero accessibility violations</li>
 <li><strong>Static Site Generation</strong> - Fast, cacheable, CDN-friendly</li>
 <li><strong>Content-First</strong> - Easy markdown-based content management</li>
-<li><strong>Performance</strong> - Lighthouse scores 90+</li>
+<li><strong>Performance</strong> - Optimized for fast loading and Core Web Vitals</li>
 <li><strong>Maintainability</strong> - Clear patterns, good documentation</li>
 <li><strong>Flexibility</strong> - Support for dynamic content (countdown timer, "new" badges)</li>
 </ul>
@@ -539,13 +556,13 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts" target="_blank" rel="noopener noreferrer"><code>nuxt.config.ts</code></a></p>
 
 <pre><code class="language-typescript">// nuxt.config.ts
-<p>nitro: {</p>
-<p>  preset: &#039;static&#039;,</p>
-<p>  prerender: {</p>
-<p>    crawlLinks: true,</p>
-<p>    ignore: [&#039;/docs/accessibility&#039;]</p>
-<p>  }</p>
-<p>}</code></pre></p>
+nitro: {
+  preset: &#039;static&#039;,
+  prerender: {
+    crawlLinks: true,
+    ignore: [&#039;/docs/accessibility&#039;]
+  }
+}</code></pre>
 
 <h3 id="2-content-strategy-markdown-vs-database">2. Content Strategy: Markdown vs. Database</h3>
 
@@ -596,8 +613,8 @@
 <p><strong>Implementation</strong>:</p>
 
 <pre><code class="language-text">app/layouts/
-<p>  default.vue    # Standard pages (navbar + footer)</p>
-<p>  print.vue      # Printer-friendly pages (no navigation)</code></pre></p>
+  default.vue    # Standard pages (navbar + footer)
+  print.vue      # Printer-friendly pages (no navigation)</code></pre>
 
 <p><strong>Reasoning</strong>:</p>
 
@@ -613,69 +630,69 @@
 
 <h3 id="directory-organization">Directory Organization</h3>
 
-<pre><code class="language-text">/
-<p>├── app/                          # Nuxt application code</p>
-<p>│   ├── components/              # Reusable Vue components</p>
-<p>│   │   ├── AppFooter.vue       # Footer with links</p>
-<p>│   │   ├── AppNavbar.vue       # Navigation bar</p>
-<p>│   │   ├── CountdownTimer.vue  # Deadline countdown</p>
-<p>│   │   ├── FaqAccordion.vue    # FAQ display component</p>
-<p>│   │   └── SkipLink.vue        # Accessibility skip link</p>
-<p>│   ├── composables/            # Vue composables (reusable logic)</p>
-<p>│   │   ├── useDeadlineCountdown.ts</p>
-<p>│   │   ├── useFaqCollapse.ts</p>
-<p>│   │   ├── useSeo.ts</p>
-<p>│   │   ├── useSlugify.ts</p>
-<p>│   │   └── useStructuredData.ts</p>
-<p>│   ├── layouts/                # Page layouts</p>
-<p>│   │   ├── default.vue         # Standard layout</p>
-<p>│   │   └── print.vue           # Printer-friendly layout</p>
-<p>│   ├── pages/                  # Route pages (file-based routing)</p>
-<p>│   │   ├── index.vue           # Home page (FAQs)</p>
-<p>│   │   ├── faqs.vue            # Dedicated FAQs page</p>
-<p>│   │   ├── faqs-print.vue      # Printer-friendly FAQs</p>
-<p>│   │   └── links.vue           # Resources page</p>
-<p>│   ├── plugins/                # Nuxt plugins</p>
-<p>│   │   ├── content-links.client.ts</p>
-<p>│   │   ├── ensure-accessibility-report.server.ts</p>
-<p>│   │   ├── optimize-css.client.ts</p>
-<p>│   │   ├── optimize-fonts.client.ts</p>
-<p>│   │   └── resource-hints.server.ts</p>
-<p>│   ├── utils/                  # Utility functions</p>
-<p>│   │   └── faqTransform.ts     # FAQ parsing and transformation</p>
-<p>│   ├── app.vue                 # Root app component</p>
-<p>│   └── router.options.ts       # Router configuration</p>
-<p>├── content/                     # Markdown content files</p>
-<p>│   ├── faqs.md                 # FAQ content (3000+ lines)</p>
-<p>│   └── links.md                # Resource links</p>
-<p>├── public/                      # Static assets</p>
-<p>│   ├── docs/                   # Generated documentation</p>
-<p>│   ├── favicon.svg             # Site icon</p>
-<p>│   ├── icjia-logo-*.png        # Logo images</p>
-<p>│   ├── robots.txt              # Search engine directives</p>
-<p>│   └── sitemap.xml             # Auto-generated sitemap</p>
-<p>├── scripts/                     # Build and utility scripts</p>
-<p>│   ├── ensure-accessibility-report.js</p>
-<p>│   ├── generate-routes.js</p>
-<p>│   └── generate-sitemap.js</p>
-<p>├── markdown-documentation/      # Project documentation</p>
-<p>│   ├── ARCHITECTURE_GUIDE.md   # This file</p>
-<p>│   ├── PRINTER<em>FRIENDLY</em>FAQ.md</p>
-<p>│   └── [other docs]</p>
-<p>├── audit-accessibility.js       # Custom axe-core audit script</p>
-<p>├── nuxt.config.ts              # Nuxt configuration</p>
-<p>├── content.config.ts           # Nuxt Content configuration</p>
-<p>├── tsconfig.json               # TypeScript configuration</p>
-<p>└── package.json                # Dependencies and scripts</code></pre></p>
+<pre class="ascii-tree"><code class="language-text">/
+├── app/                          # Nuxt application code
+│   ├── components/              # Reusable Vue components
+│   │   ├── AppFooter.vue       # Footer with links
+│   │   ├── AppNavbar.vue       # Navigation bar
+│   │   ├── CountdownTimer.vue  # Deadline countdown
+│   │   ├── FaqAccordion.vue    # FAQ display component
+│   │   └── SkipLink.vue        # Accessibility skip link
+│   ├── composables/            # Vue composables (reusable logic)
+│   │   ├── useDeadlineCountdown.ts
+│   │   ├── useFaqCollapse.ts
+│   │   ├── useSeo.ts
+│   │   ├── useSlugify.ts
+│   │   └── useStructuredData.ts
+│   ├── layouts/                # Page layouts
+│   │   ├── default.vue         # Standard layout
+│   │   └── print.vue           # Printer-friendly layout
+│   ├── pages/                  # Route pages (file-based routing)
+│   │   ├── index.vue           # Home page (FAQs)
+│   │   ├── faqs.vue            # Dedicated FAQs page
+│   │   ├── faqs-print.vue      # Printer-friendly FAQs
+│   │   └── links.vue           # Resources page
+│   ├── plugins/                # Nuxt plugins
+│   │   ├── content-links.client.ts
+│   │   ├── ensure-accessibility-report.server.ts
+│   │   ├── optimize-css.client.ts
+│   │   ├── optimize-fonts.client.ts
+│   │   └── resource-hints.server.ts
+│   ├── utils/                  # Utility functions
+│   │   └── faqTransform.ts     # FAQ parsing and transformation
+│   ├── app.vue                 # Root app component
+│   └── router.options.ts       # Router configuration
+├── content/                     # Markdown content files
+│   ├── faqs.md                 # FAQ content (3000+ lines)
+│   └── links.md                # Resource links
+├── public/                      # Static assets
+│   ├── docs/                   # Generated documentation
+│   ├── favicon.svg             # Site icon
+│   ├── icjia-logo-*.png        # Logo images
+│   ├── robots.txt              # Search engine directives
+│   └── sitemap.xml             # Auto-generated sitemap
+├── scripts/                     # Build and utility scripts
+│   ├── ensure-accessibility-report.js
+│   ├── generate-routes.js
+│   └── generate-sitemap.js
+├── markdown-documentation/      # Project documentation
+│   ├── ARCHITECTURE_GUIDE.md   # This file
+│   ├── PRINTER_FRIENDLY_FAQ.md
+│   └── [other docs]
+├── audit-accessibility.js       # Custom axe-core audit script
+├── nuxt.config.ts              # Nuxt configuration
+├── content.config.ts           # Nuxt Content configuration
+├── tsconfig.json               # TypeScript configuration
+└── package.json                # Dependencies and scripts</code></pre>
 
 <h3 id="file-based-routing">File-Based Routing</h3>
 
 <p>Nuxt automatically creates routes from files in <code>app/pages/</code>:</p>
 
 <pre><code class="language-text">app/pages/index.vue       →  /
-<p>app/pages/faqs.vue        →  /faqs</p>
-<p>app/pages/faqs-print.vue  →  /faqs-print</p>
-<p>app/pages/links.vue       →  /links</code></pre></p>
+app/pages/faqs.vue        →  /faqs
+app/pages/faqs-print.vue  →  /faqs-print
+app/pages/links.vue       →  /links</code></pre>
 
 <p><strong>Benefits</strong>:</p>
 
@@ -695,33 +712,33 @@
 <p><strong>Structure</strong>:</p>
 
 <pre><code class="language-markdown">---
-<p>title: Frequently Asked Questions</p>
-<p>description: Common questions about accessibility</p>
-<hr>
+title: Frequently Asked Questions
+description: Common questions about accessibility
+---
 
-<h1 id="main-title">Main Title</h1>
+# Main Title
 
-<p>Intro content...</p>
+Intro content...
 
-<hr>
+---
 
-<h2 id="section-1-h2">Section 1 (H2)</h2>
+## Section 1 (H2)
 
-<h3 id="question-1-h3">Question 1 (H3)</h3>
+### Question 1 (H3)
 
-<p>{new:2026-01-01}</p>
+{new:2026-01-01}
 
-<p>Answer content...</p>
+Answer content...
 
-<h3 id="question-2-h3">Question 2 (H3)</h3>
+### Question 2 (H3)
 
-<p>Answer content...</p>
+Answer content...
 
-<h2 id="section-2-h2">Section 2 (H2)</h2>
+## Section 2 (H2)
 
-<h3 id="question-3-h3">Question 3 (H3)</h3>
+### Question 3 (H3)
 
-<p>Answer content...</code></pre></p>
+Answer content...</code></pre>
 
 <h3 id="content-parsing-logic">Content Parsing Logic</h3>
 
@@ -740,24 +757,24 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/utils/faqTransform.ts" target="_blank" rel="noopener noreferrer"><code>app/utils/faqTransform.ts</code></a></p>
 
 <pre><code class="language-typescript">// 1. Parse markdown into MiniMark AST
-<p>const body = page.value.body; // type: minimark</p>
+const body = page.value.body; // type: minimark
 
-<p>// 2. Iterate through nodes</p>
-<p>for (const node of body.value) {</p>
-<p>  if (isH2(node)) {</p>
-<p>    // Start new section</p>
-<p>  } else if (isH3(node)) {</p>
-<p>    // Start new question</p>
-<p>    // Collect answer nodes until next H2/H3</p>
-<p>  }</p>
-<p>}</p>
+// 2. Iterate through nodes
+for (const node of body.value) {
+  if (isH2(node)) {
+    // Start new section
+  } else if (isH3(node)) {
+    // Start new question
+    // Collect answer nodes until next H2/H3
+  }
+}
 
-<p>// 3. Check for &quot;new&quot; tag</p>
-<p>const newDate = extractNewDate(answerNodes);</p>
-<p>const isNew = newDate !== null;</p>
+// 3. Check for &quot;new&quot; tag
+const newDate = extractNewDate(answerNodes);
+const isNew = newDate !== null;
 
-<p>// 4. Filter out tag from display</p>
-<p>const cleanAnswer = filterNewComments(answerNodes);</code></pre></p>
+// 4. Filter out tag from display
+const cleanAnswer = filterNewComments(answerNodes);</code></pre>
 
 <h3 id="new-badge-system">"New" Badge System</h3>
 
@@ -769,9 +786,9 @@
 
 <pre><code class="language-markdown">### What is digital accessibility?
 
-<p>{new:2026-01-01}</p>
+{new:2026-01-01}
 
-<p>Answer content...</code></pre></p>
+Answer content...</code></pre>
 
 <p><strong>Features</strong>:</p>
 
@@ -805,32 +822,32 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/SkipLink.vue" target="_blank" rel="noopener noreferrer"><code>app/components/SkipLink.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;!-- app/components/SkipLink.vue --&gt;
-<p>&lt;template&gt;</p>
-<p>  &lt;a</p>
-<p>    href=&quot;#main-content&quot;</p>
-<p>    class=&quot;skip-link&quot;</p>
-<p>    @click=&quot;handleClick&quot;</p>
-<p>    @keydown.enter=&quot;handleClick&quot;</p>
-<p>  &gt;</p>
-<p>    Skip to main content</p>
-<p>  &lt;/a&gt;</p>
-<p>&lt;/template&gt;</p>
+&lt;template&gt;
+  &lt;a
+    href=&quot;#main-content&quot;
+    class=&quot;skip-link&quot;
+    @click=&quot;handleClick&quot;
+    @keydown.enter=&quot;handleClick&quot;
+  &gt;
+    Skip to main content
+  &lt;/a&gt;
+&lt;/template&gt;
 
-<p>&lt;style scoped&gt;</p>
-<p>.skip-link {</p>
-<p>  position: absolute;</p>
-<p>  top: -100px; /<em> Off-screen until focused </em>/</p>
-<p>  left: 0;</p>
-<p>  z-index: 10000; /<em> Above all content </em>/</p>
-<p>  background: rgb(var(--v-theme-primary));</p>
-<p>  color: rgb(var(--v-theme-on-primary));</p>
-<p>  /<em> ... more styles ... </em>/</p>
-<p>}</p>
+&lt;style scoped&gt;
+.skip-link {
+  position: absolute;
+  top: -100px; /* Off-screen until focused */
+  left: 0;
+  z-index: 10000; /* Above all content */
+  background: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-primary));
+  /* ... more styles ... */
+}
 
-<p>.skip-link:focus {</p>
-<p>  top: 0; /<em> Visible when focused </em>/</p>
-<p>}</p>
-<p>&lt;/style&gt;</code></pre></p>
+.skip-link:focus {
+  top: 0; /* Visible when focused */
+}
+&lt;/style&gt;</code></pre>
 
 <p><strong>Key Details</strong>:</p>
 
@@ -845,28 +862,28 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/layouts/default.vue" target="_blank" rel="noopener noreferrer"><code>app/layouts/default.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;!-- app/layouts/default.vue --&gt;
-<p>&lt;template&gt;</p>
-<p>  &lt;div class=&quot;app-wrapper&quot;&gt;</p>
-<p>    &lt;SkipLink /&gt;</p>
-<p>    &lt;AppNavbar /&gt;</p>
-<p>    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;</p>
-<p>      &lt;slot /&gt;</p>
-<p>    &lt;/v-main&gt;</p>
-<p>    &lt;AppFooter /&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>&lt;/template&gt;</code></pre></p>
+&lt;template&gt;
+  &lt;div class=&quot;app-wrapper&quot;&gt;
+    &lt;SkipLink /&gt;
+    &lt;AppNavbar /&gt;
+    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;slot /&gt;
+    &lt;/v-main&gt;
+    &lt;AppFooter /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/layouts/print.vue" target="_blank" rel="noopener noreferrer"><code>app/layouts/print.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;!-- app/layouts/print.vue --&gt;
-<p>&lt;template&gt;</p>
-<p>  &lt;div class=&quot;print-layout-wrapper&quot;&gt;</p>
-<p>    &lt;SkipLink /&gt;</p>
-<p>    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;</p>
-<p>      &lt;slot /&gt;</p>
-<p>    &lt;/v-main&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>&lt;/template&gt;</code></pre></p>
+&lt;template&gt;
+  &lt;div class=&quot;print-layout-wrapper&quot;&gt;
+    &lt;SkipLink /&gt;
+    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;slot /&gt;
+    &lt;/v-main&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
 
 <p><strong>Critical</strong>:</p>
 
@@ -882,30 +899,30 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/AppNavbar.vue" target="_blank" rel="noopener noreferrer"><code>app/components/AppNavbar.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;v-btn
-<p>  :aria-label=&quot;<code>Navigate to ${item.title}</code>&quot;</p>
-<p>  :aria-current=&quot;route.path === item.to ? &#039;page&#039; : undefined&quot;</p>
-<p>&gt;</code></pre></p>
+  :aria-label=&quot;`Navigate to ${item.title}`&quot;
+  :aria-current=&quot;route.path === item.to ? &#039;page&#039; : undefined&quot;
+&gt;</code></pre>
 
 <p><strong>Countdown Timer</strong>:</p>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/CountdownTimer.vue" target="_blank" rel="noopener noreferrer"><code>app/components/CountdownTimer.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;div role=&quot;status&quot; aria-live=&quot;polite&quot; aria-atomic=&quot;false&quot;&gt;
-<p>  &lt;span class=&quot;sr-only&quot;&gt;{{ countdownAriaLabel }}&lt;/span&gt;</p>
-<p>&lt;/div&gt;</code></pre></p>
+  &lt;span class=&quot;sr-only&quot;&gt;{{ countdownAriaLabel }}&lt;/span&gt;
+&lt;/div&gt;</code></pre>
 
 <p><strong>FAQ Accordion</strong>:</p>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/FaqAccordion.vue" target="_blank" rel="noopener noreferrer"><code>app/components/FaqAccordion.vue</code></a></p>
 
-<pre><code class="language-vue">&lt;v-expansion-panel :aria-describedby=&quot;<code>answer-${item.id}</code>&quot;&gt;
-<p>  &lt;v-expansion-panel-title :id=&quot;<code>question-${item.id}</code>&quot;&gt;</p>
-<p>    {{ item.question }}</p>
-<p>  &lt;/v-expansion-panel-title&gt;</p>
-<p>  &lt;v-expansion-panel-text :id=&quot;<code>answer-${item.id}</code>&quot;&gt;</p>
-<p>    &lt;!-- Answer content --&gt;</p>
-<p>  &lt;/v-expansion-panel-text&gt;</p>
-<p>&lt;/v-expansion-panel&gt;</code></pre></p>
+<pre><code class="language-vue">&lt;v-expansion-panel :aria-describedby=&quot;`answer-${item.id}`&quot;&gt;
+  &lt;v-expansion-panel-title :id=&quot;`question-${item.id}`&quot;&gt;
+    {{ item.question }}
+  &lt;/v-expansion-panel-title&gt;
+  &lt;v-expansion-panel-text :id=&quot;`answer-${item.id}`&quot;&gt;
+    &lt;!-- Answer content --&gt;
+  &lt;/v-expansion-panel-text&gt;
+&lt;/v-expansion-panel&gt;</code></pre>
 
 <h3 id="focus-management">Focus Management</h3>
 
@@ -914,9 +931,9 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/layouts/default.vue" target="_blank" rel="noopener noreferrer"><code>app/layouts/default.vue</code></a></p>
 
 <pre><code class="language-css">*:focus-visible {
-<p>  outline: 3px solid rgb(var(--v-theme-primary));</p>
-<p>  outline-offset: 2px;</p>
-<p>}</code></pre></p>
+  outline: 3px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+}</code></pre>
 
 <p><strong>Keyboard Navigation</strong>:</p>
 
@@ -945,26 +962,24 @@
 <h3 id="build-pipeline">Build Pipeline</h3>
 
 <pre><code class="language-bash"># 1. Install dependencies
-<p>yarn install</p>
+yarn install
 
-<h1 id="2-pre-build-steps-automatic">2. Pre-build steps (automatic)</h1>
-<ul>
-<li>Generate routes.json (scan pages directory)</li>
-<li>Generate sitemap.xml (from routes.json)</li>
-<li>Ensure accessibility report exists</li>
-</ul>
-<h1 id="3-generate-static-site">3. Generate static site</h1>
-<p>yarn generate</p>
+# 2. Pre-build steps (automatic)
+- Generate routes.json (scan pages directory)
+- Generate sitemap.xml (from routes.json)
+- Ensure accessibility report exists
 
-<h1 id="4-output-to-output-public">4. Output to .output/public/</h1>
-<ul>
-<li>HTML files for each route</li>
-<li>JavaScript chunks (code-split)</li>
-<li>CSS files (optimized)</li>
-<li>Assets (images, fonts)</li>
-<li>sitemap.xml</li>
-<li>robots.txt</code></pre></li>
-</ul>
+# 3. Generate static site
+yarn generate
+
+# 4. Output to .output/public/
+- HTML files for each route
+- JavaScript chunks (code-split)
+- CSS files (optimized)
+- Assets (images, fonts)
+- sitemap.xml
+- robots.txt</code></pre>
+
 <h3 id="route-generation">Route Generation</h3>
 
 <p><strong>Challenge</strong>: Need to know all routes for sitemap and static generation</p>
@@ -974,58 +989,58 @@
 <p><strong>Script</strong>: <code>scripts/generate-routes.js</code> - <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-routes.js" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
 
 <pre><code class="language-javascript">// 1. Scan app/pages for .vue files
-<p>const pageFiles = findVueFiles(&quot;app/pages&quot;);</p>
+const pageFiles = findVueFiles(&quot;app/pages&quot;);
 
-<p>// 2. Convert to routes</p>
-<p>const routes = pageFiles.map((file) =&gt; filePathToRoute(file));</p>
+// 2. Convert to routes
+const routes = pageFiles.map((file) =&gt; filePathToRoute(file));
 
-<p>// 3. Scan content/ for .md files (potential routes)</p>
-<p>const mdFiles = findMarkdownFiles(&quot;content&quot;);</p>
-<p>const contentRoutes = mdFiles.map((file) =&gt; markdownFileToRoute(file));</p>
+// 3. Scan content/ for .md files (potential routes)
+const mdFiles = findMarkdownFiles(&quot;content&quot;);
+const contentRoutes = mdFiles.map((file) =&gt; markdownFileToRoute(file));
 
-<p>// 4. Combine and deduplicate</p>
-<p>const allRoutes = [...new Set([...routes, ...contentRoutes])];</p>
+// 4. Combine and deduplicate
+const allRoutes = [...new Set([...routes, ...contentRoutes])];
 
-<p>// 5. Write to routes.json</p>
-<p>writeFileSync(</p>
-<p>  &quot;routes.json&quot;,</p>
-<p>  JSON.stringify({</p>
-<p>    generated: new Date().toISOString(),</p>
-<p>    routes: allRoutes,</p>
-<p>  })</p>
-<p>);</code></pre></p>
+// 5. Write to routes.json
+writeFileSync(
+  &quot;routes.json&quot;,
+  JSON.stringify({
+    generated: new Date().toISOString(),
+    routes: allRoutes,
+  })
+);</code></pre>
 
 <h3 id="sitemap-generation">Sitemap Generation</h3>
 
 <p><strong>Script</strong>: <code>scripts/generate-sitemap.js</code> - <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-sitemap.js" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
 
 <pre><code class="language-javascript">// 1. Read routes from routes.json
-<p>const routesData = JSON.parse(readFileSync(&quot;routes.json&quot;));</p>
+const routesData = JSON.parse(readFileSync(&quot;routes.json&quot;));
 
-<p>// 2. Filter out excluded routes (/docs/*)</p>
-<p>const publicRoutes = routesData.routes.filter(</p>
-<p>  (route) =&gt; !route.startsWith(&quot;/docs&quot;)</p>
-<p>);</p>
+// 2. Filter out excluded routes (/docs/*)
+const publicRoutes = routesData.routes.filter(
+  (route) =&gt; !route.startsWith(&quot;/docs&quot;)
+);
 
-<p>// 3. Generate XML</p>
-<p>const xml = `&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</p>
-<p>&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;</p>
-<p>  ${publicRoutes</p>
-<p>    .map(</p>
-<p>      (route) =&gt; `</p>
-<p>    &lt;url&gt;</p>
-<p>      &lt;loc&gt;${baseUrl}${route}&lt;/loc&gt;</p>
-<p>      &lt;lastmod&gt;${currentDate}&lt;/lastmod&gt;</p>
-<p>      &lt;changefreq&gt;monthly&lt;/changefreq&gt;</p>
-<p>      &lt;priority&gt;${route === &quot;/&quot; ? &quot;1.0&quot; : &quot;0.8&quot;}&lt;/priority&gt;</p>
-<p>    &lt;/url&gt;</p>
-<p>  `</p>
-<p>    )</p>
-<p>    .join(&quot;&quot;)}</p>
-<p>&lt;/urlset&gt;`;</p>
+// 3. Generate XML
+const xml = `&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  ${publicRoutes
+    .map(
+      (route) =&gt; `
+    &lt;url&gt;
+      &lt;loc&gt;${baseUrl}${route}&lt;/loc&gt;
+      &lt;lastmod&gt;${currentDate}&lt;/lastmod&gt;
+      &lt;changefreq&gt;monthly&lt;/changefreq&gt;
+      &lt;priority&gt;${route === &quot;/&quot; ? &quot;1.0&quot; : &quot;0.8&quot;}&lt;/priority&gt;
+    &lt;/url&gt;
+  `
+    )
+    .join(&quot;&quot;)}
+&lt;/urlset&gt;`;
 
-<p>// 4. Write to public/sitemap.xml</p>
-<p>writeFileSync(&quot;public/sitemap.xml&quot;, xml);</code></pre></p>
+// 4. Write to public/sitemap.xml
+writeFileSync(&quot;public/sitemap.xml&quot;, xml);</code></pre>
 
 <h3 id="deployment-to-netlify">Deployment to Netlify</h3>
 
@@ -1065,69 +1080,69 @@
 <p><strong>Complete Configuration</strong>:</p>
 
 <pre><code class="language-toml">[build]
-<p>  # Build command - generates static site</p>
-<p>  command = &quot;yarn generate&quot;</p>
+  # Build command - generates static site
+  command = &quot;yarn generate&quot;
 
-<p>  # Publish directory - where Nuxt outputs static files</p>
-<p>  publish = &quot;.output/public&quot;</p>
+  # Publish directory - where Nuxt outputs static files
+  publish = &quot;.output/public&quot;
 
-<p>[build.environment]</p>
-<p>  # Node version - must match your local development</p>
-<p>  # Check your .nvmrc or package.json engines field</p>
-<p>  NODE_VERSION = &quot;22.14.0&quot;</p>
+[build.environment]
+  # Node version - must match your local development
+  # Check your .nvmrc or package.json engines field
+  NODE_VERSION = &quot;22.14.0&quot;
 
-<p>  # Yarn version (optional, but recommended for consistency)</p>
-<p>  YARN_VERSION = &quot;1.22.22&quot;</p>
+  # Yarn version (optional, but recommended for consistency)
+  YARN_VERSION = &quot;1.22.22&quot;
 
-<p>  # NPM flags (optional)</p>
-<p>  NPM_FLAGS = &quot;--version&quot;</p>
+  # NPM flags (optional)
+  NPM_FLAGS = &quot;--version&quot;
 
-<h1 id="spa-fallback-redirects-all-routes-to-index-html">SPA fallback - redirects all routes to index.html</h1>
-<h1 id="required-for-client-side-routing-in-static-generat">Required for client-side routing in static-generated Nuxt apps</h1>
-<p>[[redirects]]</p>
-<p>  from = &quot;/*&quot;</p>
-<p>  to = &quot;/index.html&quot;</p>
-<p>  status = 200</p>
+# SPA fallback - redirects all routes to index.html
+# Required for client-side routing in static-generated Nuxt apps
+[[redirects]]
+  from = &quot;/*&quot;
+  to = &quot;/index.html&quot;
+  status = 200
 
-<h1 id="security-headers-for-all-pages">Security headers for all pages</h1>
-<p>[[headers]]</p>
-<p>  for = &quot;/*&quot;</p>
-<p>  [headers.values]</p>
-<p>    # Prevent clickjacking</p>
-<p>    X-Frame-Options = &quot;DENY&quot;</p>
+# Security headers for all pages
+[[headers]]
+  for = &quot;/*&quot;
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = &quot;DENY&quot;
 
-<p>    # XSS protection</p>
-<p>    X-XSS-Protection = &quot;1; mode=block&quot;</p>
+    # XSS protection
+    X-XSS-Protection = &quot;1; mode=block&quot;
 
-<p>    # Prevent MIME type sniffing</p>
-<p>    X-Content-Type-Options = &quot;nosniff&quot;</p>
+    # Prevent MIME type sniffing
+    X-Content-Type-Options = &quot;nosniff&quot;
 
-<p>    # Referrer policy</p>
-<p>    Referrer-Policy = &quot;strict-origin-when-cross-origin&quot;</p>
+    # Referrer policy
+    Referrer-Policy = &quot;strict-origin-when-cross-origin&quot;
 
-<p>    # Permissions policy (restrict features)</p>
-<p>    Permissions-Policy = &quot;geolocation=(), microphone=(), camera=()&quot;</p>
+    # Permissions policy (restrict features)
+    Permissions-Policy = &quot;geolocation=(), microphone=(), camera=()&quot;
 
-<h1 id="cache-static-assets-aggressively">Cache static assets aggressively</h1>
-<p>[[headers]]</p>
-<p>  for = &quot;/_nuxt/*&quot;</p>
-<p>  [headers.values]</p>
-<p>    Cache-Control = &quot;public, max-age=31536000, immutable&quot;</p>
+# Cache static assets aggressively
+[[headers]]
+  for = &quot;/_nuxt/*&quot;
+  [headers.values]
+    Cache-Control = &quot;public, max-age=31536000, immutable&quot;
 
-<p>[[headers]]</p>
-<p>  for = &quot;/*.js&quot;</p>
-<p>  [headers.values]</p>
-<p>    Cache-Control = &quot;public, max-age=31536000, immutable&quot;</p>
+[[headers]]
+  for = &quot;/*.js&quot;
+  [headers.values]
+    Cache-Control = &quot;public, max-age=31536000, immutable&quot;
 
-<p>[[headers]]</p>
-<p>  for = &quot;/*.css&quot;</p>
-<p>  [headers.values]</p>
-<p>    Cache-Control = &quot;public, max-age=31536000, immutable&quot;</p>
+[[headers]]
+  for = &quot;/*.css&quot;
+  [headers.values]
+    Cache-Control = &quot;public, max-age=31536000, immutable&quot;
 
-<p>[[headers]]</p>
-<p>  for = &quot;/*.woff2&quot;</p>
-<p>  [headers.values]</p>
-<p>    Cache-Control = &quot;public, max-age=31536000, immutable&quot;</code></pre></p>
+[[headers]]
+  for = &quot;/*.woff2&quot;
+  [headers.values]
+    Cache-Control = &quot;public, max-age=31536000, immutable&quot;</code></pre>
 
 <h4 id="node-version-management">Node Version Management</h4>
 
@@ -1150,7 +1165,7 @@
 <p>Specify in <code>[build.environment]</code>:</p>
 
 <pre><code class="language-toml">[build.environment]
-<p>  NODE_VERSION = &quot;22.14.0&quot;</code></pre></p>
+  NODE_VERSION = &quot;22.14.0&quot;</code></pre>
 
 <p><strong>Option 3: Using <code>package.json</code> engines</strong></p>
 
@@ -1158,11 +1173,11 @@
 <p><strong>Netlify Docs</strong>: <a href="https://docs.netlify.com/configure-builds/manage-dependencies/#node-js-and-javascript" target="_blank" rel="noopener noreferrer">Node.js version</a></p>
 
 <pre><code class="language-json">{
-<p>  &quot;engines&quot;: {</p>
-<p>    &quot;node&quot;: &quot;&gt;=22.14.0&quot;,</p>
-<p>    &quot;npm&quot;: &quot;&gt;=10.0.0&quot;</p>
-<p>  }</p>
-<p>}</code></pre></p>
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;&gt;=22.14.0&quot;,
+    &quot;npm&quot;: &quot;&gt;=10.0.0&quot;
+  }
+}</code></pre>
 
 <p><strong>Why Node 22.14.0+?</strong></p>
 
@@ -1197,12 +1212,12 @@
 <p>If your <code>package.json</code> has pre/post hooks, they run automatically:</p>
 
 <pre><code class="language-json">{
-<p>  &quot;scripts&quot;: {</p>
-<p>    &quot;pregenerate&quot;: &quot;node scripts/generate-routes.js&quot;,</p>
-<p>    &quot;generate&quot;: &quot;nuxt generate&quot;,</p>
-<p>    &quot;postgenerate&quot;: &quot;node scripts/generate-sitemap.js&quot;</p>
-<p>  }</p>
-<p>}</code></pre></p>
+  &quot;scripts&quot;: {
+    &quot;pregenerate&quot;: &quot;node scripts/generate-routes.js&quot;,
+    &quot;generate&quot;: &quot;nuxt generate&quot;,
+    &quot;postgenerate&quot;: &quot;node scripts/generate-sitemap.js&quot;
+  }
+}</code></pre>
 
 <h4 id="spa-fallback-configuration">SPA Fallback Configuration</h4>
 
@@ -1215,9 +1230,9 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml" target="_blank" rel="noopener noreferrer"><code>netlify.toml</code></a> (redirects section)</p>
 
 <pre><code class="language-toml">[[redirects]]
-<p>  from = &quot;/*&quot;</p>
-<p>  to = &quot;/index.html&quot;</p>
-<p>  status = 200</code></pre></p>
+  from = &quot;/*&quot;
+  to = &quot;/index.html&quot;
+  status = 200</code></pre>
 
 <p><strong>Important</strong>: This redirect must come <strong>after</strong> any specific route redirects you might have.</p>
 
@@ -1292,25 +1307,25 @@
 <p><strong>Common Variables for Nuxt/Vuetify Apps</strong>:</p>
 
 <pre><code class="language-bash"># Site URL (for SEO, canonical URLs)
-<p>NUXT<em>PUBLIC</em>SITE_URL=https://your-site.netlify.app</p>
+NUXT_PUBLIC_SITE_URL=https://your-site.netlify.app
 
-<h1 id="analytics-if-using">Analytics (if using)</h1>
-<p>NUXT<em>PUBLIC</em>ANALYTICS_ID=your-id</p>
+# Analytics (if using)
+NUXT_PUBLIC_ANALYTICS_ID=your-id
 
-<h1 id="api-endpoints-if-any">API endpoints (if any)</h1>
-<p>NUXT<em>PUBLIC</em>API_URL=https://api.example.com</code></pre></p>
+# API endpoints (if any)
+NUXT_PUBLIC_API_URL=https://api.example.com</code></pre>
 
 <p><strong>Access in Nuxt</strong>:</p>
 
 <pre><code class="language-typescript">// nuxt.config.ts
-<p>export default defineNuxtConfig({</p>
-<p>  runtimeConfig: {</p>
-<p>    public: {</p>
-<p>      siteUrl:</p>
-<p>        process.env.NUXT<em>PUBLIC</em>SITE_URL || &quot;https://your-site.netlify.app&quot;,</p>
-<p>    },</p>
-<p>  },</p>
-<p>});</code></pre></p>
+export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      siteUrl:
+        process.env.NUXT_PUBLIC_SITE_URL || &quot;https://your-site.netlify.app&quot;,
+    },
+  },
+});</code></pre>
 
 <h4 id="troubleshooting">Troubleshooting</h4>
 
@@ -1372,23 +1387,23 @@
 <p><strong>Minimal Configuration</strong> (copy and customize):</p>
 
 <pre><code class="language-toml">[build]
-<p>  command = &quot;yarn generate&quot;</p>
-<p>  publish = &quot;.output/public&quot;</p>
+  command = &quot;yarn generate&quot;
+  publish = &quot;.output/public&quot;
 
-<p>[build.environment]</p>
-<p>  NODE_VERSION = &quot;22.14.0&quot;</p>
+[build.environment]
+  NODE_VERSION = &quot;22.14.0&quot;
 
-<p>[[redirects]]</p>
-<p>  from = &quot;/*&quot;</p>
-<p>  to = &quot;/index.html&quot;</p>
-<p>  status = 200</p>
+[[redirects]]
+  from = &quot;/*&quot;
+  to = &quot;/index.html&quot;
+  status = 200
 
-<p>[[headers]]</p>
-<p>  for = &quot;/*&quot;</p>
-<p>  [headers.values]</p>
-<p>    X-Frame-Options = &quot;DENY&quot;</p>
-<p>    X-Content-Type-Options = &quot;nosniff&quot;</p>
-<p>    Referrer-Policy = &quot;strict-origin-when-cross-origin&quot;</code></pre></p>
+[[headers]]
+  for = &quot;/*&quot;
+  [headers.values]
+    X-Frame-Options = &quot;DENY&quot;
+    X-Content-Type-Options = &quot;nosniff&quot;
+    Referrer-Policy = &quot;strict-origin-when-cross-origin&quot;</code></pre>
 
 <p><strong>This minimal config works for any static-generated Nuxt 4 app</strong>, whether it uses Vuetify or not. Add security headers and cache control as needed for your specific requirements.</p>
 
@@ -1431,33 +1446,33 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/utils/faqTransform.ts" target="_blank" rel="noopener noreferrer"><code>app/utils/faqTransform.ts</code></a></p>
 
 <pre><code class="language-typescript">// Parse markdown into AST
-<p>const body = page.value.body; // MiniMark format</p>
+const body = page.value.body; // MiniMark format
 
-<p>// Manually walk the AST</p>
-<p>function extractFaqStructure(nodes) {</p>
-<p>  const sections = [];</p>
-<p>  let currentSection = null;</p>
+// Manually walk the AST
+function extractFaqStructure(nodes) {
+  const sections = [];
+  let currentSection = null;
 
-<p>  for (let i = 0; i &lt; nodes.length; i++) {</p>
-<p>    const node = nodes[i];</p>
+  for (let i = 0; i &lt; nodes.length; i++) {
+    const node = nodes[i];
 
-<p>    if (isH2(node)) {</p>
-<p>      // New section</p>
-<p>      currentSection = {</p>
-<p>        heading: extractText(node),</p>
-<p>        items: [],</p>
-<p>      };</p>
-<p>      sections.push(currentSection);</p>
-<p>    } else if (isH3(node)) {</p>
-<p>      // New question</p>
-<p>      const question = extractText(node);</p>
-<p>      const answer = collectAnswerNodes(nodes, i);</p>
-<p>      currentSection.items.push({ question, answer });</p>
-<p>    }</p>
-<p>  }</p>
+    if (isH2(node)) {
+      // New section
+      currentSection = {
+        heading: extractText(node),
+        items: [],
+      };
+      sections.push(currentSection);
+    } else if (isH3(node)) {
+      // New question
+      const question = extractText(node);
+      const answer = collectAnswerNodes(nodes, i);
+      currentSection.items.push({ question, answer });
+    }
+  }
 
-<p>  return sections;</p>
-<p>}</code></pre></p>
+  return sections;
+}</code></pre>
 
 <p><strong>Key Learnings</strong>:</p>
 
@@ -1482,7 +1497,7 @@
 
 <pre><code class="language-markdown">### Question?
 
-<p>&lt;!-- new:2026-01-01 --&gt;</code></pre></p>
+&lt;!-- new:2026-01-01 --&gt;</code></pre>
 
 <p><strong>Issue</strong>: Markdown parser sometimes strips HTML comments</p>
 
@@ -1490,7 +1505,7 @@
 
 <pre><code class="language-markdown">### Question?
 
-<p>{new:2026-01-01}</code></pre></p>
+{new:2026-01-01}</code></pre>
 
 <p><strong>Why it works</strong>:</p>
 
@@ -1506,31 +1521,31 @@
 
 <pre><code class="language-typescript">const NEW_TAG_PATTERN = /\{new:\s*(\d{4}-\d{2}-\d{2})\}/;
 
-<p>function extractNewDate(answerNodes) {</p>
-<p>  for (const node of answerNodes) {</p>
-<p>    const text = extractText(node);</p>
-<p>    const match = text.match(NEW<em>TAG</em>PATTERN);</p>
-<p>    if (match) {</p>
-<p>      const dateStr = match[1];</p>
-<p>      if (isWithinWindow(dateStr, 10)) {</p>
-<p>        // 10 days</p>
-<p>        return dateStr;</p>
-<p>      }</p>
-<p>    }</p>
-<p>  }</p>
-<p>  return null;</p>
-<p>}</p>
+function extractNewDate(answerNodes) {
+  for (const node of answerNodes) {
+    const text = extractText(node);
+    const match = text.match(NEW_TAG_PATTERN);
+    if (match) {
+      const dateStr = match[1];
+      if (isWithinWindow(dateStr, 10)) {
+        // 10 days
+        return dateStr;
+      }
+    }
+  }
+  return null;
+}
 
-<p>function filterNewComments(answerNodes) {</p>
-<p>  return answerNodes</p>
-<p>    .map((node) =&gt; {</p>
-<p>      if (typeof node === &quot;string&quot;) {</p>
-<p>        return node.replace(/\{new:.*?\}/g, &quot;&quot;).trim();</p>
-<p>      }</p>
-<p>      return node;</p>
-<p>    })</p>
-<p>    .filter((node) =&gt; node !== &quot;&quot;);</p>
-<p>}</code></pre></p>
+function filterNewComments(answerNodes) {
+  return answerNodes
+    .map((node) =&gt; {
+      if (typeof node === &quot;string&quot;) {
+        return node.replace(/\{new:.*?\}/g, &quot;&quot;).trim();
+      }
+      return node;
+    })
+    .filter((node) =&gt; node !== &quot;&quot;);
+}</code></pre>
 
 <h3 id="challenge-3-printer-friendly-version">Challenge 3: Printer-Friendly Version</h3>
 
@@ -1559,38 +1574,38 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/faqs-print.vue" target="_blank" rel="noopener noreferrer"><code>app/pages/faqs-print.vue</code></a></p>
 
 <pre><code class="language-css">/* Screen view - simulate printed document */
-<p>@media screen {</p>
-<p>  .print-container {</p>
-<p>    max-width: 8.5in;</p>
-<p>    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);</p>
-<p>    background: #fff;</p>
-<p>  }</p>
+@media screen {
+  .print-container {
+    max-width: 8.5in;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+  }
 
-<p>  .print-url {</p>
-<p>    color: #0066cc; /<em> Blue, clickable </em>/</p>
-<p>    text-decoration: underline;</p>
-<p>  }</p>
-<p>}</p>
+  .print-url {
+    color: #0066cc; /* Blue, clickable */
+    text-decoration: underline;
+  }
+}
 
-<p>/<em> Print view - clean output </em>/</p>
-<p>@media print {</p>
-<p>  .print-container {</p>
-<p>    padding: 0;</p>
-<p>  }</p>
+/* Print view - clean output */
+@media print {
+  .print-container {
+    padding: 0;
+  }
 
-<p>  .print-url {</p>
-<p>    color: #000; /<em> Black for cost-effective printing </em>/</p>
-<p>    text-decoration: none;</p>
-<p>  }</p>
+  .print-url {
+    color: #000; /* Black for cost-effective printing */
+    text-decoration: none;
+  }
 
-<p>  .skip-link {</p>
-<p>    display: none; /<em> No skip link needed in print </em>/</p>
-<p>  }</p>
+  .skip-link {
+    display: none; /* No skip link needed in print */
+  }
 
-<p>  .print-faq-item {</p>
-<p>    page-break-inside: avoid; /<em> Don&#039;t split Q&amp;A </em>/</p>
-<p>  }</p>
-<p>}</code></pre></p>
+  .print-faq-item {
+    page-break-inside: avoid; /* Don&#039;t split Q&amp;A */
+  }
+}</code></pre>
 
 <p><strong>Key Decisions</strong>:</p>
 
@@ -1620,24 +1635,24 @@
 <p><strong>Note</strong>: This is an example of what NOT to do. See <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/SkipLink.vue" target="_blank" rel="noopener noreferrer"><code>app/components/SkipLink.vue</code></a> for the correct implementation.</p>
 
 <pre><code class="language-css">.skip-link {
-<p>  left: -9999px; /<em> ❌ Audit expects top: -100px </em>/</p>
-<p>  z-index: 999; /<em> ❌ Too low </em>/</p>
-<p>}</code></pre></p>
+  left: -9999px; /* ❌ Audit expects top: -100px */
+  z-index: 999; /* ❌ Too low */
+}</code></pre>
 
 <p><strong>Successful Solution</strong>: Reuse existing SkipLink component</p>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/layouts/print.vue" target="_blank" rel="noopener noreferrer"><code>app/layouts/print.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;!-- app/layouts/print.vue --&gt;
-<p>&lt;template&gt;</p>
-<p>  &lt;div class=&quot;print-layout-wrapper&quot;&gt;</p>
-<p>    &lt;SkipLink /&gt;</p>
-<p>    &lt;!-- ✅ Proven component --&gt;</p>
-<p>    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;</p>
-<p>      &lt;slot /&gt;</p>
-<p>    &lt;/v-main&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>&lt;/template&gt;</code></pre></p>
+&lt;template&gt;
+  &lt;div class=&quot;print-layout-wrapper&quot;&gt;
+    &lt;SkipLink /&gt;
+    &lt;!-- ✅ Proven component --&gt;
+    &lt;v-main id=&quot;main-content&quot; tabindex=&quot;-1&quot;&gt;
+      &lt;slot /&gt;
+    &lt;/v-main&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
 
 <p><strong>Why it works</strong>:</p>
 
@@ -1658,27 +1673,27 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/useDeadlineCountdown.ts" target="_blank" rel="noopener noreferrer"><code>app/composables/useDeadlineCountdown.ts</code></a></p>
 
 <pre><code class="language-typescript">// composables/useDeadlineCountdown.ts
-<p>export function useDeadlineCountdown() {</p>
-<p>  const now = ref(Date.now());</p>
+export function useDeadlineCountdown() {
+  const now = ref(Date.now());
 
-<p>  const daysRemaining = computed(() =&gt; {</p>
-<p>    const distance = DEADLINE_DATE - now.value;</p>
-<p>    return Math.floor(distance / (1000 <em> 60 </em> 60 * 24));</p>
-<p>  });</p>
+  const daysRemaining = computed(() =&gt; {
+    const distance = DEADLINE_DATE - now.value;
+    return Math.floor(distance / (1000 * 60 * 60 * 24));
+  });
 
-<p>  onMounted(() =&gt; {</p>
-<p>    // Update every minute (not second - saves CPU)</p>
-<p>    intervalId = setInterval(() =&gt; {</p>
-<p>      now.value = Date.now();</p>
-<p>    }, 60000);</p>
-<p>  });</p>
+  onMounted(() =&gt; {
+    // Update every minute (not second - saves CPU)
+    intervalId = setInterval(() =&gt; {
+      now.value = Date.now();
+    }, 60000);
+  });
 
-<p>  onUnmounted(() =&gt; {</p>
-<p>    clearInterval(intervalId);</p>
-<p>  });</p>
+  onUnmounted(() =&gt; {
+    clearInterval(intervalId);
+  });
 
-<p>  return { daysRemaining, deadlinePassed, urgencyText };</p>
-<p>}</code></pre></p>
+  return { daysRemaining, deadlinePassed, urgencyText };
+}</code></pre>
 
 <p><strong>Optimizations</strong>:</p>
 
@@ -1726,73 +1741,73 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/suppress-vuetify-logs.client.ts" target="_blank" rel="noopener noreferrer"><code>app/plugins/suppress-vuetify-logs.client.ts</code></a></p>
 
 <pre><code class="language-typescript">// Client-side plugin (browser console)
-<p>export default defineNuxtPlugin(() =&gt; {</p>
-<p>  if (process.server || !import.meta.dev) return;</p>
+export default defineNuxtPlugin(() =&gt; {
+  if (process.server || !import.meta.dev) return;
 
-<p>  const originalLog = console.log;</p>
-<p>  const originalInfo = console.info;</p>
-<p>  const originalDebug = console.debug;</p>
+  const originalLog = console.log;
+  const originalInfo = console.info;
+  const originalDebug = console.debug;
 
-<p>  const filteredLog = (...args: any[]) =&gt; {</p>
-<p>    if (!containsVuetifyInstanceOrConfig(args)) {</p>
-<p>      originalLog.apply(console, args);</p>
-<p>    }</p>
-<p>  };</p>
+  const filteredLog = (...args: any[]) =&gt; {
+    if (!containsVuetifyInstanceOrConfig(args)) {
+      originalLog.apply(console, args);
+    }
+  };
 
-<p>  console.log = filteredLog;</p>
-<p>  console.info = filteredInfo;</p>
-<p>  console.debug = filteredDebug;</p>
-<p>});</code></pre></p>
+  console.log = filteredLog;
+  console.info = filteredInfo;
+  console.debug = filteredDebug;
+});</code></pre>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/suppress-vuetify-logs.server.ts" target="_blank" rel="noopener noreferrer"><code>app/plugins/suppress-vuetify-logs.server.ts</code></a></p>
 
 <pre><code class="language-typescript">// Server-side plugin (command line console)
-<p>// Works in dev, build, and generate modes</p>
-<p>export default defineNuxtPlugin(() =&gt; {</p>
-<p>  if (!process.server) return;</p>
+// Works in dev, build, and generate modes
+export default defineNuxtPlugin(() =&gt; {
+  if (!process.server) return;
 
-<p>  // Suppress in development, build, and generate modes</p>
-<p>  // Check if we&#039;re NOT in production (production shouldn&#039;t have these logs anyway)</p>
-<p>  const isProduction =</p>
-<p>    process.env.NODE_ENV === &quot;production&quot; &amp;&amp; import.meta.prod;</p>
-<p>  if (isProduction) return;</p>
+  // Suppress in development, build, and generate modes
+  // Check if we&#039;re NOT in production (production shouldn&#039;t have these logs anyway)
+  const isProduction =
+    process.env.NODE_ENV === &quot;production&quot; &amp;&amp; import.meta.prod;
+  if (isProduction) return;
 
-<p>  const originalLog = console.log;</p>
-<p>  const originalWarn = console.warn;</p>
+  const originalLog = console.log;
+  const originalWarn = console.warn;
 
-<p>  const filteredLog = (...args: any[]) =&gt; {</p>
-<p>    // NEVER filter errors, warnings, or important messages</p>
-<p>    if (isErrorOrWarning(args)) {</p>
-<p>      originalLog.apply(console, args);</p>
-<p>      return;</p>
-<p>    }</p>
+  const filteredLog = (...args: any[]) =&gt; {
+    // NEVER filter errors, warnings, or important messages
+    if (isErrorOrWarning(args)) {
+      originalLog.apply(console, args);
+      return;
+    }
 
-<p>    // Suppress Vuetify instance objects</p>
-<p>    if (containsVuetifyInstanceOrConfig(args)) return;</p>
+    // Suppress Vuetify instance objects
+    if (containsVuetifyInstanceOrConfig(args)) return;
 
-<p>    // Suppress stringification warnings related to Vuetify</p>
-<p>    const message = args[0]?.toString() || &quot;&quot;;</p>
-<p>    if (message.includes(&quot;Failed to stringify dev server logs&quot;)) return;</p>
+    // Suppress stringification warnings related to Vuetify
+    const message = args[0]?.toString() || &quot;&quot;;
+    if (message.includes(&quot;Failed to stringify dev server logs&quot;)) return;
 
-<p>    originalLog.apply(console, args);</p>
-<p>  };</p>
+    originalLog.apply(console, args);
+  };
 
-<p>  const filteredWarn = (...args: any[]) =&gt; {</p>
-<p>    // NEVER filter actual errors or important warnings</p>
-<p>    // Only suppress the specific harmless stringification warning</p>
-<p>    const message = args[0]?.toString() || &quot;&quot;;</p>
-<p>    if (</p>
-<p>      message.includes(&quot;DevalueError&quot;) ||</p>
-<p>      message.includes(&quot;Cannot stringify a function&quot;)</p>
-<p>    ) {</p>
-<p>      return; // Suppress harmless Vuetify serialization warnings</p>
-<p>    }</p>
-<p>    originalWarn.apply(console, args);</p>
-<p>  };</p>
+  const filteredWarn = (...args: any[]) =&gt; {
+    // NEVER filter actual errors or important warnings
+    // Only suppress the specific harmless stringification warning
+    const message = args[0]?.toString() || &quot;&quot;;
+    if (
+      message.includes(&quot;DevalueError&quot;) ||
+      message.includes(&quot;Cannot stringify a function&quot;)
+    ) {
+      return; // Suppress harmless Vuetify serialization warnings
+    }
+    originalWarn.apply(console, args);
+  };
 
-<p>  console.log = filteredLog;</p>
-<p>  console.warn = filteredWarn;</p>
-<p>});</code></pre></p>
+  console.log = filteredLog;
+  console.warn = filteredWarn;
+});</code></pre>
 
 <p><strong>Detection Logic</strong>:</p>
 
@@ -1838,18 +1853,18 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts" target="_blank" rel="noopener noreferrer"><code>nuxt.config.ts</code></a></p>
 
 <pre><code class="language-typescript">// Note: Vuetify configuration objects may appear in console logs (both command line and browser)
-<p>// due to Vuetify + Nuxt 4 compatibility where Vuetify exposes functions in its configuration</p>
-<p>// that can&#039;t be serialized. This is a known harmless issue that doesn&#039;t affect functionality.</p>
-<p>// Client-side console logs are suppressed by app/plugins/suppress-vuetify-logs.client.ts</p>
-<p>// Server-side logs (command line) are from Nuxt&#039;s dev server and are harmless.</p>
-<p>vuetify: {</p>
-<p>  moduleOptions: {</p>
-<p>    styles: true</p>
-<p>  },</p>
-<p>  vuetifyOptions: {</p>
-<p>    // ... configuration</p>
-<p>  }</p>
-<p>}</code></pre></p>
+// due to Vuetify + Nuxt 4 compatibility where Vuetify exposes functions in its configuration
+// that can&#039;t be serialized. This is a known harmless issue that doesn&#039;t affect functionality.
+// Client-side console logs are suppressed by app/plugins/suppress-vuetify-logs.client.ts
+// Server-side logs (command line) are from Nuxt&#039;s dev server and are harmless.
+vuetify: {
+  moduleOptions: {
+    styles: true
+  },
+  vuetifyOptions: {
+    // ... configuration
+  }
+}</code></pre>
 
 <p><strong>Verification</strong>:</p>
 
@@ -1992,7 +2007,7 @@
 <p><strong>Solution</strong>: Create the file in your <code>public/</code> directory:</p>
 
 <pre><code class="language-bash">mkdir -p public/.well-known/appspecific
-<p>echo &#039;{}&#039; &gt; public/.well-known/appspecific/com.chrome.devtools.json</code></pre></p>
+echo &#039;{}&#039; &gt; public/.well-known/appspecific/com.chrome.devtools.json</code></pre>
 
 <p><strong>Quick Fix for Any Project</strong>:</p>
 
@@ -2020,33 +2035,33 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts" target="_blank" rel="noopener noreferrer"><code>nuxt.config.ts</code></a></p>
 
 <pre><code class="language-typescript">// nuxt.config.ts
-<p>export default defineNuxtConfig({</p>
-<p>  modules: [</p>
-<p>    &quot;vuetify-nuxt-module&quot;,</p>
-<p>    // ... other modules</p>
-<p>  ],</p>
+export default defineNuxtConfig({
+  modules: [
+    &quot;vuetify-nuxt-module&quot;,
+    // ... other modules
+  ],
 
-<p>  vuetify: {</p>
-<p>    moduleOptions: {</p>
-<p>      styles: true, // Include Vuetify styles</p>
-<p>    },</p>
-<p>    vuetifyOptions: {</p>
-<p>      theme: {</p>
-<p>        defaultTheme: &quot;dark&quot;, // or &#039;light&#039;</p>
-<p>        themes: {</p>
-<p>          // Your theme configuration</p>
-<p>        },</p>
-<p>      },</p>
-<p>      icons: {</p>
-<p>        defaultSet: &quot;mdi&quot;, // Material Design Icons</p>
-<p>      },</p>
-<p>    },</p>
-<p>  },</p>
+  vuetify: {
+    moduleOptions: {
+      styles: true, // Include Vuetify styles
+    },
+    vuetifyOptions: {
+      theme: {
+        defaultTheme: &quot;dark&quot;, // or &#039;light&#039;
+        themes: {
+          // Your theme configuration
+        },
+      },
+      icons: {
+        defaultSet: &quot;mdi&quot;, // Material Design Icons
+      },
+    },
+  },
 
-<p>  build: {</p>
-<p>    transpile: [&quot;vuetify&quot;], // Required for Vuetify</p>
-<p>  },</p>
-<p>});</code></pre></p>
+  build: {
+    transpile: [&quot;vuetify&quot;], // Required for Vuetify
+  },
+});</code></pre>
 
 <h4 id="2-suppressing-console-logs">2. Suppressing Console Logs</h4>
 
@@ -2074,11 +2089,11 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/tsconfig.json" target="_blank" rel="noopener noreferrer"><code>tsconfig.json</code></a></p>
 
 <pre><code class="language-json">// tsconfig.json
-<p>{</p>
-<p>  &quot;compilerOptions&quot;: {</p>
-<p>    &quot;types&quot;: [&quot;vuetify&quot;]</p>
-<p>  }</p>
-<p>}</code></pre></p>
+{
+  &quot;compilerOptions&quot;: {
+    &quot;types&quot;: [&quot;vuetify&quot;]
+  }
+}</code></pre>
 
 <h4 id="5-vuetify-component-usage">5. Vuetify Component Usage</h4>
 
@@ -2099,8 +2114,8 @@
 <p><strong>Pattern</strong>: Small, focused components</p>
 
 <pre><code class="language-text">CountdownTimer.vue       - Display only
-<p>  ↓ uses</p>
-<p>useDeadlineCountdown.ts  - Logic and state</code></pre></p>
+  ↓ uses
+useDeadlineCountdown.ts  - Logic and state</code></pre>
 
 <p><strong>Benefits</strong>:</p>
 
@@ -2124,28 +2139,28 @@
 <p><strong>Example</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/useDeadlineCountdown.ts" target="_blank" rel="noopener noreferrer"><code>app/composables/useDeadlineCountdown.ts</code></a></p>
 
 <pre><code class="language-typescript">export function useComposableName() {
-<p>  // State</p>
-<p>  const state = ref(initialValue);</p>
+  // State
+  const state = ref(initialValue);
 
-<p>  // Computed</p>
-<p>  const derived = computed(() =&gt; transform(state.value));</p>
+  // Computed
+  const derived = computed(() =&gt; transform(state.value));
 
-<p>  // Methods</p>
-<p>  function doSomething() {</p>
-<p>    state.value = newValue;</p>
-<p>  }</p>
+  // Methods
+  function doSomething() {
+    state.value = newValue;
+  }
 
-<p>  // Lifecycle</p>
-<p>  onMounted(() =&gt; {</p>
-<p>    /<em> setup </em>/</p>
-<p>  });</p>
-<p>  onUnmounted(() =&gt; {</p>
-<p>    /<em> cleanup </em>/</p>
-<p>  });</p>
+  // Lifecycle
+  onMounted(() =&gt; {
+    /* setup */
+  });
+  onUnmounted(() =&gt; {
+    /* cleanup */
+  });
 
-<p>  // Return public API</p>
-<p>  return { state, derived, doSomething };</p>
-<p>}</code></pre></p>
+  // Return public API
+  return { state, derived, doSomething };
+}</code></pre>
 
 <h3 id="3-type-safety-with-typescript">3. Type Safety with TypeScript</h3>
 
@@ -2162,21 +2177,21 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/utils/faqTransform.ts" target="_blank" rel="noopener noreferrer"><code>app/utils/faqTransform.ts</code></a></p>
 
 <pre><code class="language-typescript">interface FaqItem {
-<p>  question: string;</p>
-<p>  answer: MiniMarkNode[];</p>
-<p>  isNew?: boolean;</p>
-<p>  newDate?: string;</p>
-<p>}</p>
+  question: string;
+  answer: MiniMarkNode[];
+  isNew?: boolean;
+  newDate?: string;
+}
 
-<p>interface FaqSection {</p>
-<p>  heading: string | null;</p>
-<p>  items: FaqItem[];</p>
-<p>}</p>
+interface FaqSection {
+  heading: string | null;
+  items: FaqItem[];
+}
 
-<p>const faqSections = computed&lt;FaqSection[]&gt;(() =&gt; {</p>
-<p>  // TypeScript ensures return type matches</p>
-<p>  return parseFaqs(page.value);</p>
-<p>});</code></pre></p>
+const faqSections = computed&lt;FaqSection[]&gt;(() =&gt; {
+  // TypeScript ensures return type matches
+  return parseFaqs(page.value);
+});</code></pre>
 
 <h3 id="4-seo-with-composable">4. SEO with Composable</h3>
 
@@ -2185,29 +2200,29 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/useSeo.ts" target="_blank" rel="noopener noreferrer"><code>app/composables/useSeo.ts</code></a></p>
 
 <pre><code class="language-typescript">// composables/useSeo.ts
-<p>export function useSeo(options: SeoOptions) {</p>
-<p>  useHead({</p>
-<p>    title: options.title,</p>
-<p>    meta: [</p>
-<p>      { name: &quot;description&quot;, content: options.description },</p>
-<p>      { property: &quot;og:title&quot;, content: options.title },</p>
-<p>      { property: &quot;og:description&quot;, content: options.description },</p>
-<p>      { property: &quot;og:url&quot;, content: <code>${baseUrl}${options.url}</code> },</p>
-<p>      { property: &quot;og:type&quot;, content: options.type || &quot;website&quot; },</p>
-<p>      { name: &quot;twitter:card&quot;, content: &quot;summary<em>large</em>image&quot; },</p>
-<p>      // ... more tags</p>
-<p>    ],</p>
-<p>    link: [{ rel: &quot;canonical&quot;, href: <code>${baseUrl}${options.url}</code> }],</p>
-<p>  });</p>
-<p>}</p>
+export function useSeo(options: SeoOptions) {
+  useHead({
+    title: options.title,
+    meta: [
+      { name: &quot;description&quot;, content: options.description },
+      { property: &quot;og:title&quot;, content: options.title },
+      { property: &quot;og:description&quot;, content: options.description },
+      { property: &quot;og:url&quot;, content: `${baseUrl}${options.url}` },
+      { property: &quot;og:type&quot;, content: options.type || &quot;website&quot; },
+      { name: &quot;twitter:card&quot;, content: &quot;summary_large_image&quot; },
+      // ... more tags
+    ],
+    link: [{ rel: &quot;canonical&quot;, href: `${baseUrl}${options.url}` }],
+  });
+}
 
-<p>// Usage in page</p>
-<p>useSeo({</p>
-<p>  title: &quot;FAQs - Accessibility Portal&quot;,</p>
-<p>  description: &quot;Comprehensive FAQ about web accessibility...&quot;,</p>
-<p>  url: &quot;/faqs&quot;,</p>
-<p>  keywords: [&quot;accessibility&quot;, &quot;WCAG&quot;, &quot;ADA&quot;],</p>
-<p>});</code></pre></p>
+// Usage in page
+useSeo({
+  title: &quot;FAQs - Accessibility Portal&quot;,
+  description: &quot;Comprehensive FAQ about web accessibility...&quot;,
+  url: &quot;/faqs&quot;,
+  keywords: [&quot;accessibility&quot;, &quot;WCAG&quot;, &quot;ADA&quot;],
+});</code></pre>
 
 <h3 id="5-error-handling">5. Error Handling</h3>
 
@@ -2216,18 +2231,18 @@
 <p><strong>Example</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/faqs.vue" target="_blank" rel="noopener noreferrer"><code>app/pages/faqs.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;template&gt;
-<p>  &lt;div v-if=&quot;page&quot;&gt;</p>
-<p>    &lt;!-- Content --&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>  &lt;div v-else-if=&quot;error&quot;&gt;</p>
-<p>    &lt;h1&gt;Error Loading Content&lt;/h1&gt;</p>
-<p>    &lt;p&gt;{{ error.message }}&lt;/p&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>  &lt;div v-else&gt;</p>
-<p>    &lt;v-progress-circular indeterminate /&gt;</p>
-<p>    &lt;p&gt;Loading...&lt;/p&gt;</p>
-<p>  &lt;/div&gt;</p>
-<p>&lt;/template&gt;</code></pre></p>
+  &lt;div v-if=&quot;page&quot;&gt;
+    &lt;!-- Content --&gt;
+  &lt;/div&gt;
+  &lt;div v-else-if=&quot;error&quot;&gt;
+    &lt;h1&gt;Error Loading Content&lt;/h1&gt;
+    &lt;p&gt;{{ error.message }}&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div v-else&gt;
+    &lt;v-progress-circular indeterminate /&gt;
+    &lt;p&gt;Loading...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
 
 <h3 id="6-responsive-design">6. Responsive Design</h3>
 
@@ -2236,26 +2251,26 @@
 <p><strong>Example Pattern</strong>: Used throughout the application (e.g., <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/index.vue" target="_blank" rel="noopener noreferrer"><code>app/pages/index.vue</code></a>)</p>
 
 <pre><code class="language-css">/* Mobile first (default) */
-<p>.element {</p>
-<p>  font-size: 0.875rem;</p>
-<p>  padding: 0.5rem;</p>
-<p>}</p>
+.element {
+  font-size: 0.875rem;
+  padding: 0.5rem;
+}
 
-<p>/<em> Tablet and up </em>/</p>
-<p>@media (min-width: 768px) {</p>
-<p>  .element {</p>
-<p>    font-size: 1rem;</p>
-<p>    padding: 1rem;</p>
-<p>  }</p>
-<p>}</p>
+/* Tablet and up */
+@media (min-width: 768px) {
+  .element {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
 
-<p>/<em> Desktop and up </em>/</p>
-<p>@media (min-width: 1024px) {</p>
-<p>  .element {</p>
-<p>    font-size: 1.125rem;</p>
-<p>    padding: 1.5rem;</p>
-<p>  }</p>
-<p>}</code></pre></p>
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .element {
+    font-size: 1.125rem;
+    padding: 1.5rem;
+  }
+}</code></pre>
 
 <hr>
 
@@ -2279,102 +2294,86 @@
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js" target="_blank" rel="noopener noreferrer"><code>audit-accessibility.js</code></a></p>
 
 <pre><code class="language-javascript">const VIEWPORTS = [
-<p>  { name: &quot;desktop&quot;, width: 1920, height: 1080 },</p>
-<p>  { name: &quot;tablet&quot;, width: 768, height: 1024 },</p>
-<p>  { name: &quot;mobile&quot;, width: 375, height: 667 },</p>
-<p>];</p>
+  { name: &quot;desktop&quot;, width: 1920, height: 1080 },
+  { name: &quot;tablet&quot;, width: 768, height: 1024 },
+  { name: &quot;mobile&quot;, width: 375, height: 667 },
+];
 
-<p>const THEME = { name: &quot;dark&quot; };</p>
+const THEME = { name: &quot;dark&quot; };
 
-<p>const AXE_CONFIG = {</p>
-<p>  runOnly: {</p>
-<p>    type: &quot;tag&quot;,</p>
-<p>    values: [&quot;wcag2a&quot;, &quot;wcag2aa&quot;, &quot;wcag21a&quot;, &quot;wcag21aa&quot;],</p>
-<p>  },</p>
-<p>};</code></pre></p>
+const AXE_CONFIG = {
+  runOnly: {
+    type: &quot;tag&quot;,
+    values: [&quot;wcag2a&quot;, &quot;wcag2aa&quot;, &quot;wcag21a&quot;, &quot;wcag21aa&quot;],
+  },
+};</code></pre>
 
 <p><strong>Custom Rules</strong>:</p>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js" target="_blank" rel="noopener noreferrer"><code>audit-accessibility.js</code></a></p>
 
 <pre><code class="language-javascript">// Enabled rules
-<p>axe.configure({</p>
-<p>  rules: [</p>
-<p>    { id: &quot;aria-allowed-role&quot;, enabled: true },</p>
-<p>    { id: &quot;scrollable-region-focusable&quot;, enabled: true },</p>
-<p>    { id: &quot;landmark-banner-is-top-level&quot;, enabled: true },</p>
-<p>    // ... more rules</p>
-<p>  ],</p>
-<p>});</code></pre></p>
+axe.configure({
+  rules: [
+    { id: &quot;aria-allowed-role&quot;, enabled: true },
+    { id: &quot;scrollable-region-focusable&quot;, enabled: true },
+    { id: &quot;landmark-banner-is-top-level&quot;, enabled: true },
+    // ... more rules
+  ],
+});</code></pre>
 
 <p><strong>Skip Link Validation</strong>:</p>
 
 <p><strong>File</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js" target="_blank" rel="noopener noreferrer"><code>audit-accessibility.js</code></a></p>
 
 <pre><code class="language-javascript">async function verifySkipLink(page) {
-<p>  return await page.evaluate((config) =&gt; {</p>
-<p>    const skipLink = document.querySelector(config.selector);</p>
-<p>    if (!skipLink) return { exists: false, issues: [&quot;Not found&quot;] };</p>
+  return await page.evaluate((config) =&gt; {
+    const skipLink = document.querySelector(config.selector);
+    if (!skipLink) return { exists: false, issues: [&quot;Not found&quot;] };
 
-<p>    const target = document.getElementById(config.targetId);</p>
-<p>    if (!target)</p>
-<p>      return {</p>
-<p>        exists: true,</p>
-<p>        issues: [&quot;Target not found&quot;],</p>
-<p>      };</p>
+    const target = document.getElementById(config.targetId);
+    if (!target)
+      return {
+        exists: true,
+        issues: [&quot;Target not found&quot;],
+      };
 
-<p>    // Check if target is focusable</p>
-<p>    const tabindex = target.getAttribute(&quot;tabindex&quot;);</p>
-<p>    if (tabindex !== &quot;-1&quot; &amp;&amp; tabindex !== &quot;0&quot;) {</p>
-<p>      return {</p>
-<p>        exists: true,</p>
-<p>        issues: [&quot;Target not focusable&quot;],</p>
-<p>      };</p>
-<p>    }</p>
+    // Check if target is focusable
+    const tabindex = target.getAttribute(&quot;tabindex&quot;);
+    if (tabindex !== &quot;-1&quot; &amp;&amp; tabindex !== &quot;0&quot;) {
+      return {
+        exists: true,
+        issues: [&quot;Target not focusable&quot;],
+      };
+    }
 
-<p>    // Check positioning</p>
-<p>    const style = window.getComputedStyle(skipLink);</p>
-<p>    if (style.position !== &quot;absolute&quot; || !style.top.includes(&quot;-100&quot;)) {</p>
-<p>      return {</p>
-<p>        exists: true,</p>
-<p>        issues: [&quot;Not properly positioned off-screen&quot;],</p>
-<p>      };</p>
-<p>    }</p>
+    // Check positioning
+    const style = window.getComputedStyle(skipLink);
+    if (style.position !== &quot;absolute&quot; || !style.top.includes(&quot;-100&quot;)) {
+      return {
+        exists: true,
+        issues: [&quot;Not properly positioned off-screen&quot;],
+      };
+    }
 
-<p>    return { exists: true, working: true, issues: [] };</p>
-<p>  }, SKIP<em>LINK</em>CONFIG);</p>
-<p>}</code></pre></p>
+    return { exists: true, working: true, issues: [] };
+  }, SKIP_LINK_CONFIG);
+}</code></pre>
 
 <p><strong>Running Tests</strong>:</p>
 
 <pre><code class="language-bash"># Quick audit (console output)
-<p>yarn audit:a11y</p>
-
-<h1 id="full-lighthouse-audit-requires-running-server">Full Lighthouse audit (requires running server)</h1>
-<p>yarn audit:lighthouse</p>
-
-<h1 id="both">Both</h1>
-<p>yarn audit:full</code></pre></p>
+yarn audit:a11y</code></pre>
 
 <h3 id="performance-testing">Performance Testing</h3>
 
-<p><strong>Lighthouse Integration</strong>:</p>
+<p><strong>Performance Monitoring</strong>:</p>
 
 <ul>
-<li>Performance score</li>
-<li>Accessibility score (uses axe-core internally)</li>
-<li>Best practices</li>
-<li>SEO</li>
-<li>PWA (if applicable)</li>
-</ul>
-<p><strong>Metrics Tracked</strong>:</p>
-
-<ul>
-<li>First Contentful Paint (FCP)</li>
-<li>Largest Contentful Paint (LCP)</li>
-<li>Time to Interactive (TTI)</li>
-<li>Cumulative Layout Shift (CLS)</li>
-<li>Total Blocking Time (TBT)</li>
+<li>Monitor Core Web Vitals (LCP, FID, CLS)</li>
+<li>Track bundle size</li>
+<li>Check loading performance</li>
+<li>Use browser DevTools for performance analysis</li>
 </ul>
 <hr>
 
@@ -2484,11 +2483,11 @@
 <ul>
 <li><strong>Performance Monitoring</strong></li>
 </ul>   <ul>
-<li>Run Lighthouse periodically</li>
-</ul>   <ul>
 <li>Monitor bundle size</li>
 </ul>   <ul>
-<li>Check Core Web Vitals</li>
+<li>Check Core Web Vitals using browser DevTools</li>
+</ul>   <ul>
+<li>Use production site for accurate performance metrics</li>
 </ul>
 <hr>
 
@@ -2598,21 +2597,21 @@
 <p><strong>Example</strong>: <a href="https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/index.vue" target="_blank" rel="noopener noreferrer"><code>app/pages/index.vue</code></a></p>
 
 <pre><code class="language-vue">&lt;template&gt;
-<p>  &lt;v-app&gt;</p>
-<p>    &lt;v-main&gt;</p>
-<p>      &lt;v-container&gt;</p>
-<p>        &lt;v-row&gt;</p>
-<p>          &lt;v-col cols=&quot;12&quot; md=&quot;6&quot;&gt;</p>
-<p>            &lt;v-card&gt;</p>
-<p>              &lt;v-card-title&gt;Title&lt;/v-card-title&gt;</p>
-<p>              &lt;v-card-text&gt;Content&lt;/v-card-text&gt;</p>
-<p>            &lt;/v-card&gt;</p>
-<p>          &lt;/v-col&gt;</p>
-<p>        &lt;/v-row&gt;</p>
-<p>      &lt;/v-container&gt;</p>
-<p>    &lt;/v-main&gt;</p>
-<p>  &lt;/v-app&gt;</p>
-<p>&lt;/template&gt;</code></pre></p>
+  &lt;v-app&gt;
+    &lt;v-main&gt;
+      &lt;v-container&gt;
+        &lt;v-row&gt;
+          &lt;v-col cols=&quot;12&quot; md=&quot;6&quot;&gt;
+            &lt;v-card&gt;
+              &lt;v-card-title&gt;Title&lt;/v-card-title&gt;
+              &lt;v-card-text&gt;Content&lt;/v-card-text&gt;
+            &lt;/v-card&gt;
+          &lt;/v-col&gt;
+        &lt;/v-row&gt;
+      &lt;/v-container&gt;
+    &lt;/v-main&gt;
+  &lt;/v-app&gt;
+&lt;/template&gt;</code></pre>
 
 <p><strong>Project-Specific Tasks</strong> (for this accessibility portal):</p>
 
@@ -2622,11 +2621,11 @@
 
 <pre><code class="language-markdown">### Your Question Here?
 
-<p>{new:2026-01-15}</p>
+{new:2026-01-15}
 
-<p><strong>Quick answer:</strong> Brief answer.</p>
+**Quick answer:** Brief answer.
 
-<p><strong>Full explanation:</strong> Detailed answer...</code></pre></p>
+**Full explanation:** Detailed answer...</code></pre>
 
 <p><strong>Modifying Accessibility</strong>:</p>
 

@@ -40,7 +40,7 @@ This guide documents the architecture and implementation of a **Vuetify 3 + Nuxt
 1. **100% WCAG 2.1 AA Compliance** - Zero accessibility violations
 2. **Static Site Generation** - Fast, cacheable, CDN-friendly
 3. **Content-First** - Easy markdown-based content management
-4. **Performance** - Lighthouse scores 90+
+4. **Performance** - Optimized for fast loading and Core Web Vitals
 5. **Maintainability** - Clear patterns, good documentation
 6. **Flexibility** - Support for dynamic content (countdown timer, "new" badges)
 
@@ -1896,31 +1896,16 @@ async function verifySkipLink(page) {
 ```bash
 # Quick audit (console output)
 yarn audit:a11y
-
-# Full Lighthouse audit (requires running server)
-yarn audit:lighthouse
-
-# Both
-yarn audit:full
 ```
 
 ### Performance Testing
 
-**Lighthouse Integration**:
+**Performance Monitoring**:
 
-- Performance score
-- Accessibility score (uses axe-core internally)
-- Best practices
-- SEO
-- PWA (if applicable)
-
-**Metrics Tracked**:
-
-- First Contentful Paint (FCP)
-- Largest Contentful Paint (LCP)
-- Time to Interactive (TTI)
-- Cumulative Layout Shift (CLS)
-- Total Blocking Time (TBT)
+- Monitor Core Web Vitals (LCP, FID, CLS)
+- Track bundle size
+- Check loading performance
+- Use browser DevTools for performance analysis
 
 ---
 
@@ -1993,9 +1978,9 @@ yarn audit:full
    - Check for breaking changes in major versions
 
 4. **Performance Monitoring**
-   - Run Lighthouse periodically
    - Monitor bundle size
-   - Check Core Web Vitals
+   - Check Core Web Vitals using browser DevTools
+   - Use production site for accurate performance metrics
 
 ---
 

@@ -244,7 +244,7 @@ This is a well-structured Nuxt 4 application focused on accessibility compliance
 
 ### 18. **Performance Monitoring**
 
-- Add Lighthouse CI for automated performance checks
+- Monitor performance using browser DevTools
 - Monitor Core Web Vitals
 - Track bundle size over time
 
