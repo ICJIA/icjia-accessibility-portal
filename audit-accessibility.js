@@ -1,6 +1,26 @@
 #!/usr/bin/env node
 
 /**
+ * @fileoverview Accessibility Audit Script using axe-core
+ * @description Comprehensive accessibility audit tool that tests websites against WCAG 2.1 Level AA standards.
+ *
+ * This script:
+ * - Tests against development or production environments
+ * - Automatically starts dev server if not running
+ * - Reads URLs from sitemap.xml
+ * - Tests each URL in multiple viewports (desktop, tablet, mobile)
+ * - Tests multiple themes (if configured)
+ * - Verifies skip link implementation
+ * - Generates HTML and JSON reports
+ *
+ * @author ICJIA
+ * @version 1.0.0
+ *
+ * @see {@link https://github.com/dequelabs/axe-core axe-core GitHub}
+ * @see {@link https://www.w3.org/WAI/WCAG21/quickref/ WCAG 2.1 Quick Reference}
+ */
+
+/**
  * ============================================================================
  * ⚙️ DEVELOPER CONFIGURATION - EDIT THIS SECTION
  * ============================================================================
@@ -20,12 +40,16 @@
  *
  * Choose whether to run the audit against the development server or production.
  *
+ * @type {string}
+ * @constant
+ * @default "development"
+ *
  * @example
  * // To test against local dev server (default):
- * TARGET_ENV: "development",
+ * const TARGET_ENV = "development";
  *
  * // To test against production:
- * TARGET_ENV: "production",
+ * const TARGET_ENV = "production";
  */
 const TARGET_ENV = "development"; // Change to "production" to test against production URL
 //const TARGET_ENV = "production";

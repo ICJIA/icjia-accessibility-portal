@@ -58,9 +58,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // Note: The "Failed to stringify dev server logs" warning is a known harmless issue
-  // with Vuetify + Nuxt 4 where Vuetify exposes functions in its configuration that
-  // can't be serialized for dev server logging. This does not affect functionality.
+  // Note: Vuetify configuration objects may appear in console logs (both command line and browser)
+  // due to Vuetify + Nuxt 4 compatibility where Vuetify exposes functions in its configuration
+  // that can't be serialized. This is a known harmless issue that doesn't affect functionality.
+  // Client-side console logs are suppressed by app/plugins/suppress-vuetify-logs.client.ts
+  // Server-side logs (command line) are from Nuxt's dev server and are harmless.
   vuetify: {
     moduleOptions: {
       styles: true

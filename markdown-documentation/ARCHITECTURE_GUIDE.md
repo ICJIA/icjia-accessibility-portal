@@ -1,6 +1,6 @@
 # ICJIA Accessibility Portal: Complete Architecture & Implementation Guide
 
-**Last Updated**: January 1, 2026  
+**Last Updated**: January 2, 2026  
 **For**: Future Developers, LLMs, and Technical Teams  
 **Purpose**: Comprehensive guide to understanding, maintaining, and replicating this accessibility-focused Nuxt application
 
@@ -887,6 +887,146 @@ export function useDeadlineCountdown() {
 - Update every minute (not every second for days counter)
 - Use computed for derived values
 - Clean up interval on unmount
+
+### Challenge 6: Vuetify Console Logging in Development
+
+**Problem**: Vuetify instance objects are logged to console (both command line and browser) during development, creating noise and warnings.
+
+**Symptoms**:
+
+- Large Vuetify object dumps in command line console
+- Vuetify object dumps in browser DevTools console
+- Warning: "Failed to stringify dev server logs. Received DevalueError: Cannot stringify a function."
+
+**Root Cause**:
+
+Vuetify + Nuxt 4 compatibility issue where Vuetify exposes functions in its configuration that can't be serialized by Nuxt's dev server logging system. The Vuetify instance object contains:
+- `install` and `unmount` functions
+- Reactive properties (RefImpl, ComputedRefImpl)
+- Theme, icons, locale, display, and other configuration objects
+- Functions that can't be JSON.stringify'd
+
+**Solution**: Client-side and server-side plugins to suppress Vuetify logs
+
+**Implementation**:
+
+**File**: [`app/plugins/suppress-vuetify-logs.client.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/suppress-vuetify-logs.client.ts)
+
+```typescript
+// Client-side plugin (browser console)
+export default defineNuxtPlugin(() => {
+  if (process.server || !import.meta.dev) return;
+
+  const originalLog = console.log;
+  const originalInfo = console.info;
+  const originalDebug = console.debug;
+
+  const filteredLog = (...args: any[]) => {
+    if (!containsVuetifyInstanceOrConfig(args)) {
+      originalLog.apply(console, args);
+    }
+  };
+
+  console.log = filteredLog;
+  console.info = filteredInfo;
+  console.debug = filteredDebug;
+});
+```
+
+**File**: [`app/plugins/suppress-vuetify-logs.server.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/suppress-vuetify-logs.server.ts)
+
+```typescript
+// Server-side plugin (command line console)
+export default defineNuxtPlugin(() => {
+  if (!process.server || !import.meta.dev) return;
+
+  const originalLog = console.log;
+  const originalWarn = console.warn;
+
+  const filteredLog = (...args: any[]) => {
+    // Suppress Vuetify instance objects
+    if (containsVuetifyInstanceOrConfig(args)) return;
+    
+    // Suppress stringification warnings related to Vuetify
+    const message = args[0]?.toString() || '';
+    if (message.includes('Failed to stringify dev server logs')) return;
+    
+    originalLog.apply(console, args);
+  };
+
+  const filteredWarn = (...args: any[]) => {
+    const message = args[0]?.toString() || '';
+    if (message.includes('DevalueError') || 
+        message.includes('Cannot stringify a function')) {
+      return; // Suppress harmless Vuetify serialization warnings
+    }
+    originalWarn.apply(console, args);
+  };
+
+  console.log = filteredLog;
+  console.warn = filteredWarn;
+});
+```
+
+**Detection Logic**:
+
+The plugins detect Vuetify instances by checking for:
+- `install` and `unmount` functions (key indicators)
+- Instance properties: `theme`, `icons`, `locale`, `defaults`, `display`, `date`, `goTo`
+- Function properties (common in Vuetify objects)
+- Constructor names containing "vuetify"
+
+**Important**: The plugins specifically preserve:
+- Vue component instances (have `$el`, `$props`, etc.)
+- Error objects and strings (warnings/errors should be preserved)
+- All other console output
+
+**Key Details**:
+
+- **Client-side plugin** (`.client.ts`): Only runs in browser, filters browser console
+- **Server-side plugin** (`.server.ts`): Only runs on server, filters command line output
+- **Development only**: Both plugins check `import.meta.dev` to only run in development
+- **Non-invasive**: Doesn't modify Vuetify's functionality, only filters console output
+- **Vuetify MCP compatible**: Doesn't interfere with Vuetify MCP server operations
+
+**Configuration Note**:
+
+**File**: [`nuxt.config.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)
+
+```typescript
+// Note: Vuetify configuration objects may appear in console logs (both command line and browser)
+// due to Vuetify + Nuxt 4 compatibility where Vuetify exposes functions in its configuration
+// that can't be serialized. This is a known harmless issue that doesn't affect functionality.
+// Client-side console logs are suppressed by app/plugins/suppress-vuetify-logs.client.ts
+// Server-side logs (command line) are from Nuxt's dev server and are harmless.
+vuetify: {
+  moduleOptions: {
+    styles: true
+  },
+  vuetifyOptions: {
+    // ... configuration
+  }
+}
+```
+
+**Verification**:
+
+After implementing the plugins:
+- ✅ No Vuetify object dumps in command line
+- ✅ No Vuetify object dumps in browser console
+- ✅ No "Failed to stringify dev server logs" warnings
+- ✅ All other console output preserved (errors, warnings, etc.)
+- ✅ Vuetify functionality unaffected
+
+**Best Practices Compliance**:
+
+- Follows Vuetify best practices (non-invasive, doesn't modify Vuetify)
+- Compatible with Vuetify MCP server
+- Preserves important debugging information
+- Only suppresses configuration/instance object noise
+- Properly documented with JSDoc comments
+
+**Lesson Learned**: When working with frameworks that expose complex objects with functions, console logging can create noise. Intercepting console methods is a valid approach to clean up development output without affecting functionality.
 
 ---
 

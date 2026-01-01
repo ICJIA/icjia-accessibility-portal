@@ -1,16 +1,29 @@
 /**
- * CSS Optimization Plugin
+ * @fileoverview CSS Optimization Plugin for Nuxt
+ * @description Defers loading of non-critical CSS to reduce render-blocking resources.
  * 
- * This plugin defers loading of non-critical CSS to reduce render-blocking resources.
- * It converts blocking stylesheets to non-blocking by using the print media trick
- * and then switching to 'all' once loaded.
+ * This plugin improves performance by:
+ * - Converting blocking stylesheets to non-blocking using the print media trick
+ * - Switching media back to 'all' once CSS is loaded
+ * - Only deferring CSS added AFTER initial page load (conservative approach)
  * 
- * This improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP)
- * by allowing the browser to render content before all CSS is loaded.
+ * Benefits:
+ * - Improves First Contentful Paint (FCP)
+ * - Improves Largest Contentful Paint (LCP)
+ * - Allows browser to render content before all CSS is loaded
  * 
  * NOTE: This plugin is conservative - it only defers CSS added AFTER
  * the initial page load to prevent interfering with component initialization.
- * Set ENABLE_CSS_OPTIMIZATION to false to disable this plugin.
+ * 
+ * @module optimize-css
+ */
+
+/**
+ * Flag to enable/disable CSS optimization.
+ * Set to false to disable this plugin entirely.
+ * 
+ * @constant {boolean}
+ * @default true
  */
 const ENABLE_CSS_OPTIMIZATION = true // Set to false to disable CSS optimization
 
@@ -53,6 +66,19 @@ export default defineNuxtPlugin(() => {
   }
 })
 
+/**
+ * Marks all existing stylesheets as initial stylesheets.
+ * 
+ * Initial stylesheets should NOT be deferred because they're needed for:
+ * - Initial render
+ * - Component initialization
+ * - Critical CSS
+ * 
+ * This function is called once after page load to mark existing stylesheets.
+ * 
+ * @returns {void}
+ * @private
+ */
 function markInitialStylesheets() {
   if (typeof document === 'undefined') return
 
@@ -68,6 +94,21 @@ function markInitialStylesheets() {
   })
 }
 
+/**
+ * Optimizes CSS by deferring non-critical stylesheets.
+ * 
+ * Uses the "print media trick":
+ * 1. Sets media attribute to 'print' (non-blocking)
+ * 2. Switches back to original media once loaded
+ * 
+ * Only processes stylesheets that:
+ * - Were added AFTER initial page load (not marked as data-initial)
+ * - Are not marked as critical (data-critical)
+ * - Have not already been deferred (data-deferred)
+ * 
+ * @returns {void}
+ * @private
+ */
 function optimizeCSS() {
   if (typeof document === 'undefined') return
 
@@ -116,6 +157,16 @@ function optimizeCSS() {
   })
 }
 
+/**
+ * Observes the DOM for new stylesheet links and optimizes them.
+ * 
+ * Uses MutationObserver to watch for dynamically added stylesheets
+ * (e.g., from route changes). These are safe to defer since they're
+ * added after initial page load.
+ * 
+ * @returns {void}
+ * @private
+ */
 function observeNewStylesheets() {
   if (typeof document === 'undefined' || typeof MutationObserver === 'undefined') {
     return

@@ -1,18 +1,52 @@
 #!/usr/bin/env node
 /**
  * @fileoverview Ensures accessibility report always exists
- * @description Creates a placeholder accessibility report if one doesn't exist
- * This ensures /docs/accessibility is always accessible in dev/build/generate modes
+ * @description Creates a placeholder accessibility report if one doesn't exist.
+ * 
+ * This script ensures that /docs/accessibility is always accessible in dev/build/generate modes,
+ * even if the actual accessibility audit hasn't been run yet. This prevents 404 errors and
+ * provides helpful instructions for generating the report.
+ * 
+ * The placeholder report includes:
+ * - Instructions on how to generate the report
+ * - Command to run (yarn generate:accessibility)
+ * - Note about requiring a running server
+ * 
+ * This script is typically run as a pre-build hook to ensure the report directory structure exists.
+ * 
+ * @author ICJIA
+ * @version 1.0.0
+ * 
+ * @see {@link ./audit-accessibility.js} The accessibility audit script that generates the actual report
  */
 
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
+/**
+ * Current file path (ES module compatible)
+ * @type {string}
+ */
 const __filename = fileURLToPath(import.meta.url);
+
+/**
+ * Current directory path
+ * @type {string}
+ */
 const __dirname = dirname(__filename);
+
+/**
+ * Project root directory (one level up from scripts directory)
+ * @type {string}
+ */
 const projectRoot = join(__dirname, "..");
 
+/**
+ * Path to the accessibility report HTML file
+ * @type {string}
+ * @constant
+ */
 const reportPath = join(
   projectRoot,
   "public",
@@ -20,14 +54,35 @@ const reportPath = join(
   "accessibility",
   "index.html"
 );
+
+/**
+ * Directory containing the accessibility report
+ * @type {string}
+ * @constant
+ */
 const reportDir = dirname(reportPath);
 
-// Ensure directory exists
+/**
+ * Ensures the accessibility report directory exists.
+ * Creates the directory structure if it doesn't exist.
+ * 
+ * @returns {void}
+ */
 if (!existsSync(reportDir)) {
   mkdirSync(reportDir, { recursive: true });
 }
 
-// If report doesn't exist, create a placeholder
+/**
+ * Creates a placeholder accessibility report if one doesn't exist.
+ * 
+ * The placeholder provides:
+ * - A styled HTML page explaining the report hasn't been generated
+ * - Instructions on how to generate the report
+ * - Command to run (yarn generate:accessibility)
+ * - Note about requiring a running server
+ * 
+ * @returns {void}
+ */
 if (!existsSync(reportPath)) {
   const placeholder = `<!DOCTYPE html>
 <html lang="en">
@@ -75,14 +130,40 @@ if (!existsSync(reportPath)) {
   console.log("📄 Created placeholder accessibility report");
 }
 
-// Also ensure docs/index.html exists
+/**
+ * Path to the docs index.html file (if needed)
+ * Currently not used, but kept for potential future use
+ * 
+ * @type {string}
+ * @constant
+ */
 const docsIndexPath = join(projectRoot, "public", "docs", "index.html");
+
+/**
+ * Directory containing the docs index file
+ * 
+ * @type {string}
+ * @constant
+ */
 const docsIndexDir = dirname(docsIndexPath);
 
+/**
+ * Ensures the docs directory exists.
+ * This is a placeholder for potential future functionality.
+ * 
+ * @returns {void}
+ */
 if (!existsSync(docsIndexDir)) {
   mkdirSync(docsIndexDir, { recursive: true });
 }
 
+/**
+ * Placeholder for docs/index.html creation.
+ * Currently not implemented - the build process handles this.
+ * This section is kept for potential future use.
+ * 
+ * @returns {void}
+ */
 if (!existsSync(docsIndexPath)) {
   // Check if it exists in the repo - if not, we'll let the build process handle it
   // This script just ensures the accessibility report exists

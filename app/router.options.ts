@@ -1,11 +1,37 @@
 /**
  * @fileoverview Vue Router options configuration
- * @description Configures scroll behavior to handle FAQ anchor links properly
+ * @description Configures scroll behavior to handle FAQ anchor links properly.
+ * 
+ * This configuration ensures that:
+ * - FAQ anchor links scroll smoothly to the correct position
+ * - Navbar height is accounted for when scrolling
+ * - Browser back/forward button positions are preserved
+ * - Components have time to mount before scrolling
+ * 
+ * @module router.options
  */
 
 import type { RouterConfig } from '@nuxt/schema'
 
+/**
+ * Router configuration with custom scroll behavior.
+ * 
+ * Handles three scenarios:
+ * 1. Saved position (browser back/forward): Restores saved position
+ * 2. Hash navigation (FAQ anchor links): Scrolls to element with navbar offset
+ * 3. Regular navigation: Scrolls to top smoothly
+ * 
+ * @type {RouterConfig}
+ */
 export default <RouterConfig>{
+  /**
+   * Custom scroll behavior function for Vue Router.
+   * 
+   * @param {RouteLocationNormalized} to - The target route
+   * @param {RouteLocationNormalized} from - The source route
+   * @param {ScrollPosition | null} savedPosition - Saved scroll position from browser history
+   * @returns {ScrollPosition | Promise<ScrollPosition>} Scroll position or promise that resolves to scroll position
+   */
   scrollBehavior(to, from, savedPosition) {
     // If there's a saved position (e.g., browser back button), use it
     if (savedPosition) {

@@ -1,12 +1,33 @@
 /**
  * @fileoverview Server plugin to ensure accessibility report always exists
- * @description Creates a placeholder accessibility report if one doesn't exist
- * This ensures /docs/accessibility is always accessible in dev/build/generate modes
+ * @description Creates a placeholder accessibility report if one doesn't exist.
+ * 
+ * This ensures /docs/accessibility is always accessible in dev/build/generate modes,
+ * even if the report hasn't been generated yet. Prevents 404 errors and provides
+ * helpful instructions for generating the report.
+ * 
+ * The placeholder report includes:
+ * - Instructions on how to generate the report
+ * - Command to run (yarn generate:accessibility)
+ * - Note about requiring a running server
+ * 
+ * @module ensure-accessibility-report
  */
 
 import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import { join, dirname } from 'path'
 
+/**
+ * Nuxt server plugin that ensures the accessibility report exists.
+ * 
+ * Creates a placeholder HTML file at public/docs/accessibility/index.html
+ * if it doesn't exist. This prevents 404 errors and provides helpful
+ * instructions for generating the actual report.
+ * 
+ * Only runs on server side. Silently fails if there are file system errors.
+ * 
+ * @returns {void}
+ */
 export default defineNuxtPlugin(() => {
   // Only run on server side
   if (import.meta.server) {

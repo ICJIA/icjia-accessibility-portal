@@ -152,6 +152,7 @@ definePageMeta({
 
 import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
+import { usePrintLinks } from "../composables/usePrintLinks";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs-print", () => {
@@ -404,6 +405,9 @@ const lastUpdated = "January 1, 2026";
 
 // Base URL - use production URL for printer version
 const baseUrl = "https://accessibility.icjia.app";
+
+// Process links for print accessibility
+usePrintLinks();
 
 // SEO
 useSeo({
@@ -676,6 +680,16 @@ useSeo({
   color: #000;
   text-decoration: underline;
   word-break: break-all;
+}
+
+/* Ensure links always have visible text - never hide link content */
+.print-answer :deep(a),
+.print-intro :deep(a),
+.print-content :deep(a) {
+  /* Ensure link text is always visible */
+  visibility: visible !important;
+  display: inline !important;
+  opacity: 1 !important;
 }
 
 .print-answer :deep(code) {

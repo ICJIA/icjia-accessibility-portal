@@ -122,6 +122,8 @@ yarn generate:serve
   - Clear section headings and numbered questions
   - Optimized for printing or saving as PDF
   - Includes last-updated date for reference
+  - Fully accessible with discernible link text and table headers
+  - Links display URLs for printed versions
 - **Markdown-based Content** - Easy content management via Nuxt Content
 - **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
 
@@ -202,9 +204,12 @@ The build process will:
 4. **Generate routes.json** - Lists all prerendered routes (used for sitemap generation)
 5. **Regenerate sitemap** - Updates sitemap with discovered routes
 6. **Optimize assets** - Creates production-ready files
-7. **Output to `.output/public/`** - Directory ready for deployment
+7. **Copy public files** - Copies all files from `public/` directory (including `.well-known/` files)
+8. **Output to `.output/public/`** - Directory ready for deployment
 
 **Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not included in the sitemap for SEO purposes).
+
+**Note**: The `.well-known/appspecific/com.chrome.devtools.json` file is included to prevent 404 errors when Chrome DevTools is open. This is a harmless Chrome DevTools request and the empty JSON file satisfies it.
 
 ## Deployment
 
@@ -302,6 +307,9 @@ The automated build process:
 │   ├── icjia-logo.png          # ICJIA logo
 │   ├── robots.txt              # Robots.txt (disallows all indexing)
 │   ├── sitemap.xml             # Auto-generated sitemap (excludes /docs/ routes)
+│   ├── .well-known/
+│   │   └── appspecific/
+│   │       └── com.chrome.devtools.json  # Chrome DevTools config (prevents 404)
 │   └── docs/
 │       ├── index.html          # Documentation portal index
 │       ├── accessibility/
@@ -312,9 +320,9 @@ The automated build process:
 │           ├── index.html      # Lighthouse audit report (generated)
 │           └── report.json     # Lighthouse audit data
 ├── scripts/
-│   ├── generate-routes.js      # Routes generation script (scans pages and content)
-│   ├── generate-sitemap.js     # Sitemap generation script
-│   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
+│   ├── generate-routes.js      # Routes generation script (scans pages and content) - Fully documented with JSDoc
+│   ├── generate-sitemap.js     # Sitemap generation script - Fully documented with JSDoc
+│   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists - Fully documented with JSDoc
 ├── markdown-documentation/     # Project documentation and audit results
 │   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
 │   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
@@ -675,6 +683,7 @@ Reports include:
 - ✅ Dynamic countdown timer (April 24, 2026 deadline)
 - ✅ Automated accessibility and Lighthouse audits
 - ✅ Documentation portal with audit reports
+- ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
 ### Recent Updates (January 2026)
 
@@ -756,6 +765,11 @@ Potential improvements documented in `markdown-documentation/PROJECT_REVIEW.md`:
 - **Vue 3 Composition API**: Use `<script setup>` syntax
 - **Semantic HTML**: Use proper HTML5 semantic elements
 - **ARIA Labels**: Include proper ARIA attributes for interactive elements
+- **JSDoc Documentation**: All JavaScript/TypeScript files include comprehensive JSDoc comments
+  - File-level `@fileoverview` tags with descriptions
+  - Function documentation with `@param`, `@returns`, and `@example` tags
+  - Type annotations for constants and variables
+  - See existing files in `app/composables/`, `app/utils/`, `app/plugins/`, and `scripts/` for examples
 - **Testing**: Run accessibility audits before submitting
 
 ### Content Guidelines

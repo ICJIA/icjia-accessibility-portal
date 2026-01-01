@@ -1,12 +1,27 @@
 /**
- * Font Optimization Plugin
+ * @fileoverview Font Optimization Plugin for Nuxt
+ * @description Optimizes font loading to improve First Contentful Paint (FCP) and Largest Contentful Paint (LCP).
  * 
- * This plugin optimizes font loading to improve FCP and LCP by:
- * 1. Adding font-display: swap to @font-face rules
- * 2. Preloading critical fonts
- * 3. Using font-display: swap to prevent invisible text during font load
+ * This plugin:
+ * 1. Adds `font-display: swap` to all @font-face rules to prevent invisible text during font load
+ * 2. Preloads critical fonts (Material Design Icons) for faster rendering
+ * 3. Injects a global style to ensure dynamically loaded fonts use font-display: swap
+ * 
+ * Benefits:
+ * - Prevents FOIT (Flash of Invisible Text)
+ * - Improves perceived performance
+ * - Better Core Web Vitals scores
+ * 
+ * @module optimize-fonts
  */
 
+/**
+ * Nuxt plugin that optimizes font loading on the client side.
+ * 
+ * Only runs on client side (browser). Waits for DOM to be ready before processing.
+ * 
+ * @returns {void}
+ */
 export default defineNuxtPlugin(() => {
   // Only run on client side
   if (process.server) {
@@ -25,6 +40,18 @@ export default defineNuxtPlugin(() => {
   }
 })
 
+/**
+ * Optimizes fonts by adding font-display: swap and preloading critical fonts.
+ * 
+ * Process:
+ * 1. Finds all @font-face rules in stylesheets
+ * 2. Adds font-display: swap if not already present
+ * 3. Injects global style for dynamically loaded fonts
+ * 4. Preloads Material Design Icons font if present
+ * 
+ * @returns {void}
+ * @private
+ */
 function optimizeFonts() {
   if (typeof document === 'undefined') return
 
