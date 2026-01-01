@@ -10,6 +10,17 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'theme-color', content: '#0F172A' }, // Dark theme background color
+        { name: 'msapplication-TileColor', content: '#0F172A' },
+        { name: 'application-name', content: 'ICJIA Accessibility Portal' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'ICJIA Accessibility' },
+      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'apple-touch-icon', href: '/favicon.svg' },
@@ -19,6 +30,13 @@ export default defineNuxtConfig({
         // Note: Logo image doesn't need preload - it's small (1.5KB) and uses
         // loading="eager" + fetchpriority="high" which is sufficient
       ]
+    }
+  },
+  
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.SITE_URL || 'https://accessibility.icjia.app',
+      siteName: 'ICJIA Accessibility Portal',
     }
   },
   

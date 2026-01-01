@@ -83,6 +83,56 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
+### What other benefits does creating accessible websites and content provide? Does accessibility increase SEO?
+
+{new:2026-01-01}
+
+**Quick answer:** Yes. Accessible websites rank higher in search results. Accessible documents are searchable and machine-readable. Accessible social media reaches more people. Beyond compliance, accessibility improves discoverability, usability, and reach across all content types.
+
+**Full explanation:**
+
+Accessible content — whether websites, documents, social media, or videos — provides measurable benefits beyond legal compliance.
+
+**Website Benefits (SEO & Performance):**
+
+- **Higher search rankings** — Semantic HTML, proper headings, and descriptive links help search engines understand and rank your content.
+- **Better discoverability** — Alt text makes images searchable. Captions and transcripts make videos indexable.
+- **Faster performance** — Clean code and optimized media improve page speed (a key ranking factor).
+- **Lower bounce rates** — Easier navigation keeps visitors engaged longer.
+- **Mobile advantage** — Accessible design patterns align with Google's mobile-first indexing.
+
+**Document Benefits (PDFs, Word, PowerPoint, Excel):**
+
+- **Searchable content** — Structured documents with headings and alt text appear in web searches.
+- **Text extraction** — Accessible PDFs can be copied and reused. Scanned PDFs lock content as images.
+- **Better navigation** — Headings create automatic tables of contents for long documents.
+- **Machine-readable** — Works with AI tools, translation services, and automated workflows.
+- **Professional quality** — Well-structured documents reflect attention to detail.
+
+**Social Media Benefits:**
+
+- **Increased engagement** — Alt text ensures posts work when images don't load (slow connections, data-saving mode).
+- **Significantly more video views** — Captions help people watching in sound-off environments (offices, public transit, libraries). Studies show captions can increase video engagement by 40% or more.
+- **Broader sharing** — Accessible content is easier to quote and reference.
+- **Algorithm boost** — Platforms increasingly prioritize accessible content.
+
+**Universal Benefits (All Content):**
+
+- **Broader reach** — Works for people with permanent disabilities, temporary limitations (broken arm, bright sun on screen), situational constraints (noisy/quiet environments), and age-related changes.
+- **Better for everyone** — Clear structure, descriptive text, and good contrast improve usability for all users.
+- **Future-proof** — Works better with voice assistants, AI tools, and translation services.
+- **Cost savings** — Building accessibility in costs far less than fixing it later (3-5x cheaper).
+- **Reduced legal risk** — WCAG 2.1 Level AA compliance reduces ADA complaints.
+- **Better reputation** — Shows your agency values all residents.
+
+**The bottom line:** Accessibility isn't compliance vs. performance — it's both. The same practices that help screen reader users (clear structure, descriptive text, logical organization) also help search engines, AI tools, and everyone else find and understand your content.
+
+**References:**
+
+- <a href="https://moz.com/learn/seo/accessibility" target="_blank" rel="noopener noreferrer">Moz: SEO and Accessibility</a> — How accessibility improves search rankings
+- <a href="https://web.dev/learn/accessibility/why" target="_blank" rel="noopener noreferrer">web.dev: Why Accessibility Matters</a> — Google's guidance on accessibility benefits
+- <a href="https://www.w3.org/WAI/business-case/" target="_blank" rel="noopener noreferrer">W3C: The Business Case for Digital Accessibility</a> — Comprehensive overview of accessibility benefits
+
 ---
 
 ## Getting Oriented

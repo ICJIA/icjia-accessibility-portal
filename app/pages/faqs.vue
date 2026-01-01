@@ -59,8 +59,10 @@
  * @description Displays frequently asked questions in an accordion format with sections
  */
 
-import { computed } from "vue";
+import { computed, watchEffect } from "vue";
 import { transformFaqsToAccordionData } from "../utils/faqTransform";
+import { useSeo } from "../composables/useSeo";
+import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composables/useStructuredData";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs", () => {
@@ -224,13 +226,75 @@ const introContent = computed(() => {
   };
 });
 
-useSeoMeta({
-  title: page.value?.title
-    ? `${page.value.title} - ICJIA Accessibility Portal`
-    : "FAQs - ICJIA Accessibility Portal",
-  description:
-    page.value?.description || "Frequently asked questions about accessibility",
+// Enhanced SEO with Open Graph, Twitter Cards, and structured data
+const pageTitle = page.value?.title || "Frequently Asked Questions";
+const pageDescription = page.value?.description || 
+  "Comprehensive FAQ about WCAG 2.1 AA compliance, digital accessibility requirements, ADA Title II deadlines, and accessibility best practices for Illinois state agencies. Find answers to common questions about web accessibility, document accessibility, and compliance requirements.";
+
+useSeo({
+  title: `${pageTitle} - Accessibility FAQ`,
+  description: pageDescription,
+  url: "/faqs",
+  type: "article",
+  keywords: [
+    "accessibility FAQ",
+    "WCAG 2.1 AA FAQ",
+    "digital accessibility questions",
+    "ADA compliance FAQ",
+    "web accessibility FAQ",
+    "accessibility compliance",
+    "accessibility guidelines",
+    "Section 508 FAQ",
+    "IITAA FAQ",
+    "accessibility best practices"
+  ],
 });
+
+// Extract FAQ items for structured data
+const faqItemsForSchema = computed(() => {
+  if (!faqSections.value || faqSections.value.length === 0) return [];
+  const items: Array<{ question: string; answer: string }> = [];
+  
+  faqSections.value.forEach(section => {
+    section.items.forEach(item => {
+      // Extract text from answer (simplified - just get first paragraph or first 300 chars)
+      let answerText = '';
+      if (item.answer && Array.isArray(item.answer)) {
+        // Try to extract text from markdown nodes
+        const extractText = (node: any): string => {
+          if (typeof node === 'string') return node;
+          if (Array.isArray(node) && node.length > 2) {
+            return node.slice(2).map(extractText).join(' ');
+          }
+          return '';
+        };
+        answerText = item.answer.map(extractText).join(' ').substring(0, 300);
+      }
+      
+      if (item.question && answerText) {
+        items.push({
+          question: item.question,
+          answer: answerText + (answerText.length >= 300 ? '...' : ''),
+        });
+      }
+    });
+  });
+  
+  return items;
+});
+
+// Add FAQ structured data when FAQ items are available
+watchEffect(() => {
+  if (faqItemsForSchema.value.length > 0) {
+    useFAQStructuredData(faqItemsForSchema.value);
+  }
+});
+
+// Add breadcrumb structured data
+useBreadcrumbStructuredData([
+  { name: "Home", url: "/" },
+  { name: "FAQs", url: "/faqs" },
+]);
 </script>
 
 <style scoped>

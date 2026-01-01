@@ -42,6 +42,8 @@
 
 import { computed } from "vue";
 import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
+import { useSeo } from "../composables/useSeo";
+import { useBreadcrumbStructuredData } from "../composables/useStructuredData";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} Links page content */
 const { data: page } = await useAsyncData("links", () => {
@@ -76,13 +78,34 @@ const renderedPage = computed(() => {
   return page.value;
 });
 
-useSeoMeta({
-  title: page.value?.title
-    ? `${page.value.title} - ICJIA Accessibility Portal`
-    : "Accessibility Links - ICJIA Accessibility Portal",
-  description:
-    page.value?.description || "Accessibility resources and helpful links",
+// Enhanced SEO with Open Graph, Twitter Cards, and structured data
+const pageTitle = page.value?.title || "Accessibility Resources & Links";
+const pageDescription = page.value?.description || 
+  "Comprehensive collection of accessibility resources, tools, guidelines, and helpful links for WCAG 2.1 AA compliance. Find accessibility checkers, training resources, documentation, and best practices for digital accessibility.";
+
+useSeo({
+  title: `${pageTitle} - Resources`,
+  description: pageDescription,
+  url: "/links",
+  keywords: [
+    "accessibility resources",
+    "accessibility tools",
+    "WCAG resources",
+    "accessibility links",
+    "accessibility checkers",
+    "accessibility training",
+    "digital accessibility resources",
+    "accessibility guidelines",
+    "accessibility documentation",
+    "accessibility best practices"
+  ],
 });
+
+// Add breadcrumb structured data
+useBreadcrumbStructuredData([
+  { name: "Home", url: "/" },
+  { name: "Resources & Links", url: "/links" },
+]);
 </script>
 
 <style scoped>

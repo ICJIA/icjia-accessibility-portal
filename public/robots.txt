@@ -1,7 +1,13 @@
+# robots.txt for ICJIA Accessibility Portal
+# https://accessibility.icjia.app/robots.txt
+
 User-agent: *
 Allow: /
+Disallow: /docs/
+Disallow: /_nuxt/
 
-
+# Sitemap location
+Sitemap: https://accessibility.icjia.app/sitemap.xml
 
 
 

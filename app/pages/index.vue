@@ -304,6 +304,8 @@ import {
   filterNewComments,
 } from "../utils/faqTransform";
 import { useDeadlineCountdown } from "../composables/useDeadlineCountdown";
+import { useSeo } from "../composables/useSeo";
+import { useOrganizationStructuredData, useWebSiteStructuredData } from "../composables/useStructuredData";
 
 /** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
@@ -669,10 +671,39 @@ const introContent = computed(() => {
   };
 });
 
-useSeoMeta({
-  title: "ICJIA Accessibility Portal - Home",
-  description: "Your resource for accessibility information and resources",
+// Enhanced SEO with Open Graph, Twitter Cards, and structured data
+useSeo({
+  title: "Home - WCAG 2.1 AA Compliance Portal",
+  description: "Countdown to WCAG 2.1 AA compliance deadline (April 24, 2026). Resources, FAQs, and guidance for Illinois state agencies on digital accessibility, ADA Title II compliance, and creating accessible web content.",
+  url: "/",
+  keywords: [
+    "WCAG 2.1 AA compliance",
+    "digital accessibility",
+    "ADA Title II",
+    "web accessibility",
+    "Illinois state agency",
+    "accessibility deadline",
+    "WCAG compliance",
+    "accessibility resources",
+    "Section 508",
+    "IITAA"
+  ],
 });
+
+// Add Organization structured data
+useOrganizationStructuredData({
+  name: "Illinois Criminal Justice Information Authority",
+  url: "https://accessibility.icjia.app",
+  logo: "/icjia-logo.png",
+  description: "Illinois Criminal Justice Information Authority - Digital Accessibility Portal providing resources for WCAG 2.1 AA compliance",
+  contactPoint: {
+    contactType: "Accessibility Support",
+    email: "DoIT.Accessibility@Illinois.gov",
+  },
+});
+
+// Add WebSite structured data
+useWebSiteStructuredData();
 </script>
 
 <style scoped>
