@@ -10,6 +10,16 @@
         </div>
         <div class="footer-links">
           <a
+            href="/faqs-print"
+            class="footer-link"
+            aria-label="View printer-friendly FAQs"
+          >
+            <v-icon size="14" class="mr-1" aria-hidden="true"
+              >mdi-printer</v-icon
+            >
+            Print FAQs
+          </a>
+          <a
             href="/docs/accessibility/"
             class="footer-link"
             aria-label="View accessibility audit report"

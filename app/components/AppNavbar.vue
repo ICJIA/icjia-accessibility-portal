@@ -20,9 +20,7 @@
             height="40"
             decoding="async"
           />
-          <span class="text-caption ml-3 text-medium-emphasis"
-            >Accessibility Portal</span
-          >
+          <span class="portal-title ml-3">Accessibility Portal</span>
         </a>
       </v-app-bar-title>
 
@@ -133,6 +131,7 @@ const menuOpen = ref(false);
  */
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
+  { title: "Print FAQs", to: "/faqs-print", icon: "mdi-printer" },
   { title: "Links", to: "/links", icon: "mdi-link" },
 ];
 
@@ -177,6 +176,13 @@ function handleLogoClick(event: MouseEvent) {
   cursor: pointer;
 }
 
+.portal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(var(--v-theme-on-surface));
+  letter-spacing: 0.01em;
+}
+
 .navbar-logo {
   height: 40px;
   width: auto;
@@ -203,8 +209,8 @@ function handleLogoClick(event: MouseEvent) {
     max-width: 120px;
   }
 
-  .v-app-bar-title .text-caption {
-    font-size: 0.65rem;
+  .portal-title {
+    font-size: 0.875rem;
     margin-left: 0.5rem;
   }
 
@@ -220,8 +226,8 @@ function handleLogoClick(event: MouseEvent) {
     max-width: 100px;
   }
 
-  .v-app-bar-title .text-caption {
-    font-size: 0.6rem;
+  .portal-title {
+    font-size: 0.75rem;
     margin-left: 0.25rem;
   }
 }

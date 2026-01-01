@@ -14,6 +14,7 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
   - Dynamic countdown timer showing days until the April 24, 2026 deadline
   - "New" badge system for recently added questions (auto-expires after 10 days)
   - Searchable accordion interface with proper ARIA attributes
+  - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
@@ -108,6 +109,12 @@ yarn generate:serve
 - **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
   - Add `{new:YYYY-MM-DD}` after question heading in markdown
   - Badge auto-expires after 10 days (configurable)
+- **Printer-Friendly FAQs** - Dedicated printer-friendly version at `/faqs-print`
+  - Complete FAQ content in a clean, printable format
+  - Table of contents for easy navigation
+  - Clear section headings and numbered questions
+  - Optimized for printing or saving as PDF
+  - Includes last-updated date for reference
 - **Markdown-based Content** - Easy content management via Nuxt Content
 - **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
 
@@ -404,7 +411,7 @@ yarn generate:accessibility
 ```markdown
 ### Your New Question Here?
 
-{new:2025-12-31}
+{new:2026-01-01}
 
 **Quick answer:** Your answer here...
 ```
@@ -527,10 +534,10 @@ yarn audit:lighthouse
 
 Latest audit results:
 
-- **Total Pages Tested**: 4 (/, /faqs, /links, /search)
+- **Total Pages Tested**: 4 (/, /faqs, /faqs-print, /links)
 - **WCAG 2.1 AA Violations**: 0
 - **Accessibility Score**: 100%
-- **Last Audited**: December 2025
+- **Last Audited**: January 2026
 
 The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available in `markdown-documentation/ACCESSIBILITY_AUDIT_RESULTS.md`.
 
@@ -617,8 +624,9 @@ Reports include:
 - ✅ Automated accessibility and Lighthouse audits
 - ✅ Documentation portal with audit reports
 
-### Recent Updates (December 2025)
+### Recent Updates (January 2026)
 
+- **NEW**: Printer-friendly FAQs page (`/faqs-print`) for easy printing and offline reference
 - Enhanced FAQ system with auto-expiring "New" badges
 - Improved accessibility with comprehensive ARIA support
 - Added Lighthouse performance auditing
@@ -629,7 +637,7 @@ Reports include:
 
 ### Version Information
 
-**Last Updated**: December 31, 2025
+**Last Updated**: January 1, 2026
 
 **Core Dependencies**:
 
@@ -733,7 +741,7 @@ Ensure zero violations on all pages.
 
 MIT License
 
-Copyright (c) 2025 Illinois Criminal Justice Information Authority
+Copyright (c) 2026 Illinois Criminal Justice Information Authority
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
