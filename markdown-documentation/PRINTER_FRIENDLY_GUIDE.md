@@ -87,6 +87,7 @@ content/
 ```
 
 **Source Files**:
+
 - Main Page: [`app/pages/faqs-print.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/faqs-print.vue)
 - Print Layout: [`app/layouts/print.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/layouts/print.vue)
 - Skip Link: [`app/components/SkipLink.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/SkipLink.vue)
@@ -105,6 +106,7 @@ The printer-friendly page uses the shared `SkipLink` component via the print lay
    - Hidden in print media queries
 
 **Benefits**:
+
 - ✅ Consistent implementation across all pages
 - ✅ 100% accessibility audit pass rate (12/12 skip links working)
 - ✅ Reuses tested and validated component
@@ -125,24 +127,28 @@ The printer-friendly page uses the shared `SkipLink` component via the print lay
 The printer-friendly page intelligently handles different types of links:
 
 #### Internal Links (Section References)
+
 - **Styling**: Bold text, no underline
 - **Functionality**: Non-clickable (href removed)
 - **Purpose**: Indicates section names or question references
 - **Example**: Links to `#section-name` or `#question-id` appear as **bold text**
 
 #### External Links
+
 - **Styling**: Underlined, clickable
 - **Functionality**: Fully functional links
 - **Purpose**: Links to external resources remain clickable
 - **Example**: Links to `https://example.com` remain clickable with URL appended in parentheses
 
 **Implementation**: The [`usePrintLinks` composable](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/usePrintLinks.ts) automatically processes all links on the printer-friendly page to:
+
 - Remove internal anchor links (convert to bold text)
 - Keep external links functional with URLs appended for print accessibility
 
 ### URLs in Footer
 
 Footer includes clickable links to production site:
+
 - Open in new tab (`target="_blank"`)
 - Security attributes (`rel="noopener noreferrer"`)
 - Blue, underlined on screen
@@ -152,6 +158,7 @@ Footer includes clickable links to production site:
 ### Styling Details
 
 #### Screen View
+
 - 8.5" x 11" page simulation with shadow
 - Print instruction banner at top
 - Table of contents (non-clickable, bold text)
@@ -159,6 +166,7 @@ Footer includes clickable links to production site:
 - Internal links appear as bold text (non-clickable)
 
 #### Print View
+
 - Clean black and white output
 - Optimized font sizes (10-11pt)
 - Intelligent page breaks
@@ -184,12 +192,14 @@ Footer includes clickable links to production site:
 The printer-friendly page uses the [`usePrintLinks` composable](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/usePrintLinks.ts) to automatically process links:
 
 **Internal Links** (href starting with `#`):
+
 - Removed `href` attribute (non-clickable)
 - Added `print-internal-link` class
 - Styled as bold text with no underline
 - Indicates section references or question titles
 
 **External Links** (http/https):
+
 - Remain fully functional
 - URL appended in parentheses for print accessibility
 - Underlined and clickable
@@ -230,12 +240,14 @@ When adding or editing FAQs:
 ### Last Updated Date Management
 
 Update the "Last Updated" date when:
+
 - New FAQs are added to `content/faqs.md`
 - Existing FAQs are significantly revised
 - Major content reorganization occurs
 - Important corrections are made
 
 **Where to Update**:
+
 1. `app/pages/faqs-print.vue` - Line ~422: `const lastUpdated = "January 1, 2026";`
 2. `README.md` - **Last Updated**: January 1, 2026
 
@@ -248,6 +260,7 @@ Update the "Last Updated" date when:
 **Status**: ✅ **PASSING** - 100% Compliant
 
 **Results**:
+
 - **WCAG 2.1 AA Violations**: 0
 - **Skip Links Found**: 12/12
 - **Skip Links Working**: 12/12
@@ -256,12 +269,14 @@ Update the "Last Updated" date when:
 - **Screen Reader Compatibility**: PASS
 
 ### Pages Tested
+
 - `/` (Home)
 - `/faqs` (Main FAQs)
 - `/faqs-print` (Printer-friendly FAQs) ✅
 - `/links` (Resources)
 
 ### Viewports Tested
+
 - Desktop (1920x1080)
 - Tablet (768x1024)
 - Mobile (375x667)
@@ -271,6 +286,7 @@ Update the "Last Updated" date when:
 **Test**: `/faqs-print` skip link functionality
 
 **Results**:
+
 - ✅ Skip link detected
 - ✅ Target element (`#main-content`) found
 - ✅ Target is focusable (`tabindex="-1"`)
@@ -300,6 +316,7 @@ Update the "Last Updated" date when:
 ### Browser Compatibility
 
 Tested and verified in:
+
 - ✅ Chrome/Edge (Chromium)
 - ✅ Firefox
 - ✅ Safari (macOS/iOS)
@@ -318,19 +335,23 @@ Tested and verified in:
 ### Troubleshooting
 
 **Q: Printer version out of sync with main FAQs**
+
 - Should not happen (same source file)
 - Try rebuilding: `yarn generate`
 - Check both pages query same collection
 
 **Q: Page breaks splitting questions**
+
 - Ensure `.print-faq-item` has `page-break-inside: avoid`
 - Add `page-break-before: auto` if needed
 
 **Q: Styles not appearing in print**
+
 - Check browser's "Background graphics" option enabled
 - Verify `print-color-adjust: exact` is set
 
 **Q: Table of contents links not working**
+
 - TOC items are intentionally non-clickable (styled as bold text)
 - Internal links throughout the page are converted to bold text (not clickable)
 - This is intentional - internal links don't work when printed
@@ -341,16 +362,19 @@ Tested and verified in:
 ## Technical Considerations
 
 ### Performance
+
 - Static generation for fast loading
 - No client-side processing
 - Lightweight implementation
 
 ### Browser Support
+
 - All modern browsers supported
 - Print tested across major browsers
 - PDF generation verified
 
 ### Accessibility Compliance
+
 - WCAG 2.1 AA compliant
 - Semantic HTML structure
 - Proper heading hierarchy (H1 → H2 → H3)
@@ -370,4 +394,3 @@ Tested and verified in:
 
 **Created**: January 1, 2026  
 **Status**: Production Ready ✅
-
