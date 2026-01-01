@@ -145,7 +145,7 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      ignore: ['/docs/accessibility']
+      ignore: ['/docs/accessibility', '/docs/architecture']
     },
     hooks: {
       async 'close'() {
