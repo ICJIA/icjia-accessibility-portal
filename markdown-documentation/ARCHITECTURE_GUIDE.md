@@ -6,7 +6,7 @@
 
 > 📌 **Note**: This guide is based on the ICJIA Accessibility Portal implementation, but the patterns, solutions, and best practices apply to **any Vuetify 3 + Nuxt 4 application**. Code snippets include direct links to the source files in the [GitHub repository](https://github.com/ICJIA/icjia-accessibility-portal). Click the file path links to view the complete code.
 
-> 🌟 **For General Vuetify 3/Nuxt 4 Development**: While this guide uses an accessibility portal as an example, the architecture decisions, challenges, and solutions (especially **Challenge 6: Vuetify Console Logging** and **Challenge 7: Chrome DevTools 404**) apply to any Vuetify 3 + Nuxt 4 project.
+> 🌟 **For General Vuetify 3/Nuxt 4 Development**: While this guide uses an accessibility portal as an example, the architecture decisions, challenges, and solutions (especially **Challenge 6: Vuetify Console Logging**, **Challenge 7: Chrome DevTools 404**, and **Challenge 8: Prerender 404 Errors**) apply to any Vuetify 3 + Nuxt 4 project.
 
 ---
 
@@ -84,10 +84,12 @@ nitro: {
   preset: 'static',
   prerender: {
     crawlLinks: true,
-    ignore: ['/docs/accessibility']
+    ignore: ['/docs/accessibility', '/docs/architecture']
   }
 }
 ```
+
+**Note**: Both `/docs/accessibility` and `/docs/architecture` are static HTML files in the `public/` directory, not Nuxt routes. They must be ignored during prerendering to prevent Nitro from attempting to prerender them as routes (which would cause 404 errors during build).
 
 ### 2. Content Strategy: Markdown vs. Database
 
@@ -1485,6 +1487,84 @@ After implementing the fix:
 
 **Lesson Learned**: Some 404 errors are harmless browser/tool requests. Providing minimal files to satisfy these requests keeps logs clean and follows web standards for `.well-known` paths.
 
+### Challenge 8: Prerender 404 Errors for Static Documentation Routes
+
+**⚠️ This issue affects ALL static-generated Nuxt applications with static HTML files in `public/`**
+
+**Problem**: During static site generation (`yarn generate`), Nitro attempts to prerender routes that are linked from pages, but if those routes are static HTML files in the `public/` directory (not Nuxt routes), Nitro will fail with 404 errors and abort the build.
+
+**Symptoms**:
+
+- Build fails with error: `[404] Page not found: /docs/architecture`
+- Error message: `Exiting due to prerender errors`
+- Build exits with code 1
+- Routes are linked from multiple pages (e.g., `/`, `/links`, `/faqs`)
+
+**Root Cause**:
+
+When Nitro's `crawlLinks: true` is enabled, it automatically discovers links from prerendered pages and attempts to prerender them. However, if a linked route points to a static HTML file in `public/` (like `/docs/architecture/index.html`), Nitro tries to prerender it as a Nuxt route, which doesn't exist, causing a 404.
+
+**Why it happens**:
+
+- **Static files in `public/`**: Files in `public/` are copied to the output directory but are not Nuxt routes
+- **Link crawling**: Nitro discovers links during prerendering and tries to prerender them
+- **Route vs. static file**: Nitro expects a route handler (page component), but finds only a static file
+- **Default behavior**: Nitro's `failOnError: true` (default) causes the build to abort on 404s
+
+**Solution**: Add static documentation routes to the prerender ignore list
+
+**Applicability**: This solution works for **any static-generated Nuxt application** that has static HTML files in `public/` that are linked from pages.
+
+**Implementation**:
+
+**File**: [`nuxt.config.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)
+
+```typescript
+// nuxt.config.ts
+nitro: import.meta.dev
+  ? {}
+  : {
+      preset: "static",
+      prerender: {
+        crawlLinks: true,
+        ignore: ["/docs/accessibility", "/docs/architecture"],
+      },
+    };
+```
+
+**How it works**:
+
+1. Static files in `public/` are automatically copied to `.output/public/` during generation
+2. The `ignore` array tells Nitro to skip prerendering these routes
+3. Links to these routes still work because the static files are served directly
+4. Build completes successfully without 404 errors
+
+**Key Details**:
+
+- **Static files are copied automatically**: Files in `public/` are always copied to the output directory
+- **Ignore prevents prerendering**: Nitro skips trying to prerender ignored routes
+- **Links still work**: Static files are served directly, so links function correctly
+- **Both routes needed**: Any static documentation route that's linked must be in the ignore list
+
+**Verification**:
+
+After implementing the fix:
+
+- ✅ Build completes successfully
+- ✅ No 404 errors during prerendering
+- ✅ Static documentation routes are accessible
+- ✅ Links to documentation routes work correctly
+
+**Alternative Approaches Considered**:
+
+1. **Remove links**: Could remove links, but documentation should be accessible
+2. **Create Nuxt routes**: Could create page components, but static files are more appropriate for documentation
+3. **Disable link crawling**: Could set `crawlLinks: false`, but this prevents automatic route discovery
+
+**Best Practice**: When you have static HTML files in `public/` that are linked from pages, always add them to the prerender ignore list to prevent build failures.
+
+**Lesson Learned**: Static files in `public/` are not Nuxt routes. If they're linked from pages and Nitro is crawling links, they must be explicitly ignored during prerendering to prevent build failures.
+
 ---
 
 ## Vuetify 3 + Nuxt 4 Compatibility Guide
@@ -2004,6 +2084,7 @@ If you want to build a Vuetify 3 + Nuxt 4 application (not just accessibility po
 - ✅ **Vuetify configuration** - Properly configured in `nuxt.config.ts`
 - ✅ **Console log suppression** - Use suppress-vuetify-logs plugins (Challenge 6)
 - ✅ **Chrome DevTools fix** - Create `.well-known/appspecific/com.chrome.devtools.json` (Challenge 7)
+- ✅ **Prerender 404 fix** - Add static documentation routes to prerender ignore list (Challenge 8)
 - ✅ **TypeScript setup** - Proper types for Vuetify components
 - ✅ **Composables for shared logic** - Reusable Vue composables
 - ✅ **Multiple layouts** - Different layouts for different page types
@@ -2025,11 +2106,12 @@ If you want to build a Vuetify 3 + Nuxt 4 application (not just accessibility po
 
 1. **Handle Console Logging** - Use suppress-vuetify-logs plugins (Challenge 6)
 2. **Handle Chrome DevTools 404** - Create `.well-known` file (Challenge 7)
-3. **Keep It Simple** - Don't over-engineer
-4. **Document Everything** - Future you will thank you
-5. **Use Composables** - Share logic across components
-6. **Leverage Vuetify's Features** - Theme system, grid, components
-7. **TypeScript First** - Catch errors early
+3. **Handle Prerender 404 Errors** - Add static documentation routes to prerender ignore list (Challenge 8)
+4. **Keep It Simple** - Don't over-engineer
+5. **Document Everything** - Future you will thank you
+6. **Use Composables** - Share logic across components
+7. **Leverage Vuetify's Features** - Theme system, grid, components
+8. **TypeScript First** - Catch errors early
 
 **For Accessibility-Focused Projects**:
 
@@ -2145,7 +2227,11 @@ This guide provides **universal solutions** for common Vuetify 3 + Nuxt 4 issues
    - Solution: Create `.well-known/appspecific/com.chrome.devtools.json`
    - Simple one-file fix
 
-3. **Architecture Patterns** - Apply to any Vuetify 3 + Nuxt 4 project
+3. **Prerender 404 Errors** (Challenge 8) - Affects all static-generated Nuxt apps with static HTML files in `public/`
+   - Solution: Add static documentation routes to prerender ignore list in `nuxt.config.ts`
+   - Prevents build failures when static files are linked from pages
+
+4. **Architecture Patterns** - Apply to any Vuetify 3 + Nuxt 4 project
    - Composables for shared logic
    - Multiple layouts strategy
    - TypeScript best practices

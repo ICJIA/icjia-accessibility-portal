@@ -1,11 +1,43 @@
 # Feature Updates & Enhancements
 
 **Purpose**: Log of major feature additions and improvements  
-**Last Updated**: January 1, 2026
+**Last Updated**: January 2, 2026
 
 ---
 
 ## January 2026
+
+### Netlify Deployment Fix: Prerender 404 Errors
+
+**Date**: January 2, 2026
+
+**Overview**: Fixed Netlify deployment failures caused by Nitro attempting to prerender static documentation routes
+
+**Problem**:
+- Build was failing with `[404] Page not found: /docs/architecture`
+- Nitro's link crawling discovered links to `/docs/architecture` from multiple pages
+- Attempted to prerender it as a Nuxt route, but it's a static HTML file in `public/`
+- Build aborted with `Exiting due to prerender errors`
+
+**Solution**:
+- Added `/docs/architecture` to the prerender ignore list in `nuxt.config.ts`
+- Static files in `public/` are automatically copied during build
+- Ignoring them prevents Nitro from trying to prerender them as routes
+
+**Changes**:
+- **File**: [`nuxt.config.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)
+- **Configuration**: `ignore: ['/docs/accessibility', '/docs/architecture']`
+- Both routes are static HTML files, not Nuxt routes
+
+**Impact**:
+- ✅ Build completes successfully
+- ✅ No 404 errors during prerendering
+- ✅ Static documentation routes remain accessible
+- ✅ Links to documentation work correctly
+
+**Documentation**: [ARCHITECTURE_GUIDE.md - Challenge 8](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md#challenge-8-prerender-404-errors-for-static-documentation-routes)
+
+---
 
 ### Footer Refactor
 
