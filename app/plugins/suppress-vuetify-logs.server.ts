@@ -177,7 +177,7 @@ export default defineNuxtPlugin(() => {
   // Suppress in development, build, and generate modes
   // During generate/build, import.meta.dev may be false, but we still want to suppress
   // Check if we're NOT in production (production shouldn't have these logs anyway)
-  const isProduction = process.env.NODE_ENV === 'production' && import.meta.prod
+  const isProduction = process.env.NODE_ENV === 'production' && (import.meta.env?.PROD === true || import.meta.env?.MODE === 'production')
   if (isProduction) {
     return
   }

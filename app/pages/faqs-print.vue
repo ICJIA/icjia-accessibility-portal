@@ -213,7 +213,7 @@ function extractNewDate(answerNodes: MiniMarkNode[]): string | null {
       const match = node.match(NEW_TAG_PATTERN);
       if (match) {
         const dateStr = match[1] || match[2];
-        if (isWithinNewWindow(dateStr)) {
+        if (dateStr && isWithinNewWindow(dateStr)) {
           return dateStr;
         }
       }
@@ -224,7 +224,7 @@ function extractNewDate(answerNodes: MiniMarkNode[]): string | null {
       const match = text.match(NEW_TAG_PATTERN);
       if (match) {
         const dateStr = match[1] || match[2];
-        if (isWithinNewWindow(dateStr)) {
+        if (dateStr && isWithinNewWindow(dateStr)) {
           return dateStr;
         }
       }

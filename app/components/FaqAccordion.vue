@@ -203,6 +203,7 @@ function findPanelByHash(hash: string): number {
   // but the actual ID is "content-accessibility-how-do-i-make-a-pdf-accessible"
   for (let i = 0; i < props.items.length; i++) {
     const item = props.items[i];
+    if (!item) continue;
     const fullId = getQuestionId(item.question);
     // Check if the full ID ends with the hash ID (handles section prefixes)
     if (fullId === id || fullId.endsWith(`-${id}`)) {
@@ -331,7 +332,11 @@ onMounted(async () => {
 function formatDate(dateStr: string): string {
   try {
     // Parse date components directly to avoid timezone issues
-    const [year, month, day] = dateStr.split('-').map(Number);
+    const parts = dateStr.split('-').map(Number);
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) {
+      return dateStr;
+    }
+    const [year, month, day] = parts;
     const date = new Date(year, month - 1, day); // month is 0-indexed
     const monthName = date.toLocaleDateString('en-US', { month: 'short' });
     return `${monthName} ${day}, ${year}`;

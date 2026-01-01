@@ -3,6 +3,22 @@
  * @description Provides a centralized way to set SEO metadata across all pages
  */
 
+/**
+ * Options for configuring SEO metadata.
+ * 
+ * @interface SeoOptions
+ * @property {string} [title] - Page title (will be suffixed with site name)
+ * @property {string} [description] - Meta description
+ * @property {string} [image] - Open Graph/Twitter image URL
+ * @property {string} [url] - Canonical URL (relative or absolute)
+ * @property {'website'|'article'} [type] - Open Graph type (default: 'website')
+ * @property {string[]} [keywords] - Meta keywords array
+ * @property {string} [author] - Page author
+ * @property {string} [publishedTime] - ISO date string for article published time
+ * @property {string} [modifiedTime] - ISO date string for article modified time
+ * @property {boolean} [noindex] - Whether to prevent indexing
+ * @property {boolean} [nofollow] - Whether to prevent following links
+ */
 export interface SeoOptions {
   title?: string
   description?: string
@@ -17,10 +33,43 @@ export interface SeoOptions {
   nofollow?: boolean
 }
 
+/**
+ * Default site URL for building absolute URLs.
+ * 
+ * @constant {string}
+ * @default 'https://accessibility.icjia.app'
+ */
 const DEFAULT_SITE_URL = 'https://accessibility.icjia.app'
+
+/**
+ * Default site name for page titles and Open Graph.
+ * 
+ * @constant {string}
+ * @default 'ICJIA Accessibility Portal'
+ */
 const DEFAULT_SITE_NAME = 'ICJIA Accessibility Portal'
+
+/**
+ * Default meta description for pages without a custom description.
+ * 
+ * @constant {string}
+ */
 const DEFAULT_DESCRIPTION = 'Your resource for WCAG 2.1 AA compliance, accessibility guidelines, and digital accessibility information for Illinois state agencies.'
+
+/**
+ * Default Open Graph/Twitter image path.
+ * 
+ * @constant {string}
+ * @default '/icjia-logo.png'
+ */
 const DEFAULT_IMAGE = '/icjia-logo.png'
+
+/**
+ * Default Twitter handle for Twitter Card metadata.
+ * 
+ * @constant {string}
+ * @default '@ICJIA'
+ */
 const DEFAULT_TWITTER_HANDLE = '@ICJIA'
 
 /**
@@ -77,22 +126,33 @@ export function useSeo(options: SeoOptions = {}) {
     robots: options.noindex 
       ? (options.nofollow ? 'noindex, nofollow' : 'noindex')
       : (options.nofollow ? 'nofollow' : 'index, follow'),
-    'og:title': fullTitle,
-    'og:description': description,
-    'og:image': imageUrl,
-    'og:url': fullUrl,
-    'og:type': options.type || 'website',
-    'og:site_name': siteName,
-    'og:locale': 'en_US',
-    'twitter:card': 'summary_large_image',
-    'twitter:site': DEFAULT_TWITTER_HANDLE,
-    'twitter:title': fullTitle,
-    'twitter:description': description,
-    'twitter:image': imageUrl,
   })
   
-  // Set canonical URL
+  // Set Open Graph, Twitter Card, and article meta tags via useHead
+  // (useSeoMeta doesn't support these properties directly)
   useHead({
+    meta: [
+      // Open Graph tags
+      { property: 'og:title', content: fullTitle },
+      { property: 'og:description', content: description },
+      { property: 'og:image', content: imageUrl },
+      { property: 'og:url', content: fullUrl },
+      { property: 'og:type', content: options.type || 'website' },
+      { property: 'og:site_name', content: siteName },
+      { property: 'og:locale', content: 'en_US' },
+      // Twitter Card tags
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: DEFAULT_TWITTER_HANDLE },
+      { name: 'twitter:title', content: fullTitle },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: imageUrl },
+      // Article meta tags (if type is article)
+      ...(options.type === 'article' ? [
+        ...(options.publishedTime ? [{ property: 'article:published_time', content: options.publishedTime }] : []),
+        ...(options.modifiedTime ? [{ property: 'article:modified_time', content: options.modifiedTime }] : []),
+        ...(options.author ? [{ property: 'article:author', content: options.author }] : []),
+      ] : []),
+    ],
     link: [
       {
         rel: 'canonical',
@@ -101,15 +161,15 @@ export function useSeo(options: SeoOptions = {}) {
     ],
   })
   
-  // Add article meta tags if type is article
-  if (options.type === 'article') {
-    useSeoMeta({
-      'article:published_time': options.publishedTime,
-      'article:modified_time': options.modifiedTime,
-      'article:author': options.author,
-    })
-  }
-  
+  /**
+   * Return value containing the computed SEO values.
+   * 
+   * @returns {Object} Object containing:
+   * - `title`: Full page title with site name
+   * - `description`: Meta description
+   * - `url`: Full canonical URL
+   * - `image`: Full image URL
+   */
   return {
     title: fullTitle,
     description,

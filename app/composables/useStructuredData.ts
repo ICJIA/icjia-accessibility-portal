@@ -1,17 +1,58 @@
 /**
  * @fileoverview Structured data composable for JSON-LD schema markup
  * @description Provides functions to add structured data (FAQ, Organization, etc.) for better SEO
+ * 
+ * @module useStructuredData
  */
 
+/**
+ * Default site URL for building absolute URLs in structured data.
+ * 
+ * @constant {string}
+ * @default 'https://accessibility.icjia.app'
+ */
 const DEFAULT_SITE_URL = 'https://accessibility.icjia.app'
+
+/**
+ * Default organization name for structured data.
+ * 
+ * @constant {string}
+ * @default 'Illinois Criminal Justice Information Authority'
+ */
 const DEFAULT_ORG_NAME = 'Illinois Criminal Justice Information Authority'
+
+/**
+ * Default organization abbreviation for structured data.
+ * 
+ * @constant {string}
+ * @default 'ICJIA'
+ */
 const DEFAULT_ORG_ABBREV = 'ICJIA'
 
+/**
+ * Interface for FAQ items used in structured data.
+ * 
+ * @interface FAQItem
+ * @property {string} question - The FAQ question text
+ * @property {string} answer - The FAQ answer text
+ */
 export interface FAQItem {
   question: string
   answer: string
 }
 
+/**
+ * Interface for organization data used in structured data.
+ * 
+ * @interface OrganizationData
+ * @property {string} [name] - Organization name (defaults to ICJIA)
+ * @property {string} [url] - Organization URL (defaults to site URL)
+ * @property {string} [logo] - Logo URL path (defaults to /icjia-logo.png)
+ * @property {string} [description] - Organization description
+ * @property {Object} [contactPoint] - Contact point information
+ * @property {string} [contactPoint.contactType] - Type of contact (e.g., 'Customer Service')
+ * @property {string} [contactPoint.email] - Contact email address
+ */
 export interface OrganizationData {
   name?: string
   url?: string
@@ -24,10 +65,14 @@ export interface OrganizationData {
 }
 
 /**
- * Adds FAQ structured data (JSON-LD) to the page
- * This helps search engines understand and potentially display FAQ content in rich results
+ * Adds FAQ structured data (JSON-LD) to the page.
  * 
- * @param faqs - Array of FAQ items with question and answer
+ * This helps search engines understand and potentially display FAQ content in rich results.
+ * The structured data follows Schema.org FAQPage format.
+ * 
+ * @param {FAQItem[]} faqs - Array of FAQ items with question and answer
+ * @returns {void}
+ * 
  * @example
  * ```ts
  * useFAQStructuredData([
@@ -56,17 +101,21 @@ export function useFAQStructuredData(faqs: FAQItem[]) {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify(structuredData),
+        innerHTML: JSON.stringify(structuredData),
       },
     ],
   })
 }
 
 /**
- * Adds Organization structured data (JSON-LD) to the page
- * This helps search engines understand the organization behind the site
+ * Adds Organization structured data (JSON-LD) to the page.
  * 
- * @param data - Organization data (optional, uses defaults if not provided)
+ * This helps search engines understand the organization behind the site.
+ * The structured data follows Schema.org GovernmentOrganization format.
+ * 
+ * @param {OrganizationData} [data={}] - Organization data (optional, uses defaults if not provided)
+ * @returns {void}
+ * 
  * @example
  * ```ts
  * useOrganizationStructuredData({
@@ -101,17 +150,25 @@ export function useOrganizationStructuredData(data: OrganizationData = {}) {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify(structuredData),
+        innerHTML: JSON.stringify(structuredData),
       },
     ],
   })
 }
 
 /**
- * Adds WebSite structured data with search action
- * This enables Google's sitelinks search box feature
+ * Adds WebSite structured data with search action.
  * 
- * @param searchUrl - URL pattern for search (e.g., '/search?q={search_term_string}')
+ * This enables Google's sitelinks search box feature, allowing users to search
+ * directly from Google search results.
+ * 
+ * @param {string} [searchUrl] - URL pattern for search (e.g., '/search?q={search_term_string}')
+ * @returns {void}
+ * 
+ * @example
+ * ```ts
+ * useWebSiteStructuredData('/search?q={search_term_string}')
+ * ```
  */
 export function useWebSiteStructuredData(searchUrl?: string) {
   const config = useRuntimeConfig()
@@ -145,17 +202,21 @@ export function useWebSiteStructuredData(searchUrl?: string) {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify(structuredData),
+        innerHTML: JSON.stringify(structuredData),
       },
     ],
   })
 }
 
 /**
- * Adds BreadcrumbList structured data
- * Helps search engines understand the site hierarchy
+ * Adds BreadcrumbList structured data.
  * 
- * @param items - Array of breadcrumb items with name and url
+ * Helps search engines understand the site hierarchy and can display breadcrumbs
+ * in search results. The structured data follows Schema.org BreadcrumbList format.
+ * 
+ * @param {Array<{name: string, url: string}>} items - Array of breadcrumb items with name and url
+ * @returns {void}
+ * 
  * @example
  * ```ts
  * useBreadcrumbStructuredData([
@@ -185,7 +246,7 @@ export function useBreadcrumbStructuredData(items: Array<{ name: string; url: st
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify(structuredData),
+        innerHTML: JSON.stringify(structuredData),
       },
     ],
   })
