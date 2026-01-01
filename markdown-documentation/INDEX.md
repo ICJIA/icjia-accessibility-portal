@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Last Updated**: January 1, 2026  
-**Total Documents**: 11 (consolidated from 24)  
+**Total Documents**: 12 (consolidated from 24, plus test documentation)  
 **Purpose**: Quick reference guide to all project documentation
 
 ---
@@ -47,6 +47,12 @@ Complete technical guide covering:
 | **[SEO_GUIDE.md](SEO_GUIDE.md)** | SEO optimization and verification | Improving search rankings |
 | **[CONFIGURATION_ABSTRACTION.md](CONFIGURATION_ABSTRACTION.md)** | Configuration management patterns | Setting up environments |
 
+### Testing (1 file)
+
+| Document | Purpose | When to Read |
+|----------|---------|--------------|
+| **[../test/E2E_TEST_PLAN.md](../test/E2E_TEST_PLAN.md)** | E2E test implementation plan | Planning or implementing E2E tests |
+
 ### History & Updates (3 files)
 
 | Document | Purpose | When to Read |
@@ -74,6 +80,11 @@ Complete technical guide covering:
 
 #### Modify the printer-friendly page
 👉 **[PRINTER_FRIENDLY_GUIDE.md](PRINTER_FRIENDLY_GUIDE.md)** - Complete implementation guide
+
+#### Run tests
+👉 **[../test/README.md](../test/README.md)** - Complete test suite documentation  
+👉 **[../test/E2E_TEST_PLAN.md](../test/E2E_TEST_PLAN.md)** - E2E test implementation plan  
+👉 Run: `yarn test` (runs all tests and generates reports)
 
 #### Run accessibility audits
 👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 9: Testing  
@@ -103,12 +114,13 @@ Complete technical guide covering:
 
 | Metric | Count |
 |--------|-------|
-| **Total Documents** | 11 |
+| **Total Documents** | 12 |
 | **Core Docs** | 3 |
 | **Feature/Guide Docs** | 5 |
+| **Testing Docs** | 1 |
 | **History/Update Docs** | 3 |
 | **Consolidated From** | 24 files |
-| **Reduction** | 54% |
+| **Reduction** | 50% |
 
 ---
 
@@ -120,6 +132,7 @@ Complete technical guide covering:
 - **Feature Guides**: When modifying or adding features
 - **Accessibility Guide**: After each audit, when fixing a11y issues
 - **Content Guides**: When changing content strategy
+- **Testing Docs**: When adding or modifying tests
 - **History Files**: When completing significant changes
 - **This Index**: When adding new documentation files
 
@@ -162,6 +175,8 @@ Complete technical guide covering:
 ## 📞 Quick Links
 
 - **Main README**: [../README.md](../README.md)
+- **Test Suite**: [../test/README.md](../test/README.md)
+- **E2E Test Plan**: [../test/E2E_TEST_PLAN.md](../test/E2E_TEST_PLAN.md)
 - **FAQ Content**: [../content/faqs.md](../content/faqs.md)
 - **Links Content**: [../content/links.md](../content/links.md)
 - **Nuxt Config**: [../nuxt.config.ts](../nuxt.config.ts)
@@ -216,4 +231,4 @@ When creating or updating documentation:
 
 ---
 
-*Last Updated: January 1, 2026 | Consolidated from 24 to 11 files*
+*Last Updated: January 1, 2026 | Consolidated from 24 to 12 files (includes test documentation)*

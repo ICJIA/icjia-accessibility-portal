@@ -18,7 +18,15 @@
         "postgenerate": "echo '📄 Step 5/5: Regenerating sitemap with routes...' && npm run generate:sitemap && echo '' && echo '✅ Static site generated! Run \"npm run preview\" or \"npm run generate:serve\" to start the server.'",
         "generate:serve": "echo '📋 Step 1/5: Ensuring accessibility report exists...' && npm run ensure:accessibility-report && echo '📋 Step 2/5: Generating routes.json...' && npm run generate:routes && echo '🏗️  Step 3/5: Generating static site...' && nuxt generate && echo '📋 Step 4/5: Regenerating routes.json (via Nuxt hooks)...' && echo '📄 Step 5/5: Regenerating sitemap with routes...' && npm run generate:sitemap && echo '' && echo '🚀 Starting preview server...' && echo '' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && echo '✅ Server is running!' && echo '' && echo '📍 Local:   http://localhost:5150' && echo '   (Click or copy the URL above to open in your browser)' && echo '' && echo 'Press Ctrl+C to stop the server' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && echo '' && npx serve .output/public -p 5150",
         "preview": "echo '🚀 Starting preview server...' && echo '' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && echo '✅ Server is running!' && echo '' && echo '📍 Local:   http://localhost:3000' && echo '   (Click or copy the URL above to open in your browser)' && echo '' && echo 'Press Ctrl+C to stop the server' && echo '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' && echo '' && nuxt preview",
-        "audit:a11y": "node audit-accessibility.js"
+        "audit:a11y": "node audit-accessibility.js",
+        "test": "node test/generate-failed-tests-report.js",
+        "test:run": "vitest run",
+        "test:unit": "vitest --project unit",
+        "test:nuxt": "vitest --project nuxt",
+        "test:e2e": "vitest --project e2e",
+        "test:watch": "vitest --watch",
+        "test:coverage": "vitest --coverage",
+        "test:reports": "node test/generate-failed-tests-report.js"
     },
     "dependencies": {
         "@mdi/font": "^7.4.47",
@@ -37,12 +45,16 @@
     "devDependencies": {
         "@axe-core/cli": "^4.11.0",
         "@axe-core/playwright": "^4.11.0",
+        "@nuxt/test-utils": "^3.21.0",
+        "@vue/test-utils": "^2.4.6",
         "axe-core": "^4.11.0",
+        "happy-dom": "^20.0.11",
         "netlify-cli": "^23.12.3",
         "playwright": "^1.57.0",
         "playwright-core": "^1.57.0",
         "puppeteer": "^23.11.1",
         "sass": "^1.80.0",
+        "vitest": "^3.2.4",
         "xml2js": "^0.6.2"
     },
     "resolutions": {

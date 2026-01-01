@@ -43,7 +43,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     'vuetify-nuxt-module',
-    '@nuxtjs/plausible'
+    '@nuxtjs/plausible',
+    '@nuxt/test-utils/module'
   ],
 
   plausible: {

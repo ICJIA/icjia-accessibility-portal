@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Results - ICJIA Accessibility Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0F172A;
+      color: #E2E8F0;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #334155;
+    }
+    h1 {
+      color: #60A5FA;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .summary-card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .summary-card.passed {
+      border-color: #81C784;
+    }
+    .summary-card.failed {
+      border-color: #CF6679;
+    }
+    .summary-card.skipped {
+      border-color: #FFB74D;
+    }
+    .summary-card.total {
+      border-color: #60A5FA;
+    }
+    .summary-card h3 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .summary-card.passed h3 {
+      color: #81C784;
+    }
+    .summary-card.failed h3 {
+      color: #CF6679;
+    }
+    .summary-card.skipped h3 {
+      color: #FFB74D;
+    }
+    .summary-card.total h3 {
+      color: #60A5FA;
+    }
+    .summary-card p {
+      color: #CBD5E1;
+      font-size: 0.9rem;
+    }
+    .test-file {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .test-file-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #334155;
+    }
+    .test-file-name {
+      font-weight: 600;
+      color: #F8FAFC;
+      font-size: 1.1rem;
+    }
+    .test-file-status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .test-file-status.passed {
+      background: #81C784;
+      color: #0F172A;
+    }
+    .test-file-status.failed {
+      background: #CF6679;
+      color: #0F172A;
+    }
+    .test-file-status.skipped {
+      background: #FFB74D;
+      color: #0F172A;
+    }
+    .test-case {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      background: #0F172A;
+    }
+    .test-case.passed {
+      border-left: 3px solid #81C784;
+    }
+    .test-case.failed {
+      border-left: 3px solid #CF6679;
+    }
+    .test-case.skipped {
+      border-left: 3px solid #FFB74D;
+    }
+    .test-case-title {
+      font-weight: 500;
+      color: #F8FAFC;
+      margin-bottom: 0.25rem;
+    }
+    .test-case-duration {
+      font-size: 0.85rem;
+      color: #94A3B8;
+    }
+    .failure-message {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: #1E293B;
+      border-radius: 4px;
+      border-left: 3px solid #CF6679;
+    }
+    .failure-message pre {
+      color: #FCA5A5;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .meta {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #334155;
+    }
+    .no-tests {
+      text-align: center;
+      padding: 3rem;
+      color: #94A3B8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🧪 Test Results</h1>
+      <p class="meta">Generated: 1/1/2026, 11:18:56 AM</p>
+    </header>
+
+    <div class="summary">
+      <div class="summary-card total">
+        <h3>62</h3>
+        <p>Total Tests</p>
+      </div>
+      <div class="summary-card passed">
+        <h3>62</h3>
+        <p>Passed</p>
+      </div>
+      <div class="summary-card failed">
+        <h3>0</h3>
+        <p>Failed</p>
+      </div>
+      <div class="summary-card skipped">
+        <h3>0</h3>
+        <p>Skipped</p>
+      </div>
+      <div class="summary-card">
+        <h3>100.0%</h3>
+        <p>Pass Rate</p>
+      </div>
+      <div class="summary-card">
+        <h3>1.50s</h3>
+        <p>Duration</p>
+      </div>
+    </div>
+
+    
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/unit/faqTransform.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should return true for dates within the new window</div>
+        <div class="test-case-duration">Duration: 0.94ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return false for dates outside the new window</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return true for today</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return true for dates exactly 10 days ago</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should extract new date from curly braces format when within window</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should extract new date from HTML comment format when within window</div>
+        <div class="test-case-duration">Duration: 0.09ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return null if no new date found</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return null if date is outside new window</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should remove new tag from nodes</div>
+        <div class="test-case-duration">Duration: 0.73ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should replace dynamic placeholders</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should filter out empty nodes after removing new tag</div>
+        <div class="test-case-duration">Duration: 0.07ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle mixed content with new tags and regular text</div>
+        <div class="test-case-duration">Duration: 0.16ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should wrap H3 questions and answers in div.qa-card</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should stop wrapping at next H1, H2, H3, or HR</div>
+        <div class="test-case-duration">Duration: 0.13ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should leave non-H3 nodes unchanged</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty array</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle non-array input</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should transform FAQ markdown AST to accordion data</div>
+        <div class="test-case-duration">Duration: 0.16ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should extract multiple FAQs</div>
+        <div class="test-case-duration">Duration: 0.10ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should stop at H1, H2, or HR</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle FAQs without new tags</div>
+        <div class="test-case-duration">Duration: 0.06ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return empty array for non-array input</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty array</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/unit/useSlugify.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should convert text to lowercase</div>
+        <div class="test-case-duration">Duration: 0.62ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should replace non-alphanumeric characters with hyphens</div>
+        <div class="test-case-duration">Duration: 0.09ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should remove leading and trailing hyphens</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should truncate to maxLength</div>
+        <div class="test-case-duration">Duration: 0.19ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should remove trailing hyphens after truncation</div>
+        <div class="test-case-duration">Duration: 0.23ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty string</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle special characters</div>
+        <div class="test-case-duration">Duration: 0.04ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle numbers</div>
+        <div class="test-case-duration">Duration: 0.03ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should combine section and question slugs</div>
+        <div class="test-case-duration">Duration: 0.16ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle different sections with same question</div>
+        <div class="test-case-duration">Duration: 0.60ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle special characters in section and question</div>
+        <div class="test-case-duration">Duration: 0.07ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should use default maxLength of 150</div>
+        <div class="test-case-duration">Duration: 0.04ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return slugify and getQuestionId functions</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should work correctly when used as composable</div>
+        <div class="test-case-duration">Duration: 0.05ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/FaqAccordion.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should render FAQ items</div>
+        <div class="test-case-duration">Duration: 17.88ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should display question text</div>
+        <div class="test-case-duration">Duration: 1.87ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should display new badge when isNew is true</div>
+        <div class="test-case-duration">Duration: 1.72ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should not display new badge when isNew is false</div>
+        <div class="test-case-duration">Duration: 0.78ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should generate question IDs correctly</div>
+        <div class="test-case-duration">Duration: 1.95ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle empty items array</div>
+        <div class="test-case-duration">Duration: 0.46ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should use sectionId when provided</div>
+        <div class="test-case-duration">Duration: 2.59ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/useDeadlineCountdown.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should calculate days remaining correctly</div>
+        <div class="test-case-duration">Duration: 1.97ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return 0 days when deadline has passed</div>
+        <div class="test-case-duration">Duration: 0.67ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should format days remaining text correctly</div>
+        <div class="test-case-duration">Duration: 0.44ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should format "1 day" correctly</div>
+        <div class="test-case-duration">Duration: 0.23ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should format "less than 1 day" when less than 24 hours remain</div>
+        <div class="test-case-duration">Duration: 0.19ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should show deadline passed message when deadline has passed</div>
+        <div class="test-case-duration">Duration: 0.34ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should provide urgency text for different time ranges</div>
+        <div class="test-case-duration">Duration: 1.25ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should update deadlinePassed correctly</div>
+        <div class="test-case-duration">Duration: 0.21ms</div>
+        
+      </div>
+    </div>
+    <div class="test-file">
+      <div class="test-file-header">
+        <div class="test-file-name">/test/nuxt/useFaqCollapse.test.ts</div>
+        <span class="test-file-status passed">PASSED</span>
+      </div>
+      
+      <div class="test-case passed">
+        <div class="test-case-title">should initialize with collapseSignal at 0</div>
+        <div class="test-case-duration">Duration: 0.98ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should initialize with openAccordion as null</div>
+        <div class="test-case-duration">Duration: 0.35ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should increment collapseSignal when collapseAll is called</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should reset openAccordion when collapseAll is called</div>
+        <div class="test-case-duration">Duration: 0.16ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should set open accordion correctly</div>
+        <div class="test-case-duration">Duration: 0.42ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should close accordion when setOpenAccordion is called with undefined</div>
+        <div class="test-case-duration">Duration: 0.08ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should check if panel is open correctly</div>
+        <div class="test-case-duration">Duration: 0.12ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should get open panel index correctly</div>
+        <div class="test-case-duration">Duration: 0.07ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should return undefined when no panel is open</div>
+        <div class="test-case-duration">Duration: 0.15ms</div>
+        
+      </div>
+      <div class="test-case passed">
+        <div class="test-case-title">should handle multiple accordions correctly</div>
+        <div class="test-case-duration">Duration: 0.14ms</div>
+        
+      </div>
+    </div>
+
+    <div class="meta">
+      <p>Test execution completed at 1/1/2026, 11:18:56 AM</p>
+      <p>Total duration: 1.50 seconds</p>
+    </div>
+  </div>
+</body>
+</html>
