@@ -1576,6 +1576,78 @@ After implementing the fix:
 
 **Lesson Learned**: Static files in `public/` are not Nuxt routes. If they're linked from pages and Nitro is crawling links, they must be explicitly ignored during prerendering to prevent build failures.
 
+### Challenge 9: Netlify Deployment Failure After Dependency Updates
+
+**Problem**: Netlify builds failing with platform incompatibility errors after updating dependencies
+
+**Symptoms**:
+
+- Build fails during `yarn install` on Netlify
+- Error: `@oxc-minify/binding-darwin-arm64@0.106.0: The platform "linux" is incompatible with this module`
+- Error: `The CPU architecture "x64" is incompatible with this module`
+- Similar errors for `@oxc-parser/binding-darwin-arm64`, `@oxc-transform/binding-darwin-arm64`, `@rollup/rollup-darwin-arm64`
+
+**Root Cause**:
+
+During dependency update troubleshooting, platform-specific native bindings were added as direct dependencies in `package.json`. These packages are macOS ARM64-specific (`darwin-arm64`) and should not be hard dependencies because:
+
+1. **Netlify builds on Linux x64** - The build environment is incompatible with macOS-specific packages
+2. **Parent packages handle platform selection** - Packages like `rollup`, `oxc-parser`, etc. automatically pull in the correct platform-specific bindings as optional dependencies
+3. **Cross-platform projects need flexibility** - Direct platform-specific dependencies break builds on different platforms
+
+**Error Context**:
+
+```
+error @oxc-minify/binding-darwin-arm64@0.106.0: The platform "linux" is incompatible with this module.
+error @oxc-minify/binding-darwin-arm64@0.106.0: The CPU architecture "x64" is incompatible with this module.
+error Found incompatible module.
+```
+
+**Solution**: Remove platform-specific native bindings from `package.json`
+
+**What to Remove**:
+
+- `@oxc-minify/binding-darwin-arm64`
+- `@oxc-parser/binding-darwin-arm64`
+- `@oxc-transform/binding-darwin-arm64`
+- `@rollup/rollup-darwin-arm64`
+
+**Why This Works**:
+
+- Parent packages (`rollup`, `oxc-parser`, etc.) automatically install the correct platform-specific bindings
+- On macOS: darwin-arm64 bindings are installed
+- On Linux (Netlify): linux-x64 bindings are installed
+- On Windows: windows-x64 bindings are installed
+
+**Implementation**:
+
+**File**: [`package.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/package.json)
+
+Remove these lines from `dependencies`:
+
+```json
+// ❌ DON'T include these
+"@oxc-minify/binding-darwin-arm64": "^0.106.0",
+"@oxc-parser/binding-darwin-arm64": "^0.106.0",
+"@oxc-transform/binding-darwin-arm64": "^0.106.0",
+"@rollup/rollup-darwin-arm64": "^4.54.0",
+```
+
+After removal, regenerate the lockfile:
+
+```bash
+yarn install  # or npm install
+```
+
+**Prevention**:
+
+- Never add platform-specific native bindings as direct dependencies
+- If troubleshooting requires installing them, remove them before committing
+- Let parent packages handle platform-specific bindings automatically
+- Test builds on the target platform (Netlify uses Linux x64)
+
+**Lesson Learned**: Platform-specific native bindings should always be optional dependencies handled by parent packages, never direct dependencies in cross-platform projects.
+
 ---
 
 ## Vuetify 3 + Nuxt 4 Compatibility Guide
@@ -1589,6 +1661,8 @@ This section documents **universal issues** that affect all Vuetify 3 + Nuxt 4 a
 **Affects**: All Vuetify 3 + Nuxt 4 applications
 
 **Problem**: Vuetify instance objects are logged to console during development, build, and generate.
+
+**Solution**: Use the plugins from Challenge 6:
 
 **Solution**: Use the plugins from Challenge 6:
 
