@@ -58,9 +58,9 @@
             v-for="(section, sectionIndex) in faqSections"
             :key="sectionIndex"
           >
-            <a :href="`#section-${sectionIndex}`" class="print-toc-link">
+            <span class="print-toc-link print-internal-link">
               {{ section.heading || `Section ${sectionIndex + 1}` }}
-            </a>
+            </span>
             <span class="print-toc-count"
               >({{ section.items.length }} question{{
                 section.items.length !== 1 ? "s" : ""
@@ -567,6 +567,13 @@ useSeo({
   font-weight: bold;
 }
 
+/* Internal link styling - bold, no underline */
+.print-internal-link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
 .print-toc-count {
   font-size: 9pt;
   color: #666;
@@ -680,6 +687,23 @@ useSeo({
   color: #000;
   text-decoration: underline;
   word-break: break-all;
+}
+
+/* Internal links (section references) - bold, no underline */
+.print-answer :deep(a.print-internal-link),
+.print-intro :deep(a.print-internal-link),
+.print-content :deep(a.print-internal-link) {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  cursor: default;
+}
+
+.print-answer :deep(a.print-internal-link:hover),
+.print-intro :deep(a.print-internal-link:hover),
+.print-content :deep(a.print-internal-link:hover) {
+  text-decoration: none;
+  color: #000;
 }
 
 /* Ensure links always have visible text - never hide link content */
@@ -849,10 +873,7 @@ useSeo({
     color: #92400e;
   }
 
-  .print-toc-link:hover {
-    color: #0066cc;
-    text-decoration: underline;
-  }
+  /* TOC link is now a span (not a link) - no hover needed */
 }
 </style>
 

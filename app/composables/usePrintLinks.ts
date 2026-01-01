@@ -212,6 +212,7 @@ export function usePrintLinks() {
       '.print-answer a',
       '.print-intro a',
       '.print-content a',
+      '.print-toc-link', // TOC links
     ];
 
     contentSelectors.forEach((selector) => {
@@ -220,14 +221,19 @@ export function usePrintLinks() {
         const href = link.getAttribute('href');
         if (!href) return;
 
-        // Skip anchor links (internal navigation)
+        // Style internal links (anchor links starting with #) - make bold, remove underline
+        // Internal links don't work when printed, so we style them to indicate they're section references
         if (href.startsWith('#')) {
-          // For anchor links, ensure they have text
+          // Add class for styling
+          link.classList.add('print-internal-link');
+          
+          // Remove href to prevent clicking (but keep the element for styling)
+          link.removeAttribute('href');
+          
+          // Ensure they have text
           if (!hasVisibleText(link)) {
-            // Use the anchor text or a default
             const anchorText = href.substring(1).replace(/-/g, ' ') || 'Section';
             link.textContent = anchorText;
-            link.setAttribute('aria-label', `Link to ${anchorText}`);
           }
           return;
         }
