@@ -318,6 +318,9 @@ const lastUpdated = "December 30, 2025";
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =
   useDeadlineCountdown();
 
+/** @type {import('vue').Ref<boolean>} Whether component has mounted on client */
+const isMounted = ref(false);
+
 /**
  * @type {import('vue').Ref<{days: number, hours: number, minutes: number, seconds: number}>}
  * Countdown timer state
@@ -334,7 +337,7 @@ const countdown = ref({
  * @type {import('vue').ComputedRef<string>}
  */
 const formattedDays = computed(() =>
-  String(countdown.value.days).padStart(2, "0")
+  isMounted.value ? String(countdown.value.days).padStart(2, "0") : "00"
 );
 
 /**
@@ -342,7 +345,7 @@ const formattedDays = computed(() =>
  * @type {import('vue').ComputedRef<string>}
  */
 const formattedHours = computed(() =>
-  String(countdown.value.hours).padStart(2, "0")
+  isMounted.value ? String(countdown.value.hours).padStart(2, "0") : "00"
 );
 
 /**
@@ -350,7 +353,7 @@ const formattedHours = computed(() =>
  * @type {import('vue').ComputedRef<string>}
  */
 const formattedMinutes = computed(() =>
-  String(countdown.value.minutes).padStart(2, "0")
+  isMounted.value ? String(countdown.value.minutes).padStart(2, "0") : "00"
 );
 
 /**
@@ -358,7 +361,7 @@ const formattedMinutes = computed(() =>
  * @type {import('vue').ComputedRef<string>}
  */
 const formattedSeconds = computed(() =>
-  String(countdown.value.seconds).padStart(2, "0")
+  isMounted.value ? String(countdown.value.seconds).padStart(2, "0") : "00"
 );
 
 /**
@@ -366,6 +369,9 @@ const formattedSeconds = computed(() =>
  * @type {import('vue').ComputedRef<string>}
  */
 const countdownAriaLabel = computed(() => {
+  if (!isMounted.value) {
+    return "Countdown timer loading";
+  }
   return `Countdown: ${countdown.value.days} days, ${countdown.value.hours} hours, ${countdown.value.minutes} minutes, ${countdown.value.seconds} seconds remaining until WCAG 2.1 AA compliance deadline`;
 });
 
@@ -397,6 +403,8 @@ let countdownInterval: ReturnType<typeof setInterval> | null = null;
  * Sets up the countdown timer and starts the update interval
  */
 onMounted(() => {
+  // Mark as mounted first to ensure computed properties return consistent values
+  isMounted.value = true;
   // Initialize countdown immediately on client
   updateCountdown();
   // Start interval to update every second
