@@ -1,7 +1,11 @@
 {
-  "generated": "2026-01-02T18:08:21.633Z",
+  "generated": "2026-01-02T22:07:39.827Z",
   "routes": [
     "/",
+    "/docs",
+    "/docs/accessibility",
+    "/docs/architecture",
+    "/docs/tests",
     "/faqs",
     "/faqs-print",
     "/links"

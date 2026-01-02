@@ -85,12 +85,24 @@
 
         <!-- FAQs Section -->
         <div class="faq-section">
-          <h2 class="text-h4 mb-6 faq-main-title">
-            <v-icon class="mr-2" size="32"
-              >mdi-frequently-asked-questions</v-icon
-            >
-            Frequently Asked Questions
-          </h2>
+          <div class="faq-header-row mb-6">
+            <h2 class="text-h4 faq-main-title">
+              <v-icon class="mr-2" size="32"
+                >mdi-frequently-asked-questions</v-icon
+              >
+              Frequently Asked Questions
+            </h2>
+            <v-select
+              v-model="faqSort"
+              class="faq-sort"
+              :items="faqSortOptions"
+              label="Sort"
+              density="compact"
+              variant="outlined"
+              hide-details
+              aria-label="Sort Frequently Asked Questions"
+            />
+          </div>
           <div v-if="faqItems.length > 0">
             <!-- Render intro and section headings -->
             <div v-if="introContent" class="faq-intro">
@@ -98,7 +110,7 @@
             </div>
             <!-- Render FAQ accordion with sections -->
             <div
-              v-for="(section, sectionIndex) in faqSections"
+              v-for="(section, sectionIndex) in displayFaqSections"
               :key="sectionIndex"
               class="faq-section-group"
             >
@@ -110,9 +122,9 @@
                 {{ section.heading }}
               </h2>
 
-              <!-- Executive Summary - appears after first section heading only -->
+              <!-- Executive Summary - appears after first section heading only (original order only) -->
               <v-expansion-panels
-                v-if="sectionIndex === 0"
+                v-if="sectionIndex === 0 && faqSort === 'original'"
                 class="tldr-panel mb-6"
                 elevation="0"
               >
@@ -124,9 +136,9 @@
                         color="success"
                         variant="flat"
                         class="new-badge-summary"
-                        aria-label="New section"
+                        :aria-label="`New section added ${formatDate(EXEC_SUMMARY_DATE)}`"
                       >
-                        New
+                        New ({{ formatDate(EXEC_SUMMARY_DATE) }})
                       </v-chip>
                       <div class="tldr-header-content">
                         <span class="tldr-title">Executive Summary</span>
@@ -188,15 +200,17 @@
                         >, which Illinois DoIT oversees.
                       </p>
                       <p class="tldr-key">
-                        <strong>Why this requires organizational attention:</strong>
-                        This deadline requires agency-wide buy-in — it's not just IT.
-                        It's a fundamental shift for anyone who publishes
-                        public-facing digital content. While digital content may be
-                        associated with IT, accessibility is an agency-wide
-                        responsibility that must start with leadership, not with
-                        individual web developers or content creators. Accessibility is
-                        the "A" in DEIA — it delivers equitable access by removing
-                        systemic barriers.
+                        <strong
+                          >Why this requires organizational attention:</strong
+                        >
+                        This deadline requires agency-wide buy-in — it's not
+                        just IT. It's a fundamental shift for anyone who
+                        publishes public-facing digital content. While digital
+                        content may be associated with IT, accessibility is an
+                        agency-wide responsibility that must start with
+                        leadership, not with individual web developers or
+                        content creators. Accessibility is the "A" in DEIA — it
+                        delivers equitable access by removing systemic barriers.
                       </p>
                       <p class="tldr-consequences">
                         <strong>Failure to comply risks:</strong> Department of
@@ -208,7 +222,7 @@
                           href="https://www.justice.gov/crt/case/service-oklahoma"
                           target="_blank"
                           rel="noopener noreferrer"
-                        >Service Oklahoma, a state agency, faced a DOJ
+                          >Service Oklahoma, a state agency, faced a DOJ
                           investigation in 2024</a
                         >
                         after its mobile application was found inaccessible to
@@ -245,11 +259,11 @@
                         </div>
                       </div>
                       <p class="tldr-manual-work">
-                        <strong>Important:</strong> There is no one-click fix for
-                        accessibility. Each piece of digital content — web pages,
-                        PDFs, Word files — usually needs manual remediation. The
-                        good news: many accessibility checkers are available for
-                        websites and content.
+                        <strong>Important:</strong> There is no one-click fix
+                        for accessibility. Each piece of digital content — web
+                        pages, PDFs, Word files — usually needs manual
+                        remediation. The good news: many accessibility checkers
+                        are available for websites and content.
                       </p>
                       <p class="tldr-contact">
                         <strong>Questions?</strong> These requirements come from
@@ -264,7 +278,8 @@
                           href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html"
                           target="_blank"
                           rel="noopener noreferrer"
-                          >Illinois Information Technology Accessibility Act (IITAA)</a
+                          >Illinois Information Technology Accessibility Act
+                          (IITAA)</a
                         >). Contact
                         <a href="mailto:DoIT.Accessibility@Illinois.gov"
                           >DoIT.Accessibility@Illinois.gov</a
@@ -277,7 +292,11 @@
 
               <FaqAccordion
                 :items="section.items"
-                :section-id="slugify(section.heading || '')"
+                :section-id="
+                  faqSort === 'original'
+                    ? slugify(section.heading || '')
+                    : 'all-faqs'
+                "
               />
             </div>
           </div>
@@ -300,12 +319,16 @@
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import {
   transformFaqsToAccordionData,
-  extractNewDate,
+  extractTaggedDate,
   filterNewComments,
+  isWithinNewWindow,
 } from "../utils/faqTransform";
 import { useDeadlineCountdown } from "../composables/useDeadlineCountdown";
 import { useSeo } from "../composables/useSeo";
-import { useOrganizationStructuredData, useWebSiteStructuredData } from "../composables/useStructuredData";
+import {
+  useOrganizationStructuredData,
+  useWebSiteStructuredData,
+} from "../composables/useStructuredData";
 
 /** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 24, 2026) */
 const targetDate = new Date("2026-04-24T00:00:00").getTime();
@@ -523,6 +546,41 @@ function replaceDeadlineText(node: any): any {
 
 const { slugify, getQuestionId: getQuestionIdFromComposable } = useSlugify();
 
+type FaqSortMode = "original" | "latest" | "alpha";
+const faqSort = ref<FaqSortMode>("original");
+const faqSortOptions = [
+  { title: "Original order", value: "original" },
+  { title: "Latest first", value: "latest" },
+  { title: "A–Z (question)", value: "alpha" },
+];
+
+const EXEC_SUMMARY_DATE = "2025-12-30";
+
+function formatDate(dateStr: string): string {
+  try {
+    const parts = dateStr.split("-").map(Number);
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) {
+      return dateStr;
+    }
+    const [year, month, day] = parts;
+    const date = new Date(year, month - 1, day);
+    const monthName = date.toLocaleDateString("en-US", { month: "short" });
+    return `${monthName} ${day}, ${year}`;
+  } catch {
+    return dateStr;
+  }
+}
+
+function dateSortValue(dateStr?: string): number {
+  if (!dateStr) return Number.NEGATIVE_INFINITY;
+  const parts = dateStr.split("-").map(Number);
+  if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) {
+    return Number.NEGATIVE_INFINITY;
+  }
+  const [year, month, day] = parts;
+  return Date.UTC(year, month - 1, day);
+}
+
 /**
  * Processed FAQ items from markdown content
  * @type {import('vue').ComputedRef<Array<{question: string, answer: MiniMarkNode[]}>>}
@@ -609,14 +667,14 @@ const faqSections = computed(() => {
 
         if (questionText) {
           // Check for "new" date and filter comments
-          const newDate = extractNewDate(answerNodes);
+          const taggedDate = extractTaggedDate(answerNodes);
           const filteredAnswer = filterNewComments(answerNodes);
 
           currentSection.items.push({
             question: questionText,
             answer: filteredAnswer.map(replaceDeadlineText),
-            isNew: newDate !== null,
-            newDate: newDate || undefined,
+            isNew: taggedDate ? isWithinNewWindow(taggedDate) : false,
+            newDate: taggedDate || undefined,
           });
         }
         continue;
@@ -631,6 +689,39 @@ const faqSections = computed(() => {
   }
 
   return sections;
+});
+
+const sortedFaqItems = computed(() => {
+  // Flatten, keeping stable original order for tie-breaks
+  let idx = 0;
+  const itemsWithIndex = faqSections.value.flatMap((section) =>
+    section.items.map((item) => ({ ...item, __originalIndex: idx++ }))
+  );
+
+  const items = itemsWithIndex.slice();
+
+  if (faqSort.value === "alpha") {
+    items.sort((a, b) => {
+      const cmp = a.question.localeCompare(b.question, undefined, {
+        sensitivity: "base",
+      });
+      if (cmp !== 0) return cmp;
+      return a.__originalIndex - b.__originalIndex;
+    });
+  } else if (faqSort.value === "latest") {
+    items.sort((a, b) => {
+      const diff = dateSortValue(b.newDate) - dateSortValue(a.newDate);
+      if (diff !== 0) return diff;
+      return a.__originalIndex - b.__originalIndex;
+    });
+  }
+
+  return items.map(({ __originalIndex, ...rest }) => rest);
+});
+
+const displayFaqSections = computed(() => {
+  if (faqSort.value === "original") return faqSections.value;
+  return [{ heading: null, items: sortedFaqItems.value }];
 });
 
 /**
@@ -674,7 +765,8 @@ const introContent = computed(() => {
 // Enhanced SEO with Open Graph, Twitter Cards, and structured data
 useSeo({
   title: "Home - WCAG 2.1 AA Compliance Portal",
-  description: "Countdown to WCAG 2.1 AA compliance deadline (April 24, 2026). Resources, FAQs, and guidance for Illinois state agencies on digital accessibility, ADA Title II compliance, and creating accessible web content.",
+  description:
+    "Countdown to WCAG 2.1 AA compliance deadline (April 24, 2026). Resources, FAQs, and guidance for Illinois state agencies on digital accessibility, ADA Title II compliance, and creating accessible web content.",
   url: "/",
   keywords: [
     "WCAG 2.1 AA compliance",
@@ -686,7 +778,7 @@ useSeo({
     "WCAG compliance",
     "accessibility resources",
     "Section 508",
-    "IITAA"
+    "IITAA",
   ],
 });
 
@@ -695,7 +787,8 @@ useOrganizationStructuredData({
   name: "Illinois Criminal Justice Information Authority",
   url: "https://accessibility.icjia.app",
   logo: "/icjia-logo.png",
-  description: "Illinois Criminal Justice Information Authority - Digital Accessibility Portal providing resources for WCAG 2.1 AA compliance",
+  description:
+    "Illinois Criminal Justice Information Authority - Digital Accessibility Portal providing resources for WCAG 2.1 AA compliance",
   contactPoint: {
     contactType: "Accessibility Support",
     email: "DoIT.Accessibility@Illinois.gov",
@@ -910,12 +1003,30 @@ useWebSiteStructuredData();
   padding: 2rem 0;
 }
 
+.faq-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgb(var(--v-theme-primary));
+  padding-bottom: 1rem;
+}
+
+.faq-sort {
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.faq-sort :deep(.v-field) {
+  background: rgb(var(--v-theme-surface));
+}
+
 .faq-main-title {
   display: flex;
   align-items: center;
   color: rgb(var(--v-theme-primary));
-  border-bottom: 2px solid rgb(var(--v-theme-primary));
-  padding-bottom: 1rem;
+  margin: 0;
 }
 
 /* Intro content styling */

@@ -6,12 +6,24 @@
         <CountdownTimer compact />
 
         <v-card class="pa-8" elevation="0" color="surface">
-          <h1 class="text-h3 mb-4 d-flex align-center flex-wrap">
-            <v-icon class="mr-3" color="primary" aria-hidden="true"
-              >mdi-frequently-asked-questions</v-icon
-            >
-            <span>{{ page?.title || "Frequently Asked Questions" }}</span>
-          </h1>
+          <div class="faq-page-header mb-4">
+            <h1 class="text-h3 d-flex align-center flex-wrap mb-0">
+              <v-icon class="mr-3" color="primary" aria-hidden="true"
+                >mdi-frequently-asked-questions</v-icon
+              >
+              <span>{{ page?.title || "Frequently Asked Questions" }}</span>
+            </h1>
+            <v-select
+              v-model="faqSort"
+              class="faq-sort"
+              :items="faqSortOptions"
+              label="Sort"
+              density="compact"
+              variant="outlined"
+              hide-details
+              aria-label="Sort Frequently Asked Questions"
+            />
+          </div>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
             {{
               page?.description ||
@@ -26,7 +38,7 @@
             </div>
             <!-- Render FAQ accordion with sections -->
             <div
-              v-for="(section, sectionIndex) in faqSections"
+              v-for="(section, sectionIndex) in displayFaqSections"
               :key="sectionIndex"
               class="faq-section-group"
             >
@@ -39,7 +51,7 @@
               </h2>
               <FaqAccordion
                 :items="section.items"
-                :section-id="slugify(section.heading || '')"
+                :section-id="faqSort === 'original' ? slugify(section.heading || '') : 'all-faqs'"
               />
             </div>
           </div>
@@ -59,8 +71,13 @@
  * @description Displays frequently asked questions in an accordion format with sections
  */
 
-import { computed, watchEffect } from "vue";
-import { wrapTablesForResponsiveScroll } from "../utils/faqTransform";
+import { computed, watchEffect, ref } from "vue";
+import {
+  wrapTablesForResponsiveScroll,
+  extractTaggedDate,
+  filterNewComments,
+  isWithinNewWindow,
+} from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
 import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composables/useStructuredData";
 
@@ -71,6 +88,24 @@ const { data: page } = await useAsyncData("faqs", () => {
 
 /** @typedef {any} MiniMarkNode */
 type MiniMarkNode = any;
+
+type FaqSortMode = "original" | "latest" | "alpha";
+const faqSort = ref<FaqSortMode>("original");
+const faqSortOptions = [
+  { title: "Original order", value: "original" },
+  { title: "Latest first", value: "latest" },
+  { title: "A–Z (question)", value: "alpha" },
+];
+
+function dateSortValue(dateStr?: string): number {
+  if (!dateStr) return Number.NEGATIVE_INFINITY;
+  const parts = dateStr.split("-").map(Number);
+  if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) {
+    return Number.NEGATIVE_INFINITY;
+  }
+  const [year, month, day] = parts;
+  return Date.UTC(year, month - 1, day);
+}
 
 /**
  * Type guard to check if a node is an element node
@@ -131,11 +166,21 @@ const faqSections = computed(() => {
   const nodes = body.value;
   const sections: Array<{
     heading: string | null;
-    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+    items: Array<{
+      question: string;
+      answer: MiniMarkNode[];
+      isNew?: boolean;
+      newDate?: string;
+    }>;
   }> = [];
   let currentSection: {
     heading: string | null;
-    items: Array<{ question: string; answer: MiniMarkNode[] }>;
+    items: Array<{
+      question: string;
+      answer: MiniMarkNode[];
+      isNew?: boolean;
+      newDate?: string;
+    }>;
   } | null = null;
   let i = 0;
 
@@ -176,9 +221,12 @@ const faqSections = computed(() => {
         }
 
         if (questionText) {
+          const taggedDate = extractTaggedDate(answerNodes);
           currentSection.items.push({
             question: questionText,
-            answer: wrapTablesForResponsiveScroll(answerNodes),
+            answer: wrapTablesForResponsiveScroll(filterNewComments(answerNodes)),
+            isNew: taggedDate ? isWithinNewWindow(taggedDate) : false,
+            newDate: taggedDate || undefined,
           });
         }
         continue;
@@ -193,6 +241,38 @@ const faqSections = computed(() => {
   }
 
   return sections;
+});
+
+const sortedFaqItems = computed(() => {
+  let idx = 0;
+  const itemsWithIndex = faqSections.value.flatMap((section) =>
+    section.items.map((item) => ({ ...item, __originalIndex: idx++ }))
+  );
+
+  const items = itemsWithIndex.slice();
+
+  if (faqSort.value === "alpha") {
+    items.sort((a, b) => {
+      const cmp = a.question.localeCompare(b.question, undefined, {
+        sensitivity: "base",
+      });
+      if (cmp !== 0) return cmp;
+      return a.__originalIndex - b.__originalIndex;
+    });
+  } else if (faqSort.value === "latest") {
+    items.sort((a, b) => {
+      const diff = dateSortValue(b.newDate) - dateSortValue(a.newDate);
+      if (diff !== 0) return diff;
+      return a.__originalIndex - b.__originalIndex;
+    });
+  }
+
+  return items.map(({ __originalIndex, ...rest }) => rest);
+});
+
+const displayFaqSections = computed(() => {
+  if (faqSort.value === "original") return faqSections.value;
+  return [{ heading: null, items: sortedFaqItems.value }];
 });
 
 // Extract intro content (content before first H2)
@@ -298,6 +378,20 @@ useBreadcrumbStructuredData([
 </script>
 
 <style scoped>
+/* Header row: title + sort control */
+.faq-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.faq-sort {
+  min-width: 220px;
+  max-width: 320px;
+}
+
 /* Intro content styling */
 .faq-intro {
   margin-bottom: 2rem;

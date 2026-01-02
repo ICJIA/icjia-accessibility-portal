@@ -176,6 +176,43 @@ const NEW_TAG_PATTERN =
   /(?:\{new:\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*new:\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
 
 /**
+ * Extracts the date from a `{new:YYYY-MM-DD}` (or `<!-- new:YYYY-MM-DD -->`) tag,
+ * regardless of whether the date is still within the "new" window.
+ *
+ * This is useful for features like sorting by the tag date while still keeping
+ * the visual "NEW" badge limited to a recent window.
+ *
+ * @param answerNodes - Array of answer nodes to search
+ * @returns Date string (YYYY-MM-DD) if found, null otherwise
+ */
+export function extractTaggedDate(answerNodes: MarkdownNode[]): string | null {
+  try {
+    for (const node of answerNodes) {
+      if (typeof node === "string") {
+        const match = node.match(NEW_TAG_PATTERN);
+        if (match) {
+          const dateStr = match[1] || match[2];
+          if (dateStr) return dateStr;
+        }
+      }
+      // Check inside paragraph nodes
+      if (isElementNode(node) && tagName(node) === "p") {
+        const text = extractNodeText(node);
+        const match = text.match(NEW_TAG_PATTERN);
+        if (match) {
+          const dateStr = match[1] || match[2];
+          if (dateStr) return dateStr;
+        }
+      }
+    }
+    return null;
+  } catch (error) {
+    console.error("Error extracting tagged date from FAQ nodes:", error);
+    return null;
+  }
+}
+
+/**
  * Extracts the "new" date from answer nodes if present.
  *
  * Searches through answer nodes for the new tag pattern and returns the date
@@ -192,29 +229,9 @@ const NEW_TAG_PATTERN =
  */
 export function extractNewDate(answerNodes: MarkdownNode[]): string | null {
   try {
-    for (const node of answerNodes) {
-      if (typeof node === "string") {
-        const match = node.match(NEW_TAG_PATTERN);
-        if (match) {
-          const dateStr = match[1] || match[2];
-          if (dateStr && isWithinNewWindow(dateStr)) {
-            return dateStr;
-          }
-        }
-      }
-      // Check inside paragraph nodes
-      if (isElementNode(node) && tagName(node) === "p") {
-        const text = extractNodeText(node);
-        const match = text.match(NEW_TAG_PATTERN);
-        if (match) {
-          const dateStr = match[1] || match[2];
-          if (dateStr && isWithinNewWindow(dateStr)) {
-            return dateStr;
-          }
-        }
-      }
-    }
-    return null;
+    const taggedDate = extractTaggedDate(answerNodes);
+    if (!taggedDate) return null;
+    return isWithinNewWindow(taggedDate) ? taggedDate : null;
   } catch (error) {
     console.error("Error extracting new date from FAQ nodes:", error);
     return null;
@@ -531,16 +548,17 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
           }
 
           if (questionText) {
-            // Check for "new" date in answer nodes
-            const newDate = extractNewDate(answerNodes);
+            // Capture the tag date for sorting, and compute "new" badge window separately
+            const taggedDate = extractTaggedDate(answerNodes);
+            const isNew = taggedDate ? isWithinNewWindow(taggedDate) : false;
             const filteredAnswer = filterNewComments(answerNodes);
             const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
 
             faqItems.push({
               question: questionText,
               answer: responsiveAnswer,
-              isNew: newDate !== null,
-              newDate: newDate || undefined,
+              isNew,
+              newDate: taggedDate || undefined,
             });
           }
         } catch (error) {

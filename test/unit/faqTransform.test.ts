@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import {
   isWithinNewWindow,
   extractNewDate,
+  extractTaggedDate,
   filterNewComments,
   wrapFaqQuestionsIntoCards,
   transformFaqsToAccordionData,
@@ -98,6 +99,24 @@ describe('faqTransform', () => {
       ]
       
       const result = extractNewDate(nodes)
+      expect(result).toBeNull()
+    })
+  })
+
+  describe('extractTaggedDate', () => {
+    it('should extract tagged date even if outside new window', () => {
+      const oldDate = '2020-01-01'
+      const nodes = [
+        ['p', {}, `{new:${oldDate}}`],
+        ['p', {}, 'Answer text']
+      ]
+      const result = extractTaggedDate(nodes as any)
+      expect(result).toBe(oldDate)
+    })
+
+    it('should return null if no tag is present', () => {
+      const nodes = [['p', {}, 'No tag here']]
+      const result = extractTaggedDate(nodes as any)
       expect(result).toBeNull()
     })
   })
@@ -223,11 +242,8 @@ describe('faqTransform', () => {
       
       expect(result).toHaveLength(1)
       expect(result[0].question).toBe('What is accessibility?')
-      // isNew will be true if date is within window, false otherwise
+      expect(result[0].newDate).toBe(dateStr)
       expect(typeof result[0].isNew).toBe('boolean')
-      if (result[0].isNew) {
-        expect(result[0].newDate).toBe(dateStr)
-      }
       expect(result[0].answer.length).toBeGreaterThan(0)
     })
 
