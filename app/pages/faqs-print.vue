@@ -153,6 +153,7 @@ definePageMeta({
 import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
 import { usePrintLinks } from "../composables/usePrintLinks";
+import { wrapTablesForResponsiveScroll } from "../utils/faqTransform";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs-print", () => {
@@ -333,6 +334,7 @@ const faqSections = computed(() => {
           // Check for "new" date
           const newDate = extractNewDate(answerNodes);
           const filteredAnswer = filterNewComments(answerNodes);
+          const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
 
           // Create content object for rendering
           const answerContent = page.value
@@ -340,14 +342,14 @@ const faqSections = computed(() => {
                 ...page.value,
                 body: {
                   ...body,
-                  value: filteredAnswer,
+                  value: responsiveAnswer,
                 },
               }
             : null;
 
           currentSection.items.push({
             question: questionText,
-            answer: filteredAnswer,
+            answer: responsiveAnswer,
             isNew: newDate !== null,
             answerContent: answerContent,
           });

@@ -306,6 +306,30 @@ const isNew = newDate !== null;
 const cleanAnswer = filterNewComments(answerNodes);
 ```
 
+### Responsive Markdown Tables (Mobile-Friendly)
+
+Markdown tables often overflow narrow viewports. The most reliable, framework-agnostic solution is to **wrap each rendered table in a horizontally scrollable container** (instead of trying to shrink columns until they become unreadable).
+
+**Recommended pattern (Nuxt/Vue/Nuxt Content or any markdown-to-HTML renderer):**
+
+- **Transform at render time**: When you have access to the markdown AST (or render pipeline), wrap `table` nodes in a `div` wrapper.
+- **Scrollable wrapper**: `overflow-x: auto` + `-webkit-overflow-scrolling: touch` for smooth iOS scrolling.
+- **Keyboard support**: Add `tabindex="0"` to the wrapper so keyboard users can scroll horizontally (trackpad/Shift+wheel/arrow keys depending on device).
+- **Accessible labeling**: If you use `role="region"`, add an accessible name via `aria-label` (e.g., `"Scrollable table"`).
+- **Visual cue (mobile-only)**: Add a small, `aria-hidden` hint like “Scroll horizontally to see more →” plus a subtle right-edge gradient.
+- **Print behavior**: In `@media print`, remove scroll behavior and hide the hint/gradient.
+
+**AST pseudo-example** (works with any renderer that can manipulate AST nodes):
+
+```text
+div.table-scroll-wrapper[tabindex=0 role=region aria-label="Scrollable table"]
+  div.table-scroll-hint[aria-hidden=true] "Scroll horizontally to see more →"
+  table[data-responsive-table=true]
+    ...
+```
+
+This approach avoids brittle DOM mutation observers, keeps the solution centralized, and ensures consistent behavior anywhere markdown tables appear (FAQs, “intro” content, printer-friendly pages, etc.).
+
 ### "New" Badge System
 
 **Purpose**: Highlight recently added questions automatically

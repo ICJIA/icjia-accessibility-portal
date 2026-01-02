@@ -115,6 +115,9 @@ yarn generate:serve
 - **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
   - Add `{new:YYYY-MM-DD}` after question heading in markdown
   - Badge auto-expires after 10 days (configurable)
+- **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
+  - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
+  - Keyboard-friendly: scroll container is focusable (`tabindex="0"`)
 - **Printer-Friendly FAQs** - Dedicated printer-friendly version at `/faqs-print`
   - Complete FAQ content in a clean, printable format
   - Internal links styled as bold text (non-clickable) - section references don't work when printed

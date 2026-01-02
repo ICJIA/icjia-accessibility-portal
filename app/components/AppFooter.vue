@@ -30,18 +30,30 @@
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-printer</v-icon
           >
-          <span>Print FAQs</span>
+          <span>Print</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
-          href="/docs/architecture"
+          href="/faqs.pdf"
+          download="ICJIA-Accessibility-FAQs.pdf"
           class="footer-link"
-          aria-label="View site architecture documentation"
+          aria-label="Download FAQs as PDF"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true"
+            >mdi-download</v-icon
+          >
+          <span>Download</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
+          href="/docs/index.html"
+          class="footer-link"
+          aria-label="View documentation portal"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-file-document-outline</v-icon
           >
-          <span>Site Architecture</span>
+          <span>Documentation</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
@@ -52,7 +64,7 @@
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-check-circle</v-icon
           >
-          <span>Accessibility Report</span>
+          <span>Accessibility</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a

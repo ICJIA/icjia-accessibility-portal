@@ -47,6 +47,20 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module'
   ],
 
+  /**
+   * Nitro prerendering configuration.
+   *
+   * We host a static documentation portal under `/docs/` from the `public/` directory.
+   * During `nuxt generate`, Nitro's crawler can attempt to prerender `/docs/` as an app route,
+   * which results in a 404 and fails the build. We explicitly ignore `/docs` paths for prerendering
+   * (they are static assets and do not need SSR prerender).
+   */
+  nitro: {
+    prerender: {
+      ignore: ['/docs', '/docs/', '/docs/**']
+    }
+  },
+
   plausible: {
     domain: 'accessibility.icjia.app',
     apiHost: 'https://plausible.icjia.cloud'

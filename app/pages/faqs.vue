@@ -60,7 +60,7 @@
  */
 
 import { computed, watchEffect } from "vue";
-import { transformFaqsToAccordionData } from "../utils/faqTransform";
+import { wrapTablesForResponsiveScroll } from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
 import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composables/useStructuredData";
 
@@ -178,7 +178,7 @@ const faqSections = computed(() => {
         if (questionText) {
           currentSection.items.push({
             question: questionText,
-            answer: answerNodes,
+            answer: wrapTablesForResponsiveScroll(answerNodes),
           });
         }
         continue;
@@ -221,7 +221,7 @@ const introContent = computed(() => {
     ...page.value,
     body: {
       ...body,
-      value: introNodes,
+      value: wrapTablesForResponsiveScroll(introNodes),
     },
   };
 });

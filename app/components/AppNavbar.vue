@@ -32,10 +32,11 @@
           v-for="item in navItems"
           :key="item.to"
           :href="item.to"
+          :download="(item as any).download || undefined"
           variant="text"
           class="nav-btn"
           :prepend-icon="item.icon"
-          :aria-label="`Navigate to ${item.title}`"
+          :aria-label="(item as any).ariaLabel || `Navigate to ${item.title}`"
           :aria-current="route.path === item.to ? 'page' : undefined"
         >
           {{ item.title }}
@@ -66,6 +67,7 @@
             v-for="item in navItems"
             :key="item.to"
             :href="item.to"
+            :download="(item as any).download || undefined"
             :prepend-icon="item.icon"
             :aria-current="route.path === item.to ? 'page' : undefined"
           >
@@ -131,7 +133,14 @@ const menuOpen = ref(false);
  */
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
-  { title: "Print FAQs", to: "/faqs-print", icon: "mdi-printer" },
+  { title: "Print", to: "/faqs-print", icon: "mdi-printer" },
+  {
+    title: "Download",
+    to: "/faqs.pdf",
+    icon: "mdi-download",
+    download: "ICJIA-Accessibility-FAQs.pdf",
+    ariaLabel: "Download FAQs as PDF",
+  },
   { title: "Links", to: "/links", icon: "mdi-link" },
 ];
 

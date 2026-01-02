@@ -462,11 +462,13 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   margin: 0.5rem 0;
 }
 
+/* Responsive table styling */
 .faq-answer-content :deep(table) {
   width: 100%;
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin: 0; /* Margin handled by wrapper */
   font-size: 0.9rem;
+  display: table;
 }
 
 .faq-answer-content :deep(th) {
@@ -482,6 +484,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
   background: rgba(var(--v-theme-surface-variant), 0.15);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .faq-answer-content :deep(tr:last-child td) {

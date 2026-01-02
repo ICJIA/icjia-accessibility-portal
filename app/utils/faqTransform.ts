@@ -390,6 +390,76 @@ export interface FaqItem {
 }
 
 /**
+ * Wraps markdown table nodes in a horizontally-scrollable container.
+ *
+ * Why this approach?
+ * - Works with Nuxt Content's minimark AST (where tables may render as raw `<table>` elements)
+ * - Avoids DOM mutation / observers in components
+ * - Can be reused anywhere we pass minimark nodes to `<ContentRenderer>`
+ *
+ * Implementation details:
+ * - Wraps `['table', attrs, ...children]` as:
+ *   `['div', { class: 'table-scroll-wrapper', tabindex: '0', role: 'region', 'aria-label': 'Scrollable table' }, ['table', {...attrs, 'data-responsive-table': 'true'}, ...children]]`
+ * - Idempotent via `data-responsive-table="true"` marker on the table node.
+ */
+export function wrapTablesForResponsiveScroll(
+  nodes: MarkdownNode[]
+): MarkdownNode[] {
+  const wrapNode = (node: MarkdownNode): MarkdownNode => {
+    if (!isElementNode(node)) return node;
+
+    const [tag, rawAttrs, ...children] = node;
+    const attrs: MarkdownNodeAttributes = (rawAttrs || {}) as MarkdownNodeAttributes;
+    const processedChildren = children.map(wrapNode);
+
+    if (tag === "table") {
+      // Idempotency guard
+      if (
+        attrs["data-responsive-table"] === "true" ||
+        attrs["data-responsive-table"] === true
+      ) {
+        return ["table", attrs, ...processedChildren] as MarkdownElementNode;
+      }
+
+      const tableAttrs: MarkdownNodeAttributes = {
+        ...attrs,
+        "data-responsive-table": "true",
+      };
+
+      const tableNode: MarkdownElementNode = [
+        "table",
+        tableAttrs,
+        ...processedChildren,
+      ];
+
+      return [
+        "div",
+        {
+          class: "table-scroll-wrapper",
+          tabindex: "0",
+          role: "region",
+          "aria-label": "Scrollable table",
+        },
+        [
+          "div",
+          {
+            class: "table-scroll-hint",
+            "aria-hidden": "true",
+          },
+          "Scroll horizontally to see more →",
+        ],
+        tableNode,
+      ] as unknown as MarkdownElementNode;
+    }
+
+    return [tag, attrs, ...processedChildren] as MarkdownElementNode;
+  };
+
+  if (!Array.isArray(nodes)) return nodes;
+  return nodes.map(wrapNode);
+}
+
+/**
  * Transforms FAQ markdown AST into structured accordion data.
  *
  * This is the main transformation function that:
@@ -464,10 +534,11 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
             // Check for "new" date in answer nodes
             const newDate = extractNewDate(answerNodes);
             const filteredAnswer = filterNewComments(answerNodes);
+            const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
 
             faqItems.push({
               question: questionText,
-              answer: filteredAnswer,
+              answer: responsiveAnswer,
               isNew: newDate !== null,
               newDate: newDate || undefined,
             });
