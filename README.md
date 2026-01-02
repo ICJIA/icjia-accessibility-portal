@@ -213,9 +213,14 @@ This site is configured for deployment on Netlify with automatic builds and opti
 
 ### Deployment Configuration
 
-- **Build command**: `yarn generate`
+- **Build command**: `npx playwright install chromium && yarn generate`
 - **Publish directory**: `.output/public`
 - **Node version**: 22.14.0 (specified in netlify.toml and .nvmrc)
+
+**Build-time PDF generation (Netlify-safe):**
+
+- The build produces an **up-to-date FAQs PDF** by printing the prerendered `/faqs-print` page into `.output/public/faqs.pdf`.
+- On Netlify, **do not** use Playwright’s `--with-deps` flag (it tries to `su` to root, which is blocked). Install the browser only: `npx playwright install chromium`.
 
 ### Security & Performance Headers
 
@@ -261,6 +266,7 @@ The automated build process:
 5. Regenerates routes.json with Nuxt-discovered routes
 6. Updates sitemap with final routes
 7. Optimizes and outputs to `.output/public/`
+8. Generates an up-to-date FAQs PDF (from `/faqs-print`) and writes it into `.output/public/` so it ships as a static asset
 
 **Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not indexed for SEO purposes).
 
@@ -647,8 +653,12 @@ The application includes a built-in documentation portal at `/docs/` with:
 
 Access the documentation portal:
 
-- Development: `http://localhost:3000/docs`
-- Production: `https://your-domain.com/docs`
+- **How it works / how to extend it**: [`markdown-documentation/DOCUMENTATION_PORTAL.md`](markdown-documentation/DOCUMENTATION_PORTAL.md)
+
+- Development: `http://localhost:3000/docs` (or `http://localhost:3000/docs/index.html`)
+- Production: `https://your-domain.com/docs` (or `https://your-domain.com/docs/index.html`)
+
+**Note for Nuxt static prerendering**: If your build crawler treats `/docs/` as an app route, prefer linking to the explicit static file `/docs/index.html` from within the app.
 
 ### Audit Reports
 
@@ -710,12 +720,13 @@ Reports include:
 - Added comprehensive project documentation
 - Optimized CSS and performance
 - Enhanced content management system
-- Navigation improvements (Print FAQs link added to navbar and footer)
-- **Footer refactor** - Modern, centered design with clickable ICJIA copyright, GitHub repository, printer-friendly, and accessibility report links. Fully responsive and accessible with proper ARIA labels.
+- Navigation improvements (**Print** + **Download PDF** links added to navbar and footer)
+- Build-time PDF generation (Netlify-safe): `/faqs.pdf` is generated from `/faqs-print` during `postgenerate` so downloads/prints are always up to date
+- **Footer refactor** - Modern, centered design with links for **Print**, **Download**, **Documentation**, **Accessibility**, and GitHub. Fully responsive and accessible with proper ARIA labels.
 
 ### Version Information
 
-**Last Updated**: January 1, 2026
+**Last Updated**: January 2, 2026
 
 **Core Dependencies**:
 

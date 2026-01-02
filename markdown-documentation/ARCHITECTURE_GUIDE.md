@@ -630,6 +630,17 @@ writeFileSync("public/sitemap.xml", xml);
    - This runs Nuxt's static site generation
    - Outputs to `.output/public/` directory
 
+   **If you generate a PDF at build time (common for “Download as PDF”):**
+   - Install the Playwright browser binary first, then run `generate`.
+   - On Netlify, **do not use** `--with-deps` (it attempts `su` to root and will fail).
+   - Recommended Netlify command pattern:
+
+   ```toml
+   [build]
+     command = "npx playwright install chromium && yarn generate"
+     publish = ".output/public"
+   ```
+
 2. **Publish Directory**: `.output/public`
    - This is where Nuxt 4 outputs static files after `nuxt generate`
    - Netlify serves files from this directory
@@ -643,7 +654,8 @@ writeFileSync("public/sitemap.xml", xml);
 ```toml
 [build]
   # Build command - generates static site
-  command = "yarn generate"
+  # If you generate PDFs at build time (Playwright), install Chromium first (no --with-deps on Netlify)
+  command = "npx playwright install chromium && yarn generate"
 
   # Publish directory - where Nuxt outputs static files
   publish = ".output/public"
@@ -784,6 +796,36 @@ If your `package.json` has pre/post hooks, they run automatically:
   }
 }
 ```
+
+#### Build-Time “Download PDF” (from a Print Route)
+
+Many sites want:
+
+- A **printer-friendly HTML route** (e.g. `/print`) that is always up to date
+- A **downloadable PDF** (e.g. `/faqs.pdf`) generated from that route at build time
+
+**Recommended pattern (Nuxt + Vuetify + Netlify):**
+
+- Create a print-friendly route (e.g. `/faqs-print`) that is included in prerender.
+- Add a post-generate step that:
+  - serves `.output/public` locally
+  - loads `/faqs-print/` in headless Chromium
+  - prints to a PDF in `.output/public/faqs.pdf`
+- Link to `/faqs.pdf` from your navbar/footer with a `download` filename.
+
+**Why `postgenerate` (not `pregenerate`)**:
+
+- The PDF step needs the generated HTML in `.output/public`, so it must run _after_ `nuxt generate`.
+
+**Netlify gotcha**:
+
+- `npx playwright install chromium --with-deps` fails on Netlify (root escalation blocked).
+- Use: `npx playwright install chromium`
+
+**Static docs portal gotcha** (if you host docs under `public/docs/`):
+
+- Nitro’s prerender crawler can treat `/docs/` like an app route and 404.
+- Prefer linking to `/docs/index.html` (file path) from app content, or ensure your hosting serves `/docs/` as an index.
 
 #### SPA Fallback Configuration
 
