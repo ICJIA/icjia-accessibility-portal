@@ -49,13 +49,13 @@ _Last updated: January 2, 2026_
 
 **What accessibility means for you:** Every document, image, and video you create must be usable by people with disabilities. This means adding alt text so screen reader users can understand images, using proper heading styles so documents are navigable, and ensuring videos have captions. You're on the front lines of creating accessible content that serves all Illinois residents.
 
-| Action                                | Time         | Impact                      |
-| ------------------------------------- | ------------ | --------------------------- |
-| 1. Add alt text to images             | 30 sec/image | Required for screen readers |
-| 2. Use heading styles (not just bold) | 0 sec        | Screen reader navigation    |
-| 3. Write descriptive links            | 5 sec        | Context for assistive tech  |
-| 4. Run Accessibility Checker          | 60 sec       | Catches common errors       |
-| 5. Add captions to videos             | 10-15 min    | Compliance requirement      |
+| Action                                | Impact                      |
+| ------------------------------------- | --------------------------- |
+| 1. Add alt text to images             | Required for screen readers |
+| 2. Use heading styles (not just bold) | Screen reader navigation    |
+| 3. Write descriptive links            | Context for assistive tech  |
+| 4. Run Accessibility Checker          | Catches common errors       |
+| 5. Add captions to videos             | Compliance requirement      |
 
 **Start here:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
 
@@ -63,13 +63,13 @@ _Last updated: January 2, 2026_
 
 **What accessibility means for you:** You build the foundation that makes all digital content accessible or inaccessible. Semantic HTML, keyboard navigation, color contrast, and ARIA labels aren't optional extras — they're core requirements of your work. Your technical expertise directly determines whether people with disabilities can access government information and services.
 
-| Action                             | Time   | Impact                      |
-| ---------------------------------- | ------ | --------------------------- |
-| 1. Add axe-core to your build      | 15 min | Catches 30-40% of issues    |
-| 2. Test keyboard navigation        | 5 min  | Critical for accessibility  |
-| 3. Check color contrast (4.5:1)    | 2 min  | Easy fix, high impact       |
-| 4. Ensure visible focus indicators | 10 min | Required for keyboard users |
-| 5. Use semantic HTML (not divs)    | 0 sec  | Foundation of accessibility |
+| Action                             | Impact                      |
+| ---------------------------------- | --------------------------- |
+| 1. Add axe-core to your build      | Catches 30-40% of issues    |
+| 2. Test keyboard navigation        | Critical for accessibility  |
+| 3. Check color contrast (4.5:1)    | Easy fix, high impact       |
+| 4. Ensure visible focus indicators | Required for keyboard users |
+| 5. Use semantic HTML (not divs)    | Foundation of accessibility |
 
 **Start here:** [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start)
 
@@ -77,13 +77,13 @@ _Last updated: January 2, 2026_
 
 **What accessibility means for you:** You control the resources, time, and priorities that determine whether your team can create accessible content. Your decisions about training, tools, deadlines, and accountability directly impact your agency's legal compliance. You're responsible for ensuring your team has what they need to meet accessibility requirements.
 
-| Action                             | Time      | Impact                   |
-| ---------------------------------- | --------- | ------------------------ |
-| 1. Inventory your public content   | 1-2 hours | Know the scope           |
-| 2. Prioritize high-traffic content | 30 min    | Focus limited resources  |
-| 3. Allocate time for training      | 30 min    | Enable your team         |
-| 4. Add accessibility to job duties | 15 min    | Set expectations         |
-| 5. Document your remediation plan  | 1 hour    | Show good-faith progress |
+| Action                             | Impact                   |
+| ---------------------------------- | ------------------------ |
+| 1. Inventory your public content   | Know the scope           |
+| 2. Prioritize high-traffic content | Focus limited resources  |
+| 3. Allocate time for training      | Enable your team         |
+| 4. Add accessibility to job duties | Set expectations         |
+| 5. Document your remediation plan  | Show good-faith progress |
 
 **Start here:** [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
@@ -91,13 +91,13 @@ _Last updated: January 2, 2026_
 
 **What accessibility means for you:** You own the agency's accessibility strategy and compliance. You set policy, allocate budget, designate coordinators, and ensure accountability. After April 2026, if the agency faces DOJ complaints, you'll be responsible for demonstrating good-faith compliance efforts. Your leadership decisions determine how accessibility is prioritized within the agency.
 
-| Action                                    | Time      | Impact                  |
-| ----------------------------------------- | --------- | ----------------------- |
-| 1. Designate an accessibility coordinator | 30 min    | Someone must own this   |
-| 2. Adopt an agency accessibility policy   | 1-2 hours | Set clear expectations  |
-| 3. Budget for training and tools          | 1 hour    | Enable compliance       |
-| 4. Require accessibility in procurement   | 30 min    | Prevent vendor barriers |
-| 5. Track compliance agency-wide           | Ongoing   | Know your risk exposure |
+| Action                                    | Impact                  |
+| ----------------------------------------- | ----------------------- |
+| 1. Designate an accessibility coordinator | Someone must own this   |
+| 2. Adopt an agency accessibility policy   | Set clear expectations  |
+| 3. Budget for training and tools          | Enable compliance       |
+| 4. Require accessibility in procurement   | Prevent vendor barriers |
+| 5. Track compliance agency-wide           | Know your risk exposure |
 
 **Start here:** [I'm on executive staff. Where do I start?](#getting-started-i-m-on-executive-staff-where-do-i-start)
 
@@ -105,15 +105,15 @@ _Last updated: January 2, 2026_
 
 {new:2026-01-02}
 
-**What accessibility means for you:** If this is your first deep dive into the ADA Title II web rule and IITAA, you’re not alone — it can feel like a lot. Your role is to help the agency translate requirements into **clear governance**: scope, risk posture, complaint handling, vendor terms, and documentation that demonstrates good-faith progress.
+**What accessibility means for you:** If this is your first deep dive into the ADA Title II web rule and IITAA, you’re not alone — the material is detailed and the requirements are extensive. Your role is to help the agency translate requirements into **clear governance**: scope, risk posture, complaint handling, vendor terms, and documentation that demonstrates good-faith progress.
 
-| Action                                          | Time        | Impact                                  |
-| ----------------------------------------------- | ----------- | --------------------------------------- |
-| 1. Read the DOJ summary + final rule            | 20–30 min   | Ground the work in primary authority    |
-| 2. Define scope + “what counts” with leadership | 30–60 min   | Prevent misunderstandings and drift     |
-| 3. Align on complaint / intake process          | 30–60 min   | Reduce risk and speed response          |
-| 4. Ensure procurement language supports WCAG    | 30–60 min   | Avoid buying new barriers               |
-| 5. Require documentation and retention          | 30–60 min   | Make progress provable and sustainable  |
+| Action                                          | Impact                                 |
+| ----------------------------------------------- | -------------------------------------- |
+| 1. Read the DOJ summary + final rule            | Ground the work in primary authority   |
+| 2. Define scope + “what counts” with leadership | Prevent misunderstandings and drift    |
+| 3. Align on complaint / intake process          | Reduce risk and speed response         |
+| 4. Ensure procurement language supports WCAG    | Avoid buying new barriers              |
+| 5. Require documentation and retention          | Make progress provable and sustainable |
 
 **If you're new to this rule, read these in order (20–30 minutes total):**
 
@@ -169,6 +169,44 @@ _Last updated: January 2, 2026_
 **April 24, 2026 deadline is firm.** Start now — every small improvement counts.
 
 ---
+
+### I work in fiscal. What does this have to do with me?
+
+{new:2026-01-02}
+
+**Quick answer:** Fiscal is where accessibility becomes **funded, procured, and enforceable**. If the agency must meet **WCAG 2.1 Level AA** by April 24, 2026, fiscal decisions determine whether we can (a) pay for remediation and training, (b) avoid buying new barriers, and (c) document due diligence (contracts, VPATs/ACRs, and proof of progress).
+
+**What accessibility means for fiscal (plain language):**
+
+- **Budget**: Accessibility work is real work (time, training, tools, vendor remediation). If it isn’t budgeted, it won’t happen at scale.
+- **Procurement / contracts**: Fiscal helps ensure we **don’t purchase inaccessible software/services** (and that vendors commit to fixing issues).
+- **Third‑party risk**: Many accessibility failures come from **vendor platforms** (forms, dashboards, LMS, e‑signature, etc.). Contract terms and acceptance criteria matter.
+- **Documentation**: Fiscal artifacts (procurement files, vendor attestations, change orders, invoices) are part of showing **good‑faith progress** if questioned later.
+
+**What you can do this week (high impact):**
+
+| Action | Why it matters |
+| --- | --- |
+| 1. Add accessibility requirements to purchasing checklists | Prevents buying new barriers |
+| 2. Require vendor accessibility documentation (VPAT/ACR) and remediation commitments | Makes obligations enforceable |
+| 3. Identify high‑risk vendor platforms in scope (public‑facing) | Targets the biggest compliance risk |
+| 4. Budget for remediation + training (internal + vendor) | Enables actual delivery |
+| 5. Align on documentation/retention for “good‑faith progress” | Makes progress provable |
+
+**Start here (high‑signal internal links):**
+
+- [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services)
+- [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)
+- [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+- [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover)
+- [How can I track and demonstrate “good-faith progress” toward compliance?](#common-concerns-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
+
+**References (authoritative):**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: DOJ summary of the ADA Title II web accessibility rule</a>
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a>
+- <a href="https://www.section508.gov/buy/" target="_blank" rel="noopener noreferrer">Section508.gov: Buy (procurement guidance)</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C: WCAG 2.1 Quick Reference</a>
 
 ## Understanding Accessibility
 
