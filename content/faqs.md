@@ -13,7 +13,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **If you only have 5 minutes, start here.** These are the most impactful actions for each role to begin accessibility compliance:
 
-### Executive Summary
+### Executive Summary (Start here)
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
@@ -82,7 +82,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **Start here:** [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
-### For Executive Staff
+### For Agency Leadership (Executive Staff)
 
 **What accessibility means for you:** You own the agency's accessibility strategy and compliance. You set policy, allocate budget, designate coordinators, and ensure accountability. After April 2026, if the agency faces DOJ complaints, you'll be responsible for demonstrating good-faith compliance efforts. Your leadership decisions determine how accessibility is prioritized within the agency.
 
@@ -93,6 +93,8 @@ A practical guide to common accessibility questions for staff at Illinois state 
 | 3. Budget for training and tools          | 1 hour    | Enable compliance       |
 | 4. Require accessibility in procurement   | 30 min    | Prevent vendor barriers |
 | 5. Track compliance agency-wide           | Ongoing   | Know your risk exposure |
+
+**Start here:** [I'm on executive staff. Where do I start?](#getting-started-i-m-on-executive-staff-where-do-i-start)
 
 ---
 
@@ -846,6 +848,38 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
 - <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
 - <a href="/links" target="_self">Accessibility Links</a> — Curated links page (DOJ/DoIT/W3C and tools)
+
+### I'm on executive staff. Where do I start?
+
+**As executive staff, your role is to make accessibility achievable at scale.** You don’t need to be the technical expert; you need to ensure there is clear ownership, adequate resourcing, enforceable process, and consistent reporting through April 2026 and beyond.
+
+**Executive quick checklist (start here):**
+
+1. **Designate an accessibility coordinator** with authority to coordinate across departments and report progress
+2. **Adopt an agency accessibility policy** (WCAG 2.1 Level AA, scope, timelines, enforcement)
+3. **Fund training and tools** (documents, web, video, procurement) and allocate staff time for remediation
+4. **Require accessibility in procurement** (WCAG requirements in contracts; review VPAT/ACR; remediation commitments)
+5. **Establish reporting** (inventory → prioritized backlog → milestones → risks → monthly/quarterly updates)
+
+**What “good” looks like (practical, defensible):**
+
+- **Inventory exists** for public-facing websites, documents/PDFs, forms, videos, social, mobile apps, and third-party tools
+- **Priorities are explicit** (high-traffic + high-stakes services first; complete blockers first)
+- **A remediation plan exists** with milestones through April 24, 2026 (and owners for each track)
+- **Evidence is retained** (audit outputs, remediation logs, training completion, procurement language, vendor correspondence)
+- **Escalation path is clear** for tradeoffs (what gets fixed first when time/budget conflicts arise)
+
+**Key actions you can take this week (high impact):**
+
+- Ask for a **top 10 risks list** (complete blockers, critical services, high-traffic issues)
+- Require a **monthly progress dashboard** (what changed since last month + what’s next)
+- Direct procurement to **standardize accessibility language** and a **review gate** before purchase/renewal
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (April 24, 2024)</a> — Final rule text
+- <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning and Managing Web Accessibility</a> — Program guidance
 
 ### What exactly am I accountable for as a manager (vs. what my team is accountable for)?
 
