@@ -1,6 +1,6 @@
 [build]
   # Ensure Playwright has a Chromium binary available for build-time PDF generation (postgenerate)
-  command = "npx playwright install chromium --with-deps && yarn run generate"
+  command = "npx playwright install chromium && yarn run generate"
   publish = ".output/public"
 
 [build.environment]
