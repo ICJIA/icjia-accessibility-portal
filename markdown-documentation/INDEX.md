@@ -1,7 +1,7 @@
 # Documentation Index
 
 **Last Updated**: January 2026  
-**Total Documents**: 13 (includes accessibility audit script guide)  
+**Total Documents**: 18  
 **Purpose**: Quick reference guide to all project documentation
 
 ---
@@ -52,6 +52,7 @@ Complete technical guide covering:
 
 | Document | Purpose | When to Read |
 |----------|---------|--------------|
+| **[TESTING_METHODOLOGY_GUIDE.md](TESTING_METHODOLOGY_GUIDE.md)** | Reusable testing methodology for Nuxt + Vuetify (unit → component → E2E → a11y → smoke) | Adding features or validating behavior changes |
 | **[../test/E2E_TEST_PLAN.md](../test/E2E_TEST_PLAN.md)** | E2E test implementation plan | Planning or implementing E2E tests |
 
 ### History & Updates (3 files)
@@ -85,6 +86,7 @@ Complete technical guide covering:
 #### Run tests
 👉 **[../test/README.md](../test/README.md)** - Complete test suite documentation  
 👉 **[../test/E2E_TEST_PLAN.md](../test/E2E_TEST_PLAN.md)** - E2E test implementation plan  
+👉 **[TESTING_METHODOLOGY_GUIDE.md](TESTING_METHODOLOGY_GUIDE.md)** - Testing methodology (recommended workflow)  
 👉 Run: `yarn test` (runs all tests and generates reports)
 
 #### Run accessibility audits
@@ -116,13 +118,12 @@ Complete technical guide covering:
 
 | Metric | Count |
 |--------|-------|
-| **Total Documents** | 12 |
+| **Total Documents** | 18 |
 | **Core Docs** | 3 |
-| **Feature/Guide Docs** | 5 |
-| **Testing Docs** | 1 |
+| **Feature/Guide Docs** | 8 |
+| **Testing Docs** | 1 (this folder) |
 | **History/Update Docs** | 3 |
-| **Consolidated From** | 24 files |
-| **Reduction** | 50% |
+| **Plans/Analysis Docs** | 4 |
 
 ---
 

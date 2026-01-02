@@ -17,6 +17,8 @@
               v-model="faqSort"
               class="faq-sort"
               :items="faqSortOptions"
+              item-title="title"
+              item-value="value"
               label="Sort"
               density="compact"
               variant="outlined"
@@ -29,6 +31,9 @@
               page?.description ||
               "Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements."
             }}
+          </p>
+          <p v-if="lastUpdatedLabel" class="text-caption text-medium-emphasis mb-6">
+            <strong>Last updated:</strong> {{ lastUpdatedLabel }}
           </p>
 
           <div v-if="faqSections.length > 0 || introContent">
@@ -84,6 +89,28 @@ import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composable
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs", () => {
   return queryCollection("faqs").first();
+});
+
+function formatIsoDateLong(dateStr: string): string {
+  try {
+    const parts = dateStr.split("-").map(Number);
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return dateStr;
+    const [year, month, day] = parts;
+    const date = new Date(year, month - 1, day);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  } catch {
+    return dateStr;
+  }
+}
+
+const lastUpdatedLabel = computed(() => {
+  const raw = (page.value as any)?.lastUpdated as string | undefined;
+  if (!raw) return "";
+  return formatIsoDateLong(raw);
 });
 
 /** @typedef {any} MiniMarkNode */

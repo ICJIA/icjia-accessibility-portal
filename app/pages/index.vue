@@ -96,6 +96,8 @@
               v-model="faqSort"
               class="faq-sort"
               :items="faqSortOptions"
+              item-title="title"
+              item-value="value"
               label="Sort"
               density="compact"
               variant="outlined"
@@ -122,9 +124,12 @@
                 {{ section.heading }}
               </h2>
 
-              <!-- Executive Summary - appears after first section heading only (original order only) -->
+              <!-- Executive Summary - appears after first section heading (original + latest) -->
               <v-expansion-panels
-                v-if="sectionIndex === 0 && faqSort === 'original'"
+                v-if="
+                  sectionIndex === 0 &&
+                  (faqSort === 'original' || faqSort === 'latest')
+                "
                 class="tldr-panel mb-6"
                 elevation="0"
               >
@@ -162,6 +167,10 @@
                   </v-expansion-panel-title>
                   <v-expansion-panel-text class="tldr-content-panel">
                     <div class="tldr-content">
+                      <p class="tldr-note">
+                        <strong>Last updated:</strong>
+                        {{ formatDate(EXEC_SUMMARY_DATE) }}
+                      </p>
                       <p class="tldr-lead">
                         By April 24, 2026, all public-facing digital content
                         must meet
@@ -337,7 +346,7 @@ const targetDate = new Date("2026-04-24T00:00:00").getTime();
 const siteCreated = "December 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "December 30, 2025";
+const lastUpdated = "January 2, 2026";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =
@@ -554,7 +563,7 @@ const faqSortOptions = [
   { title: "A–Z (question)", value: "alpha" },
 ];
 
-const EXEC_SUMMARY_DATE = "2025-12-30";
+const EXEC_SUMMARY_DATE = "2026-01-02";
 
 function formatDate(dateStr: string): string {
   try {

@@ -65,7 +65,7 @@
  * URL hash support for deep linking, and collapse functionality
  */
 
-import { ref, watch, onMounted, nextTick } from "vue";
+import { ref, watch, onMounted, onUnmounted, nextTick } from "vue";
 
 /** @typedef {any} MiniMarkNode */
 
@@ -215,6 +215,62 @@ function findPanelByHash(hash: string): number {
 }
 
 /**
+ * Opens the panel referenced by a URL hash (if it exists in this accordion)
+ * and scrolls it into view. Safe to call repeatedly.
+ */
+async function openPanelFromHash(hash: string) {
+  if (typeof window === "undefined") return;
+  if (!hash) return;
+
+  const panelIndex = findPanelByHash(hash);
+  if (panelIndex < 0) return;
+
+  // This is a user-initiated navigation, not a shared-state sync
+  isSyncingFromShared = false;
+  expandedPanels.value = panelIndex;
+  setOpenAccordion(accordionId, panelIndex);
+
+  // Wait for DOM update then scroll
+  await nextTick();
+  setTimeout(() => {
+    // Try to find the element by the hash ID (might have section prefix)
+    const hashId = hash.replace("#", "");
+    let element = document.getElementById(hashId);
+
+    // If not found, search for panels with IDs that end with the hash ID
+    if (!element) {
+      const allPanels = document.querySelectorAll<HTMLElement>(".faq-panel[id]");
+      for (const panel of allPanels) {
+        const panelId = panel.id;
+        if (panelId === hashId || panelId.endsWith(`-${hashId}`)) {
+          element = panel;
+          break;
+        }
+      }
+    }
+
+    if (element) {
+      // Get navbar height to offset scroll position
+      const navbar = document.querySelector("header");
+      const navbarHeight = navbar ? navbar.offsetHeight : 64;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight - 16;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      // Update hash to the actual ID (with section prefix) if different
+      const actualId = element.id;
+      if (actualId !== hashId && window.history.state) {
+        window.history.replaceState(window.history.state, "", `#${actualId}`);
+      }
+    }
+  }, 100);
+}
+
+/**
  * Scrolls element to top of viewport (below navbar)
  * @param {string} elementId - Element ID to scroll to
  * @returns {void}
@@ -267,61 +323,13 @@ watch(expandedPanels, async (newValue, oldValue) => {
 onMounted(async () => {
   if (typeof window === "undefined") return;
 
-  const hash = window.location.hash;
-  if (hash) {
-    const panelIndex = findPanelByHash(hash);
-    if (panelIndex >= 0) {
-      // Open the panel and update shared state
-      isSyncingFromShared = false; // This is a user-initiated action, not from shared state
-      expandedPanels.value = panelIndex;
-      setOpenAccordion(accordionId, panelIndex);
+  // Initial deep link (direct load)
+  await openPanelFromHash(window.location.hash);
 
-      // Wait for DOM update then scroll
-      await nextTick();
-      setTimeout(() => {
-        // Try to find the element by the hash ID (might have section prefix)
-        const hashId = hash.replace("#", "");
-        let element = document.getElementById(hashId);
-
-        // If not found, search for panels with IDs that end with the hash ID
-        if (!element) {
-          const allPanels =
-            document.querySelectorAll<HTMLElement>(".faq-panel[id]");
-          for (const panel of allPanels) {
-            const panelId = panel.id;
-            if (panelId === hashId || panelId.endsWith(`-${hashId}`)) {
-              element = panel;
-              break;
-            }
-          }
-        }
-
-        if (element) {
-          // Get navbar height to offset scroll position
-          const navbar = document.querySelector("header");
-          const navbarHeight = navbar ? navbar.offsetHeight : 64;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition =
-            elementPosition + window.scrollY - navbarHeight - 16;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
-
-          // Update hash to the actual ID (with section prefix) if different
-          const actualId = element.id;
-          if (actualId !== hashId && window.history.state) {
-            window.history.replaceState(
-              window.history.state,
-              "",
-              `#${actualId}`
-            );
-          }
-        }
-      }, 100);
-    }
-  }
+  // Also support in-page navigation (clicking internal hash links)
+  const onHashChange = () => openPanelFromHash(window.location.hash);
+  window.addEventListener("hashchange", onHashChange);
+  onUnmounted(() => window.removeEventListener("hashchange", onHashChange));
 });
 
 /**
