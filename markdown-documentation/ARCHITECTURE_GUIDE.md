@@ -167,6 +167,7 @@ app/layouts/
 │   ├── composables/            # Vue composables (reusable logic)
 │   │   ├── useDeadlineCountdown.ts
 │   │   ├── useFaqCollapse.ts
+│   │   ├── usePrintLinks.ts
 │   │   ├── useSeo.ts
 │   │   ├── useSlugify.ts
 │   │   └── useStructuredData.ts
@@ -177,13 +178,16 @@ app/layouts/
 │   │   ├── index.vue           # Home page (FAQs)
 │   │   ├── faqs.vue            # Dedicated FAQs page
 │   │   ├── faqs-print.vue      # Printer-friendly FAQs
-│   │   └── links.vue           # Resources page
+│   │   ├── links.vue           # Resources page
+│   │   └── search.vue          # Fuzzy search page (Fuse.js)
 │   ├── plugins/                # Nuxt plugins
 │   │   ├── content-links.client.ts
 │   │   ├── ensure-accessibility-report.server.ts
 │   │   ├── optimize-css.client.ts
 │   │   ├── optimize-fonts.client.ts
-│   │   └── resource-hints.server.ts
+│   │   ├── resource-hints.server.ts
+│   │   ├── suppress-vuetify-logs.client.ts
+│   │   └── suppress-vuetify-logs.server.ts
 │   ├── utils/                  # Utility functions
 │   │   └── faqTransform.ts     # FAQ parsing and transformation
 │   ├── app.vue                 # Root app component
@@ -193,21 +197,46 @@ app/layouts/
 │   └── links.md                # Resource links
 ├── public/                      # Static assets
 │   ├── docs/                   # Generated documentation
+│   │   ├── accessibility/     # Accessibility audit reports
+│   │   ├── architecture/      # Architecture documentation
+│   │   └── tests/             # Test reports (HTML)
+│   ├── .well-known/           # Chrome DevTools config
 │   ├── favicon.svg             # Site icon
 │   ├── icjia-logo-*.png        # Logo images
 │   ├── robots.txt              # Search engine directives
 │   └── sitemap.xml             # Auto-generated sitemap
 ├── scripts/                     # Build and utility scripts
 │   ├── ensure-accessibility-report.js
+│   ├── generate-architecture-docs.js
+│   ├── generate-faq-pdf.js
 │   ├── generate-routes.js
 │   └── generate-sitemap.js
+├── test/                        # Test suites
+│   ├── unit/                   # Unit tests (pure functions)
+│   │   ├── faqTransform.test.ts
+│   │   ├── searchConfig.test.ts
+│   │   └── useSlugify.test.ts
+│   ├── nuxt/                   # Nuxt environment tests
+│   │   ├── FaqAccordion.test.ts
+│   │   ├── search.test.ts
+│   │   ├── useDeadlineCountdown.test.ts
+│   │   ├── useFaqCollapse.test.ts
+│   │   ├── usePrintLinks.test.ts
+│   │   ├── useSeo.test.ts
+│   │   └── useStructuredData.test.ts
+│   ├── e2e/                    # End-to-end tests (disabled)
+│   ├── run-all-tests.js        # Comprehensive test runner
+│   └── README.md               # Test documentation
 ├── markdown-documentation/      # Project documentation
 │   ├── ARCHITECTURE_GUIDE.md   # This file
-│   ├── PRINTER_FRIENDLY_FAQ.md
+│   ├── ACCESSIBILITY_GUIDE.md
+│   ├── PRINTER_FRIENDLY_GUIDE.md
 │   └── [other docs]
 ├── audit-accessibility.js       # Custom axe-core audit script
 ├── nuxt.config.ts              # Nuxt configuration
 ├── content.config.ts           # Nuxt Content configuration
+├── search.config.json          # Fuse.js search configuration
+├── vitest.config.ts            # Vitest test configuration
 ├── tsconfig.json               # TypeScript configuration
 └── package.json                # Dependencies and scripts
 ```

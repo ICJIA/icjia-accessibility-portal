@@ -1,6 +1,6 @@
 # SEO Guide
 
-**Last Updated**: January 1, 2026
+**Last Updated**: January 3, 2026
 
 ---
 
@@ -41,6 +41,7 @@
 - `/faqs` (priority: 0.8)
 - `/faqs-print` (priority: 0.8)
 - `/links` (priority: 0.8)
+- `/search` (priority: 0.8)
 
 **Excludes**: `/docs/*` routes
 

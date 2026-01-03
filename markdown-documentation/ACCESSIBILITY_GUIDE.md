@@ -1,6 +1,6 @@
 # Accessibility Guide
 
-**Last Updated**: January 1, 2026  
+**Last Updated**: January 3, 2026  
 **Status**: 100% WCAG 2.1 AA Compliant ✅
 
 ---
@@ -19,11 +19,11 @@
 
 **Status**: ✅ **ALL PAGES PASSING** - Zero Violations
 
-- **Total Pages Tested**: 4
+- **Total Pages Tested**: 5
 - **WCAG 2.1 AA Violations**: 0
 - **Accessibility Score**: 100%
-- **Skip Links Found**: 12/12 (100%)
-- **Skip Links Working**: 12/12 (100%)
+- **Skip Links Found**: 15/15 (100%)
+- **Skip Links Working**: 15/15 (100%)
 - **Last Audited**: January 2026
 
 ### Pages Tested
@@ -34,6 +34,7 @@
 | FAQs | `/faqs` | 0 | ✅ Working | ✅ PASS |
 | Print FAQs | `/faqs-print` | 0 | ✅ Working | ✅ PASS |
 | Links | `/links` | 0 | ✅ Working | ✅ PASS |
+| Search | `/search` | 0 | ✅ Working | ✅ PASS |
 
 ### Viewports Tested
 
@@ -98,7 +99,7 @@ All pages include a skip link that allows keyboard users to jump directly to mai
 
 ### Verification Results
 
-**Audit Test Results** (12/12 pages × viewports):
+**Audit Test Results** (15/15 pages × viewports):
 
 | Page | Desktop | Tablet | Mobile | Status |
 |------|---------|--------|--------|--------|
@@ -106,6 +107,7 @@ All pages include a skip link that allows keyboard users to jump directly to mai
 | `/faqs` | ✅ | ✅ | ✅ | PASS |
 | `/faqs-print` | ✅ | ✅ | ✅ | PASS |
 | `/links` | ✅ | ✅ | ✅ | PASS |
+| `/search` | ✅ | ✅ | ✅ | PASS |
 
 **Checks Performed**:
 1. ✅ Skip link exists on page
