@@ -17,7 +17,9 @@ A practical guide to common accessibility questions for staff at Illinois state 
 >
 > **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It’s not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency’s legal/compliance leadership.
 
-## Executive Summary (Start here)
+## Quick Start (Read this first)
+
+### Executive summary: what you need to know right now
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
@@ -87,127 +89,6 @@ _Last updated: January 2, 2026_
 
 **Start here:** [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
-### For Agency Leadership (Executive Staff)
-
-**What accessibility means for you:** You own the agency's accessibility strategy and compliance. You set policy, allocate budget, designate coordinators, and ensure accountability. After April 2026, if the agency faces DOJ complaints, you'll be responsible for demonstrating good-faith compliance efforts. Your leadership decisions determine how accessibility is prioritized within the agency.
-
-| Action                                    | Impact                  |
-| ----------------------------------------- | ----------------------- |
-| 1. Designate an accessibility coordinator | Someone must own this   |
-| 2. Adopt an agency accessibility policy   | Set clear expectations  |
-| 3. Budget for training and tools          | Enable compliance       |
-| 4. Require accessibility in procurement   | Prevent vendor barriers |
-| 5. Track compliance agency-wide           | Know your risk exposure |
-
-**Start here:** [I'm on executive staff. Where do I start?](#getting-started-i-m-on-executive-staff-where-do-i-start)
-
-### For Agency Legal (Office of General Counsel)
-
-{new:2026-01-02}
-
-**What accessibility means for you:** If this is your first deep dive into the ADA Title II web rule and IITAA, you’re not alone — the material is detailed and the requirements are extensive. Your role is to help the agency translate requirements into **clear governance**: scope, risk posture, complaint handling, vendor terms, and documentation that demonstrates good-faith progress.
-
-| Action                                          | Impact                                 |
-| ----------------------------------------------- | -------------------------------------- |
-| 1. Read the DOJ summary + final rule            | Ground the work in primary authority   |
-| 2. Define scope + “what counts” with leadership | Prevent misunderstandings and drift    |
-| 3. Align on complaint / intake process          | Reduce risk and speed response         |
-| 4. Ensure procurement language supports WCAG    | Avoid buying new barriers              |
-| 5. Require documentation and retention          | Make progress provable and sustainable |
-
-**If you're new to this rule, read these in order (20–30 minutes total):**
-
-1. **DOJ plain-language summary** (start here): <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: DOJ summary of the ADA Title II web accessibility rule</a>
-2. **Final rule (primary legal text)**: <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a>
-3. **DOJ hub page (overview + links)**: <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: ADA Title II Web Rule</a>
-
-**What each action means (with links):**
-
-- **1) Read the DOJ summary + final rule**
-  - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ summary (plain language)</a>
-  - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule (Federal Register)</a>
-  - <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">DOJ hub page (overview + links)</a>
-  - <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1 (full spec)</a> | <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>
-
-- **2) Define scope + “what counts” with leadership**
-  - Internal: [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover)
-  - Internal: [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover) (use this to pin down **public-facing** scope)
-  - External: <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ summary section on “What Web Content and Mobile Apps Are Covered”</a>
-  - Illinois overlay: <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA Requirements</a>
-
-- **3) Align on complaint / intake process**
-  - Internal: [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints)
-  - External: <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File an ADA complaint</a>
-
-- **4) Ensure procurement language supports WCAG**
-  - External: <a href="https://www.section508.gov/buy/" target="_blank" rel="noopener noreferrer">Section508.gov: Buy (procurement guidance)</a>
-  - Internal: [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services)
-  - Internal: [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
-
-- **5) Require documentation and retention (make progress provable)**
-  - Internal: [How can I track and demonstrate “good-faith progress” toward compliance?](#common-concerns-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
-  - Internal: [Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?](#website-accessibility-do-we-need-an-independent-external-accessibility-audit-to-prove-compliance-when-is-it-worth-it)
-  - External: <a href="https://www.section508.gov/buy/" target="_blank" rel="noopener noreferrer">Section508.gov: Buy (documenting vendor accessibility)</a>
-
-**Start here (high-signal questions):**
-
-- [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover)
-- [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026)
-- [How can I track and demonstrate “good-faith progress” toward compliance?](#common-concerns-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
-
-**References (primary/authoritative):**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: DOJ plain-language summary (March 8, 2024)</a>
-- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: ADA Title II Web Rule</a>
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a>
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA Requirements</a>
-- <a href="https://www.section508.gov/buy/" target="_blank" rel="noopener noreferrer">Section508.gov: Buy (procurement guidance)</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C: WCAG 2.1 Quick Reference</a>
-
----
-
-**April 24, 2026 deadline is firm.** Start now — every small improvement counts.
-
----
-
-### I work in fiscal. What does this have to do with me?
-
-{new:2026-01-02}
-
-**Quick answer:** Fiscal is where accessibility becomes **funded, procured, and enforceable**. If the agency must meet **WCAG 2.1 Level AA** by April 24, 2026, fiscal decisions determine whether we can (a) pay for remediation and training, (b) avoid buying new barriers, and (c) document due diligence (contracts, VPATs/ACRs, and proof of progress).
-
-**What accessibility means for fiscal (plain language):**
-
-- **Budget**: Accessibility work is real work (time, training, tools, vendor remediation). If it isn’t budgeted, it won’t happen at scale.
-- **Procurement / contracts**: Fiscal helps ensure we **don’t purchase inaccessible software/services** (and that vendors commit to fixing issues).
-- **Third‑party risk**: Many accessibility failures come from **vendor platforms** (forms, dashboards, LMS, e‑signature, etc.). Contract terms and acceptance criteria matter.
-- **Documentation**: Fiscal artifacts (procurement files, vendor attestations, change orders, invoices) are part of showing **good‑faith progress** if questioned later.
-
-**What you can do this week (high impact):**
-
-| Action | Why it matters |
-| --- | --- |
-| 1. Add accessibility requirements to purchasing checklists | Prevents buying new barriers |
-| 2. Require vendor accessibility documentation (VPAT/ACR) and remediation commitments | Makes obligations enforceable |
-| 3. Identify high‑risk vendor platforms in scope (public‑facing) | Targets the biggest compliance risk |
-| 4. Budget for remediation + training (internal + vendor) | Enables actual delivery |
-| 5. Align on documentation/retention for “good‑faith progress” | Makes progress provable |
-
-**Start here (high‑signal internal links):**
-
-- [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services)
-- [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)
-- [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
-- [What does the April 2026 deadline cover?](#getting-oriented-what-does-the-april-2026-deadline-cover)
-- [How can I track and demonstrate “good-faith progress” toward compliance?](#common-concerns-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
-
-**References (authoritative):**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: DOJ summary of the ADA Title II web accessibility rule</a>
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a>
-- <a href="https://www.section508.gov/buy/" target="_blank" rel="noopener noreferrer">Section508.gov: Buy (procurement guidance)</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">W3C: WCAG 2.1 Quick Reference</a>
-
 ## Understanding Accessibility
 
 ### What is digital accessibility?
@@ -218,49 +99,29 @@ _Last updated: January 2, 2026_
 
 Digital accessibility means that websites, applications, documents, and other digital content are designed so that people with disabilities can use them. This includes people with visual, auditory, motor, cognitive, and neurological disabilities who may use assistive technologies like screen readers, screen magnifiers, voice recognition software, or alternative keyboards.
 
-### What other benefits does creating accessible websites and content provide? Does accessibility increase SEO?
+### What are additional benefits of accessible digital content (beyond compliance)?
 
 {new:2026-01-01}
 
-**Quick answer:** Yes. Accessible websites rank higher in search results. Accessible documents are searchable and machine-readable. Accessible social media reaches more people. Beyond compliance, accessibility improves discoverability, usability, and reach across all content types.
+**Quick answer:** Accessible digital content is easier to **find**, **use**, and **reuse**. For websites, accessibility supports SEO and usability. For documents and media, it improves searchability, readability, and long-term maintainability.
 
 **Full explanation:**
 
-Accessible content — whether websites, documents, social media, or videos — provides measurable benefits beyond legal compliance.
+Accessible content — websites, documents, PDFs, and videos — provides measurable benefits beyond legal compliance.
 
-**Website Benefits (SEO & Performance):**
+**Websites:**
 
-- **Higher search rankings** — Semantic HTML, proper headings, and descriptive links help search engines understand and rank your content.
-- **Better discoverability** — Alt text makes images searchable. Captions and transcripts make videos indexable.
-- **Faster performance** — Clean code and optimized media improve page speed (a key ranking factor).
-- **Lower bounce rates** — Easier navigation keeps visitors engaged longer.
-- **Mobile advantage** — Accessible design patterns align with Google's mobile-first indexing.
+- **SEO + discoverability** — Clear headings, meaningful links, and text alternatives help search engines understand pages.
+- **Usability** — Better keyboard support and structure reduces user friction for everyone, not just assistive tech users.
+- **Maintainability** — Cleaner structure makes sites easier to update without breaking navigation or meaning.
 
-**Document Benefits (PDFs, Word, PowerPoint, Excel):**
+**Documents + media (PDFs, Word, slides, video):**
 
-- **Searchable content** — Structured documents with headings and alt text appear in web searches.
-- **Text extraction** — Accessible PDFs can be copied and reused. Scanned PDFs lock content as images.
-- **Better navigation** — Headings create automatic tables of contents for long documents.
-- **Machine-readable** — Works with AI tools, translation services, and automated workflows.
-- **Professional quality** — Well-structured documents reflect attention to detail.
+- **Searchable and reusable** — Proper structure makes content searchable, copyable, and easier to repurpose.
+- **Faster review** — Headings and consistent structure make long content easier to scan and navigate.
+- **Operational resilience** — Accessible files work better across devices, tools, and workflows (including assistive tech).
 
-**Social Media Benefits:**
-
-- **Increased engagement** — Alt text ensures posts work when images don't load (slow connections, data-saving mode).
-- **Significantly more video views** — Captions help people watching in sound-off environments (offices, public transit, libraries). Studies show captions can increase video engagement by 40% or more.
-- **Broader sharing** — Accessible content is easier to quote and reference.
-- **Algorithm boost** — Platforms increasingly prioritize accessible content.
-
-**Universal Benefits (All Content):**
-
-- **Broader reach** — Works for people with permanent disabilities, temporary limitations (broken arm, bright sun on screen), situational constraints (noisy/quiet environments), and age-related changes.
-- **Better for everyone** — Clear structure, descriptive text, and good contrast improve usability for all users.
-- **Future-proof** — Works better with voice assistants, AI tools, and translation services.
-- **Cost savings** — Building accessibility in costs far less than fixing it later (3-5x cheaper).
-- **Reduced legal risk** — WCAG 2.1 Level AA compliance reduces ADA complaints.
-- **Better reputation** — Shows your agency values all residents.
-
-**Key takeaway:** Accessibility isn't compliance vs. performance — it's both. The same practices that help screen reader users (clear structure, descriptive text, logical organization) also help search engines, AI tools, and everyone else find and understand your content.
+**Key takeaway:** Accessibility is not “extra polish.” It improves quality and efficiency across web and content work — while also supporting compliance.
 
 **References:**
 
