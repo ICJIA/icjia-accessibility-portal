@@ -47,3 +47,6 @@ lerna-debug.log*
 dist
 *.log
 
+# Generated documentation temp files
+docs-temp
+

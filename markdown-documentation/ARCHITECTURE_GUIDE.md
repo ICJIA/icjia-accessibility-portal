@@ -209,6 +209,7 @@ app/layouts/
 │   └── sitemap.xml             # Auto-generated sitemap
 ├── scripts/                     # Build and utility scripts
 │   ├── ensure-accessibility-report.js
+│   ├── extract-vue-scripts.js   # Vue SFC script extractor for TypeDoc
 │   ├── generate-architecture-docs.js
 │   ├── generate-faq-pdf.js
 │   ├── generate-routes.js
@@ -239,8 +240,9 @@ app/layouts/
 ├── content.config.ts           # Nuxt Content configuration
 ├── search.config.json          # Fuse.js search configuration
 ├── typedoc.json                # TypeDoc/JSDoc configuration
+├── tsconfig.typedoc.json       # TypeScript config for TypeDoc (separate from Nuxt)
 ├── vitest.config.ts            # Vitest test configuration
-├── tsconfig.json               # TypeScript configuration
+├── tsconfig.json               # TypeScript configuration (extends Nuxt)
 └── package.json                # Dependencies and scripts
 ```
 
@@ -2291,10 +2293,13 @@ All composables, utilities, and plugins include detailed JSDoc comments that are
 
 ```json
 {
+  "tsconfig": "./tsconfig.typedoc.json",
   "entryPoints": [
     "app/composables/*.ts",
     "app/utils/*.ts",
-    "app/plugins/*.ts"
+    "app/plugins/*.ts",
+    "docs-temp/components/*.ts",
+    "docs-temp/pages/*.ts"
   ],
   "out": "public/docs/jsdoc",
   "name": "ICJIA Accessibility Portal - API Documentation",
@@ -2302,10 +2307,19 @@ All composables, utilities, and plugins include detailed JSDoc comments that are
 }
 ```
 
+### Vue SFC Script Extraction
+
+Since TypeDoc doesn't natively support Vue Single File Components, a custom extraction script (`scripts/extract-vue-scripts.js`) processes all Vue files:
+
+1. Extracts `<script setup>` content from `.vue` files
+2. Preserves JSDoc comments
+3. Creates clean TypeScript files in `docs-temp/`
+4. TypeDoc processes these extracted files
+
 ### Generation
 
 ```bash
-# Generate API documentation
+# Generate API documentation (includes Vue script extraction)
 yarn generate:jsdoc
 
 # Also runs automatically during static site generation
@@ -2319,6 +2333,8 @@ yarn generate
 | **Composables** | 6 | `useDeadlineCountdown`, `useFaqCollapse`, `usePrintLinks`, `useSeo`, `useSlugify`, `useStructuredData` |
 | **Utilities** | 1 | `faqTransform.ts` with 15+ functions |
 | **Plugins** | 7 | Client and server plugins |
+| **Vue Components** | 5 | `AppFooter`, `AppNavbar`, `CountdownTimer`, `FaqAccordion`, `SkipLink` |
+| **Vue Pages** | 5 | `index`, `faqs`, `faqs-print`, `links`, `search` |
 
 ### Output Location
 

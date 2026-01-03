@@ -150,6 +150,8 @@ https://github.com/ICJIA/icjia-accessibility-portal/blob/main/[file-path]
 - ✅ **Composables Documentation**: All 6 composables fully documented
 - ✅ **Utilities Documentation**: `faqTransform.ts` with all functions and types
 - ✅ **Plugins Documentation**: All 7 client/server plugins documented
+- ✅ **Vue Components**: All 5 components with extracted JSDoc
+- ✅ **Vue Pages**: All 5 pages with extracted JSDoc
 - ✅ **Interface Definitions**: TypeScript interfaces for all data types
 - ✅ **Source Links**: Direct links to GitHub source files
 - ✅ **Searchable**: Full-text search across all documentation
@@ -157,6 +159,7 @@ https://github.com/ICJIA/icjia-accessibility-portal/blob/main/[file-path]
 **Technical Details**:
 
 - Generator: TypeDoc 0.28+
+- Vue Script Extractor: Custom script to extract `<script setup>` from Vue SFCs
 - Configuration: [`typedoc.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/typedoc.json)
 - Output: `public/docs/jsdoc/`
 - Command: `yarn generate:jsdoc`
@@ -166,6 +169,8 @@ https://github.com/ICJIA/icjia-accessibility-portal/blob/main/[file-path]
 - 6 composables with full JSDoc
 - 1 utility file with 15+ functions
 - 7 plugins with module documentation
+- 5 Vue components with extracted documentation
+- 5 Vue pages with extracted documentation
 - 5+ interfaces and type definitions
 
 **Documentation**: [Documentation Portal - API Docs](https://accessibility.icjia.app/docs/jsdoc/)

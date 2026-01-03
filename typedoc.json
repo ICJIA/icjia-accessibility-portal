@@ -1,9 +1,13 @@
 {
   "$schema": "https://typedoc.org/schema.json",
+  "tsconfig": "./tsconfig.typedoc.json",
   "entryPoints": [
     "app/composables/*.ts",
     "app/utils/*.ts",
-    "app/plugins/*.ts"
+    "app/plugins/*.ts",
+    "docs-temp/components/*.ts",
+    "docs-temp/pages/*.ts",
+    "docs-temp/layouts/*.ts"
   ],
   "entryPointStrategy": "expand",
   "out": "public/docs/jsdoc",
@@ -21,6 +25,9 @@
     "Composables",
     "Utilities",
     "Plugins",
+    "Components",
+    "Pages",
+    "Layouts",
     "*"
   ],
   "navigation": {
