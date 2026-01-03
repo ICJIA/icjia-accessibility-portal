@@ -1,0 +1,41 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "app/composables/*.ts",
+    "app/utils/*.ts",
+    "app/plugins/*.ts"
+  ],
+  "entryPointStrategy": "expand",
+  "out": "public/docs/jsdoc",
+  "name": "ICJIA Accessibility Portal - API Documentation",
+  "readme": "none",
+  "includeVersion": false,
+  "excludePrivate": false,
+  "excludeProtected": false,
+  "excludeInternal": false,
+  "excludeExternals": true,
+  "hideGenerator": true,
+  "searchInComments": true,
+  "sort": ["source-order"],
+  "categoryOrder": [
+    "Composables",
+    "Utilities",
+    "Plugins",
+    "*"
+  ],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  },
+  "theme": "default",
+  "basePath": ".",
+  "sourceLinkTemplate": "https://github.com/ICJIA/icjia-accessibility-portal/blob/main/{path}#L{line}",
+  "skipErrorChecking": true,
+  "exclude": [
+    "**/test/**",
+    "**/node_modules/**",
+    "**/*.test.ts",
+    "**/*.spec.ts"
+  ]
+}
+

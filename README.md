@@ -79,6 +79,8 @@ yarn generate:serve
 - **Yarn** - Fast, reliable package manager
 - **Playwright** - End-to-end testing and browser automation
 - **axe-core** - Accessibility testing engine (WCAG 2.1 AA compliance)
+- **TypeDoc** - API documentation generator from JSDoc comments
+- **Vitest** - Unit and integration testing framework
 
 ### Analytics
 
@@ -715,6 +717,11 @@ Reports include:
 
 ### Recent Updates (January 2026)
 
+- **NEW**: JSDoc/TypeDoc API documentation (`/docs/jsdoc/`)
+  - Comprehensive documentation for all composables, utilities, and plugins
+  - Type definitions and interfaces
+  - Source links to GitHub
+  - Generated automatically during static site build
 - **NEW**: Fuzzy search functionality (`/search`) with Fuse.js
   - Relevance-ranked results (best matches first)
   - Match highlighting in questions and answers

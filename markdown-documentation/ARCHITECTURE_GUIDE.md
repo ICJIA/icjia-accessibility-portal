@@ -23,8 +23,9 @@
 9. [Best Practices & Patterns](#best-practices--patterns)
 10. [Testing & Validation](#testing--validation)
 11. [Search Functionality](#search-functionality) ⭐ **NEW**
-12. [Future Considerations](#future-considerations)
-13. [Replicating Vuetify 3 + Nuxt 4 Applications](#replicating-vuetify-3--nuxt-4-applications)
+12. [API Documentation (JSDoc)](#api-documentation-jsdoc) ⭐ **NEW**
+13. [Future Considerations](#future-considerations)
+14. [Replicating Vuetify 3 + Nuxt 4 Applications](#replicating-vuetify-3--nuxt-4-applications)
 
 ---
 
@@ -199,6 +200,7 @@ app/layouts/
 │   ├── docs/                   # Generated documentation
 │   │   ├── accessibility/     # Accessibility audit reports
 │   │   ├── architecture/      # Architecture documentation
+│   │   ├── jsdoc/             # API documentation (TypeDoc)
 │   │   └── tests/             # Test reports (HTML)
 │   ├── .well-known/           # Chrome DevTools config
 │   ├── favicon.svg             # Site icon
@@ -236,6 +238,7 @@ app/layouts/
 ├── nuxt.config.ts              # Nuxt configuration
 ├── content.config.ts           # Nuxt Content configuration
 ├── search.config.json          # Fuse.js search configuration
+├── typedoc.json                # TypeDoc/JSDoc configuration
 ├── vitest.config.ts            # Vitest test configuration
 ├── tsconfig.json               # TypeScript configuration
 └── package.json                # Dependencies and scripts
@@ -2271,6 +2274,83 @@ The search page maintains full WCAG 2.1 AA compliance:
 - **Screen Reader Support** - Proper ARIA labels and live regions
 - **Focus Management** - Results are focusable with clear indicators
 - **Color Independence** - Relevance indicated by text labels, not just colors
+
+---
+
+## API Documentation (JSDoc)
+
+Comprehensive API documentation is generated from JSDoc comments using TypeDoc.
+
+### Overview
+
+All composables, utilities, and plugins include detailed JSDoc comments that are compiled into a browsable HTML documentation site.
+
+### Configuration
+
+**File**: [`typedoc.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/typedoc.json)
+
+```json
+{
+  "entryPoints": [
+    "app/composables/*.ts",
+    "app/utils/*.ts",
+    "app/plugins/*.ts"
+  ],
+  "out": "public/docs/jsdoc",
+  "name": "ICJIA Accessibility Portal - API Documentation",
+  "sourceLinkTemplate": "https://github.com/ICJIA/icjia-accessibility-portal/blob/main/{path}#L{line}"
+}
+```
+
+### Generation
+
+```bash
+# Generate API documentation
+yarn generate:jsdoc
+
+# Also runs automatically during static site generation
+yarn generate
+```
+
+### Documentation Coverage
+
+| Category | Files | Description |
+|----------|-------|-------------|
+| **Composables** | 6 | `useDeadlineCountdown`, `useFaqCollapse`, `usePrintLinks`, `useSeo`, `useSlugify`, `useStructuredData` |
+| **Utilities** | 1 | `faqTransform.ts` with 15+ functions |
+| **Plugins** | 7 | Client and server plugins |
+
+### Output Location
+
+- **Directory**: `public/docs/jsdoc/`
+- **URL**: `/docs/jsdoc/`
+- **Portal Link**: Added to documentation portal (`/docs/`)
+
+### JSDoc Best Practices Used
+
+```typescript
+/**
+ * @fileoverview Module description at top of file
+ * @description Detailed description of the module's purpose
+ * @module moduleName
+ */
+
+/**
+ * Function description explaining what it does.
+ *
+ * @param {string} paramName - Description of the parameter
+ * @returns {ReturnType} Description of return value
+ *
+ * @example
+ * ```ts
+ * const result = functionName('value')
+ * // Returns: expected result
+ * ```
+ */
+export function functionName(paramName: string): ReturnType {
+  // implementation
+}
+```
 
 ---
 
