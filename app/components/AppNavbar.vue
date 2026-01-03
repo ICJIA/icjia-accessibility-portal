@@ -33,6 +33,8 @@
           :key="item.to"
           :href="item.to"
           :download="(item as any).download || undefined"
+          :target="(item as any).target || undefined"
+          :rel="(item as any).rel || undefined"
           variant="text"
           class="nav-btn"
           :prepend-icon="item.icon"
@@ -68,6 +70,8 @@
             :key="item.to"
             :href="item.to"
             :download="(item as any).download || undefined"
+            :target="(item as any).target || undefined"
+            :rel="(item as any).rel || undefined"
             :prepend-icon="item.icon"
             :aria-current="route.path === item.to ? 'page' : undefined"
           >
@@ -133,7 +137,13 @@ const menuOpen = ref(false);
  */
 const navItems = [
   { title: "Home", to: "/", icon: "mdi-home" },
-  { title: "Print", to: "/faqs-print", icon: "mdi-printer" },
+  { 
+    title: "Print", 
+    to: "/faqs-print", 
+    icon: "mdi-printer",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  },
   {
     title: "Download",
     to: "/faqs.pdf",

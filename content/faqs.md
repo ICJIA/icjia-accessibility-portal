@@ -12,7 +12,6 @@ A practical guide to common accessibility questions for staff at Illinois state 
 >
 > - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
 > - **Jump to your role:** [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) · [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) · [Managers](#getting-started-i-m-a-manager-where-do-i-start) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
-> - **Prefer offline reading?** [Printer-friendly FAQs](/faqs-print) · [Download FAQs PDF](/faqs.pdf)
 > - **Need a real person?** Start with your web team / accessibility coordinator; for IITAA + ADA Title II questions contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
 >
 > **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It’s not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency’s legal/compliance leadership.
@@ -37,7 +36,6 @@ _Last updated: January 2, 2026_
 
 - Use the Quick Reference checklists below to start with high-impact actions for your role
 - Use this FAQ like a reference — search for what you need when you need it
-- Prefer offline reading? Use: [Printer-friendly FAQs](/faqs-print) | [Download FAQs PDF](/faqs.pdf)
 
 **Key takeaway:** Accessibility means people with disabilities can use your content. The work is manageable if you start now and focus on practical, high-impact actions.
 
@@ -160,8 +158,6 @@ Accessibility requirements apply differently depending on whether you're a conte
 **Questions are welcome, and there are many ways to learn.** If your learning style is conversation, coaching, or hands-on practice (not reading dense text), that’s valid — and you can still make progress quickly. This FAQ exists to *simplify* and centralize the requirements (ADA Title II + IITAA + WCAG 2.1 AA) so you don’t have to interpret the legal and technical source documents alone.
 
 **Pragmatic reality (said kindly):** We can absolutely support different learning styles — but the compliance timeline stays the same. The April 24, 2026 compliance deadline still applies — so the goal is to get you to the right person fast and start making changes while you learn.
-
-**Offline reading is also available:** This site includes a printer-friendly version of all FAQs and a downloadable PDF, so you can print or review everything offline if that’s easier for you. See: [Printer-friendly FAQs](/faqs-print) | [Download FAQs PDF](/faqs.pdf)
 
 **Who to contact for what:**
 
