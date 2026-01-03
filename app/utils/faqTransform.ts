@@ -457,15 +457,7 @@ export function wrapTablesForResponsiveScroll(
           role: "region",
           "aria-label": "Scrollable table",
         },
-        [
-          "div",
-          {
-            class: "table-scroll-hint",
-            "aria-hidden": "true",
-          },
-          "Scroll horizontally to see more →",
-        ],
-        tableNode,
+tableNode,
       ] as unknown as MarkdownElementNode;
     }
 
