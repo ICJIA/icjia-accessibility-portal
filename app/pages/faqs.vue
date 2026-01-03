@@ -24,6 +24,7 @@
               variant="outlined"
               hide-details
               aria-label="Sort Frequently Asked Questions"
+              style="font-size: 0.813rem"
             />
           </div>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
@@ -415,8 +416,28 @@ useBreadcrumbStructuredData([
 }
 
 .faq-sort {
-  min-width: 220px;
-  max-width: 320px;
+  min-width: 180px;
+  max-width: 280px;
+}
+
+/* Target all text inside the select with !important */
+.faq-sort :deep(.v-field) {
+  font-size: 0.813rem !important;
+}
+
+.faq-sort :deep(.v-field__input),
+.faq-sort :deep(.v-field__field),
+.faq-sort :deep(.v-select__selection),
+.faq-sort :deep(.v-select__selection-text),
+.faq-sort :deep(input),
+.faq-sort :deep(label),
+.faq-sort :deep(.v-field-label) {
+  font-size: 0.813rem !important;
+}
+
+/* Also make the dropdown menu items smaller */
+.faq-sort :deep(.v-list-item-title) {
+  font-size: 0.813rem !important;
 }
 
 /* Intro content styling */
@@ -493,5 +514,32 @@ useBreadcrumbStructuredData([
     font-size: 1.1rem;
     padding: 0.5rem 0.75rem;
   }
+}
+</style>
+
+<!-- Global styles to override Vuetify v-select internals -->
+<style>
+.faq-sort.v-select .v-field__input,
+.faq-sort.v-select .v-select__selection-text,
+.faq-sort.v-select .v-field-label,
+.faq-sort .v-field__input,
+.faq-sort .v-select__selection-text,
+.faq-sort .v-field-label {
+  font-size: 0.8125rem !important;
+}
+
+/* Reduce the overall height and padding of the select */
+.faq-sort .v-field {
+  min-height: 36px !important;
+}
+
+.faq-sort .v-field__input {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  min-height: 36px !important;
+}
+
+.faq-sort .v-field__outline {
+  --v-field-border-opacity: 0.3;
 }
 </style>
