@@ -1,6 +1,6 @@
 # Vuetify 3 + Nuxt 4: Complete Architecture & Implementation Guide
 
-**Last Updated**: January 2, 2026  
+**Last Updated**: January 3, 2026  
 **For**: Developers and LLMs building Vuetify 3 + Nuxt 4 applications  
 **Purpose**: Comprehensive guide to building, maintaining, and troubleshooting Vuetify 3 + Nuxt 4 applications
 
@@ -22,8 +22,9 @@
 8. [Vuetify 3 + Nuxt 4 Compatibility Guide](#vuetify-3--nuxt-4-compatibility-guide) ⭐ **Universal Solutions**
 9. [Best Practices & Patterns](#best-practices--patterns)
 10. [Testing & Validation](#testing--validation)
-11. [Future Considerations](#future-considerations)
-12. [Replicating Vuetify 3 + Nuxt 4 Applications](#replicating-vuetify-3--nuxt-4-applications)
+11. [Search Functionality](#search-functionality) ⭐ **NEW**
+12. [Future Considerations](#future-considerations)
+13. [Replicating Vuetify 3 + Nuxt 4 Applications](#replicating-vuetify-3--nuxt-4-applications)
 
 ---
 
@@ -220,6 +221,7 @@ app/pages/index.vue       →  /
 app/pages/faqs.vue        →  /faqs
 app/pages/faqs-print.vue  →  /faqs-print
 app/pages/links.vue       →  /links
+app/pages/search.vue      →  /search
 ```
 
 **Benefits**:
@@ -2140,16 +2142,114 @@ yarn audit:a11y
 
 ---
 
+## Search Functionality
+
+### Overview
+
+The portal includes a powerful fuzzy search feature powered by **Fuse.js** that allows users to instantly search across all FAQs with relevance-based ranking.
+
+**Route**: `/search` - [`app/pages/search.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/search.vue)
+
+### Search Configuration
+
+All search parameters are externalized to a JSON configuration file for easy tuning without code changes.
+
+**File**: [`search.config.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/search.config.json)
+
+```json
+{
+  "keys": [
+    { "name": "question", "weight": 0.7 },
+    { "name": "answer", "weight": 0.3 }
+  ],
+  "includeScore": true,
+  "includeMatches": true,
+  "threshold": 0.25,
+  "distance": 100,
+  "minMatchCharLength": 3,
+  "ignoreLocation": true,
+  "shouldSort": true,
+  "relevanceLabels": {
+    "excellent": { "maxScore": 0.05, "color": "success" },
+    "good": { "maxScore": 0.15, "color": "info" },
+    "fair": { "maxScore": 0.25, "color": "warning" },
+    "partial": { "maxScore": 1.0, "color": "grey" }
+  },
+  "display": {
+    "minSearchLength": 2,
+    "answerPreviewLength": 200,
+    "contextBefore": 50,
+    "contextAfter": 100
+  }
+}
+```
+
+### Key Configuration Options
+
+| Option | Value | Description |
+|--------|-------|-------------|
+| `threshold` | 0.25 | Controls fuzzy matching strictness (0 = exact, 1 = match anything) |
+| `keys.weight` | question: 0.7, answer: 0.3 | Prioritizes matches in questions over answers |
+| `shouldSort` | true | Ensures results are ranked by relevance (best first) |
+| `ignoreLocation` | true | Matches can be anywhere in the text |
+| `includeScore` | true | Includes score for relevance labeling |
+| `includeMatches` | true | Includes match positions for highlighting |
+
+### Relevance Ranking
+
+Results are sorted by Fuse.js score in **ascending order** (lower score = better match):
+
+| Label | Score Range | Color | Description |
+|-------|-------------|-------|-------------|
+| **Excellent** | < 0.05 | Green (success) | Near-perfect match |
+| **Good** | < 0.15 | Blue (info) | Strong match |
+| **Fair** | < 0.25 | Orange (warning) | Moderate match |
+| **Partial** | ≥ 0.25 | Grey | Weak/fuzzy match |
+
+### Search Features
+
+**Implemented Features**:
+
+- **Fuzzy Matching** - Handles typos and partial matches
+- **Weighted Search** - Question matches rank higher than answer matches
+- **Match Highlighting** - Matched text is highlighted in results
+- **Relevance Badges** - Visual indicator of match quality
+- **Result Numbering** - Shows position in ranked results
+- **Section Badges** - Shows which FAQ section the result belongs to
+- **"New" Badges** - Indicates recently added questions
+- **Answer Preview** - Shows context around matches in answers
+- **Click to Open** - Opens FAQ in new tab with scroll-to and highlight
+
+### Search Testing
+
+Comprehensive tests ensure search functionality works correctly:
+
+**Unit Tests**: [`test/unit/searchConfig.test.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/unit/searchConfig.test.ts)
+- Validates configuration structure
+- Ensures proper threshold ranges
+- Verifies key weights and relevance labels
+
+**Nuxt Tests**: [`test/nuxt/search.test.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/nuxt/search.test.ts)
+- Tests Fuse.js behavior with realistic FAQ data
+- Verifies ranking order (best matches first)
+- Tests fuzzy matching, highlighting, and edge cases
+
+### Accessibility Considerations
+
+The search page maintains full WCAG 2.1 AA compliance:
+
+- **Keyboard Navigation** - Full keyboard support for search and results
+- **Screen Reader Support** - Proper ARIA labels and live regions
+- **Focus Management** - Results are focusable with clear indicators
+- **Color Independence** - Relevance indicated by text labels, not just colors
+
+---
+
 ## Future Considerations
 
 ### Potential Enhancements
 
-1. **Search Functionality**
-   - Full-text search across FAQs
-   - Could use Fuse.js (client-side) or Algolia (server-side)
-   - Would need search index generation
-
-2. **Analytics**
+1. **Analytics**
    - Already has Plausible Analytics
    - Could add event tracking (FAQ opens, link clicks)
    - Privacy-friendly (no cookies)

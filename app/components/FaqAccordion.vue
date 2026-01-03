@@ -62,10 +62,10 @@
 /**
  * @fileoverview FAQ Accordion component with ARIA support
  * @description Displays FAQ items in an accordion format with proper ARIA relationships,
- * URL hash support for deep linking, and collapse functionality
+ * URL hash support for deep linking, collapse functionality, and search term highlighting
  */
 
-import { ref, watch, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, watch, onMounted, onUnmounted, nextTick, computed } from "vue";
 
 /** @typedef {any} MiniMarkNode */
 
@@ -173,6 +173,11 @@ watch(expandedPanels, (newValue) => {
 const { slugify, getQuestionId: getQuestionIdUtil } = useSlugify();
 
 /**
+ * Current highlight search term from URL query parameter
+ */
+const highlightTerm = ref<string | null>(null);
+
+/**
  * Gets the full ID for a question (with optional section prefix)
  * @param {string} question - Question text
  * @returns {string} Full question ID
@@ -182,6 +187,146 @@ function getQuestionId(question: string): string {
     return getQuestionIdUtil(props.sectionId, question);
   }
   return slugify(question);
+}
+
+/**
+ * Extract highlight term from URL query parameter
+ */
+function getHighlightTerm(): string | null {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const term = params.get("highlight");
+  return term ? decodeURIComponent(term) : null;
+}
+
+/**
+ * Apply yellow highlighting to matching text in the opened panel
+ */
+function applyHighlighting(panelIndex: number) {
+  if (!highlightTerm.value) return;
+  
+  const item = props.items[panelIndex];
+  if (!item) return;
+  
+  const panelId = getQuestionId(item.question);
+  const answerId = `answer-${panelId}`;
+  
+  // Wait for content to render
+  setTimeout(() => {
+    const answerEl = document.getElementById(answerId);
+    if (!answerEl) return;
+    
+    // Clear any existing highlights first
+    clearHighlights(answerEl);
+    
+    // Apply highlighting
+    highlightTextInElement(answerEl, highlightTerm.value!);
+    
+    // Scroll the first highlight into view if needed
+    const firstHighlight = answerEl.querySelector(".search-term-highlight");
+    if (firstHighlight) {
+      firstHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, 300); // Wait for panel animation
+}
+
+/**
+ * Clear existing highlights from an element
+ */
+function clearHighlights(element: HTMLElement) {
+  const highlights = element.querySelectorAll(".search-term-highlight");
+  highlights.forEach(highlight => {
+    const parent = highlight.parentNode;
+    if (parent) {
+      parent.replaceChild(document.createTextNode(highlight.textContent || ""), highlight);
+      parent.normalize();
+    }
+  });
+}
+
+/**
+ * Recursively highlight matching text in an element
+ */
+function highlightTextInElement(element: HTMLElement, searchTerm: string) {
+  const walker = document.createTreeWalker(
+    element,
+    NodeFilter.SHOW_TEXT,
+    null
+  );
+  
+  const textNodes: Text[] = [];
+  let node: Text | null;
+  while ((node = walker.nextNode() as Text | null)) {
+    textNodes.push(node);
+  }
+  
+  const searchLower = searchTerm.toLowerCase();
+  const words = searchTerm.split(/\s+/).filter(w => w.length >= 2);
+  
+  for (const textNode of textNodes) {
+    const text = textNode.textContent || "";
+    const textLower = text.toLowerCase();
+    
+    // Find all matches (both full phrase and individual words)
+    const matches: Array<[number, number]> = [];
+    
+    // Check for full phrase match
+    let index = textLower.indexOf(searchLower);
+    while (index !== -1) {
+      matches.push([index, index + searchTerm.length]);
+      index = textLower.indexOf(searchLower, index + 1);
+    }
+    
+    // Also check individual words
+    for (const word of words) {
+      const wordLower = word.toLowerCase();
+      let wordIndex = textLower.indexOf(wordLower);
+      while (wordIndex !== -1) {
+        matches.push([wordIndex, wordIndex + word.length]);
+        wordIndex = textLower.indexOf(wordLower, wordIndex + 1);
+      }
+    }
+    
+    if (matches.length === 0) continue;
+    
+    // Sort and merge overlapping matches
+    matches.sort((a, b) => a[0] - b[0]);
+    const merged: Array<[number, number]> = [];
+    for (const [start, end] of matches) {
+      if (merged.length === 0 || merged[merged.length - 1][1] < start) {
+        merged.push([start, end]);
+      } else {
+        merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], end);
+      }
+    }
+    
+    // Create highlighted spans
+    const fragment = document.createDocumentFragment();
+    let lastIndex = 0;
+    
+    for (const [start, end] of merged) {
+      // Add text before match
+      if (start > lastIndex) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex, start)));
+      }
+      
+      // Add highlighted match
+      const mark = document.createElement("mark");
+      mark.className = "search-term-highlight";
+      mark.textContent = text.slice(start, end);
+      fragment.appendChild(mark);
+      
+      lastIndex = end;
+    }
+    
+    // Add remaining text
+    if (lastIndex < text.length) {
+      fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+    
+    // Replace the text node with the fragment
+    textNode.parentNode?.replaceChild(fragment, textNode);
+  }
 }
 
 /**
@@ -266,6 +411,11 @@ async function openPanelFromHash(hash: string) {
       if (actualId !== hashId && window.history.state) {
         window.history.replaceState(window.history.state, "", `#${actualId}`);
       }
+      
+      // Apply search term highlighting if present
+      if (highlightTerm.value) {
+        applyHighlighting(panelIndex);
+      }
     }
   }, 100);
 }
@@ -319,17 +469,31 @@ watch(expandedPanels, async (newValue, oldValue) => {
   }
 });
 
+// Hash change handler for in-page navigation
+const onHashChange = () => {
+  highlightTerm.value = getHighlightTerm();
+  openPanelFromHash(window.location.hash);
+};
+
 // On mount, check for hash and open corresponding panel
 onMounted(async () => {
   if (typeof window === "undefined") return;
 
+  // Extract highlight term from URL
+  highlightTerm.value = getHighlightTerm();
+
   // Initial deep link (direct load)
   await openPanelFromHash(window.location.hash);
 
-  // Also support in-page navigation (clicking internal hash links)
-  const onHashChange = () => openPanelFromHash(window.location.hash);
+  // Support in-page navigation (clicking internal hash links)
   window.addEventListener("hashchange", onHashChange);
-  onUnmounted(() => window.removeEventListener("hashchange", onHashChange));
+});
+
+// Clean up event listener on unmount
+onUnmounted(() => {
+  if (typeof window !== "undefined") {
+    window.removeEventListener("hashchange", onHashChange);
+  }
 });
 
 /**
@@ -596,5 +760,37 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 /* Link colors use theme primary */
 .faq-answer-content :deep(a) {
   color: rgb(var(--v-theme-primary)) !important;
+}
+
+/* Search term highlighting */
+.search-term-highlight {
+  background: rgba(255, 235, 59, 0.7) !important;
+  color: inherit !important;
+  padding: 0.1em 0.15em;
+  border-radius: 3px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  animation: highlight-pulse 1s ease-in-out;
+}
+
+@keyframes highlight-pulse {
+  0% {
+    background: rgba(255, 235, 59, 1);
+    box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+  }
+  100% {
+    background: rgba(255, 235, 59, 0.7);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Also highlight in questions (for when opened from search) */
+.faq-question-text :deep(.search-term-highlight),
+.faq-question .search-term-highlight {
+  background: rgba(255, 235, 59, 0.7) !important;
+  color: inherit !important;
+  padding: 0.1em 0.15em;
+  border-radius: 3px;
+  font-weight: 600;
 }
 </style>

@@ -23,6 +23,17 @@
       <!-- Links Section -->
       <nav class="footer-links" aria-label="Footer navigation">
         <a
+          href="/search"
+          class="footer-link"
+          aria-label="Search FAQs"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true"
+            >mdi-magnify</v-icon
+          >
+          <span>Search</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
           href="/faqs-print"
           class="footer-link"
           aria-label="View printer-friendly version of FAQs"
@@ -78,6 +89,19 @@
             >mdi-github</v-icon
           >
           <span>GitHub</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
+          href="https://icjia.illinois.gov"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+          aria-label="Visit ICJIA main website (opens in new tab)"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true"
+            >mdi-open-in-new</v-icon
+          >
+          <span>ICJIA Website</span>
         </a>
       </nav>
     </div>

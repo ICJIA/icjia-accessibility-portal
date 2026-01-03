@@ -70,7 +70,8 @@ yarn generate:serve
 
 ### Search & Discovery
 
-- **Fuse.js** - Lightweight fuzzy-search library for client-side search
+- **Fuse.js** - Lightweight fuzzy-search library for client-side search with relevance ranking
+- **search.config.json** - Externalized search configuration for easy tuning
 
 ### Development Tools
 
@@ -130,6 +131,11 @@ yarn generate:serve
   - Links display URLs for printed versions
 - **Markdown-based Content** - Easy content management via Nuxt Content
 - **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
+- **Fuzzy Search** - Instant client-side search with Fuse.js
+  - Relevance-ranked results (best matches first)
+  - Match highlighting in questions and answers
+  - Relevance badges (Excellent/Good/Fair/Partial)
+  - Configurable via `search.config.json`
 
 ### Design & Performance
 
@@ -282,7 +288,8 @@ The automated build process:
 │   │   ├── index.vue           # Home page with countdown timer and FAQs
 │   │   ├── faqs.vue            # Dedicated FAQ page
 │   │   ├── faqs-print.vue      # Printer-friendly FAQs page
-│   │   └── links.vue           # Accessibility links page
+│   │   ├── links.vue           # Accessibility links page
+│   │   └── search.vue          # Fuzzy search page with Fuse.js
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
 │   │   ├── AppNavbar.vue       # Navigation bar with aria-current support
@@ -338,6 +345,7 @@ The automated build process:
 ├── content.config.ts           # Nuxt Content configuration
 ├── netlify.toml                # Netlify deployment configuration
 ├── nuxt.config.ts              # Nuxt configuration
+├── search.config.json          # Fuse.js search configuration (thresholds, weights, labels)
 └── routes.json                 # Auto-generated routes list (from Nuxt build)
 ```
 
@@ -566,10 +574,12 @@ This automatically updates without rebuilding the site.
 
 Latest audit results:
 
-- **Total Pages Tested**: 4 (/, /faqs, /faqs-print, /links)
+- **Total Pages Tested**: 5 (/, /faqs, /faqs-print, /links, /search)
 - **WCAG 2.1 AA Violations**: 0
 - **Accessibility Score**: 100%
-- **Last Audited**: January 2026
+- **Total Tests Run**: 1335
+- **Skip Links**: 15/15 working
+- **Last Audited**: January 3, 2026
 
 The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available in `markdown-documentation/ACCESSIBILITY_AUDIT_RESULTS.md`.
 
@@ -705,6 +715,12 @@ Reports include:
 
 ### Recent Updates (January 2026)
 
+- **NEW**: Fuzzy search functionality (`/search`) with Fuse.js
+  - Relevance-ranked results (best matches first)
+  - Match highlighting in questions and answers
+  - Relevance badges (Excellent/Good/Fair/Partial)
+  - Externalized configuration (`search.config.json`)
+  - Comprehensive test suite (57 new tests)
 - **NEW**: Printer-friendly FAQs page (`/faqs-print`) for easy printing and offline reference
   - All FAQ content in clean, printable format
   - Table of contents with question counts
@@ -726,7 +742,7 @@ Reports include:
 
 ### Version Information
 
-**Last Updated**: January 2, 2026
+**Last Updated**: January 3, 2026
 
 **Core Dependencies**:
 

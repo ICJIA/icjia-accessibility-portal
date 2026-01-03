@@ -7,6 +7,7 @@
           href="/"
           class="d-flex align-center text-decoration-none logo-link"
           style="color: inherit"
+          aria-label="ICJIA Accessibility Portal - Go to home page"
           @click="handleLogoClick"
         >
           <img
@@ -32,13 +33,13 @@
           v-for="item in navItems"
           :key="item.to"
           :href="item.to"
-          :download="(item as any).download || undefined"
-          :target="(item as any).target || undefined"
-          :rel="(item as any).rel || undefined"
+          :download="item.download || undefined"
+          :target="item.target || undefined"
+          :rel="item.rel || undefined"
           variant="text"
           class="nav-btn"
           :prepend-icon="item.icon"
-          :aria-label="(item as any).ariaLabel || `Navigate to ${item.title}`"
+          :aria-label="item.ariaLabel || `Navigate to ${item.title}`"
           :aria-current="route.path === item.to ? 'page' : undefined"
         >
           {{ item.title }}
@@ -52,12 +53,12 @@
         class="d-flex"
         v-model="menuOpen"
       >
-        <template #activator="{ props }">
+        <template #activator="{ props: menuProps }">
           <v-btn
-            v-bind="props"
+            v-bind="menuProps"
             icon
             variant="text"
-            aria-label="Navigation menu"
+            aria-label="Open navigation menu"
             aria-haspopup="true"
             :aria-expanded="menuOpen"
           >
@@ -69,36 +70,35 @@
             v-for="item in navItems"
             :key="item.to"
             :href="item.to"
-            :download="(item as any).download || undefined"
-            :target="(item as any).target || undefined"
-            :rel="(item as any).rel || undefined"
+            :download="item.download || undefined"
+            :target="item.target || undefined"
+            :rel="item.rel || undefined"
             :prepend-icon="item.icon"
             :aria-current="route.path === item.to ? 'page' : undefined"
           >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
           <v-list-item
-            href="https://icjia.illinois.gov"
-            target="_blank"
-            rel="noopener noreferrer"
-            prepend-icon="mdi-open-in-new"
+            href="/search"
+            prepend-icon="mdi-magnify"
+            :aria-current="route.path === '/search' ? 'page' : undefined"
           >
-            <v-list-item-title>ICJIA Website</v-list-item-title>
+            <v-list-item-title>Search</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
 
-      <!-- Desktop External ICJIA Link -->
+      <!-- Search Button with Label - Desktop only -->
       <v-btn
         v-if="showDesktopNav"
-        href="https://icjia.illinois.gov"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/search"
         variant="text"
-        class="mx-1"
-        prepend-icon="mdi-open-in-new"
+        class="search-btn"
+        prepend-icon="mdi-magnify"
+        aria-label="Search FAQs"
+        :aria-current="route.path === '/search' ? 'page' : undefined"
       >
-        ICJIA Website
+        Search
       </v-btn>
     </v-container>
   </v-app-bar>
@@ -114,35 +114,37 @@
 import { ref, computed } from "vue";
 import { useDisplay } from "vuetify";
 
-/** @type {import('vuetify').DisplayInstance} Vuetify display instance for responsive behavior */
 const { width } = useDisplay();
 
-// Use width directly to ensure consistent breakpoint at 960px
-// We want: show hamburger when <= 960px, show buttons when > 960px
 const showMobileMenu = computed(() => width.value < 961);
 const showDesktopNav = computed(() => width.value >= 961);
 
-/** @type {import('vue-router').RouteLocationNormalized} Current route object */
 const route = useRoute();
-
-/** @type {import('../composables/useFaqCollapse').UseFaqCollapseReturn} FAQ collapse composable */
 const { collapseAll } = useFaqCollapse();
-
-/** @type {import('vue').Ref<boolean>} Mobile menu open state */
 const menuOpen = ref(false);
 
-/**
- * Navigation items configuration
- * @type {Array<{title: string, to: string, icon: string}>}
- */
-const navItems = [
-  { title: "Home", to: "/", icon: "mdi-home" },
-  { 
-    title: "Print", 
-    to: "/faqs-print", 
+interface NavItem {
+  title: string;
+  to: string;
+  icon: string;
+  target?: string;
+  rel?: string;
+  download?: string;
+  ariaLabel?: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    title: "Home",
+    to: "/",
+    icon: "mdi-home",
+  },
+  {
+    title: "Print",
+    to: "/faqs-print",
     icon: "mdi-printer",
     target: "_blank",
-    rel: "noopener noreferrer"
+    rel: "noopener noreferrer",
   },
   {
     title: "Download",
@@ -151,37 +153,29 @@ const navItems = [
     download: "ICJIA-Accessibility-FAQs.pdf",
     ariaLabel: "Download FAQs as PDF",
   },
-  { title: "Links", to: "/links", icon: "mdi-link" },
+  {
+    title: "Links",
+    to: "/links",
+    icon: "mdi-link",
+  },
 ];
 
-/**
- * Handles logo click: if on home page, collapse all FAQs and scroll to top.
- * Otherwise, navigate to home page normally.
- * @param {MouseEvent} event - Click event
- * @returns {void}
- */
 function handleLogoClick(event: MouseEvent) {
   const isHomePage = route.path === "/";
 
   if (isHomePage) {
-    // Prevent default navigation since we're already on home
     event.preventDefault();
-
-    // Collapse all FAQ panels
     collapseAll();
 
-    // Clear any hash from URL
     if (window.location.hash) {
       window.history.replaceState(null, "", "/");
     }
 
-    // Scroll to top of page smoothly
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
-  // If not on home page, let the default navigation happen
 }
 </script>
 
@@ -209,16 +203,34 @@ function handleLogoClick(event: MouseEvent) {
   object-fit: contain;
 }
 
+.logo-link {
+  margin-left: 12px;
+}
+
 .nav-btn {
   min-width: auto;
   padding: 0 12px;
   margin: 0 4px;
 }
 
+.search-btn {
+  margin-right: 4px;
+  color: rgb(var(--v-theme-primary));
+}
+
+.search-btn:hover {
+  background: rgba(var(--v-theme-primary), 0.1);
+}
+
 @media (max-width: 960px) {
   .nav-btn {
     font-size: 0.875rem;
     padding: 0 4px;
+  }
+
+  .v-container {
+    padding-left: 16px;
+    padding-right: 8px;
   }
 }
 
@@ -234,7 +246,7 @@ function handleLogoClick(event: MouseEvent) {
   }
 
   .v-container {
-    padding-left: 8px;
+    padding-left: 16px;
     padding-right: 8px;
   }
 }
@@ -248,6 +260,11 @@ function handleLogoClick(event: MouseEvent) {
   .portal-title {
     font-size: 0.75rem;
     margin-left: 0.25rem;
+  }
+
+  .v-container {
+    padding-left: 12px;
+    padding-right: 8px;
   }
 }
 </style>

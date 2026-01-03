@@ -1,0 +1,56 @@
+{
+    "$schema": "https://fusejs.io/",
+    "_description": "Fuse.js fuzzy search configuration. See https://www.fusejs.io/api/options.html for all options.",
+    "_notes": {
+        "threshold": "0.0 = exact match, 1.0 = match anything. Lower = stricter. Recommended: 0.2-0.4",
+        "distance": "How far apart matches can be. Lower = matches must be closer together",
+        "minMatchCharLength": "Minimum characters that must match. Higher = fewer partial matches",
+        "ignoreLocation": "If true, matches can be anywhere in the string. If false, prefers matches at the start",
+        "findAllMatches": "If true, finds all matches even after a perfect match is found",
+        "keys.weight": "Relative importance of each field. Higher = more important for ranking"
+    },
+    "keys": [
+        {
+            "name": "question",
+            "weight": 0.7
+        },
+        {
+            "name": "answer",
+            "weight": 0.3
+        }
+    ],
+    "includeScore": true,
+    "includeMatches": true,
+    "threshold": 0.25,
+    "distance": 100,
+    "minMatchCharLength": 3,
+    "ignoreLocation": true,
+    "findAllMatches": false,
+    "useExtendedSearch": false,
+    "shouldSort": true,
+    "relevanceLabels": {
+        "_description": "Score thresholds for relevance badge labels (lower score = better match)",
+        "excellent": {
+            "maxScore": 0.05,
+            "color": "success"
+        },
+        "good": {
+            "maxScore": 0.15,
+            "color": "info"
+        },
+        "fair": {
+            "maxScore": 0.25,
+            "color": "warning"
+        },
+        "partial": {
+            "maxScore": 1.0,
+            "color": "grey"
+        }
+    },
+    "display": {
+        "minSearchLength": 2,
+        "answerPreviewLength": 200,
+        "contextBefore": 50,
+        "contextAfter": 100
+    }
+}
