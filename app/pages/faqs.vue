@@ -391,9 +391,12 @@ const faqItemsForSchema = computed(() => {
   return items;
 });
 
-// Add FAQ structured data when FAQ items are available
+// Add FAQ structured data once when items are available
+// Using a flag to prevent duplicate structured data injection
+const faqSchemaInjected = ref(false);
 watchEffect(() => {
-  if (faqItemsForSchema.value.length > 0) {
+  if (faqItemsForSchema.value.length > 0 && !faqSchemaInjected.value) {
+    faqSchemaInjected.value = true;
     useFAQStructuredData(faqItemsForSchema.value);
   }
 });

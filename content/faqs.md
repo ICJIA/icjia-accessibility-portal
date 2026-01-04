@@ -675,24 +675,28 @@ ICJIA is coordinating with the Illinois DoIT Office of Information Accessibility
 **In the meantime, start today based on your role:**
 
 **If you're executive staff:**
+
 1. **Designate an accessibility coordinator** — This is your most urgent action. The coordinator can then work with DoIT to arrange appropriate presentations and training.
 2. **Allocate resources** — Budget for accessibility tools, training, and staff time. This work requires dedicated resources.
 3. **Set agency-wide expectations** — Make clear that accessibility is a priority and all staff should begin using available resources now.
 4. **Review high-visibility content** — Identify your agency's most public-facing content (main website, key publications) and ensure it's prioritized for accessibility work.
 
 **If you're a manager:**
+
 1. **Review staff responsibilities** — Identify who creates content, manages websites, or produces documents in your unit.
 2. **Direct staff to this FAQ** — Specifically point staff to role-based guidance: [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) | [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start)
 3. **Build accessibility into workflows** — Add accessibility checks to content approval processes now, not later.
 4. **Inventory your content** — Identify what needs remediation (websites, PDFs, videos, social media) so you understand the scope.
 
 **If you're a content creator:**
+
 1. **Fix the basics in new content** — Add alt text to images, use heading styles, write descriptive links, check color contrast, caption videos.
 2. **Review recent work** — Go back and fix accessibility issues in content you've created in the past 6-12 months.
 3. **Use available tools** — Many are free (see [What are the most common accessibility mistakes to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-to-avoid)).
 4. **Document your questions** — Note what's unclear so you can ask during a future presentation, but don't delay fixable work.
 
 **If you're a web developer:**
+
 1. **Run automated tests** — Use free tools (axe DevTools, WAVE, Lighthouse) to identify issues immediately.
 2. **Fix common code issues** — Missing alt text, poor heading structure, insufficient color contrast, missing ARIA labels.
 3. **Review form accessibility** — Ensure all form inputs have proper labels and error messages.
@@ -2717,7 +2721,7 @@ Accessibility requirements apply differently depending on whether you're a conte
 
 {new:2026-01-02}
 
-**Questions are welcome, and there are many ways to learn.** If your learning style is conversation, coaching, or hands-on practice (not reading dense text), that's valid — and you can still make progress quickly. This FAQ exists to *simplify* and centralize the requirements (ADA Title II + IITAA + WCAG 2.1 AA) so you don't have to interpret the legal and technical source documents alone.
+**Questions are welcome, and there are many ways to learn.** If your learning style is conversation, coaching, or hands-on practice (not reading dense text), that's valid — and you can still make progress quickly. This FAQ exists to _simplify_ and centralize the requirements (ADA Title II + IITAA + WCAG 2.1 AA) so you don't have to interpret the legal and technical source documents alone.
 
 **Pragmatic reality (said kindly):** We can absolutely support different learning styles — but the compliance timeline stays the same. The April 24, 2026 compliance deadline still applies — so the goal is to get you to the right person fast and start making changes while you learn.
 
@@ -2939,9 +2943,9 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 {new:2025-12-30}
 
-**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites.
+**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Additionally, website audit reports will be posted on an ongoing basis as they become available.
 
-**Available reports:**
+**Available website audit reports:**
 
 | Site                                   | Accessibility Report                                                                                                                |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -2949,9 +2953,13 @@ This section contains information specific to the Illinois Criminal Justice Info
 | R3 (r3.illinois.gov)                   | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>  |
 | i2i (i2i.illinois.gov)                 | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a> |
 
-Additional reports will be added as sites are audited and remediated.
+**Website audit reports:**
 
-**How to find reports:**
+Website audit reports for existing public websites will be posted on an ongoing basis as they become available. Remediation is challenging and time-consuming, so reports will be posted as soon as they're ready. Web developers are working as fast and as efficiently as possible to audit and remediate all of ICJIA's sites. Check back periodically for updates.
+
+**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
+
+**How to find audit reports for websites:**
 
 - **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer.
 - **Reports are site-specific** — Each website has its own report documenting that site's accessibility status.

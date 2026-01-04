@@ -112,10 +112,11 @@ export function useSeo(options: SeoOptions = {}) {
   // Use provided description or default
   const description = options.description || DEFAULT_DESCRIPTION
   
-  // Build image URL
-  const imageUrl = options.image?.startsWith('http')
-    ? options.image
-    : `${siteUrl}${options.image?.startsWith('/') ? options.image : `/${options.image || DEFAULT_IMAGE}`}`
+  // Build image URL (ensure no double slashes)
+  const imagePath = options.image || DEFAULT_IMAGE
+  const imageUrl = imagePath.startsWith('http')
+    ? imagePath
+    : `${siteUrl}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`
   
   // Set basic meta tags
   useSeoMeta({

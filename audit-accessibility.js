@@ -457,12 +457,26 @@ async function startDevServer() {
 
 /**
  * Parse sitemap.xml and extract all URLs
+ * Filters out non-HTML resources (PDFs, images, etc.) that cannot be audited
  */
 async function parseSitemap() {
   try {
     const sitemapContent = fs.readFileSync(SITEMAP_PATH, "utf8");
     const result = await parseStringPromise(sitemapContent);
-    const urls = result.urlset.url.map((entry) => entry.loc[0]);
+    const allUrls = result.urlset.url.map((entry) => entry.loc[0]);
+
+    // Filter out non-HTML files that cannot be audited by axe-core
+    // These include PDFs, images, documents, and other binary files
+    const nonHtmlExtensions = ['.pdf', '.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.zip', '.tar', '.gz', '.mp3', '.mp4', '.webm', '.ogg', '.wav', '.avi', '.mov'];
+    
+    const urls = allUrls.filter((url) => {
+      const urlLower = url.toLowerCase();
+      const isNonHtml = nonHtmlExtensions.some(ext => urlLower.endsWith(ext));
+      if (isNonHtml) {
+        console.log(`   ⏭️  Skipping non-HTML file: ${url}`);
+      }
+      return !isNonHtml;
+    });
 
     // Convert URLs based on target environment
     return urls.map((url) => {

@@ -1,6 +1,6 @@
 # Documentation Portal Guide (Static `/docs`)
 
-**Last Updated**: January 3, 2026
+**Last Updated**: January 4, 2026
 
 This guide explains how the **static documentation portal** under **`/docs`** is built, why it’s structured the way it is, how it stays up-to-date, and how to extend it safely (including future additions like JSDoc/TypeDoc).
 
