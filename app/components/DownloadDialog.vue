@@ -140,6 +140,28 @@
               as plain text but renders beautifully in compatible viewers.
             </p>
             
+            <div class="icjia-viewer-highlight">
+              <p class="section-heading"><strong>⭐ ICJIA Markdown Viewer (Recommended):</strong></p>
+              <p>
+                ICJIA provides an excellent online Markdown viewer and editor that makes viewing 
+                <code>.md</code> files easy — no software installation required:
+              </p>
+              <ul>
+                <li>
+                  <strong><a href="https://markdown.icjia.cloud" target="_blank" rel="noopener noreferrer">markdown.icjia.cloud</a></strong> 
+                  — Simply drag & drop your downloaded <code>.md</code> file, or paste the content directly. 
+                  Features live preview, export options, and a clean interface.
+                </li>
+              </ul>
+            </div>
+            
+            <p class="section-heading"><strong>🌐 Other Online Viewers (No Install):</strong></p>
+            <ul>
+              <li><strong><a href="https://dillinger.io" target="_blank" rel="noopener noreferrer">Dillinger.io</a></strong> — Drag & drop to view instantly</li>
+              <li><strong><a href="https://stackedit.io" target="_blank" rel="noopener noreferrer">StackEdit.io</a></strong> — Full-featured online editor</li>
+              <li><strong><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></strong> — Paste content into a Gist or README</li>
+            </ul>
+            
             <p class="section-heading"><strong>🪟 Windows — Native Options:</strong></p>
             <ul>
               <li><strong>Notepad</strong> — Opens as plain text (built-in)</li>
@@ -163,13 +185,6 @@
               <li><strong><a href="https://obsidian.md" target="_blank" rel="noopener noreferrer">Obsidian</a></strong> — Beautiful note-taking app with Markdown</li>
               <li><strong><a href="https://typora.io" target="_blank" rel="noopener noreferrer">Typora</a></strong> — Clean live-preview editor</li>
               <li><strong><a href="https://marktext.app" target="_blank" rel="noopener noreferrer">Mark Text</a></strong> — Simple, open-source editor</li>
-            </ul>
-            
-            <p class="section-heading"><strong>🌐 Online Viewers (No Install):</strong></p>
-            <ul>
-              <li><strong><a href="https://dillinger.io" target="_blank" rel="noopener noreferrer">Dillinger.io</a></strong> — Drag & drop to view instantly</li>
-              <li><strong><a href="https://stackedit.io" target="_blank" rel="noopener noreferrer">StackEdit.io</a></strong> — Full-featured online editor</li>
-              <li><strong><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></strong> — Paste content into a Gist or README</li>
             </ul>
             
             <p class="section-heading"><strong>🤖 Using with AI/LLMs:</strong></p>
@@ -516,6 +531,28 @@ function close() {
   border-radius: 3px;
   font-family: monospace;
   font-size: 0.8em;
+}
+
+.icjia-viewer-highlight {
+  background: rgba(var(--v-theme-primary), 0.08);
+  border: 1px solid rgba(var(--v-theme-primary), 0.25);
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.icjia-viewer-highlight .section-heading {
+  margin-top: 0 !important;
+  color: rgb(var(--v-theme-primary));
+}
+
+.icjia-viewer-highlight p {
+  margin-bottom: 0.5rem;
+}
+
+.icjia-viewer-highlight ul {
+  margin-bottom: 0;
 }
 
 .markdown-explainer-content a {

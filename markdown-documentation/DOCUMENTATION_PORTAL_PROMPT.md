@@ -1,17 +1,39 @@
-# Documentation Portal Best Practices Guide
-
-**Purpose**: Step-by-step guide for LLMs and developers to create a comprehensive documentation portal for Vue/Nuxt/Vuetify applications.
+# Documentation Portal Prompt (Copy/Paste for Any Nuxt + Vue + Vuetify Project)
 
 **Last Updated**: January 4, 2026
 
-**Scope**: This guide covers creating a `/docs/` portal with:
+## How to use this prompt
 
-- Accessibility testing reports (axe-core)
-- Unit/E2E test reports (Vitest)
-- API documentation (JSDoc/TypeDoc)
-- Architecture documentation
+Copy/paste **this entire file** into an LLM (ChatGPT/Claude/Gemini/Copilot) and provide your target repo (or link to it).
 
-**Applicability**: Works with any Vue 3, Nuxt 3/4, or Vuetify 3 project.
+The LLM must implement a complete developer documentation portal under **`/public/docs/*`** that works in both:
+
+- `yarn dev` (development)
+- `yarn generate` (static output in `.output/public`)
+
+### What the LLM must build (required outputs)
+
+The portal must include:
+
+- **Accessibility report** (axe-core): `public/docs/accessibility/`
+- **Test report** (unit + Nuxt + optional E2E): `public/docs/tests/`
+- **API docs** (JSDoc/TypeDoc): `public/docs/jsdoc/`
+- **Architecture docs** (HTML): `public/docs/architecture/`
+- **Docs portal hub**: `public/docs/index.html`
+
+### Reference implementation (use these as canonical examples)
+
+Use the ICJIA Accessibility Portal repo as the reference implementation. When you include a snippet, you must also include a direct link to the full source file:
+
+- Docs portal hub: [`public/docs/index.html`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/public/docs/index.html)
+- Accessibility audit script: [`audit-accessibility.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)
+- Test runner + HTML report: [`test/run-all-tests.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/run-all-tests.js)
+- TypeDoc config: [`typedoc.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/typedoc.json)
+- Vue SFC extraction for TypeDoc: [`scripts/extract-vue-scripts.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/extract-vue-scripts.js)
+- Architecture HTML generator: [`scripts/generate-architecture-docs.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-architecture-docs.js)
+- “Never 404” accessibility placeholder: [`scripts/ensure-accessibility-report.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/ensure-accessibility-report.js)
+- Router-safe `/docs/*` navigation: [`app/plugins/content-links.client.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/content-links.client.ts)
+- Sitemap generator (excludes `/docs/*`): [`scripts/generate-sitemap.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-sitemap.js)
 
 ---
 
@@ -27,6 +49,7 @@
 8. [Build Automation](#8-build-automation)
 9. [Nuxt Configuration](#9-nuxt-configuration)
 10. [Complete File Reference](#10-complete-file-reference)
+11. [Verification Checklist (Must Pass)](#verification-checklist-must-pass)
 
 ---
 
@@ -267,6 +290,52 @@ The portal index is the navigation hub for all documentation.
 - **Dark theme**: Modern appearance matching Vuetify dark themes
 - **No dependencies**: Pure HTML/CSS, no JavaScript required
 
+### Critical Nuxt/Vue Best Practice: Make `/docs/*` Links Router-Safe
+
+In Nuxt apps, `/public/docs/*` are **static assets**, not Nuxt routes. If you link to them from inside the SPA, you can hit two common problems:
+
+- **Prerender failures**: Nitro crawls `/docs/*` links during `nuxt generate` and tries to prerender them as routes (404 → build fails)
+- **Client-side routing issues**: Vue Router intercepts `/docs/*` navigation and treats it like an app route
+
+This repo uses multiple defensive layers that work well for **any Nuxt + Vue + Vuetify project**:
+
+#### 1) Prefer explicit file links for the docs hub
+
+Link to the portal hub as `href="/docs/index.html"` (not just `/docs/`) to avoid host/router differences.
+
+**Repo example**:
+
+- **File**: `app/components/AppFooter.vue`
+- **GitHub Link**: [`app/components/AppFooter.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/AppFooter.vue)
+
+#### 2) Force full page navigation for `/docs/*` links inside rendered markdown
+
+If your markdown content can contain links to `/docs/*` (e.g., in FAQs), add a small client plugin that bypasses Nuxt router and does a real navigation:
+
+**Repo implementation**:
+
+- **File**: `app/plugins/content-links.client.ts`
+- **GitHub Link**: [`app/plugins/content-links.client.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/content-links.client.ts)
+
+The key behavior:
+
+```ts
+// Handle /docs/ links - force full page navigation to bypass Nuxt router
+if (href && href.startsWith("/docs/")) {
+  link.addEventListener(
+    "click",
+    (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      window.location.href = href;
+    },
+    { capture: true }
+  );
+}
+```
+
+**Why capture mode?** It runs before Vue Router handlers, so the static docs link is never treated as SPA navigation.
+
 ---
 
 ## 4. Accessibility Testing Report
@@ -400,6 +469,36 @@ node audit-accessibility.js
 - `public/docs/accessibility/index.html` - Human-readable report
 - `public/docs/accessibility/errors.json` - Structured error data
 - `public/docs/accessibility/violations.json` - Detailed violations
+
+### Preventing 404s: Always Ship a Placeholder Accessibility Report
+
+Best practice: `/docs/accessibility/` should **never** 404—even if you haven’t generated a real report yet.
+
+This repo uses two layers (you can use either; using both is “belt and suspenders”):
+
+#### Layer A (Recommended): Build-time placeholder generator
+
+- **File**: `scripts/ensure-accessibility-report.js`
+- **GitHub Link**: [`scripts/ensure-accessibility-report.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/ensure-accessibility-report.js)
+
+This script creates `public/docs/accessibility/index.html` if missing and writes a styled page that tells developers exactly how to generate the real report.
+
+It’s run automatically before dev/build/generate in `package.json`:
+
+- **File**: `package.json`
+- **GitHub Link**: [`package.json`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/package.json)
+
+Look for:
+
+- `ensure:accessibility-report`
+- `predev`, `prebuild`, `pregenerate`
+
+#### Layer B (Optional hardening): Nuxt server plugin
+
+- **File**: `app/plugins/ensure-accessibility-report.server.ts`
+- **GitHub Link**: [`app/plugins/ensure-accessibility-report.server.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/ensure-accessibility-report.server.ts)
+
+This runs on the server side and attempts to create the same placeholder, even if scripts weren’t run (for example, if a developer runs `nuxt dev` directly).
 
 ### package.json Script
 
@@ -783,21 +882,39 @@ For the architecture guide, you can:
 
 **GitHub Link**: [public/docs/architecture/index.html](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/public/docs/architecture/index.html)
 
-A simplified approach is to generate HTML from markdown using a build script:
+A simplified approach is to generate HTML from markdown using a build script.
+
+#### Repo Best Practice: Custom markdown → HTML converter (no dependency)
+
+This repo intentionally avoids pulling in a markdown renderer dependency for the architecture docs and instead uses a **custom converter** optimized for:
+
+- code blocks (including ASCII directory trees)
+- tables
+- headings with autogenerated IDs for deep-linking
+- links with `target="_blank"` for external URLs
+
+**Implementation**:
+
+- **File**: `scripts/generate-architecture-docs.js`
+- **GitHub Link**: [scripts/generate-architecture-docs.js](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-architecture-docs.js)
 
 **File**: `scripts/generate-architecture-docs.js`
 
 **GitHub Link**: [scripts/generate-architecture-docs.js](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-architecture-docs.js)
 
 ```javascript
+// NOTE: This repo uses a custom markdownToHtml() converter.
+// Copy the full markdownToHtml() implementation from scripts/generate-architecture-docs.js
+// (it handles tables, code blocks, heading IDs, and external link attributes).
 import { readFileSync, writeFileSync } from "fs";
-import { marked } from "marked";
 
 const markdown = readFileSync(
   "markdown-documentation/ARCHITECTURE_GUIDE.md",
   "utf-8"
 );
-const html = marked(markdown);
+
+// See scripts/generate-architecture-docs.js for the full implementation.
+const html = markdownToHtml(markdown);
 
 const fullHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -858,30 +975,44 @@ Automate documentation generation during the build process.
 ```json
 {
   "scripts": {
-    "generate": "nuxt generate",
-    "pregenerate": "npm run generate:routes && npm run generate:sitemap",
-    "postgenerate": "npm run generate:docs",
-
-    "generate:docs": "npm run generate:jsdoc && npm run generate:architecture",
-    "generate:jsdoc": "node scripts/extract-vue-scripts.js && typedoc",
-    "generate:architecture": "node scripts/generate-architecture-docs.js",
-    "generate:accessibility": "node audit-accessibility.js",
     "generate:routes": "node scripts/generate-routes.js",
     "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:docs": "node scripts/generate-architecture-docs.js",
+    "extract:vue-scripts": "node scripts/extract-vue-scripts.js",
+    "generate:jsdoc": "npm run extract:vue-scripts && typedoc",
+    "ensure:accessibility-report": "node scripts/ensure-accessibility-report.js",
 
+    "predev": "(1) ensure placeholder accessibility report, (2) generate routes.json, (3) generate sitemap.xml",
+    "dev": "nuxt dev",
+
+    "pregenerate": "(1) ensure placeholder accessibility report, (2) generate routes.json, (3) generate sitemap.xml, (4) generate JSDoc API docs",
+    "generate": "nuxt generate",
+    "postgenerate": "(5) regenerate sitemap.xml from final routes, (6-8) generate accessible FAQ downloads (.docx/.md/.txt)",
+
+    "audit:a11y": "node audit-accessibility.js",
     "test": "node test/run-all-tests.js"
   }
 }
 ```
 
+**Important note for LLMs**: the `predev` / `pregenerate` entries above are abbreviated for readability. The repo contains the exact full script strings (with step-by-step `echo` output) in `package.json`.
+
 ### Build Order
 
-1. **pregenerate**: Generate routes and sitemap
-2. **generate**: Nuxt static site generation
-3. **postgenerate**: Generate all documentation
-   - JSDoc API docs
-   - Architecture docs
-   - (Accessibility report requires running server, run separately)
+This repo’s docs portal uses a reliable “always-available artifacts” flow:
+
+1. **Create placeholder docs** (`ensure:accessibility-report`) so `/docs/accessibility/` never 404s
+2. **Generate `routes.json`** (`generate:routes`) for sitemap + audit discovery
+3. **Generate `sitemap.xml`** (`generate:sitemap`) and exclude `/docs/*` (see Section “Sitemap” below)
+4. **Generate API docs** (`generate:jsdoc`) into `public/docs/jsdoc/`
+5. **Run `nuxt generate`**
+6. **Re-scan `.output/public` and rewrite `routes.json`** (this repo does this via `nuxt.config.ts` Nitro `close` hook)
+7. **Regenerate `sitemap.xml` from final routes** (`postgenerate` step)
+
+Additionally, this repo’s Nitro `close` hook also copies key docs files into `.output/public` after generate/build to ensure they’re present in the deploy artifact:
+
+- **File**: `nuxt.config.ts`
+- **GitHub Link**: [`nuxt.config.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)
 
 ---
 
@@ -902,14 +1033,10 @@ export default defineNuxtConfig({
         preset: "static",
         prerender: {
           crawlLinks: true,
-          // IMPORTANT: Ignore static HTML files in public/docs/
-          // These are NOT Nuxt routes, they're static files
-          ignore: [
-            "/docs/accessibility",
-            "/docs/architecture",
-            "/docs/tests",
-            "/docs/jsdoc",
-          ],
+          // IMPORTANT: Ignore /docs/** during prerender crawling.
+          // `public/docs/*` are static assets, NOT Nuxt routes.
+          // If Nitro tries to prerender them as routes, it can fail the build.
+          ignore: ["/docs", "/docs/", "/docs/**"],
         },
       },
 
@@ -920,6 +1047,15 @@ export default defineNuxtConfig({
 ### Why `ignore` is Needed
 
 When Nuxt prerendering crawls links, it finds `/docs/accessibility` etc. and tries to prerender them as Nuxt routes. But these are static HTML files in `public/`, not Vue pages. Ignoring them prevents build failures.
+
+### Router-safe linking (client navigation)
+
+Even if prerender ignores `/docs/**`, you can still have issues in the browser if Nuxt router intercepts `/docs/*` links from within app content.
+
+This repo solves that by forcing full page navigations for `/docs/*` links inside rendered markdown:
+
+- **File**: `app/plugins/content-links.client.ts`
+- **GitHub Link**: [`app/plugins/content-links.client.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/content-links.client.ts)
 
 ### Server Plugin for Report Placeholder
 
@@ -940,23 +1076,47 @@ export default defineNuxtPlugin(() => {
 });
 ```
 
+### Sitemap Best Practice: Exclude `/docs/*` from `sitemap.xml`
+
+The docs portal is intended for developers/maintainers. Best practice is to keep it accessible but **exclude it from your sitemap** so search engines don’t treat developer documentation as user-facing content.
+
+This repo’s sitemap generator explicitly filters out docs routes:
+
+- **File**: `scripts/generate-sitemap.js`
+- **GitHub Link**: [`scripts/generate-sitemap.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-sitemap.js)
+
+Key logic:
+
+```js
+// Filter out /docs and any /docs/* routes (do not include docs portal in sitemap)
+const routes = allRoutes.filter(
+  (route) => route !== "/docs" && !route.startsWith("/docs/")
+);
+```
+
 ---
 
 ## 10. Complete File Reference
 
 ### All Files Needed for Documentation Portal
 
-| File                                    | Purpose                               | GitHub Link                                                                                                 |
-| --------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `public/docs/index.html`                | Portal navigation hub                 | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/public/docs/index.html)                |
-| `audit-accessibility.js`                | Accessibility audit script            | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)                |
-| `test/run-all-tests.js`                 | Test runner with HTML report          | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/run-all-tests.js)                 |
-| `typedoc.json`                          | TypeDoc configuration                 | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/typedoc.json)                          |
-| `tsconfig.typedoc.json`                 | TypeScript config for TypeDoc         | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/tsconfig.typedoc.json)                 |
-| `scripts/extract-vue-scripts.js`        | Vue SFC script extractor              | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/extract-vue-scripts.js)        |
-| `scripts/generate-architecture-docs.js` | Architecture doc generator            | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-architecture-docs.js) |
-| `vitest.config.ts`                      | Vitest test configuration             | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/vitest.config.ts)                      |
-| `nuxt.config.ts`                        | Nuxt configuration (prerender ignore) | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)                        |
+| File                                                | Purpose                                           | GitHub Link                                                                                                             |
+| --------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `public/docs/index.html`                            | Portal navigation hub                             | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/public/docs/index.html)                            |
+| `audit-accessibility.js`                            | Accessibility audit script                        | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)                            |
+| `test/run-all-tests.js`                             | Test runner with HTML report                      | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/run-all-tests.js)                             |
+| `typedoc.json`                                      | TypeDoc configuration                             | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/typedoc.json)                                      |
+| `tsconfig.typedoc.json`                             | TypeScript config for TypeDoc                     | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/tsconfig.typedoc.json)                             |
+| `scripts/extract-vue-scripts.js`                    | Vue SFC script extractor                          | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/extract-vue-scripts.js)                    |
+| `scripts/generate-architecture-docs.js`             | Architecture doc generator                        | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-architecture-docs.js)             |
+| `vitest.config.ts`                                  | Vitest test configuration                         | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/vitest.config.ts)                                  |
+| `nuxt.config.ts`                                    | Nuxt configuration (prerender ignore)             | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/nuxt.config.ts)                                    |
+| `scripts/generate-sitemap.js`                       | Sitemap generator (excludes `/docs/*`)            | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-sitemap.js)                       |
+| `scripts/generate-routes.js`                        | Route discovery → `routes.json`                   | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-routes.js)                        |
+| `scripts/ensure-accessibility-report.js`            | Build-time placeholder for `/docs/accessibility/` | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/ensure-accessibility-report.js)            |
+| `app/plugins/ensure-accessibility-report.server.ts` | Runtime placeholder hardening                     | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/ensure-accessibility-report.server.ts) |
+| `app/plugins/content-links.client.ts`               | Router-safe `/docs/*` link handling in markdown   | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/content-links.client.ts)               |
+| `app/components/AppFooter.vue`                      | Footer links to docs portal + reports             | [View](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/AppFooter.vue)                      |
 
 ### Dependencies to Install
 
@@ -968,8 +1128,10 @@ npm install --save-dev vitest @nuxt/test-utils @vue/test-utils
 npm install --save-dev puppeteer axe-core
 
 # Documentation
-npm install --save-dev typedoc marked
+npm install --save-dev typedoc
 ```
+
+**Note**: This repo’s architecture docs generator (`scripts/generate-architecture-docs.js`) uses a custom markdown → HTML converter and does **not** require a markdown library. If you prefer a simpler approach in other projects, you can use a markdown package (e.g., `marked` or `markdown-it`) instead.
 
 ### Quick Start Checklist
 
@@ -982,9 +1144,46 @@ npm install --save-dev typedoc marked
 7. ✅ Create `scripts/extract-vue-scripts.js`
 8. ✅ Update `nuxt.config.ts` with prerender ignores
 9. ✅ Add npm scripts to `package.json`
-10. ✅ Run `npm run generate:docs` to generate all documentation
+10. ✅ Generate your docs artifacts:
+    - `npm run generate:jsdoc` (writes `public/docs/jsdoc/`)
+    - `npm run test` (writes `public/docs/tests/index.html`)
+    - `npm run generate:docs` (writes `public/docs/architecture/index.html` in this repo)
+    - `npm run audit:a11y` / `npm run generate:accessibility` (writes `public/docs/accessibility/` — requires a running server)
 
 ---
+
+## LLM Copy/Paste Prompt (Use This to Replicate `/docs/*` in Any Project)
+
+Paste the following prompt into your AI assistant along with a link to this guide and your repo:
+
+```text
+You are a senior Nuxt/Vue engineer. Create a developer documentation portal under /public/docs/ that works in both `yarn dev` and `yarn generate` for a Nuxt (3 or 4) project.
+
+Requirements:
+- Create /public/docs/index.html as a docs portal home with cards linking to:
+  - /docs/accessibility/ (HTML report + JSON files)
+  - /docs/tests/ (HTML test report)
+  - /docs/jsdoc/ (TypeDoc output)
+  - /docs/architecture/ (architecture HTML)
+- Add scripts to generate each part:
+  - Accessibility: an audit script that outputs to public/docs/accessibility (and never 404s: placeholder strategy)
+  - Tests: a runner that produces public/docs/tests/index.html and includes expandable per-test descriptions
+  - JSDoc: TypeDoc config that outputs to public/docs/jsdoc plus Vue SFC script extraction
+  - Architecture: markdown → HTML generator that writes public/docs/architecture/index.html
+- Make /docs/* router-safe:
+  - Add nitro.prerender.ignore for /docs/** so generate doesn't fail
+  - Ensure content links to /docs/* perform full-page navigation (bypass Nuxt router)
+- Exclude /docs/* from sitemap.xml generation
+
+Use ICJIA Accessibility Portal as the reference implementation:
+- Follow the patterns and files described in DOCUMENTATION_PORTAL_PROMPT.md
+- When you include a snippet, also provide a direct link to the full source file in GitHub.
+
+Deliverables:
+- New/updated files with complete code
+- Updated package.json scripts
+- Short explanation of how to run and verify each docs artifact locally
+```
 
 ## Summary
 
@@ -1001,3 +1200,154 @@ All files can be copied from the reference implementation and customized for you
 ---
 
 **Questions?** See the full implementation at [github.com/ICJIA/icjia-accessibility-portal](https://github.com/ICJIA/icjia-accessibility-portal)
+
+---
+
+## Verification Checklist (Must Pass)
+
+Use this checklist to verify the docs portal is complete. The goal is that an LLM can follow this section and **prove** it produced all artifacts correctly.
+
+### A) Files that must exist in the repo (source-controlled)
+
+- **Docs portal hub**: `public/docs/index.html`
+- **Docs portal folders**:
+  - `public/docs/accessibility/`
+  - `public/docs/tests/`
+  - `public/docs/architecture/`
+- **Generation scripts/config**:
+  - `audit-accessibility.js`
+  - `test/run-all-tests.js`
+  - `typedoc.json`
+  - `tsconfig.typedoc.json`
+  - `scripts/extract-vue-scripts.js`
+  - `scripts/generate-architecture-docs.js`
+  - `scripts/generate-sitemap.js` (must exclude `/docs/*`)
+  - `scripts/generate-routes.js`
+  - `scripts/ensure-accessibility-report.js` (placeholder)
+- **Nuxt wiring**:
+  - `nuxt.config.ts` must ignore `/docs/**` in prerender (static docs are not Nuxt routes)
+  - `app/plugins/content-links.client.ts` (or equivalent) must force full-page navigation for `/docs/*` links in markdown-rendered content
+
+### B) Expected outputs after each command (local verification)
+
+#### 1) Placeholder exists (never 404)
+
+Run:
+
+```bash
+node scripts/ensure-accessibility-report.js
+```
+
+Expected:
+
+- File exists: `public/docs/accessibility/index.html`
+- It contains instructions to run the real audit command (e.g., `yarn generate:accessibility` / `yarn audit:a11y`)
+
+#### 2) Test report generation
+
+Run:
+
+```bash
+yarn test
+```
+
+Expected:
+
+- File exists: `public/docs/tests/index.html`
+- JSON exists: `test/test-results.json`
+- JSON exists: `test/failed-tests.json` (may be empty or contain failures, depending on runner design)
+- Report is human-readable and includes pass/fail counts
+
+Optional “quality” checks (recommended):
+
+- Each test has an expandable description (e.g., `<details>` / `<summary>`)
+- Report groups tests by suite/file
+
+#### 3) API docs generation (TypeDoc)
+
+Run:
+
+```bash
+yarn generate:jsdoc
+```
+
+Expected:
+
+- File exists: `public/docs/jsdoc/index.html`
+- Directory exists: `public/docs/jsdoc/assets/`
+- The docs include your composables/utilities/plugins (and optionally extracted Vue SFC scripts)
+
+If your project contains `.vue` files that should appear in docs:
+
+- Directory exists: `docs-temp/` (or your chosen extraction directory)
+
+#### 4) Architecture docs generation
+
+Run:
+
+```bash
+node scripts/generate-architecture-docs.js
+```
+
+Expected:
+
+- File exists: `public/docs/architecture/index.html`
+- Headings render and are linkable (IDs)
+- Code blocks render correctly
+
+#### 5) Sitemap generation excludes docs
+
+Run:
+
+```bash
+node scripts/generate-sitemap.js
+```
+
+Expected:
+
+- File exists: `public/sitemap.xml`
+- It does **not** include `/docs` or any `/docs/*` URLs
+
+#### 6) `yarn dev` behavior (docs reachable in dev)
+
+Run:
+
+```bash
+yarn dev
+```
+
+Expected (manual browser checks):
+
+- `http://localhost:3000/docs/index.html` loads
+- `http://localhost:3000/docs/tests/` loads (from `public/docs/tests/index.html`)
+- `http://localhost:3000/docs/accessibility/` loads (placeholder is fine if audit not run)
+- `http://localhost:3000/docs/jsdoc/` loads (if generated)
+- `http://localhost:3000/docs/architecture/` loads
+
+#### 7) `yarn generate` behavior (docs shipped in `.output/public`)
+
+Run:
+
+```bash
+yarn generate
+```
+
+Expected:
+
+- Files exist in deploy artifact:
+  - `.output/public/docs/index.html`
+  - `.output/public/docs/accessibility/index.html`
+  - `.output/public/docs/tests/index.html`
+  - `.output/public/docs/architecture/index.html`
+  - `.output/public/docs/jsdoc/index.html` (if generated pre-generate)
+
+#### 8) Router-safe navigation for `/docs/*` links inside markdown content
+
+If your site renders markdown that links to `/docs/*`:
+
+- Clicking those links must perform a **full page navigation** (not Nuxt SPA routing)
+- This prevents “route not found” issues when users navigate to static doc pages from within the app
+
+Repo reference implementation:
+
+- `app/plugins/content-links.client.ts`: [`app/plugins/content-links.client.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/plugins/content-links.client.ts)

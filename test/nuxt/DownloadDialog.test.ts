@@ -155,6 +155,13 @@ describe('DownloadDialog', () => {
       expect(wrapper.text()).toContain('Dillinger.io')
       expect(wrapper.text()).toContain('StackEdit.io')
     })
+
+    it('should include ICJIA markdown viewer as recommended option', () => {
+      const wrapper = mountComponent()
+      const content = wrapper.text()
+      expect(content).toContain('markdown.icjia.cloud')
+      expect(content).toContain('Recommended')
+    })
   })
 
   describe('Accessibility Features', () => {

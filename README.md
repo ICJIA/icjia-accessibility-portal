@@ -508,10 +508,11 @@ All date calculations use explicit timezone offsets for consistency across envir
 ```typescript
 // Chicago timezone (America/Chicago)
 // CDT = UTC-5 (March-November), CST = UTC-6 (November-March)
-const DEADLINE_DATE = new Date('2026-04-24T00:00:00-05:00').getTime()
+const DEADLINE_DATE = new Date("2026-04-24T00:00:00-05:00").getTime();
 ```
 
 **Why this matters:**
+
 - Servers and clients may be in different timezones
 - JavaScript's `new Date()` uses local timezone, which varies
 - Explicit offsets ensure consistent behavior for Illinois state agencies
@@ -520,13 +521,14 @@ const DEADLINE_DATE = new Date('2026-04-24T00:00:00-05:00').getTime()
 
 Instead of inaccessible PDFs (Playwright/Puppeteer print-to-PDF lacks PDF/UA tagging), provide multiple accessible formats:
 
-| Format | Accessibility | Best For |
-|--------|---------------|----------|
-| **Word (.docx)** | Heading hierarchy, hyperlinks, tables | Screen reader users |
-| **Markdown (.md)** | Plain text readable, renders with formatting | Developers, AI/LLM input |
-| **Plain Text (.txt)** | Universal, works on any device | Maximum compatibility |
+| Format                | Accessibility                                | Best For                 |
+| --------------------- | -------------------------------------------- | ------------------------ |
+| **Word (.docx)**      | Heading hierarchy, hyperlinks, tables        | Screen reader users      |
+| **Markdown (.md)**    | Plain text readable, renders with formatting | Developers, AI/LLM input |
+| **Plain Text (.txt)** | Universal, works on any device               | Maximum compatibility    |
 
 **Implementation:**
+
 - Generator scripts in `scripts/generate-faq-*.js`
 - Server routes in `server/routes/` for development mode
 - Static files generated during `yarn generate`
@@ -539,15 +541,16 @@ All tests include detailed descriptions explaining their purpose:
 ```javascript
 // In test/run-all-tests.js
 const TEST_DESCRIPTIONS = {
-  "should calculate days remaining correctly": 
+  "should calculate days remaining correctly":
     "Verifies days until the April 24, 2026 deadline are calculated accurately " +
     "using Chicago timezone (America/Chicago, CDT = UTC-5). The calculation " +
     "divides milliseconds difference by (1000 * 60 * 60 * 24) and floors the result.",
   // ...
-}
+};
 ```
 
 **Why this matters:**
+
 - Tests serve as documentation
 - New developers understand test purpose
 - HTML test reports are self-explanatory
@@ -556,12 +559,14 @@ const TEST_DESCRIPTIONS = {
 ### 4. Expandable Test Reports
 
 The HTML test report (`/docs/tests/`) includes:
+
 - Expandable descriptions for each test
 - Grouped tests by suite and file
 - Pass/fail indicators with duration
 - Direct links to source files
 
 **Best practice:** Each test description should include:
+
 - What is being tested
 - Why it matters
 - Expected behavior
@@ -684,17 +689,22 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 
 ## Documentation
 
-### 📚 Documentation Portal Best Practices
+### 📚 Prompts (for LLMs to build things)
 
-**NEW**: Want to create a documentation portal like this for your own Vue/Nuxt/Vuetify project? See:
+This repo maintains **prompts** separately from retrospective documentation. A prompt tells an LLM **exactly what to build**.
 
-**[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** - Step-by-step guide for LLMs and developers covering:
+- **Documentation Portal Prompt**: **[DOCUMENTATION_PORTAL_PROMPT.md](markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)**
+  - Builds the entire `/public/docs/*` portal (accessibility, tests, jsdoc, architecture)
+- **Accessibility Audit Prompt**: **[ACCESSIBILITY_AUDIT_PROMPT.md](markdown-documentation/ACCESSIBILITY_AUDIT_PROMPT.md)**
+  - Adds axe-core audits + `/docs/accessibility/` HTML/JSON outputs + placeholder strategy
+- **Testing Reports Prompt**: **[TESTING_REPORTS_PROMPT.md](markdown-documentation/TESTING_REPORTS_PROMPT.md)**
+  - Adds unit/nuxt/e2e test execution + `/docs/tests/` HTML report
+- **Architecture Docs Prompt**: **[ARCHITECTURE_DOCS_PROMPT.md](markdown-documentation/ARCHITECTURE_DOCS_PROMPT.md)**
+  - Generates `/docs/architecture/` HTML from an architecture markdown source
 
-- Complete `/docs/` portal structure with accessibility, tests, JSDoc, and architecture
-- Code snippets with direct GitHub links to full implementations
-- Build automation and package.json scripts
-- Nuxt configuration for static documentation
-- Detailed enough for LLMs to replicate the entire portal structure
+### 📚 Guides (documentation of what exists)
+
+**Guides** document what’s already built in this repo, including rationale and troubleshooting.
 
 **This guide is universal and works with any Vue 3, Nuxt 3/4, or Vuetify 3 project.**
 
@@ -729,7 +739,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 #### 📐 Core (4 files)
 
 - **[ARCHITECTURE_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md)** ⭐ - **Complete technical guide** (1300+ lines with 30+ GitHub links to source files) - **Start here!**
-- **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕 - **LLM-ready guide** for creating documentation portals (accessibility, tests, JSDoc, architecture)
+- **[DOCUMENTATION_PORTAL_PROMPT.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)** 🆕 - **LLM-ready prompt** for creating documentation portals (accessibility, tests, JSDoc, architecture)
 - **[INDEX.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/INDEX.md)** - Documentation index and navigation hub
 - **[PROJECT_REVIEW.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PROJECT_REVIEW.md)** - Complete project review with improvement suggestions
 
@@ -817,8 +827,8 @@ Reports include:
 
 ### Recent Updates (January 2026)
 
-- **NEW**: Documentation Portal Best Practices Guide (`DOCUMENTATION_PORTAL_BEST_PRACTICES.md`)
-  - Step-by-step LLM-ready guide for creating documentation portals
+- **NEW**: Documentation Portal Prompt (`DOCUMENTATION_PORTAL_PROMPT.md`)
+  - Step-by-step LLM-ready prompt for creating documentation portals
   - Works with any Vue/Nuxt/Vuetify project
   - Complete code snippets with GitHub links
 - **NEW**: Accessible FAQ Downloads (replacing inaccessible PDF)

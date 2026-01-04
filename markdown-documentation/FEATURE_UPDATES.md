@@ -7,19 +7,19 @@
 
 ## January 2026
 
-### Documentation Portal Best Practices Guide ⭐ NEW
+### Documentation Portal Prompt ⭐ NEW
 
 **Date**: January 4, 2026
 
-**Overview**: Created comprehensive LLM-ready guide for creating documentation portals
+**Overview**: Created comprehensive LLM-ready prompt for creating documentation portals
 
 **Purpose**:
 
-- Step-by-step guide for LLMs and developers to replicate the entire `/docs/` structure
+- Step-by-step prompt for LLMs and developers to replicate the entire `/docs/` structure
 - Universal applicability for any Vue/Nuxt/Vuetify project
 - Complete code snippets with direct GitHub links
 
-**New File**: [`DOCUMENTATION_PORTAL_BEST_PRACTICES.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)
+**New File**: [`DOCUMENTATION_PORTAL_PROMPT.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)
 
 **Contents**:
 
@@ -30,6 +30,12 @@
 - Architecture documentation
 - Build automation and npm scripts
 - Nuxt configuration for static docs
+
+**Additional Prompt Files**:
+
+- [`ACCESSIBILITY_AUDIT_PROMPT.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_AUDIT_PROMPT.md) - Build axe-core audits + `/docs/accessibility/` outputs (with placeholder strategy)
+- [`TESTING_REPORTS_PROMPT.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/TESTING_REPORTS_PROMPT.md) - Build Vitest runner + `/docs/tests/` HTML report (with per-test descriptions)
+- [`ARCHITECTURE_DOCS_PROMPT.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_DOCS_PROMPT.md) - Build `/docs/architecture/` generation from markdown
 
 ---
 

@@ -26,12 +26,12 @@ Complete technical guide covering:
 
 **This is the single most important document for understanding the entire codebase.**
 
-### For Creating Documentation Portals (Universal Guide)
+### For Creating Documentation Portals (Universal Prompt)
 
-**[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕⭐⭐  
-**Step-by-step LLM-ready guide | Works with any Vue/Nuxt/Vuetify project**
+**[DOCUMENTATION_PORTAL_PROMPT.md](DOCUMENTATION_PORTAL_PROMPT.md)** 🆕⭐⭐  
+**Step-by-step LLM-ready prompt | Works with any Vue/Nuxt/Vuetify project**
 
-Complete guide for creating a `/docs/` portal with:
+Prompt for creating a `/docs/` portal with:
 
 - Accessibility testing reports (axe-core)
 - Unit/E2E test reports (Vitest)
@@ -42,6 +42,13 @@ Complete guide for creating a `/docs/` portal with:
 
 **Show this guide to an LLM to create a documentation portal from scratch.**
 
+### Prompts vs Guides (Important)
+
+- **Prompts**: Written as explicit instructions for LLMs to **build or modify** something.
+- **Guides**: Written as documentation of **what already exists** (and why).
+
+This repo includes both. Use prompts when you want an LLM to implement a feature or generate a full docs system.
+
 ---
 
 ## 📋 Documentation by Category
@@ -51,9 +58,18 @@ Complete guide for creating a `/docs/` portal with:
 | Document                                                                                       | Purpose                                       | When to Read                        |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------- |
 | **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** ⭐                                          | Complete technical architecture               | First time working on project       |
-| **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕       | LLM-ready documentation portal guide          | Creating docs for other projects    |
+| **[DOCUMENTATION_PORTAL_PROMPT.md](DOCUMENTATION_PORTAL_PROMPT.md)** 🆕                      | LLM-ready documentation portal prompt         | Creating docs for other projects    |
 | **[INDEX.md](INDEX.md)**                                                                       | Documentation index (this file)               | Finding specific documentation      |
 | **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)**                                                     | Project review with improvement suggestions   | Understanding project goals         |
+
+### Prompts (3 files)
+
+| Prompt | Purpose | When to Use |
+| ------ | ------- | ----------- |
+| **[DOCUMENTATION_PORTAL_PROMPT.md](DOCUMENTATION_PORTAL_PROMPT.md)** ⭐ | Copy/paste prompt to build `/public/docs/*` portal | Creating a docs portal in any repo |
+| **[ACCESSIBILITY_AUDIT_PROMPT.md](ACCESSIBILITY_AUDIT_PROMPT.md)** 🆕 | Prompt to add axe-core audits + `/docs/accessibility/` outputs | Adding automated accessibility reporting |
+| **[TESTING_REPORTS_PROMPT.md](TESTING_REPORTS_PROMPT.md)** 🆕 | Prompt to add Vitest runner + `/docs/tests/` report | Adding unit/nuxt/e2e reporting |
+| **[ARCHITECTURE_DOCS_PROMPT.md](ARCHITECTURE_DOCS_PROMPT.md)** 🆕 | Prompt to generate `/docs/architecture/` from markdown | Adding architecture docs generation |
 
 ### Features & Guides (6 files)
 
@@ -93,7 +109,7 @@ Complete guide for creating a `/docs/` portal with:
 
 #### Create a documentation portal for my project
 
-👉 **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** - LLM-ready step-by-step guide  
+👉 **[DOCUMENTATION_PORTAL_PROMPT.md](DOCUMENTATION_PORTAL_PROMPT.md)** - LLM-ready step-by-step prompt  
    Works with any Vue/Nuxt/Vuetify project. Show to an LLM to create a full `/docs/` portal.
 
 #### Add a new FAQ question
