@@ -63,12 +63,14 @@ const NEW_QUESTION_DAYS = 10;
 
 /**
  * Calculates days remaining until the compliance deadline (April 24, 2026).
+ * The deadline is midnight Central Time (Chicago timezone, UTC-5 in April due to DST).
  *
  * @returns {number} Number of days remaining (0 if deadline has passed)
  * @private
  */
 function getDaysUntilDeadline(): number {
-  const deadline = new Date("2026-04-24T00:00:00").getTime();
+  // April 24, 2026 midnight in Chicago (CDT = UTC-5)
+  const deadline = new Date("2026-04-24T00:00:00-05:00").getTime();
   const now = Date.now();
   const distance = deadline - now;
   if (distance <= 0) return 0;

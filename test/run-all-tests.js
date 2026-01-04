@@ -26,6 +26,244 @@ const outputPath = join(__dirname, "failed-tests.json");
 const fullResultsPath = join(__dirname, "test-results.json");
 const htmlReportPath = join(rootDir, "public", "docs", "tests", "index.html");
 
+/**
+ * Test Descriptions
+ * Maps test name patterns to human-readable descriptions explaining what each test verifies.
+ * Used to generate expandable documentation in the HTML test report.
+ */
+const TEST_DESCRIPTIONS = {
+  // FAQ Download Generators
+  "should generate a plain text file from markdown": "Verifies the TXT generator script successfully converts Markdown source to a plain text file output.",
+  "should include proper header with metadata": "Checks that generated files include the ICJIA header, generation date, and source URL metadata.",
+  "should convert headings to uppercase with separators": "Ensures Markdown headings (H1, H2) are converted to uppercase text with ASCII separator lines for visual structure.",
+  "should preserve links with URLs in parentheses": "Verifies that hyperlinks are converted to 'text (URL)' format for readability in plain text.",
+  "should remove markdown formatting symbols": "Confirms that Markdown syntax like **bold** and *italic* markers are stripped from plain text output.",
+  "should include footer with copyright": "Checks that generated documents include proper copyright and contact information footer.",
+  "should handle {new:} tags appropriately": "Verifies that {new:YYYY-MM-DD} date tags are either removed or converted to visible badges.",
+  "should be readable as plain ASCII text": "Ensures the output is valid text content that can be read by any text editor.",
+  "should generate a markdown file from source": "Verifies the MD generator successfully creates a Markdown file with added header/footer.",
+  "should remove original YAML frontmatter": "Ensures the source file's YAML frontmatter is stripped and replaced with new metadata.",
+  "should preserve markdown formatting": "Confirms that Markdown syntax (headings, bold, italic, links) is preserved in the output.",
+  "should preserve tables": "Verifies that Markdown tables are kept intact in the generated file.",
+  "should convert {new:} tags to visible badges": "Checks that date tags are converted to visible emoji badges (🆕) in Markdown output.",
+  "should include footer with document info": "Ensures the Markdown output includes a Document Information section with organization details.",
+  "should generate a docx file from markdown": "Verifies the DOCX generator creates a valid Word document from Markdown source.",
+  "should create a valid ZIP-based docx file": "Confirms the output is a valid Office Open XML file (starts with PK signature).",
+  "should have reasonable file size": "Ensures the generated DOCX is within expected size bounds (5KB-1MB).",
+  "should contain document content in XML format": "Verifies the DOCX contains the required word/document.xml structure.",
+  
+  // Download File Accessibility
+  "should be readable without any special software": "Verifies plain text files can be opened and read by any basic text editor.",
+  "should use clear visual structure with ASCII separators": "Checks that text files use = and - characters for visual section separation.",
+  "should have proper heading hierarchy": "Ensures Markdown files have correct H1/H2 heading structure for accessibility.",
+  "should be a valid Office Open XML file": "Confirms DOCX files follow the Office Open XML standard format.",
+  "should contain structured content": "Verifies DOCX files include proper document structure and styles for accessibility.",
+  
+  // DownloadDialog Component
+  "should render when modelValue is true": "Verifies the dialog component renders when its v-model is true.",
+  "should not render dialog content when modelValue is false": "Confirms the dialog is hidden when v-model is false.",
+  "should display dialog title": "Checks that the 'Download FAQs' title is visible in the dialog.",
+  "should display description text": "Verifies the format selection description text is displayed.",
+  "should display Word Document option": "Confirms the DOCX download option is present with correct description.",
+  "should display Markdown option": "Confirms the MD download option is present with VS Code/GitHub mention.",
+  "should display Plain Text option": "Confirms the TXT download option is present with screen reader mention.",
+  "should have correct download links": "Verifies all three download links point to correct file paths.",
+  "should have download attributes on links": "Checks that links have proper 'download' attributes for file download.",
+  "should display accessibility notes for each format": "Verifies each format shows its accessibility benefit note.",
+  "should have expandable Markdown explanation": "Confirms the 'What is Markdown?' expandable section exists.",
+  "should explain what Markdown is": "Checks that the Markdown explanation text is present.",
+  "should include Windows native options": "Verifies Windows-specific Markdown viewers (Notepad, WordPad) are listed.",
+  "should include macOS native options": "Verifies macOS-specific Markdown viewers (TextEdit, Quick Look) are listed.",
+  "should include cross-platform apps": "Confirms VS Code, Obsidian, Typora are listed as Markdown viewers.",
+  "should include online viewers": "Verifies Dillinger.io and StackEdit.io are listed as online options.",
+  "should have aria-labelledby for dialog": "Checks the dialog has proper ARIA labeling for screen readers.",
+  "should have download options with role=\"list\"": "Verifies the download options container has list semantics.",
+  "should have download options with role=\"listitem\"": "Confirms each download option has listitem semantics.",
+  "should have cancel button with aria-label": "Checks the cancel button is accessible with proper labeling.",
+  "should emit update:modelValue when cancel is clicked": "Verifies clicking cancel properly closes the dialog.",
+  "should include tip for screen reader users": "Confirms the screen reader tip about Word format is displayed.",
+  "should indicate Markdown is good for LLM input": "Verifies Markdown option mentions AI/LLM compatibility.",
+  "should indicate Plain Text is good for LLM input": "Verifies Plain Text option mentions AI/LLM compatibility.",
+  "should explain how to use with AI assistants": "Confirms instructions for using files with AI are present.",
+  "should mention specific AI tools": "Checks that ChatGPT, Claude, Gemini, Copilot are mentioned.",
+  
+  // FaqAccordion Component
+  "should render FAQ items": "Verifies the accordion component renders FAQ question/answer pairs.",
+  "should display question text": "Confirms FAQ questions are visible in the accordion headers.",
+  "should display new badge when isNew is true": "Verifies new questions show the 'New' badge indicator.",
+  "should not display new badge when isNew is false": "Confirms older questions don't show the new badge.",
+  "should generate question IDs correctly": "Checks that unique anchor IDs are generated for each question.",
+  "should handle empty items array": "Verifies the component handles empty FAQ data gracefully.",
+  "should use sectionId when provided": "Confirms section IDs are used in generated question anchors.",
+  
+  // Search Functionality
+  "should return results for exact match in question": "Verifies exact text matches in questions return results.",
+  "should return results for partial match": "Confirms partial word matches return relevant results.",
+  "should return empty array for no matches": "Verifies searches with no matches return empty arrays.",
+  "should search in both question and answer fields": "Confirms search looks in both question and answer content.",
+  "should return results sorted by score ascending": "Verifies best matches (lowest score) appear first.",
+  "should rank exact question match highest": "Confirms exact matches in questions rank above partial matches.",
+  "should rank question matches higher than answer-only matches": "Verifies question matches are weighted higher than answer matches.",
+  "should order results from closest to partial match": "Confirms results are ordered by relevance score.",
+  "should include score in results": "Verifies Fuse.js score is included for ranking purposes.",
+  "should have scores between 0 and 1": "Confirms scores are normalized to 0-1 range (0 = perfect match).",
+  "should return best matches with scores below threshold": "Verifies threshold filtering works correctly.",
+  "should include match indices in results": "Confirms match position data is available for highlighting.",
+  "should provide match positions for highlighting": "Verifies exact character positions are provided for UI highlighting.",
+  "should identify which key matched": "Confirms results indicate whether question or answer matched.",
+  "should find results with typos": "Verifies fuzzy matching handles minor spelling errors.",
+  "should find results with partial words": "Confirms partial word searches return relevant results.",
+  "should handle case-insensitive search": "Verifies search is not case-sensitive.",
+  "should label very close matches as Excellent": "Confirms scores < 0.1 are labeled as 'Excellent' match.",
+  "should label good matches appropriately": "Verifies scores 0.1-0.3 are labeled as 'Good' match.",
+  "should label fair matches appropriately": "Confirms scores 0.3-0.5 are labeled as 'Fair' match.",
+  "should label weak matches as Partial": "Verifies scores > 0.5 are labeled as 'Partial' match.",
+  "should handle undefined score": "Confirms graceful handling when score is not available.",
+  "should return results quickly for small datasets": "Verifies search performance is acceptable.",
+  "should handle multiple sequential searches": "Confirms rapid consecutive searches don't cause issues.",
+  "should handle empty search query": "Verifies empty queries are handled gracefully.",
+  "should handle single character search": "Confirms single-character searches work correctly.",
+  "should handle special characters": "Verifies searches with symbols don't break the search.",
+  "should handle very long search queries": "Confirms long query strings don't cause errors.",
+  "should handle search with numbers": "Verifies numeric searches return appropriate results.",
+  "should preserve section information in results": "Confirms section context is maintained in search results.",
+  "should include isNew flag in results": "Verifies new question status is preserved in results.",
+  
+  // SEO and Structured Data
+  "should set basic SEO meta tags with default values": "Verifies default SEO meta tags are applied correctly.",
+  "should set custom title with site name suffix": "Confirms page titles include the site name suffix.",
+  "should set custom description": "Verifies meta description can be customized per page.",
+  "should build full URL from relative path": "Confirms relative URLs are converted to absolute URLs.",
+  "should handle URL with leading slash": "Verifies URLs starting with / are handled correctly.",
+  "should handle URL without leading slash": "Confirms URLs without / prefix work correctly.",
+  "should build image URL from relative path": "Verifies OG image URLs are generated correctly.",
+  "should use absolute image URL as-is": "Confirms absolute image URLs are not modified.",
+  "should handle keywords array": "Verifies keyword meta tags are generated from arrays.",
+  "should handle article type with published time": "Confirms article structured data includes publish date.",
+  "should handle noindex and nofollow flags": "Verifies robots meta directives work correctly.",
+  "should set custom author": "Confirms author meta tag can be customized.",
+  "should handle all options together": "Verifies all SEO options work in combination.",
+  
+  // Structured Data
+  "should handle empty FAQ array": "Verifies FAQ structured data handles empty arrays.",
+  "should handle FAQ items": "Confirms FAQ schema is generated correctly from items.",
+  "should handle single FAQ item": "Verifies single FAQ generates valid schema.",
+  "should handle FAQ with special characters": "Confirms special characters in FAQs are escaped properly.",
+  "should work with default values": "Verifies organization schema uses sensible defaults.",
+  "should handle custom organization name": "Confirms organization name can be customized.",
+  "should handle custom URL": "Verifies organization URL can be set.",
+  "should handle custom logo": "Confirms logo URL is included in organization schema.",
+  "should handle custom description": "Verifies organization description is customizable.",
+  "should handle contact point": "Confirms contact information is included in schema.",
+  "should handle all options together": "Verifies all structured data options combine correctly.",
+  "should work without search URL": "Confirms website schema works without search action.",
+  "should handle search URL with leading slash": "Verifies search action URLs are generated correctly.",
+  "should handle empty breadcrumb array": "Confirms empty breadcrumbs don't cause errors.",
+  "should handle single breadcrumb": "Verifies single breadcrumb generates valid schema.",
+  "should handle multiple breadcrumbs": "Confirms breadcrumb trail is generated correctly.",
+  
+  // FAQ Collapse
+  "should initialize with collapseSignal at 0": "Verifies collapse state starts at initial value.",
+  "should initialize with openAccordion as null": "Confirms no accordion is open initially.",
+  "should increment collapseSignal when collapseAll is called": "Verifies collapse all triggers signal update.",
+  "should reset openAccordion when collapseAll is called": "Confirms collapse all closes any open accordion.",
+  "should set open accordion correctly": "Verifies specific accordion can be opened.",
+  "should close accordion when setOpenAccordion is called with undefined": "Confirms accordions can be closed.",
+  "should check if panel is open correctly": "Verifies open state detection works.",
+  "should get open panel index correctly": "Confirms correct panel index is returned.",
+  "should return undefined when no panel is open": "Verifies null state is handled.",
+  "should handle multiple accordions correctly": "Confirms only one accordion opens at a time.",
+  
+  // Countdown
+  "should calculate days remaining correctly": "Verifies days until deadline are calculated accurately in Chicago timezone (America/Chicago).",
+  "should return 0 days when deadline has passed": "Confirms past deadlines show 0 days.",
+  "should use Chicago timezone (America/Chicago) for all calculations": "Verifies the deadline (April 24, 2026 midnight CDT) is correctly interpreted in Chicago timezone.",
+  "should format days remaining text correctly": "Verifies pluralization of 'day/days' is correct.",
+  "should format \"1 day\" correctly": "Confirms singular 'day' is used for 1 day remaining.",
+  "should format \"less than 1 day\" when less than 24 hours remain": "Verifies sub-day formatting.",
+  "should show deadline passed message when deadline has passed": "Confirms past deadline message is shown.",
+  "should provide urgency text for different time ranges": "Verifies urgency levels change over time.",
+  "should update deadlinePassed correctly": "Confirms deadline passed flag updates properly.",
+  
+  // Print Links
+  "should append URL to external links": "Verifies external links show their URLs in print view.",
+  "should handle links without text by using URL": "Confirms empty links show URL as text.",
+  "should style internal links as bold text": "Verifies internal links are styled differently.",
+  "should not duplicate URLs if already appended": "Confirms URLs aren't added twice.",
+  "should add text to empty table headers": "Verifies empty th elements get accessible text.",
+  "should handle headers with only HTML comments": "Confirms comment-only headers are handled.",
+  "should add aria-label to table headers": "Verifies table headers get ARIA labels.",
+  
+  // Slugify
+  "should convert text to lowercase": "Verifies slug generation lowercases all text.",
+  "should replace non-alphanumeric characters with hyphens": "Confirms special chars become hyphens.",
+  "should remove leading and trailing hyphens": "Verifies clean slug boundaries.",
+  "should truncate to maxLength": "Confirms slugs respect maximum length.",
+  "should remove trailing hyphens after truncation": "Verifies clean truncation.",
+  "should handle empty string": "Confirms empty input is handled.",
+  "should handle special characters": "Verifies symbols are properly converted.",
+  "should handle numbers": "Confirms numbers are preserved in slugs.",
+  "should combine section and question slugs": "Verifies question IDs include section context.",
+  "should handle different sections with same question": "Confirms unique IDs across sections.",
+  "should handle special characters in section and question": "Verifies complex text slugifies correctly.",
+  "should use default maxLength of 150": "Confirms default slug length limit.",
+  "should return slugify and getQuestionId functions": "Verifies composable exports expected functions.",
+  "should work correctly when used as composable": "Confirms composable usage pattern works.",
+  
+  // FAQ Transform
+  "should return true for dates within the new window": "Verifies recent dates are marked as new.",
+  "should return false for dates outside the new window": "Confirms old dates aren't marked as new.",
+  "should return true for today": "Verifies today's date is within new window.",
+  "should return true for dates exactly 10 days ago": "Confirms window boundary handling.",
+  "should handle date comparisons consistently in Chicago timezone context": "Verifies date string comparisons work correctly regardless of server timezone, using Illinois (Chicago) context.",
+  "should extract new date from curly braces format when within window": "Verifies {new:} tag parsing.",
+  "should extract new date from HTML comment format when within window": "Confirms comment format works.",
+  "should return null if no new date found": "Verifies graceful handling of missing tags.",
+  "should return null if date is outside new window": "Confirms expired dates return null.",
+  "should extract tagged date even if outside new window": "Verifies date extraction regardless of window.",
+  "should return null if no tag is present": "Confirms missing tags return null.",
+  "should remove new tag from nodes": "Verifies new tags are stripped from rendered content.",
+  "should replace dynamic placeholders": "Confirms placeholder text substitution works.",
+  "should filter out empty nodes after removing new tag": "Verifies clean node structure.",
+  "should handle mixed content with new tags and regular text": "Confirms complex content handling.",
+  "should wrap H3 questions and answers in div.qa-card": "Verifies Q&A card wrapping.",
+  "should stop wrapping at next H1, H2, H3, or HR": "Confirms proper section boundaries.",
+  "should leave non-H3 nodes unchanged": "Verifies non-question content is preserved.",
+  "should transform FAQ markdown AST to accordion data": "Confirms AST to accordion transformation.",
+  "should extract multiple FAQs": "Verifies multiple questions are extracted.",
+  "should stop at H1, H2, or HR": "Confirms section boundary detection.",
+  "should handle FAQs without new tags": "Verifies graceful handling of untagged FAQs.",
+  "should return empty array for non-array input": "Confirms type safety on invalid input.",
+  
+  // Search Config
+  "should have valid threshold value (0-1 range)": "Verifies fuzzy search threshold is valid.",
+  "should have threshold set for balanced fuzzy matching": "Confirms threshold allows reasonable fuzziness.",
+  "should have distance configured": "Verifies Fuse.js distance setting exists.",
+  "should have minMatchCharLength configured": "Confirms minimum match length is set.",
+  "should include score in results for ranking": "Verifies score inclusion setting.",
+  "should include matches for highlighting": "Confirms match data is returned.",
+  "should enable sorting for proper rank order": "Verifies result sorting is enabled.",
+  "should ignore location for searching anywhere in text": "Confirms location-independent search.",
+  "should have keys array defined": "Verifies search fields are configured.",
+  "should search in question field with higher weight": "Confirms question field priority.",
+  "should search in answer field with lower weight": "Verifies answer field is included.",
+  "should prioritize question over answer (higher weight)": "Confirms field weighting order.",
+  "should have weights that sum to approximately 1": "Verifies normalized field weights.",
+  "should have relevance labels defined": "Confirms label configuration exists.",
+  "should have excellent label with lowest threshold": "Verifies 'Excellent' threshold value.",
+  "should have good label": "Confirms 'Good' label configuration.",
+  "should have fair label": "Verifies 'Fair' label configuration.",
+  "should have partial label as catch-all": "Confirms 'Partial' is the fallback label.",
+  "should have ascending threshold order": "Verifies label thresholds are ordered.",
+  "should have display settings defined": "Confirms display configuration exists.",
+  "should have minimum search length": "Verifies min search length is set.",
+  "should have answer preview length": "Confirms preview length configuration.",
+  "should have context before match": "Verifies context before setting.",
+  "should have context after match": "Confirms context after setting.",
+  "should understand that lower score = better match in Fuse.js": "Documents Fuse.js scoring behavior.",
+  "should have threshold that allows fuzzy matching": "Confirms threshold enables fuzzy search.",
+};
+
 console.log("🧪 Comprehensive Test Runner\n");
 console.log(
   "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -535,6 +773,53 @@ function generateHTMLReport(testResults, outputPath, rootDir) {
       color: #6c757d;
     }
     
+    .test-case-description {
+      margin-top: 0.5rem;
+    }
+    
+    .test-case-description summary {
+      font-size: 0.8rem;
+      color: #0d6efd;
+      cursor: pointer;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .test-case-description summary:hover {
+      text-decoration: underline;
+    }
+    
+    .test-case-description summary::marker {
+      content: '';
+    }
+    
+    .test-case-description summary::before {
+      content: '▶';
+      font-size: 0.6rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .test-case-description[open] summary::before {
+      transform: rotate(90deg);
+    }
+    
+    .test-case-description .description-content {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: #e7f1ff;
+      border-left: 3px solid #0d6efd;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #0a58ca;
+      line-height: 1.5;
+    }
+    
+    .test-case-description .description-content p {
+      margin: 0;
+    }
+    
     .failure-message {
       margin-top: 0.5rem;
       padding: 0.75rem;
@@ -760,11 +1045,23 @@ function generateTestFilesHTML(results, rootDir) {
             }
 
             const statusIcon = caseStatus === "passed" ? "✅" : caseStatus === "failed" ? "❌" : "⚠️";
+            
+            // Look up description for this test
+            const description = TEST_DESCRIPTIONS[title] || null;
+            const descriptionHTML = description
+              ? `<details class="test-case-description">
+                  <summary>What does this test verify?</summary>
+                  <div class="description-content">
+                    <p>${description}</p>
+                  </div>
+                </details>`
+              : "";
 
             return `
       <div class="test-case ${caseClass}">
         <div class="test-case-title">${statusIcon} ${title}</div>
         <div class="test-case-duration">Duration: ${duration}</div>
+        ${descriptionHTML}
         ${failureHTML}
       </div>`;
           })
