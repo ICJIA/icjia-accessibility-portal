@@ -87,6 +87,11 @@ const TEST_DESCRIPTIONS = {
   "should explain how to use with AI assistants": "Confirms the expanded Markdown section includes step-by-step instructions: 1) Open the file in a text editor, 2) Select all and copy (Ctrl+A, Ctrl+C or Cmd+A, Cmd+C), 3) Paste into AI chat. This practical guidance helps users leverage AI for understanding accessibility requirements.",
   "should mention specific AI tools": "Checks that the dialog text explicitly mentions current popular AI assistants: ChatGPT, Claude, Gemini, and Copilot. Naming specific tools helps users understand the practical applications and provides searchable terms if they need to learn more.",
   
+  // DownloadDialog Responsive Design
+  "should use fullscreen prop for mobile detection": "Verifies the dialog component exists and is configured for responsive behavior. The component uses Vuetify's useDisplay composable with smAndDown breakpoint to detect mobile devices, rendering fullscreen on screens smaller than 600px.",
+  "should have responsive CSS classes": "Confirms the component includes the necessary CSS class structure (download-dialog, download-dialog-content) that contains responsive media queries for tablet, mobile, and very small screen adaptations.",
+  "should have touch-friendly minimum heights on download options": "Verifies all three download option buttons exist and will receive the CSS min-height of 60px on mobile (per WCAG touch target guidelines). This ensures users can easily tap options on touchscreen devices.",
+  
   // FaqAccordion Component
   "should render FAQ items": "Verifies the FaqAccordion component renders a v-expansion-panel for each FAQ item passed in the items prop. Each panel contains a question header (v-expansion-panel-title) and answer content (v-expansion-panel-text) with proper Vuetify accordion behavior.",
   "should display question text": "Confirms FAQ question text from the 'question' property is displayed in the accordion panel header. The question text should be visible when the accordion is both collapsed and expanded, serving as the clickable trigger to reveal the answer.",

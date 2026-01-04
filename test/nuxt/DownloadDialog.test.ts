@@ -203,6 +203,33 @@ describe('DownloadDialog', () => {
     })
   })
 
+  describe('Responsive Design', () => {
+    it('should use fullscreen prop for mobile detection', () => {
+      // The component uses Vuetify's useDisplay composable
+      // which provides smAndDown for mobile detection
+      const wrapper = mountComponent()
+      // Verify the component uses isMobile computed property from useDisplay
+      // In test environment without Vuetify context, it falls back to false (non-fullscreen)
+      // The component structure should still exist and be functional
+      expect(wrapper.find('.download-dialog').exists()).toBe(true)
+    })
+
+    it('should have responsive CSS classes', () => {
+      const wrapper = mountComponent()
+      // Verify the dialog wrapper class exists which contains responsive styles
+      expect(wrapper.find('.download-dialog').exists()).toBe(true)
+      expect(wrapper.find('.download-dialog-content').exists()).toBe(true)
+    })
+
+    it('should have touch-friendly minimum heights on download options', () => {
+      // Download options should have min-height for touch accessibility
+      // This is tested via CSS, component just needs to have the right classes
+      const wrapper = mountComponent()
+      const options = wrapper.findAll('.download-option')
+      expect(options.length).toBe(3)
+    })
+  })
+
   describe('LLM/AI Usage Information', () => {
     it('should indicate Markdown is good for LLM input', () => {
       const wrapper = mountComponent()

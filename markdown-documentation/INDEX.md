@@ -26,17 +26,34 @@ Complete technical guide covering:
 
 **This is the single most important document for understanding the entire codebase.**
 
+### For Creating Documentation Portals (Universal Guide)
+
+**[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕⭐⭐  
+**Step-by-step LLM-ready guide | Works with any Vue/Nuxt/Vuetify project**
+
+Complete guide for creating a `/docs/` portal with:
+
+- Accessibility testing reports (axe-core)
+- Unit/E2E test reports (Vitest)
+- API documentation (JSDoc/TypeDoc)
+- Architecture documentation
+- All code snippets with GitHub links
+- Build automation and configuration
+
+**Show this guide to an LLM to create a documentation portal from scratch.**
+
 ---
 
 ## 📋 Documentation by Category
 
-### Core (3 files)
+### Core (4 files)
 
-| Document                                              | Purpose                                     | When to Read                   |
-| ----------------------------------------------------- | ------------------------------------------- | ------------------------------ |
-| **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** ⭐ | Complete technical architecture             | First time working on project  |
-| **[INDEX.md](INDEX.md)**                              | Documentation index (this file)             | Finding specific documentation |
-| **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)**            | Project review with improvement suggestions | Understanding project goals    |
+| Document                                                                                       | Purpose                                       | When to Read                        |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------- |
+| **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** ⭐                                          | Complete technical architecture               | First time working on project       |
+| **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕       | LLM-ready documentation portal guide          | Creating docs for other projects    |
+| **[INDEX.md](INDEX.md)**                                                                       | Documentation index (this file)               | Finding specific documentation      |
+| **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)**                                                     | Project review with improvement suggestions   | Understanding project goals         |
 
 ### Features & Guides (6 files)
 
@@ -73,6 +90,11 @@ Complete technical guide covering:
 #### Understand the entire application
 
 👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Start here! (1300+ lines with code links)
+
+#### Create a documentation portal for my project
+
+👉 **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** - LLM-ready step-by-step guide  
+   Works with any Vue/Nuxt/Vuetify project. Show to an LLM to create a full `/docs/` portal.
 
 #### Add a new FAQ question
 

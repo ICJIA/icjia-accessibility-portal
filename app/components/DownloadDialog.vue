@@ -2,9 +2,11 @@
   <v-dialog
     v-model="isOpen"
     max-width="550"
+    :fullscreen="isMobile"
     :aria-labelledby="dialogTitleId"
     aria-modal="true"
     role="dialog"
+    class="download-dialog-wrapper"
   >
     <v-card class="download-dialog">
       <v-card-title :id="dialogTitleId" class="download-dialog-title">
@@ -219,9 +221,16 @@
  * @fileoverview Download format selection dialog
  * @description Accessible dialog for choosing between Word (.docx), Markdown (.md),
  * and plain text (.txt) download formats for the FAQs document.
+ * 
+ * Responsive behavior:
+ * - Full-screen dialog on mobile devices (< 600px)
+ * - Centered modal on tablet and desktop
+ * - Touch-friendly targets on all devices
+ * - Scrollable content for small viewports
  */
 
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import { useDisplay } from "vuetify";
 
 interface Props {
   modelValue: boolean;
@@ -233,6 +242,23 @@ interface Emits {
 
 const props = defineProps<Props>();
 const emit = defineEmits<Emits>();
+
+// Responsive breakpoint detection with fallback for test environments
+let smAndDown = ref(false);
+try {
+  const display = useDisplay();
+  smAndDown = display.smAndDown;
+} catch {
+  // Fallback for test environments where Vuetify context may not be available
+  smAndDown = ref(false);
+}
+
+/**
+ * Determines if the dialog should be fullscreen (on mobile devices).
+ * Uses Vuetify's display composable for responsive detection.
+ * Falls back to false (non-fullscreen) if Vuetify context is unavailable.
+ */
+const isMobile = computed(() => smAndDown.value);
 
 // Generate unique ID for accessibility
 const dialogTitleId = `download-dialog-title-${Math.random().toString(36).slice(2, 9)}`;
@@ -525,14 +551,116 @@ function close() {
   border-top: 1px solid rgba(var(--v-theme-on-surface), 0.1);
 }
 
-/* Mobile responsive */
-@media (max-width: 550px) {
+/* ======================================
+   RESPONSIVE DESIGN
+   ====================================== */
+
+/* Tablet and smaller (< 960px) */
+@media (max-width: 959px) {
+  .download-dialog-title {
+    font-size: 1.125rem;
+    padding: 1rem 1.25rem;
+  }
+  
+  .download-dialog-description {
+    font-size: 0.875rem;
+  }
+}
+
+/* Small tablets and large phones (< 768px) */
+@media (max-width: 767px) {
   .download-dialog-content {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .download-option {
     padding: 0.875rem;
+    gap: 0.75rem;
+  }
+
+  .download-option-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .download-option-icon .v-icon {
+    font-size: 26px !important;
+  }
+
+  .download-option-title {
+    font-size: 0.9375rem;
+  }
+
+  .download-option-description {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .download-option-accessibility,
+  .download-option-llm {
+    font-size: 0.6875rem;
+  }
+  
+  /* Hide arrow on smaller screens to save space */
+  .download-option-arrow {
+    display: none;
+  }
+
+  .markdown-explainer-summary {
+    font-size: 0.8125rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .markdown-explainer-content {
+    font-size: 0.75rem;
+    padding: 0.875rem;
+  }
+
+  .download-dialog-note {
+    font-size: 0.75rem;
+    padding: 0.625rem 0.875rem;
+  }
+}
+
+/* Mobile phones (< 600px) - fullscreen mode */
+@media (max-width: 599px) {
+  .download-dialog {
+    border-radius: 0;
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .download-dialog-title {
+    font-size: 1.125rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+    flex-shrink: 0;
+  }
+
+  .download-dialog-content {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .download-dialog-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .download-options {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .download-option {
+    padding: 0.75rem;
+    gap: 0.625rem;
+    /* Minimum touch target size for accessibility */
+    min-height: 60px;
   }
 
   .download-option-icon {
@@ -542,6 +670,191 @@ function close() {
 
   .download-option-icon .v-icon {
     font-size: 24px !important;
+  }
+
+  .download-option-title {
+    font-size: 0.875rem;
+  }
+
+  .download-option-description {
+    font-size: 0.6875rem;
+    line-height: 1.3;
+  }
+
+  .download-option-accessibility,
+  .download-option-llm {
+    font-size: 0.625rem;
+  }
+
+  .download-option-accessibility .v-icon,
+  .download-option-llm .v-icon {
+    font-size: 12px !important;
+  }
+
+  .markdown-explainer {
+    margin-bottom: 0.75rem;
+  }
+
+  .markdown-explainer-summary {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .markdown-explainer-content {
+    font-size: 0.6875rem;
+    padding: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .markdown-explainer-content ul {
+    padding-left: 1rem;
+  }
+
+  .markdown-explainer-content li {
+    margin: 0.125rem 0;
+  }
+
+  .markdown-explainer-content .section-heading {
+    margin-top: 0.75rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .markdown-explainer-content kbd {
+    padding: 0.05rem 0.3rem;
+    font-size: 0.7em;
+  }
+
+  .markdown-explainer-content .tip-text {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.65em;
+    margin-top: 0.75rem;
+  }
+
+  .download-dialog-note {
+    font-size: 0.6875rem;
+    padding: 0.5rem 0.75rem;
+    line-height: 1.4;
+  }
+
+  .download-dialog-note .v-icon {
+    font-size: 14px !important;
+    margin-top: 1px;
+  }
+
+  .download-dialog-actions {
+    padding: 0.5rem 1rem;
+    flex-shrink: 0;
+    border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+  }
+}
+
+/* Very small phones (< 360px) */
+@media (max-width: 359px) {
+  .download-dialog-title {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .download-dialog-content {
+    padding: 0.75rem;
+  }
+
+  .download-option {
+    padding: 0.625rem;
+    gap: 0.5rem;
+  }
+
+  .download-option-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .download-option-icon .v-icon {
+    font-size: 20px !important;
+  }
+
+  .download-option-title {
+    font-size: 0.8125rem;
+  }
+
+  .download-option-description {
+    font-size: 0.625rem;
+  }
+  
+  /* On very small screens, hide the LLM badge to save space */
+  .download-option-llm {
+    display: none;
+  }
+
+  .download-dialog-actions {
+    padding: 0.375rem 0.75rem;
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .download-dialog-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .download-options {
+    gap: 0.375rem;
+  }
+
+  .download-option {
+    padding: 0.5rem 0.75rem;
+    min-height: 48px;
+  }
+
+  .download-option-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .download-option-description {
+    display: none; /* Hide descriptions in landscape to fit content */
+  }
+
+  .markdown-explainer {
+    display: none; /* Hide expanded info in landscape */
+  }
+
+  .download-dialog-note {
+    display: none; /* Hide tip in landscape */
+  }
+}
+
+/* High contrast mode / forced colors */
+@media (forced-colors: active) {
+  .download-option {
+    border: 2px solid CanvasText;
+  }
+
+  .download-option:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 2px;
+  }
+
+  .download-option-icon {
+    forced-color-adjust: none;
+    background: Canvas;
+    border: 1px solid CanvasText;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .download-option,
+  .download-option-arrow,
+  .markdown-explainer-summary {
+    transition: none;
+  }
+}
+
+/* Print mode - hide the dialog */
+@media print {
+  .download-dialog-wrapper {
+    display: none !important;
   }
 }
 </style>

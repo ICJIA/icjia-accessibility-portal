@@ -7,6 +7,99 @@
 
 ## January 2026
 
+### Documentation Portal Best Practices Guide ⭐ NEW
+
+**Date**: January 4, 2026
+
+**Overview**: Created comprehensive LLM-ready guide for creating documentation portals
+
+**Purpose**:
+
+- Step-by-step guide for LLMs and developers to replicate the entire `/docs/` structure
+- Universal applicability for any Vue/Nuxt/Vuetify project
+- Complete code snippets with direct GitHub links
+
+**New File**: [`DOCUMENTATION_PORTAL_BEST_PRACTICES.md`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)
+
+**Contents**:
+
+- Portal structure and directory organization
+- Accessibility testing report generation (axe-core)
+- Unit/E2E test report generation (Vitest)
+- JSDoc/TypeDoc API documentation
+- Architecture documentation
+- Build automation and npm scripts
+- Nuxt configuration for static docs
+
+---
+
+### Responsive Download Dialog ⭐ NEW
+
+**Date**: January 4, 2026
+
+**Overview**: Enhanced DownloadDialog component for full responsive support
+
+**Changes**:
+
+- Added fullscreen mode on mobile (< 600px) using Vuetify's `useDisplay` composable
+- Comprehensive CSS media queries for all viewport sizes
+- Touch-friendly minimum heights (60px) on mobile
+- Landscape orientation optimizations
+- High contrast mode support (forced-colors)
+- Reduced motion preference support
+
+**Technical Details**:
+
+- Graceful fallback when Vuetify context is unavailable (test environments)
+- 5 breakpoints: desktop, tablet, small tablet, mobile, very small
+- Print mode hidden
+
+---
+
+### Chicago Timezone Handling ⭐ NEW
+
+**Date**: January 4, 2026
+
+**Overview**: All date calculations now use explicit Chicago timezone offsets
+
+**Changes**:
+
+- `useDeadlineCountdown.ts`: Uses `-05:00` (CDT) for April 2026 deadline
+- `faqTransform.ts`: "New" badge comparisons in Chicago timezone
+- All tests updated to use Chicago timezone offsets
+
+**Why This Matters**:
+
+- Illinois state agencies need consistent date display
+- JavaScript `new Date()` uses local timezone (varies by environment)
+- Explicit offsets ensure same behavior across servers and clients
+
+---
+
+### Expanded Test Descriptions ⭐ NEW
+
+**Date**: January 4, 2026
+
+**Overview**: All test cases now include detailed descriptions in HTML report
+
+**Changes**:
+
+- Added `TEST_DESCRIPTIONS` object in `test/run-all-tests.js`
+- Each test has 2-4 sentence explanation covering:
+  - What is being tested
+  - Why it matters (accessibility, compliance, UX)
+  - Technical implementation details
+  - Expected outcomes
+
+**Benefits**:
+
+- Tests serve as living documentation
+- New developers understand test purpose
+- HTML reports are self-explanatory
+- AI/LLM can understand testing requirements
+
+---
+
 ### Accessible Document Downloads ⭐ NEW
 
 **Date**: January 4, 2026

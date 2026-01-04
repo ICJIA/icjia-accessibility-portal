@@ -114,7 +114,9 @@ yarn generate:serve
 
 ### Content Features
 
-- **Dynamic Countdown Timer** - Shows days remaining until April 24, 2026 deadline
+- **Dynamic Countdown Timer** - Shows days remaining until April 24, 2026 deadline (Chicago timezone)
+  - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
+  - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
 - **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
   - Add `{new:YYYY-MM-DD}` after question heading in markdown
   - Badge auto-expires after 10 days (configurable)
@@ -131,6 +133,12 @@ yarn generate:serve
   - Includes last-updated date for reference
   - Fully accessible with discernible link text and table headers
   - Links display URLs for printed versions
+- **Accessible FAQ Downloads** - Multiple accessible formats via Download dialog
+  - **Word Document (.docx)** - Formatted with proper heading hierarchy, tables, hyperlinks (screen reader navigable)
+  - **Markdown (.md)** - Plain text with formatting syntax, readable in any editor or Markdown viewer
+  - **Plain Text (.txt)** - Universal format readable by any device or assistive technology
+  - Download dialog explains each format and includes AI/LLM usage tips
+  - Formats are generated at build time for static hosting, or on-demand during development
 - **Markdown-based Content** - Easy content management via Nuxt Content
 - **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
 - **Fuzzy Search** - Instant client-side search with Fuse.js
@@ -225,10 +233,14 @@ This site is configured for deployment on Netlify with automatic builds and opti
 - **Publish directory**: `.output/public`
 - **Node version**: 22.14.0 (specified in netlify.toml and .nvmrc)
 
-**Build-time PDF generation (Netlify-safe):**
+**Build-time accessible document generation:**
 
-- The build produces an **up-to-date FAQs PDF** by printing the prerendered `/faqs-print` page into `.output/public/faqs.pdf`.
-- On Netlify, **do not** use Playwright’s `--with-deps` flag (it tries to `su` to root, which is blocked). Install the browser only: `npx playwright install chromium`.
+- The build produces **accessible download files** (Word, Markdown, Plain Text) from `content/faqs.md`:
+  - `ICJIA-Accessibility-FAQs.docx` - Word document with proper heading hierarchy
+  - `ICJIA-Accessibility-FAQs.md` - Markdown with metadata header/footer
+  - `ICJIA-Accessibility-FAQs.txt` - Plain text with ASCII separators for structure
+- These replace the previously inaccessible PDF (Playwright print-to-PDF lacks PDF/UA tagging)
+- During development (`yarn dev`), files are generated on-demand via server routes
 
 ### Security & Performance Headers
 
@@ -273,8 +285,8 @@ The automated build process:
 4. Builds/generates the Nuxt application
 5. Regenerates routes.json with Nuxt-discovered routes
 6. Updates sitemap with final routes
-7. Optimizes and outputs to `.output/public/`
-8. Generates an up-to-date FAQs PDF (from `/faqs-print`) and writes it into `.output/public/` so it ships as a static asset
+7. Generates accessible FAQ downloads (Word, Markdown, Plain Text)
+8. Optimizes and outputs to `.output/public/`
 
 **Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not indexed for SEO purposes).
 
@@ -297,6 +309,7 @@ The automated build process:
 │   │   ├── AppNavbar.vue       # Navigation bar with aria-current support
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
+│   │   ├── DownloadDialog.vue  # Accessible download format selection
 │   │   └── FaqAccordion.vue    # FAQ accordion with aria-describedby
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
@@ -484,6 +497,78 @@ The audit script is designed to be reusable for any website:
 
 **For complete instructions, see**: [ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md - Reusing This Script](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md#reusing-this-script)
 
+## Best Practices (Reusable Patterns)
+
+This project establishes several best practices that can be reused in other projects:
+
+### 1. Timezone-Aware Date Handling
+
+All date calculations use explicit timezone offsets for consistency across environments:
+
+```typescript
+// Chicago timezone (America/Chicago)
+// CDT = UTC-5 (March-November), CST = UTC-6 (November-March)
+const DEADLINE_DATE = new Date('2026-04-24T00:00:00-05:00').getTime()
+```
+
+**Why this matters:**
+- Servers and clients may be in different timezones
+- JavaScript's `new Date()` uses local timezone, which varies
+- Explicit offsets ensure consistent behavior for Illinois state agencies
+
+### 2. Accessible Document Downloads
+
+Instead of inaccessible PDFs (Playwright/Puppeteer print-to-PDF lacks PDF/UA tagging), provide multiple accessible formats:
+
+| Format | Accessibility | Best For |
+|--------|---------------|----------|
+| **Word (.docx)** | Heading hierarchy, hyperlinks, tables | Screen reader users |
+| **Markdown (.md)** | Plain text readable, renders with formatting | Developers, AI/LLM input |
+| **Plain Text (.txt)** | Universal, works on any device | Maximum compatibility |
+
+**Implementation:**
+- Generator scripts in `scripts/generate-faq-*.js`
+- Server routes in `server/routes/` for development mode
+- Static files generated during `yarn generate`
+- User-friendly download dialog component
+
+### 3. Comprehensive Test Documentation
+
+All tests include detailed descriptions explaining their purpose:
+
+```javascript
+// In test/run-all-tests.js
+const TEST_DESCRIPTIONS = {
+  "should calculate days remaining correctly": 
+    "Verifies days until the April 24, 2026 deadline are calculated accurately " +
+    "using Chicago timezone (America/Chicago, CDT = UTC-5). The calculation " +
+    "divides milliseconds difference by (1000 * 60 * 60 * 24) and floors the result.",
+  // ...
+}
+```
+
+**Why this matters:**
+- Tests serve as documentation
+- New developers understand test purpose
+- HTML test reports are self-explanatory
+- AI/LLM can understand testing requirements
+
+### 4. Expandable Test Reports
+
+The HTML test report (`/docs/tests/`) includes:
+- Expandable descriptions for each test
+- Grouped tests by suite and file
+- Pass/fail indicators with duration
+- Direct links to source files
+
+**Best practice:** Each test description should include:
+- What is being tested
+- Why it matters
+- Expected behavior
+- Technical implementation details
+
+---
+
 ## Content Management
 
 ### Adding New FAQ Questions
@@ -599,9 +684,23 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 
 ## Documentation
 
-### 📚 Complete Architecture Guide
+### 📚 Documentation Portal Best Practices
 
-**NEW**: For a comprehensive understanding of this application's architecture, implementation details, and best practices, see:
+**NEW**: Want to create a documentation portal like this for your own Vue/Nuxt/Vuetify project? See:
+
+**[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** - Step-by-step guide for LLMs and developers covering:
+
+- Complete `/docs/` portal structure with accessibility, tests, JSDoc, and architecture
+- Code snippets with direct GitHub links to full implementations
+- Build automation and package.json scripts
+- Nuxt configuration for static documentation
+- Detailed enough for LLMs to replicate the entire portal structure
+
+**This guide is universal and works with any Vue 3, Nuxt 3/4, or Vuetify 3 project.**
+
+### 📐 Complete Architecture Guide
+
+For a comprehensive understanding of this application's architecture, implementation details, and best practices, see:
 
 **[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** - Complete guide covering:
 
@@ -627,9 +726,10 @@ The sitemap is generated at `public/sitemap.xml` and includes all public pages w
 
 Comprehensive documentation is available in the `markdown-documentation/` folder **(consolidated from 24 to 12 files)**:
 
-#### 📐 Core (3 files)
+#### 📐 Core (4 files)
 
 - **[ARCHITECTURE_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md)** ⭐ - **Complete technical guide** (1300+ lines with 30+ GitHub links to source files) - **Start here!**
+- **[DOCUMENTATION_PORTAL_BEST_PRACTICES.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_BEST_PRACTICES.md)** 🆕 - **LLM-ready guide** for creating documentation portals (accessibility, tests, JSDoc, architecture)
 - **[INDEX.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/INDEX.md)** - Documentation index and navigation hub
 - **[PROJECT_REVIEW.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PROJECT_REVIEW.md)** - Complete project review with improvement suggestions
 
@@ -717,6 +817,20 @@ Reports include:
 
 ### Recent Updates (January 2026)
 
+- **NEW**: Documentation Portal Best Practices Guide (`DOCUMENTATION_PORTAL_BEST_PRACTICES.md`)
+  - Step-by-step LLM-ready guide for creating documentation portals
+  - Works with any Vue/Nuxt/Vuetify project
+  - Complete code snippets with GitHub links
+- **NEW**: Accessible FAQ Downloads (replacing inaccessible PDF)
+  - Word (.docx), Markdown (.md), and Plain Text (.txt) formats
+  - Responsive download dialog with fullscreen mobile mode
+  - LLM/AI usage tips for Markdown and Plain Text
+- **NEW**: Chicago Timezone Handling
+  - All date calculations use explicit Chicago timezone offsets
+  - Ensures consistent display for Illinois state agencies
+- **NEW**: Expanded Test Descriptions
+  - All 220 tests include detailed explanations in HTML report
+  - Tests serve as living documentation
 - **NEW**: JSDoc/TypeDoc API documentation (`/docs/jsdoc/`)
   - Comprehensive documentation for all composables, utilities, and plugins
   - Type definitions and interfaces
