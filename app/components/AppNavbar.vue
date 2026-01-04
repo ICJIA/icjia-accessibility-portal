@@ -32,15 +32,15 @@
         <v-btn
           v-for="item in navItems"
           :key="item.to"
-          :href="item.to"
-          :download="item.download || undefined"
+          :href="item.isDownload ? undefined : item.to"
           :target="item.target || undefined"
           :rel="item.rel || undefined"
           variant="text"
           class="nav-btn"
           :prepend-icon="item.icon"
           :aria-label="item.ariaLabel || `Navigate to ${item.title}`"
-          :aria-current="route.path === item.to ? 'page' : undefined"
+          :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
+          @click="item.isDownload ? openDownloadDialog($event) : undefined"
         >
           {{ item.title }}
         </v-btn>
@@ -69,12 +69,12 @@
           <v-list-item
             v-for="item in navItems"
             :key="item.to"
-            :href="item.to"
-            :download="item.download || undefined"
+            :href="item.isDownload ? undefined : item.to"
             :target="item.target || undefined"
             :rel="item.rel || undefined"
             :prepend-icon="item.icon"
-            :aria-current="route.path === item.to ? 'page' : undefined"
+            :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
+            @click="item.isDownload ? openDownloadDialog($event) : undefined"
           >
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
@@ -102,6 +102,9 @@
       </v-btn>
     </v-container>
   </v-app-bar>
+
+  <!-- Download Dialog -->
+  <DownloadDialog v-model="showDownloadDialog" />
 </template>
 
 <script setup lang="ts">
@@ -122,6 +125,7 @@ const showDesktopNav = computed(() => width.value >= 961);
 const route = useRoute();
 const { collapseAll } = useFaqCollapse();
 const menuOpen = ref(false);
+const showDownloadDialog = ref(false);
 
 interface NavItem {
   title: string;
@@ -129,7 +133,7 @@ interface NavItem {
   icon: string;
   target?: string;
   rel?: string;
-  download?: string;
+  isDownload?: boolean;
   ariaLabel?: string;
 }
 
@@ -148,10 +152,10 @@ const navItems: NavItem[] = [
   },
   {
     title: "Download",
-    to: "/faqs.pdf",
+    to: "#download",
     icon: "mdi-download",
-    download: "ICJIA-Accessibility-FAQs.pdf",
-    ariaLabel: "Download FAQs as PDF",
+    isDownload: true,
+    ariaLabel: "Download FAQs - choose format",
   },
   {
     title: "Links",
@@ -176,6 +180,12 @@ function handleLogoClick(event: MouseEvent) {
       behavior: "smooth",
     });
   }
+}
+
+function openDownloadDialog(event: MouseEvent) {
+  event.preventDefault();
+  menuOpen.value = false; // Close mobile menu if open
+  showDownloadDialog.value = true;
 }
 </script>
 

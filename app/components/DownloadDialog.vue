@@ -1,0 +1,547 @@
+<template>
+  <v-dialog
+    v-model="isOpen"
+    max-width="550"
+    :aria-labelledby="dialogTitleId"
+    aria-modal="true"
+    role="dialog"
+  >
+    <v-card class="download-dialog">
+      <v-card-title :id="dialogTitleId" class="download-dialog-title">
+        <v-icon class="mr-2" aria-hidden="true">mdi-download</v-icon>
+        Download FAQs
+      </v-card-title>
+
+      <v-card-text class="download-dialog-content">
+        <p class="download-dialog-description">
+          Choose your preferred accessible format. All formats are fully
+          accessible and maintain the document structure.
+        </p>
+
+        <div class="download-options" role="list">
+          <!-- Word Document Option -->
+          <a
+            :href="docxUrl"
+            :download="docxFilename"
+            class="download-option"
+            role="listitem"
+            @click="handleDownload('docx')"
+          >
+            <div class="download-option-icon docx-icon">
+              <v-icon size="32" aria-hidden="true">
+                mdi-file-word
+              </v-icon>
+            </div>
+            <div class="download-option-info">
+              <span class="download-option-title">Word Document (.docx)</span>
+              <span class="download-option-description">
+                Formatted document with headings, tables, and links. Opens in
+                Microsoft Word, Google Docs, or LibreOffice.
+              </span>
+              <span class="download-option-accessibility">
+                <v-icon size="14" color="success" aria-hidden="true">
+                  mdi-check-circle
+                </v-icon>
+                Accessible: Proper heading structure for navigation
+              </span>
+            </div>
+            <v-icon class="download-option-arrow" aria-hidden="true">
+              mdi-chevron-right
+            </v-icon>
+          </a>
+
+          <!-- Markdown Option -->
+          <a
+            :href="mdUrl"
+            :download="mdFilename"
+            class="download-option"
+            role="listitem"
+            @click="handleDownload('md')"
+          >
+            <div class="download-option-icon md-icon">
+              <v-icon size="32" aria-hidden="true">
+                mdi-language-markdown
+              </v-icon>
+            </div>
+            <div class="download-option-info">
+              <span class="download-option-title">Markdown (.md)</span>
+              <span class="download-option-description">
+                Plain text with formatting syntax. Opens in any text editor, 
+                or renders beautifully in VS Code, GitHub, Obsidian, or Typora.
+              </span>
+              <span class="download-option-accessibility">
+                <v-icon size="14" color="success" aria-hidden="true">
+                  mdi-check-circle
+                </v-icon>
+                Accessible: Readable as plain text, renders with formatting
+              </span>
+              <span class="download-option-llm">
+                <v-icon size="14" color="info" aria-hidden="true">
+                  mdi-robot
+                </v-icon>
+                Great for AI: Ideal for pasting into ChatGPT, Claude, or other LLMs
+              </span>
+            </div>
+            <v-icon class="download-option-arrow" aria-hidden="true">
+              mdi-chevron-right
+            </v-icon>
+          </a>
+
+          <!-- Plain Text Option -->
+          <a
+            :href="txtUrl"
+            :download="txtFilename"
+            class="download-option"
+            role="listitem"
+            @click="handleDownload('txt')"
+          >
+            <div class="download-option-icon txt-icon">
+              <v-icon size="32" aria-hidden="true">
+                mdi-file-document-outline
+              </v-icon>
+            </div>
+            <div class="download-option-info">
+              <span class="download-option-title">Plain Text (.txt)</span>
+              <span class="download-option-description">
+                Simple text file readable by any device or screen reader.
+                Maximum compatibility, no special software needed.
+              </span>
+              <span class="download-option-accessibility">
+                <v-icon size="14" color="success" aria-hidden="true">
+                  mdi-check-circle
+                </v-icon>
+                Accessible: Universal format, works everywhere
+              </span>
+              <span class="download-option-llm">
+                <v-icon size="14" color="info" aria-hidden="true">
+                  mdi-robot
+                </v-icon>
+                Great for AI: Perfect for pasting into ChatGPT, Claude, or other LLMs
+              </span>
+            </div>
+            <v-icon class="download-option-arrow" aria-hidden="true">
+              mdi-chevron-right
+            </v-icon>
+          </a>
+        </div>
+
+        <!-- Markdown Explanation -->
+        <details class="markdown-explainer">
+          <summary class="markdown-explainer-summary">
+            <v-icon size="16" class="mr-1" aria-hidden="true">mdi-help-circle-outline</v-icon>
+            What is Markdown? How do I view it?
+          </summary>
+          <div class="markdown-explainer-content">
+            <p>
+              <strong>Markdown</strong> is a simple text format that uses symbols like <code>#</code> for headings, 
+              <code>**bold**</code> for bold text, and <code>[links](url)</code> for hyperlinks. It's readable 
+              as plain text but renders beautifully in compatible viewers.
+            </p>
+            
+            <p class="section-heading"><strong>🪟 Windows — Native Options:</strong></p>
+            <ul>
+              <li><strong>Notepad</strong> — Opens as plain text (built-in)</li>
+              <li><strong>WordPad</strong> — Opens as plain text (built-in)</li>
+              <li><strong>Microsoft Edge</strong> — Drag & drop the file to view with basic rendering</li>
+              <li><strong>Visual Studio Code</strong> — Free, right-click file → "Open Preview" for formatted view</li>
+            </ul>
+            
+            <p class="section-heading"><strong>🍎 macOS — Native Options:</strong></p>
+            <ul>
+              <li><strong>TextEdit</strong> — Opens as plain text (built-in)</li>
+              <li><strong>Quick Look</strong> — Press <kbd>Space</kbd> on selected file in Finder (with plugins)</li>
+              <li><strong>Safari</strong> — Drag & drop to view as plain text</li>
+              <li><strong>Xcode</strong> — Built-in Markdown preview (if installed)</li>
+              <li><strong>Visual Studio Code</strong> — Free, Cmd+Shift+V for formatted preview</li>
+            </ul>
+            
+            <p class="section-heading"><strong>📱 Cross-Platform Apps (Free):</strong></p>
+            <ul>
+              <li><strong><a href="https://code.visualstudio.com" target="_blank" rel="noopener noreferrer">VS Code</a></strong> — Best free option with live preview</li>
+              <li><strong><a href="https://obsidian.md" target="_blank" rel="noopener noreferrer">Obsidian</a></strong> — Beautiful note-taking app with Markdown</li>
+              <li><strong><a href="https://typora.io" target="_blank" rel="noopener noreferrer">Typora</a></strong> — Clean live-preview editor</li>
+              <li><strong><a href="https://marktext.app" target="_blank" rel="noopener noreferrer">Mark Text</a></strong> — Simple, open-source editor</li>
+            </ul>
+            
+            <p class="section-heading"><strong>🌐 Online Viewers (No Install):</strong></p>
+            <ul>
+              <li><strong><a href="https://dillinger.io" target="_blank" rel="noopener noreferrer">Dillinger.io</a></strong> — Drag & drop to view instantly</li>
+              <li><strong><a href="https://stackedit.io" target="_blank" rel="noopener noreferrer">StackEdit.io</a></strong> — Full-featured online editor</li>
+              <li><strong><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></strong> — Paste content into a Gist or README</li>
+            </ul>
+            
+            <p class="section-heading"><strong>🤖 Using with AI/LLMs:</strong></p>
+            <p>
+              Markdown and plain text files are <strong>ideal formats for AI assistants</strong> like ChatGPT, 
+              Claude, Gemini, or Copilot. Simply:
+            </p>
+            <ul>
+              <li>Open the downloaded file in any text editor</li>
+              <li>Select all and copy (Ctrl+A, Ctrl+C or Cmd+A, Cmd+C)</li>
+              <li>Paste into your AI chat to ask questions, get summaries, or request explanations</li>
+            </ul>
+            <p style="font-size: 0.8em; color: rgba(var(--v-theme-on-surface), 0.7);">
+              AI assistants can help you understand complex accessibility requirements, create action plans, 
+              or answer specific questions about the content.
+            </p>
+            
+            <p class="tip-text">
+              <v-icon size="14" class="mr-1" aria-hidden="true">mdi-lightbulb-outline</v-icon>
+              <strong>Tip:</strong> Markdown and plain text are the most reliable formats for AI tools — 
+              they preserve all content without formatting issues that Word documents can have.
+            </p>
+          </div>
+        </details>
+
+        <p class="download-dialog-note">
+          <v-icon size="16" class="mr-1" aria-hidden="true">mdi-information</v-icon>
+          <strong>Tip:</strong> For screen reader users, the Word document format 
+          preserves heading structure for easy navigation.
+        </p>
+      </v-card-text>
+
+      <v-card-actions class="download-dialog-actions">
+        <v-spacer />
+        <v-btn
+          variant="text"
+          @click="close"
+          aria-label="Close download dialog"
+        >
+          Cancel
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>
+
+<script setup lang="ts">
+/**
+ * @fileoverview Download format selection dialog
+ * @description Accessible dialog for choosing between Word (.docx), Markdown (.md),
+ * and plain text (.txt) download formats for the FAQs document.
+ */
+
+import { computed } from "vue";
+
+interface Props {
+  modelValue: boolean;
+}
+
+interface Emits {
+  (e: "update:modelValue", value: boolean): void;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<Emits>();
+
+// Generate unique ID for accessibility
+const dialogTitleId = `download-dialog-title-${Math.random().toString(36).slice(2, 9)}`;
+
+// Dialog state
+const isOpen = computed({
+  get: () => props.modelValue,
+  set: (value) => emit("update:modelValue", value),
+});
+
+// Download URLs and filenames
+const docxUrl = "/ICJIA-Accessibility-FAQs.docx";
+const docxFilename = "ICJIA-Accessibility-FAQs.docx";
+const mdUrl = "/ICJIA-Accessibility-FAQs.md";
+const mdFilename = "ICJIA-Accessibility-FAQs.md";
+const txtUrl = "/ICJIA-Accessibility-FAQs.txt";
+const txtFilename = "ICJIA-Accessibility-FAQs.txt";
+
+/**
+ * Handle download click - close dialog after a short delay
+ */
+function handleDownload(format: "docx" | "md" | "txt") {
+  // Allow the download to start, then close the dialog
+  setTimeout(() => {
+    close();
+  }, 100);
+}
+
+/**
+ * Close the dialog
+ */
+function close() {
+  isOpen.value = false;
+}
+</script>
+
+<style scoped>
+.download-dialog {
+  border-radius: 12px;
+}
+
+.download-dialog-title {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
+}
+
+.download-dialog-content {
+  padding: 1.5rem;
+}
+
+.download-dialog-description {
+  margin: 0 0 1.25rem 0;
+  color: rgba(var(--v-theme-on-surface), 0.8);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.download-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.download-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid rgba(var(--v-theme-on-surface), 0.15);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.download-option:hover {
+  border-color: rgb(var(--v-theme-primary));
+  background: rgba(var(--v-theme-primary), 0.05);
+}
+
+.download-option:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+  border-color: rgb(var(--v-theme-primary));
+  background: rgba(var(--v-theme-primary), 0.08);
+}
+
+.download-option-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.docx-icon {
+  background: rgba(41, 98, 255, 0.1);
+  color: #2962ff;
+}
+
+.md-icon {
+  background: rgba(0, 0, 0, 0.08);
+  color: #424242;
+}
+
+.txt-icon {
+  background: rgba(var(--v-theme-primary), 0.1);
+  color: rgb(var(--v-theme-primary));
+}
+
+.download-option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.download-option-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.download-option-description {
+  font-size: 0.8125rem;
+  color: rgba(var(--v-theme-on-surface), 0.7);
+  line-height: 1.4;
+}
+
+.download-option-accessibility {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: rgb(var(--v-theme-success));
+  margin-top: 0.25rem;
+}
+
+.download-option-llm {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: rgb(var(--v-theme-info));
+  margin-top: 0.125rem;
+}
+
+.download-option-arrow {
+  flex-shrink: 0;
+  color: rgba(var(--v-theme-on-surface), 0.4);
+  transition: transform 0.2s ease;
+}
+
+.download-option:hover .download-option-arrow {
+  transform: translateX(4px);
+  color: rgb(var(--v-theme-primary));
+}
+
+/* Markdown Explainer */
+.markdown-explainer {
+  margin-bottom: 1rem;
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.12);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown-explainer-summary {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(var(--v-theme-on-surface), 0.8);
+  cursor: pointer;
+  background: rgba(var(--v-theme-on-surface), 0.03);
+  transition: background 0.2s ease;
+}
+
+.markdown-explainer-summary:hover {
+  background: rgba(var(--v-theme-on-surface), 0.06);
+}
+
+.markdown-explainer-summary:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: -2px;
+}
+
+.markdown-explainer-content {
+  padding: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: rgba(var(--v-theme-on-surface), 0.8);
+  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.08);
+}
+
+.markdown-explainer-content p {
+  margin: 0 0 0.75rem 0;
+}
+
+.markdown-explainer-content p:last-of-type {
+  margin-bottom: 0;
+}
+
+.markdown-explainer-content .section-heading {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-explainer-content .section-heading:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.markdown-explainer-content ul {
+  margin: 0 0 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.markdown-explainer-content li {
+  margin: 0.25rem 0;
+}
+
+.markdown-explainer-content kbd {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  font-family: monospace;
+  font-size: 0.75em;
+  background: rgba(var(--v-theme-on-surface), 0.1);
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.2);
+  border-radius: 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-explainer-content .tip-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(var(--v-theme-success), 0.1);
+  border-radius: 4px;
+  font-size: 0.8em;
+}
+
+.markdown-explainer-content code {
+  background: rgba(var(--v-theme-on-surface), 0.08);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.8em;
+}
+
+.markdown-explainer-content a {
+  color: rgb(var(--v-theme-primary));
+  text-decoration: underline;
+}
+
+.markdown-explainer-content a:hover {
+  text-decoration: none;
+}
+
+.download-dialog-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: rgba(var(--v-theme-info), 0.1);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: rgba(var(--v-theme-on-surface), 0.8);
+  line-height: 1.5;
+}
+
+.download-dialog-note .v-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: rgb(var(--v-theme-info));
+}
+
+.download-dialog-actions {
+  padding: 0.75rem 1.5rem 1rem;
+  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 550px) {
+  .download-dialog-content {
+    padding: 1rem;
+  }
+
+  .download-option {
+    padding: 0.875rem;
+  }
+
+  .download-option-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .download-option-icon .v-icon {
+    font-size: 24px !important;
+  }
+}
+</style>

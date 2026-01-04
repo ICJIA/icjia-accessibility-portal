@@ -1,88 +1,32 @@
-import { createReadStream } from "node:fs";
-import { stat } from "node:fs/promises";
-import { join } from "node:path";
-import { spawn } from "node:child_process";
-import { createError, sendStream, setHeader } from "h3";
+import { createError } from "h3";
 
 /**
- * Dev/SSR fallback for `/faqs.pdf`.
+ * Legacy route handler for `/faqs.pdf`.
  *
- * In static hosting (Netlify publish = `.output/public`) this route is NOT used,
- * because `faqs.pdf` is emitted as a static file at build time.
- *
- * In local `nuxt dev` (or `nuxt preview`), this prevents a 404 by serving the
- * generated PDF from `.output/public/faqs.pdf` (or `public/faqs.pdf`).
+ * The PDF download has been replaced with accessible document formats.
+ * This route now redirects users to the accessible alternatives.
  */
 export default defineEventHandler(async (event) => {
-  const root = process.cwd();
-  const outDir = join(root, ".output", "public");
-  const printIndex = join(outDir, "faqs-print", "index.html");
-  const candidates = [
-    join(outDir, "faqs.pdf"),
-    join(outDir, "ICJIA-Accessibility-FAQs.pdf"),
-    join(root, "public", "faqs.pdf"),
-    join(root, "public", "ICJIA-Accessibility-FAQs.pdf"),
-  ];
-
-  let pdfPath: string | null = null;
-  for (const p of candidates) {
-    try {
-      const s = await stat(p);
-      if (s.isFile()) {
-        pdfPath = p;
-        break;
-      }
-    } catch {
-      // ignore
-    }
-  }
-
-  if (!pdfPath) {
-    // Dev convenience: if the generated HTML exists, generate the PDF on-demand.
-    // This avoids a confusing 404 when running `nuxt dev` without having run `nuxt generate`.
-    try {
-      const s = await stat(printIndex);
-      if (s.isFile()) {
-        await new Promise<void>((resolve, reject) => {
-          const child = spawn(
-            process.execPath,
-            [
-              join(root, "scripts", "generate-faq-pdf.js"),
-              "--publicDir",
-              outDir,
-              "--out",
-              join(outDir, "ICJIA-Accessibility-FAQs.pdf"),
-            ],
-            { stdio: "inherit" }
-          );
-          child.on("error", reject);
-          child.on("exit", (code) => {
-            if (code === 0) resolve();
-            else reject(new Error(`PDF generation exited with code ${code}`));
-          });
-        });
-        pdfPath = join(outDir, "ICJIA-Accessibility-FAQs.pdf");
-      }
-    } catch {
-      // ignore and fall through to 404
-    }
-
-    if (!pdfPath) {
-      throw createError({
-        statusCode: 404,
-        statusMessage:
-          "FAQs PDF not found. Run `yarn generate` (postgenerate creates faqs.pdf).",
-      });
-    }
-  }
-
-  setHeader(event, "Content-Type", "application/pdf");
-  setHeader(
-    event,
-    "Content-Disposition",
-    'attachment; filename="ICJIA-Accessibility-FAQs.pdf"'
-  );
-  return sendStream(event, createReadStream(pdfPath));
+  // Return a helpful error message directing users to accessible alternatives
+  throw createError({
+    statusCode: 410, // Gone - resource no longer available
+    statusMessage:
+      "The PDF download has been replaced with accessible document formats. Please use the Download button to choose between Word (.docx) or Plain Text (.txt) formats.",
+    data: {
+      alternatives: [
+        {
+          format: "Word Document",
+          url: "/ICJIA-Accessibility-FAQs.docx",
+          description: "Formatted document with headings, tables, and links",
+        },
+        {
+          format: "Plain Text",
+          url: "/ICJIA-Accessibility-FAQs.txt",
+          description: "Simple text file readable by any device",
+        },
+      ],
+      reason:
+        "PDFs generated via browser print are not accessible to screen readers. We now provide fully accessible document formats.",
+    },
+  });
 });
-
-

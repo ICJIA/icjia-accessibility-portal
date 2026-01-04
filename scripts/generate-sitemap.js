@@ -574,12 +574,6 @@ function main() {
       (route) => route !== "/docs" && !route.startsWith("/docs/")
     );
 
-    // Include downloadable FAQs PDF as a public URL.
-    // This is generated at build time (postgenerate) and deployed as a static asset.
-    if (!routes.includes("/faqs.pdf")) {
-      routes.push("/faqs.pdf");
-    }
-
     const excludedCount = allRoutes.length - routes.length;
     if (excludedCount > 0) {
       console.log(`  (Excluded ${excludedCount} /docs route(s) from sitemap)`);

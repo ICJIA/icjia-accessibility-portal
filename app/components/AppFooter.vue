@@ -44,17 +44,17 @@
           <span>Print</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
-        <a
-          href="/faqs.pdf"
-          download="ICJIA-Accessibility-FAQs.pdf"
-          class="footer-link"
-          aria-label="Download FAQs as PDF"
+        <button
+          type="button"
+          class="footer-link footer-button"
+          aria-label="Download FAQs - choose format"
+          @click="openDownloadDialog"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-download</v-icon
           >
           <span>Download</span>
-        </a>
+        </button>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
           href="/docs/index.html"
@@ -105,6 +105,9 @@
         </a>
       </nav>
     </div>
+
+    <!-- Download Dialog -->
+    <DownloadDialog v-model="showDownloadDialog" />
   </footer>
 </template>
 
@@ -115,8 +118,20 @@
  * accessibility report, and GitHub repository link. Responsive and fully accessible.
  */
 
+import { ref } from "vue";
+
 /** @type {number} Current year for copyright display */
 const currentYear = new Date().getFullYear();
+
+/** @type {Ref<boolean>} Download dialog visibility state */
+const showDownloadDialog = ref(false);
+
+/**
+ * Open the download format selection dialog
+ */
+function openDownloadDialog() {
+  showDownloadDialog.value = true;
+}
 </script>
 
 <style scoped>
@@ -191,6 +206,14 @@ const currentYear = new Date().getFullYear();
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   white-space: nowrap;
+}
+
+/* Button-specific reset for footer-button */
+.footer-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .footer-link:hover {

@@ -7,6 +7,62 @@
 
 ## January 2026
 
+### Accessible Document Downloads ⭐ NEW
+
+**Date**: January 4, 2026
+
+**Overview**: Replaced PDF download with fully accessible document formats (Word .docx and Plain Text .txt)
+
+**Problem**:
+
+- PDF files generated via browser print-to-PDF are not accessible to screen readers
+- Playwright/Puppeteer's `page.pdf()` does not produce tagged PDFs
+- Screen reader users could not navigate the PDF document structure
+- Did not meet PDF/UA accessibility standards
+
+**Solution**:
+
+- Removed PDF generation entirely
+- Added two accessible download formats:
+  - **Word Document (.docx)**: Preserves heading structure, tables, links, and formatting
+  - **Plain Text (.txt)**: Universal format readable by any device or assistive technology
+- Created download format selection dialog with clear descriptions
+
+**Changes**:
+
+- **New Scripts**:
+  - [`scripts/generate-faq-docx.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-faq-docx.js) - Word document generator using `docx` package
+  - [`scripts/generate-faq-txt.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/scripts/generate-faq-txt.js) - Plain text generator
+- **New Component**: [`app/components/DownloadDialog.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/DownloadDialog.vue)
+- **Updated Components**: `AppNavbar.vue`, `AppFooter.vue` - Download button now opens format selection dialog
+- **Removed from sitemap**: `/faqs.pdf` route
+
+**Technical Details**:
+
+- Word document features:
+  - Proper heading hierarchy (H1-H4)
+  - Hyperlinks preserved
+  - Tables with headers
+  - Page numbers
+  - Document metadata (title, subject, keywords)
+- Plain text features:
+  - Structured with visual separators
+  - Header and footer with metadata
+  - Links shown as `text (URL)` format
+  - Universal compatibility
+
+**Impact**:
+
+- ✅ 100% accessible document downloads
+- ✅ Screen reader users can navigate document structure
+- ✅ Works with all assistive technologies
+- ✅ Word format supports navigation via heading styles
+- ✅ Plain text works on any device
+
+**Documentation**: Updated SEO_GUIDE.md, PRINTER_FRIENDLY_GUIDE.md
+
+---
+
 ### Netlify Deployment Fix: Prerender 404 Errors
 
 **Date**: January 2, 2026

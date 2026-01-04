@@ -39,7 +39,7 @@ This guide covers the SEO implementation for the ICJIA Accessibility Portal and 
 - ✅ Descriptive page titles with brand suffix
 - ✅ Alt text for images
 - ✅ Internal linking structure
-- ✅ Downloadable PDF version of FAQs
+- ✅ Downloadable accessible documents (Word .docx and Plain Text .txt)
 
 ---
 
@@ -55,7 +55,6 @@ This guide covers the SEO implementation for the ICJIA Accessibility Portal and 
 | `/faqs-print` | 0.8 | Printer-friendly FAQs |
 | `/links` | 0.8 | Accessibility resources |
 | `/search` | 0.8 | FAQ search |
-| `/faqs.pdf` | 0.8 | Downloadable PDF |
 
 **Excluded**: `/docs/*` routes (internal documentation)
 
@@ -172,7 +171,7 @@ Beyond the on-site implementation, here are external actions you can take:
 | Mobile-responsive verified       | ✅     |
 | Google Search Console verified   | ✅     |
 | Structured data valid            | ✅     |
-| PDF included in sitemap          | ✅     |
+| Accessible downloads available   | ✅     |
 
 ---
 

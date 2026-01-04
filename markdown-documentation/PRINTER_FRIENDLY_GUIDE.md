@@ -222,12 +222,32 @@ The printer-friendly page uses the [`usePrintLinks` composable](https://github.c
 When viewing `/faqs-print`:
 
 1. **Browser Print**: Use Ctrl/Cmd + P
-2. **Save as PDF**: In print dialog, select "Save as PDF"
+2. **Save as PDF**: In print dialog, select "Save as PDF" (note: browser-generated PDFs are not fully accessible for screen readers)
 3. **Recommended Settings**:
    - Paper size: Letter (8.5" x 11")
    - Margins: Default
    - Background graphics: On (for section headers)
 4. **Quality**: Use high quality setting
+
+### Accessible Document Downloads
+
+For fully accessible offline documents, use the **Download** button in the navbar or footer:
+
+| Format | File | Description |
+|--------|------|-------------|
+| Word Document | `ICJIA-Accessibility-FAQs.docx` | Formatted with heading styles for navigation, tables, hyperlinks |
+| Plain Text | `ICJIA-Accessibility-FAQs.txt` | Universal format readable by any device or assistive technology |
+
+**Why not PDF?**
+
+Browser-generated PDFs (via Ctrl+P → Save as PDF) are not tagged PDFs and lack the document structure that screen readers need. The Word and Plain Text formats preserve this structure and are fully accessible.
+
+**Accessibility Features**:
+
+- ✅ Word document has proper heading hierarchy (H1-H4) for screen reader navigation
+- ✅ Word document preserves hyperlinks and tables
+- ✅ Plain text works with any assistive technology
+- ✅ Both formats include all FAQ content and metadata
 
 ### For Content Editors
 
