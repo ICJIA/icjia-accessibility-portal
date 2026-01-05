@@ -42,7 +42,7 @@ _Last updated: January 3, 2026_
 
 **More people need accessible content than you might expect:**
 
-- **In Illinois alone:** Approximately **1.3 million adults** (12.6% of the adult population) have a disability that may affect how they access digital content — including mobility, cognitive, hearing, and vision impairments (<a href="https://www.cdc.gov/ncbddd/disabilityandhealth/impacts/illinois.html" target="_blank" rel="noopener noreferrer">CDC Disability & Health Data</a>).
+- **In Illinois alone:** Approximately **1.3 million adults** (12.6% of the adult population) have a disability that may affect how they access digital content — including mobility, cognitive, hearing, and vision impairments (see CDC’s Disability and Health Data System (DHDS): <a href="https://www.cdc.gov/dhds/about/index.html" target="_blank" rel="noopener noreferrer">About DHDS</a>).
 - **Beyond Illinois:** ICJIA's research, publications, and resources reach a **national and global audience** — researchers, policymakers, criminal justice professionals, and the public. Accessibility isn't just a state compliance issue; it determines who can access your work worldwide.
 - **Temporary and situational disabilities count too:** A broken arm, recovery from surgery, bright sunlight on a screen, or aging-related vision changes — accessible content helps everyone at some point.
 
@@ -146,7 +146,6 @@ Accessible content — websites, documents, PDFs, and videos — provides measur
 
 **References:**
 
-- <a href="https://moz.com/learn/seo/accessibility" target="_blank" rel="noopener noreferrer">Moz: SEO and Accessibility</a> — How accessibility improves search rankings
 - <a href="https://web.dev/learn/accessibility/why" target="_blank" rel="noopener noreferrer">web.dev: Why Accessibility Matters</a> — Google's guidance on accessibility benefits
 - <a href="https://www.w3.org/WAI/business-case/" target="_blank" rel="noopener noreferrer">W3C: The Business Case for Digital Accessibility</a> — Comprehensive overview of accessibility benefits
 
@@ -181,11 +180,88 @@ Accessible content — websites, documents, PDFs, and videos — provides measur
 
 ## Getting Started
 
+### Should ICJIA's Interactive Digital Services (IDS) team wait for DoIT direction before preparing content accessibility tools and support, or start now?
+
+{new:2026-01-06}
+
+**Context:** ICJIA website remediation is underway. The critical gap is content accessibility—helping staff create accessible documents, PDFs, presentations, and spreadsheets.
+
+**Short answer:** Start now. With only 108 days until the April 24, 2026 deadline, waiting for state guidance consumes 13-26% of remaining time and significantly increases compliance risk.
+
+**Legal perspective: The obligation is in effect**
+
+The deadline is a federal regulatory requirement under <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">28 CFR Part 35 (ADA Title II Web Accessibility Rule)</a>. All public-facing content—including downloadable documents—must meet WCAG 2.1 Level AA by April 24, 2026. Illinois agencies also have obligations under <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">IITAA</a>.
+
+**Key legal facts:**
+
+- Standard defined: <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a>
+- Deadline fixed: April 24, 2026 (108 days—every day counts)
+- Scope clear: All public-facing web content including downloadable files (§ 35.200(a))
+- State guidance does not modify federal requirements
+
+Early preparation demonstrates good-faith compliance and provides documentation of implementation efforts should enforcement questions arise.
+
+**Operational perspective: Is IDS ready to support content creators?**
+
+Content accessibility requires agency-wide participation—every staff member who publishes documents needs tools, training, and support.
+
+**Critical readiness questions:**
+
+1. **Tools:** Is Adobe Acrobat Pro DC deployed? Are Office accessibility checkers available?
+2. **Training:** Do staff have accessible templates and quick-reference guides?
+3. **Support:** Who handles accessibility questions? What's the document review process?
+4. **Timeline:** How many documents need remediation? Are resources allocated?
+
+**If most answers are "not yet" or "we're not sure," start immediately.**
+
+**DoIT's role**
+
+<a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">DoIT provides coordination, training, and technical assistance</a>—but does not need to authorize implementation. Engage with DoIT resources while implementing accessibility practices based on federal standards.
+
+**What IDS can do now:**
+
+1. **Deploy tools:** Adobe Acrobat Pro DC, Office checkers, contrast checkers (<a href="https://www.section508.gov/create/software-tools/" target="_blank" rel="noopener noreferrer">Section508.gov: Tools</a>)
+
+2. **Create resources:** Accessible templates, one-page guides, documented workflows (<a href="https://www.section508.gov/create/" target="_blank" rel="noopener noreferrer">Section508.gov: Create Content</a>)
+
+3. **Establish support:** Designate point-of-contact, set up review process, create remediation intake (<a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">DoIT Training</a>)
+
+4. **Assess baseline:** Inventory content, test samples, prioritize remediation, estimate resources (<a href="https://www.section508.gov/manage/understand-scope-technical-requirements/" target="_blank" rel="noopener noreferrer">Section508.gov: Scope</a>)
+
+5. **Coordinate with DoIT:** Request training at <a href="mailto:DoIT.Accessibility@Illinois.gov">DoIT.Accessibility@Illinois.gov</a>, attend webinars, join working groups
+
+**Timeline comparison (108 days remaining):**
+
+**Start now:**
+
+- Tools deployed within 2-3 weeks
+- Workflows operational within 1 month
+- Active remediation underway immediately
+- Critical buffer for challenges
+
+**Wait 2-4 weeks:**
+
+- Loses 14-28 days (13-26% of time)
+- Severely compressed timeline
+- Minimal remediation time
+- Significantly increased risk
+- No buffer for problems
+
+**Bottom line:**
+
+**For legal counsel:** Early preparation demonstrates good-faith compliance and reduces enforcement risk.
+
+**For IDS management:** With 108 days remaining, every day counts for agency-wide implementation.
+
+**Recommendation:** Deploy tools, create templates, establish workflows, and assess content immediately using federal standards (WCAG 2.1 Level AA, Section 508) while coordinating with DoIT for training and guidance.
+
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [What does the April 2026 deadline cover?](#compliance-and-legal-what-does-the-april-2026-deadline-cover) | [Where can I get IITAA training?](#compliance-and-legal-where-can-i-get-iitaa-training)
+
 ### I'm a content creator. Where do I start?
 
 **As a content creator, your role is crucial — you're often the first person to make content accessible (or inaccessible).** Here's your quickstart guide:
 
-**Accessibility best practice:** When possible, publish content as webpage text (HTML) rather than PDFs. HTML webpages are generally easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The <a href="https://citl.illinois.edu/citl-101/teaching-learning/resources/accessibility/pdf-accessibility-guide" target="_blank" rel="noopener noreferrer">University of Illinois CITL PDF Accessibility Guide</a> similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
+**Accessibility best practice:** When possible, publish content as webpage text (HTML) rather than PDFs. HTML webpages are generally easier to make and keep accessible than PDFs—especially when the alternative is a short webpage summary that links to a PDF that may or may not be accessible. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." If you must publish a PDF, follow established guidance and test it (see <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a>). This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
 
 **Visual example of accessible vs. inaccessible content:**
 
@@ -220,7 +296,7 @@ _Accessible approach:_ Full report content published as webpage text with proper
 - **Word documents** — <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Word Documents</a> (15-20 min read).
 - **PDFs** — <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a> (20-30 min read).
 - **PowerPoint** — <a href="https://www.section508.gov/create/presentations/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Presentations</a> (15-20 min read).
-- **Excel** — <a href="https://www.section508.gov/create/documents/excel/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Excel Documents</a> (15-20 min read).
+- **Excel** — <a href="https://www.section508.gov/create/spreadsheets/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Spreadsheets</a> (15-20 min read).
 
 **Video and multimedia:**
 
@@ -371,7 +447,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 **7. Connect with resources:**
 
-- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — Website: <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a>.
+- **Illinois DoIT Office of Information Accessibility** — Email: DoIT.Accessibility@Illinois.gov — Website: <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>.
 - **Accessibility coordinators** — Identify or designate an accessibility coordinator in your organization.
 - **Peer networks** — Connect with other managers facing similar challenges.
 - **Legal/compliance team** — Work with your legal or compliance office to understand requirements.
@@ -387,7 +463,7 @@ ARIA (Accessible Rich Internet Applications) should be used when semantic HTML i
 
 - <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning and Managing Web Accessibility</a> — Strategic guidance for organizations
 - <a href="https://www.section508.gov/manage/" target="_blank" rel="noopener noreferrer">Section508.gov: Managing Accessibility</a> — Program management resources
-- <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
+- <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Office</a> — State-specific support and training
 - <a href="/links" target="_self">Accessibility Links</a> — Curated links page (DOJ/DoIT/W3C and tools)
 
 ### I'm on executive staff. Where do I start?
@@ -600,7 +676,7 @@ When digital content isn't accessible, agencies exclude Illinois residents with 
 
 **References:**
 
-- <a href="https://www.census.gov/library/stories/2023/05/2020-census-united-states-disability-data.html" target="_blank" rel="noopener noreferrer">U.S. Census Bureau: Disability Data (2020)</a> — Statistics on disability prevalence in the United States
+- <a href="https://www.census.gov/topics/health/disability.html" target="_blank" rel="noopener noreferrer">U.S. Census Bureau: Disability</a> — Overview and related data sources on disability in the United States
 - <a href="https://www.ada.gov/topics/intro-to-ada/" target="_blank" rel="noopener noreferrer">ADA.gov: Introduction to the ADA</a> — Overview of who the ADA protects
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT IITAA Requirements</a> — Illinois state agency accessibility obligations
 
@@ -730,7 +806,7 @@ ICJIA is coordinating with the Illinois DoIT Office of Information Accessibility
 
 **Official resources and quick reads:**
 
-- **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility/" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/</a> — State-specific accessibility resources and training.
+- **Illinois DoIT Accessibility Office** — <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a> — State-specific accessibility resources and training.
 - **IITAA (Illinois Information Technology Accessibility Act)** — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a> — Illinois state accessibility requirements.
 - **IITAA 2.1 update (effective date + what changed)** — <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html</a>.
 - **ADA Title II Web Rule** — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a> — Federal accessibility requirements and deadlines.
@@ -917,7 +993,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 **Legal and enforcement consequences:**
 
 - **Department of Justice investigations** — The DOJ has authority to investigate complaints and pursue enforcement actions against non-compliant agencies (<a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a>).
-- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">ADA.gov: State and Local Governments</a>).
+- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II</a>).
 - **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content.
 - **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust.
 
@@ -1035,7 +1111,6 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 **References:**
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Requirements and enforcement provisions
-- <a href="https://www.justice.gov/crt/types-complaints-and-background" target="_blank" rel="noopener noreferrer">DOJ Civil Rights Division</a> — Complaint process information
 - <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a> — How individuals can file complaints
 
 ### How do we prioritize accessibility work with limited resources and a ticking clock?
@@ -1098,7 +1173,7 @@ A state agency with limited resources might prioritize like this:
 **References:**
 
 - <a href="https://www.w3.org/WAI/planning/interim-repairs/" target="_blank" rel="noopener noreferrer">W3C: Web Accessibility First Aid: Approaches for Interim Repairs</a> — Prioritization strategies
-- <a href="https://www.section508.gov/manage/prioritize-and-scope/" target="_blank" rel="noopener noreferrer">Section508.gov: Prioritize and Scope</a> — Federal guidance on prioritizing accessibility work
+- <a href="https://www.section508.gov/manage/identify-user-needs/" target="_blank" rel="noopener noreferrer">Section508.gov: Identify User Needs</a> — Federal guidance on scoping and prioritizing accessibility work
 
 ### What's the bare minimum we need to do by April 2026?
 
@@ -1316,8 +1391,8 @@ On April 24, 2024, the U.S. Department of Justice published a final rule establi
 
 **References:**
 
-- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
-- **ADA Title II (Public Services):** <a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-state-and-local-governments/</a>
+- **ADA Title I (Employment):** <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">https://archive.ada.gov/ada_title_I.htm</a>
+- **ADA Title II (Public Services):** <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/title-ii/</a>
 - **ADA Title II Web Rule:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 - **Overview of ADA Titles:** <a href="https://www.ada.gov/topics/intro-to-ada/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/intro-to-ada/</a>
 
@@ -1589,6 +1664,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 - <a href="https://developer.apple.com/accessibility/ios/" target="_blank" rel="noopener noreferrer">Apple iOS Accessibility</a>
 - <a href="https://developer.android.com/guide/topics/ui/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility</a>
+- <a href="https://developer.android.com/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility (alternate URL)</a> — Redirects to the current Android accessibility guidance
 - <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
@@ -1660,7 +1736,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 **Resources:**
 
 - **IITAA Requirements:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
-- **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
+- **ADA Title I (Employment):** <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">https://archive.ada.gov/ada_title_I.htm</a>
 - **ADA Title II Web Rule (scope):** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 
 ### What about archived documents on the intranet?
@@ -1685,7 +1761,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 
 **If an employee needs access to archived content:** Coordinate with your ADA/HR process to provide an accessible alternative in a timely manner (for example, an accessible version of the document, or another effective format that provides equivalent access).
 
-**Reference:** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">ADA.gov: Employment (Title I)</a>
+**Reference:** <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">Archive.ADA.gov: Employment (Title I)</a>
 
 ### After April 2026, do all new documents need to be accessible?
 
@@ -1760,7 +1836,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 **Resources:**
 
 - DoIT Testing Resources: <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
-- Section 508 ICT Testing Baseline: <a href="https://www.section508.gov/test/ict-testing/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/ict-testing/</a>
+- Section 508 testing resources: <a href="https://www.section508.gov/test/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/</a>
 
 **Key takeaway:** Test the workflows people actually use. If the tool can’t be made accessible quickly, you still need to provide an **accessible alternative** for the service.
 
@@ -2078,7 +2154,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible, including:
 
-**Accessibility best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." The <a href="https://citl.illinois.edu/citl-101/teaching-learning/resources/accessibility/pdf-accessibility-guide" target="_blank" rel="noopener noreferrer">University of Illinois CITL PDF Accessibility Guide</a> similarly notes that PDFs generally are not a very accessible format and recommends using PDFs only when no other alternative is available. This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a document format, ensure it's accessible.
+**Accessibility best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." If you must use a document format, follow established guidance and test it (see <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a>). This aligns with WCAG 2.1 Level AA requirements and accessibility best practices. If you must use a document format, ensure it's accessible.
 
 - PDFs
 - Word documents
@@ -2181,7 +2257,13 @@ The best approach depends on the source:
 
 **Testing tool:** PAC 2024 (free) — <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">https://pac.pdf-accessibility.org/</a>
 
-**Adobe guidance:** <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html</a>
+**Adobe guidance:**
+
+- <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">Create and verify PDF accessibility (Acrobat Pro)</a>
+- <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">Adobe PDF Accessibility Overview</a>
+- <a href="https://helpx.adobe.com/acrobat/using/create-and-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">Create and verify PDF accessibility (alternate URL)</a>
+
+**Additional Adobe reference (format background):** <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">https://www.adobe.com/accessibility/pdf.html</a>
 
 **WCAG References:**
 
@@ -2838,7 +2920,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law (30 ILCS 587) requiring Illinois state agencies and universities to ensure their digital content is accessible to people with disabilities. Current standards require **WCAG 2.1 Level AA** compliance. <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Learn more about IITAA</a>
 
-**Section 504** — Part of the Rehabilitation Act of 1973 that requires organizations receiving federal funding to ensure their programs and activities are accessible to people with disabilities. <a href="https://www.ada.gov/topics/section-504/" target="_blank" rel="noopener noreferrer">Learn more about Section 504</a>
+**Section 504** — Part of the Rehabilitation Act of 1973 that requires organizations receiving federal funding to ensure their programs and activities are accessible to people with disabilities. <a href="https://www.law.cornell.edu/uscode/text/29/794" target="_blank" rel="noopener noreferrer">Read 29 U.S.C. § 794 (Section 504)</a>
 
 **WCAG (Web Content Accessibility Guidelines)** — International standards published by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone. <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Learn more about WCAG</a>
 
