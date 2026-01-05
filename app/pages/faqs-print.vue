@@ -153,7 +153,7 @@ definePageMeta({
 import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
 import { usePrintLinks } from "../composables/usePrintLinks";
-import { wrapTablesForResponsiveScroll } from "../utils/faqTransform";
+import { wrapTablesForResponsiveScroll, filterNewComments } from "../utils/faqTransform";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs-print", () => {
@@ -232,36 +232,6 @@ function extractNewDate(answerNodes: MiniMarkNode[]): string | null {
     }
   }
   return null;
-}
-
-/**
- * Remove the "new" tag from answer nodes
- */
-function filterNewComments(answerNodes: MiniMarkNode[]): MiniMarkNode[] {
-  const newTagFullPattern =
-    /(?:\{new:\s*\d{4}-\d{2}-\d{2}\}|<!--\s*new:\s*\d{4}-\d{2}-\d{2}\s*-->)/g;
-
-  return answerNodes
-    .map((node) => {
-      if (typeof node === "string") {
-        let cleaned = node.replace(newTagFullPattern, "").trim();
-        return cleaned;
-      }
-      if (isElementNode(node) && tagName(node) === "p") {
-        const text = extractText(node);
-        const cleaned = text.replace(newTagFullPattern, "").trim();
-        if (cleaned === "") {
-          return null;
-        }
-        return node;
-      }
-      return node;
-    })
-    .filter((node) => {
-      if (node === null) return false;
-      if (typeof node === "string" && node.trim() === "") return false;
-      return true;
-    });
 }
 
 /**
@@ -390,11 +360,16 @@ const introContent = computed(() => {
 
   if (introNodes.length === 0) return null;
 
+  // Process intro nodes to replace dynamic placeholders like {days_until_deadline}
+  const processedIntroNodes = wrapTablesForResponsiveScroll(
+    filterNewComments(introNodes)
+  );
+
   return {
     ...page.value,
     body: {
       ...body,
-      value: introNodes,
+      value: processedIntroNodes,
     },
   };
 });
