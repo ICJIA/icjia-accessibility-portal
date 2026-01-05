@@ -186,7 +186,7 @@ Accessible content — websites, documents, PDFs, and videos — provides measur
 
 **Context:** ICJIA website remediation is underway. The critical gap is content accessibility—helping staff create accessible documents, PDFs, presentations, and spreadsheets.
 
-**Short answer:** Start now. With only 108 days until the April 24, 2026 deadline, waiting for state guidance consumes 13-26% of remaining time and significantly increases compliance risk.
+**Short answer:** Start now. With only 108 days until the April 24, 2026 deadline, even waiting one week for DoIT's presentation (January 13, 2026 @ 11am) consumes 6.5% of remaining time and delays critical implementation.
 
 **Legal perspective: The obligation is in effect**
 
@@ -216,7 +216,7 @@ Content accessibility requires agency-wide participation—every staff member wh
 
 **DoIT's role**
 
-<a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">DoIT provides coordination, training, and technical assistance</a>—but does not need to authorize implementation. Engage with DoIT resources while implementing accessibility practices based on federal standards.
+<a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">DoIT provides coordination, training, and technical assistance</a>—but does not need to authorize implementation. DoIT's upcoming presentation (January 13, 2026 @ 11am) will provide valuable guidance, but agencies can begin preparation now and refine their approach based on DoIT's recommendations. Engage with DoIT resources while implementing accessibility practices based on federal standards.
 
 **What IDS can do now:**
 
@@ -237,15 +237,17 @@ Content accessibility requires agency-wide participation—every staff member wh
 - Tools deployed within 2-3 weeks
 - Workflows operational within 1 month
 - Active remediation underway immediately
+- Attend DoIT presentation (Jan 13) with preparation already underway
+- Refine approach based on DoIT guidance
 - Critical buffer for challenges
 
-**Wait 2-4 weeks:**
+**Wait for DoIT presentation (Jan 13):**
 
-- Loses 14-28 days (13-26% of time)
-- Severely compressed timeline
-- Minimal remediation time
-- Significantly increased risk
-- No buffer for problems
+- Loses 7 days (6.5% of remaining time)
+- Compressed timeline for tool deployment
+- Reduced time for remediation
+- Increased implementation risk
+- Limited buffer for problems
 
 **Bottom line:**
 
