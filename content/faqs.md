@@ -10,7 +10,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 > **1-minute path (for busy readers):**
 >
-> - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
+> - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actio)
 > - **Jump to your role:** [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) · [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) · [Managers](#getting-started-i-m-a-manager-where-do-i-start) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
 > - **Need a real person?** Start with your web team / accessibility coordinator; for IITAA + ADA Title II questions contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
 >
@@ -257,7 +257,7 @@ Content accessibility requires agency-wide participation—every staff member wh
 
 **Recommendation:** Deploy tools, create templates, establish workflows, and assess content immediately using federal standards (WCAG 2.1 Level AA, Section 508) while coordinating with DoIT for training and guidance.
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [What does the April 2026 deadline cover?](#compliance-and-legal-what-does-the-april-2026-deadline-cover) | [Where can I get IITAA training?](#compliance-and-legal-where-can-i-get-iitaa-training)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [What does the April 2026 deadline cover?](#about-this-faq-what-does-the-april-2026-deadline-cover) | [Where can I get IITAA training?](#compliance-requirements-iitaa-where-can-i-get-iitaa-training)
 
 ### I'm a content creator. Where do I start?
 
@@ -1702,7 +1702,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
    - **Maps:** accessible lists/tables of locations + text explanation of what the map shows
    - **Other tools:** equivalent accessible methods to complete the same service
 
-**For specific tools:** See questions below about [DocuSign](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance), [LMS systems](#website-accessibility-is-a-learning-management-system-lms-like-docebo-wc), and [existing content like Tableau or ArcGIS](#website-accessibility-if-we-have-existing-content-like-tableau-dashboard).
+**For specific tools:** See questions below about [DocuSign](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance), [LMS systems](#website-accessibility-is-a-learning-management-system-lms-like-docebo-wcag-2-1-level-aa-compliant), and [existing content like Tableau or ArcGIS](#website-accessibility-if-we-have-existing-content-like-tableau-dashboards-arcgis-maps-or-docebo-online-courses-do-those-fall-into-the-exemption-catego).
 
 **References:**
 
@@ -2170,7 +2170,7 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 
 ### How do I make a Word document accessible?
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 
 **Step-by-step workflow for creating an accessible Word document:**
 
@@ -2236,9 +2236,9 @@ Key steps for accessible Word documents:
 
 ### How do I make a PDF accessible?
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 
-**Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
+**Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
 
 The best approach depends on the source:
 
@@ -2367,7 +2367,7 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
-**Best practice for newsletters:** Consider publishing newsletter content as a webpage and linking to it from your email, rather than attaching a PDF. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for why HTML is generally easier to make accessible than PDFs.
+**Best practice for newsletters:** Consider publishing newsletter content as a webpage and linking to it from your email, rather than attaching a PDF. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) for why HTML is generally easier to make accessible than PDFs.
 
 **Email accessibility essentials:**
 
@@ -2573,7 +2573,7 @@ Accessibility requirements apply differently depending on whether you're a conte
 
 **How to use this FAQ efficiently:**
 
-- **Start with the [Quick Reference](#quick-reference-critical-actions-by-role)** at the top — critical actions for each role
+- **Start with the [Quick Reference](#quick-reference-critical-actio)** at the top — critical actions for each role
 - **Jump to your role** — [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) | [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) | [Managers](#getting-started-i-m-a-manager-where-do-i-start)
 - **Search (Ctrl+F / Cmd+F)** for specific topics
 - **Follow "See also" links** for related questions
@@ -2667,7 +2667,7 @@ If you have a question that isn't covered here, or if you find information that'
 
 **Why web developers maintain this FAQ:**
 
-ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [This website was generated by a web developer not on executive staff. Why should I trust this information?](#common-concerns-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information)
+ICJIA web developers maintain this FAQ because they work daily with accessibility standards, testing tools, and compliance requirements across multiple websites. However, all content is sourced to official references (DOJ, Illinois DoIT, W3C/WCAG) that you can verify independently. See: [Why are ICJIA staff creating this FAQ? Shouldn't DoIT handle accessibility information?](#about-this-faq-why-are-icjia-staff-creating-this-faq-shouldn-t-doit-handle-accessibility-information)
 
 **Key takeaway:** This FAQ is updated regularly as needs arise. Recent additions are marked "NEW" for 10 days. Check the last-updated date at the top and bottom for the most recent revision.
 
@@ -2695,7 +2695,7 @@ ICJIA staff across roles (including people doing day-to-day remediation work) ha
 
 1. **ICJIA-specific context** — Addresses questions that come up specifically at ICJIA (see: [ICJIA-Specific Information](#icjia-specific-information))
 2. **Role-based entry points** — Organized so content creators, web developers, managers, and executive staff can find what they need quickly (see: [Getting Started](#getting-started))
-3. **Practical workflows** — Step-by-step guidance for common tasks like making documents accessible (see: [Content Accessibility](#content-accessibility-documents-pdfs-presentations))
+3. **Practical workflows** — Step-by-step guidance for common tasks like making documents accessible (see: [Content Accessibility](#content-accessibility-document))
 4. **Consolidated reference** — One place to find answers without navigating multiple government websites
 
 **The goal:**
@@ -2710,10 +2710,10 @@ This FAQ isn't meant to replace DoIT's resources or official guidance. Instead, 
 
 **See also:**
 
-- [Compliance Requirements (IITAA and ADA Title II)](#compliance-requirements-iitaa-and-ada-title-ii) — Where the legal requirements and standards are summarized
+- [Compliance Requirements (IITAA and ADA Title II)](#compliance-requirements-iitaa) — Where the legal requirements and standards are summarized
 - [I prefer to talk to someone rather than read FAQs. Who can I ask?](#about-this-faq-my-learning-style-isn-t-reading-dense-faqs-i-need-to-talk-to-someone-who-can-i-ask) — Who to contact (including DoIT) for official guidance and questions
 - [Getting Help](#getting-help) — Official resources and training links
-- [This website was generated by a web developer not on executive staff. Why should I trust this information?](#common-concerns-this-website-was-generated-by-a-web-developer-not-on-executive-staff-why-should-i-trust-this-information) — How this FAQ is sourced to official references
+- [Why are ICJIA staff creating this FAQ? Shouldn't DoIT handle accessibility information?](#about-this-faq-why-are-icjia-staff-creating-this-faq-shouldn-t-doit-handle-accessibility-information) — How this FAQ is sourced to official references
 
 **Key takeaway:** ICJIA staff created this FAQ to support agency-wide accessibility compliance by making it easier for colleagues to find, understand, and apply official requirements in ICJIA’s day-to-day work.
 
@@ -2822,7 +2822,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 Website audit reports for existing public websites will be posted on an ongoing basis as they become available. Remediation is challenging and time-consuming, so reports will be posted as soon as they're ready. Web developers are working as fast and as efficiently as possible to audit and remediate all of ICJIA's sites. Check back periodically for updates.
 
-**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
+**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
 
 **How to find audit reports for websites:**
 
@@ -2832,7 +2832,7 @@ Website audit reports for existing public websites will be posted on an ongoing 
 **Important limitations:**
 
 - **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They do NOT cover PDFs, Word documents, Excel files, or other content files.
-- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 - **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still required for full compliance.
 
 ### How do we handle accessibility complaints?
