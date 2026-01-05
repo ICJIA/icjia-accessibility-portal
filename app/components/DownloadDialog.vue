@@ -52,43 +52,6 @@
             </v-icon>
           </a>
 
-          <!-- Markdown Option -->
-          <a
-            :href="mdUrl"
-            :download="mdFilename"
-            class="download-option"
-            role="listitem"
-            @click="handleDownload('md')"
-          >
-            <div class="download-option-icon md-icon">
-              <v-icon size="32" aria-hidden="true">
-                mdi-language-markdown
-              </v-icon>
-            </div>
-            <div class="download-option-info">
-              <span class="download-option-title">Markdown (.md)</span>
-              <span class="download-option-description">
-                Plain text with formatting syntax. Opens in any text editor, 
-                or renders beautifully in VS Code, GitHub, Obsidian, or Typora.
-              </span>
-              <span class="download-option-accessibility">
-                <v-icon size="14" color="success" aria-hidden="true">
-                  mdi-check-circle
-                </v-icon>
-                Accessible: Readable as plain text, renders with formatting
-              </span>
-              <span class="download-option-llm">
-                <v-icon size="14" color="info" aria-hidden="true">
-                  mdi-robot
-                </v-icon>
-                Great for AI: Ideal for pasting into ChatGPT, Claude, or other LLMs
-              </span>
-            </div>
-            <v-icon class="download-option-arrow" aria-hidden="true">
-              mdi-chevron-right
-            </v-icon>
-          </a>
-
           <!-- Plain Text Option -->
           <a
             :href="txtUrl"
@@ -119,6 +82,43 @@
                   mdi-robot
                 </v-icon>
                 Great for AI: Perfect for pasting into ChatGPT, Claude, or other LLMs
+              </span>
+            </div>
+            <v-icon class="download-option-arrow" aria-hidden="true">
+              mdi-chevron-right
+            </v-icon>
+          </a>
+
+          <!-- Markdown Option -->
+          <a
+            :href="mdUrl"
+            :download="mdFilename"
+            class="download-option"
+            role="listitem"
+            @click="handleDownload('md')"
+          >
+            <div class="download-option-icon md-icon">
+              <v-icon size="32" aria-hidden="true">
+                mdi-language-markdown
+              </v-icon>
+            </div>
+            <div class="download-option-info">
+              <span class="download-option-title">Markdown (.md)</span>
+              <span class="download-option-description">
+                Plain text with formatting syntax. Opens in any text editor, 
+                or renders beautifully in VS Code, GitHub, Obsidian, or Typora.
+              </span>
+              <span class="download-option-accessibility">
+                <v-icon size="14" color="success" aria-hidden="true">
+                  mdi-check-circle
+                </v-icon>
+                Accessible: Readable as plain text, renders with formatting
+              </span>
+              <span class="download-option-llm">
+                <v-icon size="14" color="info" aria-hidden="true">
+                  mdi-robot
+                </v-icon>
+                Great for AI: Ideal for pasting into ChatGPT, Claude, or other LLMs
               </span>
             </div>
             <v-icon class="download-option-arrow" aria-hidden="true">
