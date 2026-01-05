@@ -70,7 +70,7 @@ _Last updated: January 3, 2026_
 
 ### For Content Creators
 
-**What accessibility means for you:** Every document, image, and video you create must be usable by people with disabilities. This means adding alt text so screen reader users can understand images, using proper heading styles so documents are navigable, and ensuring videos have captions. You're on the front lines of creating accessible content that serves all Illinois residents.
+**What accessibility means for you:** Every document, image, and video you create should be usable by people with disabilities. This means adding alt text so screen reader users can understand images, using proper heading styles so documents are navigable, and ensuring videos have captions. You're on the front lines of creating accessible content that serves all Illinois residents.
 
 | Action                                | Impact                      |
 | ------------------------------------- | --------------------------- |
@@ -100,13 +100,13 @@ _Last updated: January 3, 2026_
 
 **What accessibility means for you:** You control the resources, time, and priorities that determine whether your team can create accessible content. Your decisions about training, tools, deadlines, and accountability directly impact your agency's legal compliance. You're responsible for ensuring your team has what they need to meet accessibility requirements.
 
-| Action                             | Impact                   |
-| ---------------------------------- | ------------------------ |
-| 1. Inventory your public content   | Know the scope           |
-| 2. Prioritize high-traffic content | Focus limited resources  |
-| 3. Allocate time for training      | Enable your team         |
-| 4. Add accessibility to job duties | Set expectations         |
-| 5. Document your remediation plan  | Show good-faith progress |
+| Action                             | Impact                                 |
+| ---------------------------------- | -------------------------------------- |
+| 1. Inventory your public content   | Know the scope                         |
+| 2. Prioritize high-traffic content | Focus limited resources                |
+| 3. Allocate time for training      | Enable your team                       |
+| 4. Add accessibility to job duties | Set expectations                       |
+| 5. Document your remediation plan  | Demonstrate progress toward compliance |
 
 **Start here:** [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
@@ -243,7 +243,7 @@ _Accessible approach:_ Full report content published as webpage text with proper
 
 **As a developer, you're building the foundation that makes everything else possible.** Here's your roadmap:
 
-**Week 1 priority (must-do):**
+**Week 1 priority (do these first):**
 
 1. **Keyboard navigation** — Ensure everything works without a mouse: <a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener noreferrer">WebAIM: Keyboard Accessibility</a>
 2. **Semantic HTML** — Use proper HTML elements (`<nav>`, `<main>`, `<button>` not `<div>`): <a href="https://www.w3.org/WAI/tutorials/page-structure/" target="_blank" rel="noopener noreferrer">W3C: Page Structure</a>
@@ -610,10 +610,10 @@ When digital content isn't accessible, agencies exclude Illinois residents with 
 
 WCAG is organized around four principles, known as **POUR**:
 
-- **Perceivable** — People must be able to see or hear content (or have it described by assistive technology). Example: Images need text descriptions for people who can't see them.
-- **Operable** — People must be able to use interface components and navigate content. Example: Everything that works with a mouse must also work with a keyboard.
-- **Understandable** — Content and how to use it must be clear. Example: Error messages should explain what went wrong and how to fix it.
-- **Robust** — Content must work with different technologies, including assistive tools like screen readers. Example: Use standard HTML so assistive technologies can interpret the content.
+- **Perceivable** — People should be able to see or hear content (or have it described by assistive technology). Example: Images need text descriptions for people who can't see them.
+- **Operable** — People should be able to use interface components and navigate content. Example: Everything that works with a mouse should also work with a keyboard.
+- **Understandable** — Content and how to use it should be clear. Example: Error messages should explain what went wrong and how to fix it.
+- **Robust** — Content should work with different technologies, including assistive tools like screen readers. Example: Use standard HTML so assistive technologies can interpret the content.
 
 **References:**
 
@@ -624,7 +624,7 @@ WCAG is organized around four principles, known as **POUR**:
 
 WCAG has three conformance levels:
 
-- **Level A** — Minimum accessibility (must meet).
+- **Level A** — Minimum accessibility (required to meet).
 - **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_.
 - **Level AAA** — Enhanced accessibility (may meet where feasible).
 
@@ -916,19 +916,23 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 **Legal and enforcement consequences:**
 
-- **Department of Justice investigations** — The DOJ can investigate complaints and pursue enforcement actions against non-compliant agencies.
-- **Complaints and lawsuits** — Individuals with disabilities can file complaints with the DOJ or pursue private lawsuits under the ADA.
+- **Department of Justice investigations** — The DOJ has authority to investigate complaints and pursue enforcement actions against non-compliant agencies (<a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a>).
+- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/ada-state-and-local-governments/" target="_blank" rel="noopener noreferrer">ADA.gov: State and Local Governments</a>).
 - **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content.
 - **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust.
 
-**What this means for you personally:**
+**Note:** The specific consequences in any given situation depend on many factors. This is general information about the types of enforcement mechanisms that exist under ADA Title II, not a prediction of what will happen to any particular agency. Consult your agency's legal counsel for guidance specific to your situation.
 
-While enforcement is typically at the agency level, individuals may experience:
+**What this means for you professionally:**
 
-- **Required remediation** — You may be asked to fix inaccessible content you created.
-- **Mandatory training** — Staff who create inaccessible content may be required to complete accessibility training.
-- **Performance expectations** — Accessibility compliance may become part of job responsibilities and performance evaluations.
-- **Increased workload** — Emergency remediation is stressful and time-consuming; building accessibility in from the start prevents this.
+**Important distinction:** ADA Title II obligations apply to the **public entity** (the government agency), not to individual employees as personal defendants. (See the definition of “public entity” in <a href="https://www.law.cornell.edu/uscode/text/42/12131" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12131</a> and Title II’s enforcement/remedies framework in <a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>.) In practice, DOJ enforcement actions target the organization’s compliance. However, your agency may establish internal policies and expectations that affect individual staff:
+
+- **Required remediation** — Your agency may ask you to fix inaccessible content you created as part of organizational compliance efforts.
+- **Training requirements** — Your agency may require staff who create content to complete accessibility training.
+- **Performance expectations** — Your agency may incorporate accessibility compliance into job responsibilities and performance evaluations.
+- **Workload considerations** — Emergency remediation is stressful and time-consuming; building accessibility in from the start prevents this.
+
+These are **internal employment matters** determined by agency policy, not direct legal consequences to individuals under ADA Title II.
 
 **Operational impacts:**
 
@@ -1005,27 +1009,34 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 **3. Provide accessible alternatives:**
 
-- If a document can't be remediated in time, provide an accessible alternative upon request
-- Ensure contact information is available for accommodation requests
-- Respond promptly to accessibility complaints
+- If content can't be remediated in time, be prepared to provide an accessible alternative upon request. Under ADA Title II's general nondiscrimination provisions (§ 35.130), public entities must ensure that individuals with disabilities can access services — which may require providing alternative formats (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>)
+- Ensure contact information is available for accessibility requests
+- Respond promptly to accessibility requests and complaints
 
 **4. Continue progress after the deadline:**
 
 - The obligation doesn't end at the deadline — you must still work toward full compliance
-- Demonstrating good-faith efforts matters if complaints are filed
+- Documenting your efforts creates a record that may be relevant if questions arise
 
 **Common pitfalls to avoid:**
 
-- **Don't stop trying if 100% compliance seems unlikely** — continue making progress, as demonstrating good-faith effort matters and partial progress still benefits users
+- **Don't stop trying if 100% compliance seems unlikely** — continue making progress; partial progress still benefits users who currently face barriers
 - **Don't wait for "perfect"** — meaningful progress is better than paralysis
-- **Don't assume enforcement won't happen** — planning as if it matters is the safer posture
+- **Don't assume enforcement won't happen** — planning as if it matters is the prudent approach
 
-**Key takeaway:** If you miss the deadline, keep making progress. Agencies should reduce barriers quickly, document their efforts, provide alternatives, and continue working toward full compliance. Good-faith efforts and documented progress can matter in enforcement contexts, especially when paired with real, ongoing remediation.
+**Important legal note:** This FAQ provides practical guidance, not legal advice. The concept of "good-faith effort" is not a defined legal defense under ADA Title II. The rule requires compliance, not effort. However, as a practical matter:
+
+- **Documentation helps your agency** — Maintaining records of your accessibility program (testing, remediation, training, procurement requirements) demonstrates organizational commitment and may be relevant in various contexts
+- **Progress benefits users now** — Even if full compliance isn't achieved by the deadline, each barrier removed helps real people access services
+- **Consult legal counsel** — For questions about enforcement risk, legal exposure, or what constitutes adequate compliance in your specific situation, consult your agency's legal counsel
+
+**Key takeaway:** If you can't achieve full compliance by the deadline, continue making progress. Reduce barriers as quickly as possible, document your efforts, provide accessible alternatives upon request, and keep working toward full compliance. This is sound practice — but it is not a legal defense, and compliance remains the requirement.
 
 **References:**
 
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Enforcement provisions
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Requirements and enforcement provisions
 - <a href="https://www.justice.gov/crt/types-complaints-and-background" target="_blank" rel="noopener noreferrer">DOJ Civil Rights Division</a> — Complaint process information
+- <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a> — How individuals can file complaints
 
 ### How do we prioritize accessibility work with limited resources and a ticking clock?
 
@@ -1134,7 +1145,7 @@ A state agency with limited resources might prioritize like this:
 
 - New content should be created accessibly going forward
 - High-impact public services must be accessible
-- You must provide accessible alternatives when someone asks
+- Be prepared to provide accessible alternatives when needed (for example, when someone can’t access a document in its current format). Title II’s general nondiscrimination and effective communication requirements may require alternative formats or other steps to ensure access (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>).
 
 **What can wait (if you have to triage):**
 
@@ -1186,6 +1197,32 @@ The IITAA does **not** directly apply to:
 - Private organizations
 
 **Note:** Local governments and school districts still have obligations under ADA Title II.
+
+### How is the IITAA enforced?
+
+**Quick answer:** The IITAA is implemented through Illinois DoIT standards, oversight, and agency compliance processes. It is separate from (and in addition to) ADA Title II.
+
+**Key differences from ADA Title II enforcement:**
+
+| Aspect                                           | IITAA (State)                                                                                                           | ADA Title II (Federal)                                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Primary oversight**                            | Illinois DoIT Office of Information Accessibility                                                                       | U.S. Department of Justice (DOJ)                                                                                   |
+| **How issues typically surface**                 | State standards compliance, agency governance, and DoIT guidance/training                                               | DOJ complaints/investigations and, in some cases, litigation                                                       |
+| **What “enforcement” usually means in practice** | Direction to remediate and align with IITAA standards; procurement and program controls may be used to drive compliance | Court orders/settlements/consent decrees and required remediation; remedies are set by statute and depend on facts |
+
+**Practical implications:**
+
+- **IITAA has historically focused on compliance assistance** — DoIT provides guidance, training, and support to help agencies achieve compliance
+- **ADA Title II creates additional enforcement pressure** — The 2024 web rule adds federal accountability with specific technical standards and firm deadlines
+- **Both laws require the same standard** — WCAG 2.1 Level AA is required under both IITAA 2.1 and ADA Title II
+
+**Note:** This is general information about enforcement mechanisms, not legal advice. For specific questions about enforcement risk or legal exposure, consult your agency's legal counsel.
+
+**References:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements and Oversight</a> — Illinois DoIT
+- <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a> — Federal complaint process
+- <a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a> — Title II remedies (statutory enforcement framework)
 
 ### What does the IITAA cover?
 
@@ -1307,19 +1344,22 @@ For most Illinois state agencies, the deadline is **April 24, 2026** (since Illi
 
 ### Are there any exceptions to the ADA Title II rule?
 
-Yes, limited exceptions exist for:
+Yes, the ADA Title II web rule includes limited exceptions. These are summarized below based on the <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule text (28 CFR Part 35)</a>:
 
-1. **Archived content** — Content created before the compliance date that is not currently used for services
-2. **Pre-existing conventional electronic documents** — Documents created before the compliance date, **unless** currently used by the public to participate in or benefit from the entity's services, programs, or activities
-3. **Third-party content** — Content posted by third parties not under contract
-4. **Password-protected individual documents** — Documents specific to one person's account
-5. **Pre-existing social media posts** — Posts made before the compliance deadline
+1. **Archived web content** — Web content that was created before the compliance date, is maintained exclusively for reference, research, or recordkeeping, is not altered or updated after the compliance date, and is organized and stored in a dedicated area clearly identified as archived (§ 35.200(b)(1))
+2. **Pre-existing conventional electronic documents** — Documents (PDFs, Word, etc.) that were created before the compliance date — **unless** the document is currently used by members of the public to apply for, gain access to, or participate in a public entity's services, programs, or activities (§ 35.200(b)(2))
+3. **Third-party content** — Content posted by a third party (not the public entity) where the public entity does not have a contractual, licensing, or other arrangement with the third party that governs the content (§ 35.200(b)(3))
+4. **Individualized, password-protected documents** — Conventional electronic documents about a specific individual that are password-protected and available only to that individual and applicable public entity staff (§ 35.200(b)(4))
+5. **Pre-existing social media posts** — Social media posts made by a public entity before the compliance date (§ 35.200(b)(5))
 
-**Important:** Even when exceptions apply, you may still need to provide accessible alternatives upon request.
+**Important legal note:** The exceptions are narrowly defined. For example, the "archived content" exception requires that content be (1) maintained _exclusively_ for reference/research/recordkeeping, (2) _not altered_ after the compliance date, AND (3) _clearly identified_ as archived. Content that is still linked from active pages or used for current services likely does not qualify.
 
-**ADA Title II Reference:**
+**Even when exceptions apply:** You may still be required to provide accessible alternatives upon request under the general nondiscrimination provisions of Title II (§ 35.130). Consult your agency's legal counsel for specific situations.
 
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Exceptions</a> (see section on "Exceptions to the Rule")
+**ADA Title II References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary including exceptions
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text with exception provisions
 
 ---
 
@@ -1480,7 +1520,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 1. **Screen reader compatibility** — Apps must work with:
    - **iOS:** VoiceOver (built-in)
    - **Android:** TalkBack (built-in)
-   - Content must be properly labeled and navigable
+   - Content should be properly labeled and navigable
 
 2. **Touch target size** — While WCAG 2.1 Level AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. This is considered essential best practice for users with motor disabilities.
 
@@ -1556,12 +1596,17 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 ### What about third-party widgets, embedded content, dashboards, and maps?
 
-**Yes.** You are responsible for the accessibility of third-party content that you embed or integrate into your website through contracts or agreements. This includes:
+**Yes, with important distinctions.** Under the ADA Title II web rule, public entities are responsible for the accessibility of third-party content when it is provided "under contractual, licensing, or other arrangements" (§ 35.200(a)). This means:
+
+- **Content you contract for** — Payment processors, scheduling tools, chat widgets, LMS platforms, document signing tools, etc. — falls under your agency's responsibility
+- **Content posted by third parties without a contractual relationship** — Such as user comments on a public forum — is generally excepted (§ 35.200(b)(3))
+
+**Common third-party content requiring accessibility:**
 
 - Payment processors, scheduling tools, chat widgets
 - Embedded maps (like ArcGIS) and dashboards (like Tableau)
-- Social media feeds, survey tools
-- Learning management systems (LMS), document signing tools (like DocuSign), and other third-party services
+- Survey tools integrated into your site
+- Learning management systems (LMS), document signing tools (like DocuSign), and other contracted services
 
 **Minimum requirements (what "accessible" means):**
 
@@ -1572,7 +1617,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 **What to do:**
 
 1. **Request accessibility documentation** (VPAT/ACR) from vendors before purchasing
-2. **Include accessibility requirements in contracts** (require WCAG 2.1 Level AA)
+2. **Include accessibility requirements in contracts** (require WCAG 2.1 Level AA conformance)
 3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance))
 4. **Provide an accessible alternative** if the tool can't be made accessible:
    - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
@@ -1581,25 +1626,28 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **For specific tools:** See questions below about [DocuSign](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance), [LMS systems](#website-accessibility-is-a-learning-management-system-lms-like-docebo-wc), and [existing content like Tableau or ArcGIS](#website-accessibility-if-we-have-existing-content-like-tableau-dashboard).
 
-**Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Third-Party Content</a> (see section on "Third-Party Content Provided Through Contracts or Agreements")
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — See section on "Third-Party Content"
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule</a> — § 35.200(a) on contractual arrangements, § 35.200(b)(3) on third-party content exception
 
 ### Does our agency's password-protected intranet need to be accessible?
 
-**Quick answer:** Password-protected intranet sites for employees only are generally exempt from ADA Title II, but **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
+**Quick answer:** Password-protected intranet sites for employees only are generally **not covered by the ADA Title II web rule’s WCAG requirement** (because the rule focuses on content made available to the public). However, they **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
 
 **Full explanation:**
 
-**It depends.** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **exempt from the ADA Title II web rule**, but they may still need to be accessible under other laws.
+**It depends.** Password-protected intranet sites that are **only accessible to agency employees** (not the public) are generally **outside the scope of the ADA Title II web rule’s WCAG requirement**, but they may still need to be accessible under other laws.
 
 **ADA Title II exemption:**
 
-The ADA Title II web rule specifically covers content "provided or made available to the public." Password-protected intranet sites that are:
+The ADA Title II web rule focuses on content "provided or made available to the public." Password-protected intranet sites that are:
 
 - Only accessible to agency employees
 - Not accessible to the general public
 - Protected by authentication (login required)
 
-...are generally **exempt from ADA Title II WCAG 2.1 Level AA requirements**.
+...are generally **outside the scope of the Title II web rule’s WCAG 2.1 Level AA requirement**.
 
 **However, other compliance requirements may still apply:**
 
@@ -1613,14 +1661,15 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 - **IITAA Requirements:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 - **ADA Title I (Employment):** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/topics/ada-employment/</a>
+- **ADA Title II Web Rule (scope):** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 
 ### What about archived documents on the intranet?
 
-**Quick answer:** Truly archived documents that are no longer used may be exempt, but you must still provide accessible alternatives **upon request** if an employee needs them.
+**Quick answer:** Truly archived documents that are no longer used may not need proactive remediation, but you may still need to provide access in an alternative format if an employee with a disability needs them (typically handled through reasonable accommodation processes).
 
 **Full explanation:**
 
-**Archived documents that are not currently used may be exempt** — but you must still provide accessible alternatives **upon request**.
+**Archived documents that are not currently used may not need proactive remediation** — but you may still need to provide an accessible alternative **when needed for an employee with a disability**, depending on the circumstances and your agency’s accommodation process.
 
 **For truly archived documents:**
 
@@ -1634,19 +1683,23 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 - Part of a searchable document library
 - Needed for reference or historical context
 
-**If an employee requests access to archived content, you must provide an accessible version.**
+**If an employee needs access to archived content:** Coordinate with your ADA/HR process to provide an accessible alternative in a timely manner (for example, an accessible version of the document, or another effective format that provides equivalent access).
+
+**Reference:** <a href="https://www.ada.gov/topics/ada-employment/" target="_blank" rel="noopener noreferrer">ADA.gov: Employment (Title I)</a>
 
 ### After April 2026, do all new documents need to be accessible?
 
-**Quick answer:** Yes. All new documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA standards from day one — whether posted publicly or on an intranet.
+**Quick answer:** **Public-facing** documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
 
 **Full explanation:**
 
-**Yes. All new documents created after the April 24, 2026 deadline must be accessible** — whether they're posted publicly or on an intranet.
+**Public-facing:** Yes — documents posted for the public after April 24, 2026 must be accessible under ADA Title II’s web rule.
 
-**For new documents (created after April 24, 2026):**
+**Internal/intranet:** While the Title II web rule focuses on public-facing content, Illinois state agencies should still plan for accessibility in internal systems and documents under IITAA and workplace accommodation obligations.
 
-- **Yes** — All new documents (PDFs, Excel, Word, PowerPoint) must be accessible.
+**For new public-facing documents (created after April 24, 2026):**
+
+- **Yes** — New public-facing documents (PDFs, Excel, Word, PowerPoint) should be created accessibly by default.
 - Make accessibility part of your document creation workflow
 - This includes documents created internally or received from external sources
 
@@ -1657,9 +1710,9 @@ The ADA Title II web rule specifically covers content "provided or made availabl
   - Frequently accessed documents
   - Documents required for services or job functions
   - Documents linked from main pages
-- **Archived documents** — May remain as-is unless someone requests access, at which point you must provide an accessible version.
+- **Archived documents** — May remain as-is unless access is needed (public request or employee accommodation), at which point you should be prepared to provide an accessible alternative.
 
-**Key principle:** The requirement is to ensure people with disabilities can access the information they need. If a document is truly archived and never accessed, it may not need immediate remediation. But if anyone needs it, you must provide an accessible version.
+**Key principle:** The requirement is to ensure people with disabilities can access the information they need. If a document is truly archived and never accessed, it may not need immediate remediation — but if access is needed, you should be prepared to provide an accessible alternative.
 
 **Best practices:**
 
@@ -1715,23 +1768,27 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **Quick answer:** Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
 
+**Important note:** Vendor accessibility status changes over time. DocuSign publishes accessibility information and VPATs on their website. The guidance below reflects general principles — always verify current accessibility status with the vendor's latest documentation.
+
 **What to do (in order):**
 
-1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can’t “fix” an inaccessible document.
-2. **Request DocuSign’s current VPAT/ACR** for your version and configuration.
+1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can't "fix" an inaccessible document.
+2. **Request DocuSign's current VPAT/ACR** for the specific product version and configuration you use. Vendor accessibility claims can change with product updates.
 3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
-4. **Have an accessible alternative** if a user can’t complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
+4. **Have an accessible alternative** if a user can't complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
 
-**Key takeaway:** Your agency is responsible for accessibility for services delivered through DocuSign. Start with accessible documents, verify the workflow, and keep a backup method ready.
+**Key takeaway:** Your agency is responsible for accessibility of services delivered through DocuSign. Start with accessible documents, verify the workflow with current vendor documentation, and keep a backup method ready.
 
 ### Is a Learning Management System (LMS) like Docebo WCAG 2.1 Level AA compliant?
 
-**Quick answer:** Sometimes partially. Even if the LMS platform is improving, **your course content and configuration still have to be accessible**.
+**Quick answer:** Compliance varies by platform, version, and configuration. Even if an LMS platform claims accessibility, **your course content and configuration still have to be accessible**.
+
+**Important note:** Vendor accessibility status changes over time. The guidance below reflects general principles for evaluating any LMS — always verify current accessibility status with the vendor's latest VPAT/ACR documentation for your specific product version.
 
 **What can affect LMS accessibility:**
 
-- Platform version/configuration
-- Custom themes/branding
+- Platform version/configuration (accessibility may vary between versions)
+- Custom themes/branding (customizations can introduce accessibility issues)
 - Plugins/integrations
 - Specific feature limitations (quizzes, embedded media, uploads, etc.)
 
@@ -1754,12 +1811,12 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 ### If we have existing content like Tableau dashboards, ArcGIS maps, or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
 
-**Quick answer:** If it's **currently used to provide public services**, it needs to be accessible (no "archived content" exemption). If it’s **truly archived and not used**, it may be exempt — but you still must provide an accessible alternative **upon request**.
+**Quick answer:** If it's **currently used to provide public services**, it needs to be accessible (and generally won’t qualify for an “archived content” exception). If it’s **truly archived and not used**, it may fall within an exception — but you may still need to provide an accessible alternative when needed to ensure access under Title II’s general nondiscrimination/effective communication requirements.
 
 **The key distinction:**
 
 - **Currently used for services** = Must be accessible.
-- **Archived/not currently used** = May be exempt, but must provide accessible alternatives upon request.
+- **Archived/not currently used** = May fall within an exception, but be prepared to provide an accessible alternative when needed.
 
 **What to do (works for dashboards, maps, and courses):**
 
@@ -1773,14 +1830,17 @@ The ADA Title II web rule specifically covers content "provided or made availabl
 
 **Tool-specific notes (common pain points):**
 
-- **Tableau**: interactive charts often need **accessible tables** and clear descriptions. Don’t rely on hover-only tooltips.
-- **ArcGIS**: complex interactive maps frequently need **equivalent text + data** (tables, lists of locations, and a written summary of what the map shows).
-- **Docebo/LMS courses**: the platform may be “mostly accessible,” but **uploaded content and course design** are where failures usually occur (captions, docs, images, quizzes, navigation).
+_Note: Vendor accessibility features evolve over time. These are general patterns — always verify current accessibility capabilities with the vendor's latest documentation._
+
+- **Tableau**: interactive charts often need **accessible tables** and clear descriptions. Don't rely on hover-only tooltips. Check Tableau's current accessibility documentation for your version.
+- **ArcGIS**: complex interactive maps frequently need **equivalent text + data** (tables, lists of locations, and a written summary of what the map shows). Esri publishes accessibility information for ArcGIS products.
+- **LMS platforms (Docebo, etc.)**: even if the platform has accessibility features, **uploaded content and course design** are where failures usually occur (captions, docs, images, quizzes, navigation). Your content still needs to be accessible regardless of platform capabilities.
 
 **Resources:**
 
 - ADA Title II Web Rule: <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
 - DoIT Accessibility Guidance: <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
+- ADA Effective Communication: <a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/effective-communication/</a>
 
 **Key takeaway:** If the public needs it to access a service, it must be accessible. If you can’t make the tool fully accessible quickly, provide an **equivalent accessible alternative** and document the remediation plan.
 
@@ -1813,7 +1873,7 @@ When you create a document, you see formatted text, images, and layout. But some
 
 - **Screen readers can't "see"** — they read the document's underlying structure, not its visual appearance.
 - **Keyboard users can't click** — they navigate using Tab and arrow keys, which require proper structure.
-- **Users with low vision may zoom 200%+** — the document must reflow properly.
+- **Users with low vision may zoom 200%+** — the document should reflow properly.
 - **Users with cognitive disabilities** — benefit from clear headings, simple language, and logical organization.
 
 **The good news:** Making documents accessible usually makes them better organized and easier to use for everyone.
@@ -2027,7 +2087,7 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 
 **Exceptions may apply for:**
 
-- Pre-existing documents not currently used for services (still must provide accessible alternatives upon request)
+- Pre-existing documents not currently used for services (you may still need to provide accessible alternatives, for example upon request)
 - Password-protected documents specific to an individual's account
 
 ### How do I make a Word document accessible?
@@ -2131,16 +2191,18 @@ The best approach depends on the source:
 
 ### Is Canva accessible?
 
-**Canva has made significant progress on accessibility** and offers several helpful features:
+**Canva has made progress on accessibility** and offers several helpful features. However, tool capabilities change over time — always verify current features with Canva's latest documentation.
 
-**What Canva does well:**
+_Note: The information below reflects Canva's accessibility features as of early 2026. Verify current capabilities at <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">Canva's accessibility page</a>._
+
+**What Canva offers (verify current features):**
 
 - **Design Accessibility checker** — Checks contrast, alt text, and typography
-- **Automatic alt text suggestions** — AI-powered suggestions for image descriptions
+- **Alt text support** — Ability to add alt text to images
 - **Reading order and heading tagging** — Better structure for PDFs
 - **Easier for non-designers** — More accessible than learning Adobe InDesign
 
-**Important limitation:** Canva PDFs are not fully WCAG or PDF/UA compliant out of the box.
+**Important limitation:** Canva PDFs may not be fully WCAG or PDF/UA compliant out of the box. Always test exported content.
 
 **Best practices for using Canva:**
 
