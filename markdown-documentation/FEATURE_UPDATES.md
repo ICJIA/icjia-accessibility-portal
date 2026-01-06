@@ -1,11 +1,46 @@
 # Feature Updates & Enhancements
 
 **Purpose**: Log of major feature additions and improvements  
-**Last Updated**: January 4, 2026
+**Last Updated**: January 6, 2026
 
 ---
 
 ## January 2026
+
+### FAQ Content Consolidation ⭐ NEW
+
+**Date**: January 6, 2026
+
+**Overview**: Reduced FAQ size by ~29% while preserving all accuracy, sources, and references
+
+**Changes**:
+
+- Removed 15 subjective/meta/less-essential questions
+- Condensed verbose answers throughout while keeping all references intact
+- Reduced from 3003 lines to ~2127 lines (~29% reduction)
+- Reduced from 95 headings to 80 headings
+
+**Questions Removed**:
+
+- "Why is this FAQ so long?"
+- "This FAQ tells me what I must do. Can the tone be more collaborative?"
+- "Why are ICJIA staff creating this FAQ? Shouldn't DoIT handle accessibility information?"
+- "What if I find incorrect information in this FAQ?"
+- "My learning style isn't reading dense FAQs — I need to talk to someone. Who can I ask?"
+- "Why is there suddenly a deadline for digital accessibility?"
+- "How often is this FAQ updated?"
+- "I prefer formal DoIT presentations instead of this FAQ. When will those be available?"
+- "Should ICJIA's IDS team wait for DoIT direction..."
+- "Can managers delay accessibility work to 'get more information first'?"
+- "Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?"
+- "What are additional benefits of accessible digital content (beyond compliance)?"
+- "Who is affected by inaccessible digital content?"
+- "If this has been a requirement, why hasn't your agency been doing this all along?"
+- "How does Title II differ from Title I?"
+
+**Key Info Preserved**: DEIA mission question (condensed), contact information, training links, and role-based guidance redistributed to remaining questions.
+
+---
 
 ### Documentation Portal Prompt ⭐ NEW
 

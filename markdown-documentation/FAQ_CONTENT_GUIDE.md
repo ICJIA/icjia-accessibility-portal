@@ -1,6 +1,6 @@
 # FAQ Content Management Guide
 
-**Last Updated**: January 1, 2026
+**Last Updated**: January 6, 2026
 
 ---
 
