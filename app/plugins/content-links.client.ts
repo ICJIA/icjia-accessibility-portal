@@ -23,6 +23,7 @@ const findFaqQuestionById = (anchorId: string): HTMLElement | null => {
     const id = panel.id;
     // Check if ID exactly matches or ends with the anchor (handles section prefixes)
     // e.g., "how-do-i-make-a-pdf-accessible" matches "content-accessibility-how-do-i-make-a-pdf-accessible"
+    // e.g., "getting-started-i-m-a-web-developer-where-do-i-start" matches exactly
     if (id === anchorId || id.endsWith(`-${anchorId}`)) {
       return panel;
     }
@@ -137,7 +138,7 @@ const handleAnchorLinkClick = (event: MouseEvent) => {
   if (!anchorId) return;
 
   // Check if we're in FAQ content area - be more permissive
-  const isInFaqContent = link.closest('.faq-answer-content, .faq-content, [data-content], .faq-accordion');
+  const isInFaqContent = link.closest('.faq-answer-content, .faq-content, .faq-intro, [data-content], .faq-accordion');
   if (!isInFaqContent) return;
 
   // Only take over the click if we can actually handle it.
@@ -165,6 +166,7 @@ const processLinks = () => {
   const contentSelectors = [
     '.faq-answer-content a',
     '.faq-content a',
+    '.faq-intro a',
     '.links-content a',
     '[data-content] a',
   ];
@@ -244,7 +246,7 @@ export default defineNuxtPlugin(() => {
       if (!anchorId) return;
 
       // Check if we're in FAQ content area
-      const isInFaqContent = link.closest('.faq-answer-content, .faq-content, [data-content], .faq-accordion');
+      const isInFaqContent = link.closest('.faq-answer-content, .faq-content, .faq-intro, [data-content], .faq-accordion');
       if (!isInFaqContent) return;
 
       // Only handle if this looks like a FAQ question ID (not a regular anchor)
@@ -280,7 +282,7 @@ export default defineNuxtPlugin(() => {
      * @returns {void}
      */
     const observeContent = () => {
-      const contentAreas = document.querySelectorAll('.faq-answer-content, .faq-content, .links-content, [data-content]');
+      const contentAreas = document.querySelectorAll('.faq-answer-content, .faq-content, .faq-intro, .links-content, [data-content]');
       contentAreas.forEach((area) => {
         observer.observe(area, {
           childList: true,

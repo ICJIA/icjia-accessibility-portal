@@ -931,7 +931,7 @@ Use a combination of automated and manual testing:
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
+**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
 
 **WCAG References:**
 
@@ -1051,6 +1051,61 @@ Yes, for WCAG 2.1 Level AA compliance:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.1 Audio-only and Video-only (Prerecorded) - Level A</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.5 Audio Description (Prerecorded) - Level AA</a>
 
+### Are YouTube's AI-generated subtitles enough for accessibility compliance?
+
+{new:2026-01-06}
+
+**Quick answer:** No. AI-generated subtitles are a **starting point**, but they typically contain errors (misspellings, incorrect words, missing punctuation, lack of speaker identification) that must be corrected for WCAG 2.1 Level AA compliance. Additionally, providing a **text transcript** alongside the video is recommended best practice and may be required depending on the content.
+
+**Why AI subtitles aren't enough:**
+
+1. **Accuracy issues** — AI-generated captions frequently contain:
+   - Misspellings and incorrect word substitutions (e.g., "accessibility" becomes "access ability")
+   - Missing or incorrect punctuation
+   - Failure to identify speakers in multi-speaker videos
+   - Misinterpretation of technical terms, names, or acronyms
+   - Missing non-speech sounds (e.g., "[door closes]", "[music playing]")
+
+2. **WCAG requirements** — Success Criterion 1.2.2 (Captions - Prerecorded) requires captions to be **accurate** and **synchronized**. AI-generated captions that contain errors do not meet the accuracy requirement.
+
+**What to do instead:**
+
+1. **Use AI subtitles as a starting point** — YouTube's auto-generated captions can save time, but you must:
+   - Review and edit the captions for accuracy
+   - Correct misspellings and word errors
+   - Add proper punctuation and capitalization
+   - Identify speakers when multiple people are speaking
+   - Add descriptions of important non-speech sounds (e.g., "[applause]", "[phone ringing]")
+
+2. **Provide a text transcript** — While not strictly required for video with captions, a transcript is:
+   - **Recommended best practice** — Provides an alternative way to access the content
+   - **Useful for users** who prefer reading over watching, need to search the content, or want to quote specific sections
+   - **May be required** for complex content where captions alone may not be sufficient (e.g., videos with dense information, multiple speakers, or technical terminology)
+
+**How to add accurate captions to YouTube videos:**
+
+1. Upload your video to YouTube
+2. Go to YouTube Studio → Content → Select your video → Subtitles
+3. Click "Edit" on the auto-generated subtitles
+4. Review and correct errors, add speaker names, and improve formatting
+5. Save the edited captions
+
+**How to provide a transcript:**
+
+- Link to a text transcript in the video description
+- Include the transcript on the webpage where the video is embedded
+- Provide the transcript as a downloadable document (PDF, Word, or plain text)
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Captions/Subtitles</a> — Complete guide to video captions
+- <a href="https://www.w3.org/WAI/media/av/transcripts/" target="_blank" rel="noopener noreferrer">W3C: Transcripts</a> — Guidance on audio transcripts
+- <a href="https://support.google.com/youtube/answer/2734796" target="_blank" rel="noopener noreferrer">YouTube Help: Add subtitles and captions</a> — How to edit YouTube captions
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> — Requires accurate, synchronized captions
+
 ### How do I make mobile apps accessible?
 
 **Quick answer:** Mobile apps must meet the same WCAG 2.1 Level AA standards as websites. This includes proper labeling, keyboard/gesture navigation, sufficient color contrast, and compatibility with mobile screen readers (VoiceOver on iOS, TalkBack on Android).
@@ -1139,42 +1194,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#about-this-faq-what-does-the-april-2026-deadline-cover)
 
-### What about third-party widgets, embedded content, dashboards, and maps?
-
-**Yes, with important distinctions.** Under the ADA Title II web rule, public entities are responsible for the accessibility of third-party content when it is provided "under contractual, licensing, or other arrangements" (§ 35.200(a)). This means:
-
-- **Content you contract for** — Payment processors, scheduling tools, chat widgets, LMS platforms, document signing tools, etc. — falls under your agency's responsibility
-- **Content posted by third parties without a contractual relationship** — Such as user comments on a public forum — is generally excepted (§ 35.200(b)(3))
-
-**Common third-party content requiring accessibility:**
-
-- Payment processors, scheduling tools, chat widgets
-- Embedded maps (like ArcGIS) and dashboards (like Tableau)
-- Survey tools integrated into your site
-- Learning management systems (LMS), document signing tools (like DocuSign), and other contracted services
-
-**Minimum requirements (what "accessible" means):**
-
-- Works **with keyboard only** (no mouse required)
-- Works with a **screen reader** (labels, controls, and structure make sense)
-- Meets **contrast** requirements and has visible focus
-
-**What to do:**
-
-1. **Request accessibility documentation** (VPAT/ACR) from vendors before purchasing
-2. **Include accessibility requirements in contracts** (require WCAG 2.1 Level AA conformance)
-3. **Test the workflow** using keyboard navigation, screen reader, and automated checkers (see: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance))
-4. **Provide an accessible alternative** if the tool can't be made accessible:
-   - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
-   - **Maps:** accessible lists/tables of locations + text explanation of what the map shows
-   - **Other tools:** equivalent accessible methods to complete the same service
-
-**For specific tools:** See questions below about [DocuSign](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance), [LMS systems](#website-accessibility-is-a-learning-management-system-lms-like-docebo-wcag-2-1-level-aa-compliant), and [existing content like Tableau or ArcGIS](#website-accessibility-if-we-have-existing-content-like-tableau-dashboards-arcgis-maps-or-docebo-online-courses-do-those-fall-into-the-exemption-catego).
-
-**References:**
-
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — See section on "Third-Party Content"
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule</a> — § 35.200(a) on contractual arrangements, § 35.200(b)(3) on third-party content exception
+**Key takeaway:** Test the workflows people actually use. If the tool can't be made accessible quickly, you still need to provide an **accessible alternative** for the service.
 
 ### Does our agency's password-protected intranet need to be accessible?
 
@@ -1265,131 +1285,6 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 2. **Prioritize remediation** — Focus on frequently used existing documents
 3. **Respond to requests** — Have a process to quickly provide accessible versions of archived documents upon request
 4. **Document your efforts** — Keep records of what's accessible, what needs work, and any requests you've fulfilled
-
-<a id="third-party-tool-testing"></a>
-
-### How do I test third-party tool compliance? What do I do to verify (for example, Docebo or DocuSign) compliance?
-
-**Why this matters:** Vendor claims about accessibility aren't always accurate, and even accessible platforms can become inaccessible through custom configuration or content you add. Testing real workflows ensures the tools your agency uses actually work for people with disabilities — not just in theory, but in practice.
-
-**Quick answer:** Don't rely on vendor claims. Request a current VPAT, then test your **real workflows** with (1) keyboard-only navigation, (2) a screen reader, and (3) an automated checker (axe/WAVE). Document issues and require fixes (or an accessible alternative) before you go live.
-
-**Minimum test plan (30–60 minutes):**
-
-1. **Pick 2–3 real workflows** (example: “sign a document,” “enroll and complete a course,” “submit a form”).
-2. **Run an automated scan** (axe DevTools or WAVE) on each workflow screen:
-   - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a>
-   - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a>
-3. **Keyboard-only check** (no mouse):
-   - You can reach everything (Tab/Shift+Tab) and activate it (Enter/Space)
-   - Focus is visible and never gets “stuck”
-4. **Screen reader spot-check** (at least one):
-   - **NVDA** (free) — <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">https://www.nvaccess.org/</a>
-   - **VoiceOver** (built-in on Mac/iOS)
-   - Confirm labels make sense, errors are announced, and the workflow can be completed
-5. **Document what you found**:
-   - Date/version tested, workflow steps, issues, and screenshots
-   - “Workaround/alternative provided” if the vendor can’t fix quickly
-
-**Procurement/contract expectations (what to ask for):**
-
-- **VPAT/ACR** for the exact product/version you're buying/using.
-- A list of **known issues** + vendor **remediation timeline**
-- Contract language requiring **WCAG 2.1 Level AA** and support for accessibility fixes
-
-**Ongoing monitoring (keep it lightweight):**
-
-- Re-test after **major updates**, configuration/theme changes, or new integrations
-- Track user feedback and escalate issues to the vendor
-
-**Resources:**
-
-- DoIT Testing Resources: <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
-- Section 508 testing resources: <a href="https://www.section508.gov/test/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/test/</a>
-
-**Key takeaway:** Test the workflows people actually use. If the tool can’t be made accessible quickly, you still need to provide an **accessible alternative** for the service.
-
-### Our agency uses DocuSign to digitally sign documents. Is this something that falls under WCAG compliance?
-
-**Quick answer:** Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
-
-**Important note:** Vendor accessibility status changes over time. DocuSign publishes accessibility information and VPATs on their website. The guidance below reflects general principles — always verify current accessibility status with the vendor's latest documentation.
-
-**What to do (in order):**
-
-1. **Make the documents accessible first** (Word/PDF before upload). DocuSign can't "fix" an inaccessible document.
-2. **Request DocuSign's current VPAT/ACR** for the specific product version and configuration you use. Vendor accessibility claims can change with product updates.
-3. **Test the real signing workflow** using the steps in: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
-4. **Have an accessible alternative** if a user can't complete the signing process (example: an accessible PDF form + supported return method, in-person or assisted signing).
-
-**Key takeaway:** Your agency is responsible for accessibility of services delivered through DocuSign. Start with accessible documents, verify the workflow with current vendor documentation, and keep a backup method ready.
-
-### Is a Learning Management System (LMS) like Docebo WCAG 2.1 Level AA compliant?
-
-**Quick answer:** Compliance varies by platform, version, and configuration. Even if an LMS platform claims accessibility, **your course content and configuration still have to be accessible**.
-
-**Important note:** Vendor accessibility status changes over time. The guidance below reflects general principles for evaluating any LMS — always verify current accessibility status with the vendor's latest VPAT/ACR documentation for your specific product version.
-
-**What can affect LMS accessibility:**
-
-- Platform version/configuration (accessibility may vary between versions)
-- Custom themes/branding (customizations can introduce accessibility issues)
-- Plugins/integrations
-- Specific feature limitations (quizzes, embedded media, uploads, etc.)
-
-**Accessible LMS course checklist (high impact):**
-
-1. **Documents** — Upload accessible Word/PDF/PowerPoint files (make the source accessible first).
-2. **Video/audio** — Captions for video; transcripts for audio; fix auto-captions.
-3. **Images** — Alt text for images/graphics; don’t put essential text only in images.
-4. **Structure** — Clear headings and descriptive link text; predictable navigation and module names.
-5. **Interactivity** — Quizzes/forms are keyboard accessible, with clear labels and error messages.
-6. **Color** — Sufficient contrast and no “color-only” meaning.
-7. **Test the course** using: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
-
-**Resources:**
-
-- WCAG 2.1 Quick Reference (Level AA): <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">https://www.w3.org/WAI/WCAG21/quickref/?levels=aa</a>
-- WebAIM Contrast Checker: <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
-
-**Key takeaway:** Treat the LMS like any other third-party tool: verify the platform, and ensure the content you upload is accessible.
-
-### If we have existing content like Tableau dashboards, ArcGIS maps, or Docebo online courses, do those fall into the exemption category? Or do they need to be made immediately accessible?
-
-**Quick answer:** If it's **currently used to provide public services**, it needs to be accessible (and generally won’t qualify for an “archived content” exception). If it’s **truly archived and not used**, it may fall within an exception — but you may still need to provide an accessible alternative when needed to ensure access under Title II’s general nondiscrimination/effective communication requirements.
-
-**The key distinction:**
-
-- **Currently used for services** = Must be accessible.
-- **Archived/not currently used** = May fall within an exception, but be prepared to provide an accessible alternative when needed.
-
-**What to do (works for dashboards, maps, and courses):**
-
-1. **Inventory** what exists and label it **active** vs. **archived**
-2. **Prioritize** by impact (high-traffic, high-stakes, frequently used)
-3. **Make it accessible or provide an equivalent accessible alternative**, such as:
-   - **Dashboards/maps:** accessible data tables/CSV downloads + plain-language summaries
-   - **Courses:** accessible documents + captions/transcripts + accessible quiz interactions
-4. **Test** using the workflow approach in: [How do I test third-party tool compliance?](#website-accessibility-how-do-i-test-third-party-tool-compliance-what-do-i-do-to-verify-for-example-docebo-or-docusign-compliance)
-5. **Document** what you changed, what remains, and the alternatives you provide
-
-**Tool-specific notes (common pain points):**
-
-_Note: Vendor accessibility features evolve over time. These are general patterns — always verify current accessibility capabilities with the vendor's latest documentation._
-
-- **Tableau**: interactive charts often need **accessible tables** and clear descriptions. Don't rely on hover-only tooltips. Check Tableau's current accessibility documentation for your version.
-- **ArcGIS**: complex interactive maps frequently need **equivalent text + data** (tables, lists of locations, and a written summary of what the map shows). Esri publishes accessibility information for ArcGIS products.
-- **LMS platforms (Docebo, etc.)**: even if the platform has accessibility features, **uploaded content and course design** are where failures usually occur (captions, docs, images, quizzes, navigation). Your content still needs to be accessible regardless of platform capabilities.
-
-**Resources:**
-
-- ADA Title II Web Rule: <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
-- DoIT Accessibility Guidance: <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility.html</a>
-- ADA Effective Communication: <a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/effective-communication/</a>
-
-**Key takeaway:** If the public needs it to access a service, it must be accessible. If you can’t make the tool fully accessible quickly, provide an **equivalent accessible alternative** and document the remediation plan.
-
----
 
 ## Content Accessibility (Documents, PDFs, Presentations)
 
@@ -1959,6 +1854,214 @@ When procuring technology products or services:
 
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — Illinois-specific procurement requirements
 - <a href="https://www.section508.gov/buy/define-accessibility-criteria/" target="_blank" rel="noopener noreferrer">Section508.gov: Define Accessibility Criteria</a> — Federal guidance on procurement
+
+### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?
+
+{new:2026-01-06}
+
+**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
+
+**Why this matters:**
+
+Under the ADA Title II web rule, public entities are responsible for the accessibility of third-party content when it is provided "under contractual, licensing, or other arrangements" (§ 35.200(a)). This means:
+
+- **Content you contract for** — Payment processors, scheduling tools, chat widgets, LMS platforms, document signing tools, embedded maps (ArcGIS), dashboards (Tableau), survey tools, and other contracted services — falls under your agency's responsibility
+- **Content posted by third parties without a contractual relationship** — Such as user comments on a public forum — is generally excepted (§ 35.200(b)(3))
+
+**Common third-party tools requiring accessibility:**
+
+- Learning Management Systems (LMSs) like Docebo, Canvas, Moodle
+- Document signing tools like DocuSign
+- Data visualization and dashboards like Tableau, Power BI
+- Mapping platforms like ArcGIS, Google Maps
+- Payment processors, scheduling tools, chat widgets
+- Survey and form tools integrated into your site
+
+**Important note:** Vendor accessibility status changes over time. All major vendors (Docebo, DocuSign, Tableau, Esri/ArcGIS) publish accessibility information and VPATs on their websites. The guidance below reflects general principles — always verify current accessibility status with the vendor's latest documentation for your specific product version and configuration.
+
+**For Learning Management Systems (LMSs) like Docebo:**
+
+**Compliance considerations:**
+
+Compliance varies by platform, version, and configuration. Even if an LMS platform claims accessibility, **your course content and configuration still have to be accessible**. What can affect LMS accessibility:
+
+- Platform version/configuration (accessibility may vary between versions)
+- Custom themes/branding (customizations can introduce accessibility issues)
+- Plugins/integrations
+- Specific feature limitations (quizzes, embedded media, uploads, etc.)
+
+**Step-by-step approach:**
+
+1. **Verify platform accessibility** — Request the vendor's current VPAT/ACR for your specific product version and configuration. Vendor accessibility claims can change with product updates.
+
+2. **Make your course content accessible** — Even if the platform claims accessibility, your uploaded content must be accessible:
+   - **Documents** — Upload accessible Word/PDF/PowerPoint files (make the source accessible first)
+   - **Videos** — Add accurate captions (review and correct auto-generated captions)
+   - **Audio** — Provide transcripts
+   - **Images** — Include alt text; don't put essential text only in images
+   - **Structure** — Use clear headings and descriptive link text; predictable navigation and module names
+   - **Quizzes/forms** — Ensure keyboard accessibility, clear labels, and error messages
+   - **Color** — Ensure sufficient contrast and don't rely on color alone to convey meaning
+
+3. **Test the complete workflow** — Test real user journeys (enrollment, course completion, quiz submission) using:
+   - Keyboard-only navigation
+   - Screen reader (NVDA, VoiceOver, or TalkBack)
+   - Automated checkers (axe DevTools or WAVE)
+
+4. **Document and remediate** — Keep records of issues found, vendor responses, and remediation timelines.
+
+**For DocuSign:**
+
+**Compliance requirement:**
+
+Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
+
+**Step-by-step approach:**
+
+1. **Make documents accessible first** — Create accessible Word or PDF documents before uploading to DocuSign. DocuSign can't "fix" an inaccessible document.
+
+2. **Verify the signing workflow** — Request DocuSign's current VPAT/ACR for your specific product version and configuration. Vendor accessibility claims can change with product updates.
+
+3. **Test the signing process** — Test the complete workflow (receiving, reviewing, signing, submitting) using:
+   - Keyboard-only navigation
+   - Screen reader
+   - Automated accessibility checkers
+
+4. **Provide an accessible alternative** — Have a backup method ready if a user can't complete the signing process (e.g., accessible PDF form with supported return method, in-person or assisted signing).
+
+**For Tableau Dashboards:**
+
+**Compliance requirement:**
+
+Yes. If you use Tableau dashboards for public-facing services, the **dashboard interface** and the **data visualization** must be accessible, or you must provide an accessible alternative.
+
+**Common accessibility challenges with Tableau:**
+
+- Interactive charts that rely on hover-only tooltips (not keyboard accessible)
+- Visualizations that rely on color alone to convey meaning
+- Missing or inadequate text descriptions of what the data shows
+- Complex navigation that doesn't work with keyboard or screen readers
+- Missing alternative text for visual elements
+
+**Step-by-step approach:**
+
+1. **Verify platform accessibility** — Request Tableau's current VPAT/ACR for your specific product version. Check Tableau's accessibility documentation for your version.
+
+2. **Make your dashboards accessible** — Focus on these high-impact elements:
+   - **Alternative text** — Provide text descriptions for all visualizations
+   - **Data tables** — Include accessible data tables alongside visualizations (Tableau supports this feature)
+   - **Keyboard navigation** — Ensure all interactive elements can be accessed and operated with keyboard
+   - **Color contrast** — Use sufficient color contrast and don't rely on color alone to convey meaning
+   - **Plain-language summaries** — Provide written summaries of key insights and trends shown in the visualizations
+
+3. **Test the complete workflow** — Test how users interact with your dashboards (viewing, filtering, exporting data) using:
+   - Keyboard-only navigation
+   - Screen reader
+   - Automated accessibility checkers
+
+4. **Provide accessible alternatives** — For complex dashboards that can't be fully remediated quickly:
+   - Accessible data tables or CSV downloads
+   - Plain-language summaries of key findings
+   - Text-based reports with the same information
+
+**For ArcGIS Maps:**
+
+**Compliance requirement:**
+
+Yes. If you use ArcGIS maps for public-facing services, the **map interface** and the **geographic information** must be accessible, or you must provide an accessible alternative.
+
+**Common accessibility challenges with ArcGIS:**
+
+- Interactive maps that require mouse/touch interaction
+- Spatial information conveyed only visually
+- Missing text descriptions of map features and locations
+- Complex map controls that don't work with keyboard or screen readers
+- Pop-ups and tooltips that aren't accessible
+
+**Step-by-step approach:**
+
+1. **Verify platform accessibility** — Request Esri's current VPAT/ACR for your specific ArcGIS products. Esri publishes accessibility information for ArcGIS products.
+
+2. **Make your maps accessible** — Focus on these high-impact elements:
+   - **Alternative text and descriptions** — Provide text descriptions of what the map shows (e.g., "Map showing crime rates by county in Illinois, 2023-2024")
+   - **Data tables/lists** — Include accessible tables or lists of locations, features, and attributes shown on the map
+   - **Keyboard navigation** — Ensure map controls (zoom, pan, layer toggles) work with keyboard
+   - **Text-based content** — Provide text summaries of geographic patterns, trends, or insights
+   - **Search functionality** — Allow users to search for locations rather than requiring visual scanning
+
+3. **Test the complete workflow** — Test how users interact with your maps (viewing, searching locations, accessing data) using:
+   - Keyboard-only navigation
+   - Screen reader
+   - Automated accessibility checkers
+
+4. **Provide accessible alternatives** — For complex maps that can't be fully remediated quickly:
+   - Accessible tables or lists of locations with relevant attributes
+   - Written summaries of what the map shows and key geographic patterns
+   - Text-based search or directory of locations
+   - Contact information for requesting information in alternative formats
+
+**How to test third-party tool accessibility:**
+
+**Why testing matters:** Vendor claims about accessibility aren't always accurate, and even accessible platforms can become inaccessible through custom configuration or content you add. Testing real workflows ensures the tools your agency uses actually work for people with disabilities — not just in theory, but in practice.
+
+**Minimum test plan (30–60 minutes):**
+
+1. **Pick 2–3 real workflows** (example: "sign a document," "enroll and complete a course," "view a dashboard," "search a map").
+
+2. **Run an automated scan** (axe DevTools or WAVE) on each workflow screen:
+   - **axe DevTools** — <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">https://www.deque.com/axe/</a>
+   - **WAVE** — <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">https://wave.webaim.org/</a>
+
+3. **Keyboard-only check** (no mouse):
+   - You can reach everything (Tab/Shift+Tab) and activate it (Enter/Space)
+   - Focus is visible and never gets "stuck"
+
+4. **Screen reader spot-check** (at least one):
+   - **NVDA** (free) — <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">https://www.nvaccess.org/</a>
+   - **VoiceOver** (built-in on Mac/iOS)
+   - Confirm labels make sense, errors are announced, and the workflow can be completed
+
+5. **Document what you found**:
+   - Date/version tested, workflow steps, issues, and screenshots
+   - "Workaround/alternative provided" if the vendor can't fix quickly
+
+**Procurement/contract expectations:**
+
+- **VPAT/ACR** for the exact product/version you're buying/using
+- A list of **known issues** + vendor **remediation timeline**
+- Contract language requiring **WCAG 2.1 Level AA** and support for accessibility fixes
+
+**Common pitfalls to avoid:**
+
+- **Assuming vendor claims are accurate** — Always verify with current VPAT/ACR and test yourself
+- **Focusing only on the platform** — Your content and configuration matter just as much
+- **Ignoring customizations** — Custom themes, plugins, or integrations can introduce accessibility issues
+- **Skipping workflow testing** — Testing individual pages isn't enough; test complete user journeys
+- **No backup plan** — Always have an accessible alternative ready
+
+**Ongoing monitoring:**
+
+- Re-test after major platform updates or configuration changes
+- Track user feedback and escalate issues to vendors
+- Keep accessibility requirements in renewal contracts
+- Document your testing and remediation efforts
+- Re-test after major updates, configuration/theme changes, or new integrations
+
+**See also:**
+
+- [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) — Additional testing guidance for web content
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — See section on "Third-Party Content"
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule</a> — § 35.200(a) on contractual arrangements
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — Illinois-specific procurement requirements
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — Filterable checklist of accessibility requirements
+- <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a> — Tool for checking color contrast ratios
+- <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">DoIT Testing Resources</a> — Illinois-specific testing guidance
+- <a href="https://www.section508.gov/test/" target="_blank" rel="noopener noreferrer">Section 508 Testing Resources</a> — Federal testing guidance
+
+**Key takeaway:** Third-party tools don't exempt you from accessibility requirements. Verify platform accessibility, ensure your content is accessible, test real workflows, and always have an accessible alternative ready.
 
 ### What contract language should I use?
 
