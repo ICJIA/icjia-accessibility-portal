@@ -93,7 +93,7 @@ _Last updated: January 3, 2026_
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Add axe-core to your build      | Catches many issues automatically (<a href="https://www.deque.com/blog/automated-testing-study-identifies-57-percent-of-digital-accessibility-issues/" target="_blank" rel="noopener noreferrer">studies suggest 30-57%</a>) |
 | 2. Test keyboard navigation        | Critical for accessibility                                                                                                                                                                                                   |
-| 3. Check color contrast (4.5:1)    | Easy fix, high impact                                                                                                                                                                                                        |
+| 3. Check color contrast (4.5:1)    | Quick to verify, high impact                                                                                                                                                                                                 |
 | 4. Ensure visible focus indicators | Required for keyboard users                                                                                                                                                                                                  |
 | 5. Use semantic HTML (not divs)    | Foundation of accessibility                                                                                                                                                                                                  |
 
@@ -274,9 +274,26 @@ These four skills address the most common issues per the <a href="https://webaim
 
 ### How can I track and demonstrate "good-faith progress" toward compliance?
 
-{new:2025-12-30}
+{new:2026-01-06}
 
-**Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what's next).
+**Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what's next). However, understand that **"good-faith effort" is not a substitute for compliance** under the law.
+
+**Is "good-faith progress" legally sufficient?**
+
+**No — good-faith effort alone does not satisfy legal compliance requirements.** Both the ADA Title II rule and IITAA require actual compliance with WCAG 2.1 Level AA standards. However:
+
+- **Courts may consider good-faith efforts** when determining appropriate remedies, timelines for compliance, or assessing an organization's responsiveness to accessibility barriers
+- **Documentation of systematic efforts** demonstrates organizational commitment and can inform remedial measures
+- **Progress toward compliance** helps real users access services now, even if full compliance hasn't been achieved
+- **Good-faith efforts do not eliminate liability**, but may influence how enforcement actions proceed or what remedies are appropriate
+
+**What this means for managers:**
+
+Document your progress, but don't mistake documentation for compliance. The goal is actual accessibility, not just evidence of trying. If you face a complaint:
+
+- **Evidence of effort may matter** in determining remedies or timelines, but won't prevent a finding of noncompliance if barriers exist
+- **Systematic, documented progress** is better than reactive fixes or no documented plan
+- **Communication with affected individuals** about barriers, workarounds, and remediation timelines demonstrates responsiveness
 
 **Practical manager artifacts (simple, defensible):**
 
@@ -285,8 +302,42 @@ These four skills address the most common issues per the <a href="https://webaim
 3. **Milestones** (monthly/quarterly targets through April 2026)
 4. **Evidence** (audit results, remediation logs, training completion, procurement language)
 5. **Escalation path** (who decides tradeoffs when priorities conflict)
+6. **Complaint response process** (how you'll address accessibility barriers when reported)
 
-**Why this helps:** It prevents "we didn't know" and gives leadership a concrete way to support resourcing decisions.
+**Why this approach helps:**
+
+- Prevents "we didn't know" as a response to complaints
+- Gives leadership concrete data to support resourcing decisions
+- Demonstrates systematic approach rather than reactive responses
+- Shows commitment to compliance and continuous improvement
+- Provides documentation if enforcement actions occur
+
+**Important disclaimer:** This guidance is not legal advice. For questions about your agency's specific legal obligations, risk assessment, or response to complaints, consult your agency's legal counsel and Illinois DoIT accessibility guidance.
+
+**References supporting "good-faith is not enough":**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — States that public entities must ensure their web content and mobile apps are accessible to people with disabilities. The rule requires compliance with WCAG 2.1 Level AA, not "good-faith effort."
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — The final rule establishes technical standards (WCAG 2.1 Level AA) as the compliance requirement. Good-faith effort is not listed as an alternative to meeting the technical standards.
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Illinois state law requires compliance with WCAG 2.1 Level AA standards. IITAA has required accessibility since 2008; "good-faith effort" has not been accepted as a substitute for compliance.
+- <a href="https://www.w3.org/TR/WCAG21/#conformance-reqs" target="_blank" rel="noopener noreferrer">WCAG 2.1 Conformance Requirements</a> — WCAG defines conformance as meeting all Level A and Level AA success criteria for the claimed level. Partial conformance or "good-faith effort" is not conformance.
+- <a href="https://www.ada.gov/law-and-regs/design-standards/title-ii-us-doj-regulations/" target="_blank" rel="noopener noreferrer">ADA Title II Regulations</a> — The ADA prohibits discrimination on the basis of disability. If a website or digital service is inaccessible, it may constitute discrimination regardless of the entity's efforts to improve it.
+
+**Why managers should understand this:**
+
+The legal standard is **accessibility**, not **trying to be accessible**. While good-faith efforts may:
+
+- Influence remedies or enforcement timelines
+- Demonstrate organizational responsiveness
+- Mitigate damages in some contexts
+- Show systematic approach vs. deliberate indifference
+
+...they do **not eliminate the underlying legal obligation to provide accessible services**.
+
+**Analogy:** This is similar to building code compliance — documenting that an organization is "working toward" fire safety standards does not exempt a building from meeting those standards, and does not prevent liability if someone is harmed by violations.
+
+**What this means practically:**
+
+Don't let "we're making progress" become a substitute for "we're compliant." Progress is necessary and valuable, but the legal finish line is actual accessibility, not documented effort toward it.
 
 ---
 
@@ -348,7 +399,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 **Full explanation:**
 
-**We hear you.** Everyone is busy, and "one more thing" feels impossible. But here's the reframe: you're already creating documents, adding images, and publishing content. Accessibility is about doing those things _slightly differently_ — not doing more things.
+Everyone is busy, and "one more thing" feels impossible. However, accessibility is not additional work on top of your existing responsibilities — it's a change in _how_ you do work you're already doing. You're already creating documents, adding images, and publishing content. Accessibility is about doing those things _slightly differently_ — not doing more things.
 
 **The real time investment:**
 
@@ -501,7 +552,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 Accessibility is no longer just "best practice" — it's a compliance requirement under ADA Title II and IITAA. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
 
-**The good news:** Many accessibility improvements also benefit everyone — clearer content, better-organized documents, and more usable websites make information easier to find and understand for all users.
+**Additional benefit:** Many accessibility improvements also benefit all users — clearer content, better-organized documents, and more usable websites make information easier to find and understand for everyone.
 
 **See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
 
@@ -560,7 +611,7 @@ These are **internal employment matters** determined by agency policy, not direc
 
 {new:2026-01-06}
 
-**Fair question.** Here's the honest answer:
+**This is a common question.** Here are the facts:
 
 **The regulatory landscape changed in 2024:**
 
@@ -586,7 +637,7 @@ The 2024 federal rule created accountability that didn't exist before — a **ha
 
 **What matters now:**
 
-Regardless of what happened before, the requirement is clear and the deadline is firm. The good news: ICJIA's public websites have generally followed accessibility practices, which is a solid foundation. The work ahead is ensuring **all content** — documents, PDFs, videos, social media, and vendor tools — meets the same standard.
+Regardless of what happened before, the requirement is clear and the deadline is firm. ICJIA's public websites have generally followed accessibility practices, which provides a foundation. The work ahead is ensuring **all content** — documents, PDFs, videos, social media, and vendor tools — meets the same standard.
 
 **Key takeaway:** This is a shared responsibility across the agency. Everyone who creates or publishes content has a role to play. Focus on what you can control: inventory your content, prioritize by impact, complete training, and start addressing the biggest barriers first.
 
@@ -1316,7 +1367,7 @@ When you create a document, you see formatted text, images, and layout. But some
 - **Users with low vision may zoom 200%+** — the document should reflow properly.
 - **Users with cognitive disabilities** — benefit from clear headings, simple language, and logical organization.
 
-**The good news:** Making documents accessible usually makes them better organized and easier to use for everyone.
+**Additional benefit:** Making documents accessible typically makes them better organized and easier to use for all users.
 
 **Quick test:** Open your document and try navigating it using only the keyboard (Tab, arrow keys, Enter). If you can't reach everything or don't know where you are, it's not accessible.
 
