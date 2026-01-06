@@ -12,9 +12,12 @@ A practical guide to common accessibility questions for staff at Illinois state 
 >
 > - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actio)
 > - **Jump to your role:** [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) · [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) · [Managers](#getting-started-i-m-a-manager-where-do-i-start) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
-> - **Need a real person?** Start with your web team / accessibility coordinator; for IITAA + ADA Title II questions contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
+> - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
+> - **Need a real person?** For ICJIA questions, contact the IT department. For IITAA + ADA Title II questions, contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
 >
-> **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It’s not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency’s legal/compliance leadership.
+> **ICJIA Contact Note (January 6, 2026):** No agency accessibility coordinator has been identified yet. This FAQ will be updated with coordinator contact information when available. In the meantime, contact **ICJIA's IT department** with specific accessibility questions or concerns.
+>
+> **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It's not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency's legal/compliance leadership.
 
 ## Quick Start (Read this first)
 
@@ -34,7 +37,7 @@ _Last updated: January 3, 2026_
 
 3. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
 
-4. **The standard is clear:** <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> (Web Content Accessibility Guidelines, published by the <a href="https://www.w3.org/" target="_blank" rel="noopener noreferrer">World Wide Web Consortium</a>). This means proper headings, alt text on images, captions on videos, keyboard navigation, sufficient color contrast, and accessible forms. See the <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">full WCAG 2.1 specification</a> for complete technical requirements.
+4. **The standard is clear:** <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> — think of it as a **compliance checklist for digital content**. In practice: proper headings, alt text on images, captions on videos, keyboard navigation, sufficient color contrast, and accessible forms.
 
 5. **Start small, start now:** You don't have to fix everything today. Focus on new content first, then prioritize high-traffic pages and critical services. Every small improvement counts.
 
@@ -195,13 +198,24 @@ These four skills address the most common issues per the <a href="https://webaim
 4. **Bake accessibility into process** (before publish / purchase / launch)
 5. **Track progress** with clear milestones through April 24, 2026
 
+**Realistic time estimates (rough guidance):**
+
+| Activity                 | Time Investment               | Notes                                       |
+| ------------------------ | ----------------------------- | ------------------------------------------- |
+| **Staff training**       | 2-4 hours per person          | DoIT offers free courses; one-time learning |
+| **Content inventory**    | 2-8 hours                     | Depends on content volume; do once          |
+| **Document remediation** | 15-60 min per document        | Complex PDFs take longer                    |
+| **Ongoing maintenance**  | Built into existing workflows | Once trained, adds minimal time             |
+
 **Key actions:**
 
 - **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a>.
 - **Assess current state:** Audit content, identify gaps, estimate remediation effort.
-- **Allocate resources:** Training, tools (WAVE, axe DevTools, PDF checkers), and staff time.
+- **Allocate resources:** Training, tools (free: WAVE, axe DevTools, PDF checkers), and staff time.
 - **Build into processes:** Require accessibility in procurement, add pre-publish checkpoints.
 - **Establish accountability:** Assign responsibilities, set expectations, track progress.
+
+**ICJIA Contact:** No accessibility coordinator identified yet. Contact **ICJIA's IT department** for accessibility questions.
 
 **Resources:** <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility</a> | <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning Accessibility</a> | <a href="/links" target="_self">Accessibility Links</a>
 
@@ -542,7 +556,41 @@ These are **internal employment matters** determined by agency policy, not direc
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — See "What Web Content and Mobile Apps Are Covered" and enforcement provisions
 
-### After April 24, 2026, how do we maintain compliance (so we don’t fall out of compliance again)?
+### Why are we just hearing about this now?
+
+{new:2026-01-06}
+
+**Fair question.** Here's the honest answer:
+
+**The regulatory landscape changed in 2024:**
+
+- **April 2024:** The U.S. Department of Justice published the ADA Title II web rule — the first time federal law specified a technical standard (WCAG 2.1 Level AA) with a firm compliance deadline.
+- **June 2024:** Illinois IITAA 2.1 standards took effect, aligning state requirements with the same standard.
+
+Before 2024, accessibility was a best practice and a general legal principle, but there was no specific federal deadline or measurable technical standard for state agencies. That changed.
+
+**What's different now:**
+
+| Before                                         | Now                                                                       |
+| ---------------------------------------------- | ------------------------------------------------------------------------- |
+| Accessibility as **best practice**             | Accessibility as **legal requirement** with enforcement                   |
+| "Making progress" was acceptable               | **100% WCAG 2.1 Level AA** compliance required                            |
+| No firm deadline                               | **April 24, 2026** deadline                                               |
+| Focused mainly on websites                     | Covers **everything**: websites, PDFs, videos, social media, vendor tools |
+| Often seen as a technical/IT issue             | **Everyone** who creates content shares responsibility                    |
+| IITAA (state) enforcement was largely advisory | **ADA Title II** (federal) adds DOJ enforcement + private legal action    |
+
+**Why it feels sudden:**
+
+The 2024 federal rule created accountability that didn't exist before — a **hard deadline, a measurable standard, and real enforcement consequences**. Communication across large organizations is always imperfect, and accessibility wasn't always prioritized the same way across all roles. That's understandable given competing demands.
+
+**What matters now:**
+
+Regardless of what happened before, the requirement is clear and the deadline is firm. The good news: ICJIA's public websites have generally followed accessibility practices, which is a solid foundation. The work ahead is ensuring **all content** — documents, PDFs, videos, social media, and vendor tools — meets the same standard.
+
+**Key takeaway:** This is a shared responsibility across the agency. Everyone who creates or publishes content has a role to play. Focus on what you can control: inventory your content, prioritize by impact, complete training, and start addressing the biggest barriers first.
+
+### After April 24, 2026, how do we maintain compliance (so we don't fall out of compliance again)?
 
 {new:2026-01-02}
 
@@ -587,7 +635,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 3. **Provide accessible alternatives** — Be prepared to provide alternative formats upon request (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>)
 4. **Continue after the deadline** — The obligation doesn't end; keep working toward full compliance
 
-**Important:** "Good-faith effort" is not a defined legal defense under ADA Title II — the rule requires compliance. However, documentation demonstrates organizational commitment and each barrier removed helps real users access services now.
+**Important:** "Good-faith effort" is not a complete legal defense under ADA Title II — the rule requires compliance. Courts may consider documented good-faith efforts when determining appropriate remedies, but this does not eliminate liability. Documentation demonstrates organizational commitment and each barrier removed helps real users access services now.
 
 - **Consult legal counsel** — For questions about enforcement risk, legal exposure, or what constitutes adequate compliance in your specific situation, consult your agency's legal counsel
 
@@ -736,11 +784,36 @@ For questions or comments about information technology accessibility or the IITA
 - Chicago: 312-814-3648
 - TTY: 866-277-5669
 
-### What is the ADA Title II web accessibility rule?
+### What is the ADA Title II digital accessibility rule?
 
-On April 24, 2024, the U.S. Department of Justice published a final rule establishing specific technical requirements for web content and mobile app accessibility under Title II of the Americans with Disabilities Act. The rule requires state and local governments to make their public-facing digital content meet WCAG 2.1 Level AA.
+{new:2026-01-06}
 
-**Official fact sheet:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">https://www.ada.gov/resources/2024-03-08-web-rule/</a>
+**Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 24, 2026 (for entities serving 50,000+ population).
+
+**What Title II covers (vs. Title I):**
+
+The ADA has multiple titles addressing different contexts:
+
+|                      | **Title I** (Employment)                     | **Title II** (Public Services)                 |
+| -------------------- | -------------------------------------------- | ---------------------------------------------- |
+| **Scope**            | Employers with 15+ employees                 | State and local governments                    |
+| **Focus**            | Workplace accommodations                     | Public programs, services, activities          |
+| **Approach**         | Reasonable accommodations upon request       | Proactive accessibility for all public content |
+| **Digital standard** | No specific technical standard; case-by-case | **WCAG 2.1 Level AA** required                 |
+| **Timeline**         | Accommodations when requested                | Compliance deadline: April 24, 2026            |
+
+**Why Title II may feel "new":** Title II has existed since 1990, but the **April 2024 web rule** is the first time DOJ established specific technical standards (WCAG 2.1 Level AA) for digital content. This replaces previous case-by-case enforcement with a clear, measurable requirement.
+
+**For Illinois state agencies:** You must comply with both — **Title I** for employee accommodations and **Title II** for public-facing digital content.
+
+**Key regulatory text:** The rule amends 28 CFR Part 35 to add §§ 35.200–35.205 establishing web and mobile app accessibility requirements.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — DOJ plain-language summary
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text
+- <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II Overview</a> — General Title II guidance
+- <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">ADA Title I Overview</a> — Employment provisions (for comparison)
 
 ### When must we comply with the ADA Title II rule?
 
