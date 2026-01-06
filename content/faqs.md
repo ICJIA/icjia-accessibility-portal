@@ -33,7 +33,7 @@ _Last updated: January 3, 2026_
 
 2. **Two laws require this:**
    - **Illinois law:** The <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois Information Technology Accessibility Act (IITAA)</a> has required accessible digital content for state agencies since 2008. The current <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 standards</a> (effective June 24, 2024) require WCAG 2.1 Level AA compliance.
-   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 24, 2026. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
+   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 24, 2026. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
 
 3. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
 
@@ -209,7 +209,7 @@ These four skills address the most common issues per the <a href="https://webaim
 
 **Key actions:**
 
-- **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
+- **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
 - **Assess current state:** Audit content, identify gaps, estimate remediation effort.
 - **Allocate resources:** Training, tools (free: WAVE, axe DevTools, PDF checkers), and staff time.
 - **Build into processes:** Require accessibility in procurement, add pre-publish checkpoints.
@@ -276,16 +276,16 @@ These four skills address the most common issues per the <a href="https://webaim
 
 {new:2026-01-06}
 
-**Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what's next). However, understand that **"good-faith effort" is not a substitute for compliance** under the law.
+**Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what's next). However, based on ADA Title II and IITAA requirements, **documentation of effort is not the same as meeting the compliance standard**.
 
-**Is "good-faith progress" legally sufficient?**
+**What do the regulations say about "good-faith progress"?**
 
-**No — good-faith effort alone does not satisfy legal compliance requirements.** Both the ADA Title II rule and IITAA require actual compliance with WCAG 2.1 Level AA standards. However:
+According to the ADA Title II web rule and IITAA, the requirement is to meet WCAG 2.1 Level AA standards — not to demonstrate effort toward meeting them. The regulations establish technical standards, not effort-based standards. However, based on general enforcement patterns:
 
 - **Courts may consider good-faith efforts** when determining appropriate remedies, timelines for compliance, or assessing an organization's responsiveness to accessibility barriers
 - **Documentation of systematic efforts** demonstrates organizational commitment and can inform remedial measures
 - **Progress toward compliance** helps real users access services now, even if full compliance hasn't been achieved
-- **Good-faith efforts do not eliminate liability**, but may influence how enforcement actions proceed or what remedies are appropriate
+- **The compliance standard is WCAG 2.1 Level AA** — the regulations specify meeting the technical standard, not demonstrating effort toward it
 
 **What this means for managers:**
 
@@ -314,30 +314,26 @@ Document your progress, but don't mistake documentation for compliance. The goal
 
 **Important disclaimer:** This guidance is not legal advice. For questions about your agency's specific legal obligations, risk assessment, or response to complaints, consult your agency's legal counsel and Illinois DoIT accessibility guidance.
 
-**References supporting "good-faith is not enough":**
+**References — what the regulations specify:**
 
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — States that public entities must ensure their web content and mobile apps are accessible to people with disabilities. The rule requires compliance with WCAG 2.1 Level AA, not "good-faith effort."
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — The final rule establishes technical standards (WCAG 2.1 Level AA) as the compliance requirement. Good-faith effort is not listed as an alternative to meeting the technical standards.
-- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Illinois state law requires compliance with WCAG 2.1 Level AA standards. IITAA has required accessibility since 2008; "good-faith effort" has not been accepted as a substitute for compliance.
-- <a href="https://www.w3.org/TR/WCAG21/#conformance-reqs" target="_blank" rel="noopener noreferrer">WCAG 2.1 Conformance Requirements</a> — WCAG defines conformance as meeting all Level A and Level AA success criteria for the claimed level. Partial conformance or "good-faith effort" is not conformance.
-- <a href="https://www.ada.gov/law-and-regs/design-standards/title-ii-us-doj-regulations/" target="_blank" rel="noopener noreferrer">ADA Title II Regulations</a> — The ADA prohibits discrimination on the basis of disability. If a website or digital service is inaccessible, it may constitute discrimination regardless of the entity's efforts to improve it.
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — States that public entities must ensure their web content and mobile apps are accessible. The rule specifies WCAG 2.1 Level AA as the technical standard.
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule (April 24, 2024)</a> — Establishes WCAG 2.1 Level AA as the compliance standard. The rule defines technical requirements, not effort-based requirements.
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Specifies WCAG 2.1 Level AA as the standard for Illinois state agencies.
+- <a href="https://www.w3.org/TR/WCAG21/#conformance-reqs" target="_blank" rel="noopener noreferrer">WCAG 2.1 Conformance Requirements</a> — Defines conformance as meeting all Level A and Level AA success criteria for the claimed level. There is no "partial conformance" or "effort-based conformance" defined in WCAG.
 
-**Why managers should understand this:**
+**What managers should note:**
 
-The legal standard is **accessibility**, not **trying to be accessible**. While good-faith efforts may:
+The regulations specify a **technical standard** (WCAG 2.1 Level AA), not an effort-based standard. According to the sources above:
 
-- Influence remedies or enforcement timelines
-- Demonstrate organizational responsiveness
-- Mitigate damages in some contexts
-- Show systematic approach vs. deliberate indifference
+- The compliance standard is meeting WCAG 2.1 Level AA criteria
+- The regulations do not define "good-faith effort" as an alternative to meeting the technical standard
+- For questions about enforcement, risk, or remedies, consult your agency's legal counsel
 
-...they do **not eliminate the underlying legal obligation to provide accessible services**.
-
-**Analogy:** This is similar to building code compliance — documenting that an organization is "working toward" fire safety standards does not exempt a building from meeting those standards, and does not prevent liability if someone is harmed by violations.
+**Analogy:** Consider building codes — documenting that an organization is "working toward" fire safety standards does not mean the building meets those standards. The standard is the standard, regardless of documented effort.
 
 **What this means practically:**
 
-Don't let "we're making progress" become a substitute for "we're compliant." Progress is necessary and valuable, but the legal finish line is actual accessibility, not documented effort toward it.
+Don't let "we're making progress" become a substitute for "we meet the standard." Progress is necessary and valuable, but the compliance standard is actual accessibility as defined by WCAG 2.1 Level AA.
 
 ---
 
@@ -534,7 +530,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 ### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
 
-**As an Illinois state agency, your agency must comply with both state and federal accessibility requirements (IITAA and ADA Title II) to ensure digital content is accessible.** The April 24, 2026 compliance deadline is a legal requirement — it applies directly to all Illinois state agencies.
+**Illinois state agencies are subject to both state and federal accessibility requirements (IITAA and ADA Title II).** According to the ADA Title II web rule (28 CFR Part 35) and IITAA 2.1 standards, the compliance deadline is April 24, 2026 for public entities serving populations of 50,000 or more — which includes all Illinois state agencies.
 
 **Why this matters for Illinois state agencies:**
 
@@ -554,7 +550,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 **Additional benefit:** Many accessibility improvements also benefit all users — clearer content, better-organized documents, and more usable websites make information easier to find and understand for everyone.
 
-**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
+**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
 
 **References:**
 
@@ -620,16 +616,16 @@ These are **internal employment matters** determined by agency policy, not direc
 
 Before 2024, accessibility was a best practice and a general legal principle, but there was no specific federal deadline or measurable technical standard for state agencies. That changed.
 
-**What's different now:**
+**What's different now (according to the 2024 regulations):**
 
-| Before                                         | Now                                                                       |
+| Before                                         | Now (per ADA Title II web rule and IITAA 2.1)                             |
 | ---------------------------------------------- | ------------------------------------------------------------------------- |
-| Accessibility as **best practice**             | Accessibility as **legal requirement** with enforcement                   |
-| "Making progress" was acceptable               | **100% WCAG 2.1 Level AA** compliance required                            |
-| No firm deadline                               | **April 24, 2026** deadline                                               |
+| Accessibility as **best practice**             | Accessibility with **specific technical standards** and enforcement       |
+| "Making progress" was acceptable               | **WCAG 2.1 Level AA** specified as the compliance standard                |
+| No firm deadline                               | **April 24, 2026** deadline specified in rule                             |
 | Focused mainly on websites                     | Covers **everything**: websites, PDFs, videos, social media, vendor tools |
 | Often seen as a technical/IT issue             | **Everyone** who creates content shares responsibility                    |
-| IITAA (state) enforcement was largely advisory | **ADA Title II** (federal) adds DOJ enforcement + private legal action    |
+| IITAA (state) enforcement was largely advisory | **ADA Title II** (federal) adds DOJ enforcement provisions                |
 
 **Why it feels sudden:**
 
@@ -686,13 +682,13 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 3. **Provide accessible alternatives** — Be prepared to provide alternative formats upon request (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>)
 4. **Continue after the deadline** — The obligation doesn't end; keep working toward full compliance
 
-**Important:** "Good-faith effort" is not a complete legal defense under ADA Title II — the rule requires compliance. Courts may consider documented good-faith efforts when determining appropriate remedies, but this does not eliminate liability. Documentation demonstrates organizational commitment and each barrier removed helps real users access services now.
+**Important:** The ADA Title II web rule establishes WCAG 2.1 Level AA as the compliance standard. The rule specifies technical requirements, not effort-based requirements. For questions about enforcement, remedies, or risk, consult your agency's legal counsel. From a practical standpoint: documentation demonstrates organizational commitment, and each barrier removed helps real users access services now.
 
 - **Consult legal counsel** — For questions about enforcement risk, legal exposure, or what constitutes adequate compliance in your specific situation, consult your agency's legal counsel
 
 **Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for details.
 
-**Key takeaway:** If you can't achieve full compliance by the deadline, continue making progress. Reduce barriers as quickly as possible, document your efforts, provide accessible alternatives upon request, and keep working toward full compliance. This is sound practice — but it is not a legal defense, and compliance remains the requirement.
+**Key takeaway:** If you can't achieve full compliance by the deadline, continue making progress. Reduce barriers as quickly as possible, document your efforts, provide accessible alternatives upon request, and keep working toward full compliance. The compliance standard remains WCAG 2.1 Level AA — consult your agency's legal counsel for questions about enforcement or risk.
 
 **References:**
 
@@ -789,7 +785,7 @@ Most content will need to be accessible. Old content isn't automatically excepte
 
 ### What's the bare minimum we need to do by April 2026?
 
-**Quick answer:** Legally, there's no minimum — WCAG 2.1 Level AA is required. But if overwhelmed: make new content accessible now, fix highest-impact barriers first, document your plan.
+**Quick answer:** According to ADA Title II and IITAA, the standard is WCAG 2.1 Level AA — there's no "partial compliance" option defined in the regulations. But if you're overwhelmed: make new content accessible now, fix highest-impact barriers first, document your plan.
 
 **Minimum viable approach:**
 
@@ -814,7 +810,7 @@ Most content will need to be accessible. Old content isn't automatically excepte
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
-**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
+**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
 
 ### Who must comply with the IITAA?
 
@@ -975,14 +971,44 @@ Use a combination of automated and manual testing:
 
 **Manual Testing:**
 
-- Keyboard navigation — Can you access everything without a mouse?
-- Screen reader testing — Does content make sense when read aloud?
-- Zoom and reflow testing — Does content remain usable at 200% zoom? At 400% zoom (or 320px viewport width), does content reflow without requiring horizontal scrolling?
-- Color contrast — Is text readable against its background?
+- **Keyboard navigation** — Can you access everything without a mouse? Tab through the page and verify all interactive elements are reachable and operable with Enter/Space.
+- **Screen reader testing** — Does content make sense when read aloud? Test with at least one screen reader (see below).
+- **Zoom and reflow testing** — Does content remain usable at 200% zoom? At 400% zoom (or 320px viewport width), does content reflow without requiring horizontal scrolling?
+- **Color contrast** — Is text readable against its background?
+
+**Screen Reader Testing (practical approach):**
+
+You don't need to become a screen reader expert, but basic testing helps identify critical barriers:
+
+| Screen Reader | Platform  | Cost     | Best For                       |
+| ------------- | --------- | -------- | ------------------------------ |
+| **NVDA**      | Windows   | Free     | Most common choice for testing |
+| **VoiceOver** | macOS/iOS | Built-in | Testing on Apple devices       |
+| **TalkBack**  | Android   | Built-in | Testing Android apps           |
+| **Narrator**  | Windows   | Built-in | Quick Windows testing          |
+
+**Basic NVDA testing workflow (10-15 minutes):**
+
+1. Download NVDA from <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">nvaccess.org</a> (free)
+2. Press **Ctrl+Alt+N** to start NVDA
+3. Navigate your page using **Tab** (interactive elements) and **arrow keys** (content)
+4. Press **H** to jump between headings — do they make sense and follow a logical order?
+5. Press **D** to jump between landmarks — is the page structure clear?
+6. Test forms — are labels announced when you focus on form fields?
+7. Test images — is meaningful alt text announced?
+8. Press **Insert+Q** to quit NVDA
+
+**What to listen for:**
+
+- Are headings announced with their level (Heading Level 1, Heading Level 2)?
+- Are form fields announced with their labels?
+- Are images described meaningfully (or announced as decorative)?
+- Can you complete key tasks (submit a form, navigate to important content)?
+- Are error messages announced when they appear?
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-to-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
 
 **WCAG References:**
 
@@ -1066,6 +1092,110 @@ Use a combination of automated and manual testing:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#page-titled" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.2 Page Titled - Level A</a> (page titles)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-control" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.2 Audio Control - Level A</a> (auto-playing media)
 
+### What WCAG requirements are commonly overlooked?
+
+{new:2026-01-06}
+
+Beyond the most common issues (alt text, color contrast, headings), these WCAG 2.1 Level AA requirements are frequently missed during accessibility reviews. **Note:** WCAG applies to websites, documents (PDFs, Word, Excel, PowerPoint), videos, and third-party tools — not just websites.
+
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.1) and a conformance level (A, AA, or AAA). For example, "SC 2.4.1" means Success Criterion 2.4.1. You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — use the search box to find specific criteria by number or keyword.
+
+---
+
+**Website-Specific Requirements Often Missed:**
+
+**Navigation and Structure:**
+
+1. **Skip links / Bypass blocks (<a href="https://www.w3.org/WAI/WCAG21/quickref/#bypass-blocks" target="_blank" rel="noopener noreferrer">SC 2.4.1 - Level A</a>)** — Pages with repeated content (like navigation menus) should provide a way to skip directly to main content. This is typically implemented as a "Skip to main content" link.
+
+2. **Consistent navigation (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>)** — Navigation menus should appear in the same relative order across all pages of a website.
+
+3. **Multiple ways to find pages (<a href="https://www.w3.org/WAI/WCAG21/quickref/#multiple-ways" target="_blank" rel="noopener noreferrer">SC 2.4.5 - Level AA</a>)** — Users should have more than one way to locate pages (e.g., navigation menu + site search + sitemap).
+
+**Forms and User Input:**
+
+4. **Error identification (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>)** — When a form error is detected, the error must be identified and described in text. Visual indicators alone (like red borders) are not sufficient.
+
+5. **Error suggestions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>)** — When an error is detected and suggestions for correction are known, provide them to the user (e.g., "Please enter a valid email address in the format name@example.com").
+
+6. **Labels or instructions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#labels-or-instructions" target="_blank" rel="noopener noreferrer">SC 3.3.2 - Level A</a>)** — All form fields must have clear labels or instructions. Placeholder text alone is not sufficient.
+
+7. **Timing adjustable (<a href="https://www.w3.org/WAI/WCAG21/quickref/#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>)** — If a page has a time limit (session timeout, form expiration), users must be able to turn off, adjust, or extend the time.
+
+**Content Presentation:**
+
+8. **Reflow (<a href="https://www.w3.org/WAI/WCAG21/quickref/#reflow" target="_blank" rel="noopener noreferrer">SC 1.4.10 - Level AA</a>)** — Content must reflow without horizontal scrolling at 400% zoom (or 320px viewport width). Content should not require scrolling in two dimensions.
+
+9. **Text spacing (<a href="https://www.w3.org/WAI/WCAG21/quickref/#text-spacing" target="_blank" rel="noopener noreferrer">SC 1.4.12 - Level AA</a>)** — Content must remain readable when users adjust line height, paragraph spacing, letter spacing, or word spacing. No loss of content or functionality.
+
+10. **Language of page (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — The default human language of each page must be programmatically determined (e.g., `<html lang="en">`).
+
+---
+
+**Document-Specific Requirements Often Missed (PDFs, Word, Excel, PowerPoint):**
+
+These requirements apply to all documents, not just websites:
+
+1. **Document language (SC 3.1.1)** — Set the document language in document properties. Screen readers use this to pronounce words correctly.
+
+2. **Proper tags and reading order (SC 1.3.1, 1.3.2)** — PDFs must have tags that define structure (headings, lists, tables). Reading order must match visual order.
+
+3. **Scanned documents = inaccessible** — A scanned PDF is an image. Without OCR and manual remediation, screen readers cannot read the text.
+
+4. **Table headers (SC 1.3.1)** — Tables in documents must have designated header rows/columns so screen readers announce column/row context.
+
+5. **Color alone to convey meaning (SC 1.4.1)** — "Items in red are required" fails because users who can't perceive color won't know which items are required.
+
+6. **Complex images without text alternatives (SC 1.1.1)** — Charts, graphs, and infographics need both alt text and a text description of the data (often as a data table or long description).
+
+7. **Excel spreadsheets without context (SC 1.3.1)** — Spreadsheets need named ranges, header rows, and text descriptions explaining how to navigate the data.
+
+8. **PowerPoint without slide titles (SC 2.4.2)** — Every slide needs a unique title for navigation. Decorative "title-less" slides fail this requirement.
+
+---
+
+**Third-Party Tools Requirements Often Missed:**
+
+When your agency uses third-party platforms (Docebo, DocuSign, Tableau, ArcGIS, survey tools, etc.):
+
+1. **Vendor claims ≠ your compliance** — A vendor saying "we're accessible" doesn't mean your implementation is accessible. Your content, configurations, and customizations must also be accessible.
+
+2. **Interactive elements must be keyboard accessible (SC 2.1.1)** — If users can't complete a workflow using only a keyboard, it fails. Test all critical user paths.
+
+3. **Custom content on vendor platforms (SC 1.1.1, 1.3.1)** — Training modules, survey questions, dashboards, and maps that you create must meet the same standards.
+
+4. **Data visualizations need text alternatives (SC 1.1.1)** — Charts and maps must provide equivalent information for users who can't see them.
+
+**See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?](#procurement-and-third-party-to-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+
+---
+
+**Why these matter:**
+
+These requirements are often missed because:
+
+- Automated testing tools may not detect all violations
+- Some issues only appear during specific interactions
+- People assume "accessibility" only means websites
+- Document accessibility is often an afterthought
+- Third-party tool compliance is assumed rather than verified
+
+**Testing approach:**
+
+| Content Type          | Testing Approach                                                                   |
+| --------------------- | ---------------------------------------------------------------------------------- |
+| **Websites**          | Keyboard testing, screen reader testing, zoom testing, automated tools (WAVE, axe) |
+| **PDFs**              | Adobe Acrobat Accessibility Checker, PAC 2024, screen reader testing               |
+| **Word/PowerPoint**   | Microsoft Accessibility Checker, screen reader testing                             |
+| **Excel**             | Microsoft Accessibility Checker, verify navigation with screen reader              |
+| **Third-party tools** | Request VPAT/ACR from vendor, test critical user workflows manually                |
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA filter)</a> — Complete list of Level A and AA requirements
+- <a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener noreferrer">WebAIM WCAG 2 Checklist</a> — Simplified checklist format
+- <a href="https://www.section508.gov/create/" target="_blank" rel="noopener noreferrer">Section508.gov: Create Accessible Content</a> — Guidance for documents, presentations, and more
+
 ### What color contrast ratio is required?
 
 For WCAG 2.1 Level AA:
@@ -1080,6 +1210,61 @@ For WCAG 2.1 Level AA:
 
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a>
+
+### What are focus indicators and why do they matter?
+
+{new:2026-01-06}
+
+**Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (SC 2.4.7). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
+
+**Why focus indicators matter:**
+
+Users who navigate by keyboard (including screen reader users, users with motor disabilities, and power users) need to see where they are on the page. Without visible focus, they cannot:
+
+- Know which link or button is currently selected
+- Navigate forms reliably
+- Confirm which element will activate when they press Enter
+
+**Common mistakes:**
+
+1. **Removing outlines with CSS** — `outline: none` or `outline: 0` without providing an alternative focus style removes focus indicators entirely. This is a WCAG failure.
+
+2. **Low-contrast focus indicators** — Focus indicators must meet the 3:1 contrast requirement against adjacent colors (SC 1.4.11 Non-text Contrast).
+
+3. **Invisible focus on certain backgrounds** — A blue outline may be visible on white but invisible on dark blue backgrounds.
+
+**Best practices:**
+
+```css
+/* Don't do this */
+*:focus {
+  outline: none;
+}
+
+/* Do this instead */
+*:focus {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Or use focus-visible for better UX */
+*:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 2px;
+}
+```
+
+**Testing focus indicators:**
+
+1. Tab through your entire page using only the keyboard
+2. Verify you can always see which element has focus
+3. Check that focus indicators are visible on all background colors
+4. Ensure focus order matches visual reading order
+
+**WCAG Reference:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.7 Focus Visible - Level AA</a> — Focus indicator must be visible
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a> — Focus indicators need 3:1 contrast
 
 ### Do I need to caption all videos?
 
@@ -1128,10 +1313,11 @@ Yes, for WCAG 2.1 Level AA compliance:
    - Identify speakers when multiple people are speaking
    - Add descriptions of important non-speech sounds (e.g., "[applause]", "[phone ringing]")
 
-2. **Provide a text transcript** — While not strictly required for video with captions, a transcript is:
-   - **Recommended best practice** — Provides an alternative way to access the content
-   - **Useful for users** who prefer reading over watching, need to search the content, or want to quote specific sections
-   - **May be required** for complex content where captions alone may not be sufficient (e.g., videos with dense information, multiple speakers, or technical terminology)
+2. **Provide a text transcript** — For **prerecorded video with audio**, WCAG 2.1 Level AA requires captions (SC 1.2.2) but does not require a transcript. However:
+   - **Audio-only content** (podcasts, audio recordings) **requires a transcript** at Level A (SC 1.2.1)
+   - **Transcripts are recommended** for all video content as a best practice — they benefit users who prefer reading, need to search content, or cannot access video
+   - **Transcripts may be necessary** for complex content where captions alone may not provide equivalent access (e.g., dense information, technical terminology, or users with cognitive disabilities)
+   - **Deafblind users** cannot access captions — transcripts are the only way they can access audio content via refreshable braille displays
 
 **How to add accurate captions to YouTube videos:**
 
@@ -1156,6 +1342,142 @@ Yes, for WCAG 2.1 Level AA compliance:
 **WCAG Reference:**
 
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> — Requires accurate, synchronized captions
+
+### What about cognitive accessibility and plain language?
+
+{new:2026-01-06}
+
+**Quick answer:** WCAG 2.1 Level AA includes several requirements that support cognitive accessibility: readable text, predictable navigation, error prevention, and sufficient time. Beyond WCAG compliance, plain language principles help make content accessible to users with cognitive disabilities, learning disabilities, limited literacy, and non-native speakers.
+
+**WCAG 2.1 Level AA requirements supporting cognitive accessibility:**
+
+1. **Readable content (SC 3.1.1 - Level A)** — Specify the language of the page so assistive technologies can render it correctly.
+
+2. **Consistent navigation (SC 3.2.3 - Level AA)** — Navigation appears in the same order across pages, reducing cognitive load.
+
+3. **Consistent identification (SC 3.2.4 - Level AA)** — Components with the same function are identified consistently (e.g., all "Submit" buttons use the same label).
+
+4. **Error identification (SC 3.3.1 - Level A)** — Errors are clearly described in text, helping users understand what went wrong.
+
+5. **Error suggestion (SC 3.3.3 - Level AA)** — When errors are detected, provide specific suggestions for correction.
+
+6. **Error prevention (SC 3.3.4 - Level AA)** — For pages with legal commitments or financial transactions, allow users to review, correct, or confirm before final submission.
+
+7. **Timing adjustable (SC 2.2.1 - Level A)** — Users can extend time limits, important for users who need more time to read and process content.
+
+**Plain language best practices (beyond WCAG compliance):**
+
+While WCAG doesn't specify reading level requirements at Level AA, these practices improve accessibility for all users:
+
+- **Use simple, clear language** — Avoid jargon, acronyms (or define them on first use), and complex sentence structures
+- **Structure content logically** — Use headings, lists, and short paragraphs
+- **Front-load important information** — Put key points first, details later
+- **Use consistent terminology** — Don't use multiple terms for the same concept
+- **Provide context and instructions** — Don't assume users know what to do next
+- **Avoid walls of text** — Break content into scannable sections
+
+**Why this matters:**
+
+Cognitive disabilities are the most common type of disability. According to the CDC, approximately 12% of U.S. adults have cognitive difficulties that affect concentration, memory, or decision-making. Plain language and cognitive accessibility features benefit:
+
+- Users with cognitive disabilities or learning disabilities
+- Users with attention disorders
+- Non-native English speakers
+- Users accessing content in stressful or distracting environments
+- Older adults experiencing age-related cognitive changes
+- Everyone who prefers clear, direct communication
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/cognitive/" target="_blank" rel="noopener noreferrer">W3C: Cognitive Accessibility at W3C</a> — Overview of cognitive accessibility efforts
+- <a href="https://www.plainlanguage.gov/" target="_blank" rel="noopener noreferrer">PlainLanguage.gov</a> — Federal plain language guidelines
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#readable" target="_blank" rel="noopener noreferrer">WCAG 2.1: Readable (Guideline 3.1)</a> — Make text content readable and understandable
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#input-assistance" target="_blank" rel="noopener noreferrer">WCAG 2.1: Input Assistance (Guideline 3.3)</a> — Help users avoid and correct mistakes
+
+### How do I make forms accessible?
+
+{new:2026-01-06}
+
+**Quick answer:** Every form field needs a visible label that is programmatically associated with the field, error messages must be clear and specific, and users must be able to navigate and complete the form using only a keyboard.
+
+**Critical elements of accessible forms:**
+
+**1. Labels and Instructions**
+
+- Every input field must have a visible `<label>` element associated using `for` and `id` attributes
+- Placeholder text is NOT a substitute for labels (it disappears when users start typing)
+- Group related fields (like address components) using `<fieldset>` and `<legend>`
+- Provide clear instructions before the form, not just inline
+
+**Example of correct labeling:**
+
+```html
+<label for="email">Email Address</label>
+<input type="email" id="email" name="email" required />
+```
+
+**2. Error Handling**
+
+- Identify errors in text, not just with color or icons
+- Describe what went wrong and how to fix it
+- Associate error messages with the field using `aria-describedby`
+- Move focus to the first error or provide an error summary at the top
+
+**Example error message:**
+
+```html
+<input
+  type="email"
+  id="email"
+  aria-describedby="email-error"
+  aria-invalid="true"
+/>
+<span id="email-error" role="alert"
+  >Please enter a valid email address (example: name@agency.gov)</span
+>
+```
+
+**3. Required Fields**
+
+- Indicate required fields both visually AND programmatically
+- Use `required` attribute or `aria-required="true"`
+- Don't rely only on asterisks (\*) — explain what they mean
+
+**4. Keyboard Accessibility**
+
+- All form controls must be reachable and operable via keyboard
+- Tab order should follow visual order
+- Custom controls (date pickers, dropdowns) need keyboard support
+
+**5. Time Limits**
+
+- If forms have session timeouts, warn users before timeout occurs
+- Allow users to extend time or save progress
+- Don't auto-submit forms without user confirmation
+
+**Common form accessibility problems:**
+
+| Problem                                   | Impact                                                      | Solution                                           |
+| ----------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------- |
+| No visible labels                         | Screen readers don't announce what the field is for         | Add `<label>` elements                             |
+| Placeholder as label                      | Label disappears; difficult to remember what to enter       | Use real labels above or beside fields             |
+| Color-only error indication               | Users who can't see red don't know there's an error         | Add text description of error                      |
+| No error suggestions                      | Users don't know how to fix the problem                     | Provide specific correction guidance               |
+| Unlabeled required fields                 | Users don't know which fields are mandatory                 | Add "(required)" text and `required` attribute     |
+| Custom dropdowns with no keyboard support | Keyboard users cannot select options                        | Ensure custom controls have full keyboard support  |
+| CAPTCHAs without alternatives             | Users with vision or cognitive disabilities cannot complete | Provide audio alternative or use invisible CAPTCHA |
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/tutorials/forms/" target="_blank" rel="noopener noreferrer">W3C: Forms Tutorial</a> — Complete guide to accessible forms
+- <a href="https://webaim.org/techniques/forms/" target="_blank" rel="noopener noreferrer">WebAIM: Creating Accessible Forms</a> — Practical form accessibility guidance
+
+**WCAG References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#labels-or-instructions" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.2 Labels or Instructions - Level A</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-identification" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.1 Error Identification - Level A</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-suggestion" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.3 Error Suggestion - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.4 Error Prevention - Level AA</a>
 
 ### How do I make mobile apps accessible?
 
@@ -1649,26 +1971,54 @@ Key steps for accessible Word documents:
 
 ### How do I make a PDF accessible?
 
+{new:2026-01-06}
+
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
 
 **Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
+
+**Critical: Scanned PDFs are not accessible**
+
+A scanned PDF (created by scanning a paper document) is essentially an image — screen readers cannot read the text. Scanned PDFs require:
+
+1. **OCR (Optical Character Recognition)** — Convert the image to searchable text using Adobe Acrobat Pro's "Recognize Text" feature or similar tools
+2. **Manual review** — OCR errors are common; review and correct the recognized text
+3. **Tagging and structure** — Even after OCR, the PDF needs proper tags, alt text, and reading order
+
+**Note:** Complex scanned documents (forms, tables, multi-column layouts) may be very difficult or impossible to remediate. Consider recreating the document from scratch if the original source is lost.
 
 The best approach depends on the source:
 
 **If you have the source document (Word, InDesign, etc.):**
 
-1. Make the source document accessible first
+1. Make the source document accessible first (use heading styles, alt text, simple tables)
 2. Export to PDF with accessibility settings enabled
+   - In Word: File > Save As > PDF > Options > check "Document structure tags for accessibility"
+   - In InDesign: File > Export > Adobe PDF (Interactive) > check "Create Tagged PDF"
 3. Check and fix any remaining issues in Adobe Acrobat Pro
 
-**If you only have the PDF:**
+**If you only have the PDF (not scanned):**
 
-1. Run the Accessibility Checker in Adobe Acrobat Pro
-2. Add tags using the Reading Order tool
-3. Add alt text to images
-4. Set the document language
-5. Verify reading order
-6. Test with a screen reader
+1. Run the Accessibility Checker in Adobe Acrobat Pro (Tools > Accessibility > Full Check)
+2. Add tags using the Reading Order tool (Tools > Accessibility > Reading Order)
+3. Add alt text to images (Right-click image > Edit Alt Text)
+4. Set the document language (File > Properties > Advanced > Reading Options)
+5. Verify reading order matches visual order
+6. Fix table headers using the Tags panel
+7. Test with a screen reader
+
+**What makes a PDF accessible:**
+
+| Element           | Accessible                          | Not Accessible                              |
+| ----------------- | ----------------------------------- | ------------------------------------------- |
+| **Text**          | Actual text that can be selected    | Image of text (scanned)                     |
+| **Structure**     | Tagged with headings, lists, tables | Flat/untagged content                       |
+| **Images**        | Alt text describes content          | No alt text or decorative images not marked |
+| **Reading order** | Matches visual reading order        | Tags in wrong order                         |
+| **Language**      | Document language set               | No language specified                       |
+| **Tables**        | Header cells identified             | No header associations                      |
+| **Links**         | Descriptive link text               | "Click here" or URLs as link text           |
+| **Forms**         | Form fields labeled                 | Unlabeled form fields                       |
 
 **Testing tool:** PAC 2024 (free) — <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">https://pac.pdf-accessibility.org/</a>
 
