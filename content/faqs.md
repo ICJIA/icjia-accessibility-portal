@@ -432,6 +432,94 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a co
 - <a href="https://www.section508.gov/create/" target="_blank" rel="noopener noreferrer">Section508.gov: Create Accessible Digital Products</a> — Step-by-step guides for common content types
 - <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">W3C: Introduction to Web Accessibility</a> — Foundational accessibility concepts
 
+### Who's going to notice if we're not compliant by April 24, 2026?
+
+{new:2026-01-07}
+
+**Quick answer:** Non-compliance is likely to be discovered through multiple channels: agency audits, automated website scans, content reviews, individual complaints, and enforcement actions. While violations might not be identified immediately, accessibility compliance is actively monitored. Non-compliance can result in legal action, financial costs, and damage to your agency's reputation. From a risk management perspective, the question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption.
+
+**Full explanation:**
+
+This is a legitimate question that many agencies are asking. Understanding how compliance is monitored helps agencies make informed decisions about resource allocation and risk management.
+
+**How non-compliance is typically discovered:**
+
+**1. Agency audits and compliance reviews:**
+
+- **Illinois DoIT compliance reviews** — State agencies may be subject to accessibility audits that examine both website technical compliance and content accessibility. These audits are part of the state's oversight responsibilities.
+- **State audit processes** — Financial and program audits increasingly include accessibility compliance as part of their scope, particularly for agencies receiving federal funding.
+- **Federal grant requirements** — Many federal grants require accessibility compliance, and grant audits verify this. Non-compliance can affect current and future grant eligibility.
+- **Internal agency audits** — Proactive internal testing and auditing helps identify issues before external parties do, allowing for controlled remediation.
+
+**2. Website compliance monitoring:**
+
+- **Automated scanning tools** — Accessibility scanners can be run by anyone, including advocacy groups, legal firms, and members of the public. These tools can identify technical violations efficiently.
+- **Disability rights organizations** — Organizations like the National Federation of the Blind and American Council of the Blind monitor government websites for accessibility barriers as part of their advocacy work.
+- **Legal firms** — Some law firms specialize in accessibility law and regularly scan government sites as part of their practice.
+- **Technical audits** — Website compliance is verifiable through automated testing tools (axe-core, WAVE, etc.), making violations objectively measurable.
+
+**3. Content compliance monitoring:**
+
+- **Document accessibility checks** — PDFs, Word documents, and other content can be scanned for accessibility issues using automated tools and manual review.
+- **Video captioning verification** — Missing captions are immediately apparent to anyone reviewing video content.
+- **Social media monitoring** — Inaccessible social media content is publicly visible and can be identified through review.
+- **Content audits** — Both automated tools and manual reviews can identify inaccessible content across all digital formats.
+
+**4. Individual complaints and enforcement:**
+
+- **Public complaints** — Members of the public can file complaints directly with the U.S. Department of Justice (DOJ) when they encounter accessibility barriers.
+- **Private lawsuits** — Individuals and organizations can file lawsuits seeking injunctive relief (court orders requiring compliance) and attorney's fees under the ADA.
+- **DOJ investigations** — The Department of Justice can initiate investigations based on complaints or its own monitoring activities.
+- **Complaint-triggered audits** — A single accessibility complaint can result in a comprehensive agency-wide review, which can be resource-intensive.
+
+**5. Federal enforcement:**
+
+- **DOJ enforcement actions** — The Department of Justice has authority to enforce ADA Title II compliance through investigations and legal action.
+- **Department of Education Office for Civil Rights** — Investigates accessibility complaints related to educational institutions and programs.
+- **Other federal agencies** — May audit compliance as part of program reviews, grant requirements, or cross-agency initiatives.
+
+**Potential consequences of non-compliance:**
+
+- **Legal action:** Lawsuits can result in court orders requiring immediate compliance, ongoing monitoring, and payment of attorney's fees. While ADA Title II doesn't provide for monetary damages to individuals, legal costs and remediation expenses can be substantial.
+- **Agency audits:** Comprehensive reviews that examine all digital content can be time-consuming and require significant staff resources to address findings.
+- **Financial impact:** Enforcement actions, legal fees, remediation costs, and potential grant impacts can create budget pressures.
+- **Reputational considerations:** Public awareness of accessibility failures can affect public trust and agency reputation.
+- **Service delivery:** Inaccessible content excludes people with disabilities from accessing government services and information, which limits your agency's ability to serve all Illinois residents.
+
+**Why accessibility compliance is different from some other regulations:**
+
+Accessibility violations have characteristics that make them more likely to be discovered:
+
+- **Objectively verifiable** — Automated tools can identify violations, making them measurable rather than subjective
+- **Publicly visible** — Websites and digital content are accessible to anyone who wants to review them
+- **Actively monitored** — Multiple organizations and agencies actively look for violations
+- **Legally actionable** — The ADA provides clear mechanisms for enforcement, and courts have consistently upheld accessibility requirements
+
+**Risk management considerations:**
+
+- **Before April 24, 2026:** Agencies have time to achieve compliance proactively, which typically costs less than reactive remediation
+- **After April 24, 2026:** Non-compliance becomes a violation of federal law, subject to enforcement. The ADA does not have a statute of limitations for ongoing violations — accessibility barriers that exist after the deadline can be subject to enforcement at any time.
+- **Good faith efforts:** Documenting progress toward compliance, even if not fully achieved by the deadline, can demonstrate good faith efforts, which may be considered in enforcement actions.
+
+**Practical steps for agencies:**
+
+1. **Assess current state** — Conduct an accessibility audit to understand the scope of work needed
+2. **Prioritize remediation** — Focus on high-traffic pages, critical services, and new content first
+3. **Test regularly** — Run automated accessibility scans regularly to identify and fix issues proactively
+4. **Audit content systematically** — Review documents, PDFs, videos, and social media for accessibility
+5. **Document progress** — Maintain records of accessibility testing, remediation efforts, and training activities
+6. **Plan for ongoing compliance** — Accessibility requires ongoing attention as content is created and updated
+7. **Allocate resources** — Ensure adequate staff time and budget for accessibility work
+
+**Key takeaway:** From a risk management perspective, non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions. The question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption. Compliance is both a legal requirement and an organizational responsibility to serve all Illinois residents effectively. Agencies that approach accessibility as a risk management priority and allocate appropriate resources are better positioned to meet the deadline and avoid enforcement actions.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Official information about the rule and enforcement
+- <a href="https://www.ada.gov/topics/web-accessibility/" target="_blank" rel="noopener noreferrer">DOJ: Web Accessibility</a> — Information about web accessibility enforcement
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule</a> — Official rule text including enforcement provisions
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA Information</a> — State-level accessibility requirements and compliance information
+
 ### What is WCAG?
 
 **WCAG (Web Content Accessibility Guidelines)** are international standards that explain how to make digital content accessible to people with disabilities. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone.

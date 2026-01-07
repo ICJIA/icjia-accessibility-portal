@@ -21,6 +21,25 @@
  * Only runs on client side (browser). Waits for DOM to be ready before processing.
  * 
  * @returns {void}
+ * 
+ * @example
+ * ```vue
+ * <!-- This plugin runs automatically - no setup needed -->
+ * <!-- It will optimize all fonts on the page -->
+ * <template>
+ *   <div>Your content</div>
+ * </template>
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * // The plugin automatically:
+ * // 1. Adds font-display: swap to all @font-face rules
+ * // 2. Preloads Material Design Icons font
+ * // 3. Injects global styles for dynamically loaded fonts
+ * 
+ * // No manual configuration needed - works automatically
+ * ```
  */
 export default defineNuxtPlugin(() => {
   // Only run on client side

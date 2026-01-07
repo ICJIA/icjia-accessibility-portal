@@ -185,6 +185,8 @@ The portal index is the navigation hub for all documentation.
         text-decoration: none;
         display: block;
         color: inherit;
+        cursor: pointer;
+        position: relative;
       }
 
       .doc-card:hover {
@@ -198,9 +200,14 @@ The portal index is the navigation hub for all documentation.
         outline-offset: 2px;
       }
 
+      .doc-card:active {
+        transform: translateY(-2px);
+      }
+
       .doc-icon {
         font-size: 3rem;
         margin-bottom: 1rem;
+        color: var(--accent);
       }
 
       .doc-title {
@@ -214,6 +221,7 @@ The portal index is the navigation hub for all documentation.
         color: var(--text-secondary);
         font-size: 1rem;
         line-height: 1.6;
+        margin-bottom: 0.5rem;
       }
 
       .doc-link {
@@ -222,6 +230,7 @@ The portal index is the navigation hub for all documentation.
         margin-top: 1rem;
         color: var(--accent);
         font-weight: 500;
+        pointer-events: none;
       }
 
       @media (max-width: 768px) {
@@ -242,7 +251,7 @@ The portal index is the navigation hub for all documentation.
       </header>
 
       <div class="docs-grid">
-        <a href="/docs/accessibility" class="doc-card">
+        <a href="/docs/accessibility" class="doc-card" aria-label="View Accessibility Report">
           <div class="doc-icon">🔍</div>
           <div class="doc-title">Accessibility Report</div>
           <div class="doc-description">
@@ -251,7 +260,7 @@ The portal index is the navigation hub for all documentation.
           <span class="doc-link">View Report →</span>
         </a>
 
-        <a href="/docs/tests" class="doc-card">
+        <a href="/docs/tests" class="doc-card" aria-label="View Test Results">
           <div class="doc-icon">🧪</div>
           <div class="doc-title">Test Results</div>
           <div class="doc-description">
@@ -260,7 +269,7 @@ The portal index is the navigation hub for all documentation.
           <span class="doc-link">View Report →</span>
         </a>
 
-        <a href="/docs/jsdoc" class="doc-card">
+        <a href="/docs/jsdoc" class="doc-card" aria-label="View API Documentation">
           <div class="doc-icon">📖</div>
           <div class="doc-title">API Documentation</div>
           <div class="doc-description">
@@ -269,7 +278,7 @@ The portal index is the navigation hub for all documentation.
           <span class="doc-link">View API Docs →</span>
         </a>
 
-        <a href="/docs/architecture" class="doc-card">
+        <a href="/docs/architecture" class="doc-card" aria-label="View Architecture Guide">
           <div class="doc-icon">🏗️</div>
           <div class="doc-title">Architecture Guide</div>
           <div class="doc-description">
@@ -285,10 +294,13 @@ The portal index is the navigation hub for all documentation.
 
 ### Key Features
 
+- **Entire card is clickable**: The whole card area is a clickable link, not just the text inside. The nested "View →" text is decorative and uses `pointer-events: none` to ensure the entire card handles clicks.
 - **Responsive grid**: Works on mobile, tablet, and desktop
-- **Accessible**: Proper focus states, semantic HTML
+- **Accessible**: Proper focus states, semantic HTML, aria-label attributes for screen readers
 - **Dark theme**: Modern appearance matching Vuetify dark themes
 - **No dependencies**: Pure HTML/CSS, no JavaScript required
+- **Hover effects**: Cards lift slightly on hover with accent border and shadow
+- **Active state**: Cards have a subtle pressed effect on click
 
 ### Critical Nuxt/Vue Best Practice: Make `/docs/*` Links Router-Safe
 

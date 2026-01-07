@@ -27,6 +27,35 @@
  */
 const ENABLE_CSS_OPTIMIZATION = true // Set to false to disable CSS optimization
 
+/**
+ * Nuxt plugin that optimizes CSS loading to improve performance.
+ * 
+ * This plugin automatically defers non-critical CSS using the print media trick.
+ * It only processes CSS added after initial page load to prevent interfering
+ * with component initialization.
+ * 
+ * @returns {void}
+ * 
+ * @example
+ * ```vue
+ * <!-- This plugin runs automatically - no setup needed -->
+ * <!-- It will optimize CSS loading on route changes -->
+ * <template>
+ *   <div>Your content</div>
+ * </template>
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * // To disable CSS optimization, set ENABLE_CSS_OPTIMIZATION to false:
+ * const ENABLE_CSS_OPTIMIZATION = false
+ * 
+ * // The plugin automatically:
+ * // 1. Marks initial stylesheets (not deferred)
+ * // 2. Observes for new stylesheets added dynamically
+ * // 3. Defers non-critical CSS using print media trick
+ * ```
+ */
 export default defineNuxtPlugin(() => {
   // Only run on client side
   if (process.server || !ENABLE_CSS_OPTIMIZATION) {

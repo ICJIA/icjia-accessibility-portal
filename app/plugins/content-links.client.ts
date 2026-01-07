@@ -206,8 +206,45 @@ const processLinks = () => {
 };
 
 /**
- * Nuxt plugin definition
+ * Nuxt plugin that processes links in content areas for accessibility and security.
+ * 
+ * This plugin automatically:
+ * - Adds target="_blank" and rel="noopener noreferrer" to external links
+ * - Handles internal FAQ anchor links with smooth scrolling
+ * - Processes links in FAQ and links content areas
+ * - Supports deep linking to FAQ questions via URL hash
+ * 
  * @returns {import('nuxt/app').NuxtAppPlugin} Plugin configuration
+ * 
+ * @example
+ * ```vue
+ * <!-- This plugin runs automatically - no setup needed -->
+ * <!-- External links get target="_blank" automatically -->
+ * <template>
+ *   <div class="faq-content">
+ *     <a href="https://example.com">External Link</a>
+ *     <!-- Automatically becomes: -->
+ *     <!-- <a href="https://example.com" target="_blank" rel="noopener noreferrer">External Link</a> -->
+ *   </div>
+ * </template>
+ * ```
+ * 
+ * @example
+ * ```markdown
+ * <!-- In FAQ content, internal links work automatically: -->
+ * [See FAQ question](#how-do-i-make-a-pdf-accessible)
+ * <!-- Clicking this will scroll to and open the FAQ panel -->
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * // The plugin automatically handles:
+ * // 1. External links: Adds target="_blank" and rel="noopener noreferrer"
+ * // 2. Internal FAQ links: Scrolls to and opens FAQ panels
+ * // 3. Deep linking: Supports URLs like /#question-slug
+ * 
+ * // No manual configuration needed
+ * ```
  */
 export default defineNuxtPlugin(() => {
   // Process links when DOM is ready

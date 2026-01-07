@@ -20,6 +20,21 @@
  * Currently a placeholder. Resource hints should be added via nuxt.config.ts.
  * 
  * @returns {Object} Plugin configuration object
+ * 
+ * @example
+ * ```typescript
+ * // Resource hints are better added in nuxt.config.ts:
+ * export default defineNuxtConfig({
+ *   app: {
+ *     head: {
+ *       link: [
+ *         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+ *         { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' }
+ *       ]
+ *     }
+ *   }
+ * })
+ * ```
  */
 export default defineNuxtPlugin({
   name: 'resource-hints',

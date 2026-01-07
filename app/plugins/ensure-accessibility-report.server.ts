@@ -27,6 +27,25 @@ import { join, dirname } from 'path'
  * Only runs on server side. Silently fails if there are file system errors.
  * 
  * @returns {void}
+ * 
+ * @example
+ * ```typescript
+ * // This plugin runs automatically during dev/build/generate
+ * // It ensures /docs/accessibility is always accessible
+ * 
+ * // If the report doesn't exist, it creates a placeholder with instructions:
+ * // - Run: yarn generate:accessibility
+ * // - Requires a running server
+ * ```
+ * 
+ * @example
+ * ```bash
+ * # Generate the actual accessibility report:
+ * yarn generate:accessibility
+ * 
+ * # The plugin will create a placeholder if the report doesn't exist
+ * # This prevents 404 errors during development
+ * ```
  */
 export default defineNuxtPlugin(() => {
   // Only run on server side

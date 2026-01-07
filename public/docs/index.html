@@ -70,6 +70,8 @@
         text-decoration: none;
         display: block;
         color: inherit;
+        cursor: pointer;
+        position: relative;
       }
 
       .doc-card:hover {
@@ -81,6 +83,10 @@
       .doc-card:focus-visible {
         outline: 2px solid var(--accent);
         outline-offset: 2px;
+      }
+
+      .doc-card:active {
+        transform: translateY(-2px);
       }
 
       .doc-icon {
@@ -100,6 +106,7 @@
         color: var(--text-secondary);
         font-size: 1rem;
         line-height: 1.6;
+        margin-bottom: 0.5rem;
       }
 
       .doc-link {
@@ -109,10 +116,7 @@
         color: var(--accent);
         font-weight: 500;
         text-decoration: none;
-      }
-
-      .doc-link:hover {
-        text-decoration: underline;
+        pointer-events: none;
       }
 
       @media (max-width: 768px) {
@@ -136,7 +140,7 @@
       </header>
 
       <div class="docs-grid">
-        <a href="/docs/architecture" class="doc-card">
+        <a href="/docs/architecture" class="doc-card" aria-label="View Site Architecture Guide">
           <div class="doc-icon">🏗️</div>
           <div class="doc-title">Site Architecture Guide</div>
           <div class="doc-description">
@@ -148,7 +152,7 @@
           <span class="doc-link">View Guide →</span>
         </a>
 
-        <a href="/docs/accessibility" class="doc-card">
+        <a href="/docs/accessibility" class="doc-card" aria-label="View Accessibility Report">
           <div class="doc-icon">🔍</div>
           <div class="doc-title">Accessibility Report</div>
           <div class="doc-description">
@@ -159,7 +163,7 @@
           <span class="doc-link">View Report →</span>
         </a>
 
-        <a href="/docs/tests" class="doc-card">
+        <a href="/docs/tests" class="doc-card" aria-label="View Unit & E2E Test Results Report">
           <div class="doc-icon">🧪</div>
           <div class="doc-title">Unit & E2E Test Results Report</div>
           <div class="doc-description">
@@ -170,7 +174,7 @@
           <span class="doc-link">View Report →</span>
         </a>
 
-        <a href="/docs/jsdoc" class="doc-card">
+        <a href="/docs/jsdoc" class="doc-card" aria-label="View API Documentation (JSDoc)">
           <div class="doc-icon">📖</div>
           <div class="doc-title">API Documentation (JSDoc)</div>
           <div class="doc-description">
