@@ -488,6 +488,127 @@ async function main() {
       },
       spacing: { after: 400 },
     }),
+    // Disclaimer Section
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "About These FAQs",
+          bold: true,
+          size: 28,
+          color: "0066CC",
+        }),
+      ],
+      heading: HeadingLevel.HEADING_2,
+      spacing: { before: 400, after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "What these FAQs are: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "These FAQs represent ICJIA's best effort to provide accurate, helpful information about digital accessibility compliance. They are based on questions ICJIA staff have asked over the past several months and reflect common concerns and misconceptions we've encountered.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "Why they exist: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "Many people are new to accessibility requirements and don't know where to start. This FAQ attempts to provide general guidance and answer common questions in plain language. It is not intended to be a comprehensive legal guide or to replace consultation with legal counsel or accessibility experts. These FAQs represent ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) by ensuring all staff have the information they need to create accessible content that serves all Illinois residents.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "Who created them: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "These FAQs were created by ",
+          size: 22,
+        }),
+        new TextRun({
+          text: "ICJIA's IDS Unit (formerly 'ISU' unit)",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: ". While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "Accuracy and corrections: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "These FAQs cannot cover every accessibility issue or scenario. If you find any information that is incorrect, incomplete, or needs clarification, ",
+          size: 22,
+        }),
+        new TextRun({
+          text: "please immediately contact ICJIA's IDS Unit (formerly 'ISU' unit)",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: " with specific corrections and accurate information. We are committed to keeping this resource as accurate and helpful as possible.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "ICJIA's commitment to transparency: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 200 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: "Not legal advice: ",
+          bold: true,
+          size: 22,
+        }),
+        new TextRun({
+          text: "This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with your agency's legal counsel or Illinois DoIT's accessibility guidance.",
+          size: 22,
+        }),
+      ],
+      spacing: { after: 400 },
+    }),
+    new Paragraph({
+      border: {
+        bottom: { style: BorderStyle.SINGLE, size: 12 },
+      },
+      spacing: { after: 400 },
+    }),
   ];
 
   // Convert markdown to paragraphs

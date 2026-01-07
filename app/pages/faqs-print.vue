@@ -38,6 +38,24 @@
       </div>
     </div>
 
+    <!-- FAQ Disclaimer Section -->
+    <div class="print-disclaimer">
+      <h2 class="print-disclaimer-title">About These FAQs</h2>
+      <div class="print-disclaimer-content">
+        <p><strong>What these FAQs are:</strong> These FAQs represent ICJIA's best effort to provide accurate, helpful information about digital accessibility compliance. They are based on questions ICJIA staff have asked over the past several months and reflect common concerns and misconceptions we've encountered.</p>
+        
+        <p><strong>Why they exist:</strong> Many people are new to accessibility requirements and don't know where to start. This FAQ attempts to provide general guidance and answer common questions in plain language. It is not intended to be a comprehensive legal guide or to replace consultation with legal counsel or accessibility experts. These FAQs represent ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) by ensuring all staff have the information they need to create accessible content that serves all Illinois residents.</p>
+        
+        <p><strong>Who created them:</strong> These FAQs were created by <strong>ICJIA's IDS Unit (formerly 'ISU' unit)</strong>. While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.</p>
+        
+        <p><strong>Accuracy and corrections:</strong> These FAQs cannot cover every accessibility issue or scenario. If you find any information that is incorrect, incomplete, or needs clarification, <strong>please immediately contact ICJIA's IDS Unit (formerly 'ISU' unit)</strong> with specific corrections and accurate information. We are committed to keeping this resource as accurate and helpful as possible.</p>
+        
+        <p><strong>ICJIA's commitment to transparency:</strong> We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.</p>
+        
+        <p><strong>Not legal advice:</strong> This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with your agency's legal counsel or Illinois DoIT's accessibility guidance.</p>
+      </div>
+    </div>
+
     <!-- Loading State -->
     <div v-if="!page" class="print-loading">
       <p>Loading FAQs...</p>
@@ -473,6 +491,45 @@ useSeo({
 .print-notice p {
   margin: 0;
   font-size: 9pt;
+}
+
+/* Disclaimer Section */
+.print-disclaimer {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f0f7ff;
+  border: 2px solid #0066cc;
+  border-left: 6px solid #0066cc;
+  page-break-inside: avoid;
+}
+
+.print-disclaimer-title {
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  color: #0066cc;
+}
+
+.print-disclaimer-content {
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+.print-disclaimer-content p {
+  margin: 0.75rem 0;
+}
+
+.print-disclaimer-content p:first-child {
+  margin-top: 0;
+}
+
+.print-disclaimer-content p:last-child {
+  margin-bottom: 0;
+}
+
+.print-disclaimer-content strong {
+  font-weight: bold;
+  color: #004499;
 }
 
 .print-url {

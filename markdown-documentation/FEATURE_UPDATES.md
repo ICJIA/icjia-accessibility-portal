@@ -30,7 +30,7 @@
 - "Why is there suddenly a deadline for digital accessibility?"
 - "How often is this FAQ updated?"
 - "I prefer formal DoIT presentations instead of this FAQ. When will those be available?"
-- "Should ICJIA's IDS team wait for DoIT direction..."
+- "Should ICJIA's IDS Unit team wait for DoIT direction..."
 - "Can managers delay accessibility work to 'get more information first'?"
 - "Isn't accessibility just an IT issue? Shouldn't the web team fix all these issues?"
 - "What are additional benefits of accessible digital content (beyond compliance)?"

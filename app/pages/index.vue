@@ -83,6 +83,36 @@
           </div>
         </v-card>
 
+        <!-- FAQ Disclaimer Card -->
+        <v-card class="pa-6 mb-6" elevation="2" color="info" variant="tonal" border>
+          <div class="d-flex align-start">
+            <v-icon class="mr-3 mt-1" color="info" size="24" aria-hidden="true">mdi-information</v-icon>
+            <div class="flex-grow-1">
+              <h3 class="text-h6 mb-3">About These FAQs</h3>
+              <div class="text-body-2">
+                <p class="mb-2">
+                  <strong>What these FAQs are:</strong> These FAQs represent ICJIA's best effort to provide accurate, helpful information about digital accessibility compliance. They are based on questions ICJIA staff have asked over the past several months and reflect common concerns and misconceptions we've encountered.
+                </p>
+                <p class="mb-2">
+                  <strong>Why they exist:</strong> Many people are new to accessibility requirements and don't know where to start. This FAQ attempts to provide general guidance and answer common questions in plain language. It is not intended to be a comprehensive legal guide or to replace consultation with legal counsel or accessibility experts. These FAQs represent ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) by ensuring all staff have the information they need to create accessible content that serves all Illinois residents.
+                </p>
+                <p class="mb-2">
+                  <strong>Who created them:</strong> These FAQs were created by <strong>ICJIA's IDS Unit (formerly 'ISU' unit)</strong>. While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.
+                </p>
+                <p class="mb-2">
+                  <strong>Accuracy and corrections:</strong> These FAQs cannot cover every accessibility issue or scenario. If you find any information that is incorrect, incomplete, or needs clarification, <strong>please immediately contact ICJIA's IDS Unit (formerly 'ISU' unit)</strong> with specific corrections and accurate information. We are committed to keeping this resource as accurate and helpful as possible.
+                </p>
+                <p class="mb-0">
+                  <strong>ICJIA's commitment to transparency:</strong> We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.
+                </p>
+                <p class="mt-3 mb-0">
+                  <strong>Not legal advice:</strong> This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with your agency's legal counsel or Illinois DoIT's accessibility guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </v-card>
+
         <!-- FAQs Section -->
         <div class="faq-section">
           <div class="faq-header-row mb-6">
