@@ -84,9 +84,9 @@
         </v-card>
 
         <!-- FAQ Disclaimer Card -->
-        <v-card class="pa-6 mb-6" elevation="2" color="info" variant="tonal" border>
+        <v-card class="pa-6 mb-6 disclaimer-card" elevation="4" color="warning" variant="tonal" border>
           <div class="d-flex align-start">
-            <v-icon class="mr-3 mt-1" color="info" size="24" aria-hidden="true">mdi-information</v-icon>
+            <v-icon class="mr-3 mt-1" color="warning" size="24" aria-hidden="true">mdi-information</v-icon>
             <div class="flex-grow-1">
               <h3 class="text-h6 mb-3">About These FAQs</h3>
               <div class="text-body-2">
@@ -647,6 +647,25 @@ useWebSiteStructuredData();
 </script>
 
 <style scoped>
+.disclaimer-card {
+  /* Make the disclaimer card stand out with a subtle but noticeable appearance */
+  border-width: 2px !important;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 10px 25px -5px rgba(var(--v-theme-warning), 0.2),
+    0 0 0 1px rgba(var(--v-theme-warning), 0.3) !important;
+  transition: all 0.2s ease;
+}
+
+.disclaimer-card:hover {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1),
+    0 12px 30px -5px rgba(var(--v-theme-warning), 0.25),
+    0 0 0 1px rgba(var(--v-theme-warning), 0.4) !important;
+}
+
 .countdown-card {
   background: rgb(var(--v-theme-surface)) !important;
   color: rgb(var(--v-theme-on-surface)) !important;
