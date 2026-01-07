@@ -39,10 +39,7 @@ async function main() {
   markdown = markdown.replace(/^---[\s\S]*?---\n*/m, "");
 
   // Clean up {new:YYYY-MM-DD} tags - convert to visible badges
-  markdown = markdown.replace(
-    /\{new:\s*(\d{4}-\d{2}-\d{2})\}/g,
-    "🆕 *New*"
-  );
+  markdown = markdown.replace(/\{new:\s*(\d{4}-\d{2}-\d{2})\}/g, "🆕 *New*");
 
   // Create header
   const header = `# ICJIA Digital Accessibility FAQ
@@ -79,7 +76,7 @@ async function main() {
 
 **ICJIA's commitment to transparency:** We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.
 
-**Not legal advice:** This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with your agency's legal counsel or Illinois DoIT's accessibility guidance.
+**Not legal advice:** This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance.
 
 ---
 `;
@@ -113,11 +110,12 @@ async function main() {
   await writeFile(outPath, output, "utf-8");
 
   console.log(`[generate-faq-md] ✅ Markdown FAQ generated: ${outPath}`);
-  console.log(`[generate-faq-md] File size: ${(output.length / 1024).toFixed(1)} KB`);
+  console.log(
+    `[generate-faq-md] File size: ${(output.length / 1024).toFixed(1)} KB`
+  );
 }
 
 main().catch((e) => {
   console.error("[generate-faq-md] Failed:", e);
   process.exit(1);
 });
-

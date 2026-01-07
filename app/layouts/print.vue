@@ -6,8 +6,10 @@
 <template>
   <div class="print-layout-wrapper">
     <SkipLink />
-    <v-main id="main-content" class="print-main-content" tabindex="-1">
-      <slot />
+    <v-main class="print-main-content">
+      <main id="main-content" tabindex="-1">
+        <slot />
+      </main>
     </v-main>
   </div>
 </template>

@@ -597,7 +597,7 @@ async function main() {
           size: 22,
         }),
         new TextRun({
-          text: "This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with your agency's legal counsel or Illinois DoIT's accessibility guidance.",
+          text: "This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance.",
           size: 22,
         }),
       ],
