@@ -86,6 +86,7 @@ import {
 } from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
 import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composables/useStructuredData";
+import { slugify } from "../composables/useSlugify";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs", () => {
@@ -166,20 +167,7 @@ function extractText(node: any): string {
   return "";
 }
 
-/**
- * Generates a URL-friendly slug from text
- * @param {string} text - Text to convert to slug
- * @returns {string} URL-friendly slug
- */
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-")
-    .substring(0, 30)
-    .replace(/-$/, "");
-}
+// slugify is imported from ../composables/useSlugify (150 char limit)
 
 /**
  * Processed FAQ sections with headings and items

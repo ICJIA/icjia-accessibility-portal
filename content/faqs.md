@@ -10,7 +10,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 > **1-minute path (for busy readers):**
 >
-> - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actio)
+> - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
 > - **Jump to your role:** [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) · [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) · [Managers](#getting-started-i-m-a-manager-where-do-i-start) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
 > - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
 > - **Need a real person?** For ICJIA questions, contact the IT department. For IITAA + ADA Title II questions, contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
@@ -33,7 +33,7 @@ _Last updated: January 3, 2026_
 
 2. **Two laws require this:**
    - **Illinois law:** The <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois Information Technology Accessibility Act (IITAA)</a> has required accessible digital content for state agencies since 2008. The current <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 standards</a> (effective June 24, 2024) require WCAG 2.1 Level AA compliance.
-   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 24, 2026. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
+   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 24, 2026. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
 
 3. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
 
@@ -209,7 +209,7 @@ These four skills address the most common issues per the <a href="https://webaim
 
 **Key actions:**
 
-- **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
+- **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
 - **Assess current state:** Audit content, identify gaps, estimate remediation effort.
 - **Allocate resources:** Training, tools (free: WAVE, axe DevTools, PDF checkers), and staff time.
 - **Build into processes:** Require accessibility in procurement, add pre-publish checkpoints.
@@ -550,7 +550,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 **Additional benefit:** Many accessibility improvements also benefit all users — clearer content, better-organized documents, and more usable websites make information easier to find and understand for everyone.
 
-**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
+**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
 
 **References:**
 
@@ -810,7 +810,7 @@ Most content will need to be accessible. Old content isn't automatically excepte
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
-**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
+**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
 
 ### Who must comply with the IITAA?
 
@@ -1008,7 +1008,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-to-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+**See also:** [What are the most common website accessibility issues?](#website-accessibility-what-are-the-most-common-website-accessibility-issues) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
 
 **WCAG References:**
 
@@ -1100,9 +1100,7 @@ Beyond the most common issues (alt text, color contrast, headings), these WCAG 2
 
 > **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.1) and a conformance level (A, AA, or AAA). For example, "SC 2.4.1" means Success Criterion 2.4.1. You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — use the search box to find specific criteria by number or keyword.
 
----
-
-**Website-Specific Requirements Often Missed:**
+#### Website-Specific Requirements Often Missed
 
 **Navigation and Structure:**
 
@@ -1130,47 +1128,41 @@ Beyond the most common issues (alt text, color contrast, headings), these WCAG 2
 
 10. **Language of page (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — The default human language of each page must be programmatically determined (e.g., `<html lang="en">`).
 
----
-
-**Document-Specific Requirements Often Missed (PDFs, Word, Excel, PowerPoint):**
+#### Document-Specific Requirements Often Missed (PDFs, Word, Excel, PowerPoint)
 
 These requirements apply to all documents, not just websites:
 
-1. **Document language (SC 3.1.1)** — Set the document language in document properties. Screen readers use this to pronounce words correctly.
+1. **Document language (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — Set the document language in document properties. Screen readers use this to pronounce words correctly.
 
-2. **Proper tags and reading order (SC 1.3.1, 1.3.2)** — PDFs must have tags that define structure (headings, lists, tables). Reading order must match visual order.
+2. **Proper tags and reading order (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/#meaningful-sequence" target="_blank" rel="noopener noreferrer">SC 1.3.2 - Level A</a>)** — PDFs must have tags that define structure (headings, lists, tables). Reading order must match visual order.
 
 3. **Scanned documents = inaccessible** — A scanned PDF is an image. Without OCR and manual remediation, screen readers cannot read the text.
 
-4. **Table headers (SC 1.3.1)** — Tables in documents must have designated header rows/columns so screen readers announce column/row context.
+4. **Table headers (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Tables in documents must have designated header rows/columns so screen readers announce column/row context.
 
-5. **Color alone to convey meaning (SC 1.4.1)** — "Items in red are required" fails because users who can't perceive color won't know which items are required.
+5. **Color alone to convey meaning (<a href="https://www.w3.org/WAI/WCAG21/quickref/#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1 - Level A</a>)** — "Items in red are required" fails because users who can't perceive color won't know which items are required.
 
-6. **Complex images without text alternatives (SC 1.1.1)** — Charts, graphs, and infographics need both alt text and a text description of the data (often as a data table or long description).
+6. **Complex images without text alternatives (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts, graphs, and infographics need both alt text and a text description of the data (often as a data table or long description).
 
-7. **Excel spreadsheets without context (SC 1.3.1)** — Spreadsheets need named ranges, header rows, and text descriptions explaining how to navigate the data.
+7. **Excel spreadsheets without context (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Spreadsheets need named ranges, header rows, and text descriptions explaining how to navigate the data.
 
-8. **PowerPoint without slide titles (SC 2.4.2)** — Every slide needs a unique title for navigation. Decorative "title-less" slides fail this requirement.
+8. **PowerPoint without slide titles (<a href="https://www.w3.org/WAI/WCAG21/quickref/#page-titled" target="_blank" rel="noopener noreferrer">SC 2.4.2 - Level A</a>)** — Every slide needs a unique title for navigation. Decorative "title-less" slides fail this requirement.
 
----
-
-**Third-Party Tools Requirements Often Missed:**
+#### Third-Party Tools Requirements Often Missed
 
 When your agency uses third-party platforms (Docebo, DocuSign, Tableau, ArcGIS, survey tools, etc.):
 
 1. **Vendor claims ≠ your compliance** — A vendor saying "we're accessible" doesn't mean your implementation is accessible. Your content, configurations, and customizations must also be accessible.
 
-2. **Interactive elements must be keyboard accessible (SC 2.1.1)** — If users can't complete a workflow using only a keyboard, it fails. Test all critical user paths.
+2. **Interactive elements must be keyboard accessible (<a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard" target="_blank" rel="noopener noreferrer">SC 2.1.1 - Level A</a>)** — If users can't complete a workflow using only a keyboard, it fails. Test all critical user paths.
 
-3. **Custom content on vendor platforms (SC 1.1.1, 1.3.1)** — Training modules, survey questions, dashboards, and maps that you create must meet the same standards.
+3. **Custom content on vendor platforms (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Training modules, survey questions, dashboards, and maps that you create must meet the same standards.
 
-4. **Data visualizations need text alternatives (SC 1.1.1)** — Charts and maps must provide equivalent information for users who can't see them.
+4. **Data visualizations need text alternatives (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts and maps must provide equivalent information for users who can't see them.
 
-**See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?](#procurement-and-third-party-to-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+**See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
 
----
-
-**Why these matter:**
+#### Why These Matter
 
 These requirements are often missed because:
 
@@ -1905,7 +1897,7 @@ For public-facing documents, yes. Under both IITAA and ADA Title II, conventiona
 
 ### How do I make a Word document accessible?
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
 **Step-by-step workflow for creating an accessible Word document:**
 
@@ -1973,9 +1965,9 @@ Key steps for accessible Word documents:
 
 {new:2026-01-06}
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-document-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
-**Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
+**Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
 
 **Critical: Scanned PDFs are not accessible**
 
@@ -2130,7 +2122,7 @@ Key steps for accessible PowerPoint:
 
 Many state agencies send newsletters, announcements, and other email communications to the public. These emails need to be accessible too, especially if they contain important information about government services.
 
-**Best practice for newsletters:** Consider publishing newsletter content as a webpage and linking to it from your email, rather than attaching a PDF. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) for why HTML is generally easier to make accessible than PDFs.
+**Best practice for newsletters:** Consider publishing newsletter content as a webpage and linking to it from your email, rather than attaching a PDF. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for why HTML is generally easier to make accessible than PDFs.
 
 **Email accessibility essentials:**
 
@@ -2566,7 +2558,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 | Site                                                 | Accessibility Report                                                                                                                |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | ICJIA Accessibility Portal (this site)               | <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>   |
-| R3 (r3.illinois.gov)                                 | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>  |
+| R3 (r3.illinois.gov)                                 | <a href="https://r3.illinois.gov/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>           |
 | i2i (i2i.illinois.gov)                               | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a> |
 | Violence Prevention Project (vpp.icjia.illinois.gov) | <a href="https://vpp.icjia.illinois.gov/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>    |
 
@@ -2574,7 +2566,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 Website audit reports for existing public websites will be posted on an ongoing basis as they become available. Remediation is challenging and time-consuming, so reports will be posted as soon as they're ready. Web developers are working as fast and as efficiently as possible to audit and remediate all of ICJIA's sites. Check back periodically for updates.
 
-**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
+**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
 
 **How to find audit reports for websites:**
 
@@ -2584,7 +2576,7 @@ Website audit reports for existing public websites will be posted on an ongoing 
 **Important limitations:**
 
 - **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They do NOT cover PDFs, Word documents, Excel files, or other content files.
-- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-document-do-all-documents-need-to-be-accessible)
+- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 - **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still required for full compliance.
 
 ### How do we handle accessibility complaints?

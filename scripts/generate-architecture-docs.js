@@ -257,13 +257,17 @@ function processInlineMarkdown(text) {
   return processed
 }
 
-// Slugify function for IDs
-function slugify(text) {
+/**
+ * Slugify function for IDs - matches app/composables/useSlugify.ts (150 char limit)
+ * IMPORTANT: Keep this in sync with the composable
+ */
+function slugify(text, maxLength = 150) {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-    .substring(0, 50)
+    .substring(0, maxLength)
+    .replace(/-+$/, '')
 }
 
 function escapeHtml(text) {

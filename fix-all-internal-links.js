@@ -1,13 +1,16 @@
 const fs = require('fs');
 
-function slugify(text) {
+/**
+ * Slugify function matching app/composables/useSlugify.ts (150 char limit)
+ * IMPORTANT: Keep this in sync with the composable
+ */
+function slugify(text, maxLength = 150) {
   return text
     .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .substring(0, 50)
-    .replace(/-$/, '');
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .substring(0, maxLength)
+    .replace(/-+$/, '');
 }
 
 // Read the FAQ markdown
