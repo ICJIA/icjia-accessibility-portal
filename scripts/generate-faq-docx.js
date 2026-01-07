@@ -541,7 +541,7 @@ async function main() {
           size: 22,
         }),
         new TextRun({
-          text: "ICJIA's IDS Unit (formerly 'ISU' unit)",
+          text: "ICJIA's IDS Unit",
           bold: true,
           size: 22,
         }),
@@ -564,7 +564,7 @@ async function main() {
           size: 22,
         }),
         new TextRun({
-          text: "please immediately contact ICJIA's IDS Unit (formerly 'ISU' unit)",
+          text: "please immediately contact ICJIA's IDS Unit",
           bold: true,
           size: 22,
         }),
