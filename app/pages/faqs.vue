@@ -141,9 +141,16 @@ import {
 import { slugify } from "../composables/useSlugify";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
-const { data: page } = await useAsyncData("faqs", () => {
-  return queryCollection("faqs").first();
-});
+const { data: page } = await useAsyncData(
+  "faqs",
+  () => {
+    return queryCollection("faqs").first();
+  },
+  {
+    // Disable caching to always fetch fresh content
+    getCachedData: () => undefined,
+  }
+);
 
 function formatIsoDateLong(dateStr: string): string {
   try {

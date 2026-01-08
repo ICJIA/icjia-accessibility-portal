@@ -176,6 +176,9 @@ import { wrapTablesForResponsiveScroll, filterNewComments } from "../utils/faqTr
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs-print", () => {
   return queryCollection("faqs").first();
+}, {
+  // Disable caching to always fetch fresh content
+  getCachedData: () => undefined,
 });
 
 /** @typedef {any} MiniMarkNode */
@@ -395,8 +398,24 @@ const introContent = computed(() => {
 // Current year for copyright
 const currentYear = new Date().getFullYear();
 
-// Last updated date - January 1, 2026 in Chicago timezone
-const lastUpdated = "January 1, 2026";
+// Last updated date - dynamically from FAQ content frontmatter
+const lastUpdated = computed(() => {
+  if (page.value?.lastUpdated) {
+    const date = new Date(page.value.lastUpdated);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "America/Chicago",
+    });
+  }
+  return new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "America/Chicago",
+  });
+});
 
 // Base URL - use production URL for printer version
 const baseUrl = "https://accessibility.icjia.app";
