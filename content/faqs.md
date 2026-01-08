@@ -8,7 +8,7 @@ lastUpdated: 2026-01-06
 
 A practical guide to common accessibility questions for staff at Illinois state agencies.
 
-> **1-minute path (for busy readers):**
+> **Quick path (for busy readers):**
 >
 > - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
 > - **Jump to your role:** [Content creators](#getting-started-i-m-a-content-creator-where-do-i-start) · [Web developers](#getting-started-i-m-a-web-developer-where-do-i-start) · [Managers](#getting-started-i-m-a-manager-where-do-i-start) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
@@ -69,7 +69,7 @@ _Last updated: January 3, 2026_
 
 ## Quick Reference: Critical Actions By Role
 
-**If you only have 5 minutes, start here.** These are the most impactful actions for each role to begin accessibility compliance:
+**Start here.** These are the most impactful actions for each role to begin accessibility compliance:
 
 ### For Content Creators
 
@@ -145,7 +145,7 @@ Digital accessibility means that websites, applications, documents, and other di
 
 **Your role is crucial — you're the first line of accessibility.** When possible, publish as webpage text (HTML) rather than PDFs — HTML is easier to keep accessible.
 
-**Essential skills (15 minutes to learn):**
+**Essential skills:**
 
 1. **Alt text for images** — Describe what's in every image
 2. **Use heading styles** — Use Heading 1, 2, 3 styles, not just bold
@@ -198,14 +198,14 @@ These four skills address the most common issues per the <a href="https://webaim
 4. **Bake accessibility into process** (before publish / purchase / launch)
 5. **Track progress** with clear milestones through April 24, 2026
 
-**Realistic time estimates (rough guidance):**
+**Key activities:**
 
-| Activity                 | Time Investment               | Notes                                       |
-| ------------------------ | ----------------------------- | ------------------------------------------- |
-| **Staff training**       | 2-4 hours per person          | DoIT offers free courses; one-time learning |
-| **Content inventory**    | 2-8 hours                     | Depends on content volume; do once          |
-| **Document remediation** | 15-60 min per document        | Complex PDFs take longer                    |
-| **Ongoing maintenance**  | Built into existing workflows | Once trained, adds minimal time             |
+| Activity                 | Notes                                                          |
+| ------------------------ | -------------------------------------------------------------- |
+| **Staff training**       | DoIT offers free courses; one-time learning                    |
+| **Content inventory**    | Depends on content volume; do once                             |
+| **Document remediation** | Complex PDFs take longer                                       |
+| **Ongoing maintenance**  | Built into existing workflows; once trained, adds minimal time |
 
 **Key actions:**
 
@@ -397,20 +397,20 @@ While web developers handle technical implementation (code structure, keyboard n
 
 Everyone is busy, and "one more thing" feels impossible. However, accessibility is not additional work on top of your existing responsibilities — it's a change in _how_ you do work you're already doing. You're already creating documents, adding images, and publishing content. Accessibility is about doing those things _slightly differently_ — not doing more things.
 
-**The real time investment:**
+**Common accessibility tasks:**
 
-| Task                                                       | Extra Time    | Notes                                                     |
-| ---------------------------------------------------------- | ------------- | --------------------------------------------------------- |
-| Adding alt text to an image                                | 30 seconds    | You know what's in the image — just describe it           |
-| Using heading styles instead of bold                       | 0 seconds     | Same number of clicks, different button                   |
-| Writing "Download the 2025 Report" instead of "Click here" | 5 seconds     | Better for everyone, not just accessibility               |
-| Running the Accessibility Checker in Word                  | 60 seconds    | Built into Microsoft Office — one click                   |
-| Adding captions to a 5-minute video                        | 10-15 minutes | This one does take time (but is a compliance requirement) |
+| Task                                                       | Notes                                                     |
+| ---------------------------------------------------------- | --------------------------------------------------------- |
+| Adding alt text to an image                                | You know what's in the image — just describe it           |
+| Using heading styles instead of bold                       | Same number of clicks, different button                   |
+| Writing "Download the 2025 Report" instead of "Click here" | Better for everyone, not just accessibility               |
+| Running the Accessibility Checker in Word                  | Built into Microsoft Office — one click                   |
+| Adding captions to videos                                  | This one does take time (but is a compliance requirement) |
 
 **What actually takes time:**
 
 - **Remediating old content** — Yes, this is real work. Prioritize by impact and chip away at it.
-- **Learning the basics** — About 15-30 minutes to learn the essentials. Do it once, apply forever.
+- **Learning the basics** — Do it once, apply forever.
 - **Complex documents** — Tables, forms, and multi-column layouts require more attention.
 
 **What to tell your manager:**
@@ -1075,7 +1075,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 | **TalkBack**  | Android   | Built-in | Testing Android apps           |
 | **Narrator**  | Windows   | Built-in | Quick Windows testing          |
 
-**Basic NVDA testing workflow (10-15 minutes):**
+**Basic NVDA testing workflow:**
 
 1. Download NVDA from <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">nvaccess.org</a> (free)
 2. Press **Ctrl+Alt+N** to start NVDA
@@ -1278,11 +1278,13 @@ These requirements are often missed because:
 
 ### What color contrast ratio is required?
 
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.4.11) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+
 For WCAG 2.1 Level AA:
 
 - **Normal text** (smaller than 18pt/~24px regular or 14pt/~19px bold): **4.5:1** contrast ratio.
 - **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio.
-- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG SC 1.4.11).
+- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 1.4.11 Non-text Contrast - Level AA</a>).
 
 **Check contrast:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
@@ -1295,7 +1297,9 @@ For WCAG 2.1 Level AA:
 
 {new:2026-01-06}
 
-**Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (SC 2.4.7). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.7) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+
+**Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (<a href="https://www.w3.org/WAI/WCAG21/quickref/#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 2.4.7 - Level AA</a>). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
 
 **Why focus indicators matter:**
 
@@ -1309,7 +1313,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 1. **Removing outlines with CSS** — `outline: none` or `outline: 0` without providing an alternative focus style removes focus indicators entirely. This is a WCAG failure.
 
-2. **Low-contrast focus indicators** — Focus indicators must meet the 3:1 contrast requirement against adjacent colors (SC 1.4.11 Non-text Contrast).
+2. **Low-contrast focus indicators** — Focus indicators must meet the 3:1 contrast requirement against adjacent colors (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener noreferrer">SC 1.4.11 Non-text Contrast - Level AA</a>).
 
 3. **Invisible focus on certain backgrounds** — A blue outline may be visible on white but invisible on dark blue backgrounds.
 
@@ -1371,6 +1375,8 @@ Yes, for WCAG 2.1 Level AA compliance:
 
 {new:2026-01-06}
 
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.2.2) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+
 **Quick answer:** No. AI-generated subtitles are a **starting point**, but they typically contain errors (misspellings, incorrect words, missing punctuation, lack of speaker identification) that must be corrected for WCAG 2.1 Level AA compliance. Additionally, providing a **text transcript** alongside the video is recommended best practice and may be required depending on the content.
 
 **Why AI subtitles aren't enough:**
@@ -1393,8 +1399,8 @@ Yes, for WCAG 2.1 Level AA compliance:
    - Identify speakers when multiple people are speaking
    - Add descriptions of important non-speech sounds (e.g., "[applause]", "[phone ringing]")
 
-2. **Provide a text transcript** — For **prerecorded video with audio**, WCAG 2.1 Level AA requires captions (SC 1.2.2) but does not require a transcript. However:
-   - **Audio-only content** (podcasts, audio recordings) **requires a transcript** at Level A (SC 1.2.1)
+2. **Provide a text transcript** — For **prerecorded video with audio**, WCAG 2.1 Level AA requires captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 1.2.2 - Level A</a>) but does not require a transcript. However:
+   - **Audio-only content** (podcasts, audio recordings) **requires a transcript** at Level A (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.1 - Level A</a>)
    - **Transcripts are recommended** for all video content as a best practice — they benefit users who prefer reading, need to search content, or cannot access video
    - **Transcripts may be necessary** for complex content where captions alone may not provide equivalent access (e.g., dense information, technical terminology, or users with cognitive disabilities)
    - **Deafblind users** cannot access captions — transcripts are the only way they can access audio content via refreshable braille displays
@@ -1431,19 +1437,21 @@ Yes, for WCAG 2.1 Level AA compliance:
 
 **WCAG 2.1 Level AA requirements supporting cognitive accessibility:**
 
-1. **Readable content (SC 3.1.1 - Level A)** — Specify the language of the page so assistive technologies can render it correctly.
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 3.1.1) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
-2. **Consistent navigation (SC 3.2.3 - Level AA)** — Navigation appears in the same order across pages, reducing cognitive load.
+1. **Readable content** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>) — Specify the language of the page so assistive technologies can render it correctly.
 
-3. **Consistent identification (SC 3.2.4 - Level AA)** — Components with the same function are identified consistently (e.g., all "Submit" buttons use the same label).
+2. **Consistent navigation** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>) — Navigation appears in the same order across pages, reducing cognitive load.
 
-4. **Error identification (SC 3.3.1 - Level A)** — Errors are clearly described in text, helping users understand what went wrong.
+3. **Consistent identification** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-identification" target="_blank" rel="noopener noreferrer">SC 3.2.4 - Level AA</a>) — Components with the same function are identified consistently (e.g., all "Submit" buttons use the same label).
 
-5. **Error suggestion (SC 3.3.3 - Level AA)** — When errors are detected, provide specific suggestions for correction.
+4. **Error identification** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>) — Errors are clearly described in text, helping users understand what went wrong.
 
-6. **Error prevention (SC 3.3.4 - Level AA)** — For pages with legal commitments or financial transactions, allow users to review, correct, or confirm before final submission.
+5. **Error suggestion** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>) — When errors are detected, provide specific suggestions for correction.
 
-7. **Timing adjustable (SC 2.2.1 - Level A)** — Users can extend time limits, important for users who need more time to read and process content.
+6. **Error prevention** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">SC 3.3.4 - Level AA</a>) — For pages with legal commitments or financial transactions, allow users to review, correct, or confirm before final submission.
+
+7. **Timing adjustable** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>) — Users can extend time limits, important for users who need more time to read and process content.
 
 **Plain language best practices (beyond WCAG compliance):**
 
@@ -2485,7 +2493,7 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 
 **Why testing matters:** Vendor claims about accessibility aren't always accurate, and even accessible platforms can become inaccessible through custom configuration or content you add. Testing real workflows ensures the tools your agency uses actually work for people with disabilities — not just in theory, but in practice.
 
-**Minimum test plan (30–60 minutes):**
+**Minimum test plan:**
 
 1. **Pick 2–3 real workflows** (example: "sign a document," "enroll and complete a course," "view a dashboard," "search a map").
 
