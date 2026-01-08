@@ -6,29 +6,41 @@
         <CountdownTimer compact />
 
         <!-- FAQ Disclaimer Card -->
-        <v-card class="pa-6 mb-6 disclaimer-card" elevation="4" color="warning" variant="tonal" border>
+        <v-card
+          class="pa-6 mb-6 disclaimer-card"
+          elevation="4"
+          color="warning"
+          variant="tonal"
+          border
+        >
           <div class="d-flex align-start">
-            <v-icon class="mr-3 mt-1" color="warning" size="24" aria-hidden="true">mdi-information</v-icon>
+            <v-icon
+              class="mr-3 mt-1"
+              color="warning"
+              size="24"
+              aria-hidden="true"
+              >mdi-information</v-icon
+            >
             <div class="flex-grow-1">
               <h3 class="text-h6 mb-3">About These FAQs</h3>
               <div class="text-body-2">
                 <p class="mb-2">
-                  <strong>What these FAQs are:</strong> These FAQs represent ICJIA's best effort to provide accurate, helpful information about digital accessibility compliance. They are based on questions ICJIA staff have asked over the past several months and reflect common concerns and misconceptions we've encountered.
+                  <strong>Created by:</strong> These FAQs were created by
+                  <strong>ICJIA's IDS Unit</strong> as a best-effort translation
+                  of new ADA guidelines into practical guidance.
                 </p>
                 <p class="mb-2">
-                  <strong>Why they exist:</strong> Many people are new to accessibility requirements and don't know where to start. This FAQ attempts to provide general guidance and answer common questions in plain language. It is not intended to be a comprehensive legal guide or to replace consultation with legal counsel or accessibility experts. These FAQs represent ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) by ensuring all staff have the information they need to create accessible content that serves all Illinois residents.
-                </p>
-                <p class="mb-2">
-                  <strong>Who created them:</strong> These FAQs were created by <strong>ICJIA's IDS Unit</strong>. While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.
-                </p>
-                <p class="mb-2">
-                  <strong>Accuracy and corrections:</strong> These FAQs cannot cover every accessibility issue or scenario. If you find any information that is incorrect, incomplete, or needs clarification, <strong>please immediately contact ICJIA's IDS Unit</strong> with specific corrections and accurate information. We are committed to keeping this resource as accurate and helpful as possible.
+                  <strong>Corrections:</strong> We make mistakes. We welcome
+                  feedback. If you find any incorrect or incomplete information,
+                  <strong>please immediately contact ICJIA's IDS Unit</strong>
+                  with specific corrections.
                 </p>
                 <p class="mb-0">
-                  <strong>ICJIA's commitment to transparency:</strong> We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.
-                </p>
-                <p class="mt-3 mb-0">
-                  <strong>Not legal advice:</strong> This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance.
+                  <strong>Not legal advice:</strong> This FAQ provides general
+                  guidance based on public information and common practices. It
+                  is not legal advice. For specific legal questions or
+                  interpretations, consult with ICJIA's legal counsel or
+                  Illinois DoIT's accessibility guidance.
                 </p>
               </div>
             </div>
@@ -63,7 +75,10 @@
               "Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements."
             }}
           </p>
-          <p v-if="lastUpdatedLabel" class="text-caption text-medium-emphasis mb-6">
+          <p
+            v-if="lastUpdatedLabel"
+            class="text-caption text-medium-emphasis mb-6"
+          >
             <strong>Last updated:</strong> {{ lastUpdatedLabel }}
           </p>
 
@@ -87,7 +102,11 @@
               </h2>
               <FaqAccordion
                 :items="section.items"
-                :section-id="faqSort === 'original' ? slugify(section.heading || '') : 'all-faqs'"
+                :section-id="
+                  faqSort === 'original'
+                    ? slugify(section.heading || '')
+                    : 'all-faqs'
+                "
               />
             </div>
           </div>
@@ -115,7 +134,10 @@ import {
   isWithinNewWindow,
 } from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
-import { useFAQStructuredData, useBreadcrumbStructuredData } from "../composables/useStructuredData";
+import {
+  useFAQStructuredData,
+  useBreadcrumbStructuredData,
+} from "../composables/useStructuredData";
 import { slugify } from "../composables/useSlugify";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
@@ -126,7 +148,8 @@ const { data: page } = await useAsyncData("faqs", () => {
 function formatIsoDateLong(dateStr: string): string {
   try {
     const parts = dateStr.split("-").map(Number);
-    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return dateStr;
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2])
+      return dateStr;
     const [year, month, day] = parts;
     const date = new Date(year, month - 1, day);
     return date.toLocaleDateString("en-US", {
@@ -270,7 +293,9 @@ const faqSections = computed(() => {
           const taggedDate = extractTaggedDate(answerNodes);
           currentSection.items.push({
             question: questionText,
-            answer: wrapTablesForResponsiveScroll(filterNewComments(answerNodes)),
+            answer: wrapTablesForResponsiveScroll(
+              filterNewComments(answerNodes)
+            ),
             isNew: taggedDate ? isWithinNewWindow(taggedDate) : false,
             newDate: taggedDate || undefined,
           });
@@ -354,7 +379,8 @@ const introContent = computed(() => {
 
 // Enhanced SEO with Open Graph, Twitter Cards, and structured data
 const pageTitle = page.value?.title || "Frequently Asked Questions";
-const pageDescription = page.value?.description || 
+const pageDescription =
+  page.value?.description ||
   "Comprehensive FAQ about WCAG 2.1 AA compliance, digital accessibility requirements, ADA Title II deadlines, and accessibility best practices for Illinois state agencies. Find answers to common questions about web accessibility, document accessibility, and compliance requirements.";
 
 useSeo({
@@ -372,7 +398,7 @@ useSeo({
     "accessibility guidelines",
     "Section 508 FAQ",
     "IITAA FAQ",
-    "accessibility best practices"
+    "accessibility best practices",
   ],
 });
 
@@ -380,32 +406,32 @@ useSeo({
 const faqItemsForSchema = computed(() => {
   if (!faqSections.value || faqSections.value.length === 0) return [];
   const items: Array<{ question: string; answer: string }> = [];
-  
-  faqSections.value.forEach(section => {
-    section.items.forEach(item => {
+
+  faqSections.value.forEach((section) => {
+    section.items.forEach((item) => {
       // Extract text from answer (simplified - just get first paragraph or first 300 chars)
-      let answerText = '';
+      let answerText = "";
       if (item.answer && Array.isArray(item.answer)) {
         // Try to extract text from markdown nodes
         const extractText = (node: any): string => {
-          if (typeof node === 'string') return node;
+          if (typeof node === "string") return node;
           if (Array.isArray(node) && node.length > 2) {
-            return node.slice(2).map(extractText).join(' ');
+            return node.slice(2).map(extractText).join(" ");
           }
-          return '';
+          return "";
         };
-        answerText = item.answer.map(extractText).join(' ').substring(0, 300);
+        answerText = item.answer.map(extractText).join(" ").substring(0, 300);
       }
-      
+
       if (item.question && answerText) {
         items.push({
           question: item.question,
-          answer: answerText + (answerText.length >= 300 ? '...' : ''),
+          answer: answerText + (answerText.length >= 300 ? "..." : ""),
         });
       }
     });
   });
-  
+
   return items;
 });
 
