@@ -43,6 +43,11 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string().optional(),
+        lastUpdated: z.string().optional(),
+        disclaimer: z.array(z.object({
+          label: z.string(),
+          text: z.string(),
+        })).optional(),
       }),
     }),
   },

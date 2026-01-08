@@ -5,8 +5,9 @@
         <!-- Countdown Timer -->
         <CountdownTimer compact />
 
-        <!-- FAQ Disclaimer Card -->
+        <!-- FAQ Disclaimer Card - dynamically rendered from frontmatter -->
         <v-card
+          v-if="disclaimerItems.length > 0"
           class="pa-6 mb-6 disclaimer-card"
           elevation="4"
           color="warning"
@@ -24,24 +25,14 @@
             <div class="flex-grow-1">
               <h3 class="text-h6 mb-3">About These FAQs</h3>
               <div class="text-body-2">
-                <p class="mb-2">
-                  <strong>Created by:</strong> These FAQs were created by
-                  <strong>ICJIA's IDS Unit</strong> as a best-effort translation
-                  of new ADA guidelines into practical guidance.
-                </p>
-                <p class="mb-2">
-                  <strong>Corrections:</strong> We make mistakes. We welcome
-                  feedback. If you find any incorrect or incomplete information,
-                  <strong>please immediately contact ICJIA's IDS Unit</strong>
-                  with specific corrections.
-                </p>
-                <p class="mb-0">
-                  <strong>Not legal advice:</strong> This FAQ provides general
-                  guidance based on public information and common practices. It
-                  is not legal advice. For specific legal questions or
-                  interpretations, consult with ICJIA's legal counsel or
-                  Illinois DoIT's accessibility guidance.
-                </p>
+                <p
+                  v-for="(item, index) in disclaimerItems"
+                  :key="index"
+                  :class="
+                    index === disclaimerItems.length - 1 ? 'mb-0' : 'mb-2'
+                  "
+                  v-html="renderDisclaimerItem(item)"
+                ></p>
               </div>
             </div>
           </div>
@@ -174,6 +165,17 @@ const lastUpdatedLabel = computed(() => {
   if (!raw) return "";
   return formatIsoDateLong(raw);
 });
+
+// Disclaimer items - dynamically from FAQ content frontmatter
+const disclaimerItems = computed(() => {
+  return (page.value as any)?.disclaimer || [];
+});
+
+// Render disclaimer item with markdown bold converted to HTML
+function renderDisclaimerItem(item: { label: string; text: string }): string {
+  const htmlText = item.text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  return `<strong>${item.label}:</strong> ${htmlText}`;
+}
 
 /** @typedef {any} MiniMarkNode */
 type MiniMarkNode = any;

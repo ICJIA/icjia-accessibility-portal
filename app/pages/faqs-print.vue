@@ -38,21 +38,11 @@
       </div>
     </div>
 
-    <!-- FAQ Disclaimer Section -->
-    <div class="print-disclaimer">
+    <!-- FAQ Disclaimer Section - dynamically rendered from frontmatter -->
+    <div v-if="disclaimerItems.length > 0" class="print-disclaimer">
       <h2 class="print-disclaimer-title">About These FAQs</h2>
       <div class="print-disclaimer-content">
-        <p><strong>What these FAQs are:</strong> These FAQs represent ICJIA's best effort to provide accurate, helpful information about digital accessibility compliance. They are based on questions ICJIA staff have asked over the past several months and reflect common concerns and misconceptions we've encountered.</p>
-        
-        <p><strong>Why they exist:</strong> Many people are new to accessibility requirements and don't know where to start. This FAQ attempts to provide general guidance and answer common questions in plain language. It is not intended to be a comprehensive legal guide or to replace consultation with legal counsel or accessibility experts. These FAQs represent ICJIA's commitment to Diversity, Equity, Inclusion, and Accessibility (DEIA) by ensuring all staff have the information they need to create accessible content that serves all Illinois residents.</p>
-        
-        <p><strong>Who created them:</strong> These FAQs were created by <strong>ICJIA's IDS Unit</strong>. While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.</p>
-        
-        <p><strong>Accuracy and corrections:</strong> These FAQs cannot cover every accessibility issue or scenario. If you find any information that is incorrect, incomplete, or needs clarification, <strong>please immediately contact ICJIA's IDS Unit</strong> with specific corrections and accurate information. We are committed to keeping this resource as accurate and helpful as possible.</p>
-        
-        <p><strong>ICJIA's commitment to transparency:</strong> We believe in being forthright about accessibility requirements, compliance obligations, and the reality of enforcement. Some answers may be difficult to hear, particularly for managers facing resource constraints. However, hiding information doesn't help anyone — not the people who need accessible content, not the staff trying to do their jobs, and not the agency trying to meet its legal obligations. ICJIA's goal is to provide honest, practical information that helps ICJIA staff make informed decisions.</p>
-        
-        <p><strong>Not legal advice:</strong> This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance.</p>
+        <p v-for="(item, index) in disclaimerItems" :key="index" v-html="renderDisclaimerItem(item)"></p>
       </div>
     </div>
 
@@ -398,24 +388,46 @@ const introContent = computed(() => {
 // Current year for copyright
 const currentYear = new Date().getFullYear();
 
+// Format ISO date string (YYYY-MM-DD) to long format without timezone issues
+function formatIsoDateLong(dateStr: string): string {
+  try {
+    const parts = dateStr.split("-").map(Number);
+    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2])
+      return dateStr;
+    const [year, month, day] = parts;
+    const months = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December",
+    ];
+    return `${months[month - 1]} ${day}, ${year}`;
+  } catch {
+    return dateStr;
+  }
+}
+
 // Last updated date - dynamically from FAQ content frontmatter
 const lastUpdated = computed(() => {
-  if (page.value?.lastUpdated) {
-    const date = new Date(page.value.lastUpdated);
-    return date.toLocaleDateString("en-US", {
+  const raw = page.value?.lastUpdated as string | undefined;
+  if (!raw) {
+    return new Date().toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
-      timeZone: "America/Chicago",
     });
   }
-  return new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "America/Chicago",
-  });
+  return formatIsoDateLong(raw);
 });
+
+// Disclaimer items - dynamically from FAQ content frontmatter
+const disclaimerItems = computed(() => {
+  return page.value?.disclaimer || [];
+});
+
+// Render disclaimer item with markdown bold converted to HTML
+function renderDisclaimerItem(item: { label: string; text: string }): string {
+  const htmlText = item.text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return `<strong>${item.label}:</strong> ${htmlText}`;
+}
 
 // Base URL - use production URL for printer version
 const baseUrl = "https://accessibility.icjia.app";

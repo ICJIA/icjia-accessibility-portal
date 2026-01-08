@@ -2,6 +2,13 @@
 title: Frequently Asked Questions
 description: Common questions about accessibility
 lastUpdated: 2026-01-08
+disclaimer:
+  - label: "Created by"
+    text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
+  - label: "Corrections"
+    text: "We make mistakes. We welcome feedback. If you find any incorrect or incomplete information, **please immediately contact ICJIA's IDS Unit** with specific corrections."
+  - label: "Not legal advice"
+    text: "This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance."
 ---
 
 # Digital Accessibility FAQ for Illinois State Agency Employees
