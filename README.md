@@ -314,7 +314,7 @@ The automated build process:
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
 │   │   ├── useFaqCollapse.ts        # Composable for FAQ collapse state
-│   │   └── useSlugify.ts            # Composable for creating URL slugs
+│   │   └── useSlugify.ts            # Composable for creating URL slugs (150-char limit) - [View on GitHub](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/useSlugify.ts)
 │   ├── plugins/
 │   │   ├── content-links.client.ts  # Plugin to add target="_blank" to content links
 │   │   ├── ensure-accessibility-report.server.ts  # Server plugin for report placeholder
@@ -343,7 +343,8 @@ The automated build process:
 ├── scripts/
 │   ├── generate-routes.js      # Routes generation script (scans pages and content) - Fully documented with JSDoc
 │   ├── generate-sitemap.js     # Sitemap generation script - Fully documented with JSDoc
-│   └── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists - Fully documented with JSDoc
+│   ├── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists - Fully documented with JSDoc
+│   └── regenerate-faq-links.mjs # Regenerate internal FAQ links with 150-character slugs (matches useSlugify composable)
 ├── audit-accessibility.js      # Comprehensive accessibility audit script - Tests WCAG 2.1 AA compliance using axe-core
 │                               # Fully documented with 1355-line guide (ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)
 │                               # Supports dev/prod testing, multi-viewport, multi-theme, dynamic rule configuration

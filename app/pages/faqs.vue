@@ -585,6 +585,12 @@ useBreadcrumbStructuredData([
 
 <!-- Global styles to override Vuetify v-select internals -->
 <style>
+/* Add spacing after code blocks (visual aids) in FAQ content */
+.faq-section-group pre,
+.v-expansion-panel-text pre {
+  margin-bottom: 1.5rem !important;
+}
+
 .faq-sort.v-select .v-field__input,
 .faq-sort.v-select .v-select__selection-text,
 .faq-sort.v-select .v-field-label,
