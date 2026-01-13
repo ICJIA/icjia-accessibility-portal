@@ -855,64 +855,77 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### Are there exceptions to the April 2026 deadline? What qualifies?
 
-{new:2026-01-06}
+{new:2026-01-13}
 
-**Quick answer:** Yes, but exceptions are **very narrow** and don't apply to most content. If it's currently used by the public, it needs to be accessible. Even if an exception applies, you may still need to provide accessible alternatives upon request.
+**Quick answer:** Yes, but the exceptions are specific and apply differently to **web pages** vs. **documents**. The key question for documents is whether they're used to "apply for, gain access to, or participate in" a service — not simply whether they're linked on your website. Even if an exception applies, you must still provide accessible alternatives upon request.
 
 **Compliance date:** April 24, 2026 for Illinois state agencies (entities serving 50,000+ population). For smaller entities, the compliance date is April 26, 2027 (28 CFR § 35.200(d)).
 
 **The five exceptions (28 CFR § 35.200(b)):**
 
-1. **Archived web content** (§ 35.200(b)(1)) — Web pages or web content that was created before the compliance date, is maintained **exclusively** for reference, research, or recordkeeping, is **not altered or updated** after the compliance date, and is organized and stored in a dedicated area **clearly identified** as archived
-2. **Pre-existing conventional electronic documents** (§ 35.200(b)(2)) — Documents in conventional electronic formats (PDFs, Word, Excel, PowerPoint, etc.) that were created before the compliance date — **UNLESS** the document is currently used by members of the public to apply for, gain access to, or participate in a public entity's services, programs, or activities
-3. **Third-party content** (§ 35.200(b)(3)) — Content posted by a third party (not the public entity) where the public entity does not have a contractual, licensing, or other arrangement with the third party that governs the content
-4. **Individualized, password-protected documents** (§ 35.200(b)(4)) — Conventional electronic documents about a specific individual that are password-protected and available only to that individual and applicable public entity staff
-5. **Pre-existing social media posts** (§ 35.200(b)(5)) — Social media posts made by a public entity before the compliance date
+1. **Archived web content** (§ 35.200(b)(1)) — Web pages that were created before the compliance date, maintained **exclusively** for reference/research/recordkeeping, **not altered or updated** after the compliance date, AND organized in a dedicated area **clearly identified** as archived. All four criteria must be met.
+2. **Pre-existing conventional electronic documents** (§ 35.200(b)(2)) — Documents (PDFs, Word, Excel, PowerPoint, etc.) created before the compliance date are exempt — **UNLESS** the document is currently used by the public to **apply for, gain access to, or participate in** a service, program, or activity. Note: This exception has NO "dedicated archive area" requirement.
+3. **Third-party content** (§ 35.200(b)(3)) — Content posted by a third party where the public entity has no contractual or licensing arrangement governing the content
+4. **Individualized, password-protected documents** (§ 35.200(b)(4)) — Documents about a specific individual that are password-protected and available only to that individual and applicable staff
+5. **Pre-existing social media posts** (§ 35.200(b)(5)) — Social media posts made before the compliance date
+
+**Critical distinction: Web pages vs. Documents**
+
+The rules are different for web pages and documents. Understanding this distinction is essential:
+
+| Aspect | Web Pages (b)(1) | Documents (b)(2) |
+| ------ | ---------------- | ---------------- |
+| **Test for exemption** | Must meet ALL 4 criteria | Only 1 test: Is it used to "apply for, gain access to, or participate in" services? |
+| **Archive area required?** | **YES** — must be in dedicated, clearly marked archive section | **NO** — no archive area requirement |
+| **Does being "linked" matter?** | **YES** — linked from active navigation suggests current use | **NO** — linking for reference purposes does not disqualify |
+| **Must be "never updated"?** | **YES** — cannot be altered after compliance date | **NO** — only the "apply for/participate in" test matters |
 
 **Practical examples:**
 
-| Content Type                   | Exception?   | Why                                                                                                                             |
-| ------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **Active website pages**       | ❌ **NO**    | Currently used by the public                                                                                                    |
-| **Login pages**                | ❌ **NO**    | Critical service access                                                                                                         |
-| **Forms and applications**     | ❌ **NO**    | Used to access services                                                                                                         |
-| **Current documents**          | ❌ **NO**    | Created after April 24, 2026 must be accessible                                                                                 |
-| **Linked archived pages**      | ❌ **NO**    | If linked from active pages, it's considered in use                                                                             |
-| **Old agenda PDF from 2020**   | ✅ **Maybe** | Only if truly archived, never updated, not linked from active pages, and not used for current services                          |
-| **Archived website section**   | ✅ **Maybe** | Only if in dedicated archive area, clearly marked, never updated, not linked from active navigation                             |
-| **Research report from 2015**  | ✅ **Maybe** | Only if archived and not currently used — but if it's linked from your website or used in current work, likely does not qualify |
-| **Newsletter archive**         | ✅ **Maybe** | Only if truly archived, clearly marked, never updated — but if people still access it, likely does not qualify                  |
-| **Historical meeting minutes** | ✅ **Maybe** | Only if archived, not linked from active pages, not used for current services                                                   |
+| Content Type | Exception? | Why |
+| ------------ | ---------- | --- |
+| **Active website pages** | ❌ **NO** | Currently used by the public for services |
+| **Login pages, forms, applications** | ❌ **NO** | Used to access or participate in services |
+| **Documents created after April 2026** | ❌ **NO** | New documents must be accessible |
+| **Grant application PDF (current)** | ❌ **NO** | Used to apply for services — the (b)(2) exception explicitly excludes this |
+| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — exempt under (b)(2) even if linked on website |
+| **Research report from 2015** | ✅ **YES** | Pre-existing document maintained for reference — linking it for informational purposes does not disqualify it under (b)(2) |
+| **Historical meeting minutes** | ✅ **YES** | Pre-existing documents — nobody uses 2019 meeting minutes to apply for current services |
+| **Newsletter archive (pre-2026 issues)** | ✅ **YES** | Pre-existing documents kept for reference — exempt under (b)(2) |
+| **Old HTML page (in active navigation)** | ❌ **NO** | Web pages in active navigation don't meet (b)(1)'s "dedicated archive area" requirement |
+| **Old HTML page (moved to /archive/)** | ✅ **YES** | If moved to dedicated archive area with clear "archived" labeling and not updated, meets (b)(1) |
 
 **Who decides if an exception applies?**
 
 - **Agency legal counsel** makes the final determination for your agency
-- **DoIT provides guidance, not determinations** — DoIT offers training and technical assistance, but exceptions are legal determinations based on how content meets the criteria in the federal rule (28 CFR Part 35). DoIT does not grant or determine exceptions.
-- **Work with legal counsel** — Before assuming content qualifies for an exception, consult your agency's legal counsel. This is a legal determination that requires legal expertise, not just a technical assessment.
+- **DoIT provides guidance, not determinations** — DoIT offers training and technical assistance, but exceptions are legal determinations based on the federal rule. DoIT does not grant or determine exceptions.
+- **Work with legal counsel** — Before assuming content qualifies, consult your agency's legal counsel
 
 **Important legal notes:**
 
-- **Exceptions are narrowly defined** — All criteria must be met. For example, the "archived content" exception (§ 35.200(b)(1)) requires ALL of the following: (1) created before the compliance date, (2) maintained **exclusively** for reference/research/recordkeeping, (3) **not altered or updated** after the compliance date, AND (4) organized and stored in a dedicated area **clearly identified** as archived. Content that is still linked from active pages or used for current services typically does not qualify.
-- **"Archived" means more than just "old"** — Content must meet ALL criteria. If it's linked from your website, it may not qualify for an exception because active links suggest current use.
-- **Even if excepted, accessible alternatives may be needed** — Title II's general nondiscrimination requirements (28 CFR § 35.130) require public entities to ensure effective communication. Even when an exception applies under § 35.200(b), if someone with a disability requests an accessible version of excepted content, you may need to provide it to ensure effective communication. The exception doesn't eliminate the obligation to provide accessible alternatives when needed.
-- **"Conventional electronic documents"** — This term (§ 35.200(b)(2)) refers to documents in standard file formats like PDF, Word, Excel, PowerPoint, etc. It does not include web pages or web-based content (those fall under the archived web content exception).
+- **Web pages and documents have different rules** — Don't apply the (b)(1) "archive area" requirement to documents. The (b)(2) document exception only asks: Is the document used to "apply for, gain access to, or participate in" services?
+- **"Linked" ≠ "in use" for documents** — A pre-existing PDF linked on your publications page for reference is NOT the same as a PDF used to apply for a grant. The former is exempt; the latter is not.
+- **For web pages, the archive area requirement is strict** — Old HTML pages linked from your main navigation likely don't qualify for (b)(1). To make them exempt: (1) move them to a dedicated `/archive/` URL section, (2) add a clear "This content is archived" banner, (3) don't update them after the compliance date.
+- **Even if excepted, accessible alternatives may be required** — Title II's general nondiscrimination requirements (28 CFR § 35.130) require effective communication. If someone requests an accessible version of excepted content, you may need to provide it. The exception doesn't eliminate this obligation.
 - **Verify exact language** — For questions about whether specific content qualifies, consult your agency's legal counsel and verify exact language in the Federal Register document.
 
 **Bottom line for managers:**
 
-Most content will need to be accessible. Old content isn't automatically excepted — if people can access it, if it's linked from your site, or if it's used for current work, it needs to be accessible.
+**For documents:** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference (old reports, past meeting minutes, archived newsletters) are generally exempt under (b)(2), even if they're linked on your website.
+
+**For web pages:** Old pages in your main site navigation are NOT automatically exempt. To qualify them for (b)(1), move them to a dedicated archive section with clear labeling.
 
 **What to do:**
 
-1. **Inventory your content** — Identify what's truly archived vs. what's still in use
-2. **Check links** — If content is linked from your website, it may not qualify for an exception
-3. **Document your assessment** — Keep records of what you've reviewed and why
+1. **Categorize your content** — Separate "service-critical" documents (used to apply/access/participate) from "reference" documents (historical, informational)
+2. **Focus remediation on service-critical content** — Grant applications, forms, current program documents must be accessible
+3. **For old web pages** — Consider moving truly historical pages to a dedicated `/archive/` section with appropriate labeling
 4. **When in doubt, consult legal counsel** — They make the final determination on whether content qualifies for an exception
-5. **Plan for accessible alternatives** — Even if content qualifies for an exception, be prepared to provide accessible versions if requested
+5. **Plan for accessible alternatives** — Even if content qualifies for an exception, be prepared to provide accessible versions upon request
 
 **References:**
 
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text; see § 35.200 for exceptions, § 35.200(d) for compliance dates, § 35.130 for general nondiscrimination
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text; see § 35.200(b) for exceptions
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary including exceptions
 - <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35" target="_blank" rel="noopener noreferrer">28 CFR Part 35 (eCFR)</a> — Current Code of Federal Regulations text
 
