@@ -68,15 +68,12 @@
 
                 <!-- Question with highlighted matches -->
                 <h2 class="result-question">
-                  <v-chip
+                  <span
                     v-if="result.item.isNew"
-                    size="x-small"
-                    color="success"
-                    variant="flat"
                     class="new-badge mr-2"
                   >
                     NEW
-                  </v-chip>
+                  </span>
                   <span v-html="highlightMatches(result.item.question, result)"></span>
                 </h2>
 
@@ -549,11 +546,36 @@ function handleEnterKey() {
 }
 
 .new-badge {
+  display: inline-block;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 9px !important;
+  font-size: 9px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: rgb(var(--v-theme-success));
+  color: rgb(var(--v-theme-on-success));
   flex-shrink: 0;
+  min-height: auto;
+  height: auto;
+  line-height: 1.2;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+  max-width: 100%;
+}
+
+/* Fix text clipping when zoomed to 200% - WCAG 1.4.4 Resize Text */
+.relevance-chip :deep(.v-chip__content),
+.result-section :deep(.v-chip__content) {
+  overflow: visible !important;
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+  padding: 4px 8px !important;
+  line-height: 1.2 !important;
 }
 
 .result-section {
@@ -562,9 +584,16 @@ function handleEnterKey() {
 
 .result-preview {
   font-size: 0.9rem;
-  line-height: 1.6;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
   color: rgb(var(--v-theme-on-surface-variant));
   margin-bottom: 0.75rem;
+}
+
+/* Ensure all paragraphs in search result previews meet AAA line-height */
+.result-preview :deep(p) {
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 .open-indicator {

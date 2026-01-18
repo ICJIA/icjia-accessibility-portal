@@ -8,7 +8,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="copyright-link"
-          aria-label="Visit Illinois Criminal Justice Information Authority website (opens in new tab)"
+          :aria-label="`${currentYear} Illinois Criminal Justice Information Authority (opens in new tab)`"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-copyright</v-icon
@@ -96,7 +96,7 @@
           target="_blank"
           rel="noopener noreferrer"
           class="footer-link"
-          aria-label="Visit ICJIA main website (opens in new tab)"
+          aria-label="ICJIA Website (opens in new tab)"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true"
             >mdi-open-in-new</v-icon
@@ -163,20 +163,36 @@ function openDownloadDialog() {
 .copyright-link {
   display: inline-flex;
   align-items: center;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: on-surface should already meet AAA, but ensure it does */
   color: rgb(var(--v-theme-on-surface));
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.2s ease;
-  padding: 0.25rem 0.5rem;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.75rem;
   border-radius: 4px;
 }
 
+/* Ensure copyright link maintains AAA contrast on hover */
 .copyright-link:hover {
-  color: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+.copyright-link:hover {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color on hover */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+/* Dark theme: use lighter color for AAA contrast on hover */
+[data-v-theme="dark"] .copyright-link:hover,
+.v-theme--dark .copyright-link:hover {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .copyright-link:focus-visible {
@@ -198,14 +214,24 @@ function openDownloadDialog() {
 .footer-link {
   display: inline-flex;
   align-items: center;
-  color: rgb(var(--v-theme-primary));
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.2s ease;
-  padding: 0.25rem 0.5rem;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.75rem;
   border-radius: 4px;
   white-space: nowrap;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .footer-link,
+.v-theme--dark .footer-link {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 /* Button-specific reset for footer-button */
@@ -214,14 +240,23 @@ function openDownloadDialog() {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .footer-link:hover {
-  opacity: 0.8;
+  /* Maintain AAA contrast on hover - don't reduce opacity */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   background: rgba(var(--v-theme-primary), 0.1);
+}
+
+[data-v-theme="dark"] .footer-link:hover,
+.v-theme--dark .footer-link:hover {
+  color: #93C5FD !important;
 }
 
 .footer-link:focus-visible {
@@ -231,10 +266,17 @@ function openDownloadDialog() {
 }
 
 .footer-separator {
-  color: rgba(var(--v-theme-on-surface), 0.5);
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
+  color: rgba(var(--v-theme-on-surface), 0.7) !important;
   font-size: 1rem;
   line-height: 1;
   user-select: none;
+}
+
+/* Dark theme: ensure AAA contrast for separators */
+[data-v-theme="dark"] .footer-separator,
+.v-theme--dark .footer-separator {
+  color: rgba(248, 250, 252, 0.7) !important; /* Higher contrast on dark background */
 }
 
 /* Tablet breakpoint */
@@ -249,10 +291,16 @@ function openDownloadDialog() {
 
   .copyright-link {
     font-size: 0.8125rem;
+    /* Maintain 44x44px minimum on tablet */
+    min-height: 44px;
+    min-width: 44px;
   }
 
   .footer-link {
     font-size: 0.8125rem;
+    /* Maintain 44x44px minimum on tablet */
+    min-height: 44px;
+    min-width: 44px;
   }
 
   .footer-links {
@@ -272,11 +320,18 @@ function openDownloadDialog() {
 
   .copyright-link {
     font-size: 0.75rem;
+    /* Maintain 44x44px minimum on mobile */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.6rem;
   }
 
   .footer-link {
     font-size: 0.75rem;
-    padding: 0.2rem 0.4rem;
+    /* Maintain 44x44px minimum on mobile */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.6rem;
   }
 
   .footer-separator {
@@ -292,6 +347,10 @@ function openDownloadDialog() {
 
   .copyright-link {
     font-size: 0.7rem;
+    /* Maintain 44x44px minimum on small mobile */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.5rem;
   }
 
   .copyright-link span {
@@ -300,6 +359,10 @@ function openDownloadDialog() {
 
   .footer-link {
     font-size: 0.7rem;
+    /* Maintain 44x44px minimum on small mobile */
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.5rem;
   }
 
   .footer-separator {

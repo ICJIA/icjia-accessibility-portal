@@ -61,6 +61,7 @@
             aria-label="Open navigation menu"
             aria-haspopup="true"
             :aria-expanded="menuOpen"
+            style="min-width: 44px; min-height: 44px;"
           >
             <v-icon>mdi-menu</v-icon>
           </v-btn>
@@ -215,27 +216,78 @@ function openDownloadDialog(event: MouseEvent) {
 
 .logo-link {
   margin-left: 12px;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px !important;
+  min-width: 44px !important;
+  height: auto;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .nav-btn {
-  min-width: auto;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-width: 44px !important;
+  min-height: 44px !important;
   padding: 0 12px;
   margin: 0 4px;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
+  /* Light theme: darker blue (#1D4ED8) for better contrast on white */
+  /* Dark theme: lighter blue (#93C5FD) for better contrast on dark surface */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .nav-btn,
+.v-theme--dark .nav-btn {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
+}
+
+.nav-btn:hover {
+  /* Maintain AAA contrast on hover */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+[data-v-theme="dark"] .nav-btn:hover,
+.v-theme--dark .nav-btn:hover {
+  color: #93C5FD !important;
 }
 
 .search-btn {
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-width: 44px !important;
+  min-height: 44px !important;
   margin-right: 4px;
-  color: rgb(var(--v-theme-primary));
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .search-btn,
+.v-theme--dark .search-btn {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .search-btn:hover {
   background: rgba(var(--v-theme-primary), 0.1);
+  /* Maintain AAA contrast on hover */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+[data-v-theme="dark"] .search-btn:hover,
+.v-theme--dark .search-btn:hover {
+  color: #93C5FD !important;
 }
 
 @media (max-width: 960px) {
   .nav-btn {
     font-size: 0.875rem;
-    padding: 0 4px;
+    padding: 0 8px;
+    /* Maintain 44x44px minimum even on mobile - WCAG 2.5.5 Enhanced AAA */
+    min-width: 44px !important;
+    min-height: 44px !important;
   }
 
   .v-container {
@@ -255,6 +307,14 @@ function openDownloadDialog(event: MouseEvent) {
     margin-left: 0.5rem;
   }
 
+  .logo-link {
+    /* Maintain 44x44px minimum on mobile - WCAG 2.5.5 Enhanced AAA */
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 6px 10px;
+    box-sizing: border-box;
+  }
+
   .v-container {
     padding-left: 16px;
     padding-right: 8px;
@@ -270,6 +330,14 @@ function openDownloadDialog(event: MouseEvent) {
   .portal-title {
     font-size: 0.75rem;
     margin-left: 0.25rem;
+  }
+
+  .logo-link {
+    /* Maintain 44x44px minimum on small mobile - WCAG 2.5.5 Enhanced AAA */
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 8px 10px;
+    box-sizing: border-box;
   }
 
   .v-container {

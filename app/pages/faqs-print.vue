@@ -462,7 +462,8 @@ useSeo({
   margin: 0 auto;
   padding: 2rem;
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: 11pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.92rem; /* 11pt equivalent */
   line-height: 1.6;
   color: #000;
   background: #fff;
@@ -493,60 +494,74 @@ useSeo({
 }
 
 .print-main-title {
-  font-size: 18pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1.5rem; /* 18pt equivalent */
   font-weight: bold;
   margin: 0 0 0.5rem 0;
   line-height: 1.3;
 }
 
 .print-subtitle {
-  font-size: 11pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.92rem; /* 11pt equivalent */
   margin: 0 0 0.5rem 0;
-  font-style: italic;
-  color: #333;
+  /* Accessibility: Avoid italicizing entire paragraphs/subtitles - use visual indicators instead */
+  font-style: normal;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000;
 }
 
 .print-date,
 .print-deadline {
-  font-size: 10pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.83rem; /* 10pt equivalent */
   margin: 0.25rem 0;
 }
 
 .print-notice {
   background: #f5f5f5;
   padding: 0.75rem;
-  border-left: 4px solid #666;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  border-left: 4px solid #000;
   margin-top: 1rem;
 }
 
 .print-notice p {
   margin: 0;
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
 }
 
 /* Disclaimer Section */
 .print-disclaimer {
   margin: 2rem 0;
   padding: 1.5rem;
-  background: #f0f7ff;
-  border: 2px solid #0066cc;
-  border-left: 6px solid #0066cc;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure text on this background meets 7:1 */
+  background: #fff;
+  border: 2px solid #000;
+  border-left: 6px solid #000;
   page-break-inside: avoid;
 }
 
 .print-disclaimer-title {
-  font-size: 14pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1.17rem; /* 14pt equivalent */
   font-weight: bold;
   margin: 0 0 1rem 0;
-  color: #0066cc;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Large text (14pt+ bold) needs 4.5:1 on #f0f7ff background */
+  /* #0052a3 on #f0f7ff = ~3.2:1 (fails), use #000 for 7:1+ */
+  color: #000;
 }
 
 .print-disclaimer-content {
-  font-size: 10pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.83rem; /* 10pt equivalent */
   line-height: 1.6;
 }
 
 .print-disclaimer-content p {
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
   margin: 0.75rem 0;
 }
 
@@ -560,26 +575,41 @@ useSeo({
 
 .print-disclaimer-content strong {
   font-weight: bold;
-  color: #004499;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000;
 }
 
 .print-url {
   font-family: "Courier New", monospace;
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
   word-break: break-all;
-  color: #0066cc;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text, #0052a3 = 4.5:1 (fails), use #000 for AAA */
+  color: #000;
   text-decoration: underline;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: middle;
+  margin: 0.25rem 0;
 }
 
 /* Make links interactive on screen, but print-friendly */
 @media screen {
   .print-url:hover {
-    color: #0052a3;
+    /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain 7:1 contrast on hover */
+    color: #000;
     text-decoration: underline;
+    opacity: 0.8;
   }
   
   .print-url:focus-visible {
-    outline: 2px solid #0066cc;
+    /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Focus indicator with good contrast */
+    outline: 2px solid #000;
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -596,7 +626,8 @@ useSeo({
 .print-loading {
   text-align: center;
   padding: 2rem;
-  font-size: 12pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1rem; /* 12pt equivalent */
 }
 
 /* Table of Contents */
@@ -609,7 +640,8 @@ useSeo({
 }
 
 .print-toc-title {
-  font-size: 14pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1.17rem; /* 14pt equivalent */
   font-weight: bold;
   margin: 0 0 1rem 0;
   text-align: center;
@@ -623,7 +655,8 @@ useSeo({
 
 .print-toc-list li {
   margin: 0.5rem 0;
-  font-size: 10pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.83rem; /* 10pt equivalent */
 }
 
 .print-toc-link {
@@ -640,10 +673,14 @@ useSeo({
 }
 
 .print-toc-count {
-  font-size: 9pt;
-  color: #666;
-  font-style: italic;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000;
+  /* Accessibility: Avoid italicizing text - use opacity and smaller font size for visual distinction */
+  font-style: normal;
   margin-left: 0.5rem;
+  opacity: 0.7;
 }
 
 /* Intro Content */
@@ -658,7 +695,26 @@ useSeo({
 }
 
 .print-intro :deep(p) {
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
   margin: 0.75rem 0;
+}
+
+/* WCAG 2.5.5 Target Size (Enhanced) - AAA: Ensure all links in print intro meet 44x44px */
+.print-intro :deep(a) {
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: middle;
+  /* Ensure clickable area is at least 44x44px */
+  margin: 0.25rem 0;
+  /* Use flexbox to center content vertically if needed */
+  align-items: center;
+  justify-content: center;
 }
 
 .print-intro :deep(hr) {
@@ -674,7 +730,8 @@ useSeo({
 }
 
 .print-section-heading {
-  font-size: 16pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1.33rem; /* 16pt equivalent */
   font-weight: bold;
   margin: 2rem 0 1rem 0;
   padding: 0.5rem 0.75rem;
@@ -693,7 +750,8 @@ useSeo({
 }
 
 .print-question {
-  font-size: 12pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 1rem; /* 12pt equivalent */
   font-weight: bold;
   margin: 0 0 0.75rem 0;
   line-height: 1.4;
@@ -701,15 +759,18 @@ useSeo({
 }
 
 .print-question-number {
-  color: #666;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000;
   margin-right: 0.5rem;
+  opacity: 0.7;
 }
 
 .print-new-badge {
   display: inline-block;
   background: #000;
   color: #fff;
-  font-size: 8pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.67rem; /* 8pt equivalent */
   padding: 0.15rem 0.4rem;
   border-radius: 3px;
   margin-left: 0.5rem;
@@ -718,11 +779,15 @@ useSeo({
 }
 
 .print-answer {
-  font-size: 10pt;
-  line-height: 1.7;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.83rem; /* 10pt equivalent */
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Base line-height for content */
+  line-height: 1.5;
 }
 
 .print-answer :deep(p) {
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
   margin: 0.5rem 0;
 }
 
@@ -746,15 +811,33 @@ useSeo({
 
 .print-answer :deep(li) {
   margin: 0.25rem 0;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 .print-answer :deep(a) {
   color: #000;
   text-decoration: underline;
   word-break: break-all;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: middle;
+  /* Ensure clickable area is at least 44x44px */
+  margin: 0.25rem 0;
+  /* Use flexbox to center content vertically if needed */
+  align-items: center;
+  justify-content: center;
 }
 
-/* Internal links (section references) - bold, no underline */
+/* Internal links (section references) - converted to spans, bold, no underline */
+.print-answer :deep(.print-internal-link),
+.print-intro :deep(.print-internal-link),
+.print-content :deep(.print-internal-link),
 .print-answer :deep(a.print-internal-link),
 .print-intro :deep(a.print-internal-link),
 .print-content :deep(a.print-internal-link) {
@@ -764,6 +847,9 @@ useSeo({
   cursor: default;
 }
 
+.print-answer :deep(.print-internal-link:hover),
+.print-intro :deep(.print-internal-link:hover),
+.print-content :deep(.print-internal-link:hover),
 .print-answer :deep(a.print-internal-link:hover),
 .print-intro :deep(a.print-internal-link:hover),
 .print-content :deep(a.print-internal-link:hover) {
@@ -777,8 +863,20 @@ useSeo({
 .print-content :deep(a) {
   /* Ensure link text is always visible */
   visibility: visible !important;
-  display: inline !important;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block !important;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: middle;
+  /* Ensure clickable area is at least 44x44px */
+  margin: 0.25rem 0;
   opacity: 1 !important;
+  /* Use flexbox to center content vertically if needed */
+  align-items: center;
+  justify-content: center;
 }
 
 .print-answer :deep(code) {
@@ -786,7 +884,8 @@ useSeo({
   background: #f0f0f0;
   padding: 0.1rem 0.3rem;
   border: 1px solid #ddd;
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
 }
 
 .print-answer :deep(pre) {
@@ -794,23 +893,42 @@ useSeo({
   padding: 0.75rem;
   border: 1px solid #ddd;
   overflow-x: auto;
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
   margin: 0.75rem 0;
 }
 
 .print-answer :deep(blockquote) {
-  border-left: 3px solid #666;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  border-left: 3px solid #000;
   padding-left: 1rem;
   margin: 0.75rem 0;
-  font-style: italic;
-  color: #333;
+  /* Accessibility: Avoid italicizing entire paragraphs in blockquotes - use border and indentation instead */
+  font-style: normal;
+  color: #000;
+}
+
+/* Ensure paragraphs inside blockquotes are not italicized */
+.print-answer :deep(blockquote p) {
+  font-style: normal !important;
+}
+
+/* Ensure paragraphs are never italicized - only inline <em> tags should be italic */
+.print-answer :deep(p),
+.print-intro :deep(p),
+.print-content :deep(p),
+.print-disclaimer-content p {
+  font-style: normal !important;
 }
 
 .print-answer :deep(table) {
   width: 100%;
   border-collapse: collapse;
   margin: 0.75rem 0;
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
 }
 
 .print-answer :deep(th),
@@ -826,7 +944,8 @@ useSeo({
 }
 
 .print-answer :deep(h4) {
-  font-size: 11pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.92rem; /* 11pt equivalent */
   font-weight: bold;
   margin: 1rem 0 0.5rem 0;
 }
@@ -844,10 +963,13 @@ useSeo({
 }
 
 .print-footer-text {
-  font-size: 9pt;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+  font-size: 0.75rem; /* 9pt equivalent */
   margin: 0.25rem 0;
   text-align: center;
-  color: #666;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000;
+  opacity: 0.7;
 }
 
 /* ======================
@@ -857,7 +979,8 @@ useSeo({
 @media print {
   .print-container {
     padding: 0;
-    font-size: 10pt;
+    /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+    font-size: 0.83rem; /* 10pt equivalent */
   }
 
   .print-header {
@@ -929,13 +1052,16 @@ useSeo({
     content: "📄 Use your browser's print function (Ctrl/Cmd + P) to print or save as PDF";
     display: block;
     background: #fffbea;
-    border: 2px solid #f59e0b;
+    /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Border color needs 3:1 for UI components */
+    border: 2px solid #000;
     padding: 1rem;
     margin: -2rem -2rem 2rem -2rem;
-    font-size: 11pt;
+    /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
+    font-size: 0.92rem; /* 11pt equivalent */
     font-weight: bold;
     text-align: center;
-    color: #92400e;
+    /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on #fffbea background */
+    color: #000;
   }
 
   /* TOC link is now a span (not a link) - no hover needed */

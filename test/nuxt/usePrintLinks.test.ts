@@ -203,7 +203,7 @@ describe("usePrintLinks", () => {
       wrapper.unmount();
     });
 
-    it("should add aria-label to table headers", async () => {
+    it("should provide text content for empty table headers without aria-label", async () => {
       const TestComponent = defineComponent({
         setup() {
           const { processTableHeaders } = usePrintLinks();
@@ -229,7 +229,10 @@ describe("usePrintLinks", () => {
       await new Promise((resolve) => setTimeout(resolve, 600));
 
       const header = wrapper.find("th");
-      expect(header.attributes("aria-label")).toBeTruthy();
+      // ARIA: Table headers should use text content, not aria-label
+      expect(header.text()).toBeTruthy();
+      expect(header.text()).toContain("Column");
+      expect(header.attributes("aria-label")).toBeUndefined();
 
       wrapper.unmount();
     });

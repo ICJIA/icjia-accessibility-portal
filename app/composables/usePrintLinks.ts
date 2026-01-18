@@ -7,12 +7,12 @@
  * - Ensures all links have visible text (uses URL if no text exists)
  * - Appends URLs to link text in parentheses for print accessibility
  * - Fixes empty table headers by providing meaningful defaults
- * - Adds proper ARIA labels for screen readers
+ * - Ensures all elements use text content as accessible names (no unnecessary ARIA)
  * 
  * @module usePrintLinks
  */
 
-import { onMounted, nextTick } from 'vue';
+import { onMounted, onUnmounted, nextTick } from 'vue';
 
 /**
  * Checks if an element has visible text content accessible to screen readers.
@@ -34,8 +34,22 @@ import { onMounted, nextTick } from 'vue';
  * ```
  */
 function hasVisibleText(element: HTMLElement): boolean {
+  // Get text content - this includes text from all child nodes
   const text = element.textContent?.trim() || '';
   if (text.length > 0) return true;
+
+  // Check innerHTML for any non-whitespace content
+  const innerHTML = element.innerHTML?.trim() || '';
+  // Remove HTML comments and whitespace
+  const cleanHTML = innerHTML.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim();
+  if (cleanHTML.length > 0) {
+    // Check if there's actual content (not just empty tags)
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = cleanHTML;
+    if (tempDiv.textContent?.trim().length > 0) {
+      return true;
+    }
+  }
 
   // Check for images with alt text
   const images = element.querySelectorAll('img');
@@ -49,6 +63,11 @@ function hasVisibleText(element: HTMLElement): boolean {
     if (svg.getAttribute('aria-label') || svg.getAttribute('aria-labelledby')) {
       return true;
     }
+  }
+
+  // Check for aria-label or aria-labelledby on the element itself
+  if (element.getAttribute('aria-label') || element.getAttribute('aria-labelledby')) {
+    return true;
   }
 
   return false;
@@ -127,7 +146,7 @@ function processTableHeaders() {
                   // If first cell is a number, header might be "Item" or "Number"
                   if (/^\d+\.?\s*/.test(firstCellText)) {
                     th.textContent = 'Item';
-                    th.setAttribute('aria-label', 'Item number');
+                    // ARIA: Do not use aria-label on <th> - text content is the accessible name
                     return;
                   }
                 }
@@ -139,19 +158,16 @@ function processTableHeaders() {
           const columnNumber = index + 1;
           const defaultText = `Column ${columnNumber}`;
           th.textContent = defaultText;
-          
-          // Add aria-label for screen readers
-          th.setAttribute('aria-label', defaultText);
+          // ARIA: Do not use aria-label on <th> - text content is the accessible name
         } else {
           // Header has text, but clean up any HTML comment artifacts
           if (innerHTML.includes('<!--')) {
             th.textContent = text;
           }
           
-          // Ensure it has proper aria-label if needed
-          if (!th.hasAttribute('aria-label') && !th.hasAttribute('aria-labelledby')) {
-            th.setAttribute('aria-label', text);
-          }
+          // ARIA: Remove any existing aria-label from <th> - text content is the accessible name
+          th.removeAttribute('aria-label');
+          th.removeAttribute('aria-labelledby');
         }
       });
     });
@@ -168,13 +184,13 @@ function processTableHeaders() {
  * For links:
  * - Links with text: Appends URL in parentheses (e.g., "Link text (https://example.com)")
  * - Links without text: Uses the URL as the link text
- * - Anchor links: Ensures they have descriptive text
- * - All links: Adds proper ARIA labels
+ * - Anchor links: Converts to spans (non-interactive) to avoid ARIA issues
+ * - All links: Uses visible text as accessible name (no unnecessary ARIA)
  * 
  * For table headers:
  * - Empty headers: Provides meaningful defaults (e.g., "Column 1", "Item")
  * - Headers with only comments: Cleans and provides defaults
- * - All headers: Adds ARIA labels
+ * - All headers: Uses text content as accessible name (no aria-label)
  * 
  * @returns {Object} Object containing:
  * - `processPrintLinks`: Function to manually process links
@@ -199,54 +215,106 @@ export function usePrintLinks() {
    * 
    * This function:
    * - Finds all links in print content areas
-   * - Ensures each link has visible text
-   * - Appends URLs in parentheses for print accessibility
-   * - Adds ARIA labels for screen readers
+ * - Ensures each link has visible text
+ * - Appends URLs in parentheses for print accessibility
+ * - Uses visible text as accessible name (no unnecessary ARIA)
    * 
    * @returns {void}
    * @private
    */
   const processPrintLinks = () => {
-    // Target print content areas where links might appear
-    const contentSelectors = [
-      '.print-answer a',
-      '.print-intro a',
-      '.print-content a',
-      '.print-toc-link', // TOC links
-    ];
+    // WCAG 2.4.4, 2.4.9, 4.1.2: All links must have text alternatives
+    // Get ALL links in the entire document to ensure we don't miss any
+    // This is more aggressive but necessary to catch all links including those
+    // rendered by ContentRenderer or other dynamic content
+    const allLinks = document.querySelectorAll<HTMLAnchorElement>('a');
+    const linkSet = new Set<HTMLAnchorElement>();
+    
+    // Add all links found in the document
+    allLinks.forEach((link) => {
+      // Only process links that are within the print container or are print-related
+      // This avoids processing links in navigation or other areas
+      const isInPrintContainer = link.closest('.print-container') !== null;
+      const hasPrintClass = link.classList.contains('print-url') || 
+                           link.classList.contains('print-internal-link') ||
+                           link.classList.contains('print-toc-link');
+      
+      if (isInPrintContainer || hasPrintClass) {
+        linkSet.add(link);
+      }
+    });
 
-    contentSelectors.forEach((selector) => {
-      const links = document.querySelectorAll<HTMLAnchorElement>(selector);
-      links.forEach((link) => {
+    // Process all unique links
+    linkSet.forEach((link) => {
+        // Skip if link is already processed and has text (to avoid re-processing)
+        // But we still want to check it in case it was cleared
         const href = link.getAttribute('href');
-        if (!href) return;
+        if (!href) {
+          // WCAG 2.4.4, 2.4.9, 4.1.2: Links without href should be removed or converted
+          // If it's an anchor without href, it's likely a non-functional link
+          // But still ensure it has text if it's visible
+          if (link.offsetParent !== null || link.style.display !== 'none') {
+            // Link is visible but has no href - ensure it has text
+            if (!hasVisibleText(link)) {
+              link.textContent = 'Link';
+            }
+          }
+          return;
+        }
 
         // Style internal links (anchor links starting with #) - make bold, remove underline
-        // Internal links don't work when printed, so we style them to indicate they're section references
+        // Internal links don't work when printed, so we convert them to spans to avoid ARIA issues
         if (href.startsWith('#')) {
-          // Add class for styling
-          link.classList.add('print-internal-link');
-          
-          // Remove href to prevent clicking (but keep the element for styling)
-          link.removeAttribute('href');
-          
           // Ensure they have text
           if (!hasVisibleText(link)) {
             const anchorText = href.substring(1).replace(/-/g, ' ') || 'Section';
             link.textContent = anchorText;
           }
+          
+          // Convert <a> to <span> since it's no longer interactive (no href)
+          // This avoids ARIA issues with non-interactive links
+          const span = document.createElement('span');
+          // Preserve all classes from the original link
+          span.className = link.className;
+          // Ensure print-internal-link class is present
+          if (!span.classList.contains('print-internal-link')) {
+            span.classList.add('print-internal-link');
+          }
+          span.textContent = link.textContent;
+          
+          // Copy any data attributes
+          Array.from(link.attributes).forEach(attr => {
+            if (attr.name.startsWith('data-')) {
+              span.setAttribute(attr.name, attr.value);
+            }
+          });
+          
+          // Replace the link with the span
+          link.parentNode?.replaceChild(span, link);
+          
           return;
         }
 
         // Get the current text content (trimmed)
         const currentText = link.textContent?.trim() || '';
 
+        // WCAG 2.4.4, 2.4.9, 4.1.2: Links must have text alternatives
         // Check if link has no visible text
         if (!hasVisibleText(link)) {
           // If no visible text, use the URL as the link text
+          // This ensures the link has an accessible name
+          // Clean any existing content first (might be empty HTML tags or comments)
+          link.innerHTML = '';
           link.textContent = href;
-          // Add aria-label for screen readers
-          link.setAttribute('aria-label', `Link to ${href}`);
+          // Ensure the link is visible (not hidden)
+          link.style.visibility = 'visible';
+          link.style.display = 'inline-block';
+          link.style.opacity = '1';
+          // Remove any hidden attributes
+          link.removeAttribute('hidden');
+          link.removeAttribute('aria-hidden');
+          // ARIA: For links with no visible text initially, aria-label is not needed
+          // since we're setting textContent which becomes the accessible name
         } else {
           // Link has text, but for print accessibility, append URL in parentheses
           // Check if URL is already appended to avoid duplicates
@@ -267,15 +335,60 @@ export function usePrintLinks() {
           }
         }
 
-        // Ensure link has proper aria-label if it doesn't already
-        if (!link.hasAttribute('aria-label') && !link.hasAttribute('aria-labelledby')) {
-          const linkText = link.textContent?.trim() || href;
-          link.setAttribute('aria-label', `Link: ${linkText}`);
+        // ARIA: Remove any aria-label attributes - visible text should be the accessible name
+        // Only use aria-label when absolutely necessary (e.g., icon-only buttons)
+        // For text links, the visible text content is the accessible name
+        link.removeAttribute('aria-label');
+        link.removeAttribute('aria-labelledby');
+        
+        // Final safety check: WCAG 2.4.4, 2.4.9, 4.1.2 - ensure link has text
+        // Double-check after all processing that the link has visible text
+        // This is critical - every link MUST have text content
+        const finalText = link.textContent?.trim() || '';
+        const finalHTML = link.innerHTML?.trim() || '';
+        const hasAnyContent = finalText.length > 0 || 
+                             (finalHTML.length > 0 && finalHTML.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]*>/g, '').trim().length > 0);
+        
+        if (!hasAnyContent && href) {
+          // Last resort: use the URL as text if somehow the link is still empty
+          // This ensures the link always has an accessible name
+          link.textContent = href;
+          link.style.visibility = 'visible';
+          link.style.display = 'inline-block';
+          link.style.opacity = '1';
         }
+        
+        // One more check: if link has href but no accessible text, force text
+        // This is a critical final check - every link MUST have text
+        const accessibleText = link.textContent?.trim() || 
+                              link.getAttribute('aria-label') || 
+                              link.getAttribute('aria-labelledby') ||
+                              '';
+        if (href && !accessibleText) {
+          // Force text content - this is non-negotiable for accessibility
+          link.textContent = href;
+          link.style.visibility = 'visible';
+          link.style.display = 'inline-block';
+          link.style.opacity = '1';
+          link.removeAttribute('hidden');
+          link.removeAttribute('aria-hidden');
+        }
+        
+        // Final verification: log if we still have an empty link (for debugging)
+        const finalCheck = link.textContent?.trim() || link.getAttribute('aria-label') || '';
+        if (href && !finalCheck && process.env.NODE_ENV === 'development') {
+          console.warn('Link still missing text after processing:', href, link);
+        }
+        
+        // Note: If a link has complex content (images/icons) that needs clarification,
+        // aria-label could be used, but only if the visible text doesn't already
+        // provide a clear accessible name. For print pages, links should have visible text.
       });
-    });
   };
 
+  // Store observer reference for cleanup
+  let observer: MutationObserver | null = null;
+  
   onMounted(() => {
     // Process links and table headers after content is rendered
     nextTick(() => {
@@ -293,7 +406,114 @@ export function usePrintLinks() {
         processPrintLinks();
         processTableHeaders();
       }, 500);
+      
+      // Process one more time after a longer delay to catch any late-rendering content
+      setTimeout(() => {
+        processPrintLinks();
+        processTableHeaders();
+      }, 1500);
+      
+      // Final aggressive pass after 3 seconds to catch any Vue/Nuxt async rendering
+      setTimeout(() => {
+        processPrintLinks();
+        processTableHeaders();
+      }, 3000);
     });
+    
+    // Also process on window load to catch any links rendered after Vue hydration
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          processPrintLinks();
+          processTableHeaders();
+        }, 500);
+      });
+    }
+    
+    // Use MutationObserver to catch links added dynamically or content changes
+    observer = new MutationObserver((mutations) => {
+      let shouldProcess = false;
+      mutations.forEach((mutation) => {
+        // Check for added nodes
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const element = node as Element;
+            // Check if a link was added or if a link's content changed
+            if (element.tagName === 'A' || element.querySelector('a')) {
+              shouldProcess = true;
+            }
+          }
+        });
+        
+        // Also check for attribute changes (like href being added)
+        if (mutation.type === 'attributes' && 
+            (mutation.target as Element).tagName === 'A') {
+          shouldProcess = true;
+        }
+        
+        // Check for character data changes (text content changes)
+        if (mutation.type === 'characterData') {
+          const parent = mutation.target.parentElement;
+          if (parent && parent.tagName === 'A') {
+            shouldProcess = true;
+          }
+        }
+      });
+      
+      if (shouldProcess) {
+        // Debounce processing to avoid excessive calls
+        setTimeout(() => {
+          processPrintLinks();
+          processTableHeaders();
+        }, 50);
+      } else {
+        // Even if no obvious changes, do a periodic check to catch any missed links
+        // This ensures we catch links that might have been rendered in a way
+        // that doesn't trigger the mutation observer
+        const lastCheck = (window as any).__lastLinkCheck || 0;
+        const now = Date.now();
+        if (now - lastCheck > 2000) { // Check every 2 seconds max
+          (window as any).__lastLinkCheck = now;
+          setTimeout(() => {
+            processPrintLinks();
+            processTableHeaders();
+          }, 100);
+        }
+      }
+    });
+    
+    // Observe the print container for changes
+    // Also observe the entire document body to catch any links that might be added
+    const printContainer = document.querySelector('.print-container');
+    if (printContainer) {
+      observer.observe(printContainer, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['href', 'aria-label', 'aria-labelledby'],
+      });
+    }
+    
+    // Also observe the document body as a fallback to catch any links outside the container
+    // This is more aggressive but ensures we don't miss any links
+    if (document.body) {
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['href'],
+      });
+    }
+  });
+  
+  // Cleanup observer on unmount
+  onUnmounted(() => {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
   });
 
   return {

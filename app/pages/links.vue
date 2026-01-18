@@ -119,15 +119,17 @@ useBreadcrumbStructuredData([
 /* Intro paragraph (first p before any h2) */
 .links-content :deep(> p:first-of-type) {
   font-size: 1.1rem;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.85;
+  opacity: 1;
   margin-bottom: 1.5rem;
 }
 
 /* Horizontal rules as section dividers */
 .links-content :deep(hr) {
   border: none;
-  border-top: 2px solid rgba(var(--v-theme-primary), 0.2);
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
+  border-top: 2px solid rgba(var(--v-theme-on-surface), 0.3);
   margin: 3rem 0;
 }
 
@@ -171,8 +173,9 @@ useBreadcrumbStructuredData([
 .links-content :deep(p) {
   font-size: 1rem;
   line-height: 1.75;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
   color: rgb(var(--v-theme-on-surface));
-  opacity: 0.9;
+  opacity: 1;
   margin: 0 0 1rem 0;
   padding: 0;
   background: none;
@@ -228,21 +231,55 @@ useBreadcrumbStructuredData([
 
 /* Links in list items */
 .links-content :deep(li a) {
-  color: rgb(var(--v-theme-primary));
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  /* Use black for maximum contrast on light backgrounds (21:1) */
+  color: #000000; /* Black for 21:1 contrast on white background - exceeds AAA requirement */
   text-decoration: none;
   font-weight: 500;
-  display: inline;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: baseline;
+  margin: -4px 0;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .links-content :deep(li a),
+.v-theme--dark .links-content :deep(li a) {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
+  color: #BFDBFE !important; /* Lighter blue (#BFDBFE) for 7:1+ contrast on dark background */
 }
 
 .links-content :deep(li a:hover) {
   text-decoration: underline;
   text-underline-offset: 2px;
+  /* Maintain 44x44px on hover */
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+[data-v-theme="dark"] .links-content :deep(li a:hover),
+.v-theme--dark .links-content :deep(li a:hover) {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain 7:1 contrast on hover */
+  color: #BFDBFE !important;
 }
 
 /* Bold text (link titles) */
 .links-content :deep(li strong) {
-  color: rgb(var(--v-theme-primary));
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  color: #000000; /* Black for 21:1 contrast on white background - exceeds AAA requirement */
   font-weight: 600;
+}
+
+/* Dark theme: use lighter color for strong text */
+[data-v-theme="dark"] .links-content :deep(li strong),
+.v-theme--dark .links-content :deep(li strong) {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
+  color: #BFDBFE !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 /* Q/A card styling - simplified */
@@ -312,12 +349,14 @@ useBreadcrumbStructuredData([
 }
 
 .links-content :deep(th) {
-  background: rgba(var(--v-theme-primary), 0.15);
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure text meets 7:1 on background */
+  background: rgba(var(--v-theme-primary), 0.1);
   color: rgb(var(--v-theme-on-surface));
   font-weight: 600;
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
+  border-bottom: 2px solid rgba(var(--v-theme-on-surface), 0.3);
 }
 
 .links-content :deep(td) {

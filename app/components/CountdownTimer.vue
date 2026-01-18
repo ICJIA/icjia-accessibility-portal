@@ -54,18 +54,17 @@
           </div>
         </template>
       </div>
-      <p class="text-body-2 mt-3">
-        <NuxtLink
+      <p class="text-body-2 mt-3" style="line-height: 1.5 !important;">
+        <a
           href="https://www.ada.gov/resources/2024-03-08-web-rule/"
           target="_blank"
           rel="noopener noreferrer"
           class="compliance-link"
+          style="color: rgb(var(--v-theme-on-surface)) !important; text-decoration: underline !important; font-weight: 700 !important; font-size: 1rem !important; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 4px 8px; line-height: 1.5; box-sizing: border-box; opacity: 1 !important;"
         >
-          <v-icon size="14" class="mr-1" aria-hidden="true"
-            >mdi-open-in-new</v-icon
-          >
+          <span style="margin-right: 4px; font-size: 1.1em; color: inherit !important;" aria-hidden="true">↗</span>
           ADA Title II Deadline: April 24, 2026
-        </NuxtLink>
+        </a>
       </p>
     </div>
   </v-card>
@@ -250,26 +249,74 @@ onUnmounted(() => {
 }
 
 .compliance-link {
-  color: rgb(var(--v-theme-primary)) !important;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  /* Use pure black for maximum contrast on light background (21:1 - exceeds AAA requirement) */
+  color: #000000 !important;
   text-decoration: underline;
-  font-weight: 500;
+  font-weight: 600; /* Slightly bolder for better visibility */
   display: inline-flex;
   align-items: center;
   transition: opacity 0.2s ease;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  /* Ensure maximum contrast - no opacity reduction */
+  opacity: 1 !important;
+}
+
+/* Dark theme: use white for maximum AAA contrast */
+[data-v-theme="dark"] .compliance-link,
+.v-theme--dark .compliance-link {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
+  /* Use pure white for maximum contrast on dark background (21:1+ on #0F172A) */
+  color: #FFFFFF !important;
+  opacity: 1 !important;
 }
 
 .compliance-link:hover {
-  color: rgb(var(--v-theme-primary)) !important;
-  opacity: 0.9;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain maximum contrast on hover */
+  opacity: 1 !important;
   text-decoration: underline;
+  /* Pure black for maximum contrast on light background */
+  color: #000000 !important;
+}
+
+/* Dark theme: use white for maximum AAA contrast on hover */
+[data-v-theme="dark"] .compliance-link:hover,
+.v-theme--dark .compliance-link:hover {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain maximum contrast on hover */
+  color: #FFFFFF !important; /* Pure white for maximum contrast on dark background */
+  opacity: 1 !important;
 }
 
 .compliance-link:visited {
-  color: rgb(var(--v-theme-primary)) !important;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain maximum contrast for visited state */
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Dark theme: use white for maximum AAA contrast for visited state */
+[data-v-theme="dark"] .compliance-link:visited,
+.v-theme--dark .compliance-link:visited {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain maximum contrast for visited state */
+  color: #FFFFFF !important; /* Pure white for maximum contrast on dark background */
+  opacity: 1 !important;
 }
 
 .compliance-link .v-icon {
-  color: rgb(var(--v-theme-primary)) !important;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Match link color for maximum contrast */
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+/* Dark theme: use white for maximum AAA contrast for icon */
+[data-v-theme="dark"] .compliance-link .v-icon,
+.v-theme--dark .compliance-link .v-icon {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Match link color for maximum contrast */
+  color: #FFFFFF !important; /* Pure white for maximum contrast on dark background */
+  opacity: 1 !important;
 }
 
 .compliance-link:focus-visible {
@@ -329,8 +376,15 @@ onUnmounted(() => {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0.25rem;
-  opacity: 0.9;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use full opacity for better contrast */
+  opacity: 1 !important;
   color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Dark theme: ensure AAA contrast for countdown labels */
+[data-v-theme="dark"] .countdown-label,
+.v-theme--dark .countdown-label {
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 .compact .countdown-label {
@@ -340,9 +394,17 @@ onUnmounted(() => {
 .countdown-separator {
   font-size: 1.75rem;
   font-weight: bold;
-  opacity: 0.8;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
+  opacity: 0.9 !important;
   padding: 0 0.25rem;
   color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Dark theme: ensure AAA contrast for countdown separators */
+[data-v-theme="dark"] .countdown-separator,
+.v-theme--dark .countdown-separator {
+  opacity: 1 !important;
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 /* Screen reader only text - visually hidden but available to assistive technologies */

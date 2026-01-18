@@ -21,16 +21,12 @@
         :aria-describedby="`answer-${getQuestionId(item.question)}`"
       >
         <div class="faq-question-wrapper">
-          <v-chip
+          <span
             v-if="item.isNew"
-            size="x-small"
-            color="success"
-            variant="flat"
             class="new-badge"
-            :aria-label="`New question added ${item.newDate ? formatDate(item.newDate) : ''}`"
           >
             New{{ item.newDate ? ` (${formatDate(item.newDate)})` : '' }}
-          </v-chip>
+          </span>
           <span class="faq-question-text">{{ item.question }}</span>
         </div>
         <template #actions>
@@ -585,11 +581,23 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 }
 
 .new-badge {
+  display: inline-block;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 10px !important;
-  height: 20px !important;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: rgb(var(--v-theme-success));
+  color: rgb(var(--v-theme-on-success));
+  min-height: 20px;
+  height: auto;
+  line-height: 1.2;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+  max-width: 100%;
 }
 
 .faq-chevron {
@@ -610,14 +618,24 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   padding: 0 24px 24px 24px;
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.6;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Base line-height for content */
+  line-height: 1.5;
   color: rgb(var(--v-theme-on-surface-variant)) !important;
+}
+
+/* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Ensure all text-containing elements in FAQ answers have minimum 1.5 line-height */
+.faq-answer-content :deep(div),
+.faq-answer-content :deep(span) {
+  /* Only apply to elements that contain text, not structural elements */
+  line-height: inherit;
 }
 
 /* Content styling within answers */
 .faq-answer-content :deep(p) {
   margin: 0 0 1rem 0;
   color: inherit;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 .faq-answer-content :deep(p:last-child) {
@@ -632,6 +650,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 
 .faq-answer-content :deep(li) {
   margin: 0.5rem 0;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 /* Responsive table styling */
@@ -665,13 +685,36 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 }
 
 .faq-answer-content :deep(a) {
-  color: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-primary-darken-1));
   text-decoration: underline;
   text-underline-offset: 2px;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: baseline;
+  margin: -4px 0;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .faq-answer-content :deep(a),
+.v-theme--dark .faq-answer-content :deep(a) {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .faq-answer-content :deep(a:hover) {
   text-decoration-thickness: 2px;
+  /* Maintain 44x44px on hover */
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+[data-v-theme="dark"] .faq-answer-content :deep(a:hover),
+.v-theme--dark .faq-answer-content :deep(a:hover) {
+  color: #93C5FD !important;
 }
 
 .faq-answer-content :deep(blockquote) {
@@ -681,6 +724,13 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   border-left: 4px solid rgb(var(--v-theme-primary));
   border-radius: 0 8px 8px 0;
   font-style: italic;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
+}
+
+.faq-answer-content :deep(blockquote p) {
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 .faq-answer-content :deep(code) {
@@ -757,9 +807,13 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   }
 }
 
-/* Link colors use theme primary */
-.faq-answer-content :deep(a) {
-  color: rgb(var(--v-theme-primary)) !important;
+/* Link colors use theme primary - ensure AAA contrast and target size */
+/* Note: This rule is overridden by the more specific rule above, but kept for consistency */
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .faq-answer-content :deep(a),
+.v-theme--dark .faq-answer-content :deep(a) {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 /* Search term highlighting */

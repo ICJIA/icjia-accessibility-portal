@@ -88,7 +88,7 @@
           <div class="d-flex align-start">
             <v-icon class="mr-3 mt-1" color="warning" size="24" aria-hidden="true">mdi-information</v-icon>
             <div class="flex-grow-1">
-              <h3 class="text-h6 mb-3">About These FAQs</h3>
+              <h2 class="text-h6 mb-3">About These FAQs</h2>
               <div class="text-body-2">
                 <p class="mb-2">
                   <strong>Created by:</strong> These FAQs were created by
@@ -122,18 +122,22 @@
               >
               Frequently Asked Questions
             </h2>
-            <v-select
-              v-model="faqSort"
-              class="faq-sort"
-              :items="faqSortOptions"
-              item-title="title"
-              item-value="value"
-              label="Sort"
-              density="compact"
-              variant="outlined"
-              hide-details
-              aria-label="Sort Frequently Asked Questions"
-            />
+            <div class="faq-sort-wrapper">
+              <label for="faq-sort-select-home" class="sr-only">Sort Frequently Asked Questions</label>
+              <select
+                id="faq-sort-select-home"
+                v-model="faqSort"
+                class="faq-sort"
+              >
+                <option
+                  v-for="option in faqSortOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.title }}
+                </option>
+              </select>
+            </div>
           </div>
           <div v-if="faqItems.length > 0">
             <!-- Render intro and section headings -->
@@ -658,6 +662,12 @@ useWebSiteStructuredData();
   transition: all 0.2s ease;
 }
 
+/* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Ensure all paragraphs in disclaimer have 1.5+ line-height */
+.disclaimer-card :deep(p),
+.disclaimer-card :deep(.text-body-2) {
+  line-height: 1.5 !important;
+}
+
 .disclaimer-card:hover {
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -682,20 +692,46 @@ useWebSiteStructuredData();
 .countdown-card :deep(.text-h6),
 .countdown-card :deep(.text-body-2) {
   color: rgb(var(--v-theme-on-surface)) !important;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  line-height: 1.5 !important;
 }
 
 .compliance-link {
-  color: rgb(var(--v-theme-primary)) !important;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
+  /* Use black for maximum contrast on light background (21:1) */
+  color: #000000 !important;
   text-decoration: none;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   transition: opacity 0.2s ease;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .compliance-link,
+.v-theme--dark .compliance-link {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
+  color: #BFDBFE !important; /* Lighter blue (#BFDBFE) for 7:1+ contrast on dark background */
 }
 
 .compliance-link:hover {
-  opacity: 0.8;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Don't reduce opacity, maintain full contrast */
+  opacity: 1 !important;
   text-decoration: underline;
+  /* Maintain AAA contrast on hover */
+  color: #000000 !important;
+}
+
+/* Dark theme: use lighter color for AAA contrast on hover */
+[data-v-theme="dark"] .compliance-link:hover,
+.v-theme--dark .compliance-link:hover {
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain 7:1 contrast on hover */
+  color: #BFDBFE !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .compliance-link:focus-visible {
@@ -710,15 +746,40 @@ useWebSiteStructuredData();
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Override text-medium-emphasis for better contrast */
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Dark theme: ensure AAA contrast for site dates */
+[data-v-theme="dark"] .site-dates,
+.v-theme--dark .site-dates {
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 .date-item {
   display: inline-flex;
   align-items: center;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure text meets AAA contrast */
+  color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Dark theme: ensure AAA contrast for date items */
+[data-v-theme="dark"] .date-item,
+.v-theme--dark .date-item {
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 .date-separator {
-  opacity: 0.5;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
+  opacity: 0.7 !important;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+/* Dark theme: ensure AAA contrast for date separators */
+[data-v-theme="dark"] .date-separator,
+.v-theme--dark .date-separator {
+  opacity: 0.7 !important;
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 .countdown-display {
@@ -761,19 +822,35 @@ useWebSiteStructuredData();
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0.5rem;
-  opacity: 0.8;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
+  opacity: 0.9 !important;
   color: rgb(var(--v-theme-on-surface)) !important;
+}
+
+/* Dark theme: ensure AAA contrast for countdown labels */
+[data-v-theme="dark"] .countdown-label,
+.v-theme--dark .countdown-label {
+  opacity: 1 !important;
+  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
 }
 
 .countdown-separator {
   font-size: 3rem;
   font-weight: bold;
-  opacity: 0.5;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
+  opacity: 0.7 !important;
   padding: 0 0.25rem;
   color: rgb(var(--v-theme-on-surface)) !important;
   line-height: 1;
   display: flex;
   align-items: center;
+}
+
+/* Dark theme: ensure AAA contrast for countdown separators */
+[data-v-theme="dark"] .countdown-separator,
+.v-theme--dark .countdown-separator {
+  opacity: 0.8 !important;
+  color: rgb(248, 250, 252) !important; /* Higher contrast on dark background */
 }
 
 /* Screen reader only text - visually hidden but available to assistive technologies */
@@ -879,13 +956,47 @@ useWebSiteStructuredData();
   padding-bottom: 1rem;
 }
 
-.faq-sort {
+.faq-sort-wrapper {
+  display: flex;
+  flex-direction: column;
   min-width: 220px;
   max-width: 320px;
 }
 
-.faq-sort :deep(.v-field) {
-  background: rgb(var(--v-theme-surface));
+.faq-sort {
+  font-size: 0.813rem;
+  padding: 8px 12px;
+  padding-right: 32px;
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.3);
+  border-radius: 4px;
+  background-color: rgb(var(--v-theme-surface));
+  color: rgb(var(--v-theme-on-surface));
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
+  min-width: 44px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.faq-sort:hover {
+  border-color: rgba(var(--v-theme-primary), 0.5);
+  background-color: rgba(var(--v-theme-primary), 0.05);
+}
+
+.faq-sort:focus {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+  border-color: rgb(var(--v-theme-primary));
+}
+
+.faq-sort:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
 }
 
 .faq-main-title {
@@ -910,6 +1021,27 @@ useWebSiteStructuredData();
   opacity: 0.85;
   margin-bottom: 1.5rem;
   line-height: 1.75;
+}
+
+/* WCAG 2.5.5 Target Size (Enhanced) - AAA: Ensure all links in FAQ intro meet 44x44px */
+.faq-intro :deep(a) {
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: baseline;
+  margin: -4px 0;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .faq-intro :deep(a),
+.v-theme--dark .faq-intro :deep(a) {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .faq-intro :deep(hr) {

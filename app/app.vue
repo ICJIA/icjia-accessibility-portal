@@ -88,4 +88,29 @@
     min-width: 100% !important;
   }
 }
+
+/* ============================================================
+   WCAG 1.4.8 Visual Presentation (Enhanced) - AAA
+   Line-height for paragraphs must be at least 1.5 times font size
+   ============================================================ */
+
+/* Global paragraph line-height enforcement */
+p,
+.text-body-1,
+.text-body-2,
+.text-caption {
+  line-height: 1.5 !important;
+}
+
+/* Ensure all paragraphs in content areas meet AAA requirement */
+:deep(p) {
+  line-height: 1.5 !important;
+}
+
+/* Vuetify text classes - ensure minimum 1.5 line-height */
+.v-application .text-body-1,
+.v-application .text-body-2,
+.v-application .text-caption {
+  line-height: 1.5 !important;
+}
 </style>

@@ -23,7 +23,7 @@
               >mdi-information</v-icon
             >
             <div class="flex-grow-1">
-              <h3 class="text-h6 mb-3">About These FAQs</h3>
+              <h2 class="text-h6 mb-3">About These FAQs</h2>
               <div class="text-body-2">
                 <p
                   v-for="(item, index) in disclaimerItems"
@@ -46,19 +46,22 @@
               >
               <span>{{ page?.title || "Frequently Asked Questions" }}</span>
             </h1>
-            <v-select
-              v-model="faqSort"
-              class="faq-sort"
-              :items="faqSortOptions"
-              item-title="title"
-              item-value="value"
-              label="Sort"
-              density="compact"
-              variant="outlined"
-              hide-details
-              aria-label="Sort Frequently Asked Questions"
-              style="font-size: 0.813rem"
-            />
+            <div class="faq-sort-wrapper">
+              <label for="faq-sort-select" class="sr-only">Sort Frequently Asked Questions</label>
+              <select
+                id="faq-sort-select"
+                v-model="faqSort"
+                class="faq-sort"
+              >
+                <option
+                  v-for="option in faqSortOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.title }}
+                </option>
+              </select>
+            </div>
           </div>
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
             {{
@@ -473,6 +476,12 @@ useBreadcrumbStructuredData([
   transition: all 0.2s ease;
 }
 
+/* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Ensure all paragraphs in disclaimer have 1.5+ line-height */
+.disclaimer-card :deep(p),
+.disclaimer-card :deep(.text-body-2) {
+  line-height: 1.5 !important;
+}
+
 .disclaimer-card:hover {
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -490,29 +499,59 @@ useBreadcrumbStructuredData([
   flex-wrap: wrap;
 }
 
-.faq-sort {
+.faq-sort-wrapper {
+  display: flex;
+  flex-direction: column;
   min-width: 180px;
   max-width: 280px;
 }
 
-/* Target all text inside the select with !important */
-.faq-sort :deep(.v-field) {
-  font-size: 0.813rem !important;
+.faq-sort {
+  font-size: 0.813rem;
+  padding: 8px 12px;
+  padding-right: 32px;
+  border: 1px solid rgba(var(--v-theme-on-surface), 0.3);
+  border-radius: 4px;
+  background-color: rgb(var(--v-theme-surface));
+  color: rgb(var(--v-theme-on-surface));
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
+  min-width: 44px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.faq-sort :deep(.v-field__input),
-.faq-sort :deep(.v-field__field),
-.faq-sort :deep(.v-select__selection),
-.faq-sort :deep(.v-select__selection-text),
-.faq-sort :deep(input),
-.faq-sort :deep(label),
-.faq-sort :deep(.v-field-label) {
-  font-size: 0.813rem !important;
+.faq-sort:hover {
+  border-color: rgba(var(--v-theme-primary), 0.5);
+  background-color: rgba(var(--v-theme-primary), 0.05);
 }
 
-/* Also make the dropdown menu items smaller */
-.faq-sort :deep(.v-list-item-title) {
-  font-size: 0.813rem !important;
+.faq-sort:focus {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+  border-color: rgb(var(--v-theme-primary));
+}
+
+.faq-sort:focus-visible {
+  outline: 2px solid rgb(var(--v-theme-primary));
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Intro content styling */
@@ -530,6 +569,27 @@ useBreadcrumbStructuredData([
   opacity: 0.85;
   margin-bottom: 1.5rem;
   line-height: 1.75;
+}
+
+/* WCAG 2.5.5 Target Size (Enhanced) - AAA: Ensure all links in FAQ intro meet 44x44px */
+.faq-intro :deep(a) {
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
+  display: inline-block;
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 12px;
+  box-sizing: border-box;
+  line-height: 1.5;
+  vertical-align: baseline;
+  margin: -4px 0;
+  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
+  color: rgb(var(--v-theme-primary-darken-1)) !important;
+}
+
+/* Dark theme: use lighter color for AAA contrast */
+[data-v-theme="dark"] .faq-intro :deep(a),
+.v-theme--dark .faq-intro :deep(a) {
+  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .faq-intro :deep(hr) {
@@ -592,35 +652,11 @@ useBreadcrumbStructuredData([
 }
 </style>
 
-<!-- Global styles to override Vuetify v-select internals -->
+<!-- Global styles -->
 <style>
 /* Add spacing after code blocks (visual aids) in FAQ content */
 .faq-section-group pre,
 .v-expansion-panel-text pre {
   margin-bottom: 1.5rem !important;
-}
-
-.faq-sort.v-select .v-field__input,
-.faq-sort.v-select .v-select__selection-text,
-.faq-sort.v-select .v-field-label,
-.faq-sort .v-field__input,
-.faq-sort .v-select__selection-text,
-.faq-sort .v-field-label {
-  font-size: 0.8125rem !important;
-}
-
-/* Reduce the overall height and padding of the select */
-.faq-sort .v-field {
-  min-height: 36px !important;
-}
-
-.faq-sort .v-field__input {
-  padding-top: 6px !important;
-  padding-bottom: 6px !important;
-  min-height: 36px !important;
-}
-
-.faq-sort .v-field__outline {
-  --v-field-border-opacity: 0.3;
 }
 </style>
