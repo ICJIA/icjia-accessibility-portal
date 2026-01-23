@@ -16,16 +16,45 @@ const findFaqQuestionById = (anchorId: string): HTMLElement | null => {
     return element;
   }
 
-  // If not found, search for FAQ panels with IDs that match or end with the anchor ID
-  // This handles section-prefixed IDs like "content-accessibility-how-do-i-make-a-pdf-accessible"
+  // If not found, search for FAQ panels with IDs that match
   const allFaqPanels = document.querySelectorAll<HTMLElement>('.faq-panel[id]');
+  
+  // First pass: check exact match or suffix match
   for (const panel of allFaqPanels) {
     const id = panel.id;
     // Check if ID exactly matches or ends with the anchor (handles section prefixes)
-    // e.g., "how-do-i-make-a-pdf-accessible" matches "content-accessibility-how-do-i-make-a-pdf-accessible"
-    // e.g., "getting-started-i-m-a-web-developer-where-do-i-start" matches exactly
     if (id === anchorId || id.endsWith(`-${anchorId}`)) {
       return panel;
+    }
+  }
+
+  // Second pass: fuzzy match for cross-sort-mode linking
+  // When sorted by "latest first", IDs use "all-faqs-" prefix instead of section prefix
+  // We need to match on the question text portion regardless of prefix
+  // Strategy: Find the longest common suffix between anchor and panel IDs
+  for (const panel of allFaqPanels) {
+    const id = panel.id;
+    
+    // Extract what looks like the question portion from both IDs
+    // Question slugs typically start with common words like "who", "what", "how", "why", "is", "do", "are", "can", "i-m"
+    const questionPatterns = [
+      'who-s-', 'what-', 'how-', 'why-', 'is-', 'do-', 'are-', 'can-', 'i-m-', 'we-', 'my-',
+      'should-', 'will-', 'does-', 'if-', 'when-', 'where-', 'which-'
+    ];
+    
+    for (const pattern of questionPatterns) {
+      const anchorQStart = anchorId.indexOf(pattern);
+      const panelQStart = id.indexOf(pattern);
+      
+      if (anchorQStart > 0 && panelQStart > 0) {
+        // Compare the question portion (from the pattern onwards)
+        const anchorQuestion = anchorId.substring(anchorQStart);
+        const panelQuestion = id.substring(panelQStart);
+        
+        if (anchorQuestion === panelQuestion) {
+          return panel;
+        }
+      }
     }
   }
 

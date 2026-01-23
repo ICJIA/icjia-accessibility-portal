@@ -18,6 +18,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 > **Quick path (for busy readers):**
 >
 > - **Skeptical about this FAQ?** [Why should I trust this if it wasn't created by leadership?](#understanding-accessibility-why-should-i-trust-this-faq-if-it-wasn-t-created-by-agency-leadership-or-official-accessibility-experts)
+> - **Wondering why this matters?** [Why should accessibility be a priority when I have other responsibilities?](#understanding-accessibility-i-m-already-busy-why-should-accessibility-be-a-priority-when-i-have-other-responsibilities)
 > - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
 > - **Jump to your role:** [Content creators](#quick-reference-critical-actions-by-role-for-content-creators) · [Web developers](#quick-reference-critical-actions-by-role-for-web-developers) · [Managers](#quick-reference-critical-actions-by-role-for-managers) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
 > - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
@@ -148,6 +149,75 @@ Here's why this FAQ is worth your time:
 6. **Check with official sources when stakes are high:** For legal interpretations, procurement decisions, or formal complaints, consult Illinois DoIT (`DoIT.Accessibility@Illinois.gov`) or ICJIA's legal counsel — not this FAQ.
 
 **Bottom line:** Use this FAQ as a practical starting point, but verify anything critical against the official sources it cites. The deadline is real regardless of who explains it to you.
+
+---
+
+### I'm already busy. Why should accessibility be a priority when I have other responsibilities?
+
+{new:2026-01-23}
+
+**Quick answer:** Accessibility helps ensure that the people we serve can actually use the services and information we provide. For agencies committed to diversity, equity, inclusion, and accessibility (DEIA), accessible content is part of how we put those values into practice.
+
+**Full explanation:**
+
+This is a fair question. Everyone has competing demands, and new requirements on top of existing work can feel overwhelming. Here's some perspective on why accessibility matters — not as judgment, but as context for the work we're being asked to do.
+
+**1. Accessibility expands who we can reach.**
+
+When content is accessible, more people can use it. A properly structured PDF works for everyone, including someone using a screen reader. A captioned video serves people who are deaf or hard of hearing, but also people watching in a noisy environment or those who prefer reading along. Accessible design often benefits people beyond those with permanent disabilities.
+
+In Illinois alone, over 1.3 million adults have disabilities that may affect how they access digital content. Nationally, that's over 60 million people. Accessible content simply means our work reaches more of the public we're here to serve.
+
+**2. Accessibility gives meaning to DEIA commitments.**
+
+The "A" in DEIA stands for Accessibility — and it's not separate from equity and inclusion; it informs them. True equity means ensuring people with disabilities have the same access to information and services as everyone else. True inclusion means our content works for people regardless of how they interact with it.
+
+When we build accessibility into our work, we're demonstrating that DEIA is more than a statement — it's reflected in what we produce.
+
+**3. This connects to a broader civil rights framework.**
+
+The ADA was enacted because people with disabilities faced barriers to participating fully in public life. Digital accessibility extends that same principle to websites, documents, and online services. Just as buildings have ramps and elevators, digital content needs to be navigable and usable by people with different abilities.
+
+As digital services have become central to how people interact with government, the same principles naturally extend to online spaces.
+
+**4. Everyone is busy — and we can still make progress.**
+
+No one is suggesting that accessibility should crowd out all other work. The goal is to integrate accessible practices into what we already do. Over time, these practices become routine — adding alt text, using heading styles, checking color contrast. Small, consistent efforts add up.
+
+The learning curve is real, but manageable. Most accessibility improvements don't require specialized expertise — just awareness and a willingness to adjust workflows.
+
+**5. This benefits everyone, including ourselves.**
+
+Accessible content tends to be better-organized, easier to navigate, and more usable for all audiences. The same structure that helps a screen reader user also helps someone skimming a document or searching for specific information. Accessibility improvements often make content better for everyone.
+
+**6. Accessible content has no downsides — only upsides.**
+
+There's no tradeoff here. Accessible content doesn't look worse, perform slower, or cost more to maintain. In fact, the opposite is true:
+
+- **Better SEO (Search Engine Optimization):** Search engines can't "see" images or understand poorly structured pages. The same practices that make content accessible — descriptive headings, alt text, semantic structure, transcripts — also help search engines index and rank your content. More accessible content means more people can *find* it in the first place.
+- **Wider reach:** Content that works for people with disabilities also works for people on slow connections, older devices, or non-standard browsers.
+- **Future-proofing:** Well-structured, semantic content adapts more easily to new technologies and platforms.
+- **Reduced legal risk:** Accessible content is compliant content — fewer complaints, fewer remediation emergencies.
+
+Accessibility is one of the rare cases where doing the right thing also happens to be the practical thing. There's no version of this where inaccessible content is the better choice.
+
+**In summary:**
+
+Accessibility work isn't about adding something extra — it's about building content that serves the full range of people who need it. It aligns with the values our agency has already committed to, and it makes our work more effective for the public we serve.
+
+**A note on these FAQs:**
+
+You may be wondering why guidance on this topic is coming from a web developer rather than agency leadership or legal counsel. Fair question. These FAQs aren't personal opinion — they're based on federal regulations (ADA Title II), state law (IITAA), and established standards (WCAG 2.1). The sources are cited throughout.
+
+This resource exists because the developer behind it believes in accessibility — not as an abstract principle, but from personal experience with how much it matters when content is (or isn't) usable by everyone. This is a labor of love, not an attempt to lecture colleagues or claim expertise others don't have. The goal is simply to gather the guidance that exists and make it accessible (in every sense) to the people who need it.
+
+If something here is wrong or could be said better, feedback is welcome. The point was never to tell anyone what to do — just to help.
+
+**References:**
+
+- <a href="https://www.cdc.gov/ncbddd/disabilityandhealth/infographic-disability-impacts-all.html" target="_blank" rel="noopener noreferrer">CDC: Disability Impacts All of Us</a> — Statistics on disability prevalence
+- <a href="https://www.ada.gov/resources/disability-rights-guide/" target="_blank" rel="noopener noreferrer">ADA.gov: Guide to Disability Rights Laws</a> — Civil rights framework for accessibility
+- <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">W3C: Introduction to Web Accessibility</a> — Why accessibility matters
 
 ---
 
@@ -704,7 +774,7 @@ It's natural to feel overwhelmed by new compliance requirements, especially when
 
 | Concern | Reality |
 | ------- | ------- |
-| "Enforcement might not happen" | Multiple pathways exist for identifying non-compliance: DOJ investigations, individual complaints, advocacy organization audits, automated scans, and grant compliance reviews. See [Who's going to notice if we're not compliant?](#common-concerns-whos-going-to-notice-if-were-not-compliant-by-april-24-2026) |
+| "Enforcement might not happen" | Multiple pathways exist for identifying non-compliance: DOJ investigations, individual complaints, advocacy organization audits, automated scans, and grant compliance reviews. See [Who's going to notice if we're not compliant?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-24-2026) |
 | "We can fix it later if needed" | Reactive remediation is significantly more expensive than proactive compliance. Fixing inaccessible content after creation typically costs 2-10x more than building it right the first time. |
 | "Staff are already busy" | Accessibility isn't additional work — it's a change in how existing work is done. Starting now allows staff to learn gradually rather than scramble at the deadline. |
 | "The rules might change" | WCAG 2.1 Level AA has been the established standard since 2018. The federal rule codified what was already best practice and Illinois state law. |
@@ -760,7 +830,7 @@ WCAG is organized around four principles, known as **POUR**:
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">W3C: WCAG Overview</a> — Official overview of WCAG standards
 - <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/" target="_blank" rel="noopener noreferrer">W3C: Accessibility Principles</a> — Detailed explanation of POUR principles
 
-**See also:** [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-21-level-aa-mean) | [What WCAG requirements are commonly overlooked?](#website-accessibility-what-wcag-requirements-are-commonly-overlooked)
+**See also:** [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-2-1-level-aa-mean) | [What WCAG requirements are commonly overlooked?](#website-accessibility-what-wcag-requirements-are-commonly-overlooked)
 
 ### What does "WCAG 2.1 Level AA" mean?
 
@@ -2115,7 +2185,7 @@ Alt text is a brief written description of an image that screen readers read alo
 - <a href="https://www.w3.org/WAI/tutorials/images/" target="_blank" rel="noopener noreferrer">W3C: Images Tutorial</a> — Official guidance on alt text length and complexity
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — WCAG requirement for text alternatives
 
-**See also:** [What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?](#content-accessibility-documents-pdfs-presentations-what-about-photos-your-agency-takes-at-events-like-speeches-or-awards-ceremonies-do-those-need-to-be-accessible) | [How do I handle complex images like charts, graphs, or infographics?](#content-accessibility-documents-pdfs-presentations-how-do-i-handle-complex-images-like-charts-graphs-or-infographics) | [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
+**See also:** [What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?](#content-accessibility-documents-pdfs-presentations-what-about-photos-your-agency-takes-at-events-like-speeches-or-awards-ceremonies-do-those-need-to-b) | [How do I handle complex images like charts, graphs, or infographics?](#content-accessibility-documents-pdfs-presentations-how-do-i-handle-complex-images-like-charts-graphs-or-infographics) | [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
 
 ### How do I handle complex images like charts, graphs, or infographics?
 
@@ -3260,7 +3330,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 - [What is digital accessibility?](#understanding-accessibility-what-is-digital-accessibility)
 - [What is WCAG?](#common-concerns-what-is-wcag)
-- [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-21-level-aa-mean)
+- [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-2-1-level-aa-mean)
 - [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid)
 - [What WCAG requirements are commonly overlooked?](#website-accessibility-what-wcag-requirements-are-commonly-overlooked)
 
@@ -3289,7 +3359,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Images & Alt Text
 
-- [What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?](#content-accessibility-documents-pdfs-presentations-what-about-photos-your-agency-takes-at-events-like-speeches-or-awards-ceremonies-do-those-need-to-be-accessible)
+- [What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?](#content-accessibility-documents-pdfs-presentations-what-about-photos-your-agency-takes-at-events-like-speeches-or-awards-ceremonies-do-those-need-to-b)
 - [How long should alt text be?](#content-accessibility-documents-pdfs-presentations-how-long-should-alt-text-be)
 - [How do I handle complex images like charts, graphs, or infographics?](#content-accessibility-documents-pdfs-presentations-how-do-i-handle-complex-images-like-charts-graphs-or-infographics)
 - [How do I make images accessible on social media, Constant Contact, or Canva?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-images-accessible-on-social-media-constant-contact-or-canva)
@@ -3338,7 +3408,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 - [How do we prioritize accessibility work with limited resources and a ticking clock?](#state-agency-applicability-how-do-we-prioritize-accessibility-work-with-limited-resources-and-a-ticking-clock)
 - [What's the bare minimum we need to do by April 2026?](#state-agency-applicability-what-s-the-bare-minimum-we-need-to-do-by-april-2026)
 - [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
-- [Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?](#getting-started-who-signs-off-that-we-re-compliant-can-we-certify-wcag-21-level-aa-compliance)
+- [Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?](#getting-started-who-signs-off-that-we-re-compliant-can-we-certify-wcag-2-1-level-aa-compliance)
 
 ### Getting Help
 
