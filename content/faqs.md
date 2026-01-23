@@ -222,6 +222,81 @@ These four skills address the most common issues per the <a href="https://webaim
 
 **See also:** [How do I make a Word document accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-word-document-accessible) | [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible) | [How long should alt text be?](#content-accessibility-documents-pdfs-presentations-how-long-should-alt-text-be) | [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid)
 
+### How should I track my accessibility fixes as a content creator?
+
+{new:2026-01-23}
+
+**Quick answer:** Keep it simple — use whatever tool you already use for tracking work. A shared spreadsheet, a note in your existing task system, or even a running document is fine. The goal is consistency, not complexity. Track what you fixed, when, and what's left.
+
+**Full explanation:**
+
+You don't need specialized software to track accessibility fixes. The best system is one you'll actually use. Here are practical options ranked by simplicity:
+
+**Option 1: Simple checklist (for individual documents)**
+
+When you create or update a document, run through a quick mental checklist:
+
+- ☐ Alt text on all images
+- ☐ Heading styles used (not just bold)
+- ☐ Descriptive link text
+- ☐ Ran Accessibility Checker (Word/PowerPoint/PDF)
+- ☐ Sufficient color contrast
+
+Keep a sticky note or saved note with this checklist. Once it becomes habit, you won't need to reference it.
+
+**Option 2: Simple spreadsheet (for tracking multiple documents)**
+
+If you have existing content to remediate, a basic spreadsheet works well:
+
+| Document Name | Location | Status | Date Fixed | Notes |
+| ------------- | -------- | ------ | ---------- | ----- |
+| 2025 Annual Report.pdf | SharePoint/Reports | Fixed | 2026-01-15 | Added alt text, fixed headings |
+| Grant Application Form.docx | Shared Drive | Needs work | — | Complex tables, needs review |
+| Training Slides.pptx | Teams | Fixed | 2026-01-20 | Added slide titles, alt text |
+
+**Columns to include:**
+
+- **Document name** — What is it?
+- **Location** — Where is it stored/published?
+- **Status** — Not started / In progress / Fixed / N/A
+- **Date fixed** — When was it remediated?
+- **Notes** — Any issues or things to remember
+
+**Option 3: Add to your existing task system**
+
+If you use Outlook tasks, Teams Planner, Asana, or any other task manager, simply add accessibility fixes as tasks. Tag them with "accessibility" or create a category so you can filter and report on them.
+
+**Option 4: Unit-level tracking (if your manager requests it)**
+
+Your manager may want to track accessibility progress across the team. In that case, contribute to whatever shared tracker they set up. This is usually a shared spreadsheet or project board.
+
+**What NOT to do:**
+
+- **Don't create an elaborate system you won't maintain** — A simple list you update is better than a complex database you ignore
+- **Don't track every tiny fix** — Focus on documents that are published or shared publicly
+- **Don't wait for a perfect system** — Start tracking now with whatever you have
+
+**Tips for success:**
+
+1. **Track as you go** — Update your tracker when you fix something, not later
+2. **Focus on public content first** — Internal drafts matter less than published documents
+3. **Note blockers** — If something requires help (complex tables, legacy PDFs), flag it for your manager
+4. **Celebrate progress** — Watching your "fixed" list grow is motivating
+
+**What your manager needs to know:**
+
+If asked to report on your progress, you should be able to say:
+
+- _"I've fixed X documents this month"_
+- _"I have Y documents remaining in my backlog"_
+- _"These Z items need help or a decision"_
+
+A simple spreadsheet or task list gives you this information.
+
+**Key takeaway:** Don't overthink it. The goal is awareness and progress, not perfect documentation. Pick the simplest method that fits your workflow, and start using it today.
+
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-i-m-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
+
 ### I'm a web developer. Where do I start?
 
 **You're building the foundation.** Here's your priority roadmap:
@@ -2415,6 +2490,104 @@ Key steps for accessible Excel files:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for charts/images)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.1 Use of Color - Level A</a> (don't rely on color alone)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+
+### I work with complex data tables. Why does our website use Markdown, and how do I make my tables accessible?
+
+{new:2026-01-23}
+
+**Quick answer:** Markdown is the bridge between your Word documents and live web content. It's a simple text format that content management systems (like Strapi) use to store and display content on websites. For complex tables, **start with an accessible Word table** — proper headers, simple structure, no merged cells — and the conversion to Markdown will be straightforward. The accessibility principles are the same in both formats.
+
+**Full explanation:**
+
+**Why Markdown?**
+
+Many people ask: _"Why can't I just upload my Word document to the website?"_ The answer involves how modern websites work:
+
+| Format | Good for | Limitations |
+| ------ | -------- | ----------- |
+| **Word (.docx)** | Creating and editing content, internal review, printing | Not directly displayable on websites; requires download |
+| **PDF** | Preserving exact layout, printing | Hard to make accessible; not responsive on mobile; requires download |
+| **HTML** | Displaying on websites | Complex to write by hand; requires web development skills |
+| **Markdown** | Bridge between Word and HTML | Simple to learn; converts cleanly to HTML; works with CMS platforms |
+
+**Markdown is the translation layer.** Content management systems like Strapi, WordPress, and others use Markdown because:
+
+1. **It's simple** — You can learn the basics in 10 minutes
+2. **It converts to HTML automatically** — The CMS handles the technical conversion
+3. **It separates content from design** — Writers focus on content; the website handles how it looks
+4. **It's accessible by design** — Markdown headings become proper HTML headings; Markdown tables become proper HTML tables with headers
+
+**The content workflow:**
+
+```
+Word Document → Markdown (in CMS) → HTML (on website)
+     ↑                                    ↓
+  You create                        Users view
+  and edit                          accessible
+  content                           web content
+```
+
+**Why tables feel harder in Markdown:**
+
+Markdown table syntax looks like this:
+
+```
+| Column A | Column B | Column C |
+| -------- | -------- | -------- |
+| Data 1   | Data 2   | Data 3   |
+| Data 4   | Data 5   | Data 6   |
+```
+
+This is admittedly less intuitive than a Word table. However, **you don't necessarily need to write Markdown directly**. Many CMS platforms have visual editors that let you create tables without seeing the Markdown syntax.
+
+**Making tables accessible (regardless of format):**
+
+The same principles apply whether your table is in Word, Markdown, or HTML:
+
+| Principle | In Word | In Markdown/HTML |
+| --------- | ------- | ---------------- |
+| **Simple structure** | Avoid merged cells, nested tables | Same — keep it simple |
+| **Header row** | Format as Table with header row checked | First row automatically becomes headers |
+| **One topic per table** | Split complex tables into multiple simpler ones | Same |
+| **Avoid layout tables** | Don't use tables for visual layout | Same |
+| **Caption/title** | Add a title above the table | Add a heading or caption above |
+
+**For data scientists and analysts working with complex tables:**
+
+If you're creating tables with many columns, merged headers, or nested data:
+
+1. **Simplify where possible** — Can you split one complex table into multiple simpler ones?
+2. **Consider alternatives** — Would a list or multiple smaller tables be clearer?
+3. **If complexity is unavoidable** — Add a text summary describing the key findings or patterns
+4. **Provide source data** — Link to downloadable CSV/Excel for users who need the raw data
+
+**Example: Simplifying a complex table**
+
+❌ **Hard to make accessible:**
+
+| Region | Q1 Sales | Q1 % | Q2 Sales | Q2 % | Q3 Sales | Q3 % | Q4 Sales | Q4 % | Total | YoY Change |
+| ------ | -------- | ---- | -------- | ---- | -------- | ---- | -------- | ---- | ----- | ---------- |
+
+✅ **Easier approach:** Split into multiple tables (one per quarter) or provide a summary with a link to detailed data.
+
+**Practical tips for Word → Markdown workflow:**
+
+1. **Build your table simply in Word first** — Use Table > Insert Table; check "Header Row" in Table Design
+2. **Avoid merged cells** — They don't convert cleanly to Markdown
+3. **Test the Accessibility Checker in Word** — Fix issues before converting
+4. **Use your CMS's table tools** — Most have visual table editors
+5. **If you must write Markdown tables** — Use a <a href="https://www.tablesgenerator.com/markdown_tables" target="_blank" rel="noopener noreferrer">Markdown table generator</a> to create the syntax
+
+**Key takeaway:** Markdown isn't an obstacle — it's a tool that makes web content possible. Focus on making your content accessible in Word (simple structure, proper headers, no merged cells), and the Markdown conversion will follow. The accessibility principles are the same regardless of format.
+
+**References:**
+
+- <a href="https://www.markdownguide.org/basic-syntax/#tables" target="_blank" rel="noopener noreferrer">Markdown Guide: Tables</a> — Basic Markdown table syntax
+- <a href="https://www.tablesgenerator.com/markdown_tables" target="_blank" rel="noopener noreferrer">Tables Generator</a> — Visual tool for creating Markdown tables
+- <a href="https://www.w3.org/WAI/tutorials/tables/" target="_blank" rel="noopener noreferrer">W3C: Tables Tutorial</a> — Comprehensive guide to accessible tables
+- <a href="https://webaim.org/techniques/tables/data" target="_blank" rel="noopener noreferrer">WebAIM: Creating Accessible Tables</a> — Practical accessibility guidance
+
+**See also:** [How do I make Excel spreadsheets accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-excel-spreadsheets-accessible) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible)
 
 ### How do I make PowerPoint presentations accessible?
 
