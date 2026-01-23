@@ -17,6 +17,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 > **Quick path (for busy readers):**
 >
+> - **Skeptical about this FAQ?** [Why should I trust this if it wasn't created by leadership?](#understanding-accessibility-why-should-i-trust-this-faq-if-it-wasn-t-created-by-agency-leadership-or-official-accessibility-experts)
 > - **Start here (role-based checklist):** [Quick Reference: Critical Actions By Role](#quick-reference-critical-actions-by-role)
 > - **Jump to your role:** [Content creators](#quick-reference-critical-actions-by-role-for-content-creators) · [Web developers](#quick-reference-critical-actions-by-role-for-web-developers) · [Managers](#quick-reference-critical-actions-by-role-for-managers) · [Executive staff](#getting-started-i-m-on-executive-staff-where-do-i-start)
 > - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
@@ -121,6 +122,32 @@ _Last updated: January 8, 2026_
 **Start here:** [I'm a manager. Where do I start?](#getting-started-i-m-a-manager-where-do-i-start)
 
 ## Understanding Accessibility
+
+### Why should I trust this FAQ if it wasn't created by agency leadership or official accessibility experts?
+
+{new:2026-01-23}
+
+**Quick answer:** This FAQ is based on official sources — Illinois DoIT guidance, federal ADA regulations, and W3C standards — not personal opinion. The content's authority comes from the sources it cites, not the person who compiled it.
+
+**Full explanation:**
+
+This is a reasonable question. You may be wondering why guidance on an important compliance matter is coming from IT rather than executive leadership, legal counsel, or an official accessibility coordinator.
+
+Here's why this FAQ is worth your time:
+
+1. **The sources are authoritative, not the author:** Every major claim in this FAQ cites official sources — Illinois DoIT policies, the ADA Title II rule from the Federal Register, and W3C's WCAG standards. You can verify any information by checking the linked references.
+
+2. **Accessibility guidance follows established standards:** Unlike areas where professional judgment varies widely, digital accessibility has clear, published standards (WCAG 2.1 Level AA). The requirements are the same whether explained by a web developer, a consultant, or the Department of Justice.
+
+3. **This fills a gap, not a role:** As of January 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
+
+4. **Feedback is welcome:** If you find errors, outdated information, or areas where this FAQ doesn't align with official guidance, please contact ICJIA's IDS Unit with specific corrections. The goal is accuracy, not attribution.
+
+5. **Check with official sources when stakes are high:** For legal interpretations, procurement decisions, or formal complaints, consult Illinois DoIT (`DoIT.Accessibility@Illinois.gov`) or ICJIA's legal counsel — not this FAQ.
+
+**Bottom line:** Use this FAQ as a practical starting point, but verify anything critical against the official sources it cites. The deadline is real regardless of who explains it to you.
+
+---
 
 ### What is digital accessibility?
 
