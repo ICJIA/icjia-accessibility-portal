@@ -638,7 +638,7 @@ Instead of "don't worry about it," consider: _"Accessibility is a new compliance
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — Illinois state accessibility requirements (in effect since 2008)
 - <a href="https://www.w3.org/WAI/business-case/" target="_blank" rel="noopener noreferrer">W3C: The Business Case for Digital Accessibility</a> — Evidence on proactive vs. reactive compliance costs
 
-**See also:** [Who's going to notice if we're not compliant by April 24, 2026?](#common-concerns-whos-going-to-notice-if-were-not-compliant-by-april-24-2026) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-im-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
+**See also:** [Who's going to notice if we're not compliant by April 24, 2026?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-24-2026) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-i-m-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
 
 ### What is WCAG?
 

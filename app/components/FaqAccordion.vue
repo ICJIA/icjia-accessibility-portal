@@ -346,7 +346,13 @@ function findPanelByHash(hash: string): number {
     if (!item) continue;
     const questionSlug = slugify(item.question);
     // If the hash ends with the question slug, it's a match
-    if (id === questionSlug || id.endsWith("-" + questionSlug)) {
+    // Also try matching without hyphens to be extra resilient to manual link entries
+    const cleanId = id.replace(/-/g, '');
+    const cleanQuestionSlug = questionSlug.replace(/-/g, '');
+    
+    if (id === questionSlug || 
+        id.endsWith("-" + questionSlug) || 
+        cleanId.endsWith(cleanQuestionSlug)) {
       return i;
     }
   }
