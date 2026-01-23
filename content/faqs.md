@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-01-08
+lastUpdated: 2026-01-23
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -578,6 +578,67 @@ Accessibility violations have characteristics that make them more likely to be d
 - <a href="https://www.ada.gov/topics/web-accessibility/" target="_blank" rel="noopener noreferrer">DOJ: Web Accessibility</a> — Information about web accessibility enforcement
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule</a> — Official rule text including enforcement provisions
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA Information</a> — State-level accessibility requirements and compliance information
+
+### Given the uncertainty around enforcement, can we tell staff to continue with their current workflows for now?
+
+{new:2026-01-23}
+
+**Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 24, 2026, under both ADA Title II and Illinois IITAA. Directing staff to ignore accessibility requirements exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
+
+**Full explanation:**
+
+It's natural to feel overwhelmed by new compliance requirements, especially when some details about enforcement are still developing. However, several key points are already certain:
+
+**What is NOT uncertain:**
+
+- **The deadline is set:** April 24, 2026, is codified in federal regulation. This is not a proposal or guideline — it's law.
+- **The standard is defined:** WCAG 2.1 Level AA is the specific, measurable requirement. There's no ambiguity about what compliance means.
+- **Illinois law already requires this:** IITAA has required accessible digital content since 2008. The federal ADA rule reinforces existing state obligations.
+- **The legal framework is established:** ADA Title II has been enforced for decades. The web accessibility rule clarifies how it applies to digital content, but the underlying civil rights protections are long-standing.
+
+**Why "wait and see" creates more problems:**
+
+| Concern | Reality |
+| ------- | ------- |
+| "Enforcement might not happen" | Multiple pathways exist for identifying non-compliance: DOJ investigations, individual complaints, advocacy organization audits, automated scans, and grant compliance reviews. See [Who's going to notice if we're not compliant?](#common-concerns-whos-going-to-notice-if-were-not-compliant-by-april-24-2026) |
+| "We can fix it later if needed" | Reactive remediation is significantly more expensive than proactive compliance. Fixing inaccessible content after creation typically costs 2-10x more than building it right the first time. |
+| "Staff are already busy" | Accessibility isn't additional work — it's a change in how existing work is done. Starting now allows staff to learn gradually rather than scramble at the deadline. |
+| "The rules might change" | WCAG 2.1 Level AA has been the established standard since 2018. The federal rule codified what was already best practice and Illinois state law. |
+| "This FAQ itself might be wrong or incomplete" | Fair point — this FAQ is internal guidance, not legal advice. But the underlying sources are authoritative: the published federal rule, Illinois DoIT's IITAA guidance, and W3C's WCAG standards. When in doubt, go directly to the source. This FAQ translates those sources into practical guidance, but the legal requirements exist independently of this document. |
+| "I just want to keep things simple and move forward" | Understandable. The simplest path forward is to build accessibility into your workflow now rather than maintain two approaches (current workflow + future remediation). Learning alt text, headings, and contrast takes less time than explaining to leadership why your content needs emergency fixes at the deadline. |
+
+**The risk of directing staff not to prioritize accessibility:**
+
+- **Legal exposure:** The agency bears responsibility for compliance. Documented decisions to deprioritize accessibility could be relevant in enforcement actions.
+- **Accumulating debt:** Every inaccessible document, video, or webpage created between now and the deadline adds to the remediation backlog.
+- **Culture and momentum:** Staff who are told "don't worry about it" will need to be re-trained and re-motivated later, which is harder than building habits now.
+- **Service impact:** Real people with disabilities are unable to access agency information and services while compliance is delayed.
+
+**A more sustainable approach:**
+
+Rather than all-or-nothing, consider a phased approach:
+
+1. **Start with new content:** Everything created from today forward should follow accessibility basics (alt text, headings, captions, contrast)
+2. **Prioritize high-impact items:** Focus remediation on high-traffic pages, critical services, and frequently-used documents
+3. **Build capacity gradually:** Provide training in manageable increments rather than overwhelming staff
+4. **Document progress:** Track what's been addressed to demonstrate good-faith efforts
+
+**What to say to your team:**
+
+> **Don't do this:** Telling staff "don't worry about accessibility" creates documented evidence that your unit deprioritized a legal compliance requirement. If an enforcement action occurs, this guidance could be relevant. It also sets a tone that's difficult to reverse later.
+
+Instead of "don't worry about it," consider: _"Accessibility is a new compliance requirement, and we're building it into our workflows. Start with the basics on new content. We'll prioritize remediation based on impact and provide training to help you build these skills."_
+
+**Key takeaway:** Uncertainty about enforcement specifics doesn't reduce the legal obligation. The requirements are clear, the deadline is set, and the standard is defined. Starting now — even with small steps — is both the legally prudent and practically easier path forward.
+
+**References:**
+
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Official information about the rule and deadline
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule</a> — The published regulation with compliance timeline
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — Illinois state accessibility requirements (in effect since 2008)
+- <a href="https://www.w3.org/WAI/business-case/" target="_blank" rel="noopener noreferrer">W3C: The Business Case for Digital Accessibility</a> — Evidence on proactive vs. reactive compliance costs
+
+**See also:** [Who's going to notice if we're not compliant by April 24, 2026?](#common-concerns-whos-going-to-notice-if-were-not-compliant-by-april-24-2026) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-im-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
 
 ### What is WCAG?
 
