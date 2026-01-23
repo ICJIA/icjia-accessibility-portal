@@ -139,11 +139,13 @@ Here's why this FAQ is worth your time:
 
 2. **Accessibility guidance follows established standards:** Unlike areas where professional judgment varies widely, digital accessibility has clear, published standards (WCAG 2.1 Level AA). The requirements are the same whether explained by a web developer, a consultant, or the Department of Justice.
 
-3. **This fills a gap, not a role:** As of January 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
+3. **Web development has been doing this for years:** ICJIA's web development team has incorporated accessibility practices into website builds for years — semantic HTML, keyboard navigation, color contrast, alt text, and screen reader compatibility have been part of the work all along. What's changed isn't the practice; it's that accessibility is now a legal mandate rather than a best practice. If anyone in this agency has hands-on experience with accessibility requirements, it's the people who've been implementing them in code.
 
-4. **Feedback is welcome:** If you find errors, outdated information, or areas where this FAQ doesn't align with official guidance, please contact ICJIA's IDS Unit with specific corrections. The goal is accuracy, not attribution.
+4. **This fills a gap, not a role:** As of January 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
 
-5. **Check with official sources when stakes are high:** For legal interpretations, procurement decisions, or formal complaints, consult Illinois DoIT (`DoIT.Accessibility@Illinois.gov`) or ICJIA's legal counsel — not this FAQ.
+5. **Feedback is welcome:** If you find errors, outdated information, or areas where this FAQ doesn't align with official guidance, please contact ICJIA's IDS Unit with specific corrections. The goal is accuracy, not attribution.
+
+6. **Check with official sources when stakes are high:** For legal interpretations, procurement decisions, or formal complaints, consult Illinois DoIT (`DoIT.Accessibility@Illinois.gov`) or ICJIA's legal counsel — not this FAQ.
 
 **Bottom line:** Use this FAQ as a practical starting point, but verify anything critical against the official sources it cites. The deadline is real regardless of who explains it to you.
 
