@@ -333,21 +333,20 @@ function highlightTextInElement(element: HTMLElement, searchTerm: string) {
 function findPanelByHash(hash: string): number {
   const id = hash.replace("#", "");
 
-  // First try exact match (with section prefix)
+  // 1. Try exact match (with current section prefix)
   let index = props.items.findIndex(
     (item) => getQuestionId(item.question) === id
   );
   if (index >= 0) return index;
 
-  // If not found, try matching without section prefix
-  // This handles cases where hash is just "how-do-i-make-a-pdf-accessible"
-  // but the actual ID is "content-accessibility-how-do-i-make-a-pdf-accessible"
+  // 2. Try matching the question slug directly (ignoring whatever prefix the hash has)
+  // This handles cross-prefix matching (e.g. "all-faqs-" vs "common-concerns-")
   for (let i = 0; i < props.items.length; i++) {
     const item = props.items[i];
     if (!item) continue;
-    const fullId = getQuestionId(item.question);
-    // Check if the full ID ends with the hash ID (handles section prefixes)
-    if (fullId === id || fullId.endsWith(`-${id}`)) {
+    const questionSlug = slugify(item.question);
+    // If the hash ends with the question slug, it's a match
+    if (id === questionSlug || id.endsWith("-" + questionSlug)) {
       return i;
     }
   }
@@ -374,18 +373,28 @@ async function openPanelFromHash(hash: string) {
   // Wait for DOM update then scroll
   await nextTick();
   setTimeout(() => {
-    // Try to find the element by the hash ID (might have section prefix)
     const hashId = hash.replace("#", "");
+    // 1. Try to find the element by the hash ID directly
     let element = document.getElementById(hashId);
 
-    // If not found, search for panels with IDs that end with the hash ID
+    // 2. If not found, try to find the actual element using the index we already found
     if (!element) {
-      const allPanels = document.querySelectorAll<HTMLElement>(".faq-panel[id]");
-      for (const panel of allPanels) {
-        const panelId = panel.id;
-        if (panelId === hashId || panelId.endsWith(`-${hashId}`)) {
-          element = panel;
-          break;
+      const item = props.items[panelIndex];
+      const actualId = item ? getQuestionId(item.question) : null;
+      element = actualId ? document.getElementById(actualId) : null;
+    }
+
+    // 3. Last resort: search for panels with IDs that end with the question slug
+    if (!element) {
+      const item = props.items[panelIndex];
+      const qSlug = item ? slugify(item.question) : null;
+      if (qSlug) {
+        const allPanels = document.querySelectorAll<HTMLElement>(".faq-panel[id]");
+        for (const panel of allPanels) {
+          if (panel.id === qSlug || panel.id.endsWith("-" + qSlug)) {
+            element = panel;
+            break;
+          }
         }
       }
     }
