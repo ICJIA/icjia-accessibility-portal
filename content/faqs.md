@@ -211,7 +211,7 @@ You may be wondering why guidance on this topic is coming from a web developer r
 
 This resource exists because the developer behind it believes in accessibility — not as an abstract principle, but from personal experience with how much it matters when content is (or isn't) usable by everyone. This is a labor of love, not an attempt to lecture colleagues or claim expertise others don't have. The goal is simply to gather the guidance that exists and make it accessible (in every sense) to the people who need it.
 
-If something here is wrong or could be said better, feedback is welcome. The point was never to tell anyone what to do — just to help.
+If something here is wrong or could be said better, feedback is welcome.
 
 **References:**
 
