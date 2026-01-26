@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-01-23
+lastUpdated: 2026-01-26
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -166,7 +166,7 @@ This is a fair question. Everyone has competing demands, and new requirements on
 
 When content is accessible, more people can use it. A properly structured PDF works for everyone, including someone using a screen reader. A captioned video serves people who are deaf or hard of hearing, but also people watching in a noisy environment or those who prefer reading along. Accessible design often benefits people beyond those with permanent disabilities.
 
-In Illinois alone, over 1.3 million adults have disabilities that may affect how they access digital content. Nationally, that's over 60 million people. Accessible content simply means our work reaches more of the public we're here to serve.
+In Illinois alone, approximately 1.3 million adults have disabilities that may affect how they access digital content (according to CDC data). Nationally, that's over 60 million people. Accessible content simply means our work reaches more of the public we're here to serve.
 
 **2. Accessibility gives meaning to DEIA commitments.**
 
@@ -562,7 +562,7 @@ The regulations specify a **technical standard** (WCAG 2.1 Level AA), not an eff
 - The regulations do not define "good-faith effort" as an alternative to meeting the technical standard
 - For questions about enforcement, risk, or remedies, consult your agency's legal counsel
 
-**Analogy:** Consider building codes — documenting that an organization is "working toward" fire safety standards does not mean the building meets those standards. The standard is the standard, regardless of documented effort.
+**Analogy:** Building codes work similarly — an organization can document its progress toward fire safety, but occupancy permits require actually meeting the code. Effort matters, but compliance is measured against the standard itself.
 
 **What this means practically:**
 
@@ -744,7 +744,7 @@ Accessibility violations have characteristics that make them more likely to be d
 6. **Plan for ongoing compliance** — Accessibility requires ongoing attention as content is created and updated
 7. **Allocate resources** — Ensure adequate staff time and budget for accessibility work
 
-**Key takeaway:** From a risk management perspective, non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions. The question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption. Compliance is both a legal requirement and an organizational responsibility to serve all Illinois residents effectively. Agencies that approach accessibility as a risk management priority and allocate appropriate resources are better positioned to meet the deadline and avoid enforcement actions.
+**Key takeaway:** From a risk management perspective, non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions. The question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption. Compliance is both a legal requirement and an organizational responsibility to serve all Illinois residents effectively. Agencies that approach accessibility as a risk management priority and allocate appropriate resources are better positioned to meet the deadline and avoid enforcement actions. Proactive compliance is also an opportunity to demonstrate organizational commitment to serving all Illinois residents, including those with disabilities.
 
 **References:**
 
@@ -783,7 +783,7 @@ It's natural to feel overwhelmed by new compliance requirements, especially when
 
 **The risk of directing staff not to prioritize accessibility:**
 
-- **Legal exposure:** The agency bears responsibility for compliance. Documented decisions to deprioritize accessibility could be relevant in enforcement actions.
+- **Organizational responsibility:** The agency is responsible for compliance decisions. Taking a documented position to deprioritize compliance creates a record that may need to be explained if questions arise later.
 - **Accumulating debt:** Every inaccessible document, video, or webpage created between now and the deadline adds to the remediation backlog.
 - **Culture and momentum:** Staff who are told "don't worry about it" will need to be re-trained and re-motivated later, which is harder than building habits now.
 - **Service impact:** Real people with disabilities are unable to access agency information and services while compliance is delayed.
@@ -799,7 +799,7 @@ Rather than all-or-nothing, consider a phased approach:
 
 **What to say to your team:**
 
-> **Don't do this:** Telling staff "don't worry about accessibility" creates documented evidence that your unit deprioritized a legal compliance requirement. If an enforcement action occurs, this guidance could be relevant. It also sets a tone that's difficult to reverse later.
+> **A word of caution:** Telling staff "don't worry about accessibility" — especially in writing — creates a record that the unit chose to deprioritize a compliance requirement. If questions arise later, this guidance may need to be explained. It also sets a tone that's difficult to reverse later.
 
 Instead of "don't worry about it," consider: _"Accessibility is a new compliance requirement, and we're building it into our workflows. Start with the basics on new content. We'll prioritize remediation based on impact and provide training to help you build these skills."_
 
@@ -1024,6 +1024,8 @@ Before 2024, accessibility was a best practice and a general legal principle, bu
 
 The 2024 federal rule created accountability that didn't exist before — a **hard deadline, a measurable standard, and real enforcement consequences**. Communication across large organizations is always imperfect, and accessibility wasn't always prioritized the same way across all roles. That's understandable given competing demands.
 
+It's also worth acknowledging that large organizations have many competing priorities, and communication across departments is never perfect. This isn't about blame — it's about moving forward from where we are now.
+
 **What matters now:**
 
 Regardless of what happened before, the requirement is clear and the deadline is firm. ICJIA's public websites have generally followed accessibility practices, which provides a foundation. The work ahead is ensuring **all content** — documents, PDFs, videos, social media, and vendor tools — meets the same standard.
@@ -1077,6 +1079,8 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 **Important:** The ADA Title II web rule establishes WCAG 2.1 Level AA as the compliance standard. The rule specifies technical requirements, not effort-based requirements. For questions about enforcement, remedies, or risk, consult your agency's legal counsel. From a practical standpoint: documentation demonstrates organizational commitment, and each barrier removed helps real users access services now.
 
+While the standard is technical compliance, not effort-based, demonstrating ongoing commitment and systematic remediation may be relevant context if enforcement questions arise. The goal should remain full compliance, but documented progress is better than undocumented inaction.
+
 - **Consult legal counsel** — For questions about enforcement risk, legal exposure, or what constitutes adequate compliance in your specific situation, consult your agency's legal counsel
 
 **Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for details.
@@ -1090,79 +1094,304 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### Are there exceptions to the April 2026 deadline? What qualifies?
 
-{new:2026-01-13}
+{new:2026-01-26}
 
-**Quick answer:** Yes, but the exceptions are specific and apply differently to **web pages** vs. **documents**. The key question for documents is whether they're used to "apply for, gain access to, or participate in" a service — not simply whether they're linked on your website. Even if an exception applies, you must still provide accessible alternatives upon request.
+> **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 24, 2026 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
 
-**Compliance date:** April 24, 2026 for Illinois state agencies (entities serving 50,000+ population). For smaller entities, the compliance date is April 26, 2027 (28 CFR § 35.200(d)).
+**The Big Misconception: "Pre-2026 Content Is Automatically Exempt"**
 
-**The five exceptions (28 CFR § 35.200(b)):**
+**No. This is wrong.**
 
-1. **Archived web content** (§ 35.200(b)(1)) — Web pages that were created before the compliance date, maintained **exclusively** for reference/research/recordkeeping, **not altered or updated** after the compliance date, AND organized in a dedicated area **clearly identified** as archived. All four criteria must be met.
-2. **Pre-existing conventional electronic documents** (§ 35.200(b)(2)) — Documents (PDFs, Word, Excel, PowerPoint, etc.) created before the compliance date are exempt — **UNLESS** the document is currently used by the public to **apply for, gain access to, or participate in** a service, program, or activity. Note: This exception has NO "dedicated archive area" requirement.
-3. **Third-party content** (§ 35.200(b)(3)) — Content posted by a third party where the public entity has no contractual or licensing arrangement governing the content
-4. **Individualized, password-protected documents** (§ 35.200(b)(4)) — Documents about a specific individual that are password-protected and available only to that individual and applicable staff
-5. **Pre-existing social media posts** (§ 35.200(b)(5)) — Social media posts made before the compliance date
+The ADA Title II rule includes exceptions for certain archived content and pre-existing documents, but these exceptions are **narrowly defined** and require meeting **all** specified criteria. Simply existing before the compliance deadline does not make content exempt.
 
-**Critical distinction: Web pages vs. Documents**
+**The Department of Justice has been explicit about this:**
 
-The rules are different for web pages and documents. Understanding this distinction is essential:
+> "This exception does not apply to documents that are currently used to apply for, gain access to, or participate in the public entity's services, programs, or activities."
+>
+> — <a href="https://www.ada.gov/resources/web-rule-first-steps/" target="_blank" rel="noopener noreferrer">U.S. Department of Justice, "First Steps Toward an Accessible Web"</a>
 
-| Aspect | Web Pages (b)(1) | Documents (b)(2) |
-| ------ | ---------------- | ---------------- |
+**Bottom line:** If content is linked from your active website and serves a current purpose, it almost certainly needs to be accessible by April 24, 2026.
+
+**The Five Exceptions (28 CFR § 35.200(b))**
+
+The ADA Title II web rule defines exactly five categories of content that may be excepted from the WCAG 2.1 Level AA requirement. Each has specific, strict criteria.
+
+**Exception 1: Archived Web Content (§ 35.200(b)(1))**
+
+**This is the strictest exception.** Web pages qualify **only if ALL FOUR** of these criteria are met:
+
+| Criterion | Requirement | What This Means |
+| --------- | ----------- | --------------- |
+| **1. Created before April 24, 2026** | Content must pre-date the compliance deadline (or reproduce physical media created before that date) | New web pages cannot use this exception |
+| **2. Exclusively for reference/research/recordkeeping** | Content cannot serve any current programmatic purpose | If anyone uses it for current services, it fails |
+| **3. Not altered or updated after archiving** | **Any edit, however minor, disqualifies it** | Even fixing a typo removes the exception |
+| **4. Clearly labeled archive section** | Must be in a dedicated area **clearly identified** as an archive | Putting content in a folder called "archive" on your server isn't enough — users must see clear "archived content" labeling |
+
+**Regulatory basis:** 28 C.F.R. § 35.104 (definition of "archived web content")
+
+**The DOJ explicitly addressed the misconception that labeling something "archived" is enough:**
+
+> "A PDF document that includes a current map of a county park...would probably not fall under the exception **even if the document is posted in the 'archive' section** of the county's website. The PDF provides current information about the park. The exception would probably not apply...because the content is not kept only for reference, research, or recordkeeping."
+>
+> — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">U.S. Department of Justice, ADA Title II Web Rule Fact Sheet</a>
+
+**Exception 2: Pre-existing Conventional Electronic Documents (§ 35.200(b)(2))**
+
+PDFs, Word documents, spreadsheets, and presentations posted before April 24, 2026 **may** qualify, but **only if** they are not currently used to **apply for, gain access to, or participate in** the public entity's services, programs, or activities.
+
+**This is a single-question test:** Is the document used by the public to apply for, access, or participate in your agency's services?
+
+- **If YES:** The document is NOT exempt, regardless of when it was created
+- **If NO:** The document may be exempt
+
+**Key distinction — documents have different rules than web pages:**
+
+| Aspect | Web Pages (Exception 1) | Documents (Exception 2) |
+| ------ | ----------------------- | ----------------------- |
 | **Test for exemption** | Must meet ALL 4 criteria | Only 1 test: Is it used to "apply for, gain access to, or participate in" services? |
 | **Archive area required?** | **YES** — must be in dedicated, clearly marked archive section | **NO** — no archive area requirement |
-| **Does being "linked" matter?** | **YES** — linked from active navigation suggests current use | **NO** — linking for reference purposes does not disqualify |
-| **Must be "never updated"?** | **YES** — cannot be altered after compliance date | **NO** — only the "apply for/participate in" test matters |
+| **Does being "linked" matter?** | **YES** — linked from active navigation suggests current use | **NO** — linking for reference purposes does not automatically disqualify |
+| **Must be "never updated"?** | **YES** — any edit disqualifies it | **NO** — only the "apply for/participate in" test matters |
 
-**Practical examples:**
+**This means:** A research report from 2015 that you link to from a publications page for historical reference may qualify for the exception — it's a pre-existing document not used to apply for services. But a grant application form from 2015 that people still use to apply for grants does NOT qualify — it's used to "apply for" services.
+
+**Exception 3: Third-Party Content (§ 35.200(b)(3))**
+
+Content posted by a third party where the public entity has **no contractual or licensing arrangement** governing the content.
+
+**What this covers:**
+
+- User-generated comments on a public forum you host
+- Reviews or posts by members of the public on your agency's social media pages
+- Content submitted by the public that you display without modification
+
+**What this does NOT cover (you ARE responsible for accessibility):**
+
+- Content from vendors you contract with (LMS platforms like Docebo, payment processors, survey tools)
+- Embedded content from services you have agreements with (maps from ArcGIS, dashboards from Tableau, videos from contracted providers)
+- Content created by consultants or contractors under agreement with your agency
+- Any content where you have a contractual, licensing, or other arrangement governing it
+
+**Exception 4: Individualized, Password-Protected Documents (§ 35.200(b)(4))**
+
+Documents about a **specific individual** that are password-protected and available **only to that individual** and applicable staff.
+
+**Examples that may qualify:**
+
+- An individual's personal account statements
+- Personal records accessible only by the specific individual they concern
+- Individual-specific correspondence in a secure portal
+
+**What this does NOT cover:**
+
+- General password-protected areas (like member portals with shared content)
+- Documents that are password-protected but shared among groups
+- Internal documents shared among employees
+- Any document that multiple individuals can access
+
+**Note:** This is a very narrow exception for truly individualized content, not a blanket exception for all password-protected materials.
+
+**Exception 5: Pre-existing Social Media Posts (§ 35.200(b)(5))**
+
+Social media posts made **before the compliance date** (April 24, 2026).
+
+**Important limitations:**
+
+- **New posts after the deadline must be accessible** — this exception only covers pre-existing posts
+- Pre-existing posts that are **currently used to provide or facilitate access to services, programs, or activities** may NOT be exempt
+- **Pinned posts** suggesting current relevance likely don't qualify
+- Posts **linked from your website** as current information likely don't qualify
+- The exception does not remove your responsibility for effective communication — if someone with a disability needs information from an old post, you may need to provide it accessibly
+
+**Authoritative Sources: What the Experts Say**
+
+**U.S. Department of Justice (DOJ)**
+
+The DOJ is the federal agency responsible for enforcing ADA Title II. Their guidance is authoritative.
+
+**On the document exception:**
+
+> "This exception does not apply to documents that are currently used to apply for, gain access to, or participate in the public entity's services, programs, or activities."
+>
+> — <a href="https://www.ada.gov/resources/web-rule-first-steps/" target="_blank" rel="noopener noreferrer">DOJ First Steps Guidance</a>
+
+**On the archived content exception:**
+
+> "A PDF document that includes a current map of a county park...would probably not fall under the exception **even if the document is posted in the 'archive' section** of the county's website. The PDF provides current information about the park. The exception would probably not apply...because the content is not kept only for reference, research, or recordkeeping."
+>
+> — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ Fact Sheet on Web Rule</a>
+
+**On the scope of the rule:**
+
+> "The requirements apply to web content that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
+>
+> — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ Fact Sheet on Web Rule</a>
+
+**Ohio State University's ADA Digital Accessibility Center**
+
+Ohio State's ADA Digital Accessibility Center has published authoritative legal analysis interpreting the federal rule, citing 28 C.F.R. § 35.104 (defining archived web content) and § 35.201(a) (setting accessibility standards). Their analysis is used by universities and agencies nationwide as guidance.
+
+**On the nature of the exception:**
+
+> "The archived content exception is **not a blanket exception or a free pass** — it's a narrowly defined legal option to help units responsibly manage older content that's no longer in use."
+>
+> — <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State ADA Digital Accessibility Center</a>
+
+**On the "exclusively for reference" requirement:**
+
+> "Used only for research, reference, or recordkeeping. **It is not being kept for use in current instruction, programs, services, or public communication.**"
+>
+> — <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State ADA DAC Checklist</a>
+
+**On the "not altered" requirement:**
+
+> "Not changed after being archived. **Any edits, however minor, disqualify the content from this exception.**"
+>
+> — <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State ADA DAC Checklist</a>
+
+**On effective communication obligations:**
+
+> "Even when content qualifies as archived, the ADA still requires effective communication with individuals with disabilities. This means users must be able to easily request and receive content in accessible formats when needed."
+>
+> — <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State ADA Digital Accessibility Center</a>
+
+**American Library Association (ALA)**
+
+The ALA provides guidance for libraries and public institutions on ADA compliance.
+
+> "The exceptions are narrow and specific. Most digital content that serves a current purpose will need to comply."
+>
+> — <a href="https://www.ala.org/accessibility/ada-rule-exceptions" target="_blank" rel="noopener noreferrer">ALA: ADA Web Rule Exceptions</a>
+
+**Practical Examples: What Qualifies and What Doesn't**
 
 | Content Type | Exception? | Why |
 | ------------ | ---------- | --- |
 | **Active website pages** | ❌ **NO** | Currently used by the public for services |
 | **Login pages, forms, applications** | ❌ **NO** | Used to access or participate in services |
-| **Documents created after April 2026** | ❌ **NO** | New documents must be accessible |
-| **Grant application PDF (current)** | ❌ **NO** | Used to apply for services — the (b)(2) exception explicitly excludes this |
-| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — exempt under (b)(2) even if linked on website |
-| **Research report from 2015** | ✅ **YES** | Pre-existing document maintained for reference — linking it for informational purposes does not disqualify it under (b)(2) |
-| **Historical meeting minutes** | ✅ **YES** | Pre-existing documents — nobody uses 2019 meeting minutes to apply for current services |
-| **Newsletter archive (pre-2026 issues)** | ✅ **YES** | Pre-existing documents kept for reference — exempt under (b)(2) |
-| **Old HTML page (in active navigation)** | ❌ **NO** | Web pages in active navigation don't meet (b)(1)'s "dedicated archive area" requirement |
-| **Old HTML page (moved to /archive/)** | ✅ **YES** | If moved to dedicated archive area with clear "archived" labeling and not updated, meets (b)(1) |
+| **Documents created after April 2026** | ❌ **NO** | New documents must be accessible — no exception exists for new content |
+| **Current grant application PDF** | ❌ **NO** | Used to apply for services — the (b)(2) exception explicitly excludes this |
+| **Reports still relevant to current programs** | ❌ **NO** | Informs public about agency work — serves a current purpose |
+| **Annual reports that inform the public** | ❌ **NO** | Documents that inform the public about agency work serve a current purpose |
+| **Research publications that inform policy** | ❌ **NO** | If they inform current policy discussions, they serve a current purpose |
+| **Content linked from main website navigation** | ❌ **Likely NO** | Placement in active navigation suggests current programmatic use |
+| **Anything edited after being archived** | ❌ **NO** | Edits disqualify archived web content from exception (b)(1) |
+| **Forms someone needs to fill out** | ❌ **NO** | Used to apply for or participate in services |
+| **Embedded vendor content (ArcGIS, Tableau)** | ❌ **NO** | Contractual relationship means you're responsible |
+| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — may be exempt under (b)(2) |
+| **Research report from 2015 kept for reference** | ✅ **YES** | Pre-existing document maintained for historical reference — may be exempt under (b)(2) |
+| **Historical meeting minutes from 2019** | ✅ **YES** | Pre-existing documents — nobody uses old meeting minutes to apply for current services |
+| **Newsletter archive (pre-2026 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under (b)(2) |
+| **Old HTML page moved to /archive/ with banner** | ✅ **YES** | If moved to dedicated archive area with clear labeling and not updated, may meet (b)(1) |
+| **User comments on your Facebook page** | ✅ **YES** | Third-party content not under contract — (b)(3) exception |
+| **Legacy content with no current use** | ✅ **YES** | Historical records truly kept only for research purposes |
 
-**Who decides if an exception applies?**
+**Documents That MAY Qualify for an Exception**
 
-- **Agency legal counsel** makes the final determination for your agency
-- **DoIT provides guidance, not determinations** — DoIT offers training and technical assistance, but exceptions are legal determinations based on the federal rule. DoIT does not grant or determine exceptions.
-- **Work with legal counsel** — Before assuming content qualifies, consult your agency's legal counsel
+- Historical records truly kept only for research purposes
+- Old documents that have been superseded and moved to a clearly labeled archive section
+- Legacy content with no current programmatic use
+- Meeting minutes from years past
+- Superseded policies that are kept only for historical reference
+- Old newsletters maintained as an archive
 
-**Important legal notes:**
+**Documents That Likely Do NOT Qualify**
+
+- **Any form someone needs to fill out** — used to apply for or participate in services
+- **Reports that are still relevant to current programs** — serve a current informational purpose
+- **Content linked from main website navigation** — suggests current use
+- **Annual reports, research publications, or grant documents that inform the public** — serve a current purpose
+- **Anything that has been edited after being archived** — disqualifies archived web content
+- **Content that provides current information** — even if old, if the information is still current, it's not archival
+- **Documents people reference to understand current services** — serve a current purpose
+
+**Who Decides If an Exception Applies?**
+
+This is a legal determination, not an administrative one.
+
+- **Agency legal counsel** makes the final determination for your agency — this is a legal interpretation of federal regulation
+- **DoIT provides guidance, not determinations** — DoIT offers training and technical assistance, but exceptions are legal determinations based on the federal rule. DoIT does not grant, approve, or determine exceptions.
+- **Before assuming content qualifies, consult your agency's legal counsel** — don't rely on internal assumptions
+- **Document your reasoning** — if you claim an exception, document why the content meets all required criteria
+
+**Even If Content Qualifies: The Effective Communication Obligation Remains**
+
+**This is critical:** Even for content that legitimately qualifies for an exception, the ADA still requires **effective communication** under 28 CFR § 35.130. If a person with a disability requests access to excepted material, you are obligated to provide it in an accessible format upon request.
+
+**As Ohio State's guidance emphasizes:**
+
+> "Even when content qualifies as archived, the ADA still requires effective communication with individuals with disabilities. This means users must be able to easily request and receive content in accessible formats when needed."
+
+**This means agencies should:**
+
+- Establish a clear process for accommodation requests
+- Include a visible way for users to request accessible versions of archived or excepted content
+- Be prepared to remediate documents upon request — you cannot refuse
+- Respond to requests in a timely manner
+- Budget for on-demand remediation
+
+**The exception reduces your proactive remediation burden — it does NOT eliminate your obligation to provide access when needed.**
+
+**How to Approach Compliance**
+
+1. **Default assumption:** If content is linked from your active website and serves any current purpose, it needs to be accessible by April 24, 2026
+
+2. **The exceptions are for truly archival content:** Think historical society records, not "documents we published last year that are still useful"
+
+3. **Don't assume — verify:** Before claiming an exception, have legal counsel review the specific content against the regulatory criteria
+
+4. **If you want to use the archived web content exception (b)(1):**
+   - Create a clearly labeled archive section (not just a folder — visible labeling for users)
+   - Move content there
+   - Add a clear "This content is archived and is maintained for historical reference only" banner
+   - Document that it's for reference only
+   - **Never edit it after archiving** — any edit disqualifies it
+   - Establish a process for accommodation requests
+
+5. **For documents (b)(2):** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference may be exempt — but verify with legal counsel.
+
+6. **For everything else:** Prioritize remediation based on traffic, importance, and legal exposure
+
+7. **When in doubt, consult legal counsel** — They make the final determination on whether content qualifies for an exception
+
+**Important Legal Notes**
 
 - **Web pages and documents have different rules** — Don't apply the (b)(1) "archive area" requirement to documents. The (b)(2) document exception only asks: Is the document used to "apply for, gain access to, or participate in" services?
-- **"Linked" ≠ "in use" for documents** — A pre-existing PDF linked on your publications page for reference is NOT the same as a PDF used to apply for a grant. The former is exempt; the latter is not.
-- **For web pages, the archive area requirement is strict** — Old HTML pages linked from your main navigation likely don't qualify for (b)(1). To make them exempt: (1) move them to a dedicated `/archive/` URL section, (2) add a clear "This content is archived" banner, (3) don't update them after the compliance date.
-- **Even if excepted, accessible alternatives may be required** — Title II's general nondiscrimination requirements (28 CFR § 35.130) require effective communication. If someone requests an accessible version of excepted content, you may need to provide it. The exception doesn't eliminate this obligation.
+
+- **"Linked" ≠ "in use" for documents** — A pre-existing PDF linked on your publications page for reference is NOT the same as a PDF used to apply for a grant. The former may be exempt; the latter is not.
+
+- **For web pages, the archive area requirement is strict** — Old HTML pages linked from your main navigation likely don't qualify for (b)(1). To qualify: (1) move them to a dedicated `/archive/` URL section, (2) add a clear "This content is archived" banner visible to users, (3) never update them after the compliance date.
+
+- **"Archived" labeling alone is not enough** — The DOJ explicitly says that putting content in an "archive" section doesn't make it exempt if the content provides current information or serves a current purpose.
+
+- **Any edit disqualifies archived web content** — Even fixing a typo removes the exception for web pages under (b)(1).
+
+- **Effective communication is still required** — You must provide accessible alternatives upon request even for legitimately excepted content.
+
 - **Verify exact language** — For questions about whether specific content qualifies, consult your agency's legal counsel and verify exact language in the Federal Register document.
 
-**Bottom line for managers:**
+**Authoritative References:**
 
-**For documents:** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference (old reports, past meeting minutes, archived newsletters) are generally exempt under (b)(2), even if they're linked on your website.
+**U.S. Department of Justice (Primary Authority):**
 
-**For web pages:** Old pages in your main site navigation are NOT automatically exempt. To qualify them for (b)(1), move them to a dedicated archive section with clear labeling.
+- <a href="https://www.ada.gov/resources/web-rule-first-steps/" target="_blank" rel="noopener noreferrer">DOJ: First Steps Toward an Accessible Web</a> — Official DOJ guidance on first steps for compliance
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">DOJ: ADA Title II Web Rule Fact Sheet</a> — Plain language summary of the rule including exceptions and examples
+- <a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">DOJ: Effective Communication</a> — Guidance on the effective communication obligation that applies even to excepted content
 
-**What to do:**
+**Federal Regulations (Legal Text):**
 
-1. **Categorize your content** — Separate "service-critical" documents (used to apply/access/participate) from "reference" documents (historical, informational)
-2. **Focus remediation on service-critical content** — Grant applications, forms, current program documents must be accessible
-3. **For old web pages** — Consider moving truly historical pages to a dedicated `/archive/` section with appropriate labeling
-4. **When in doubt, consult legal counsel** — They make the final determination on whether content qualifies for an exception
-5. **Plan for accessible alternatives** — Even if content qualifies for an exception, be prepared to provide accessible versions upon request
-
-**References:**
-
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text; see § 35.200(b) for exceptions
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Plain language summary including exceptions
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text of the rule; see § 35.200(b) for exceptions
 - <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35" target="_blank" rel="noopener noreferrer">28 CFR Part 35 (eCFR)</a> — Current Code of Federal Regulations text
+
+**Expert Analysis:**
+
+- <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State University ADA Digital Accessibility Center: Archived Content Exception</a> — Authoritative legal analysis and checklist for evaluating content against exception criteria
+- <a href="https://www.ala.org/accessibility/ada-rule-exceptions" target="_blank" rel="noopener noreferrer">American Library Association: ADA Web Rule Exceptions</a> — Guidance for public institutions on understanding exceptions
+- <a href="https://www.section508.gov/manage/laws-and-policies/update-agency-policies/" target="_blank" rel="noopener noreferrer">Section508.gov: Update Agency Accessibility Policies</a> — Federal guidance on accessibility policy updates
+
+**Illinois-Specific:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA Requirements</a> — Illinois state accessibility requirements (IITAA also applies)
 
 ### How do we prioritize accessibility work with limited resources and a ticking clock?
 
@@ -2068,9 +2297,9 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 
 ### What about archived documents on the intranet?
 
-**See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+**See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
 
-**Quick answer:** Truly archived documents that are no longer used may not need proactive remediation, but you may still need to provide access in an alternative format if an employee with a disability needs them (typically handled through reasonable accommodation processes).
+**Quick answer:** Truly archived documents that are no longer used may not need proactive remediation, but you may still need to provide access in an alternative format if an employee with a disability needs them (typically handled through reasonable accommodation processes). Note: This section addresses **internal/intranet** documents; for public-facing archived content exceptions, see the comprehensive exceptions FAQ linked above.
 
 **Full explanation:**
 
@@ -2326,7 +2555,9 @@ The alt text describes what's visually happening. The caption adds context that 
 
 ### Do all documents need to be accessible?
 
-**Quick answer:** For public-facing documents, yes. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
+**Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
+
+**See also:** [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for comprehensive details on all five exceptions, their strict criteria, and practical examples.
 
 **What documents need to be accessible:**
 
@@ -2348,13 +2579,9 @@ The alt text describes what's visually happening. The caption adds context that 
   - Frequently accessed documents
   - Documents required for services or job functions
   - Documents linked from main pages
-- **Archived documents** — May remain as-is unless access is needed (public request or employee accommodation), at which point you should be prepared to provide an accessible alternative.
+- **Pre-existing documents exception** — Documents created before April 24, 2026 may qualify for an exception under § 35.200(b)(2), but **only if** they are not currently used to "apply for, gain access to, or participate in" your agency's services, programs, or activities. See the comprehensive [exceptions FAQ](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for full details.
 
-**Exceptions may apply for:**
-
-- Pre-existing documents not currently used for services (you may still need to provide accessible alternatives, for example upon request)
-- Password-protected documents specific to an individual's account
-- Truly archived documents that are no longer used (but you may still need to provide access in an alternative format if an employee with a disability needs them)
+**Important:** Even if a document qualifies for an exception, you must still provide accessible alternatives upon request under the ADA's effective communication requirements. The exception reduces proactive remediation burden — it does not eliminate the obligation to provide access when needed.
 
 **Internal/intranet documents:**
 
@@ -2787,7 +3014,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) are generally exempt unless they're currently used to provide or facilitate access to services, programs, or activities.
+**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.200(b)(5) — see [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for full details on all five exceptions and their limitations.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
