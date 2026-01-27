@@ -145,6 +145,11 @@ const navItems: NavItem[] = [
     icon: "mdi-home",
   },
   {
+    title: "Skills",
+    to: "/skills",
+    icon: "mdi-school",
+  },
+  {
     title: "Print",
     to: "/faqs-print",
     icon: "mdi-printer",

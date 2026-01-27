@@ -16,15 +16,14 @@ import { z } from 'zod'
 
 /**
  * Nuxt Content configuration.
- * 
- * Defines two collections:
+ *
+ * Defines three collections:
  * - `faqs`: FAQ content from faqs.md
  * - `links`: Links/resources content from links.md
- * 
- * Both collections use Zod schemas to validate frontmatter:
- * - `title`: Required string
- * - `description`: Optional string
- * 
+ * - `skills`: Claude skill modules from skills/*.md
+ *
+ * All collections use Zod schemas to validate frontmatter.
+ *
  * @type {ContentConfig}
  */
 export default defineContentConfig({
@@ -48,6 +47,21 @@ export default defineContentConfig({
           label: z.string(),
           text: z.string(),
         })).optional(),
+      }),
+    }),
+    skills: defineCollection({
+      type: 'page',
+      source: 'skills/*.md',
+      schema: z.object({
+        id: z.string(),
+        title: z.string(),
+        description: z.string().optional(),
+        difficulty: z.enum(['beginner', 'intermediate', 'advanced']).optional(),
+        duration: z.number().optional(),
+        tags: z.array(z.string()).optional(),
+        objectives: z.array(z.string()).optional(),
+        lastUpdated: z.string().optional(),
+        icon: z.string().optional(),
       }),
     }),
   },
