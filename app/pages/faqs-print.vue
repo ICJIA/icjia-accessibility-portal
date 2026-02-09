@@ -447,9 +447,9 @@ usePrintLinks();
 
 // SEO
 useSeo({
-  title: "Printer-Friendly FAQs - Digital Accessibility FAQ",
+  title: "Print FAQs",
   description:
-    "Printer-friendly version of all digital accessibility FAQs for Illinois state agency employees. Comprehensive guide covering WCAG 2.1 AA compliance, ADA Title II requirements, and accessibility best practices.",
+    "Printer-friendly digital accessibility FAQs for Illinois state agencies. Covers WCAG 2.1 AA and ADA Title II compliance.",
   url: "/faqs-print",
   type: "article",
   keywords: [

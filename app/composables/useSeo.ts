@@ -45,15 +45,23 @@ const DEFAULT_SITE_URL = 'https://accessibility.icjia.app'
 
 /**
  * Default site name for page titles and Open Graph.
- * 
+ * Kept short for title tag (60 char limit): "Page Title | Site Name"
+ *
  * @constant {string}
- * @default 'ICJIA Accessibility Portal'
  */
 const DEFAULT_SITE_NAME = 'ICJIA Accessibility Portal'
 
 /**
+ * Shorter site name for title tag suffix only (SEO best practice: title ≤60 chars).
+ *
+ * @constant {string}
+ */
+const TITLE_SITE_SUFFIX = 'ICJIA Accessibility'
+
+/**
  * Default meta description for pages without a custom description.
- * 
+ * Kept ≤160 chars for SEO/social preview best practice.
+ *
  * @constant {string}
  */
 const DEFAULT_DESCRIPTION = 'Your resource for WCAG 2.1 AA compliance, accessibility guidelines, and digital accessibility information for Illinois state agencies.'
@@ -109,9 +117,10 @@ export function useSeo(options: SeoOptions = {}) {
     ? `${siteUrl}${options.url.startsWith('/') ? options.url : `/${options.url}`}`
     : `${siteUrl}${route.path}`
   
-  // Build title with site name suffix
+  // Build title with site name suffix (≤60 chars for SEO/social preview)
+  const titleSuffix = TITLE_SITE_SUFFIX
   const fullTitle = options.title 
-    ? `${options.title} | ${siteName}`
+    ? `${options.title} | ${titleSuffix}`
     : siteName
   
   // Use provided description or default

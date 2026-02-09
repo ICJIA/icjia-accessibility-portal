@@ -615,9 +615,9 @@ const introContent = computed(() => {
 
 // Enhanced SEO with Open Graph, Twitter Cards, and structured data
 useSeo({
-  title: "Home - WCAG 2.1 AA Compliance Portal",
+  title: "Home - WCAG 2.1 AA Portal",
   description:
-    "Countdown to WCAG 2.1 AA compliance deadline (April 24, 2026). Resources, FAQs, and guidance for Illinois state agencies on digital accessibility, ADA Title II compliance, and creating accessible web content.",
+    "Countdown to WCAG 2.1 AA deadline (April 24, 2026). Resources, FAQs, and guidance for Illinois state agencies on digital accessibility and ADA Title II.",
   url: "/",
   keywords: [
     "WCAG 2.1 AA compliance",

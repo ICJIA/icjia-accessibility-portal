@@ -149,8 +149,8 @@ import searchConfig from "../../search.config.json";
 
 // SEO
 useSeo({
-  title: "Search FAQs - Accessibility Portal",
-  description: "Search Illinois accessibility FAQs with instant fuzzy search. Find answers about WCAG 2.1 AA compliance, ADA requirements, and digital accessibility.",
+  title: "Search FAQs",
+  description: "Search Illinois accessibility FAQs. Find answers about WCAG 2.1 AA compliance, ADA requirements, and digital accessibility.",
   url: "/search",
 });
 

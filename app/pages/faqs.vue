@@ -396,10 +396,10 @@ const introContent = computed(() => {
 const pageTitle = page.value?.title || "Frequently Asked Questions";
 const pageDescription =
   page.value?.description ||
-  "Comprehensive FAQ about WCAG 2.1 AA compliance, digital accessibility requirements, ADA Title II deadlines, and accessibility best practices for Illinois state agencies. Find answers to common questions about web accessibility, document accessibility, and compliance requirements.";
+  "FAQs about WCAG 2.1 AA compliance, digital accessibility, and ADA Title II. Find answers for Illinois state agencies.";
 
 useSeo({
-  title: `${pageTitle} - Accessibility FAQ`,
+  title: "FAQs - Accessibility",
   description: pageDescription,
   url: "/faqs",
   type: "article",

@@ -89,12 +89,12 @@ const renderedPage = computed(() => {
 });
 
 // Enhanced SEO with Open Graph, Twitter Cards, and structured data
-const pageTitle = page.value?.title || "Accessibility Resources & Links";
+const pageTitle = page.value?.title || "Accessibility Links";
 const pageDescription = page.value?.description || 
-  "Comprehensive collection of accessibility resources, tools, guidelines, and helpful links for WCAG 2.1 AA compliance. Find accessibility checkers, training resources, documentation, and best practices for digital accessibility.";
+  "Curated accessibility resources, tools, and guidelines for WCAG 2.1 AA. Find checkers, training, and best practices for Illinois state agencies.";
 
 useSeo({
-  title: `${pageTitle} - Resources`,
+  title: "Links - Resources",
   description: pageDescription,
   url: "/links",
   keywords: [
