@@ -47,6 +47,7 @@ content/
 scripts/
 ├── generate-routes.js          # Route generation for sitemap
 ├── generate-sitemap.js         # Sitemap generator
+├── generate-og-image.js        # OG image generator (serif font to match icjia-logo)
 ├── generate-faq-docx.js        # Word document generator
 ├── generate-faq-md.js          # Markdown export generator
 ├── generate-faq-txt.js         # Plain text export generator
@@ -92,6 +93,7 @@ yarn audit:a11y       # Quick console accessibility check (axe-core)
 yarn generate:jsdoc   # Generate API docs from JSDoc comments
 yarn generate:routes  # Generate routes.json
 yarn generate:sitemap # Generate sitemap.xml
+yarn generate:og-image # Regenerate og-image.png (serif font matching icjia-logo)
 ```
 
 ## Key Conventions
@@ -247,6 +249,7 @@ node audit-accessibility.js  # Terminal 2: Run audit
 | `netlify.toml` | Deployment config, security headers, caching |
 | `search.config.json` | Fuse.js search configuration |
 | `audit-accessibility.js` | Comprehensive accessibility audit script |
+| `scripts/generate-og-image.js` | OG image generator (serif font to match icjia-logo) |
 | `app/utils/faqTransform.ts` | FAQ markdown AST transformation |
 | `app/composables/useDeadlineCountdown.ts` | Countdown timer logic |
 

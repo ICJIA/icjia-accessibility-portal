@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>ICJIA Accessibility Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      font-family: 'Libre Baskerville', Georgia, 'Times New Roman', serif;
+      overflow: hidden;
+      position: relative;
+      background: #0d1117;
+    }
+
+    /* ── Code background ── visible angled columns of code */
+    .code-bg {
+      position: absolute;
+      inset: -100px;
+      overflow: hidden;
+    }
+    .code-bg .col {
+      position: absolute;
+      top: -60px;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      white-space: pre;
+      transform: rotate(-8deg);
+      transform-origin: top left;
+    }
+    .code-bg .col:nth-child(1) { left: -20px;  color: rgba(0, 220, 240, 0.72); }
+    .code-bg .col:nth-child(2) { left: 300px;  color: rgba(130, 170, 255, 0.65); }
+    .code-bg .col:nth-child(3) { left: 620px;  color: rgba(0, 220, 240, 0.72); }
+    .code-bg .col:nth-child(4) { left: 940px;  color: rgba(130, 170, 255, 0.65); }
+
+    /* ── Vignette: darken edges, lighter center so text pops ── */
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse 44% 38% at 50% 46%,
+        rgba(13, 17, 23, 0.78) 0%,
+        rgba(13, 17, 23, 0.30) 100%
+      );
+    }
+
+    /* ── Content ── */
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ── ICJIA logo lockup: lines + text ── */
+    .logo-lockup {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo-rule {
+      height: 2px;
+      background: #ffffff;
+    }
+    .logo-text {
+      font-size: 96px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      padding: 14px 0;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      font-size: 36px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: 0.02em;
+      margin-top: 4px;
+    }
+
+    /* Cyan accent divider */
+    .divider {
+      width: 180px;
+      height: 2px;
+      background: rgba(0, 188, 212, 0.7);
+      margin: 4px 0;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 6px;
+    }
+    .btn {
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: inherit;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 188, 212, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <!-- Code background — four angled columns of real code snippets -->
+  <div class="code-bg">
+    <div class="col">import { ref, computed } from 'vue'
+import { useSeo } from '~/composables/useSeo'
+
+interface WCAGCriteria {
+  level: 'A' | 'AA' | 'AAA'
+  perceivable: boolean
+  operable: boolean
+  understandable: boolean
+  robust: boolean
+}
+
+const audit = async (url: string) =&gt; {
+  const results = await axe.run()
+  return results.violations
+}
+
+export function useAccessibility() {
+  const compliant = ref(true)
+  const score = computed(() =&gt; 100)
+  return { compliant, score }
+}
+
+function checkContrast(fg: string, bg: string) {
+  const ratio = getContrastRatio(fg, bg)
+  return ratio &gt;= 4.5
+}
+
+const DEADLINE = '2026-04-24T00:00:00-05:00'</div>
+    <div class="col">describe('accessibility', () =&gt; {
+  it('passes axe audit', async () =&gt; {
+    const results = await axe(document)
+    expect(results.violations).toHaveLength(0)
+  })
+
+  it('has proper heading hierarchy', () =&gt; {
+    const headings = document.querySelectorAll('h1,h2,h3')
+    expect(headings.length).toBeGreaterThan(0)
+  })
+
+  it('keyboard navigation works', async () =&gt; {
+    await user.tab()
+    expect(document.activeElement).toBe(skipLink)
+  })
+})
+
+const meta = useSeo({
+  title: 'ICJIA Accessibility Portal',
+  description: 'WCAG 2.1 AA resources'
+})
+
+export const STANDARDS = {
+  wcag: '2.1',
+  level: 'AA',
+  section508: true,
+  ada: 'Title II'
+} as const</div>
+    <div class="col">&lt;template&gt;
+  &lt;v-app&gt;
+    &lt;SkipLink /&gt;
+    &lt;AppNavbar /&gt;
+    &lt;v-main id="main-content"&gt;
+      &lt;slot /&gt;
+    &lt;/v-main&gt;
+    &lt;AppFooter /&gt;
+  &lt;/v-app&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+useSeo({
+  title: 'Accessibility Portal',
+  description: 'Digital accessibility'
+})
+&lt;/script&gt;
+
+function validateAria(el: HTMLElement) {
+  const role = el.getAttribute('role')
+  const label = el.getAttribute('aria-label')
+  return Boolean(role &amp;&amp; label)
+}
+
+const routes = [
+  { path: '/', name: 'home' },
+  { path: '/faqs', name: 'faqs' },
+  { path: '/links', name: 'links' },
+  { path: '/search', name: 'search' }
+]</div>
+    <div class="col">// ADA Title II Compliance
+// April 24, 2026 Deadline
+
+interface ComplianceReport {
+  url: string
+  violations: number
+  passes: number
+  timestamp: Date
+}
+
+async function generateReport(
+  urls: string[]
+): Promise&lt;ComplianceReport[]&gt; {
+  const browser = await launch()
+  const reports: ComplianceReport[] = []
+
+  for (const url of urls) {
+    const page = await browser.newPage()
+    await page.goto(url)
+    const { violations, passes } = await axe(page)
+    reports.push({
+      url,
+      violations: violations.length,
+      passes: passes.length,
+      timestamp: new Date()
+    })
+  }
+  return reports
+}</div>
+  </div>
+  <div class="vignette"></div>
+
+  <!-- Foreground content -->
+  <div class="content">
+    <div class="text-block">
+      <div class="logo-lockup">
+        <div class="logo-rule" id="rule-top" aria-hidden="true"></div>
+        <h1 class="logo-text" id="logo-text">ICJIA</h1>
+        <div class="logo-rule" id="rule-bottom" aria-hidden="true"></div>
+      </div>
+      <p class="subtitle">Accessibility Portal</p>
+      <div class="divider"></div>
+      <div class="buttons">
+        <span class="btn">WCAG 2.1 AA</span>
+        <span class="btn">ADA Title II</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Size rules to match icjia-logo.png:
+       Top line = shorter (roughly I to second-I, ~82% of text width)
+       Bottom line = full text width + small overshoot (~106%) -->
+  <script>
+    requestAnimationFrame(() => {
+      const text = document.getElementById('logo-text');
+      const w = text.offsetWidth;
+      document.getElementById('rule-top').style.width    = Math.round(w * 0.90) + 'px';
+      document.getElementById('rule-bottom').style.width  = Math.round(w * 1.06) + 'px';
+    });
+  </script>
+</body>
+</html>

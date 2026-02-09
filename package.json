@@ -6,6 +6,7 @@
     "scripts": {
         "generate:routes": "node scripts/generate-routes.js",
         "generate:sitemap": "node scripts/generate-sitemap.js",
+        "generate:og-image": "node scripts/generate-og-image.js",
         "generate:docs": "node scripts/generate-architecture-docs.js",
         "extract:vue-scripts": "node scripts/extract-vue-scripts.js",
         "generate:jsdoc": "npm run extract:vue-scripts && typedoc",
