@@ -155,8 +155,8 @@ yarn generate:serve
 ### Design & Performance
 
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-  - **Navigation**: Full nav buttons (Home, Print, Download, Links, Search) on screens ≥768px; hamburger menu only on mobile (<768px)
-  - Hamburger uses CSS media queries (not JS) to avoid SSR hydration mismatches
+  - **Navigation**: Full nav buttons (Home, Print, Download, Links, Search) on screens ≥600px; hamburger menu on small/xs screens only (<600px)
+  - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
 - **Dark Theme** - Modern dark theme by default using Vuetify Material Design
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
 - **Performance Optimized** - Proper caching headers and optimized assets
@@ -314,7 +314,7 @@ The automated build process:
 │   │   └── search.vue          # Fuzzy search page with Fuse.js
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
-│   │   ├── AppNavbar.vue       # Navigation bar; responsive (hamburger <768px, full nav ≥768px); aria-current support
+│   │   ├── AppNavbar.vue       # Navigation bar; responsive (hamburger <600px, full nav ≥600px); aria-current support
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
@@ -595,12 +595,12 @@ When using CSS media queries to show/hide elements (e.g., responsive nav with ha
 
 ```css
 .mobile-nav { display: flex !important; align-items: center; }
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .mobile-nav { display: none !important; }
 }
 ```
 
-**Key takeaway**: Vuetify's `d-flex`, `d-none`, etc. use `!important`. Either omit them on elements you control with media queries, or use `!important` in your own display rules so they override.
+**Key takeaway**: Vuetify's `d-flex`, `d-none`, etc. use `!important`. Omit them from elements you control with media queries and add `!important` to your own display rules.
 
 ---
 
@@ -631,12 +631,13 @@ During SSR, there is no browser viewport, so `useDisplay()` returns default valu
 ```vue
 <!-- Both always present in DOM - do NOT add d-flex; Vuetify's d-flex uses !important and overrides display:none -->
 <div class="desktop-nav"><!-- desktop buttons --></div>
-<div class="mobile-nav"><!-- mobile menu --></div>
+<div class="mobile-nav"><!-- hamburger menu --></div>
 
 <style scoped>
 .desktop-nav { display: none !important; }
 .mobile-nav { display: flex !important; align-items: center; }
-@media (min-width: 768px) {
+/* 600px = Vuetify "small" breakpoint. Hamburger only on small/xs screens. */
+@media (min-width: 600px) {
   .desktop-nav { display: flex !important; align-items: center; }
   .mobile-nav { display: none !important; }
 }
@@ -645,7 +646,7 @@ During SSR, there is no browser viewport, so `useDisplay()` returns default valu
 
 **Key takeaways**:
 - In SSR applications, never use JavaScript-based viewport detection (`useDisplay()`, `window.innerWidth`, etc.) for conditional rendering with `v-if`. Use CSS media queries instead — the HTML stays identical between server and client.
-- **Avoid Vuetify `d-flex` on responsive nav containers**: Vuetify's utility classes use `display: flex !important`, which overrides `display: none` in media queries. Either omit `d-flex` and set flex in your own CSS, or use `!important` on your display rules. Hamburger breakpoint: 768px (mobile only).
+- **Avoid Vuetify `d-flex` on responsive nav containers**: Vuetify's utility classes use `display: flex !important`, which overrides `display: none` in media queries. Omit `d-flex` from these divs and control display entirely in your own scoped CSS with `!important`.
 
 ### Root Cause 2: Disabled `useAsyncData` Cache on FAQs Page (`faqs.vue`)
 
@@ -710,9 +711,7 @@ After the fixes, all pages were verified clean using Puppeteer to capture consol
 
 | File | Change |
 | --- | --- |
-| `app/components/AppNavbar.vue` | CSS media queries for responsive nav; removed `d-flex` to avoid Vuetify `!important` override; breakpoint 768px |
-| `app/layouts/default.vue` | Single main landmark: `id="main-content"` on `v-main` (removed nested `<main>`) |
-| `app/layouts/print.vue` | Single main landmark: `id="main-content"` on `v-main` (removed nested `<main>`) |
+| `app/components/AppNavbar.vue` | Removed `d-flex` from nav container divs; added `!important` to display rules; breakpoint 600px (hamburger on small/xs only) |
 | `app/pages/faqs.vue` | Removed `getCachedData: () => undefined` from `useAsyncData` |
 | `app/pages/faqs.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
 | `app/pages/links.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
@@ -987,14 +986,10 @@ Reports include:
 
 ### Recent Updates (February 2026)
 
-- **FIX**: Responsive navigation hamburger menu (see [SSR Hydration Fix](#ssr-hydration-fix-vuetify--nuxt) for details)
-  - Hamburger now appears only on screens <768px (mobile/small tablets); full nav buttons on larger screens
-  - Root cause: Vuetify's `d-flex` utility uses `!important`, overriding `display: none` in media queries
-  - Solution: Removed `d-flex` from nav containers and added `!important` to our display rules
-- **FIX**: Landmark best-practice violations (axe-core)
-  - Eliminated duplicate main landmarks (v-main + inner `<main>` both rendered as `<main>`)
-  - `v-main` now has `id="main-content"` and `tabindex="-1"` directly; inner `<main>` removed from layouts
-  - Fixes: `landmark-main-is-top-level`, `landmark-no-duplicate-main`, `landmark-unique`
+- **FIX**: Responsive navigation hamburger menu
+  - Hamburger now appears only on small/xs screens (<600px); full nav buttons on all larger screens
+  - Root cause: Vuetify's `d-flex` utility class uses `display: flex !important`, which overrode scoped `display: none` in our CSS media queries -- making the hamburger visible at all screen sizes
+  - Solution: Removed `d-flex` from nav container divs and added `!important` to our own display rules in the scoped CSS
 - **FIX**: SSR Hydration Mismatch Resolution (see [detailed section below](#ssr-hydration-fix-vuetify--nuxt))
   - Eliminated all "Hydration completed but contains mismatches" console errors across every page
   - Refactored `AppNavbar.vue` from JavaScript-based responsive rendering (`useDisplay()`) to CSS media queries

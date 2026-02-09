@@ -28,7 +28,7 @@
       <v-spacer />
 
       <!-- Navigation Links - CSS-based visibility (avoids hydration mismatch from useDisplay) -->
-      <div class="desktop-nav d-flex align-center">
+      <div class="desktop-nav">
         <v-btn
           v-for="item in navItems"
           :key="item.to"
@@ -49,7 +49,7 @@
       </div>
 
       <!-- Mobile Navigation Menu -->
-      <div class="mobile-nav d-flex">
+      <div class="mobile-nav">
         <v-menu location="bottom" v-model="menuOpen">
           <template #activator="{ props: menuProps }">
             <v-btn
@@ -91,7 +91,7 @@
       </div>
 
       <!-- Search Button with Label - Desktop only -->
-      <div class="desktop-nav d-flex">
+      <div class="desktop-nav">
         <v-btn
           href="/search"
           variant="text"
@@ -187,19 +187,22 @@ function openDownloadDialog(event: MouseEvent) {
 </script>
 
 <style scoped>
-/* Responsive nav: CSS-based visibility avoids hydration mismatch (useDisplay differs server vs client) */
+/* Responsive nav: CSS controls visibility (no Vuetify d-flex to avoid !important conflicts) */
 .desktop-nav {
-  display: none;
+  display: none !important;
 }
 .mobile-nav {
-  display: flex;
+  display: flex !important;
+  align-items: center;
 }
-@media (min-width: 961px) {
+/* Hamburger only on small/xs screens (<600px). Full nav on everything else. */
+@media (min-width: 600px) {
   .desktop-nav {
-    display: flex;
+    display: flex !important;
+    align-items: center;
   }
   .mobile-nav {
-    display: none;
+    display: none !important;
   }
 }
 
