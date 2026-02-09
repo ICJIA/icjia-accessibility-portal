@@ -56,7 +56,7 @@
   .print-layout-wrapper {
     background: #fff;
   }
-  
+
   /* Hide any potential navigation or UI elements */
   :deep(.v-overlay-container),
   :deep(.v-app-bar),
@@ -69,4 +69,3 @@
   }
 }
 </style>
-

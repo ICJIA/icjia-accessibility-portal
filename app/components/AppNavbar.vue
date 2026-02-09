@@ -39,7 +39,9 @@
           class="nav-btn"
           :prepend-icon="item.icon"
           :aria-label="item.ariaLabel || `Navigate to ${item.title}`"
-          :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
+          :aria-current="
+            !item.isDownload && route.path === item.to ? 'page' : undefined
+          "
           @click="item.isDownload ? openDownloadDialog($event) : undefined"
         >
           {{ item.title }}
@@ -48,10 +50,7 @@
 
       <!-- Mobile Navigation Menu -->
       <div class="mobile-nav d-flex">
-        <v-menu
-          location="bottom"
-          v-model="menuOpen"
-        >
+        <v-menu location="bottom" v-model="menuOpen">
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
@@ -60,7 +59,7 @@
               aria-label="Open navigation menu"
               aria-haspopup="true"
               :aria-expanded="menuOpen"
-              style="min-width: 44px; min-height: 44px;"
+              style="min-width: 44px; min-height: 44px"
             >
               <v-icon>mdi-menu</v-icon>
             </v-btn>
@@ -73,7 +72,9 @@
               :target="item.target || undefined"
               :rel="item.rel || undefined"
               :prepend-icon="item.icon"
-              :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
+              :aria-current="
+                !item.isDownload && route.path === item.to ? 'page' : undefined
+              "
               @click="item.isDownload ? openDownloadDialog($event) : undefined"
             >
               <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -253,7 +254,7 @@ function openDownloadDialog(event: MouseEvent) {
 /* Dark theme: use lighter color for AAA contrast */
 [data-v-theme="dark"] .nav-btn,
 .v-theme--dark .nav-btn {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
+  color: #93c5fd !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .nav-btn:hover {
@@ -263,7 +264,7 @@ function openDownloadDialog(event: MouseEvent) {
 
 [data-v-theme="dark"] .nav-btn:hover,
 .v-theme--dark .nav-btn:hover {
-  color: #93C5FD !important;
+  color: #93c5fd !important;
 }
 
 .search-btn {
@@ -278,7 +279,7 @@ function openDownloadDialog(event: MouseEvent) {
 /* Dark theme: use lighter color for AAA contrast */
 [data-v-theme="dark"] .search-btn,
 .v-theme--dark .search-btn {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
+  color: #93c5fd !important; /* Lighter blue for 7:1+ contrast on dark background */
 }
 
 .search-btn:hover {
@@ -289,7 +290,7 @@ function openDownloadDialog(event: MouseEvent) {
 
 [data-v-theme="dark"] .search-btn:hover,
 .v-theme--dark .search-btn:hover {
-  color: #93C5FD !important;
+  color: #93c5fd !important;
 }
 
 @media (max-width: 960px) {
