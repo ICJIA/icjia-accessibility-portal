@@ -2,8 +2,18 @@
   <v-container>
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
-        <!-- Countdown Timer -->
-        <CountdownTimer compact />
+        <!-- Countdown Timer - ClientOnly to avoid hydration mismatch (timer differs server vs client) -->
+        <ClientOnly>
+          <CountdownTimer compact />
+          <template #fallback>
+            <v-card class="countdown-card mb-4" elevation="2" color="surface">
+              <div class="text-center pa-4">
+                <p class="text-body-2 mb-2">Countdown to WCAG 2.1 AA Compliance</p>
+                <v-progress-circular indeterminate color="primary" size="32" width="3" aria-label="Loading countdown" />
+              </div>
+            </v-card>
+          </template>
+        </ClientOnly>
 
         <v-card class="pa-8" elevation="0">
           <h1 class="text-h3 mb-4 d-flex align-center">

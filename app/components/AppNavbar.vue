@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :elevation="2" color="surface">
+  <v-app-bar :elevation="2" color="surface" height="64">
     <v-container class="d-flex align-center pa-0">
       <!-- Logo -->
       <v-app-bar-title class="d-flex align-center">
@@ -7,7 +7,7 @@
           href="/"
           class="d-flex align-center text-decoration-none logo-link"
           style="color: inherit"
-          aria-label="ICJIA Accessibility Portal - Go to home page"
+          aria-label="Accessibility Portal - Go to home page"
           @click="handleLogoClick"
         >
           <img
@@ -27,8 +27,8 @@
 
       <v-spacer />
 
-      <!-- Navigation Links -->
-      <template v-if="showDesktopNav">
+      <!-- Navigation Links - CSS-based visibility (avoids hydration mismatch from useDisplay) -->
+      <div class="desktop-nav d-flex align-center">
         <v-btn
           v-for="item in navItems"
           :key="item.to"
@@ -44,63 +44,64 @@
         >
           {{ item.title }}
         </v-btn>
-      </template>
+      </div>
 
       <!-- Mobile Navigation Menu -->
-      <v-menu
-        v-if="showMobileMenu"
-        location="bottom"
-        class="d-flex"
-        v-model="menuOpen"
-      >
-        <template #activator="{ props: menuProps }">
-          <v-btn
-            v-bind="menuProps"
-            icon
-            variant="text"
-            aria-label="Open navigation menu"
-            aria-haspopup="true"
-            :aria-expanded="menuOpen"
-            style="min-width: 44px; min-height: 44px;"
-          >
-            <v-icon>mdi-menu</v-icon>
-          </v-btn>
-        </template>
-        <v-list>
-          <v-list-item
-            v-for="item in navItems"
-            :key="item.to"
-            :href="item.isDownload ? undefined : item.to"
-            :target="item.target || undefined"
-            :rel="item.rel || undefined"
-            :prepend-icon="item.icon"
-            :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
-            @click="item.isDownload ? openDownloadDialog($event) : undefined"
-          >
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-          <v-list-item
-            href="/search"
-            prepend-icon="mdi-magnify"
-            :aria-current="route.path === '/search' ? 'page' : undefined"
-          >
-            <v-list-item-title>Search</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <div class="mobile-nav d-flex">
+        <v-menu
+          location="bottom"
+          v-model="menuOpen"
+        >
+          <template #activator="{ props: menuProps }">
+            <v-btn
+              v-bind="menuProps"
+              icon
+              variant="text"
+              aria-label="Open navigation menu"
+              aria-haspopup="true"
+              :aria-expanded="menuOpen"
+              style="min-width: 44px; min-height: 44px;"
+            >
+              <v-icon>mdi-menu</v-icon>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="item in navItems"
+              :key="item.to"
+              :href="item.isDownload ? undefined : item.to"
+              :target="item.target || undefined"
+              :rel="item.rel || undefined"
+              :prepend-icon="item.icon"
+              :aria-current="!item.isDownload && route.path === item.to ? 'page' : undefined"
+              @click="item.isDownload ? openDownloadDialog($event) : undefined"
+            >
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              href="/search"
+              prepend-icon="mdi-magnify"
+              :aria-current="route.path === '/search' ? 'page' : undefined"
+            >
+              <v-list-item-title>Search</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
 
       <!-- Search Button with Label - Desktop only -->
-      <v-btn
-        v-if="showDesktopNav"
-        href="/search"
-        variant="text"
-        class="search-btn"
-        prepend-icon="mdi-magnify"
-        aria-label="Search FAQs"
-        :aria-current="route.path === '/search' ? 'page' : undefined"
-      >
-        Search
-      </v-btn>
+      <div class="desktop-nav d-flex">
+        <v-btn
+          href="/search"
+          variant="text"
+          class="search-btn"
+          prepend-icon="mdi-magnify"
+          aria-label="Search FAQs"
+          :aria-current="route.path === '/search' ? 'page' : undefined"
+        >
+          Search
+        </v-btn>
+      </div>
     </v-container>
   </v-app-bar>
 
@@ -115,13 +116,7 @@
  * and mobile menu support. Includes aria-current support for active page indication.
  */
 
-import { ref, computed } from "vue";
-import { useDisplay } from "vuetify";
-
-const { width } = useDisplay();
-
-const showMobileMenu = computed(() => width.value < 961);
-const showDesktopNav = computed(() => width.value >= 961);
+import { ref } from "vue";
 
 const route = useRoute();
 const { collapseAll } = useFaqCollapse();
@@ -191,6 +186,22 @@ function openDownloadDialog(event: MouseEvent) {
 </script>
 
 <style scoped>
+/* Responsive nav: CSS-based visibility avoids hydration mismatch (useDisplay differs server vs client) */
+.desktop-nav {
+  display: none;
+}
+.mobile-nav {
+  display: flex;
+}
+@media (min-width: 961px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-nav {
+    display: none;
+  }
+}
+
 .v-app-bar-title a {
   transition: opacity 0.2s ease;
 }

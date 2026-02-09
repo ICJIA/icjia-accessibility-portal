@@ -145,6 +145,21 @@ export default defineNuxtConfig({
 
   // Vite optimization to reduce render-blocking resources and improve performance
   vite: {
+    plugins: [
+      // Add font-display: swap to @font-face rules (MDI, etc.) for better LCP
+      {
+        name: 'font-display-swap',
+        transform(code, id) {
+          if (id.includes('materialdesignicons') || id.includes('@mdi/font')) {
+            // Add font-display: swap to @font-face rules (improves LCP, avoids FOIT)
+            return code.replace(
+              /@font-face\s*\{/g,
+              (m) => m.includes('font-display') ? m : m.replace('{', '{font-display:swap;')
+            )
+          }
+        }
+      }
+    ],
     build: {
       cssCodeSplit: true, // Split CSS into smaller chunks
       cssMinify: true // Minify CSS for faster loading

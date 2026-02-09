@@ -1,10 +1,12 @@
 <template>
+  <ClientOnly>
   <div class="print-container">
     <!-- Header Section -->
     <div class="print-header">
       <div class="print-logo-section">
         <img
           src="/icjia-logo-1x.png"
+          srcset="/icjia-logo-1x.png 1x, /icjia-logo-2x.png 2x"
           alt="Illinois Criminal Justice Information Authority"
           class="print-logo"
           width="57"
@@ -145,6 +147,14 @@
       </div>
     </div>
   </div>
+  <template #fallback>
+    <div class="print-container">
+      <div class="print-loading" style="min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+        <p>Loading print-friendly version...</p>
+      </div>
+    </div>
+  </template>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">

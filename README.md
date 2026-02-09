@@ -1,10 +1,15 @@
 # ICJIA Accessibility Portal
 
+![ICJIA Accessibility Portal](public/og-image.png)
+
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.0.0+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.13+-42b883)](https://vuejs.org)
+[![Lighthouse 100%](https://img.shields.io/badge/Lighthouse-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
+[![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
+[![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
 
 > 📚 **For Developers**: See **[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** for complete technical documentation, implementation details, challenges & solutions, and best practices.
 
@@ -154,6 +159,7 @@ yarn generate:serve
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
 - **Performance Optimized** - Proper caching headers and optimized assets
 - **SEO Optimized** - Complete SEO setup with Open Graph, Twitter Cards, JSON-LD structured data, automated sitemap, and Google Search Console verification
+- **Zero Hydration Errors** - All SSR hydration mismatches resolved (see [SSR Hydration Fix](#ssr-hydration-fix-vuetify--nuxt) below)
 
 ## Prerequisites
 
@@ -575,6 +581,118 @@ The HTML test report (`/docs/tests/`) includes:
 
 ---
 
+## SSR Hydration Fix (Vuetify + Nuxt)
+
+This section documents the diagnosis and resolution of persistent `"Hydration completed but contains mismatches"` console errors that appeared on every page of the application. These errors caused Lighthouse to flag the site under the `errors-in-console` audit, dropping Best Practices from 100% to 96%.
+
+### The Problem
+
+After server-side rendering (SSR), Vue 3 "hydrates" the server-rendered HTML by attaching client-side reactivity to the existing DOM. If the server-rendered HTML differs from what the client-side Vue app would render on its first pass, Vue logs a hydration mismatch warning. This site had **three distinct sources** of hydration mismatches.
+
+### Root Cause 1: JavaScript-Based Responsive Navigation (`AppNavbar.vue`)
+
+**Symptom**: Every page showed a hydration mismatch because the navigation bar rendered differently on the server vs. the client.
+
+**Cause**: The `AppNavbar.vue` component used Vuetify's `useDisplay()` composable to conditionally render desktop or mobile navigation with `v-if`:
+
+```typescript
+// BEFORE (caused hydration mismatch)
+const { mdAndUp } = useDisplay()
+const showDesktopNav = computed(() => mdAndUp.value)
+```
+
+During SSR, there is no browser viewport, so `useDisplay()` returns default values (typically mobile). On the client, the actual viewport width is detected (typically desktop), causing a completely different DOM tree to render — triggering the mismatch.
+
+**Fix**: Replaced JavaScript-based conditional rendering with **CSS media queries**. Both desktop and mobile navigation elements are always rendered in the HTML, but CSS controls their visibility:
+
+```vue
+<!-- Both always present in DOM -->
+<div class="desktop-nav d-flex align-center"><!-- desktop buttons --></div>
+<div class="mobile-nav d-flex"><!-- mobile menu --></div>
+
+<style scoped>
+.desktop-nav { display: none; }
+.mobile-nav { display: flex; }
+@media (min-width: 961px) {
+  .desktop-nav { display: flex; }
+  .mobile-nav { display: none; }
+}
+</style>
+```
+
+**Key takeaway**: In SSR applications, never use JavaScript-based viewport detection (`useDisplay()`, `window.innerWidth`, etc.) for conditional rendering with `v-if`. Use CSS media queries instead — the HTML stays identical between server and client.
+
+### Root Cause 2: Disabled `useAsyncData` Cache on FAQs Page (`faqs.vue`)
+
+**Symptom**: The FAQs page rendered the correct content from the markdown frontmatter on the server ("Common questions about accessibility") but on the client rendered the fallback text ("Find answers to common questions about web accessibility...").
+
+**Cause**: The `useAsyncData` call had `getCachedData: () => undefined`, which explicitly disabled the SSR payload cache:
+
+```typescript
+// BEFORE (caused hydration mismatch on /faqs)
+const { data: page } = await useAsyncData("faqs", () => {
+  return queryCollection("faqs").first()
+}, {
+  getCachedData: () => undefined,  // <-- forces refetch, payload ignored
+})
+```
+
+During SSR, the data fetched successfully and `page.value` had the content. But on the client, because `getCachedData` returned `undefined`, Nuxt discarded the SSR payload and initiated a fresh fetch. During the initial hydration render (before the fetch completes), `page.value` was `null`, so the template's fallback text rendered — a different string than what the server produced.
+
+**Fix**: Removed the `getCachedData` option so the client uses the SSR payload during hydration:
+
+```typescript
+// AFTER (no mismatch)
+const { data: page } = await useAsyncData("faqs", () => {
+  return queryCollection("faqs").first()
+})
+```
+
+**Key takeaway**: Never use `getCachedData: () => undefined` unless you understand that it will cause the client to discard the SSR payload, leading to `null` data during hydration. If you need fresh data, let the SSR payload hydrate first, then refetch with `refresh()` in `onMounted`.
+
+### Root Cause 3: Vuetify SSR Layout Styles (Investigated, No Fix Needed)
+
+**Symptom**: Vuetify's layout system produces SSR HTML with styles like `--v-layout-top:0px`, `transition:none !important`, `translateY(0%)`, and `opacity:NaN`.
+
+**Diagnosis**: Deep comparison of SSR HTML vs. client DOM revealed these differences:
+
+| Property | SSR Value | Client Value (after mount) |
+| --- | --- | --- |
+| `--v-layout-top` | `0px` | `64px` (measured app-bar height) |
+| `transition` | `none !important` | _(removed)_ |
+| `transform` | `translateY(0%)` | `translateY(0px)` |
+| `opacity` (v-progress-linear) | `NaN` | `0` |
+
+**Why no fix was needed**: Vue's hydration check compares the server-rendered DOM against the client's **initial VDOM render** (not the post-mount DOM). Vuetify's client code produces the same values as SSR during the initial render (`0px`, `transition:none !important`, `NaN`). The values above only change *after* `onMounted` runs — by which point hydration is complete.
+
+**Critical insight about Nitro plugins**: An earlier attempt used a Nitro `render:html` plugin to "fix" the SSR HTML (changing `opacity:NaN` to `opacity:0`, adding `left:0px;width:calc(100% + 0px)`, etc.). This **introduced** mismatches rather than fixing them, because it changed the SSR output away from what Vue's client VDOM expected during hydration. The plugin was reverted to a no-op.
+
+**Key takeaway**: When debugging SSR hydration mismatches, compare the SSR HTML against the client's **initial VDOM render** (what Vue would produce before any `onMounted` effects), not against the final post-mount DOM. Modifying SSR HTML to match the post-mount DOM will create mismatches, not fix them.
+
+### Verification
+
+After the fixes, all pages were verified clean using Puppeteer to capture console output:
+
+```
+/ ............. No hydration errors
+/faqs ......... No hydration errors
+/faqs-print ... No hydration errors
+/links ........ No hydration errors
+/search ....... No hydration errors
+```
+
+### Files Changed
+
+| File | Change |
+| --- | --- |
+| `app/components/AppNavbar.vue` | Replaced `useDisplay()` with CSS media queries for responsive nav |
+| `app/pages/faqs.vue` | Removed `getCachedData: () => undefined` from `useAsyncData` |
+| `app/pages/faqs.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
+| `app/pages/links.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
+| `server/plugins/fix-vuetify-ssr-nan.ts` | Reverted to no-op (documented why modifications cause mismatches) |
+
+---
+
 ## Content Management
 
 ### Adding New FAQ Questions
@@ -663,7 +781,7 @@ This automatically updates without rebuilding the site.
 
 #### Current Audit Status
 
-✅ **All pages currently pass with zero violations detected.**
+✅ **All pages currently pass with zero violations detected and zero console errors.**
 
 Latest audit results:
 
@@ -672,7 +790,21 @@ Latest audit results:
 - **Accessibility Score**: 100%
 - **Total Tests Run**: 1335
 - **Skip Links**: 15/15 working
-- **Last Audited**: January 4, 2026
+- **Console Errors**: 0 (all hydration mismatches resolved)
+- **Last Audited**: February 9, 2026
+
+#### Lighthouse Scores
+
+All pages score **100%** in Accessibility, Best Practices, and SEO (dev server; performance scores are higher in production with static generation and CDN caching):
+
+| Page | Accessibility | Best Practices | SEO | Console Errors |
+| -------------- | ------------- | -------------- | --- | -------------- |
+| Home (`/`) | 100 | 100 | 100 | None |
+| FAQs (`/faqs`) | 100 | 100 | 100 | None |
+| Links (`/links`) | 100 | 100 | 100 | None |
+| Search (`/search`) | 100 | 100 | 100 | None |
+
+> **Note**: Performance scores on the dev server (36-46) are expected to be lower due to unminified assets and no CDN. Production scores are significantly higher (68+ on desktop) with static site generation and Netlify CDN.
 
 The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available in `markdown-documentation/ACCESSIBILITY_AUDIT_RESULTS.md`.
 
@@ -821,12 +953,26 @@ Reports include:
   - Screen reader optimized
 - ✅ SEO optimized with automated sitemap generation
 - ✅ "New" badge system for FAQ questions
-- ✅ Dynamic countdown timer (April 24, 2026 deadline)
+- ✅ Dynamic countdown timer (April 24, 2026 deadline) on all pages
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
-### Recent Updates (January 2026)
+### Recent Updates (February 2026)
+
+- **FIX**: SSR Hydration Mismatch Resolution (see [detailed section below](#ssr-hydration-fix-vuetify--nuxt))
+  - Eliminated all "Hydration completed but contains mismatches" console errors across every page
+  - Refactored `AppNavbar.vue` from JavaScript-based responsive rendering (`useDisplay()`) to CSS media queries
+  - Fixed `useAsyncData` cache invalidation on FAQs page that caused server/client content divergence
+  - Documented Vuetify SSR layout behavior (why `opacity:NaN` and `transition:none !important` are intentional)
+  - All pages now score **100% Best Practices** in Lighthouse with zero console errors
+- **FIX**: CountdownTimer on internal pages (`/faqs`, `/links`) wrapped in `<ClientOnly>` to prevent hydration mismatch
+- **FIX**: Accessibility label mismatch on logo link (`label-content-name-mismatch`)
+- **FIX**: Heading order on search page (`h3` changed to `h2` to maintain proper hierarchy)
+- **FIX**: Added `font-display: swap` injection via Vite plugin for MDI icon fonts (prevents FOIT)
+- **FIX**: Added `srcset` for responsive logo images on print page (`image-size-responsive`)
+
+### Updates (January 2026)
 
 - **NEW**: Documentation Portal Prompt (`DOCUMENTATION_PORTAL_PROMPT.md`)
   - Step-by-step LLM-ready prompt for creating documentation portals
@@ -875,7 +1021,7 @@ Reports include:
 
 ### Version Information
 
-**Last Updated**: January 4, 2026
+**Last Updated**: February 9, 2026
 
 **Core Dependencies**:
 

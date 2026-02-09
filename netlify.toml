@@ -8,10 +8,10 @@
   NPM_FLAGS = "--version"
   YARN_VERSION = "1.22.22"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
 
 [[headers]]
   for = "/*"

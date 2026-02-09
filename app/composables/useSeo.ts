@@ -10,6 +10,7 @@
  * @property {string} [title] - Page title (will be suffixed with site name)
  * @property {string} [description] - Meta description
  * @property {string} [image] - Open Graph/Twitter image URL
+ * @property {string} [imageAlt] - Alt text for og:image and twitter:image (accessibility)
  * @property {string} [url] - Canonical URL (relative or absolute)
  * @property {'website'|'article'} [type] - Open Graph type (default: 'website')
  * @property {string[]} [keywords] - Meta keywords array
@@ -23,6 +24,7 @@ export interface SeoOptions {
   title?: string
   description?: string
   image?: string
+  imageAlt?: string
   url?: string
   type?: 'website' | 'article'
   keywords?: string[]
@@ -62,7 +64,7 @@ const DEFAULT_DESCRIPTION = 'Your resource for WCAG 2.1 AA compliance, accessibi
  * @constant {string}
  * @default '/icjia-logo.png'
  */
-const DEFAULT_IMAGE = '/icjia-logo.png'
+const DEFAULT_IMAGE = '/og-image.png'
 
 /**
  * Default Twitter handle for Twitter Card metadata.
@@ -71,6 +73,9 @@ const DEFAULT_IMAGE = '/icjia-logo.png'
  * @default '@ICJIA'
  */
 const DEFAULT_TWITTER_HANDLE = '@ICJIA'
+
+/** Default alt text for OG/Twitter image (accessibility). */
+const DEFAULT_IMAGE_ALT = 'ICJIA Accessibility Portal - WCAG 2.1 AA compliance resources for Illinois state agencies'
 
 /**
  * Composable for managing SEO metadata
@@ -117,6 +122,7 @@ export function useSeo(options: SeoOptions = {}) {
   const imageUrl = imagePath.startsWith('http')
     ? imagePath
     : `${siteUrl}${imagePath.startsWith('/') ? imagePath : `/${imagePath}`}`
+  const imageAlt = options.imageAlt || DEFAULT_IMAGE_ALT
   
   // Set basic meta tags
   useSeoMeta({
@@ -137,6 +143,10 @@ export function useSeo(options: SeoOptions = {}) {
       { property: 'og:title', content: fullTitle },
       { property: 'og:description', content: description },
       { property: 'og:image', content: imageUrl },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:alt', content: imageAlt },
       { property: 'og:url', content: fullUrl },
       { property: 'og:type', content: options.type || 'website' },
       { property: 'og:site_name', content: siteName },
@@ -147,6 +157,7 @@ export function useSeo(options: SeoOptions = {}) {
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: imageUrl },
+      { name: 'twitter:image:alt', content: imageAlt },
       // Article meta tags (if type is article)
       ...(options.type === 'article' ? [
         ...(options.publishedTime ? [{ property: 'article:published_time', content: options.publishedTime }] : []),

@@ -98,7 +98,7 @@
             <!-- No results message -->
             <div v-if="searchResults.length === 0" class="no-results">
               <v-icon size="64" color="grey-lighten-1" class="mb-4">mdi-file-search-outline</v-icon>
-              <h3 class="text-h6 text-medium-emphasis mb-2">No results found</h3>
+              <h2 class="text-h6 text-medium-emphasis mb-2">No results found</h2>
               <p class="text-body-2 text-medium-emphasis">
                 Try different keywords or check your spelling.
               </p>
@@ -108,7 +108,7 @@
           <!-- Empty state -->
           <div v-else-if="!searchQuery" class="empty-state">
             <v-icon size="80" color="grey-lighten-1" class="mb-4">mdi-text-search</v-icon>
-            <h3 class="text-h6 text-medium-emphasis mb-2">Start typing to search</h3>
+            <h2 class="text-h6 text-medium-emphasis mb-2">Start typing to search</h2>
             <p class="text-body-2 text-medium-emphasis mb-4">
               Search across all FAQ questions and answers instantly.
             </p>
