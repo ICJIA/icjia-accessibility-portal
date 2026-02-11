@@ -7,10 +7,15 @@
   <div class="app-wrapper">
     <SkipLink />
     <AppNavbar />
-    <v-main class="main-content">
-      <main id="main-content" tabindex="-1">
+    <v-main
+      id="main-content"
+      tabindex="-1"
+      class="main-content"
+      aria-label="Main content"
+    >
+      <div class="main-inner">
         <slot />
-      </main>
+      </div>
     </v-main>
     <AppFooter />
   </div>
