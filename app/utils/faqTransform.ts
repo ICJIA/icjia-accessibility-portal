@@ -165,6 +165,37 @@ export function isWithinNewWindow(dateStr: string): boolean {
 }
 
 /**
+ * Pattern for text that acts as a section heading (bold labels like "References:",
+ * "Full explanation:", "1. Accessibility expands who we can reach.").
+ * Used to convert <strong> inside <p> to proper <h4> for WCAG 1.3.1 (Info and Relationships).
+ *
+ * @constant {RegExp}
+ * @private
+ */
+const HEADING_LIKE_PATTERN =
+  /^[\d.]*\s*.{3,120}[.:]$/;
+
+/**
+ * Checks if a paragraph node contains only a single strong child with heading-like text.
+ * Such patterns (e.g. **References:**, **Full explanation:**) should use proper heading markup.
+ *
+ * @param node - The node to check
+ * @returns True if the node should be converted to h4
+ * @private
+ */
+function isHeadingLikeParagraph(node: MarkdownNode): boolean {
+  if (!isElementNode(node) || tagName(node) !== "p") return false;
+  const children = node.slice(2) as MarkdownNode[];
+  if (children.length === 0) return false;
+  // Single child that is a strong element
+  if (children.length === 1 && isElementNode(children[0]) && tagName(children[0]) === "strong") {
+    const text = extractNodeText(children[0]).trim();
+    return text.length > 0 && HEADING_LIKE_PATTERN.test(text);
+  }
+  return false;
+}
+
+/**
  * Regular expression pattern to match the "new" tag in various formats.
  *
  * Supports:
@@ -277,6 +308,15 @@ export function filterNewComments(answerNodes: MarkdownNode[]): MarkdownNode[] {
           const cleaned = text.replace(newTagFullPattern, "").trim();
           if (cleaned === "") {
             return null; // Will be filtered below
+          }
+          // Convert heading-like bold labels (e.g. **References:**, **Full explanation:**)
+          // to proper h4 elements for WCAG 1.3.1 (Info and Relationships)
+          if (isHeadingLikeParagraph(processedNode)) {
+            const strongChild = (processedNode as MarkdownElementNode)[2];
+            const innerContent = isElementNode(strongChild)
+              ? (strongChild as MarkdownElementNode).slice(2)
+              : [strongChild];
+            return ["h4", {}, ...innerContent] as MarkdownElementNode;
           }
           return processedNode;
         }
@@ -456,10 +496,10 @@ export function wrapTablesForResponsiveScroll(
         {
           class: "table-scroll-wrapper",
           tabindex: "0",
-          role: "region",
+          role: "group",
           "aria-label": "Scrollable table",
         },
-tableNode,
+        tableNode,
       ] as unknown as MarkdownElementNode;
     }
 
