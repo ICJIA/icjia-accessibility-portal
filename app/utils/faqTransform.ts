@@ -449,6 +449,48 @@ export interface FaqItem {
 }
 
 /**
+ * Checks if a paragraph node starts with bold "See also:" text.
+ *
+ * @param node - The node to check
+ * @returns True if the node is a "See also" paragraph
+ * @private
+ */
+function isSeeAlsoParagraph(node: MarkdownNode): boolean {
+  if (!isElementNode(node) || tagName(node) !== "p") return false;
+  const children = node.slice(2) as MarkdownNode[];
+  if (children.length === 0) return false;
+  const firstChild = children[0];
+  if (isElementNode(firstChild) && tagName(firstChild) === "strong") {
+    const text = extractNodeText(firstChild).trim().toLowerCase();
+    return text.startsWith("see also");
+  }
+  return false;
+}
+
+/**
+ * Wraps "See also:" paragraphs in a styled container div.
+ *
+ * Detects paragraphs that start with **See also:** and wraps them in a
+ * div with class "see-also-card" for distinct visual styling.
+ *
+ * @param nodes - Array of markdown nodes to process
+ * @returns Array with "See also" paragraphs wrapped in styled divs
+ */
+export function wrapSeeAlsoLinks(nodes: MarkdownNode[]): MarkdownNode[] {
+  if (!Array.isArray(nodes)) return nodes;
+  return nodes.map((node) => {
+    if (isSeeAlsoParagraph(node)) {
+      return [
+        "div",
+        { class: "see-also-card" },
+        node,
+      ] as unknown as MarkdownElementNode;
+    }
+    return node;
+  });
+}
+
+/**
  * Wraps markdown table nodes in a horizontally-scrollable container.
  *
  * Why this approach?
@@ -586,7 +628,8 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
             const taggedDate = extractTaggedDate(answerNodes);
             const isNew = taggedDate ? isWithinNewWindow(taggedDate) : false;
             const filteredAnswer = filterNewComments(answerNodes);
-            const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
+            const seeAlsoWrapped = wrapSeeAlsoLinks(filteredAnswer);
+            const responsiveAnswer = wrapTablesForResponsiveScroll(seeAlsoWrapped);
 
             faqItems.push({
               question: questionText,

@@ -24,7 +24,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 > - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
 > - **Need a real person?** For ICJIA questions, contact the IT department. For IITAA + ADA Title II questions, contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
 >
-> **ICJIA Contact Note (January 6, 2026):** No agency accessibility coordinator has been identified yet. This FAQ will be updated with coordinator contact information when available. In the meantime, contact **ICJIA's IT department** with specific accessibility questions or concerns.
+> **ICJIA Contact Note (March 10, 2026):** No agency accessibility coordinator has been identified yet. This FAQ will be updated with coordinator contact information when available. In the meantime, contact **ICJIA's IT department** with specific accessibility questions or concerns.
 >
 > **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It's not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency's legal/compliance leadership.
 
@@ -142,7 +142,7 @@ Here's why this FAQ is worth your time:
 
 3. **Web development has been doing this for years:** ICJIA's web development team has incorporated accessibility practices into website builds for years — semantic HTML, keyboard navigation, color contrast, alt text, and screen reader compatibility have been part of the work all along. What's changed isn't the practice; it's that accessibility is now a legal mandate rather than a best practice. If anyone in this agency has hands-on experience with accessibility requirements, it's the people who've been implementing them in code.
 
-4. **This fills a gap, not a role:** As of January 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
+4. **This fills a gap, not a role:** As of March 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
 
 5. **Feedback is welcome:** If you find errors, outdated information, or areas where this FAQ doesn't align with official guidance, please contact ICJIA's IDS Unit with specific corrections. The goal is accuracy, not attribution.
 
@@ -837,7 +837,7 @@ WCAG is organized around four principles, known as **POUR**:
 WCAG has three conformance levels:
 
 - **Level A** — Minimum accessibility (required to meet).
-- **Level AA** — Standard accessibility (should meet) ← _Required for Illinois_.
+- **Level AA** — Standard accessibility ← _Required for Illinois agencies under both IITAA and ADA Title II_.
 - **Level AAA** — Enhanced accessibility (may meet where feasible).
 
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
@@ -1879,7 +1879,7 @@ These requirements are often missed because:
 
 ### What color contrast ratio is required?
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.4.11) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 For WCAG 2.1 Level AA:
 
@@ -1911,7 +1911,7 @@ For WCAG 2.1 Level AA:
 
 {new:2026-01-06}
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.7) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 **Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (<a href="https://www.w3.org/WAI/WCAG21/quickref/#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 2.4.7 - Level AA</a>). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
 
@@ -1970,7 +1970,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 {new:2026-01-06}
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.2.2) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 **Quick answer:** Yes, for WCAG 2.1 Level AA compliance:
 
@@ -2043,7 +2043,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 **WCAG 2.1 Level AA requirements supporting cognitive accessibility:**
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 3.1.1) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 1. **Readable content** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>) — Specify the language of the page so assistive technologies can render it correctly.
 
@@ -2255,7 +2255,6 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 - <a href="https://developer.apple.com/accessibility/ios/" target="_blank" rel="noopener noreferrer">Apple iOS Accessibility</a>
 - <a href="https://developer.android.com/guide/topics/ui/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility</a>
-- <a href="https://developer.android.com/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility (alternate URL)</a> — Redirects to the current Android accessibility guidance
 - <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
@@ -2671,16 +2670,6 @@ Document Title (Heading 1)
 - Embedding essential information only in headers/footers
 - Using decorative fonts that are hard to read
 
-Key steps for accessible Word documents:
-
-1. **Use built-in heading styles** (Heading 1, Heading 2, etc.) — don't just make text bold and large
-2. **Add alt text to images** — Right-click > Edit Alt Text
-3. **Use simple table structures** — Avoid merged cells; designate header rows
-4. **Use meaningful link text** — Not "click here"
-5. **Ensure sufficient color contrast**
-6. **Use built-in lists** — Bulleted and numbered lists from the ribbon
-7. **Run the Accessibility Checker** — Review tab > Check Accessibility
-
 **Training available from DoIT:** DoIT.Accessibility@Illinois.gov
 
 **WCAG References:**
@@ -2747,9 +2736,6 @@ The best approach depends on the source:
 
 - <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">Create and verify PDF accessibility (Acrobat Pro)</a>
 - <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">Adobe PDF Accessibility Overview</a>
-- <a href="https://helpx.adobe.com/acrobat/using/create-and-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">Create and verify PDF accessibility (alternate URL)</a>
-
-**Additional Adobe reference (format background):** <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">https://www.adobe.com/accessibility/pdf.html</a>
 
 **WCAG References:**
 
@@ -3291,11 +3277,10 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 
 **Ongoing monitoring:**
 
-- Re-test after major platform updates or configuration changes
+- Re-test after major platform updates, configuration/theme changes, or new integrations
 - Track user feedback and escalate issues to vendors
 - Keep accessibility requirements in renewal contracts
 - Document your testing and remediation efforts
-- Re-test after major updates, configuration/theme changes, or new integrations
 
 **See also:**
 
@@ -3421,9 +3406,9 @@ Website audit reports for existing public websites will be posted on an ongoing 
 
 {new:2025-12-31}
 
-**Quick answer:** This process is being finalized with the accessibility coordinator. The information below is provisional and will be updated once the formal complaint handling procedure is established.
+**Quick answer:** A formal complaint handling procedure has not yet been established at ICJIA. The guidance below is provisional and will be updated once the process is finalized.
 
-**Provisional guidance (pending coordinator review):**
+**Provisional guidance:**
 
 **If someone reports an accessibility barrier:**
 
@@ -3449,11 +3434,11 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 1. **Notify executive staff immediately** — This requires leadership involvement
 2. **Contact your agency's legal counsel** — They will guide the formal response
 3. **Document everything** — Preserve records of the complaint, your accessibility efforts, and any communication
-4. **Coordinate with the accessibility coordinator** — They should be involved in the response
+4. **Coordinate with the accessibility coordinator** (once designated) or **ICJIA's IT department** — They should be involved in the response
 
 **The goal:** Treat accessibility reports as service improvement opportunities, not as problems to defend against. Most people who report barriers just want to access the service — they're not looking for legal action.
 
-**This section will be updated** once ICJIA's accessibility coordinator establishes the formal complaint handling procedure. Contact the accessibility coordinator for the current process.
+**This section will be updated** once ICJIA designates an accessibility coordinator and establishes a formal complaint handling procedure. In the meantime, contact **ICJIA's IT department** with accessibility complaints or concerns.
 
 ---
 
@@ -3566,7 +3551,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **Remediation** — The process of fixing inaccessible content to make it accessible. Example: Adding alt text to images, fixing heading structure, adding captions to videos.
 
-**Semantic HTML** — HTML code that uses the correct elements for their intended purpose (e.g., `<button>` for buttons, `<nav>` for navigation, `<heading>` for headings). This helps screen readers understand the structure and purpose of content.
+**Semantic HTML** — HTML code that uses the correct elements for their intended purpose (e.g., `<button>` for buttons, `<nav>` for navigation, `<h1>`–`<h6>` for headings). This helps screen readers understand the structure and purpose of content.
 
 ### Process Terms
 
