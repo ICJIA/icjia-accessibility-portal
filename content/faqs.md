@@ -207,9 +207,7 @@ Accessibility work isn't about adding something extra — it's about building co
 
 **A note on these FAQs:**
 
-You may be wondering why guidance on this topic is coming from a web developer rather than agency leadership or legal counsel. Fair question. These FAQs aren't personal opinion — they're based on federal regulations (ADA Title II), state law (IITAA), and established standards (WCAG 2.1). The sources are cited throughout.
-
-This resource exists because the developer behind it believes in accessibility — not as an abstract principle, but from personal experience with how much it matters when content is (or isn't) usable by everyone. This is a labor of love, not an attempt to lecture colleagues or claim expertise others don't have. The goal is simply to gather the guidance that exists and make it accessible (in every sense) to the people who need it.
+You may be wondering why guidance on this topic is coming from a web developer rather than agency leadership or legal counsel. Fair question — see [Why should I trust this FAQ if it wasn't created by agency leadership?](#understanding-accessibility-why-should-i-trust-this-faq-if-it-wasn-t-created-by-agency-leadership-or-official-accessibility-experts) for a detailed answer. In short: these FAQs aren't personal opinion — they're based on federal regulations (ADA Title II), state law (IITAA), and established standards (WCAG 2.1). The sources are cited throughout.
 
 If something here is wrong or could be said better, feedback is welcome.
 
@@ -744,7 +742,7 @@ Accessibility violations have characteristics that make them more likely to be d
 6. **Plan for ongoing compliance** — Accessibility requires ongoing attention as content is created and updated
 7. **Allocate resources** — Ensure adequate staff time and budget for accessibility work
 
-**Key takeaway:** From a risk management perspective, non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions. The question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption. Compliance is both a legal requirement and an organizational responsibility to serve all Illinois residents effectively. Agencies that approach accessibility as a risk management priority and allocate appropriate resources are better positioned to meet the deadline and avoid enforcement actions. Proactive compliance is also an opportunity to demonstrate organizational commitment to serving all Illinois residents, including those with disabilities.
+**Key takeaway:** Non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions — the question isn't whether violations will be found, but when. Proactive compliance reduces both legal risk and organizational disruption. Agencies that allocate appropriate resources now are better positioned to meet the deadline and demonstrate their commitment to serving all Illinois residents.
 
 **References:**
 
@@ -1077,15 +1075,11 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 3. **Provide accessible alternatives** — Be prepared to provide alternative formats upon request (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>)
 4. **Continue after the deadline** — The obligation doesn't end; keep working toward full compliance
 
-**Important:** The ADA Title II web rule establishes WCAG 2.1 Level AA as the compliance standard. The rule specifies technical requirements, not effort-based requirements. For questions about enforcement, remedies, or risk, consult your agency's legal counsel. From a practical standpoint: documentation demonstrates organizational commitment, and each barrier removed helps real users access services now.
-
-While the standard is technical compliance, not effort-based, demonstrating ongoing commitment and systematic remediation may be relevant context if enforcement questions arise. The goal should remain full compliance, but documented progress is better than undocumented inaction.
-
-- **Consult legal counsel** — For questions about enforcement risk, legal exposure, or what constitutes adequate compliance in your specific situation, consult your agency's legal counsel
+**Important:** The ADA Title II rule specifies technical requirements (WCAG 2.1 Level AA), not effort-based requirements. However, documented progress is better than undocumented inaction — each barrier removed helps real users access services now. For questions about enforcement risk or legal exposure, consult your agency's legal counsel.
 
 **Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for details.
 
-**Key takeaway:** If you can't achieve full compliance by the deadline, continue making progress. Reduce barriers as quickly as possible, document your efforts, provide accessible alternatives upon request, and keep working toward full compliance. The compliance standard remains WCAG 2.1 Level AA — consult your agency's legal counsel for questions about enforcement or risk.
+**Key takeaway:** If you can't achieve full compliance by the deadline, keep making progress. Prioritize high-impact barriers, document your efforts, and provide accessible alternatives upon request.
 
 **References:**
 
