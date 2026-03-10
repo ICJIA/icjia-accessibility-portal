@@ -57,6 +57,19 @@
         </button>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
+          href="https://audit.icjia.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+          aria-label="Check PDF accessibility (opens in new tab)"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true"
+            >mdi-file-check-outline</v-icon
+          >
+          <span>Check PDF</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
           href="/docs/index.html"
           class="footer-link"
           aria-label="View documentation portal"
