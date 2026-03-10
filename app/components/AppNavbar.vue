@@ -155,6 +155,14 @@ const navItems: NavItem[] = [
     ariaLabel: "Download FAQs - choose format",
   },
   {
+    title: "Check PDF",
+    to: "https://audit.icjia.app",
+    icon: "mdi-file-check-outline",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    ariaLabel: "Check PDF accessibility (opens in new tab)",
+  },
+  {
     title: "Links",
     to: "/links",
     icon: "mdi-link",
@@ -246,8 +254,9 @@ function openDownloadDialog(event: MouseEvent) {
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-width: 44px !important;
   min-height: 44px !important;
-  padding: 0 12px;
-  margin: 0 4px;
+  padding: 0 8px;
+  margin: 0 2px;
+  font-size: 0.8125rem;
   /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
   /* Light theme: darker blue (#1D4ED8) for better contrast on white */
   /* Dark theme: lighter blue (#93C5FD) for better contrast on dark surface */
@@ -274,7 +283,8 @@ function openDownloadDialog(event: MouseEvent) {
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-width: 44px !important;
   min-height: 44px !important;
-  margin-right: 4px;
+  margin-right: 2px;
+  font-size: 0.8125rem;
   /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
   color: rgb(var(--v-theme-primary-darken-1)) !important;
 }
@@ -298,9 +308,10 @@ function openDownloadDialog(event: MouseEvent) {
 
 @media (max-width: 960px) {
   .nav-btn {
-    font-size: 0.875rem;
-    padding: 0 8px;
-    /* Maintain 44x44px minimum even on mobile - WCAG 2.5.5 Enhanced AAA */
+    font-size: 0.75rem;
+    padding: 0 4px;
+    margin: 0 1px;
+    /* Maintain 44x44px minimum even on tablet - WCAG 2.5.5 Enhanced AAA */
     min-width: 44px !important;
     min-height: 44px !important;
   }
