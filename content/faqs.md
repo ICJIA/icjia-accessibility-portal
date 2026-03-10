@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-01-26
+lastUpdated: 2026-03-10
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -34,7 +34,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
-_Last updated: January 8, 2026_
+_Last updated: March 10, 2026_
 
 **What you need to know right now:**
 
@@ -3686,4 +3686,4 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ---
 
-_Last updated: January 8, 2026_
+_Last updated: March 10, 2026_
