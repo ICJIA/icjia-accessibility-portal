@@ -155,7 +155,7 @@ yarn generate:serve
 ### Design & Performance
 
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-  - **Navigation**: Full nav buttons (Home, Print, Download, Links, Search) on screens ≥600px; hamburger menu on small/xs screens only (<600px)
+  - **Navigation**: Full nav buttons (Home, Print, Download, Check PDF, Links, Search) on screens ≥600px; hamburger menu on small/xs screens only (<600px)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
 - **Dark Theme** - Modern dark theme by default using Vuetify Material Design
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
@@ -335,7 +335,7 @@ The automated build process:
 │   │   ├── suppress-vuetify-logs.client.ts  # Suppresses Vuetify console warnings (client)
 │   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
-│   │   └── faqTransform.ts     # Utility to transform FAQ content and handle "new" badges
+│   │   └── faqTransform.ts     # FAQ AST transforms: "new" badges, "See also" cards, responsive tables
 │   ├── router.options.ts       # Custom router configuration
 │   └── error.vue               # Error page component
 ├── content/
@@ -370,11 +370,7 @@ The automated build process:
 ├── markdown-documentation/     # Project documentation and audit results
 │   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
 │   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
-│   ├── FOOTER_REFACTOR.md          # Footer refactor documentation
 │   ├── PROJECT_REVIEW.md           # Comprehensive project review
-│   ├── FAQ_NEW_TAG_SYSTEM.md       # Documentation for "new" badge system
-│   ├── PRINTER_FRIENDLY_FAQ.md     # Printer-friendly feature documentation
-│   ├── ACCESSIBILITY_AUDIT_RESULTS.md  # Latest audit results
 │   └── (20+ other documentation files)
 ├── content.config.ts           # Nuxt Content configuration
 ├── netlify.toml                # Netlify deployment configuration
@@ -751,8 +747,6 @@ The "New" badge will:
 - Appear as a green chip next to the question
 - Auto-expire without any manual cleanup needed
 
-For more details, see `markdown-documentation/FAQ_NEW_TAG_SYSTEM.md`.
-
 ### Adding Links
 
 1. Edit `content/links.md`
@@ -842,7 +836,7 @@ All pages score **100%** in Accessibility, Best Practices, and SEO (dev server; 
 
 > **Note**: Performance scores on the dev server (36-46) are expected to be lower due to unminified assets and no CDN. Production scores are significantly higher (68+ on desktop) with static site generation and Netlify CDN.
 
-The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available in `markdown-documentation/ACCESSIBILITY_AUDIT_RESULTS.md`.
+The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available at `public/docs/accessibility/index.html`.
 
 #### Sitemap Generation
 

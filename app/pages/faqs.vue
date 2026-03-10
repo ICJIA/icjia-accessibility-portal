@@ -133,6 +133,7 @@
 import { computed, watchEffect, ref } from "vue";
 import {
   wrapTablesForResponsiveScroll,
+  wrapSeeAlsoLinks,
   extractTaggedDate,
   filterNewComments,
   isWithinNewWindow,
@@ -309,7 +310,7 @@ const faqSections = computed(() => {
           currentSection.items.push({
             question: questionText,
             answer: wrapTablesForResponsiveScroll(
-              filterNewComments(answerNodes)
+              wrapSeeAlsoLinks(filterNewComments(answerNodes))
             ),
             isNew: taggedDate ? isWithinNewWindow(taggedDate) : false,
             newDate: taggedDate || undefined,

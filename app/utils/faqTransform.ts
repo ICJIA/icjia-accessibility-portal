@@ -457,6 +457,10 @@ export interface FaqItem {
  */
 function isSeeAlsoParagraph(node: MarkdownNode): boolean {
   if (!isElementNode(node) || tagName(node) !== "p") return false;
+  // Check if the full text content starts with "See also"
+  const fullText = extractNodeText(node).trim().toLowerCase();
+  if (fullText.startsWith("see also")) return true;
+  // Also check first child for bold "See also:" pattern
   const children = node.slice(2) as MarkdownNode[];
   if (children.length === 0) return false;
   const firstChild = children[0];

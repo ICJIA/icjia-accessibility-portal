@@ -189,6 +189,8 @@ import {
   transformFaqsToAccordionData,
   extractTaggedDate,
   filterNewComments,
+  wrapSeeAlsoLinks,
+  wrapTablesForResponsiveScroll,
   isWithinNewWindow,
 } from "../utils/faqTransform";
 import { useDeadlineCountdown } from "../composables/useDeadlineCountdown";
@@ -519,7 +521,9 @@ const faqSections = computed(() => {
         if (questionText) {
           // Check for "new" date and filter comments
           const taggedDate = extractTaggedDate(answerNodes);
-          const filteredAnswer = filterNewComments(answerNodes);
+          const filteredAnswer = wrapTablesForResponsiveScroll(
+            wrapSeeAlsoLinks(filterNewComments(answerNodes))
+          );
 
           currentSection.items.push({
             question: questionText,
