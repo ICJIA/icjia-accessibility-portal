@@ -468,26 +468,28 @@ function isSeeAlsoParagraph(node: MarkdownNode): boolean {
 }
 
 /**
- * Wraps "See also:" paragraphs in a styled container div.
- *
- * Detects paragraphs that start with **See also:** and wraps them in a
- * div with class "see-also-card" for distinct visual styling.
+ * Moves "See also:" paragraphs to the end of the answer and wraps them
+ * in a styled container div for distinct visual presentation.
  *
  * @param nodes - Array of markdown nodes to process
- * @returns Array with "See also" paragraphs wrapped in styled divs
+ * @returns Array with "See also" paragraphs moved to end and wrapped
  */
 export function wrapSeeAlsoLinks(nodes: MarkdownNode[]): MarkdownNode[] {
   if (!Array.isArray(nodes)) return nodes;
-  return nodes.map((node) => {
+  const seeAlso: MarkdownNode[] = [];
+  const rest: MarkdownNode[] = [];
+  for (const node of nodes) {
     if (isSeeAlsoParagraph(node)) {
-      return [
-        "div",
-        { class: "see-also-card" },
-        node,
-      ] as unknown as MarkdownElementNode;
+      seeAlso.push(node);
+    } else {
+      rest.push(node);
     }
-    return node;
-  });
+  }
+  if (seeAlso.length === 0) return nodes;
+  return [
+    ...rest,
+    ["div", { class: "see-also-card" }, ...seeAlso] as unknown as MarkdownElementNode,
+  ];
 }
 
 /**

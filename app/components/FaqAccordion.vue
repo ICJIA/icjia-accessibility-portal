@@ -743,23 +743,26 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 }
 
 .faq-answer-content :deep(.see-also-card) {
-  background: rgba(var(--v-theme-primary), 0.06);
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.4);
-  border-radius: 0 6px 6px 0;
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.9em;
+  background: rgba(var(--v-theme-primary), 0.08);
+  border: 1px solid rgba(var(--v-theme-primary), 0.2);
+  border-left: 3px solid rgba(var(--v-theme-primary), 0.5);
+  border-radius: 0 8px 8px 0;
+  padding: 0.75rem 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85em;
 }
 
 .faq-answer-content :deep(.see-also-card p) {
-  margin: 0;
+  margin: 0.25rem 0;
   line-height: 1.6;
 }
 
 [data-v-theme="dark"] .faq-answer-content :deep(.see-also-card),
 .v-theme--dark .faq-answer-content :deep(.see-also-card) {
-  background: rgba(var(--v-theme-primary), 0.08);
-  border-left-color: rgba(var(--v-theme-primary), 0.5);
+  background: rgba(var(--v-theme-primary), 0.1);
+  border-color: rgba(var(--v-theme-primary), 0.3);
+  border-left-color: rgba(var(--v-theme-primary), 0.6);
 }
 
 .faq-answer-content :deep(code) {
