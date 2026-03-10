@@ -246,15 +246,12 @@ useBreadcrumbStructuredData([
   color: #000000; /* Black for 21:1 contrast on white background - exceeds AAA requirement */
   text-decoration: none;
   font-weight: 500;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  display: inline-block;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
+  display: inline;
   min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 12px 12px;
+  padding: 8px 2px;
   box-sizing: border-box;
   line-height: 1.5;
-  vertical-align: baseline;
-  margin: -4px 0;
 }
 
 /* Dark theme: use lighter color for AAA contrast */
@@ -267,9 +264,6 @@ useBreadcrumbStructuredData([
 .links-content :deep(li a:hover) {
   text-decoration: underline;
   text-underline-offset: 2px;
-  /* Maintain 44x44px on hover */
-  min-height: 44px !important;
-  min-width: 44px !important;
 }
 
 [data-v-theme="dark"] .links-content :deep(li a:hover),

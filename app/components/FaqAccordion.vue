@@ -703,15 +703,12 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   color: rgb(var(--v-theme-primary-darken-1));
   text-decoration: underline;
   text-underline-offset: 2px;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  display: inline-block;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
+  display: inline;
   min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 12px 12px;
+  padding: 8px 2px;
   box-sizing: border-box;
   line-height: 1.5;
-  vertical-align: baseline;
-  margin: -4px 0;
 }
 
 /* Dark theme: use lighter color for AAA contrast */
@@ -722,9 +719,6 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 
 .faq-answer-content :deep(a:hover) {
   text-decoration-thickness: 2px;
-  /* Maintain 44x44px on hover */
-  min-height: 44px !important;
-  min-width: 44px !important;
 }
 
 [data-v-theme="dark"] .faq-answer-content :deep(a:hover),

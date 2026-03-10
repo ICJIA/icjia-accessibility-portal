@@ -5,8 +5,8 @@
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
-[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.0.0+-00DC82)](https://nuxt.com)
-[![Vue 3](https://img.shields.io/badge/Vue-3.5.13+-42b883)](https://vuejs.org)
+[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
+[![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
 [![Lighthouse 100%](https://img.shields.io/badge/Lighthouse-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
@@ -322,11 +322,18 @@ The automated build process:
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
 │   │   ├── useFaqCollapse.ts        # Composable for FAQ collapse state
-│   │   └── useSlugify.ts            # Composable for creating URL slugs (150-char limit) - [View on GitHub](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/composables/useSlugify.ts)
+│   │   ├── usePrintLinks.ts         # Composable for print-friendly link handling
+│   │   ├── useSeo.ts                # Composable for SEO meta tags
+│   │   ├── useSlugify.ts            # Composable for creating URL slugs (150-char limit)
+│   │   └── useStructuredData.ts     # Composable for JSON-LD structured data
 │   ├── plugins/
 │   │   ├── content-links.client.ts  # Plugin to add target="_blank" to content links
 │   │   ├── ensure-accessibility-report.server.ts  # Server plugin for report placeholder
-│   │   └── optimize-css.client.ts   # Client plugin for CSS optimization
+│   │   ├── optimize-css.client.ts   # Client plugin for CSS optimization
+│   │   ├── optimize-fonts.client.ts # Client plugin for font loading optimization
+│   │   ├── resource-hints.server.ts # Server plugin for resource preload hints
+│   │   ├── suppress-vuetify-logs.client.ts  # Suppresses Vuetify console warnings (client)
+│   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
 │   │   └── faqTransform.ts     # Utility to transform FAQ content and handle "new" badges
 │   ├── router.options.ts       # Custom router configuration
@@ -337,7 +344,7 @@ The automated build process:
 ├── public/
 │   ├── favicon.svg             # Site favicon
 │   ├── icjia-logo.png          # ICJIA logo
-│   ├── robots.txt              # Robots.txt (disallows all indexing)
+│   ├── robots.txt              # Robots.txt (allows indexing, disallows /docs/ and /_nuxt/)
 │   ├── sitemap.xml             # Auto-generated sitemap (excludes /docs/ routes)
 │   ├── .well-known/
 │   │   └── appspecific/
@@ -349,13 +356,17 @@ The automated build process:
 │       │   ├── errors.json     # Accessibility errors data
 │       │   └── violations.json # Accessibility violations data
 ├── scripts/
-│   ├── generate-routes.js      # Routes generation script (scans pages and content) - Fully documented with JSDoc
-│   ├── generate-sitemap.js     # Sitemap generation script - Fully documented with JSDoc
-│   ├── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists - Fully documented with JSDoc
-│   └── regenerate-faq-links.mjs # Regenerate internal FAQ links with 150-character slugs (matches useSlugify composable)
+│   ├── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
+│   ├── extract-vue-scripts.js          # Extracts script blocks from Vue SFCs for TypeDoc
+│   ├── generate-architecture-docs.js   # Auto-generates architecture documentation HTML
+│   ├── generate-faq-docx.js            # Generates accessible Word document from FAQ content
+│   ├── generate-faq-md.js              # Generates Markdown export from FAQ content
+│   ├── generate-faq-txt.js             # Generates plain text export from FAQ content
+│   ├── generate-icjia-logo.js          # ICJIA logo generation script
+│   ├── generate-og-image.js            # OG image generator (serif font matching icjia-logo)
+│   ├── generate-routes.js              # Routes generation script (scans pages and content)
+│   └── generate-sitemap.js             # Sitemap generation script
 ├── audit-accessibility.js      # Comprehensive accessibility audit script - Tests WCAG 2.1 AA compliance using axe-core
-│                               # Fully documented with 1355-line guide (ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)
-│                               # Supports dev/prod testing, multi-viewport, multi-theme, dynamic rule configuration
 ├── markdown-documentation/     # Project documentation and audit results
 │   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
 │   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
@@ -365,7 +376,6 @@ The automated build process:
 │   ├── PRINTER_FRIENDLY_FAQ.md     # Printer-friendly feature documentation
 │   ├── ACCESSIBILITY_AUDIT_RESULTS.md  # Latest audit results
 │   └── (20+ other documentation files)
-├── audit-accessibility.js      # Accessibility audit script (console output)
 ├── content.config.ts           # Nuxt Content configuration
 ├── netlify.toml                # Netlify deployment configuration
 ├── nuxt.config.ts              # Nuxt configuration
@@ -817,7 +827,7 @@ Latest audit results:
 - **Total Tests Run**: 1335
 - **Skip Links**: 15/15 working
 - **Console Errors**: 0 (all hydration mismatches resolved)
-- **Last Audited**: February 9, 2026
+- **Last Audited**: March 2026
 
 #### Lighthouse Scores
 
@@ -882,7 +892,7 @@ For a comprehensive understanding of this application's architecture, implementa
 - Testing and validation approach
 - Tips for replicating similar applications
 
-**[📑 Documentation Index](markdown-documentation/INDEX.md)** - Quick reference to all 11 documentation files organized by category
+**[📑 Documentation Index](markdown-documentation/INDEX.md)** - Quick reference to all documentation files organized by category
 
 **This guide is essential reading for:**
 
@@ -893,7 +903,7 @@ For a comprehensive understanding of this application's architecture, implementa
 
 ### Project Documentation
 
-Comprehensive documentation is available in the `markdown-documentation/` folder **(consolidated from 24 to 12 files)**:
+Comprehensive documentation is available in the `markdown-documentation/` folder:
 
 #### 📐 Core (4 files)
 
@@ -922,7 +932,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 - **[test/E2E_TEST_PLAN.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/E2E_TEST_PLAN.md)** - Comprehensive E2E test implementation plan (coverage, strategy, examples)
 - **[test/README.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/README.md)** - Complete test suite documentation (unit, Nuxt, E2E plans)
 
-**Total**: 13 well-organized documentation files (includes accessibility audit script guide)
+**Total**: 22 documentation files organized by category
 
 ### Live Documentation Portal
 
@@ -984,7 +994,15 @@ Reports include:
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
-### Recent Updates (February 2026)
+### Recent Updates (March 2026)
+
+- **NEW**: FAQ question about ICJIA's drag-and-drop PDF accessibility checker at https://audit.icjia.app
+  - 9 accessibility checks, free and open source, browser-based with no installation
+  - Cross-referenced from "How do I make a PDF accessible?", "How do I test my website?", and "Do all documents need to be accessible?"
+  - Added to Free Testing Tools glossary table
+- **UPDATE**: README updated to reflect current dependency versions, project structure, and documentation file counts
+
+### Updates (February 2026)
 
 - **FIX**: Responsive navigation hamburger menu
   - Hamburger now appears only on small/xs screens (<600px); full nav buttons on all larger screens
@@ -1044,22 +1062,21 @@ Reports include:
 - Added comprehensive project documentation
 - Optimized CSS and performance
 - Enhanced content management system
-- Navigation improvements (**Print** + **Download PDF** links added to navbar and footer)
-- Build-time PDF generation (Netlify-safe): `/faqs.pdf` is generated from `/faqs-print` during `postgenerate` so downloads/prints are always up to date
+- Navigation improvements (**Print** + **Download** links added to navbar and footer)
 - **Footer refactor** - Modern, centered design with links for **Print**, **Download**, **Documentation**, **Accessibility**, and GitHub. Fully responsive and accessible with proper ARIA labels.
-- **SEO enhancements** - Complete SEO implementation with Open Graph, Twitter Cards, JSON-LD structured data (GovernmentOrganization, WebSite, FAQPage with 93 questions, BreadcrumbList), Google Search Console verification, and comprehensive sitemap including PDF download
+- **SEO enhancements** - Complete SEO implementation with Open Graph, Twitter Cards, JSON-LD structured data (GovernmentOrganization, WebSite, FAQPage with 93 questions, BreadcrumbList), Google Search Console verification, and comprehensive sitemap
 
 ### Version Information
 
-**Last Updated**: February 9, 2026
+**Last Updated**: March 10, 2026
 
 **Core Dependencies**:
 
 - Node.js: 22.14.0
-- Nuxt: 4.0.0+
-- Vue: 3.5.13+
-- Vuetify: 3.11.3+
-- Nuxt Content: 3.9.0+
+- Nuxt: 4.2.2+
+- Vue: 3.5.26+
+- Vuetify: 3.11.6+
+- Nuxt Content: 3.10.0+
 
 **Testing Tools**:
 

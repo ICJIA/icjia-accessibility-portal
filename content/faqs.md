@@ -1669,6 +1669,8 @@ For most Illinois state agencies, the deadline is **April 24, 2026** (since Illi
 
 ### How do I test my website for accessibility?
 
+**See also:** [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility) (for testing PDF documents specifically)
+
 **Why this matters:** Automated tools catch many issues quickly, but they can't detect everything. Manual testing with keyboard navigation and screen readers reveals barriers that automated tools miss — and these barriers can prevent people with disabilities from using your website entirely.
 
 Use a combination of automated and manual testing:
@@ -2557,7 +2559,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 **Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
 
-**See also:** [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for comprehensive details on all five exceptions, their strict criteria, and practical examples.
+**See also:** [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for comprehensive details on all five exceptions, their strict criteria, and practical examples. | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 
 **What documents need to be accessible:**
 
@@ -2692,7 +2694,7 @@ Key steps for accessible Word documents:
 
 {new:2026-01-06}
 
-**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+**See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 
 **Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
 
@@ -2754,6 +2756,36 @@ The best approach depends on the source:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (document structure, reading order)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
+
+### Is there a quick way to test PDF files for accessibility?
+
+{new:2026-03-10}
+
+**See also:** [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
+
+**Quick answer:** Yes. ICJIA has created a free, open-source drag-and-drop PDF accessibility checker at <a href="https://audit.icjia.app" target="_blank" rel="noopener noreferrer">https://audit.icjia.app</a>. It runs 9 different accessibility checks on your PDF files instantly in the browser — no installation or account required.
+
+**What it does:**
+
+The tool checks PDF files across 9 accessibility checks, including document structure (tags), reading order, alt text for images, document language, heading hierarchy, and more. It provides a clear pass/fail report for each check so you can quickly identify what needs to be fixed.
+
+**What it does not do:**
+
+The tool is a **checker, not a remediator** — it identifies accessibility issues but does not fix them. Once you know what's wrong, you'll still need to remediate the PDF using tools like Adobe Acrobat Pro, the source document (Word, InDesign, etc.), or other remediation software.
+
+**Why this is especially useful:**
+
+- **Free and open source** — Many PDF accessibility testing tools are expensive or require paid software licenses. This tool is completely free to use, with no hidden costs, subscriptions, or usage limits.
+- **No installation required** — It runs entirely in your browser. Just drag and drop your PDF file.
+- **Privacy-friendly** — Files are processed locally in your browser; they are not uploaded to a server.
+- **Fast triage** — Quickly test a batch of PDFs to identify which ones need remediation and what specific issues to fix, helping you prioritize your remediation workload before the April 24, 2026 deadline.
+
+**Links:**
+
+- **App:** <a href="https://audit.icjia.app" target="_blank" rel="noopener noreferrer">https://audit.icjia.app</a>
+- **GitHub repository:** <a href="https://github.com/ICJIA/icjia-pdf-audit" target="_blank" rel="noopener noreferrer">https://github.com/ICJIA/icjia-pdf-audit</a>
+
+**Note:** Automated checkers (including this one) catch many common issues but cannot verify everything — for example, whether alt text accurately describes an image or whether reading order is logical. Always combine automated testing with manual review for full compliance.
 
 ### Is Canva accessible?
 
@@ -3455,6 +3487,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 | ANDI                    | <a href="https://www.ssa.gov/accessibility/andi/help/install.html" target="_blank" rel="noopener noreferrer">https://www.ssa.gov/accessibility/andi/help/install.html</a> |
 | WebAIM Contrast Checker | <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>                       |
 | PAC 2024 (PDF checker)  | <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">https://pac.pdf-accessibility.org/</a>                                             |
+| ICJIA PDF Audit         | <a href="https://audit.icjia.app" target="_blank" rel="noopener noreferrer">https://audit.icjia.app</a>                                                                    |
 
 ---
 
@@ -3581,6 +3614,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 ### Testing & Auditing
 
 - [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
+- [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 - [Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?](#website-accessibility-do-we-need-an-independent-external-accessibility-audit-to-prove-compliance-when-is-it-worth-it)
 - [Can't we just use an accessibility overlay/widget (a "one-click fix") instead of doing remediation?](#website-accessibility-can-t-we-just-use-an-accessibility-overlay-widget-a-one-click-fix-instead-of-doing-remediation)
 
@@ -3599,6 +3633,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 - [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible)
 - [How do I make a Word document accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-word-document-accessible)
 - [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible)
+- [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 - [How do I make Excel spreadsheets accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-excel-spreadsheets-accessible)
 - [How do I make PowerPoint presentations accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-powerpoint-presentations-accessible)
 - [Is Canva accessible?](#content-accessibility-documents-pdfs-presentations-is-canva-accessible)

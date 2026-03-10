@@ -576,15 +576,12 @@ useBreadcrumbStructuredData([
 
 /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Ensure all links in FAQ intro meet 44x44px */
 .faq-intro :deep(a) {
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  display: inline-block;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
+  display: inline;
   min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 12px 12px;
+  padding: 8px 2px;
   box-sizing: border-box;
   line-height: 1.5;
-  vertical-align: baseline;
-  margin: -4px 0;
   /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
   color: rgb(var(--v-theme-primary-darken-1)) !important;
 }
