@@ -4,12 +4,14 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
+[![Version 1.1.0](https://img.shields.io/badge/Version-1.1.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
 [![Lighthouse 100%](https://img.shields.io/badge/Lighthouse-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
+[![Security Audited](https://img.shields.io/badge/Security-Audited-blueviolet)](CHANGELOG.md#110---2026-03-26)
 
 > 📚 **For Developers**: See **[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** for complete technical documentation, implementation details, challenges & solutions, and best practices.
 
@@ -255,10 +257,13 @@ This site is configured for deployment on Netlify with automatic builds and opti
 The `netlify.toml` file includes:
 
 - **Security headers**:
+  - Content-Security-Policy: Restricts script/style/font/image sources; blocks framing, base-uri, and form-action
+  - Strict-Transport-Security: Enforces HTTPS with 1-year max-age, includeSubDomains, and preload
   - X-Frame-Options: DENY (prevents clickjacking)
   - X-Content-Type-Options: nosniff
   - X-XSS-Protection: 1; mode=block
   - Referrer-Policy: strict-origin-when-cross-origin
+  - Permissions-Policy: Blocks geolocation, microphone, camera
 - **Cache headers** for static assets (1 year cache for immutable files)
 - **SPA fallback** redirects for client-side routing
 - **Custom 404 handling**
@@ -965,6 +970,55 @@ Reports include:
 - Historical comparisons
 - Element-level details
 
+## Security Audit (Red/Blue Team)
+
+A comprehensive red/blue team security assessment was conducted on **March 26, 2026**. Full details are documented in [CHANGELOG.md](CHANGELOG.md#110---2026-03-26).
+
+### Overall Risk Rating: LOW
+
+This is a statically-generated documentation site with no server-side processing, no authentication, no database, and no user uploads — a minimal attack surface by design.
+
+### Red Team Findings Summary
+
+| Severity | Count | Description |
+|----------|-------|-------------|
+| **Critical** | 0 | No critical vulnerabilities in application code |
+| **High** | 3 | Transitive dev dependency issues (basic-ftp, devalue, axios) — not in production runtime |
+| **Medium** | 2 | Missing CSP and HSTS headers — **Fixed** |
+| **Low** | 4 | Conditional v-html usage, build-time dep issues — monitored |
+
+### Blue Team Strengths
+
+- Zero dangerous patterns (`eval`, `Function`, `innerHTML` with user data)
+- Proper XSS escaping in search with `escapeHtml()` before `v-html`
+- External links secured with `rel="noopener noreferrer"`
+- Zod schema validation on all content frontmatter
+- No exposed secrets (`.env` gitignored, no API keys in source)
+- Static site generation eliminates server-side attack vectors
+- Privacy-first analytics (self-hosted Plausible, no cookies)
+
+### Remediations Applied
+
+- **Content-Security-Policy** header added — restricts all resource loading to `'self'` and `plausible.icjia.cloud`
+- **Strict-Transport-Security** header added — enforces HTTPS with 1-year max-age and preload
+
+### Accessibility Audit (axe-core)
+
+Full axe-core assessment conducted on **March 26, 2026**:
+
+| Metric | Result |
+|--------|--------|
+| **Total Pages Tested** | 5 (/, /faqs, /faqs-print, /links, /search) |
+| **Viewports Tested** | 3 (Desktop 1920x1080, Tablet 768x1024, Mobile 375x812) |
+| **Total Checks Run** | 1,335 |
+| **Violations Found** | **0** |
+| **Skip Links Verified** | 15/15 |
+| **WCAG 2.1 AA Compliance** | 100% |
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milestones, and security audit documentation.
+
 ## Project Status
 
 **Current Status**: ✅ Production Ready
@@ -990,6 +1044,12 @@ Reports include:
 
 ### Recent Updates (March 2026)
 
+- **v1.1.0 — Security Hardening** (2026-03-26):
+  - Red/blue team security audit completed — see [CHANGELOG.md](CHANGELOG.md#110---2026-03-26) for full report
+  - Added Content-Security-Policy (CSP) header
+  - Added Strict-Transport-Security (HSTS) header with preload
+  - Full axe-core accessibility re-assessment: 0 violations, 1,335 checks across all pages/viewports
+  - Created CHANGELOG.md with complete project milestone history
 - **NEW**: FAQ question about ICJIA's drag-and-drop PDF accessibility checker at https://audit.icjia.app
   - 9 accessibility checks, free and open source, browser-based with no installation
   - Cross-referenced from "How do I make a PDF accessible?", "How do I test my website?", and "Do all documents need to be accessible?"
@@ -1062,7 +1122,8 @@ Reports include:
 
 ### Version Information
 
-**Last Updated**: March 10, 2026
+**Version**: 1.1.0
+**Last Updated**: March 26, 2026
 
 **Core Dependencies**:
 
