@@ -67,7 +67,7 @@ yarn generate:serve
 
 - **Vuetify 3** - Material Design component library with comprehensive accessibility support
 - **Sass** - CSS preprocessor for maintainable stylesheets
-- **Material Design Icons (MDI)** - Extensive icon library with 7,000+ icons
+- **Material Design Icons (MDI)** - Tree-shaken SVG icons via `@mdi/js` (only used icons are bundled)
 
 ### Content & Data
 
@@ -1071,7 +1071,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - **FIX**: CountdownTimer on internal pages (`/faqs`, `/links`) wrapped in `<ClientOnly>` to prevent hydration mismatch
 - **FIX**: Accessibility label mismatch on logo link (`label-content-name-mismatch`)
 - **FIX**: Heading order on search page (`h3` changed to `h2` to maintain proper hierarchy)
-- **FIX**: Added `font-display: swap` injection via Vite plugin for MDI icon fonts (prevents FOIT)
+- **FIX**: Switched from `@mdi/font` (50KB+ CSS) to `@mdi/js` tree-shaken SVG icons (only 27 used icons bundled)
 - **FIX**: Added `srcset` for responsive logo images on print page (`image-size-responsive`)
 
 ### Updates (January 2026)

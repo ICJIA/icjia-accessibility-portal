@@ -6,6 +6,28 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.1] - 2026-04-07
+
+### Performance
+
+- **Switched MDI icons from font to tree-shaken SVG** — replaced `@mdi/font` (50KB+ CSS for 7,000+ icons) with `@mdi/js` SVG imports (only 27 used icons bundled), eliminating render-blocking font CSS
+- **Removed unused Vite font-display plugin** — no longer needed with SVG icons
+- **Removed no-op resource-hints server plugin** — dead code elimination
+- **Restructured suppress-vuetify-logs plugin** — moved helper functions inside plugin body so they are tree-shaken from production builds
+
+### Accessibility
+
+- **Fixed `label-content-name-mismatch`** on navbar logo link — aria-label now matches visible text ("Accessibility Portal")
+
+### Fixed
+
+- **Fixed bfcache support** — added `pagehide`/`pageshow` listener cleanup in content-links plugin so browsers can cache pages in back/forward cache
+- **Fixed CSP `script-src`** — added `'unsafe-inline'` to allow Nuxt hydration scripts in production
+- **Fixed SSR hydration mismatch** — configured `vuetify-nuxt-module` to use `mdi-svg` icon set on both server and client
+- **Removed stale `@mdi/font` CDN preload** injected by vuetify-nuxt-module
+
+---
+
 ## [1.1.0] - 2026-03-26
 
 ### Security (Red/Blue Team Audit)
