@@ -830,16 +830,13 @@ Latest audit results:
 
 #### Lighthouse Scores
 
-All pages score **100%** in Accessibility, Best Practices, and SEO (dev server; performance scores are higher in production with static generation and CDN caching):
+All pages score **100%** in Accessibility, Best Practices, Performance, and SEO:
 
-| Page | Accessibility | Best Practices | SEO | Console Errors |
-| -------------- | ------------- | -------------- | --- | -------------- |
-| Home (`/`) | 100 | 100 | 100 | None |
-| FAQs (`/faqs`) | 100 | 100 | 100 | None |
-| Links (`/links`) | 100 | 100 | 100 | None |
-| Search (`/search`) | 100 | 100 | 100 | None |
+| Page | Performance | Accessibility | Best Practices | SEO |
+| -------------- | ----------- | ------------- | -------------- | --- |
+| Home (`/`) | 100 | 100 | 100 | 100 |
 
-> **Note**: Performance scores on the dev server (36-46) are expected to be lower due to unminified assets and no CDN. Production scores are significantly higher (68+ on desktop) with static site generation and Netlify CDN.
+> **Production scores** (April 2026): All four Lighthouse categories at 100 on desktop after switching to tree-shaken SVG icons and eliminating render-blocking font CSS.
 
 The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available at `public/docs/accessibility/index.html`.
 

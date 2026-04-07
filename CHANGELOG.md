@@ -8,6 +8,14 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ## [1.1.1] - 2026-04-07
 
+### Lighthouse Scores
+
+- **Performance: 100** (up from 95) — render-blocking font CSS eliminated
+- **Accessibility: 100** — label-content-name-mismatch fixed
+- **Best Practices: 100**
+- **SEO: 100**
+- **Unused CSS reduced from 79 KiB to 31 KiB** (~48 KiB saved from MDI font removal)
+
 ### Performance
 
 - **Switched MDI icons from font to tree-shaken SVG** — replaced `@mdi/font` (50KB+ CSS for 7,000+ icons) with `@mdi/js` SVG imports (only 27 used icons bundled), eliminating render-blocking font CSS
