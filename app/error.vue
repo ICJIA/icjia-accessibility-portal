@@ -18,9 +18,7 @@
               </p>
 
               <div class="mb-6">
-                <v-icon size="64" class="mb-4"
-                  >mdi-file-question-outline</v-icon
-                >
+                <v-icon size="64" class="mb-4" :icon="mdiFileQuestionOutline" />
               </div>
 
               <div class="d-flex flex-column flex-sm-row gap-4 justify-center">
@@ -28,7 +26,7 @@
                   href="/"
                   color="primary"
                   size="large"
-                  prepend-icon="mdi-home"
+                  :prepend-icon="mdiHome"
                 >
                   Go Home
                 </v-btn>
@@ -37,7 +35,7 @@
                   href="/links"
                   variant="outlined"
                   size="large"
-                  prepend-icon="mdi-link"
+                  :prepend-icon="mdiLink"
                 >
                   Accessibility Links
                 </v-btn>
@@ -70,6 +68,8 @@
  * @fileoverview Error page component
  * @description Displays error pages (404, 500, etc.) with helpful navigation options
  */
+
+import { mdiFileQuestionOutline, mdiHome, mdiLink } from '~/utils/icons'
 
 /**
  * Component props

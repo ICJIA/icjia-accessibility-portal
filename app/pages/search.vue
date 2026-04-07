@@ -6,9 +6,7 @@
           <!-- Header -->
           <div class="search-header mb-6">
             <h1 class="text-h3 d-flex align-center flex-wrap mb-4">
-              <v-icon class="mr-3" color="primary" aria-hidden="true">
-                mdi-magnify
-              </v-icon>
+              <v-icon class="mr-3" color="primary" aria-hidden="true" :icon="mdiMagnify" />
               <span>Search FAQs</span>
             </h1>
             <p class="text-subtitle-1 text-medium-emphasis">
@@ -22,7 +20,7 @@
               v-model="searchQuery"
               ref="searchInputRef"
               label="Search FAQs..."
-              prepend-inner-icon="mdi-magnify"
+              :prepend-inner-icon="mdiMagnify"
               variant="outlined"
               clearable
               autofocus
@@ -89,7 +87,7 @@
 
                 <!-- Open indicator -->
                 <div class="open-indicator">
-                  <v-icon size="small" color="primary">mdi-open-in-new</v-icon>
+                  <v-icon size="small" color="primary" :icon="mdiOpenInNew" />
                   <span class="text-caption text-primary">Opens in new tab</span>
                 </div>
               </div>
@@ -97,7 +95,7 @@
 
             <!-- No results message -->
             <div v-if="searchResults.length === 0" class="no-results">
-              <v-icon size="64" color="grey-lighten-1" class="mb-4">mdi-file-search-outline</v-icon>
+              <v-icon size="64" color="grey-lighten-1" class="mb-4" :icon="mdiFileSearchOutline" />
               <h2 class="text-h6 text-medium-emphasis mb-2">No results found</h2>
               <p class="text-body-2 text-medium-emphasis">
                 Try different keywords or check your spelling.
@@ -107,7 +105,7 @@
 
           <!-- Empty state -->
           <div v-else-if="!searchQuery" class="empty-state">
-            <v-icon size="80" color="grey-lighten-1" class="mb-4">mdi-text-search</v-icon>
+            <v-icon size="80" color="grey-lighten-1" class="mb-4" :icon="mdiTextSearch" />
             <h2 class="text-h6 text-medium-emphasis mb-2">Start typing to search</h2>
             <p class="text-body-2 text-medium-emphasis mb-4">
               Search across all FAQ questions and answers instantly.
@@ -136,6 +134,7 @@
  */
 
 import { ref, computed, watch, onMounted } from "vue";
+import { mdiMagnify, mdiOpenInNew, mdiFileSearchOutline, mdiTextSearch } from '~/utils/icons';
 import Fuse from "fuse.js";
 import {
   extractTaggedDate,

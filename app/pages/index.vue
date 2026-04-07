@@ -58,25 +58,19 @@
                 rel="noopener noreferrer"
                 class="compliance-link"
               >
-                <v-icon size="16" class="mr-1" aria-hidden="true"
-                  >mdi-open-in-new</v-icon
-                >
+                <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiOpenInNew" />
                 ADA Title II Digital Accessibility Compliance Deadline: April
                 24, 2026
               </NuxtLink>
             </p>
             <p class="text-caption mt-3 text-medium-emphasis site-dates">
               <span class="date-item">
-                <v-icon size="14" class="mr-1" aria-hidden="true"
-                  >mdi-creation</v-icon
-                >
+                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiCreation" />
                 Created: {{ siteCreated }}
               </span>
               <span class="date-separator" aria-hidden="true">•</span>
               <span class="date-item">
-                <v-icon size="14" class="mr-1" aria-hidden="true"
-                  >mdi-update</v-icon
-                >
+                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiUpdate" />
                 Updated: {{ lastUpdated }}
               </span>
             </p>
@@ -86,7 +80,7 @@
         <!-- FAQ Disclaimer Card -->
         <v-card class="pa-6 mb-6 disclaimer-card" elevation="4" color="warning" variant="tonal" border>
           <div class="d-flex align-start">
-            <v-icon class="mr-3 mt-1" color="warning" size="24" aria-hidden="true">mdi-information</v-icon>
+            <v-icon class="mr-3 mt-1" color="warning" size="24" aria-hidden="true" :icon="mdiInformation" />
             <div class="flex-grow-1">
               <h2 class="text-h6 mb-3">About These FAQs</h2>
               <div class="text-body-2">
@@ -117,9 +111,7 @@
         <div class="faq-section">
           <div class="faq-header-row mb-6">
             <h2 class="text-h4 faq-main-title">
-              <v-icon class="mr-2" size="32"
-                >mdi-frequently-asked-questions</v-icon
-              >
+              <v-icon class="mr-2" size="32" :icon="mdiFrequentlyAskedQuestions" />
               Frequently Asked Questions
             </h2>
             <div class="faq-sort-wrapper">
@@ -185,6 +177,7 @@
  */
 
 import { ref, onMounted, onUnmounted, computed } from "vue";
+import { mdiOpenInNew, mdiCreation, mdiUpdate, mdiInformation, mdiFrequentlyAskedQuestions } from "~/utils/icons";
 import {
   transformFaqsToAccordionData,
   extractTaggedDate,

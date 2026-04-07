@@ -10,7 +10,7 @@
   >
     <v-card class="download-dialog">
       <v-card-title :id="dialogTitleId" class="download-dialog-title">
-        <v-icon class="mr-2" aria-hidden="true">mdi-download</v-icon>
+        <v-icon class="mr-2" aria-hidden="true" :icon="mdiDownload" />
         Download FAQs
       </v-card-title>
 
@@ -30,9 +30,7 @@
             @click="handleDownload('docx')"
           >
             <div class="download-option-icon docx-icon">
-              <v-icon size="32" aria-hidden="true">
-                mdi-file-word
-              </v-icon>
+              <v-icon size="32" aria-hidden="true" :icon="mdiFileWord" />
             </div>
             <div class="download-option-info">
               <span class="download-option-title">Word Document (.docx)</span>
@@ -41,15 +39,11 @@
                 Microsoft Word, Google Docs, or LibreOffice.
               </span>
               <span class="download-option-accessibility">
-                <v-icon size="14" color="success" aria-hidden="true">
-                  mdi-check-circle
-                </v-icon>
+                <v-icon size="14" color="success" aria-hidden="true" :icon="mdiCheckCircle" />
                 Accessible: Proper heading structure for navigation
               </span>
             </div>
-            <v-icon class="download-option-arrow" aria-hidden="true">
-              mdi-chevron-right
-            </v-icon>
+            <v-icon class="download-option-arrow" aria-hidden="true" :icon="mdiChevronRight" />
           </a>
 
           <!-- Plain Text Option -->
@@ -61,9 +55,7 @@
             @click="handleDownload('txt')"
           >
             <div class="download-option-icon txt-icon">
-              <v-icon size="32" aria-hidden="true">
-                mdi-file-document-outline
-              </v-icon>
+              <v-icon size="32" aria-hidden="true" :icon="mdiFileDocumentOutline" />
             </div>
             <div class="download-option-info">
               <span class="download-option-title">Plain Text (.txt)</span>
@@ -72,21 +64,15 @@
                 Maximum compatibility, no special software needed.
               </span>
               <span class="download-option-accessibility">
-                <v-icon size="14" color="success" aria-hidden="true">
-                  mdi-check-circle
-                </v-icon>
+                <v-icon size="14" color="success" aria-hidden="true" :icon="mdiCheckCircle" />
                 Accessible: Universal format, works everywhere
               </span>
               <span class="download-option-llm">
-                <v-icon size="14" color="info" aria-hidden="true">
-                  mdi-robot
-                </v-icon>
+                <v-icon size="14" color="info" aria-hidden="true" :icon="mdiRobot" />
                 Great for AI: Perfect for pasting into ChatGPT, Claude, or other LLMs
               </span>
             </div>
-            <v-icon class="download-option-arrow" aria-hidden="true">
-              mdi-chevron-right
-            </v-icon>
+            <v-icon class="download-option-arrow" aria-hidden="true" :icon="mdiChevronRight" />
           </a>
 
           <!-- Markdown Option -->
@@ -98,9 +84,7 @@
             @click="handleDownload('md')"
           >
             <div class="download-option-icon md-icon">
-              <v-icon size="32" aria-hidden="true">
-                mdi-language-markdown
-              </v-icon>
+              <v-icon size="32" aria-hidden="true" :icon="mdiLanguageMarkdown" />
             </div>
             <div class="download-option-info">
               <span class="download-option-title">Markdown (.md)</span>
@@ -109,28 +93,22 @@
                 or renders beautifully in VS Code, GitHub, Obsidian, or Typora.
               </span>
               <span class="download-option-accessibility">
-                <v-icon size="14" color="success" aria-hidden="true">
-                  mdi-check-circle
-                </v-icon>
+                <v-icon size="14" color="success" aria-hidden="true" :icon="mdiCheckCircle" />
                 Accessible: Readable as plain text, renders with formatting
               </span>
               <span class="download-option-llm">
-                <v-icon size="14" color="info" aria-hidden="true">
-                  mdi-robot
-                </v-icon>
+                <v-icon size="14" color="info" aria-hidden="true" :icon="mdiRobot" />
                 Great for AI: Ideal for pasting into ChatGPT, Claude, or other LLMs
               </span>
             </div>
-            <v-icon class="download-option-arrow" aria-hidden="true">
-              mdi-chevron-right
-            </v-icon>
+            <v-icon class="download-option-arrow" aria-hidden="true" :icon="mdiChevronRight" />
           </a>
         </div>
 
         <!-- Markdown Explanation -->
         <details class="markdown-explainer">
           <summary class="markdown-explainer-summary">
-            <v-icon size="16" class="mr-1" aria-hidden="true">mdi-help-circle-outline</v-icon>
+            <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiHelpCircleOutline" />
             What is Markdown? How do I view it?
           </summary>
           <div class="markdown-explainer-content">
@@ -203,7 +181,7 @@
             </p>
             
             <p class="tip-text">
-              <v-icon size="14" class="mr-1" aria-hidden="true">mdi-lightbulb-outline</v-icon>
+              <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiLightbulbOutline" />
               <strong>Tip:</strong> Markdown and plain text are the most reliable formats for AI tools — 
               they preserve all content without formatting issues that Word documents can have.
             </p>
@@ -211,7 +189,7 @@
         </details>
 
         <p class="download-dialog-note">
-          <v-icon size="16" class="mr-1" aria-hidden="true">mdi-information</v-icon>
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiInformation" />
           <strong>Tip:</strong> For screen reader users, the Word document format 
           preserves heading structure for easy navigation.
         </p>
@@ -249,6 +227,7 @@
 
 import { computed, ref } from "vue";
 import { useDisplay } from "vuetify";
+import { mdiDownload, mdiFileWord, mdiCheckCircle, mdiChevronRight, mdiFileDocumentOutline, mdiRobot, mdiLanguageMarkdown, mdiHelpCircleOutline, mdiLightbulbOutline, mdiInformation } from '~/utils/icons';
 
 interface Props {
   modelValue: boolean;

@@ -31,7 +31,7 @@
         </div>
         <template #actions>
           <v-icon
-            icon="mdi-chevron-down"
+            :icon="mdiChevronDown"
             class="faq-chevron"
             size="24"
             aria-hidden="true"
@@ -62,6 +62,7 @@
  */
 
 import { ref, watch, onMounted, onUnmounted, nextTick, computed } from "vue";
+import { mdiChevronDown } from '~/utils/icons'
 
 /** @typedef {any} MiniMarkNode */
 

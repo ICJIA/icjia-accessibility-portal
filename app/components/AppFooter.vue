@@ -10,9 +10,7 @@
           class="copyright-link"
           :aria-label="`${currentYear} Illinois Criminal Justice Information Authority (opens in new tab)`"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-copyright</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiCopyright" />
           <span
             >{{ currentYear }} Illinois Criminal Justice Information
             Authority</span
@@ -27,9 +25,7 @@
           class="footer-link"
           aria-label="Search FAQs"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-magnify</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiMagnify" />
           <span>Search</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -38,9 +34,7 @@
           class="footer-link"
           aria-label="View printer-friendly version of FAQs"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-printer</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiPrinter" />
           <span>Print</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -50,9 +44,7 @@
           aria-label="Download FAQs - choose format"
           @click="openDownloadDialog"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-download</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiDownload" />
           <span>Download</span>
         </button>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -63,9 +55,7 @@
           class="footer-link"
           aria-label="Check PDF accessibility (opens in new tab)"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-file-check-outline</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiFileCheckOutline" />
           <span>Check PDF</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -74,9 +64,7 @@
           class="footer-link"
           aria-label="View documentation portal"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-file-document-outline</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiFileDocumentOutline" />
           <span>Documentation</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -85,9 +73,7 @@
           class="footer-link"
           aria-label="View accessibility audit report"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-check-circle</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiCheckCircle" />
           <span>Accessibility</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -98,9 +84,7 @@
           class="footer-link"
           aria-label="View source code on GitHub (opens in new tab)"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-github</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiGithub" />
           <span>GitHub</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
@@ -111,9 +95,7 @@
           class="footer-link"
           aria-label="ICJIA Website (opens in new tab)"
         >
-          <v-icon size="16" class="mr-1" aria-hidden="true"
-            >mdi-open-in-new</v-icon
-          >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiOpenInNew" />
           <span>ICJIA Website</span>
         </a>
       </nav>
@@ -132,6 +114,7 @@
  */
 
 import { ref } from "vue";
+import { mdiCopyright, mdiMagnify, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiFileDocumentOutline, mdiCheckCircle, mdiGithub, mdiOpenInNew } from '~/utils/icons'
 
 /** @type {number} Current year for copyright display */
 const currentYear = new Date().getFullYear();

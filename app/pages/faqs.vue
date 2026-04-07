@@ -30,8 +30,7 @@
               color="warning"
               size="24"
               aria-hidden="true"
-              >mdi-information</v-icon
-            >
+              :icon="mdiInformation" />
             <div class="flex-grow-1">
               <h2 class="text-h6 mb-3">About These FAQs</h2>
               <div class="text-body-2">
@@ -52,8 +51,7 @@
           <div class="faq-page-header mb-4">
             <h1 class="text-h3 d-flex align-center flex-wrap mb-0">
               <v-icon class="mr-3" color="primary" aria-hidden="true"
-                >mdi-frequently-asked-questions</v-icon
-              >
+                :icon="mdiFrequentlyAskedQuestions" />
               <span>{{ page?.title || "Frequently Asked Questions" }}</span>
             </h1>
             <div class="faq-sort-wrapper">
@@ -131,6 +129,7 @@
  */
 
 import { computed, watchEffect, ref } from "vue";
+import { mdiInformation, mdiFrequentlyAskedQuestions } from '~/utils/icons'
 import {
   wrapTablesForResponsiveScroll,
   wrapSeeAlsoLinks,

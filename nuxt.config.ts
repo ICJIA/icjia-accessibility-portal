@@ -1,10 +1,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  
+
   devtools: {
     enabled: false
   },
-  
+
   app: {
     head: {
       htmlAttrs: {
@@ -26,9 +26,9 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/favicon.svg' },
         // Preconnect to external domains for faster DNS resolution
         { rel: 'preconnect', href: 'https://plausible.icjia.cloud' },
-        { rel: 'dns-prefetch', href: 'https://plausible.icjia.cloud' }
-        // Note: Logo image doesn't need preload - it's small (1.5KB) and uses
-        // loading="eager" + fetchpriority="high" which is sufficient
+        { rel: 'dns-prefetch', href: 'https://plausible.icjia.cloud' },
+        // Override vuetify-nuxt-module's @mdi/font CDN injection (we use @mdi/js SVG icons)
+        { key: 'mdi', rel: 'prefetch', href: '' } as any
       ]
     }
   },
@@ -80,7 +80,10 @@ export default defineNuxtConfig({
   // Server-side logs (command line) are from Nuxt's dev server and are harmless.
   vuetify: {
     moduleOptions: {
-      styles: true
+      styles: true,
+      icons: {
+        defaultSet: 'mdi-svg'
+      }
     },
     vuetifyOptions: {
       theme: {
@@ -124,15 +127,10 @@ export default defineNuxtConfig({
           },
         },
       },
-      icons: {
-        defaultSet: 'mdi'
-      }
     }
   },
 
-  css: [
-    '@mdi/font/css/materialdesignicons.min.css'
-  ],
+  css: [],
 
   build: {
     transpile: ['vuetify']
@@ -145,21 +143,7 @@ export default defineNuxtConfig({
 
   // Vite optimization to reduce render-blocking resources and improve performance
   vite: {
-    plugins: [
-      // Add font-display: swap to @font-face rules (MDI, etc.) for better LCP
-      {
-        name: 'font-display-swap',
-        transform(code, id) {
-          if (id.includes('materialdesignicons') || id.includes('@mdi/font')) {
-            // Add font-display: swap to @font-face rules (improves LCP, avoids FOIT)
-            return code.replace(
-              /@font-face\s*\{/g,
-              (m) => m.includes('font-display') ? m : m.replace('{', '{font-display:swap;')
-            )
-          }
-        }
-      }
-    ],
+    plugins: [],
     build: {
       cssCodeSplit: true, // Split CSS into smaller chunks
       cssMinify: true // Minify CSS for faster loading

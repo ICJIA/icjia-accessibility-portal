@@ -7,7 +7,7 @@
           href="/"
           class="d-flex align-center text-decoration-none logo-link"
           style="color: inherit"
-          aria-label="Accessibility Portal - Go to home page"
+          aria-label="Accessibility Portal"
           @click="handleLogoClick"
         >
           <img
@@ -61,7 +61,7 @@
               :aria-expanded="menuOpen"
               style="min-width: 44px; min-height: 44px"
             >
-              <v-icon>mdi-menu</v-icon>
+              <v-icon :icon="mdiMenu" />
             </v-btn>
           </template>
           <v-list>
@@ -81,7 +81,7 @@
             </v-list-item>
             <v-list-item
               href="/search"
-              prepend-icon="mdi-magnify"
+              :prepend-icon="mdiMagnify"
               :aria-current="route.path === '/search' ? 'page' : undefined"
             >
               <v-list-item-title>Search</v-list-item-title>
@@ -96,7 +96,7 @@
           href="/search"
           variant="text"
           class="search-btn"
-          prepend-icon="mdi-magnify"
+          :prepend-icon="mdiMagnify"
           aria-label="Search FAQs"
           :aria-current="route.path === '/search' ? 'page' : undefined"
         >
@@ -118,6 +118,7 @@
  */
 
 import { ref } from "vue";
+import { mdiHome, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiLink, mdiMenu, mdiMagnify } from "~/utils/icons";
 
 const route = useRoute();
 const { collapseAll } = useFaqCollapse();
@@ -138,26 +139,26 @@ const navItems: NavItem[] = [
   {
     title: "Home",
     to: "/",
-    icon: "mdi-home",
+    icon: mdiHome,
   },
   {
     title: "Print",
     to: "/faqs-print",
-    icon: "mdi-printer",
+    icon: mdiPrinter,
     target: "_blank",
     rel: "noopener noreferrer",
   },
   {
     title: "Download",
     to: "#download",
-    icon: "mdi-download",
+    icon: mdiDownload,
     isDownload: true,
     ariaLabel: "Download FAQs - choose format",
   },
   {
     title: "Check PDF",
     to: "https://audit.icjia.app",
-    icon: "mdi-file-check-outline",
+    icon: mdiFileCheckOutline,
     target: "_blank",
     rel: "noopener noreferrer",
     ariaLabel: "Check PDF accessibility (opens in new tab)",
@@ -165,7 +166,7 @@ const navItems: NavItem[] = [
   {
     title: "Links",
     to: "/links",
-    icon: "mdi-link",
+    icon: mdiLink,
   },
 ];
 

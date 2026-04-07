@@ -33,7 +33,7 @@
         "test:reports": "node test/generate-failed-tests-report.js"
     },
     "dependencies": {
-        "@mdi/font": "^7.4.47",
+        "@mdi/js": "^7.4.47",
         "@nuxt/content": "^3.10.0",
         "@nuxtjs/plausible": "^2.0.1",
         "better-sqlite3": "^12.5.0",

@@ -367,5 +367,20 @@ export default defineNuxtPlugin(() => {
       observeContent();
       handleInitialHash();
     }
+
+    // Clean up global listeners on page hide to support bfcache
+    window.addEventListener('pagehide', () => {
+      document.removeEventListener('click', globalClickHandler, { capture: true });
+      observer.disconnect();
+    });
+
+    // Re-attach listeners when page is restored from bfcache
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) {
+        document.addEventListener('click', globalClickHandler, { capture: true });
+        observeContent();
+        processLinks();
+      }
+    });
   }
 });
