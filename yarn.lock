@@ -3349,12 +3349,12 @@
   integrity sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==
 
 "@unhead/vue@^2.0.19":
-  version "2.0.19"
-  resolved "https://registry.npmjs.org/@unhead/vue/-/vue-2.0.19.tgz"
-  integrity sha512-7BYjHfOaoZ9+ARJkT10Q2TjnTUqDXmMpfakIAsD/hXiuff1oqWg1xeXT5+MomhNcC15HbiABpbbBmITLSHxdKg==
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/@unhead/vue/-/vue-2.1.13.tgz#99bd579ec3f6c56e78e439413b2a79c10836eb42"
+  integrity sha512-HYy0shaHRnLNW9r85gppO8IiGz0ONWVV3zGdlT8CQ0tbTwixznJCIiyqV4BSV1aIF1jJIye0pd1p/k6Eab8Z/A==
   dependencies:
-    hookable "^5.5.3"
-    unhead "2.0.19"
+    hookable "^6.0.1"
+    unhead "2.1.13"
 
 "@vercel/nft@0.29.4":
   version "0.29.4"
@@ -6967,6 +6967,11 @@ hookable@^5.5.3:
   version "5.5.3"
   resolved "https://registry.npmjs.org/hookable/-/hookable-5.5.3.tgz"
   integrity sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ==
+
+hookable@^6.0.1:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/hookable/-/hookable-6.1.0.tgz#f9eb1c39928b5c6db4e8884155d402420030555e"
+  integrity sha512-ZoKZSJgu8voGK2geJS+6YtYjvIzu9AOM/KZXsBxr83uhLL++e9pEv/dlgwgy3dvHg06kTz6JOh1hk3C8Ceiymw==
 
 hosted-git-info@^7.0.0:
   version "7.0.2"
@@ -12278,12 +12283,12 @@ unenv@^2.0.0-rc.23, unenv@^2.0.0-rc.24:
   dependencies:
     pathe "^2.0.3"
 
-unhead@2.0.19:
-  version "2.0.19"
-  resolved "https://registry.npmjs.org/unhead/-/unhead-2.0.19.tgz"
-  integrity sha512-gEEjkV11Aj+rBnY6wnRfsFtF2RxKOLaPN4i+Gx3UhBxnszvV6ApSNZbGk7WKyy/lErQ6ekPN63qdFL7sa1leow==
+unhead@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/unhead/-/unhead-2.1.13.tgz#df317d5ee5365641f15b7a9211cc9641b3ec886a"
+  integrity sha512-jO9M1sI6b2h/1KpIu4Jeu+ptumLmUKboRRLxys5pYHFeT+lqTzfNHbYUX9bxVDhC1FBszAGuWcUVlmvIPsah8Q==
   dependencies:
-    hookable "^5.5.3"
+    hookable "^6.0.1"
 
 unicode-emoji-modifier-base@^1.0.0:
   version "1.0.0"
