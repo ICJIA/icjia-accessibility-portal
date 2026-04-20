@@ -233,6 +233,10 @@ function parseTable(lines) {
 
     rows.push(
       new TableRow({
+        // Mark the first row as a header row so assistive technology can
+        // identify column headers and repeat them on page breaks (WCAG 1.3.1
+        // Info and Relationships).
+        tableHeader: isHeader,
         children: cells.map(
           (cell) =>
             new TableCell({
@@ -657,6 +661,16 @@ async function main() {
     creator: "Illinois Criminal Justice Information Authority",
     keywords: "accessibility, WCAG, ADA, IITAA, digital accessibility, compliance",
     description: "Accessible Word document version of the ICJIA Digital Accessibility FAQ",
+    // Document-wide language declaration (WCAG 3.1.1 Language of Page).
+    // Applied via the default run properties so every run inherits en-US
+    // unless explicitly overridden.
+    styles: {
+      default: {
+        document: {
+          run: { language: { value: "en-US" } },
+        },
+      },
+    },
     numbering: {
       config: [
         {
