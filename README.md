@@ -141,9 +141,10 @@ yarn generate:serve
   - Fully accessible with discernible link text and table headers
   - Links display URLs for printed versions
 - **Accessible FAQ Downloads** - Multiple accessible formats via Download dialog
-  - **Word Document (.docx)** - Formatted with proper heading hierarchy, tables, hyperlinks (screen reader navigable)
-  - **Markdown (.md)** - Plain text with formatting syntax, readable in any editor or Markdown viewer
-  - **Plain Text (.txt)** - Universal format readable by any device or assistive technology
+  - **Word Document (.docx)** - H1–H4 heading hierarchy, 522 hyperlinks with visible text, `en-US` language declaration (WCAG 3.1.1), `<w:tblHeader/>` markup on every table header row (WCAG 1.3.1), complete document metadata (title/subject/creator/description/keywords)
+  - **Markdown (.md)** - 122 headings with zero level skips, 37 tables with header separators, no bare URLs
+  - **Plain Text (.txt)** - Universal format readable by any device or assistive technology, clear section separators
+  - Download dialog has `role="dialog"`, `aria-modal`, and descriptive button labels
   - Download dialog explains each format and includes AI/LLM usage tips
   - Formats are generated at build time for static hosting, or on-demand during development
 - **Markdown-based Content** - Easy content management via Nuxt Content

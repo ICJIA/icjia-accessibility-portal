@@ -29,6 +29,14 @@ On April 20, 2026, the U.S. Department of Justice published an [Interim Final Ru
 - **Permanent in-card extension notice** on the homepage countdown card — amber "Extended 4/20/2026" badge with the full announcement, pinned directly to the countdown so the extension context is visible wherever the countdown appears. Links to both the Federal Register notice and the Government Technology coverage so agency staff can verify the change directly. Hidden in print.
 - **Dedicated FAQ guidance** on the extension — including a pinned callout in the Executive Summary, a rewrite of the "deadline is firm" messaging to acknowledge that DOJ has already extended the date once, and explicit guidance that agencies should not plan around further extensions.
 
+### Accessibility — FAQ downloads
+
+Audited all three generated download formats against WCAG 2.1 AA and fixed two DOCX issues found during the audit:
+
+- **DOCX language declaration (WCAG 3.1.1)** — the generated Word document had no `<w:lang>` attribute anywhere, so screen readers couldn't determine the document language. Added `styles.default.document.run.language = "en-US"` to `scripts/generate-faq-docx.js` so every run inherits en-US.
+- **DOCX table header row markup (WCAG 1.3.1)** — none of the 35 tables had `<w:tblHeader/>` markup, so assistive tech couldn't distinguish header rows from data rows or repeat headers on page breaks. Added `tableHeader: isHeader` on the first row of each table. Verified output: 35 header rows (one per table) + 175 data rows.
+- **Audit results**: DOCX (proper H1–H4 hierarchy, 522 hyperlinks with visible text, no images missing alt, metadata complete). Markdown (122 headings with zero level skips, 37 tables with header separators). Plain text (4,084 well-structured lines with section separators). DownloadDialog carries `role="dialog"`, `aria-modal`, proper button labels. `axe-core` AA on `/` and `/faqs`: 0 violations.
+
 ### Notes
 
 - The WCAG 2.1 Level AA technical standard is unchanged — only the compliance date moved.
