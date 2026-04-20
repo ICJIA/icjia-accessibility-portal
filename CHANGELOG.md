@@ -26,9 +26,7 @@ On April 20, 2026, the U.S. Department of Justice published an [Interim Final Ru
 
 ### Added
 
-- **Two-tier extension notices:**
-  - **`ExtensionBanner` component** (top of every page, default layout) — dismissible, **auto-expires 10 days after the announcement** (hidden for everyone after April 30, 2026). Links to both the Federal Register notice and the Government Technology coverage so agency staff can verify the change directly. Dismissal persists in `localStorage` under a notice-specific key so future notices are not auto-dismissed. Hidden in print and in the print layout. Rendered inside `v-main` so Vuetify's layout system offsets it below the fixed `v-app-bar`.
-  - **Permanent in-card extension notice** on the homepage countdown card — amber "Extended 4/20/2026" badge with the full announcement and the same two verification links. This notice stays visible after the top banner expires so the extension context remains attached to the countdown itself.
+- **Permanent in-card extension notice** on the homepage countdown card — amber "Extended 4/20/2026" badge with the full announcement, pinned directly to the countdown so the extension context is visible wherever the countdown appears. Links to both the Federal Register notice and the Government Technology coverage so agency staff can verify the change directly. Hidden in print.
 - **Dedicated FAQ guidance** on the extension — including a pinned callout in the Executive Summary, a rewrite of the "deadline is firm" messaging to acknowledge that DOJ has already extended the date once, and explicit guidance that agencies should not plan around further extensions.
 
 ### Notes
