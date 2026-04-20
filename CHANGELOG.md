@@ -6,6 +6,38 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.0] - 2026-04-20
+
+### Deadline extended to April 26, 2027
+
+On April 20, 2026, the U.S. Department of Justice published an [Interim Final Rule](https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web) extending the ADA Title II web accessibility compliance date by one year. The portal has been updated to reflect the new deadlines.
+
+### Changed
+
+- **Countdown timer** now targets April 26, 2027 (previously April 24, 2026) — `useDeadlineCountdown.ts`, `CountdownTimer.vue`, `index.vue`, `faqTransform.ts`, `og-image-template.html`.
+- **FAQ content (`content/faqs.md`)** — all deadline references updated from April 24, 2026 to April 26, 2027. The tiered-deadline table now shows April 26, 2027 (50k+ jurisdictions) and April 26, 2028 (under 50k). Slug-style anchors (`april-24-2026` → `april-26-2027`) and internal anchor links updated to match; section-heading slugs regenerate automatically from the new text.
+- **Homepage compliance link** now reads "April 26, 2027" (fixed a missed line-wrapped reference).
+- **Homepage `lastUpdated`** bumped to April 20, 2026.
+- **Links page (`content/links.md`)** — compliance-dates table updated to reflect extension.
+- **FAQ downloads (DOCX, MD, TXT)** — headers/footers now show April 26, 2027.
+- **Print-friendly FAQs (`/faqs-print`)** — deadline text updated.
+- **SEO meta description** on homepage now notes the one-year extension.
+- **FAQ `lastUpdated`** frontmatter bumped to `2026-04-20`.
+
+### Added
+
+- **Two-tier extension notices:**
+  - **`ExtensionBanner` component** (top of every page, default layout) — dismissible, **auto-expires 10 days after the announcement** (hidden for everyone after April 30, 2026). Links to both the Federal Register notice and the Government Technology coverage so agency staff can verify the change directly. Dismissal persists in `localStorage` under a notice-specific key so future notices are not auto-dismissed. Hidden in print and in the print layout. Rendered inside `v-main` so Vuetify's layout system offsets it below the fixed `v-app-bar`.
+  - **Permanent in-card extension notice** on the homepage countdown card — amber "Extended 4/20/2026" badge with the full announcement and the same two verification links. This notice stays visible after the top banner expires so the extension context remains attached to the countdown itself.
+- **Dedicated FAQ guidance** on the extension — including a pinned callout in the Executive Summary, a rewrite of the "deadline is firm" messaging to acknowledge that DOJ has already extended the date once, and explicit guidance that agencies should not plan around further extensions.
+
+### Notes
+
+- The WCAG 2.1 Level AA technical standard is unchanged — only the compliance date moved.
+- "Pre-existing documents" exception language in the FAQ now references the April 26, 2027 compliance-date cutoff.
+
+---
+
 ## [1.1.1] - 2026-04-07
 
 ### Lighthouse Scores

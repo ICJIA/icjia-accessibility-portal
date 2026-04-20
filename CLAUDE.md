@@ -4,14 +4,14 @@ This document provides essential context for AI assistants working on this codeb
 
 ## Project Overview
 
-**ICJIA Accessibility Portal** is a Nuxt 4/Vue 3 static site for the Illinois Criminal Justice Information Authority (ICJIA). It provides accessibility resources, FAQs, and a countdown timer for the **ADA Title II April 24, 2026 compliance deadline**.
+**ICJIA Accessibility Portal** is a Nuxt 4/Vue 3 static site for the Illinois Criminal Justice Information Authority (ICJIA). It provides accessibility resources, FAQs, and a countdown timer for the **ADA Title II April 26, 2027 compliance deadline**.
 
 **Live site**: https://accessibility.icjia.app
 
 ### Purpose
 - Centralized accessibility information hub for Illinois state agencies
 - Comprehensive FAQ system about WCAG 2.1 AA compliance
-- Countdown timer to the April 24, 2026 deadline
+- Countdown timer to the April 26, 2027 deadline
 - Curated accessibility resource links
 
 ## Tech Stack
@@ -157,8 +157,8 @@ All JavaScript/TypeScript files include comprehensive JSDoc:
 All deadline calculations use Chicago timezone (Central Time):
 
 ```typescript
-// April 24, 2026 at midnight in Chicago (CDT = UTC-5)
-const DEADLINE_DATE = new Date('2026-04-24T00:00:00-05:00').getTime()
+// April 26, 2027 at midnight in Chicago (CDT = UTC-5)
+const DEADLINE_DATE = new Date('2027-04-26T00:00:00-05:00').getTime()
 ```
 
 ## Content Management
@@ -306,4 +306,4 @@ node audit-accessibility.js  # Terminal 2: Run audit
 - **Test Coverage**: Unit + Nuxt tests passing
 - **Node Version**: 22.14.0
 - **Last Major Update**: January 2026
-- **Deadline**: April 24, 2026
+- **Deadline**: April 26, 2027

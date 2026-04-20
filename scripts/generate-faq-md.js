@@ -52,7 +52,7 @@ async function main() {
 |---|---|
 | **Generated** | ${dateStr} |
 | **Source** | [https://accessibility.icjia.app](https://accessibility.icjia.app) |
-| **Compliance Deadline** | April 24, 2026 (ADA Title II) |
+| **Compliance Deadline** | April 26, 2027 (ADA Title II) |
 
 > **About this file**: This is a downloadable Markdown version of the ICJIA Accessibility FAQ.
 > Markdown files can be viewed in any text editor, or rendered with formatting in:
@@ -94,7 +94,7 @@ async function main() {
 | **Website** | [https://icjia.illinois.gov](https://icjia.illinois.gov) |
 | **Accessibility Portal** | [https://accessibility.icjia.app](https://accessibility.icjia.app) |
 | **Generated** | ${dateStr} |
-| **Compliance Deadline** | April 24, 2026 |
+| **Compliance Deadline** | April 26, 2027 |
 
 ---
 

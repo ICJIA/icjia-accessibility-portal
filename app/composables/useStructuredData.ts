@@ -77,7 +77,7 @@ export interface OrganizationData {
  * ```ts
  * useFAQStructuredData([
  *   { question: 'What is WCAG?', answer: 'Web Content Accessibility Guidelines' },
- *   { question: 'What is the deadline?', answer: 'April 24, 2026' }
+ *   { question: 'What is the deadline?', answer: 'April 26, 2027' }
  * ])
  * ```
  */

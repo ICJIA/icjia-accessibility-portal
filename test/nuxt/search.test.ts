@@ -31,7 +31,7 @@ const mockFaqItems: FaqItem[] = [
   },
   {
     question: 'What is the deadline for accessibility compliance?',
-    answer: 'The deadline is April 24, 2026. All public-facing digital content must meet WCAG 2.1 Level AA standards by this date.',
+    answer: 'The deadline is April 26, 2027. All public-facing digital content must meet WCAG 2.1 Level AA standards by this date.',
     section: 'Getting Started',
     isNew: true
   },

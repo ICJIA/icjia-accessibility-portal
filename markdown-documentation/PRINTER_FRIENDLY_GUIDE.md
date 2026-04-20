@@ -47,7 +47,7 @@ The printer-friendly version **automatically stays in sync** with the main FAQ c
 - **Numbered Questions**: Each question numbered (Q1, Q2, etc.)
 - **"New" Badge Support**: Recently added questions marked
 - **Last Updated Date**: Displays last update date
-- **Metadata**: Includes compliance deadline (April 24, 2026)
+- **Metadata**: Includes compliance deadline (April 26, 2027)
 
 ### Design
 

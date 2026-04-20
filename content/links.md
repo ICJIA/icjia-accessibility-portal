@@ -19,8 +19,10 @@ A curated collection of links for website and content accessibility compliance, 
 
 | Population Size  | Compliance Deadline |
 | ---------------- | ------------------- |
-| 50,000 or more   | April 24, 2026      |
-| Less than 50,000 | April 26, 2027      |
+| 50,000 or more   | April 26, 2027      |
+| Less than 50,000 | April 26, 2028      |
+
+> **Extended (April 20, 2026):** DOJ published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending both compliance dates by one year. Illinois state agencies fall under the 50,000+ tier; the applicable deadline is **April 26, 2027**.
 
 ### Third-Party Guidance
 

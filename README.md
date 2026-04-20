@@ -2,9 +2,9 @@
 
 ![ICJIA Accessibility Portal](public/og-image.png)
 
-A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 24, 2026 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
+A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.1.0](https://img.shields.io/badge/Version-1.1.0-blue)](CHANGELOG.md)
+[![Version 1.2.0](https://img.shields.io/badge/Version-1.2.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -17,10 +17,10 @@ A modern, accessible portal for the Illinois Criminal Justice Information Author
 
 ## Purpose
 
-This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 24, 2026 guideline**. The portal includes:
+This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 26, 2027 guideline**. The portal includes:
 
 - **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation
-  - Dynamic countdown timer showing days until the April 24, 2026 deadline
+  - Dynamic countdown timer showing days until the April 26, 2027 deadline
   - "New" badge system for recently added questions (auto-expires after 10 days)
   - Searchable accordion interface with proper ARIA attributes
   - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
@@ -121,7 +121,7 @@ yarn generate:serve
 
 ### Content Features
 
-- **Dynamic Countdown Timer** - Shows days remaining until April 24, 2026 deadline (Chicago timezone)
+- **Dynamic Countdown Timer** - Shows days remaining until April 26, 2027 deadline (Chicago timezone)
   - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
   - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
 - **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
@@ -528,7 +528,7 @@ All date calculations use explicit timezone offsets for consistency across envir
 ```typescript
 // Chicago timezone (America/Chicago)
 // CDT = UTC-5 (March-November), CST = UTC-6 (November-March)
-const DEADLINE_DATE = new Date("2026-04-24T00:00:00-05:00").getTime();
+const DEADLINE_DATE = new Date("2027-04-26T00:00:00-05:00").getTime();
 ```
 
 **Why this matters:**
@@ -562,7 +562,7 @@ All tests include detailed descriptions explaining their purpose:
 // In test/run-all-tests.js
 const TEST_DESCRIPTIONS = {
   "should calculate days remaining correctly":
-    "Verifies days until the April 24, 2026 deadline are calculated accurately " +
+    "Verifies days until the April 26, 2027 deadline are calculated accurately " +
     "using Chicago timezone (America/Chicago, CDT = UTC-5). The calculation " +
     "divides milliseconds difference by (1000 * 60 * 60 * 24) and floors the result.",
   // ...
@@ -767,7 +767,7 @@ Links automatically open in new tabs with proper accessibility attributes.
 
 Content can include dynamic placeholders that auto-update:
 
-- `{days_until_deadline}` - Shows days remaining until April 24, 2026
+- `{days_until_deadline}` - Shows days remaining until April 26, 2027
 
 Example:
 
@@ -1034,7 +1034,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
   - Screen reader optimized
 - ✅ SEO optimized with automated sitemap generation
 - ✅ "New" badge system for FAQ questions
-- ✅ Dynamic countdown timer (April 24, 2026 deadline) on all pages
+- ✅ Dynamic countdown timer (April 26, 2027 deadline) on all pages
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files

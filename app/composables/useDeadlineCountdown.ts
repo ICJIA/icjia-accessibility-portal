@@ -1,7 +1,9 @@
 /**
  * @fileoverview Composable for calculating days remaining until compliance deadline
- * @description Provides reactive countdown calculations for the April 24, 2026 deadline.
+ * @description Provides reactive countdown calculations for the April 26, 2027 deadline.
  * This deadline is set by ADA Title II requirements for Illinois state agencies.
+ * The original April 24, 2026 deadline was extended by one year via DOJ Interim Final Rule
+ * published in the Federal Register on April 20, 2026.
  * 
  * Features:
  * - Reactive countdown that updates every minute
@@ -24,24 +26,26 @@ import { computed, ref, onMounted, onUnmounted } from 'vue'
 const CHICAGO_TIMEZONE = 'America/Chicago'
 
 /**
- * Target date for WCAG 2.1 AA compliance deadline (April 24, 2026).
- * This is the deadline set by ADA Title II for Illinois state agencies.
+ * Target date for WCAG 2.1 AA compliance deadline (April 26, 2027).
+ * This is the deadline set by ADA Title II for Illinois state agencies
+ * (jurisdictions with populations of 50,000+). Extended from the original
+ * April 24, 2026 deadline by DOJ Interim Final Rule on April 20, 2026.
  * The deadline is midnight Central Time (Chicago timezone).
- * 
+ *
  * Note: We use a timezone-aware date string to ensure consistent behavior
- * across different server/client timezones. The deadline is April 24, 2026
+ * across different server/client timezones. The deadline is April 26, 2027
  * at midnight in Chicago (Central Daylight Time in April = UTC-5).
- * 
+ *
  * @constant {number}
  * @readonly
  */
-const DEADLINE_DATE = new Date('2026-04-24T00:00:00-05:00').getTime()
+const DEADLINE_DATE = new Date('2027-04-26T00:00:00-05:00').getTime()
 
 /**
  * Composable that provides deadline countdown information.
  * 
  * Provides reactive values and computed properties for displaying the countdown
- * to the April 24, 2026 compliance deadline. Updates automatically every minute.
+ * to the April 26, 2027 compliance deadline. Updates automatically every minute.
  * 
  * @returns {Object} Object containing:
  * - `daysRemaining`: Computed ref with number of days remaining

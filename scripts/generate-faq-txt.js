@@ -130,7 +130,7 @@ ${"=".repeat(70)}
 
 Generated: ${dateStr}
 Source: https://accessibility.icjia.app
-ADA Title II Compliance Deadline: April 24, 2026
+ADA Title II Compliance Deadline: April 26, 2027
 
 This is an accessible plain text version of the ICJIA Accessibility FAQ.
 For the interactive web version, visit: https://accessibility.icjia.app

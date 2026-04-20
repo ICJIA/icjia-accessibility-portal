@@ -152,7 +152,7 @@ export async function waitForHydration(page: any): Promise<void> {
  */
 export const TEST_DATA = {
   siteName: 'ICJIA Accessibility Portal',
-  deadline: 'April 24, 2026',
+  deadline: 'April 26, 2027',
   baseUrl: 'https://accessibility.icjia.app',
 } as const
 

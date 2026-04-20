@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-03-10
+lastUpdated: 2026-04-20
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -34,15 +34,17 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
-_Last updated: March 10, 2026_
+_Last updated: April 20, 2026_
+
+> **⚠️ Deadline extended (April 20, 2026):** The U.S. Department of Justice has published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the ADA Title II web accessibility compliance date by one year — from **April 24, 2026** to **April 26, 2027** (for public entities serving populations of 50,000 or more). Smaller jurisdictions (under 50,000) have until **April 26, 2028**. The technical standard (WCAG 2.1 Level AA) is unchanged; only the compliance date has moved. **The extra year is for implementation, not delay** — agencies that are already planning or remediating should continue.
 
 **What you need to know right now:**
 
-1. **The deadline is real:** April 24, 2026. Illinois state agencies must make all public-facing digital content accessible to people with disabilities — websites, documents, PDFs, videos, social media, and mobile apps.
+1. **The deadline is real:** April 26, 2027 (extended one year from April 24, 2026). Illinois state agencies must make all public-facing digital content accessible to people with disabilities — websites, documents, PDFs, videos, social media, and mobile apps.
 
 2. **Two laws require this:**
    - **Illinois law:** The <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois Information Technology Accessibility Act (IITAA)</a> has required accessible digital content for state agencies since 2008. The current <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 standards</a> (effective June 24, 2024) require WCAG 2.1 Level AA compliance.
-   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 24, 2026. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
+   - **Federal law:** The <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Accessibility Rule</a> (published April 24, 2024) requires state and local governments to meet WCAG 2.1 Level AA by April 26, 2027. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for details.
 
 3. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
 
@@ -68,7 +70,7 @@ _Last updated: March 10, 2026_
 **References:**
 
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Illinois state accessibility requirements
-- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Federal accessibility requirements and the April 2026 deadline
+- <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Federal accessibility requirements and the April 2027 deadline
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule</a> — Official rule text (April 24, 2024)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — Filterable checklist of accessibility requirements
 - <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Full Specification</a> — Complete technical standard
@@ -427,7 +429,7 @@ A simple spreadsheet or task list gives you this information.
 2. **Inventory public content** (sites, PDFs, videos, social, vendor tools)
 3. **Prioritize by impact** (high-traffic + critical services first)
 4. **Bake accessibility into process** (before publish / purchase / launch)
-5. **Track progress** with clear milestones through April 24, 2026
+5. **Track progress** with clear milestones through April 26, 2027
 
 **Key activities:**
 
@@ -440,7 +442,7 @@ A simple spreadsheet or task list gives you this information.
 
 **Key actions:**
 
-- **Understand requirements:** Deadline is April 24, 2026 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
+- **Understand requirements:** Deadline is April 26, 2027 for WCAG 2.1 Level AA compliance across all public-facing content. See [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) and [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now).
 - **Assess current state:** Audit content, identify gaps, estimate remediation effort.
 - **Allocate resources:** Training, tools (free: WAVE, axe DevTools, PDF checkers), and staff time.
 - **Build into processes:** Require accessibility in procurement, add pre-publish checkpoints.
@@ -452,7 +454,7 @@ A simple spreadsheet or task list gives you this information.
 
 ### I'm on executive staff. Where do I start?
 
-**As executive staff, your role is to make accessibility achievable at scale.** You don't need to be the technical expert; you need to ensure there is clear ownership, adequate resourcing, enforceable process, and consistent reporting through April 2026 and beyond.
+**As executive staff, your role is to make accessibility achievable at scale.** You don't need to be the technical expert; you need to ensure there is clear ownership, adequate resourcing, enforceable process, and consistent reporting through April 2027 and beyond.
 
 **Executive quick checklist (start here):**
 
@@ -466,7 +468,7 @@ A simple spreadsheet or task list gives you this information.
 
 - **Inventory exists** for public-facing websites, documents/PDFs, forms, videos, social, mobile apps, and third-party tools
 - **Priorities are explicit** (high-traffic + high-stakes services first; complete blockers first)
-- **A remediation plan exists** with milestones through April 24, 2026 (and owners for each track)
+- **A remediation plan exists** with milestones through April 26, 2027 (and owners for each track)
 - **Evidence is retained** (audit outputs, remediation logs, training completion, procurement language, vendor correspondence)
 - **Escalation path is clear** for tradeoffs (what gets fixed first when time/budget conflicts arise)
 
@@ -530,7 +532,7 @@ Document your progress, but don't mistake documentation for compliance. The goal
 
 1. **Inventory** of public-facing content/tools (web, PDFs, forms, videos, social, vendor tools)
 2. **Prioritized backlog** (top services + top traffic + complete blockers first)
-3. **Milestones** (monthly/quarterly targets through April 2026)
+3. **Milestones** (monthly/quarterly targets through April 2027)
 4. **Evidence** (audit results, remediation logs, training completion, procurement language)
 5. **Escalation path** (who decides tradeoffs when priorities conflict)
 6. **Complaint response process** (how you'll address accessibility barriers when reported)
@@ -663,7 +665,7 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a co
 - <a href="https://www.section508.gov/create/" target="_blank" rel="noopener noreferrer">Section508.gov: Create Accessible Digital Products</a> — Step-by-step guides for common content types
 - <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">W3C: Introduction to Web Accessibility</a> — Foundational accessibility concepts
 
-### Who's going to notice if we're not compliant by April 24, 2026?
+### Who's going to notice if we're not compliant by April 26, 2027?
 
 {new:2026-01-07}
 
@@ -728,8 +730,8 @@ Accessibility violations have characteristics that make them more likely to be d
 
 **Risk management considerations:**
 
-- **Before April 24, 2026:** Agencies have time to achieve compliance proactively, which typically costs less than reactive remediation
-- **After April 24, 2026:** Non-compliance becomes a violation of federal law, subject to enforcement. The ADA does not have a statute of limitations for ongoing violations — accessibility barriers that exist after the deadline can be subject to enforcement at any time.
+- **Before April 26, 2027:** Agencies have time to achieve compliance proactively, which typically costs less than reactive remediation
+- **After April 26, 2027:** Non-compliance becomes a violation of federal law, subject to enforcement. The ADA does not have a statute of limitations for ongoing violations — accessibility barriers that exist after the deadline can be subject to enforcement at any time.
 - **Good faith efforts:** Documenting progress toward compliance, even if not fully achieved by the deadline, can demonstrate good faith efforts, which may be considered in enforcement actions.
 
 **Practical steps for agencies:**
@@ -755,7 +757,7 @@ Accessibility violations have characteristics that make them more likely to be d
 
 {new:2026-01-23}
 
-**Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 24, 2026, under both ADA Title II and Illinois IITAA. Directing staff to ignore accessibility requirements exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
+**Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 26, 2027, under both ADA Title II and Illinois IITAA. Directing staff to ignore accessibility requirements exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
 
 **Full explanation:**
 
@@ -763,7 +765,7 @@ It's natural to feel overwhelmed by new compliance requirements, especially when
 
 **What is NOT uncertain:**
 
-- **The deadline is set:** April 24, 2026, is codified in federal regulation. This is not a proposal or guideline — it's law.
+- **The deadline is set:** April 26, 2027, is codified in federal regulation. This is not a proposal or guideline — it's law.
 - **The standard is defined:** WCAG 2.1 Level AA is the specific, measurable requirement. There's no ambiguity about what compliance means.
 - **Illinois law already requires this:** IITAA has required accessible digital content since 2008. The federal ADA rule reinforces existing state obligations.
 - **The legal framework is established:** ADA Title II has been enforced for decades. The web accessibility rule clarifies how it applies to digital content, but the underlying civil rights protections are long-standing.
@@ -772,7 +774,7 @@ It's natural to feel overwhelmed by new compliance requirements, especially when
 
 | Concern | Reality |
 | ------- | ------- |
-| "Enforcement might not happen" | Multiple pathways exist for identifying non-compliance: DOJ investigations, individual complaints, advocacy organization audits, automated scans, and grant compliance reviews. See [Who's going to notice if we're not compliant?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-24-2026) |
+| "Enforcement might not happen" | Multiple pathways exist for identifying non-compliance: DOJ investigations, individual complaints, advocacy organization audits, automated scans, and grant compliance reviews. See [Who's going to notice if we're not compliant?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-26-2027) |
 | "We can fix it later if needed" | Reactive remediation is significantly more expensive than proactive compliance. Fixing inaccessible content after creation typically costs 2-10x more than building it right the first time. |
 | "Staff are already busy" | Accessibility isn't additional work — it's a change in how existing work is done. Starting now allows staff to learn gradually rather than scramble at the deadline. |
 | "The rules might change" | WCAG 2.1 Level AA has been the established standard since 2018. The federal rule codified what was already best practice and Illinois state law. |
@@ -810,7 +812,7 @@ Instead of "don't worry about it," consider: _"Accessibility is a new compliance
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — Illinois state accessibility requirements (in effect since 2008)
 - <a href="https://www.w3.org/WAI/business-case/" target="_blank" rel="noopener noreferrer">W3C: The Business Case for Digital Accessibility</a> — Evidence on proactive vs. reactive compliance costs
 
-**See also:** [Who's going to notice if we're not compliant by April 24, 2026?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-24-2026) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-i-m-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
+**See also:** [Who's going to notice if we're not compliant by April 26, 2027?](#common-concerns-who-s-going-to-notice-if-we-re-not-compliant-by-april-26-2027) | [I'm already overloaded — how am I supposed to add accessibility to my workload?](#common-concerns-i-m-already-overloaded-how-am-i-supposed-to-add-accessibility-to-my-workload)
 
 ### What is WCAG?
 
@@ -919,9 +921,9 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **Bottom line:** Yes, you need an accessibility coordinator — and neither web developers nor content creators can fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done.
 
-### Why does your agency need to worry about digital accessibility? What does the April 2026 deadline mean?
+### Why does your agency need to worry about digital accessibility? What does the April 2027 deadline mean?
 
-**Illinois state agencies are subject to both state and federal accessibility requirements (IITAA and ADA Title II).** According to the ADA Title II web rule (28 CFR Part 35) and IITAA 2.1 standards, the compliance deadline is April 24, 2026 for public entities serving populations of 50,000 or more — which includes all Illinois state agencies.
+**Illinois state agencies are subject to both state and federal accessibility requirements (IITAA and ADA Title II).** According to the ADA Title II web rule (28 CFR Part 35) and IITAA 2.1 standards, the compliance deadline is April 26, 2027 for public entities serving populations of 50,000 or more — which includes all Illinois state agencies.
 
 **Why this matters for Illinois state agencies:**
 
@@ -933,15 +935,15 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 4. **Federal funding** — Many Illinois state agencies receive federal grants. Section 504 of the Rehabilitation Act requires that any organization receiving federal funding ensure their programs and activities are accessible to people with disabilities.
 
-5. **The April 2026 deadline is firm** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) requires state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by **April 24, 2026**. Illinois has over 12 million residents, so this deadline applies to all state agencies.
+5. **The April 2027 deadline is set** — The U.S. Department of Justice's ADA Title II web accessibility rule (published April 24, 2024) originally required state and local governments with populations of 50,000 or more to achieve WCAG 2.1 Level AA compliance by April 24, 2026. On April 20, 2026, DOJ published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the compliance date by one year to **April 26, 2027**. Illinois has over 12 million residents, so this deadline applies to all state agencies. The extension is a one-time implementation accommodation — agencies should not assume further extensions will follow.
 
 **The reality of digital accessibility now:**
 
-Accessibility is no longer just "best practice" — it's a compliance requirement under ADA Title II and IITAA. The 2026 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
+Accessibility is no longer just "best practice" — it's a compliance requirement under ADA Title II and IITAA. The 2027 deadline creates accountability for what has always been the right thing to do. For state agencies, this means integrating accessibility into every aspect of your digital presence: websites, documents, social media, and any tools you provide to the public.
 
 **Additional benefit:** Many accessibility improvements also benefit all users — clearer content, better-organized documents, and more usable websites make information easier to find and understand for everyone.
 
-**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
+**See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) | [Why are we just hearing about this now?](#state-agency-applicability-why-are-we-just-hearing-about-this-now) | [What happens after April 26, 2027?](#state-agency-applicability-what-happens-after-april-26-2027) | [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies)
 
 **References:**
 
@@ -951,13 +953,13 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register (Final Rule)</a> — Full legal text
 
-### What happens after April 24, 2026?
+### What happens after April 26, 2027?
 
-**Quick answer:** After April 24, 2026, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
+**Quick answer:** After April 26, 2027, all public-facing digital content from state and local governments must meet WCAG 2.1 Level AA standards. Agencies that don't comply risk DOJ investigations, lawsuits, legal costs, and — most importantly — excluding people with disabilities from accessing government services.
 
 **Full explanation:**
 
-**After April 24, 2026, state and local governments must be in compliance with WCAG 2.1 Level AA standards for all public-facing digital content.** Agencies that fail to meet this deadline may face several potential issues:
+**After April 26, 2027, state and local governments must be in compliance with WCAG 2.1 Level AA standards for all public-facing digital content.** Agencies that fail to meet this deadline may face several potential issues:
 
 **Legal and enforcement consequences:**
 
@@ -986,9 +988,9 @@ These are **internal employment matters** determined by agency policy, not direc
 - **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed.
 - **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements.
 
-**The bottom line:** If it's digital and public-facing, it needs to be accessible by April 24, 2026. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
+**The bottom line:** If it's digital and public-facing, it needs to be accessible by April 26, 2027. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
 
-**See also:** [What does the April 2026 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2026-deadline-cover) for details on what content is included.
+**See also:** [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover) for details on what content is included.
 
 **References:**
 
@@ -1013,7 +1015,7 @@ Before 2024, accessibility was a best practice and a general legal principle, bu
 | ---------------------------------------------- | ------------------------------------------------------------------------- |
 | Accessibility as **best practice**             | Accessibility with **specific technical standards** and enforcement       |
 | "Making progress" was acceptable               | **WCAG 2.1 Level AA** specified as the compliance standard                |
-| No firm deadline                               | **April 24, 2026** deadline specified in rule                             |
+| No firm deadline                               | **April 26, 2027** deadline specified in rule                             |
 | Focused mainly on websites                     | Covers **everything**: websites, PDFs, videos, social media, vendor tools |
 | Often seen as a technical/IT issue             | **Everyone** who creates content shares responsibility                    |
 | IITAA (state) enforcement was largely advisory | **ADA Title II** (federal) adds DOJ enforcement provisions                |
@@ -1030,7 +1032,7 @@ Regardless of what happened before, the requirement is clear and the deadline is
 
 **Key takeaway:** This is a shared responsibility across the agency. Everyone who creates or publishes content has a role to play. Focus on what you can control: inventory your content, prioritize by impact, complete training, and start addressing the biggest barriers first.
 
-### After April 24, 2026, how do we maintain compliance (so we don't fall out of compliance again)?
+### After April 26, 2027, how do we maintain compliance (so we don't fall out of compliance again)?
 
 {new:2026-01-02}
 
@@ -1064,9 +1066,9 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 - <a href="https://www.w3.org/WAI/test-evaluate/" target="_blank" rel="noopener noreferrer">W3C WAI: Evaluating Web Accessibility Overview</a> — Notes that tools help, but no tool alone can determine conformance (human evaluation required)
 - <a href="https://www.section508.gov/test/testing-lifecycle-overview/" target="_blank" rel="noopener noreferrer">Section508.gov: Testing Lifecycle</a> — Testing as a lifecycle (plan → scope → test → remediate → ongoing monitoring)
 
-### What if we can't meet the April 24, 2026 deadline?
+### What if we can't meet the April 26, 2027 deadline?
 
-**Quick answer:** The deadline is firm — there's no routine extension process. If full compliance isn't achievable, prioritize high-impact content, document your plan, and keep making progress.
+**Quick answer:** DOJ has already extended the deadline once (from April 24, 2026 to April 26, 2027) via an Interim Final Rule. Agencies should not plan around the possibility of further extensions. If full compliance isn't achievable by April 26, 2027, prioritize high-impact content, document your plan, and keep making progress.
 
 **What to do:**
 
@@ -1077,7 +1079,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 **Important:** The ADA Title II rule specifies technical requirements (WCAG 2.1 Level AA), not effort-based requirements. However, documented progress is better than undocumented inaction — each barrier removed helps real users access services now. For questions about enforcement risk or legal exposure, consult your agency's legal counsel.
 
-**Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for details.
+**Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for details.
 
 **Key takeaway:** If you can't achieve full compliance by the deadline, keep making progress. Prioritize high-impact barriers, document your efforts, and provide accessible alternatives upon request.
 
@@ -1086,13 +1088,13 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Requirements and enforcement provisions
 - <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a> — How individuals can file complaints
 
-### Are there exceptions to the April 2026 deadline? What qualifies?
+### Are there exceptions to the April 2027 deadline? What qualifies?
 
 {new:2026-01-26}
 
-> **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 24, 2026 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
+> **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
 
-**The Big Misconception: "Pre-2026 Content Is Automatically Exempt"**
+**The Big Misconception: "Pre-2027 Content Is Automatically Exempt"**
 
 **No. This is wrong.**
 
@@ -1104,7 +1106,7 @@ The ADA Title II rule includes exceptions for certain archived content and pre-e
 >
 > — <a href="https://www.ada.gov/resources/web-rule-first-steps/" target="_blank" rel="noopener noreferrer">U.S. Department of Justice, "First Steps Toward an Accessible Web"</a>
 
-**Bottom line:** If content is linked from your active website and serves a current purpose, it almost certainly needs to be accessible by April 24, 2026.
+**Bottom line:** If content is linked from your active website and serves a current purpose, it almost certainly needs to be accessible by April 26, 2027.
 
 **The Five Exceptions (28 CFR § 35.200(b))**
 
@@ -1116,7 +1118,7 @@ The ADA Title II web rule defines exactly five categories of content that may be
 
 | Criterion | Requirement | What This Means |
 | --------- | ----------- | --------------- |
-| **1. Created before April 24, 2026** | Content must pre-date the compliance deadline (or reproduce physical media created before that date) | New web pages cannot use this exception |
+| **1. Created before April 26, 2027** | Content must pre-date the compliance deadline (or reproduce physical media created before that date) | New web pages cannot use this exception |
 | **2. Exclusively for reference/research/recordkeeping** | Content cannot serve any current programmatic purpose | If anyone uses it for current services, it fails |
 | **3. Not altered or updated after archiving** | **Any edit, however minor, disqualifies it** | Even fixing a typo removes the exception |
 | **4. Clearly labeled archive section** | Must be in a dedicated area **clearly identified** as an archive | Putting content in a folder called "archive" on your server isn't enough — users must see clear "archived content" labeling |
@@ -1131,7 +1133,7 @@ The ADA Title II web rule defines exactly five categories of content that may be
 
 **Exception 2: Pre-existing Conventional Electronic Documents (§ 35.200(b)(2))**
 
-PDFs, Word documents, spreadsheets, and presentations posted before April 24, 2026 **may** qualify, but **only if** they are not currently used to **apply for, gain access to, or participate in** the public entity's services, programs, or activities.
+PDFs, Word documents, spreadsheets, and presentations posted before April 26, 2027 **may** qualify, but **only if** they are not currently used to **apply for, gain access to, or participate in** the public entity's services, programs, or activities.
 
 **This is a single-question test:** Is the document used by the public to apply for, access, or participate in your agency's services?
 
@@ -1187,7 +1189,7 @@ Documents about a **specific individual** that are password-protected and availa
 
 **Exception 5: Pre-existing Social Media Posts (§ 35.200(b)(5))**
 
-Social media posts made **before the compliance date** (April 24, 2026).
+Social media posts made **before the compliance date** (April 26, 2027).
 
 **Important limitations:**
 
@@ -1263,7 +1265,7 @@ The ALA provides guidance for libraries and public institutions on ADA complianc
 | ------------ | ---------- | --- |
 | **Active website pages** | ❌ **NO** | Currently used by the public for services |
 | **Login pages, forms, applications** | ❌ **NO** | Used to access or participate in services |
-| **Documents created after April 2026** | ❌ **NO** | New documents must be accessible — no exception exists for new content |
+| **Documents created after April 2027** | ❌ **NO** | New documents must be accessible — no exception exists for new content |
 | **Current grant application PDF** | ❌ **NO** | Used to apply for services — the (b)(2) exception explicitly excludes this |
 | **Reports still relevant to current programs** | ❌ **NO** | Informs public about agency work — serves a current purpose |
 | **Annual reports that inform the public** | ❌ **NO** | Documents that inform the public about agency work serve a current purpose |
@@ -1275,7 +1277,7 @@ The ALA provides guidance for libraries and public institutions on ADA complianc
 | **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — may be exempt under (b)(2) |
 | **Research report from 2015 kept for reference** | ✅ **YES** | Pre-existing document maintained for historical reference — may be exempt under (b)(2) |
 | **Historical meeting minutes from 2019** | ✅ **YES** | Pre-existing documents — nobody uses old meeting minutes to apply for current services |
-| **Newsletter archive (pre-2026 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under (b)(2) |
+| **Newsletter archive (pre-2027 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under (b)(2) |
 | **Old HTML page moved to /archive/ with banner** | ✅ **YES** | If moved to dedicated archive area with clear labeling and not updated, may meet (b)(1) |
 | **User comments on your Facebook page** | ✅ **YES** | Third-party content not under contract — (b)(3) exception |
 | **Legacy content with no current use** | ✅ **YES** | Historical records truly kept only for research purposes |
@@ -1328,7 +1330,7 @@ This is a legal determination, not an administrative one.
 
 **How to Approach Compliance**
 
-1. **Default assumption:** If content is linked from your active website and serves any current purpose, it needs to be accessible by April 24, 2026
+1. **Default assumption:** If content is linked from your active website and serves any current purpose, it needs to be accessible by April 26, 2027
 
 2. **The exceptions are for truly archival content:** Think historical society records, not "documents we published last year that are still useful"
 
@@ -1412,7 +1414,7 @@ This is a legal determination, not an administrative one.
 
 **References:** <a href="https://www.w3.org/WAI/planning/interim-repairs/" target="_blank" rel="noopener noreferrer">W3C: Interim Repairs</a> | <a href="https://www.section508.gov/manage/identify-user-needs/" target="_blank" rel="noopener noreferrer">Section508.gov: Identify User Needs</a>
 
-### What's the bare minimum we need to do by April 2026?
+### What's the bare minimum we need to do by April 2027?
 
 **Quick answer:** According to ADA Title II and IITAA, the standard is WCAG 2.1 Level AA — there's no "partial compliance" option defined in the regulations. But if you're overwhelmed: make new content accessible now, fix highest-impact barriers first, document your plan.
 
@@ -1487,7 +1489,7 @@ The IITAA does **not** directly apply to:
 
 ### What does the IITAA cover?
 
-**See also:** [What does the April 2026 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2026-deadline-cover) for comparison with ADA Title II requirements.
+**See also:** [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover) for comparison with ADA Title II requirements.
 
 The IITAA covers all "information and communication technology," including:
 
@@ -1540,7 +1542,7 @@ For questions or comments about information technology accessibility or the IITA
 
 {new:2026-01-06}
 
-**Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 24, 2026 (for entities serving 50,000+ population).
+**Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 26, 2027 (for entities serving 50,000+ population).
 
 **What Title II covers (vs. Title I):**
 
@@ -1552,7 +1554,7 @@ The ADA has multiple titles addressing different contexts:
 | **Focus**            | Workplace accommodations                     | Public programs, services, activities          |
 | **Approach**         | Reasonable accommodations upon request       | Proactive accessibility for all public content |
 | **Digital standard** | No specific technical standard; case-by-case | **WCAG 2.1 Level AA** required                 |
-| **Timeline**         | Accommodations when requested                | Compliance deadline: April 24, 2026            |
+| **Timeline**         | Accommodations when requested                | Compliance deadline: April 26, 2027            |
 
 **Why Title II may feel "new":** Title II has existed since 1990, but the **April 2024 web rule** is the first time DOJ established specific technical standards (WCAG 2.1 Level AA) for digital content. This replaces previous case-by-case enforcement with a clear, measurable requirement.
 
@@ -1571,10 +1573,12 @@ The ADA has multiple titles addressing different contexts:
 
 | Entity Size                                    | Compliance Deadline |
 | ---------------------------------------------- | ------------------- |
-| Entities serving populations of 50,000 or more | **April 24, 2026**  |
-| Entities serving populations under 50,000      | April 26, 2027      |
+| Entities serving populations of 50,000 or more | **April 26, 2027**  |
+| Entities serving populations under 50,000      | April 26, 2028      |
 
-For most Illinois state agencies, the deadline is **April 24, 2026** (since Illinois has over 12 million residents).
+Both deadlines were extended by one year from the original dates (April 24, 2026 and April 26, 2027 respectively) by the DOJ <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> published April 20, 2026.
+
+For all Illinois state agencies, the applicable deadline is **April 26, 2027** (since Illinois has over 12 million residents, state agencies fall under the 50,000+ population tier).
 
 **References:**
 
@@ -1588,7 +1592,7 @@ For most Illinois state agencies, the deadline is **April 24, 2026** (since Illi
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Illinois state accessibility requirements
 - <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 Update (DoIT)</a> — Effective date and current standards
 
-### What does the April 2026 deadline cover?
+### What does the April 2027 deadline cover?
 
 **See also:** [What does the IITAA cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-iitaa-cover) for comparison with Illinois state requirements.
 
@@ -2252,7 +2256,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 - <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
-**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2026 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2026-deadline-cover)
+**See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover)
 
 **Key takeaway:** Test the workflows people actually use. If the tool can't be made accessible quickly, you still need to provide an **accessible alternative** for the service.
 
@@ -2292,7 +2296,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 
 ### What about archived documents on the intranet?
 
-**See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
+**See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies)
 
 **Quick answer:** Truly archived documents that are no longer used may not need proactive remediation, but you may still need to provide access in an alternative format if an employee with a disability needs them (typically handled through reasonable accommodation processes). Note: This section addresses **internal/intranet** documents; for public-facing archived content exceptions, see the comprehensive exceptions FAQ linked above.
 
@@ -2550,9 +2554,9 @@ The alt text describes what's visually happening. The caption adds context that 
 
 ### Do all documents need to be accessible?
 
-**Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 24, 2026 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
+**Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 26, 2027 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
 
-**See also:** [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for comprehensive details on all five exceptions, their strict criteria, and practical examples. | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
+**See also:** [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for comprehensive details on all five exceptions, their strict criteria, and practical examples. | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 
 **What documents need to be accessible:**
 
@@ -2561,20 +2565,20 @@ The alt text describes what's visually happening. The caption adds context that 
 - Excel spreadsheets
 - PowerPoint presentations
 
-**For new public-facing documents (created after April 24, 2026):**
+**For new public-facing documents (created after April 26, 2027):**
 
 - **Yes** — New public-facing documents should be created accessibly by default.
 - Make accessibility part of your document creation workflow
 - This includes documents created internally or received from external sources
 
-**For existing documents (created before April 24, 2026):**
+**For existing documents (created before April 26, 2027):**
 
 - **Prioritize by usage** — Focus on:
   - Documents actively used by employees or the public
   - Frequently accessed documents
   - Documents required for services or job functions
   - Documents linked from main pages
-- **Pre-existing documents exception** — Documents created before April 24, 2026 may qualify for an exception under § 35.200(b)(2), but **only if** they are not currently used to "apply for, gain access to, or participate in" your agency's services, programs, or activities. See the comprehensive [exceptions FAQ](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for full details.
+- **Pre-existing documents exception** — Documents created before April 26, 2027 may qualify for an exception under § 35.200(b)(2), but **only if** they are not currently used to "apply for, gain access to, or participate in" your agency's services, programs, or activities. See the comprehensive [exceptions FAQ](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details.
 
 **Important:** Even if a document qualifies for an exception, you must still provide accessible alternatives upon request under the ADA's effective communication requirements. The exception reduces proactive remediation burden — it does not eliminate the obligation to provide access when needed.
 
@@ -2758,7 +2762,7 @@ The tool is a **checker, not a remediator** — it identifies accessibility issu
 - **Free and open source** — Many PDF accessibility testing tools are expensive or require paid software licenses. This tool is completely free to use, with no hidden costs, subscriptions, or usage limits.
 - **No installation required** — It runs entirely in your browser. Just drag and drop your PDF file.
 - **Privacy-friendly** — Files are processed locally in your browser; they are not uploaded to a server.
-- **Fast triage** — Quickly test a batch of PDFs to identify which ones need remediation and what specific issues to fix, helping you prioritize your remediation workload before the April 24, 2026 deadline.
+- **Fast triage** — Quickly test a batch of PDFs to identify which ones need remediation and what specific issues to fix, helping you prioritize your remediation workload before the April 26, 2027 deadline.
 
 **Links:**
 
@@ -3026,7 +3030,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.200(b)(5) — see [Are there exceptions to the April 2026 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies) for full details on all five exceptions and their limitations.
+**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.200(b)(5) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
@@ -3480,7 +3484,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **ADA (Americans with Disabilities Act)** — Federal civil rights law that prohibits discrimination against people with disabilities. **Title I** covers employment accommodations. **Title II** covers public services and requires state and local governments to make digital content accessible. <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">Learn more about ADA</a>
 
-**ADA Title II Web Rule** — The 2024 Department of Justice rule that requires state and local governments to meet **WCAG 2.1 Level AA** standards for public-facing digital content by April 24, 2026 (for entities with populations of 50,000+). <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">Read the ADA Title II Web Rule Fact Sheet</a>
+**ADA Title II Web Rule** — The 2024 Department of Justice rule that requires state and local governments to meet **WCAG 2.1 Level AA** standards for public-facing digital content by April 26, 2027 (for entities with populations of 50,000+). <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">Read the ADA Title II Web Rule Fact Sheet</a>
 
 **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law (30 ILCS 587) requiring Illinois state agencies and universities to ensure their digital content is accessible to people with disabilities. Current standards require **WCAG 2.1 Level AA** compliance. <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Learn more about IITAA</a>
 
@@ -3586,9 +3590,9 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 - [What is the IITAA?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-iitaa)
 - [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule)
 - [When must we comply with the ADA Title II rule?](#compliance-requirements-iitaa-and-ada-title-ii-when-must-we-comply-with-the-ada-title-ii-rule)
-- [What happens after April 24, 2026?](#state-agency-applicability-what-happens-after-april-24-2026)
-- [What if we can't meet the April 24, 2026 deadline?](#state-agency-applicability-what-if-we-can-t-meet-the-april-24-2026-deadline)
-- [Are there exceptions to the April 2026 deadline? What qualifies?](#state-agency-applicability-are-there-exceptions-to-the-april-2026-deadline-what-qualifies)
+- [What happens after April 26, 2027?](#state-agency-applicability-what-happens-after-april-26-2027)
+- [What if we can't meet the April 26, 2027 deadline?](#state-agency-applicability-what-if-we-can-t-meet-the-april-26-2027-deadline)
+- [Are there exceptions to the April 2027 deadline? What qualifies?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies)
 
 ### Testing & Auditing
 
@@ -3647,7 +3651,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 - [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator)
 - [How do we prioritize accessibility work with limited resources and a ticking clock?](#state-agency-applicability-how-do-we-prioritize-accessibility-work-with-limited-resources-and-a-ticking-clock)
-- [What's the bare minimum we need to do by April 2026?](#state-agency-applicability-what-s-the-bare-minimum-we-need-to-do-by-april-2026)
+- [What's the bare minimum we need to do by April 2027?](#state-agency-applicability-what-s-the-bare-minimum-we-need-to-do-by-april-2027)
 - [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
 - [Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?](#getting-started-who-signs-off-that-we-re-compliant-can-we-certify-wcag-2-1-level-aa-compliance)
 
@@ -3665,4 +3669,4 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ---
 
-_Last updated: March 10, 2026_
+_Last updated: April 20, 2026_

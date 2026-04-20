@@ -23,7 +23,7 @@
             <strong>Last Updated:</strong> {{ lastUpdated }}
           </p>
           <p class="print-deadline">
-            <strong>ADA Title II Compliance Deadline:</strong> April 24, 2026
+            <strong>ADA Title II Compliance Deadline:</strong> April 26, 2027
           </p>
         </div>
       </div>
@@ -142,7 +142,7 @@
           >{{ baseUrl }}/docs/accessibility/</a>
         </p>
         <p class="print-footer-text">
-          Last Updated: {{ lastUpdated }} | ADA Title II Compliance Deadline: April 24, 2026
+          Last Updated: {{ lastUpdated }} | ADA Title II Compliance Deadline: April 26, 2027
         </p>
       </div>
     </div>

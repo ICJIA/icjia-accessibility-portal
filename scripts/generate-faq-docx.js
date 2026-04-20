@@ -474,7 +474,7 @@ async function main() {
     new Paragraph({
       children: [
         new TextRun({
-          text: "ADA Title II Compliance Deadline: April 24, 2026",
+          text: "ADA Title II Compliance Deadline: April 26, 2027",
           size: 22,
           italics: true,
         }),

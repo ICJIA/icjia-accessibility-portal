@@ -321,7 +321,7 @@ This is a well-structured Nuxt 4 application focused on accessibility compliance
 
 **Issues**:
 
-- Hard-coded dates in components (e.g., "April 24, 2026")
+- Hard-coded dates in components (e.g., "April 26, 2027")
 - No content validation beyond basic schema
 - No content preview/editing interface
 

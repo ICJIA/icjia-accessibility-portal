@@ -35,7 +35,7 @@
 
 This guide documents the architecture and implementation of a **Vuetify 3 + Nuxt 4** application. While the example project is an accessibility portal, the patterns, solutions, and best practices documented here apply to **any Vuetify 3 + Nuxt 4 application**.
 
-**Example Project**: The ICJIA Accessibility Portal is a **fully accessible**, **static-generated** web application designed to provide comprehensive accessibility guidance for Illinois state agency employees ahead of the **ADA Title II April 24, 2026 compliance deadline**.
+**Example Project**: The ICJIA Accessibility Portal is a **fully accessible**, **static-generated** web application designed to provide comprehensive accessibility guidance for Illinois state agency employees ahead of the **ADA Title II April 26, 2027 compliance deadline** (extended one year from April 24, 2026 via the DOJ Interim Final Rule of April 20, 2026).
 
 ### Key Requirements
 
@@ -1389,7 +1389,7 @@ This ensures internal section references don't appear as broken links when print
 
 // Chicago timezone (CDT = UTC-5 in April when deadline occurs)
 const CHICAGO_TZ_OFFSET = '-05:00'
-const DEADLINE_DATE = new Date(`2026-04-24T00:00:00${CHICAGO_TZ_OFFSET}`).getTime()
+const DEADLINE_DATE = new Date(`2027-04-26T00:00:00${CHICAGO_TZ_OFFSET}`).getTime()
 
 export function useDeadlineCountdown() {
   const now = ref(Date.now());
@@ -1427,7 +1427,7 @@ All date calculations in this project use explicit timezone offsets to ensure co
 - **Chicago timezone (America/Chicago)** is used for Illinois state agencies
 - **CDT (Central Daylight Time) = UTC-5** applies March through November
 - **CST (Central Standard Time) = UTC-6** applies November through March
-- April 24, 2026 (the deadline) falls in CDT, so `-05:00` is used
+- April 26, 2027 (the deadline) falls in CDT, so `-05:00` is used
 
 This ensures that the countdown displays the same value regardless of whether the code runs on a server in UTC, a developer's local machine, or a user's browser in a different timezone
 
@@ -2376,7 +2376,7 @@ yarn audit:a11y
 // Test descriptions provide context for each test
 const TEST_DESCRIPTIONS = {
   "should calculate days remaining correctly": 
-    "Verifies days until the April 24, 2026 deadline are calculated accurately " +
+    "Verifies days until the April 26, 2027 deadline are calculated accurately " +
     "using Chicago timezone (America/Chicago, CDT = UTC-5). The calculation " +
     "divides milliseconds difference by (1000 * 60 * 60 * 24) and floors the result.",
   

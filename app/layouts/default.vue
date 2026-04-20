@@ -13,6 +13,7 @@
       class="main-content"
       aria-label="Main content"
     >
+      <ExtensionBanner />
       <div class="main-inner">
         <slot />
       </div>
