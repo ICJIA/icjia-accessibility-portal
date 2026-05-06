@@ -1108,11 +1108,27 @@ The ADA Title II rule includes exceptions for certain archived content and pre-e
 
 **Bottom line:** If content is linked from your active website and serves a current purpose, it almost certainly needs to be accessible by April 26, 2027.
 
-**The Five Exceptions (28 CFR § 35.200(b))**
+**The Five Exceptions (28 CFR § 35.201)**
 
-The ADA Title II web rule defines exactly five categories of content that may be excepted from the WCAG 2.1 Level AA requirement. Each has specific, strict criteria.
+The ADA Title II web rule defines exactly five categories of content that may be excepted from the WCAG 2.1 Level AA requirement. Each has specific, strict criteria. **All five exceptions live in § 35.201, not § 35.200** — § 35.200 is the duty/general rule; § 35.201 is the list of carve-outs from that duty.
 
-**Exception 1: Archived Web Content (§ 35.200(b)(1))**
+**Verbatim from the rule (28 CFR § 35.201 "Exceptions") — the operative carve-out language:**
+
+> "**(a) Archived web content.** … the requirements of § 35.200 do not apply to archived web content as defined in § 35.104.
+>
+> **(b) Preexisting conventional electronic documents.** … the requirements of § 35.200 do not apply to preexisting conventional electronic documents, unless such documents are currently used to apply for, gain access to, or participate in a public entity's services, programs, or activities.
+>
+> **(c) Content posted by a third party.** … the requirements of § 35.200 do not apply to content posted by a third party, unless the third party is posting due to contractual, licensing, or other arrangements with the public entity.
+>
+> **(d) Individualized, password-protected documents.** … the requirements of § 35.200 do not apply to individualized, password-protected, or otherwise secured conventional electronic documents that contain information about a specific individual …
+>
+> **(e) Preexisting social media posts.** … the requirements of § 35.200 do not apply to a public entity's social media posts that were posted before the date the public entity is required to comply with this rule."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+
+Each subsection below maps to one of the lettered exceptions above.
+
+**Exception 1: Archived Web Content (§ 35.201(a))**
 
 **This is the strictest exception.** Web pages qualify **only if ALL FOUR** of these criteria are met:
 
@@ -1131,7 +1147,7 @@ The ADA Title II web rule defines exactly five categories of content that may be
 >
 > — <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">U.S. Department of Justice, ADA Title II Web Rule Fact Sheet</a>
 
-**Exception 2: Pre-existing Conventional Electronic Documents (§ 35.200(b)(2))**
+**Exception 2: Pre-existing Conventional Electronic Documents (§ 35.201(b))**
 
 PDFs, Word documents, spreadsheets, and presentations posted before April 26, 2027 **may** qualify, but **only if** they are not currently used to **apply for, gain access to, or participate in** the public entity's services, programs, or activities.
 
@@ -1151,7 +1167,7 @@ PDFs, Word documents, spreadsheets, and presentations posted before April 26, 20
 
 **This means:** A research report from 2015 that you link to from a publications page for historical reference may qualify for the exception — it's a pre-existing document not used to apply for services. But a grant application form from 2015 that people still use to apply for grants does NOT qualify — it's used to "apply for" services.
 
-**Exception 3: Third-Party Content (§ 35.200(b)(3))**
+**Exception 3: Third-Party Content (§ 35.201(c))**
 
 Content posted by a third party where the public entity has **no contractual or licensing arrangement** governing the content.
 
@@ -1168,7 +1184,7 @@ Content posted by a third party where the public entity has **no contractual or 
 - Content created by consultants or contractors under agreement with your agency
 - Any content where you have a contractual, licensing, or other arrangement governing it
 
-**Exception 4: Individualized, Password-Protected Documents (§ 35.200(b)(4))**
+**Exception 4: Individualized, Password-Protected Documents (§ 35.201(d))**
 
 Documents about a **specific individual** that are password-protected and available **only to that individual** and applicable staff.
 
@@ -1187,7 +1203,7 @@ Documents about a **specific individual** that are password-protected and availa
 
 **Note:** This is a very narrow exception for truly individualized content, not a blanket exception for all password-protected materials.
 
-**Exception 5: Pre-existing Social Media Posts (§ 35.200(b)(5))**
+**Exception 5: Pre-existing Social Media Posts (§ 35.201(e))**
 
 Social media posts made **before the compliance date** (April 26, 2027).
 
@@ -1225,7 +1241,7 @@ The DOJ is the federal agency responsible for enforcing ADA Title II. Their guid
 
 **Ohio State University's ADA Digital Accessibility Center**
 
-Ohio State's ADA Digital Accessibility Center has published authoritative legal analysis interpreting the federal rule, citing 28 C.F.R. § 35.104 (defining archived web content) and § 35.201(a) (setting accessibility standards). Their analysis is used by universities and agencies nationwide as guidance.
+Ohio State's ADA Digital Accessibility Center has published authoritative legal analysis interpreting the federal rule, citing 28 C.F.R. § 35.104 (defining "archived web content") and § 35.201(a) (the archived-web-content exception). Their analysis is used by universities and agencies nationwide as guidance.
 
 **On the nature of the exception:**
 
@@ -1266,20 +1282,20 @@ The ALA provides guidance for libraries and public institutions on ADA complianc
 | **Active website pages** | ❌ **NO** | Currently used by the public for services |
 | **Login pages, forms, applications** | ❌ **NO** | Used to access or participate in services |
 | **Documents created after April 2027** | ❌ **NO** | New documents must be accessible — no exception exists for new content |
-| **Current grant application PDF** | ❌ **NO** | Used to apply for services — the (b)(2) exception explicitly excludes this |
+| **Current grant application PDF** | ❌ **NO** | Used to apply for services — § 35.201(b) explicitly excludes documents currently used to apply for, access, or participate in services |
 | **Reports still relevant to current programs** | ❌ **NO** | Informs public about agency work — serves a current purpose |
 | **Annual reports that inform the public** | ❌ **NO** | Documents that inform the public about agency work serve a current purpose |
 | **Research publications that inform policy** | ❌ **NO** | If they inform current policy discussions, they serve a current purpose |
 | **Content linked from main website navigation** | ❌ **Likely NO** | Placement in active navigation suggests current programmatic use |
-| **Anything edited after being archived** | ❌ **NO** | Edits disqualify archived web content from exception (b)(1) |
+| **Anything edited after being archived** | ❌ **NO** | Edits disqualify archived web content from § 35.201(a) (per the § 35.104 definition of "archived web content") |
 | **Forms someone needs to fill out** | ❌ **NO** | Used to apply for or participate in services |
 | **Embedded vendor content (ArcGIS, Tableau)** | ❌ **NO** | Contractual relationship means you're responsible |
-| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — may be exempt under (b)(2) |
-| **Research report from 2015 kept for reference** | ✅ **YES** | Pre-existing document maintained for historical reference — may be exempt under (b)(2) |
+| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — may be exempt under § 35.201(b) |
+| **Research report from 2015 kept for reference** | ✅ **YES** | Pre-existing document maintained for historical reference — may be exempt under § 35.201(b) |
 | **Historical meeting minutes from 2019** | ✅ **YES** | Pre-existing documents — nobody uses old meeting minutes to apply for current services |
-| **Newsletter archive (pre-2027 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under (b)(2) |
-| **Old HTML page moved to /archive/ with banner** | ✅ **YES** | If moved to dedicated archive area with clear labeling and not updated, may meet (b)(1) |
-| **User comments on your Facebook page** | ✅ **YES** | Third-party content not under contract — (b)(3) exception |
+| **Newsletter archive (pre-2027 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under § 35.201(b) |
+| **Old HTML page moved to /archive/ with banner** | ✅ **YES** | If moved to dedicated archive area with clear labeling and not updated, may meet § 35.201(a) |
+| **User comments on your Facebook page** | ✅ **YES** | Third-party content not under contract — § 35.201(c) |
 | **Legacy content with no current use** | ✅ **YES** | Historical records truly kept only for research purposes |
 
 **Documents That MAY Qualify for an Exception**
@@ -1336,7 +1352,7 @@ This is a legal determination, not an administrative one.
 
 3. **Don't assume — verify:** Before claiming an exception, have legal counsel review the specific content against the regulatory criteria
 
-4. **If you want to use the archived web content exception (b)(1):**
+4. **If you want to use the archived web content exception (§ 35.201(a)):**
    - Create a clearly labeled archive section (not just a folder — visible labeling for users)
    - Move content there
    - Add a clear "This content is archived and is maintained for historical reference only" banner
@@ -1344,7 +1360,7 @@ This is a legal determination, not an administrative one.
    - **Never edit it after archiving** — any edit disqualifies it
    - Establish a process for accommodation requests
 
-5. **For documents (b)(2):** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference may be exempt — but verify with legal counsel.
+5. **For documents (§ 35.201(b)):** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference may be exempt — but verify with legal counsel.
 
 6. **For everything else:** Prioritize remediation based on traffic, importance, and legal exposure
 
@@ -1352,15 +1368,15 @@ This is a legal determination, not an administrative one.
 
 **Important Legal Notes**
 
-- **Web pages and documents have different rules** — Don't apply the (b)(1) "archive area" requirement to documents. The (b)(2) document exception only asks: Is the document used to "apply for, gain access to, or participate in" services?
+- **Web pages and documents have different rules** — Don't apply the § 35.201(a) "archive area" requirement to documents. The § 35.201(b) document exception only asks: Is the document used to "apply for, gain access to, or participate in" services?
 
 - **"Linked" ≠ "in use" for documents** — A pre-existing PDF linked on your publications page for reference is NOT the same as a PDF used to apply for a grant. The former may be exempt; the latter is not.
 
-- **For web pages, the archive area requirement is strict** — Old HTML pages linked from your main navigation likely don't qualify for (b)(1). To qualify: (1) move them to a dedicated `/archive/` URL section, (2) add a clear "This content is archived" banner visible to users, (3) never update them after the compliance date.
+- **For web pages, the archive area requirement is strict** — Old HTML pages linked from your main navigation likely don't qualify for § 35.201(a). To qualify: (1) move them to a dedicated `/archive/` URL section, (2) add a clear "This content is archived" banner visible to users, (3) never update them after the compliance date.
 
 - **"Archived" labeling alone is not enough** — The DOJ explicitly says that putting content in an "archive" section doesn't make it exempt if the content provides current information or serves a current purpose.
 
-- **Any edit disqualifies archived web content** — Even fixing a typo removes the exception for web pages under (b)(1).
+- **Any edit disqualifies archived web content** — Even fixing a typo removes the exception for web pages under § 35.201(a).
 
 - **Effective communication is still required** — You must provide accessible alternatives upon request even for legitimately excepted content.
 
@@ -1376,7 +1392,7 @@ This is a legal determination, not an administrative one.
 
 **Federal Regulations (Legal Text):**
 
-- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text of the rule; see § 35.200(b) for exceptions
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text of the rule; see § 35.201 for exceptions
 - <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35" target="_blank" rel="noopener noreferrer">28 CFR Part 35 (eCFR)</a> — Current Code of Federal Regulations text
 
 **Expert Analysis:**
@@ -2654,7 +2670,7 @@ The alt text describes what's visually happening. The caption adds context that 
   - Frequently accessed documents
   - Documents required for services or job functions
   - Documents linked from main pages
-- **Pre-existing documents exception** — Documents created before April 26, 2027 may qualify for an exception under § 35.200(b)(2), but **only if** they are not currently used to "apply for, gain access to, or participate in" your agency's services, programs, or activities. See the comprehensive [exceptions FAQ](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details.
+- **Pre-existing documents exception** — Documents created before April 26, 2027 may qualify for an exception under § 35.201(b), but **only if** they are not currently used to "apply for, gain access to, or participate in" your agency's services, programs, or activities. See the comprehensive [exceptions FAQ](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details.
 
 **Important:** Even if a document qualifies for an exception, you must still provide accessible alternatives upon request under the ADA's effective communication requirements. The exception reduces proactive remediation burden — it does not eliminate the obligation to provide access when needed.
 
@@ -3108,7 +3124,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.200(b)(5) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
+**Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.201(e) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
