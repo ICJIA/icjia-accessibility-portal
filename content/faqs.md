@@ -28,6 +28,8 @@ A practical guide to common accessibility questions for staff at Illinois state 
 >
 > **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It's not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency's legal/compliance leadership.
 
+> **🔧 Work in progress — disagreement is welcome.** This FAQ is built and maintained by **ICJIA's IDS Unit** — by an IT staff member who has cared about and been working on accessibility for years, not by lawyers and not by a designated accessibility officer (ICJIA hasn't named one yet). The legal claims here are backed by **direct quotes from the actual rules** (with links to primary sources), but the framing, examples, and choice of words are one IT person's read on what those rules mean for everyday agency work — passionate but not authoritative. **If something here reads wrong, sounds off, or you just disagree — that's fine, and welcome.** Email **ICJIA's IDS Unit** with the question, the section, and what you think would be more accurate or clearer. Corrections ship promptly. Pretending I had it perfect the first time would be worse than getting feedback now.
+
 ## Quick Start (Read this first)
 
 ### Executive summary: what you need to know right now
@@ -146,7 +148,7 @@ Here's why this FAQ is worth your time:
 
 4. **This fills a gap, not a role:** As of March 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
 
-5. **Feedback is welcome:** If you find errors, outdated information, or areas where this FAQ doesn't align with official guidance, please contact ICJIA's IDS Unit with specific corrections. The goal is accuracy, not attribution.
+5. **Feedback — and disagreement — is welcome:** If you find errors, outdated information, language that reads wrong, framing you don't agree with, or areas where this FAQ doesn't align with official guidance, please contact **ICJIA's IDS Unit** with specifics. Disagree with how something is phrased? Tell us. Think a section overstates the law? Tell us. The goal is accuracy and clarity, not protecting the author's prose. Corrections ship promptly.
 
 6. **Check with official sources when stakes are high:** For legal interpretations, procurement decisions, or formal complaints, consult Illinois DoIT (`DoIT.Accessibility@Illinois.gov`) or ICJIA's legal counsel — not this FAQ.
 
@@ -833,7 +835,7 @@ WCAG is organized around four principles, known as **POUR**:
 
 — <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1, "Layers of Guidance" (W3C)</a>
 
-**Why WCAG matters legally:** WCAG 2.1 Level AA is the technical bar incorporated into both ADA Title II's web rule (28 CFR § 35.200(b)(3) incorporates WCAG 2.1 by reference) and Illinois IITAA 2.1 Standards. WCAG itself is not law — it's a W3C standard — but the **regulations point to it**, which is what gives it legal force for state agencies.
+**Why WCAG matters for your agency:** WCAG 2.1 Level AA is the technical bar that both ADA Title II's web rule and Illinois IITAA 2.1 Standards point to as their measuring stick (the federal rule incorporates WCAG 2.1 by reference at 28 CFR § 35.200(b)(3); IITAA does the same). WCAG itself is a W3C standard, not law — but because the rules point to it, hitting WCAG 2.1 AA is how Illinois state agencies demonstrate they've met the requirement.
 
 **References:**
 
@@ -1159,9 +1161,9 @@ The ADA Title II rule includes exceptions for certain archived content and pre-e
 
 **The Five Exceptions (28 CFR § 35.201)**
 
-The ADA Title II web rule defines exactly five categories of content that may be excepted from the WCAG 2.1 Level AA requirement. Each has specific, strict criteria. **All five exceptions live in § 35.201, not § 35.200** — § 35.200 is the duty/general rule; § 35.201 is the list of carve-outs from that duty.
+The ADA Title II web rule defines exactly five categories of content that may be excepted from the WCAG 2.1 Level AA requirement. Each has specific, strict criteria. **All five exceptions live in § 35.201, not § 35.200.** § 35.200 is the rule that says the agency has to comply; § 35.201 is the short list of things that get a pass.
 
-**Verbatim from the rule (28 CFR § 35.201 "Exceptions") — the operative carve-out language:**
+**Verbatim from the rule (28 CFR § 35.201 "Exceptions") — the exception text itself:**
 
 > "**(a) Archived web content.** … the requirements of § 35.200 do not apply to archived web content as defined in § 35.104.
 >
@@ -1685,7 +1687,7 @@ The ADA has multiple titles addressing different contexts:
 
 — <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
-The duty-bearer is the **public entity**; the verb is **"shall ensure";** and the scope reaches content the entity provides "directly or through contractual, licensing, or other arrangements." The rule does **not** create a separate compliance lane for vendor-provided or embedded content.
+Notice three things: the rule is talking to the **public entity** (your agency), the verb is **"shall ensure,"** and the scope explicitly reaches content the agency provides "directly or through contractual, licensing, or other arrangements." The rule doesn't put vendor-provided or embedded content on a separate track — it pulls them in.
 
 **References:**
 
@@ -2936,6 +2938,92 @@ The best approach depends on the source:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
 
+### Why fix the source document (Word) instead of fixing the PDF after it's published?
+
+{updated:2026-05-06}
+
+**Quick answer:** A PDF is an **export**, not an original. The structure that screen readers need — headings, lists, tables, alt text, language, reading order — lives in the source document. Whatever's wrong in the Word file is wrong in the PDF, and the next time someone exports the PDF again, every manual PDF fix evaporates. **Fix accessibility once at the source**, and every future PDF inherits it. **Patch it in Acrobat after the fact**, and you're paying for the same fixes every time the document changes.
+
+**Why this question exists:**
+
+Several agency managers have responded to "fix it in Word" with some version of: "We hired a remediation vendor — they fix any PDF we publish. Why does the source matter?" That sounds clean. Until you look at how documents actually move through an agency.
+
+**The PDF lifecycle most managers haven't thought through:**
+
+1. Author creates a Word document → "Save As PDF" → publishes the PDF.
+2. Vendor remediates the PDF in Acrobat: tags headings, fixes reading order, adds alt text, marks language. **All those fixes live only in the PDF — not the Word source.**
+3. Author edits the Word document next quarter to update a number or fix a typo → "Save As PDF" again → **a fresh PDF with none of the previous tagging.** Back to step 2.
+4. Repeat forever.
+
+This is the round-trip problem. Every PDF remediation is paying for fixes that disappear the next time the underlying Word doc is touched. The accessibility debt isn't being retired — it's being rented, with recurring bills.
+
+**Fixing at the source breaks the loop:**
+
+When the structure lives in the Word source — proper Heading 1/2/3 styles, real bulleted lists (not manually-typed `- `), table header rows, alt text on images, document language set to English — every PDF generated from that file inherits the structure automatically. The next "Save As PDF" is born accessible. No second remediation pass.
+
+**Why Microsoft Word's accessibility checker matters:**
+
+Word has a built-in checker (Review tab → "Check Accessibility") that catches the exact issues that end up costing the most in PDF remediation:
+
+- Images without alt text (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>)
+- Headings used inconsistently or skipped levels (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#headings-and-labels" target="_blank" rel="noopener noreferrer">SC 2.4.6</a>)
+- Tables without header rows (WCAG SC 1.3.1)
+- Document language not set (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1</a>)
+- Hyperlinks with non-descriptive text like "click here" (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">SC 2.4.4</a>)
+- Color used as the only way to convey information (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1</a>)
+
+The checker runs in seconds, surfaces issues in a clickable list that scrolls you to each problem, and explains the fix. **It costs an author 2–5 minutes per document.** The same set of issues, found later by a remediation vendor in Acrobat Pro, typically costs hours per document — because Acrobat is editing a finished output, not the structured source.
+
+**What the source carries that PDFs need:**
+
+| What lives in Word                                | What it gives the PDF                                    |
+| ------------------------------------------------- | -------------------------------------------------------- |
+| Heading 1/2/3 styles                              | Tagged headings + navigable structure for screen readers |
+| Real bulleted/numbered lists                      | Tagged `<L>` lists, not loose paragraphs with bullets    |
+| Table → "Table Design" → Header Row               | `<TH>` markup so screen readers announce columns         |
+| Alt text on images (right-click → Edit Alt Text)  | `<Figure>` with `/Alt` attribute                         |
+| Document language (Review → Language)             | `/Lang` attribute on the PDF                             |
+| Hyperlinks with descriptive text                  | Tagged links with discernible names                      |
+| Logical reading order in the document             | Reading order in the PDF tag tree                        |
+
+If any of these are missing or wrong in Word, the exported PDF has the same gap. There is no "Save As PDF" magic that adds structure that was never authored.
+
+**The cost comparison managers ask about:**
+
+- **Author runs the Word accessibility checker before publishing:** ~2–5 minutes per document.
+- **Vendor remediates the PDF in Acrobat after publication:** typically several hours per document, repeated every time the source is re-exported.
+- **One-time fix to a Word template:** seconds per author per document, every future doc inherits it.
+
+The vendor isn't slower than the author — they're working on a harder surface. PDFs are an output format; they were never meant to be edited as a primary source. Acrobat's remediation tools exist for legacy documents where the source is gone. They're not the right place to do the work for documents your staff are authoring today.
+
+**The compounding effect of a template fix:**
+
+A single fix in your agency's Word template — turning on heading styles, setting the language, defaulting tables to "Header Row" on — improves every future Word document, every PowerPoint built from the same base, and every PDF those documents export. One author-hour invested at the template level can save hundreds of vendor-hours of downstream remediation.
+
+**When PDF-side remediation is actually the right call:**
+
+- The source document is **lost** (legacy archive, only the PDF survived).
+- The source is in a **non-Microsoft tool** that doesn't carry tags into PDF cleanly (some InDesign workflows, scanned documents, paper-original PDFs).
+- The PDF is a **one-time deliverable** that genuinely won't be edited again — and even then, fixing the Word source first is usually faster.
+
+**The bottom line for managers:**
+
+A remediation vendor is the right answer for documents you can't fix at the source. For documents your staff are authoring this quarter, **the source is the leverage point.** Word's checker is free, fast, and prevents the work that vendors charge by the hour to do later. Every PDF born from a properly-structured Word file is one less invoice.
+
+**See also:**
+
+- [How do I make a Word document accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-word-document-accessible) — step-by-step for the source side
+- [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible) — when you do need to remediate the PDF
+- [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility) — ICJIA's free PDF checker
+- [We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?](#procurement-and-third-party-tools-we-hired-a-third-party-remediation-firm-does-that-mean-authors-don-t-need-to-learn-accessibility-anymore) — the broader version of this misconception
+
+**References:**
+
+- <a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f" target="_blank" rel="noopener noreferrer">Microsoft: Improve accessibility with the Accessibility Checker</a> — How to run Word's built-in checker
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.3.1 Info and Relationships</a> — the criterion that "Save As PDF" without proper Word styles fails
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.1.1 Non-text Content</a> — alt text for images
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 3.1.1 Language of Page</a> — document language
+
 ### Is there a quick way to test PDF files for accessibility?
 
 {updated:2026-03-10}
@@ -3300,23 +3388,23 @@ When procuring technology products or services:
 
 {updated:2026-05-06}
 
-**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" does not transfer the legal duty. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
+**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" doesn't change the answer. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
 
 **The "we only get an iframe" misconception:**
 
-Authors sometimes assume that because a map (ArcGIS), an infographic (Canva), a dashboard (Tableau), or a video (YouTube) is built on a vendor's platform and pulled in as an `<iframe>`, the vendor is solely responsible for accessibility. **That is not how the law works.**
+Authors sometimes assume that because a dashboard (Tableau), a map (ArcGIS), an infographic (Canva), or a video (YouTube) is built on a vendor's platform and pulled in as an `<iframe>`, the vendor is solely responsible for accessibility. **That isn't what the rule says, and it isn't how the experience works for users.**
 
-The duty attaches to the public entity that **publishes** the content for a public program or service — not to whoever's servers the bytes are streamed from. If your agency embeds it, your agency owns the accessibility outcome.
+Whoever **publishes** content for a public program or service is the one on the hook for whether people with disabilities can use it. The accessibility outcome doesn't follow the bytes back to whoever's server they came from — it sits with the page that brought them in. If your agency embeds it, your agency owns the outcome.
 
 **The relevant rules:**
 
-- **ADA Title II web rule — 28 CFR § 35.200** (89 FR 31320, April 24, 2024; compliance dates extended by the April 20, 2026 Interim Final Rule to April 26, 2027 for entities serving 50,000+). § 35.200(a) reaches "web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements**" — the contractual-arrangement language is in the rule itself, not just the preamble. The narrow third-party exception is at § 35.201(c), and it applies only to content posted by a third party "**unless** the third party is posting due to contractual, licensing, or other arrangements with the public entity." A member of the public leaving a forum comment is excepted; an ArcGIS or Canva license you pay for and embed is the opposite of excepted.
-- **IITAA + IITAA 2.1 Standards** (30 ILCS 587; standards effective June 24, 2024). IITAA applies to "information and communication technology" that an Illinois state agency develops, procures, maintains, or uses. There is **no carve-out for embedded or hosted content**. If you ship it to the public from an `il.gov` page, IITAA 2.1 applies and the technical bar is WCAG 2.1 Level AA. Illinois DoIT's IITAA Procurement Guidance specifically directs agencies to flow these requirements into vendor contracts.
+- **ADA Title II web rule — 28 CFR § 35.200** (89 FR 31320, April 24, 2024; compliance dates extended by the April 20, 2026 Interim Final Rule to April 26, 2027 for entities serving 50,000+). § 35.200(a) reaches "web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements**" — the contractual-arrangement language is in the rule itself, not just the preamble. The narrow third-party exception is at § 35.201(c), and it applies only to content posted by a third party "**unless** the third party is posting due to contractual, licensing, or other arrangements with the public entity." A member of the public leaving a forum comment is excepted; a Tableau, ArcGIS, or Canva license you pay for and embed is the opposite of excepted.
+- **IITAA + IITAA 2.1 Standards** (30 ILCS 587; standards effective June 24, 2024). IITAA applies to "information and communication technology" that an Illinois state agency develops, procures, maintains, or uses. **It doesn't exclude embedded or hosted content.** If you ship it to the public from an `il.gov` page, IITAA 2.1 applies and the technical bar is WCAG 2.1 Level AA. Illinois DoIT's IITAA Procurement Guidance specifically directs agencies to flow these requirements into vendor contracts.
 - **WCAG 2.1 Level AA** — the technical standard cited by both rules. WCAG is **medium-agnostic**: it does not change behavior based on whether content is rendered in-line, in an iframe, or via a third-party SDK. If a screen-reader user can't operate the embedded map, WCAG 2.1 AA is not met — full stop.
 
 **What the rules actually say (verbatim, with sources):**
 
-Don't take this FAQ's word for it. Here are the operative quotes — copy these directly into a memo if you need to. Each one links to its primary source.
+Don't take this FAQ's word for it. Here are the actual quotes from the rules — copy these directly into a memo if you need to. Each one links to its primary source.
 
 **ADA Title II — 28 CFR § 35.200(a) "General":**
 
@@ -3328,7 +3416,7 @@ Don't take this FAQ's word for it. Here are the operative quotes — copy these 
 
 — <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
-The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" An ArcGIS or Canva license is exactly the kind of contractual arrangement the rule names.
+The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" A Tableau, ArcGIS, or Canva license is exactly the kind of contractual arrangement the rule names.
 
 **ADA Title II — 28 CFR § 35.201(c) "Exceptions":**
 
@@ -3374,7 +3462,7 @@ You cannot conform to WCAG by saying "the rest of our page is accessible — jus
 
 W3C is unambiguous: **the author's page** does not conform unless the embedded third-party content also meets the success criteria. Choosing the embed is itself an accessibility decision.
 
-**What that means in practice for ArcGIS, Canva, and similar embeds:**
+**What that means in practice for Tableau, ArcGIS, Canva, and similar embeds:**
 
 - **You are the publisher.** "Vendor said it's accessible" is not a defense; you must verify and test in your context.
 - **The embed wrapper is part of the page.** Your `<iframe>` needs an accessible name (`title`), focusable controls around it, and a path for keyboard users to reach and leave it.
@@ -3668,13 +3756,13 @@ Illinois DoIT recommends including language similar to:
 
 {updated:2026-05-06}
 
-**Quick answer:** No. Hiring a remediation consultant **does not transfer your agency's legal duty** under ADA Title II or IITAA, and it does not stop the daily creation of new inaccessible content. A remediator cleans up the **past**; only trained authors keep the **future** clean. Both are needed.
+**Quick answer:** No. Hiring a remediation consultant **doesn't move the responsibility off your agency** under ADA Title II or IITAA, and it does not stop the daily creation of new inaccessible content. A remediator cleans up the **past**; only trained authors keep the **future** clean. Both are needed.
 
 **Why authors are still on the hook:**
 
-- **The legal duty rests with the public entity, not the vendor.** Under the **ADA Title II web rule (28 CFR § 35.200(a))**, "a public entity shall ensure" that the web content and mobile apps it "provides or makes available, directly or through contractual, licensing, or other arrangements" comply with WCAG 2.1 Level AA. The verb "ensure" attaches to the public entity. Outsourcing the work does not outsource the duty. If a remediated page regresses or a new inaccessible PDF is uploaded tomorrow, the agency — not the consultant — is the entity out of compliance.
+- **The rule talks to the agency, not its vendors.** Under the **ADA Title II web rule (28 CFR § 35.200(a))**, "a public entity shall ensure" that the web content and mobile apps it "provides or makes available, directly or through contractual, licensing, or other arrangements" comply with WCAG 2.1 Level AA. Notice the subject of that sentence: the **public entity** — your agency. You can hire a vendor to do the work; you can't hire them to be the one who's responsible for the result. If a remediated page regresses or a new inaccessible PDF gets uploaded tomorrow, it's the agency's name on the missed bar, not the consultant's.
 - **Illinois IITAA (30 ILCS 587) and the IITAA 2.1 Standards** apply to information and communication technology that the agency "develops, procures, maintains, or uses." There is no provision that suspends agency responsibility while a vendor is engaged. DoIT's IITAA Procurement Guidance treats vendors as an extension of the agency's compliance program — they help the agency meet its duty; they do not absorb it.
-- **WCAG 2.1 Level AA** is a continuous-state standard, not a one-time audit grade. A page that conformed yesterday can fail today the moment an author replaces an alt text with `image1.jpg`, pastes a low-contrast color, or uploads an untagged PDF. The standard re-applies on every save.
+- **WCAG 2.1 Level AA isn't a one-time audit grade — it's a property of the page every time you publish.** A page that conformed yesterday can fail today the moment an author replaces an alt text with `image1.jpg`, pastes a low-contrast color, or uploads an untagged PDF. WCAG even spells this out explicitly — Conformance Requirement 2 (Full pages) says conformance "**cannot be achieved if part of a web page is excluded**." Every save and every new piece of content has to clear the same bar.
 
 **Why IITAA matters even if you think you're "covered" by ADA Title II:**
 
@@ -3686,11 +3774,11 @@ Managers often hear "ADA Title II web rule" and assume that's the entire univers
 
 In practical terms, that means:
 
-- **Two laws apply at once.** ADA Title II (federal) and IITAA (state) both apply to Illinois state agencies. They share the same technical standard (WCAG 2.1 Level AA) but have **separate enforcement paths** — DOJ for ADA Title II; DoIT plus state procurement and governance controls for IITAA. Compliance with one is not a defense to the other.
+- **Two laws apply at once.** ADA Title II (federal) and IITAA (state) both apply to Illinois state agencies. They share the same technical standard (WCAG 2.1 Level AA) but have **separate enforcement paths** — DOJ for ADA Title II; DoIT plus state procurement and governance controls for IITAA. Doing one well doesn't get you a pass on the other.
 - **IITAA is broader than the federal web rule in scope.** The federal rule is specifically about web content and mobile apps. IITAA covers all "information and communication technology" — websites, electronic documents, software, computers and peripherals, information kiosks, multifunction office machines, telecommunications equipment. A remediator focused only on web/PDF leaves a chunk of your IITAA exposure untouched.
 - **IITAA has been in force since 2008.** The IITAA 2.1 Standards (effective June 24, 2024) require WCAG 2.1 AA — but the underlying obligation predates the federal rule by 16 years. "We'll get to it by April 2027" is a federal-deadline answer, not an IITAA answer; under IITAA, the duty is already in effect today.
 - **Procurement language is state-mandated, not optional.** DoIT's recommended IITAA contract language (quoted below) is what state agencies are expected to use. A remediator's contract that omits the IITAA reference is not a complete IITAA-compliant procurement document.
-- **Both laws place the duty on the agency, not the vendor.** Hiring a remediator does not give you a defense under either law. The agency is the regulated entity in both regimes.
+- **Both laws point at the agency, not the vendor.** Hiring a remediator doesn't give you a "we paid someone to handle it" answer under either one. In both rules, your agency is the entity being asked to comply.
 
 If a manager only reads one quote on this point, this is the one:
 
@@ -3714,7 +3802,7 @@ If a manager is going to push back on this guidance, the only thing that ends th
 
 — <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
-The duty-bearer is **"a public entity,"** the verb is **"shall ensure,"** and the scope reaches content the entity provides "**directly or through contractual, licensing, or other arrangements**" — i.e., a remediation vendor's work product is not on a separate compliance plane.
+Read the subject and verb: the rule is talking to **"a public entity"** — your agency — and it says that entity **"shall ensure"** the requirement is met. The scope is broad on purpose: content provided **"directly or through contractual, licensing, or other arrangements."** A remediation vendor's deliverables fit squarely inside that scope, not outside it.
 
 **Illinois IITAA — agency duty:**
 
@@ -3784,7 +3872,7 @@ Most remediation engagements have a **finite scope** — a specific list of page
 If you are bringing in a remediator, write the contract so the work compounds instead of evaporating:
 
 - **Knowledge transfer.** Templates, checklists, and a written style guide your staff will own after the engagement.
-- **Author training.** Live or recorded training tied to the tools your staff actually uses (Word, Acrobat, your CMS, Canva, ArcGIS, etc.), not generic WCAG slides.
+- **Author training.** Live or recorded training tied to the tools your staff actually uses (Word, Acrobat, your CMS, Tableau, ArcGIS, Canva, etc.), not generic WCAG slides.
 - **Re-test rights.** A clause allowing the agency to re-engage on regressions after the firm has handed back, at a defined rate.
 - **WCAG 2.1 Level AA as the acceptance criterion** — not "best effort" or "industry standard." Reference IITAA 2.1 explicitly so state procurement rules apply (see [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)).
 - **Deliverables in the agency's hands**, not behind the vendor's portal — accessibility conformance reports, source files, and remediation logs that the agency can hand to DOJ, DoIT, or a complainant if asked.
@@ -3797,7 +3885,7 @@ If you are bringing in a remediator, write the contract so the work compounds in
 
 **The bottom line:**
 
-A remediation firm is leverage, not a substitute. The public entity stays legally responsible under ADA Title II § 35.200 and IITAA 2.1; WCAG 2.1 Level AA is a continuous standard that re-applies on every publish; and the only way the math works is if **new** content is authored accessible while the firm clears the **legacy** content. Treat remediation as a one-time floor-clearing exercise that gives your trained authors a clean room to work in — not a service that absolves them.
+A remediation firm is leverage, not a substitute. The agency is the entity named in both rules (ADA Title II § 35.200 and IITAA 2.1); WCAG 2.1 Level AA is a bar your pages and digital documents have to clear every time you publish, not a one-time grade; and the only way the math works is if **new** content is authored accessible while the firm clears the **legacy** content. Treat remediation as a one-time floor-clearing exercise that gives your trained authors a clean room to work in — not a service that takes the work off your authors' plates.
 
 **See also:**
 

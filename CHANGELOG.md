@@ -6,6 +6,38 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.5] - 2026-05-06
+
+### FAQ — voice, Tableau coverage, source-vs-PDF Q&A, feedback callout
+
+Pulling several reviewer-driven adjustments into one release:
+
+### Added
+
+- **New Q&A: "Why fix the source document (Word) instead of fixing the PDF after it's published?"** in the Content Accessibility section. Addresses the recurring manager misconception that a remediation vendor can clean up any published PDF and the source doesn't matter. Walks through the round-trip problem (every "Save As PDF" wipes prior PDF tagging), why Word's built-in accessibility checker matters, what the source carries that PDFs need (with a side-by-side table), the cost comparison, and the compounding effect of fixing the Word template once. WCAG citations: SC 1.1.1, 1.3.1, 1.4.1, 2.4.4, 2.4.6, 3.1.1.
+- **Prominent "Disagreement is welcome — contact IDS" callout** under the introductory blockquote at the top of the FAQ. Frames the document as a work-in-progress maintained by ICJIA's IDS Unit by an IT staff member who's been working on accessibility for years (not a lawyer, not a designated accessibility officer — ICJIA hasn't named one yet) and explicitly invites pushback on framing, language, or claims. The "Why should I trust this FAQ" answer was strengthened with the same disagreement-welcome posture.
+- **Tableau included alongside ArcGIS and Canva** in every "third-party embed" reference. Tableau is the most-used third-party tool at ICJIA, so it now leads the tool list in: the third-party-tools FAQ canonical phrasing ("A Tableau, ArcGIS, or Canva license you pay for…"), the "What that means in practice for…" section heading (now "Tableau, ArcGIS, Canva, and similar embeds"), and the remediator-firm contract-clause example for author training.
+
+### Changed — voice/tone (less lawyerly, more passionate-IT)
+
+The third-party-content and remediator-firm FAQs were rewritten to drop legalistic phrasing without losing the regulatory grounding (verbatim quotes still anchor every claim). Specific changes:
+
+- "duty-bearer" / "the legal duty rests with…" / "regulated entity" / "compliance plane" / "operative carve-out" — replaced with plainer language ("the rule talks to the agency, not its vendors", "you can hire a vendor to do the work; you can't hire them to be the one who's responsible", "both rules point at the agency, not the vendor").
+- "That is not how the law works" — replaced with "That isn't what the rule says, and it isn't how the experience works for users."
+- "WCAG 2.1 Level AA is a continuous-state standard" — replaced with "WCAG 2.1 Level AA isn't a one-time audit grade — it's a property of the page (and digital documents) every time you publish," with the verbatim Conformance Requirement 2 quote inline.
+- "Compliance with one is not a defense to the other" (in the IITAA-vs-ADA section) — softened to "Doing one well doesn't get you a pass on the other."
+- "What gives WCAG legal force for state agencies" — softened to "what makes hitting WCAG 2.1 AA the way Illinois state agencies demonstrate they've met the requirement."
+
+The disclaimer that this FAQ is not legal advice (already present in the frontmatter) was the load-bearing protection here; the body text no longer pretends to give legal opinions, just plain English summaries of what the actual rules say with the rules quoted alongside.
+
+### Verification
+
+- axe-core AA on `/faqs`: 0 violations.
+- FAQ-related test files (faqTransform, faqInternalLinks, faqDownloadGenerators) all pass.
+- Pre-existing test failures in useSeo / DownloadDialog / usePrintLinks (unrelated to these edits) remain.
+
+---
+
 ## [1.2.4] - 2026-05-06
 
 ### FAQ content — primary-source pullouts across the FAQ + critical citation correction
