@@ -825,10 +825,19 @@ WCAG is organized around four principles, known as **POUR**:
 - **Understandable** — Content and how to use it should be clear. Example: Error messages should explain what went wrong and how to fix it.
 - **Robust** — Content should work with different technologies, including assistive tools like screen readers. Example: Use standard HTML so assistive technologies can interpret the content.
 
+**Verbatim from WCAG 2.1 (W3C):**
+
+> "In order to meet the varying needs of this audience, several layers of guidance are provided including overall *principles*, general *guidelines*, testable *success criteria* …"
+
+— <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1, "Layers of Guidance" (W3C)</a>
+
+**Why WCAG matters legally:** WCAG 2.1 Level AA is the technical bar incorporated into both ADA Title II's web rule (28 CFR § 35.200(b)(3) incorporates WCAG 2.1 by reference) and Illinois IITAA 2.1 Standards. WCAG itself is not law — it's a W3C standard — but the **regulations point to it**, which is what gives it legal force for state agencies.
+
 **References:**
 
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">W3C: WCAG Overview</a> — Official overview of WCAG standards
 - <a href="https://www.w3.org/WAI/fundamentals/accessibility-principles/" target="_blank" rel="noopener noreferrer">W3C: Accessibility Principles</a> — Detailed explanation of POUR principles
+- <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Specification</a> — Full normative text
 
 **See also:** [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-2-1-level-aa-mean) | [What WCAG requirements are commonly overlooked?](#website-accessibility-what-wcag-requirements-are-commonly-overlooked)
 
@@ -841,6 +850,24 @@ WCAG has three conformance levels:
 - **Level AAA** — Enhanced accessibility (may meet where feasible).
 
 Illinois requires Level AA conformance, which includes all Level A and Level AA success criteria.
+
+**Verbatim from WCAG 2.1, Conformance Requirement 1 — Conformance Level:**
+
+> "One of the following levels of conformance is met in full.
+>
+> - For Level A conformance (the minimum level of conformance), the web page satisfies all the Level A success criteria, or a conforming alternate version is provided.
+> - For **Level AA conformance, the web page satisfies all the Level A and Level AA success criteria**, or a Level AA conforming alternate version is provided.
+> - For Level AAA conformance, the web page satisfies all the Level A, Level AA and Level AAA success criteria, or a Level AAA conforming alternate version is provided."
+
+— <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, § 5.2.1 (W3C)</a>
+
+**Verbatim from WCAG 2.1, Conformance Requirement 2 — Full pages:**
+
+> "Conformance (and conformance level) is for **full web page(s) only, and cannot be achieved if part of a web page is excluded**."
+
+— <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, § 5.2.2 (W3C)</a>
+
+This is what defeats the "we'll just exclude the embed/widget/PDF from the audit" argument. WCAG conformance is a property of the **whole page** as delivered to the user — you cannot carve out an inaccessible piece and still claim the page conforms.
 
 **Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 Level AA is compliant with current federal requirements. WCAG versions are backward-compatible, so meeting 2.2 also means meeting 2.1 and 2.0.
 
@@ -1078,6 +1105,22 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 4. **Continue after the deadline** — The obligation doesn't end; keep working toward full compliance
 
 **Important:** The ADA Title II rule specifies technical requirements (WCAG 2.1 Level AA), not effort-based requirements. However, documented progress is better than undocumented inaction — each barrier removed helps real users access services now. For questions about enforcement risk or legal exposure, consult your agency's legal counsel.
+
+**Verbatim from the rule (28 CFR § 35.205 "Effect of noncompliance that has a minimal impact on access"):**
+
+> "A public entity that is not in full compliance with the requirements of § 35.200(b) will be deemed to have met the requirements of § 35.200 in the **limited circumstance** in which the public entity can demonstrate that the noncompliance has such a **minimal impact** on access that it would not affect the ability of individuals with disabilities to use the public entity's web content or mobile app to do any of the following in a manner that provides substantially equivalent timeliness, privacy, independence, and ease of use:
+>
+> (a) Access the same information as individuals without disabilities;
+>
+> (b) Engage in the same interactions as individuals without disabilities;
+>
+> (c) Conduct the same transactions as individuals without disabilities; and
+>
+> (d) Otherwise participate in or benefit from the same services, programs, and activities as individuals without disabilities."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.205" target="_blank" rel="noopener noreferrer">28 CFR § 35.205 (Cornell LII)</a>
+
+**Read this carefully — it is much narrower than it sounds.** § 35.205 is **not** a general "we missed the deadline, give us a pass" defense. It applies only when the public entity can **demonstrate** that the specific noncompliance has **minimal impact on access** — i.e., that a person with a disability can still access the same information, do the same things, with substantially equivalent timeliness/privacy/independence/ease of use as someone without a disability. A wholesale failure to meet WCAG 2.1 AA across an agency's site is not "minimal impact." A single subtle WCAG-AA failure that doesn't actually block any user might be. **Document barriers and remediation progress** so the record is in your favor if you ever need to invoke this provision.
 
 **Note:** Very limited exceptions exist for archived content and pre-existing documents under specific circumstances. See [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for details.
 
