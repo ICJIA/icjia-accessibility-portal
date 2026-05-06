@@ -1439,6 +1439,14 @@ This is a legal determination, not an administrative one.
 
 **The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 24, 2024) require conformance with WCAG 2.1 Level AA.
 
+**Verbatim from Illinois DoIT:**
+
+> "The IITAA requires Illinois agencies and universities to **ensure** that their web sites, information systems, and information technologies are accessible to people with disabilities."
+>
+> "Illinois' accessibility standards are based on the United States' Section 508 Standards and require conformance with the World Wide Web Consortium's Web Content Accessibility Guidelines (WCAG) 2.1 Level AA"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
 **See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
@@ -1459,11 +1467,25 @@ The IITAA does **not** directly apply to:
 - Community colleges
 - Private organizations
 
+**Verbatim from Illinois DoIT:**
+
+> "The IITAA applies to all State of Illinois governmental entities, including: executive, legislative, and judicial branches; agencies, departments, divisions, etc.; constitutional offices; public universities"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
 **Note:** Local governments and school districts still have obligations under ADA Title II.
 
 ### How is the IITAA enforced?
 
 **Quick answer:** The IITAA is implemented through Illinois DoIT standards, oversight, and agency compliance processes. It is separate from (and in addition to) ADA Title II.
+
+**Why IITAA is a separate obligation (verbatim from Illinois DoIT):**
+
+> "While the Americans with Disabilities Act and Section 504 of the Rehabilitation Act already require the State to ensure its communications and services are accessible, the IITAA establishes specific technical standards and encourages the State to address accessibility proactively."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not a substitute for them. Compliance with one is not a defense to the other.
 
 **Key differences from ADA Title II enforcement:**
 
@@ -1501,11 +1523,27 @@ The IITAA covers all "information and communication technology," including:
 - Information kiosks
 - Hardware with user interfaces
 
+**Verbatim from Illinois DoIT:**
+
+> "The IITAA covers all 'information and communication technology,' including: websites, electronic documents & videos; software & applications; computers and peripherals; information kiosks; multifunction office machines; telecommunications equipment"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+**Important:** This is broader than the federal ADA Title II web rule, which is specifically about web content and mobile apps. IITAA reaches **kiosks, hardware, multifunction office machines, and telecommunications equipment** that the federal web rule does not address.
+
 ### When did the current IITAA standards take effect?
 
 - **IITAA 1.0** — August 20, 2008 (original standards).
 - **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA).
 - **IITAA 2.1** — June 24, 2024 (aligned with WCAG 2.1 Level AA).
+
+**Verbatim from Illinois DoIT:**
+
+> "The IITAA 2.1 Standards, which require conformance with WCAG 2.1 AA, went into effect on June 24, 2024."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+**Important takeaway for managers:** The IITAA technical standard is in effect **today** — it is not waiting for April 26, 2027. The federal compliance date is for the ADA Title II web rule; the IITAA 2.1 Standards have been operative since June 24, 2024.
 
 **References:**
 
@@ -1562,6 +1600,18 @@ The ADA has multiple titles addressing different contexts:
 
 **Key regulatory text:** The rule amends 28 CFR Part 35 to add §§ 35.200–35.205 establishing web and mobile app accessibility requirements.
 
+**Verbatim from the rule (28 CFR § 35.200(a) "General"):**
+
+> "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities:
+>
+> (1) Web content that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements; and
+>
+> (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+
+The duty-bearer is the **public entity**; the verb is **"shall ensure";** and the scope reaches content the entity provides "directly or through contractual, licensing, or other arrangements." The rule does **not** create a separate compliance lane for vendor-provided or embedded content.
+
 **References:**
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — DOJ plain-language summary
@@ -1579,6 +1629,16 @@ The ADA has multiple titles addressing different contexts:
 Both deadlines were extended by one year from the original dates (April 24, 2026 and April 26, 2027 respectively) by the DOJ <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> published April 20, 2026.
 
 For all Illinois state agencies, the applicable deadline is **April 26, 2027** (since Illinois has over 12 million residents, state agencies fall under the 50,000+ population tier).
+
+**Verbatim from the rule (28 CFR § 35.200(b) — compliance dates, as extended by the April 20, 2026 IFR):**
+
+> "A public entity that, on April 24, 2024, has a total population of 50,000 or more … shall, beginning April 26, 2027, ensure that the web content and mobile apps that a public entity provides or makes available … comply with [WCAG 2.1] Level A and Level AA success criteria and conformance requirements."
+>
+> "A public entity that, on April 24, 2024, has a total population of less than 50,000 … shall, beginning April 26, 2028, ensure that the web content and mobile apps that a public entity provides or makes available … comply with [WCAG 2.1] Level A and Level AA success criteria and conformance requirements."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200(b) (Cornell LII)</a> — original dates of April 24, 2026 / April 26, 2027 were each extended one year by the <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule of April 20, 2026</a>. The technical standard (WCAG 2.1 Level AA) is unchanged.
+
+**Important — IITAA is already in effect:** The federal deadlines above only set the date by which **federal** ADA Title II web compliance becomes enforceable. **The IITAA 2.1 Standards (state law) have been in effect since June 24, 2024** and apply to Illinois state agencies right now — see [When did the current IITAA standards take effect?](#compliance-requirements-iitaa-and-ada-title-ii-when-did-the-current-iitaa-standards-take-effect).
 
 **References:**
 
@@ -1606,6 +1666,14 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 - **Third-party content** — Embedded tools, maps, dashboards, widgets provided through contracts.
 
 **Why the scope is so broad:** Government services have moved online rapidly, especially since 2020. What used to be in-person services are now digital, making digital accessibility essential for equal access.
+
+**Verbatim from 28 CFR § 35.200(a):**
+
+> "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities: (1) Web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements;** and (2) Mobile apps that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements.**"
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+
+The "directly or through contractual, licensing, or other arrangements" language is what makes the scope so broad. It explicitly reaches third-party platforms, embedded vendor tools, and contractor-produced content. See [How do we ensure accessibility compliance with third-party tools…](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva) for application to specific platforms.
 
 **Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Covered Content</a> (see section on "What Web Content and Mobile Apps Are Covered")
 
@@ -1643,6 +1711,14 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 - **ADA Title I** — Employers must provide reasonable accommodations for employees with disabilities, which could include making internal systems, training materials, and documents accessible. This applies to all employers with 15 or more employees.
 - **Section 504 of the Rehabilitation Act** — Organizations receiving federal funding must ensure programs and activities are accessible to employees with disabilities. This includes internal systems and documents used by employees.
 - **IITAA** — Illinois law covers intranets and internal systems used by state employees. The IITAA applies to "information systems" and "information technologies" used by Illinois state agencies, which includes internal systems.
+
+**Verbatim from Illinois DoIT — IITAA's broader scope:**
+
+> "The IITAA requires Illinois agencies and universities to ensure that their **web sites, information systems, and information technologies** are accessible to people with disabilities."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+The IITAA reaches "information systems and information technologies" — language that is **not** limited to public-facing content. For Illinois state agencies, internal portals, employee tools, kiosks, office multifunction printers, and telecommunications equipment all fall within IITAA's scope, regardless of whether the federal ADA Title II web rule reaches them. Even if the federal rule does not require an internal intranet to meet WCAG 2.1 AA, IITAA may.
 
 **Best practice:** Make internal documents accessible proactively. It's easier than retrofitting later, and you may have employees with disabilities who need access. Additionally, internal documents often become public-facing over time, and making them accessible from the start avoids future remediation work.
 
