@@ -6,6 +6,21 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.7] - 2026-05-06
+
+### Updated — bump all "Last updated" displayed dates to May 6, 2026
+
+So the freshness signal on every page matches the actual most-recent edit:
+
+- `content/faqs.md` frontmatter `lastUpdated: 2026-05-06` (already current) — drives the visible "Last updated" label on `/faqs` and `/faqs-print`.
+- `content/faqs.md` two prose markers (`_Last updated: April 20, 2026_` at the top of the executive summary and at the end of the document) → `May 6, 2026`.
+- `app/pages/index.vue` — the home page hardcoded `lastUpdated` constant → `"May 6, 2026"`.
+- "As of March 2026, ICJIA has not yet designated an official accessibility coordinator" → "As of May 2026" (still accurate, no longer stale-looking).
+
+Factual citations of historical events (DOJ IFR published April 20, 2026; original compliance dates of April 24, 2026 / April 26, 2027) are unchanged — they refer to specific dated events.
+
+---
+
 ## [1.2.6] - 2026-05-06
 
 ### FAQ — inline VPAT definitions wherever VPAT is referenced
