@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-04-20
+lastUpdated: 2026-05-06
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -3091,18 +3091,55 @@ When procuring technology products or services:
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — Illinois-specific procurement requirements
 - <a href="https://www.section508.gov/buy/define-accessibility-criteria/" target="_blank" rel="noopener noreferrer">Section508.gov: Define Accessibility Criteria</a> — Federal guidance on procurement
 
-### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?
+### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?
 
-{new:2026-01-06}
+{new:2026-05-06}
 
-**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
+**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" does not transfer the legal duty. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
+
+**The "we only get an iframe" misconception:**
+
+Authors sometimes assume that because a map (ArcGIS), an infographic (Canva), a dashboard (Tableau), or a video (YouTube) is built on a vendor's platform and pulled in as an `<iframe>`, the vendor is solely responsible for accessibility. **That is not how the law works.**
+
+The duty attaches to the public entity that **publishes** the content for a public program or service — not to whoever's servers the bytes are streamed from. If your agency embeds it, your agency owns the accessibility outcome.
+
+**The relevant rules:**
+
+- **ADA Title II web rule — 28 CFR § 35.200** (89 FR 31320, April 24, 2024; compliance dates extended by the April 20, 2026 Interim Final Rule to April 26, 2027 for entities serving 50,000+). The rule covers web content and mobile apps "made available to the public or used by members of the public" by a public entity. The rulemaking record makes the contractual point explicit: third-party content posted on a public entity's site **pursuant to a contractual, licensing, or other arrangement** with the public entity is content **for which the public entity is responsible**. The narrow third-party exception in § 35.201 covers content **posted by a third party who is not posting due to a contractual, licensing, or other arrangement** (e.g., a member of the public leaving a comment) — that is the opposite of an ArcGIS or Canva license you pay for and embed.
+- **IITAA + IITAA 2.1 Standards** (30 ILCS 587; standards effective June 24, 2024). IITAA applies to "information and communication technology" that an Illinois state agency develops, procures, maintains, or uses. There is **no carve-out for embedded or hosted content**. If you ship it to the public from an `il.gov` page, IITAA 2.1 applies and the technical bar is WCAG 2.1 Level AA. Illinois DoIT's IITAA Procurement Guidance specifically directs agencies to flow these requirements into vendor contracts.
+- **WCAG 2.1 Level AA** — the technical standard cited by both rules. WCAG is **medium-agnostic**: it does not change behavior based on whether content is rendered in-line, in an iframe, or via a third-party SDK. If a screen-reader user can't operate the embedded map, WCAG 2.1 AA is not met — full stop.
+
+**What that means in practice for ArcGIS, Canva, and similar embeds:**
+
+- **You are the publisher.** "Vendor said it's accessible" is not a defense; you must verify and test in your context.
+- **The embed wrapper is part of the page.** Your `<iframe>` needs an accessible name (`title`), focusable controls around it, and a path for keyboard users to reach and leave it.
+- **Configuration choices you make inside the third-party platform are yours.** Color combinations, font sizes, alt text on a Canva graphic, layer labels in ArcGIS, axis titles in Tableau — those are authored by your staff inside the vendor's tool and inherit your agency's compliance duty.
+- **An accessible alternative is required when the embed itself can't meet WCAG 2.1 AA.** A static data table next to a Tableau dashboard, a text/list alternative next to an ArcGIS map, an accessible PDF or HTML version of a Canva infographic, or a transcript and captions for embedded video. The alternative must convey the **same information** — not a stripped-down summary.
+- **Procurement is the leverage point.** Require WCAG 2.1 AA conformance in the contract, request a current VPAT/ACR for the exact product version, and document remediation timelines for known issues. (See [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use))
+
+**Specifically for Canva embeds and exports:**
+
+Canva is a common source of inaccessible content because the design surface lets authors do things WCAG forbids: low-contrast text over photos, color-only emphasis, decorative fonts at small sizes, and tap targets under 44×44px. The "embed" or PDF export does not fix any of those choices.
+
+- Treat Canva graphics like any other image: WCAG 1.1.1 requires a text alternative that conveys the same information. A short `alt` is not enough for a poster crammed with statistics — provide a long-description, a plain-text equivalent on the page, or both.
+- Avoid putting essential information **inside** the Canva graphic. Repeat the key facts as real text on the surrounding page so screen-reader and low-vision users get them without depending on the image.
+- Canva's exported PDFs are typically **untagged** (not accessible PDFs). If you need an accessible PDF, remediate the export in Acrobat Pro (tag headings, set reading order, add alt text) or recreate the document in Word/HTML.
+- Embedded Canva designs (`<iframe>`) inherit the same rules as any other embed: provide an accessible name, ensure keyboard reachability, and provide a non-iframe alternative for the same information.
+
+**Specifically for ArcGIS embeds:**
+
+ArcGIS Online, Story Maps, Experience Builder, and Dashboards each render as embeds with their own keyboard and screen-reader behavior. Configuration choices you make in ArcGIS — pop-up content, layer labels, legend wording, color ramps — are **your** content and must meet WCAG 2.1 AA.
+
+- Esri publishes VPATs per product line; verify against the **specific product and version** you embed (ArcGIS Online ≠ Experience Builder ≠ JS API custom apps).
+- Provide a parallel accessible alternative: a sortable HTML data table, a list of locations with attributes, or a downloadable CSV. The map is a visualization; the underlying data must be available without it.
+- Test the keyboard path **into** and **out of** the iframe. Users who can't escape an embedded map are blocked from the rest of your page.
 
 **Why this matters:**
 
 Under the ADA Title II web rule, public entities are responsible for the accessibility of third-party content when it is provided "under contractual, licensing, or other arrangements" (§ 35.200(a)). This means:
 
-- **Content you contract for** — Payment processors, scheduling tools, chat widgets, LMS platforms, document signing tools, embedded maps (ArcGIS), dashboards (Tableau), survey tools, and other contracted services — falls under your agency's responsibility
-- **Content posted by third parties without a contractual relationship** — Such as user comments on a public forum — is generally excepted (§ 35.200(b)(3))
+- **Content you contract for** — Payment processors, scheduling tools, chat widgets, LMS platforms, document signing tools, embedded maps (ArcGIS), dashboards (Tableau), design/infographic tools (Canva), survey tools, and other contracted services — falls under your agency's responsibility
+- **Content posted by third parties without a contractual relationship** — Such as user comments on a public forum — is generally excepted (§ 35.201)
 
 **Common third-party tools requiring accessibility:**
 
@@ -3361,6 +3398,70 @@ Illinois DoIT recommends including language similar to:
 
 - <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">ITI VPAT Template</a> — Official VPAT template and guidance
 - <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Section508.gov: How to Create an ACR</a> — Federal guidance on VPATs
+
+### We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?
+
+{new:2026-05-06}
+
+**Quick answer:** No. Hiring a remediation consultant **does not transfer your agency's legal duty** under ADA Title II or IITAA, and it does not stop the daily creation of new inaccessible content. A remediator cleans up the **past**; only trained authors keep the **future** clean. Both are needed.
+
+**Why authors are still on the hook:**
+
+- **The legal duty rests with the public entity, not the vendor.** Under the **ADA Title II web rule (28 CFR Part 35, § 35.200)**, the public entity must ensure that web content and mobile apps "made available to the public or used by members of the public" comply with WCAG 2.1 Level AA. The rule places the obligation on the agency itself; outsourcing the work does not outsource the obligation. If a remediated page regresses or a new inaccessible PDF is uploaded tomorrow, the agency — not the consultant — is the entity out of compliance.
+- **Illinois IITAA (30 ILCS 587) and the IITAA 2.1 Standards** apply to information and communication technology that the agency "develops, procures, maintains, or uses." There is no provision that suspends agency responsibility while a vendor is engaged. DoIT's IITAA Procurement Guidance treats vendors as an extension of the agency's compliance program — they help the agency meet its duty; they do not absorb it.
+- **WCAG 2.1 Level AA** is a continuous-state standard, not a one-time audit grade. A page that conformed yesterday can fail today the moment an author replaces an alt text with `image1.jpg`, pastes a low-contrast color, or uploads an untagged PDF. The standard re-applies on every save.
+
+**Why "the firm will catch it" is a treadmill, not a strategy:**
+
+Most remediation engagements have a **finite scope** — a specific list of pages, documents, or sites, audited and fixed once. The agency keeps creating content. Without trained authors:
+
+- New content is **created inaccessible** at the same rate as before, refilling the backlog the consultant just emptied.
+- Remediation moves from a **one-time project** (definable cost) to a **permanent line item** (open-ended cost).
+- Cycle time for new public information goes up because every piece has to be reviewed and fixed downstream instead of authored correctly upstream.
+- Authors lose the chance to design the **information itself** for accessibility (clear headings, plain language, decoupled text and images) — the consultant can fix tagging and contrast but cannot rewrite a 200-page report into a usable structure for a screen reader.
+
+**What a good division of labor actually looks like:**
+
+| Remediation firm                                                                | Agency authors                                                                  |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Audits the existing inventory and produces a prioritized backlog                | Stop the bleeding: every new document/page authored to WCAG 2.1 AA from day one |
+| Tags legacy PDFs, adds alt text, fixes color contrast, repairs broken structure | Write descriptive headings, meaningful link text, real alt text at creation     |
+| Provides VPAT-style evidence and remediation logs for procurement records       | Maintain the accessibility of pages they own after remediation hand-back        |
+| Trains staff and writes templates/style guides                                  | Use the templates; raise issues the templates don't cover                       |
+| Re-tests after major platform changes                                           | Run a quick checklist (headings, alt text, contrast, link text) before publish  |
+
+**Contract clauses that make this real:**
+
+If you are bringing in a remediator, write the contract so the work compounds instead of evaporating:
+
+- **Knowledge transfer.** Templates, checklists, and a written style guide your staff will own after the engagement.
+- **Author training.** Live or recorded training tied to the tools your staff actually uses (Word, Acrobat, your CMS, Canva, ArcGIS, etc.), not generic WCAG slides.
+- **Re-test rights.** A clause allowing the agency to re-engage on regressions after the firm has handed back, at a defined rate.
+- **WCAG 2.1 Level AA as the acceptance criterion** — not "best effort" or "industry standard." Reference IITAA 2.1 explicitly so state procurement rules apply (see [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)).
+- **Deliverables in the agency's hands**, not behind the vendor's portal — accessibility conformance reports, source files, and remediation logs that the agency can hand to DOJ, DoIT, or a complainant if asked.
+
+**What changes for individual authors:**
+
+- **Less ambiguity, not less work.** A good remediator will give you concrete templates and patterns. Use them. The expectation is that **new** content goes out accessible — the remediator is not signing up to babysit your output.
+- **Faster review cycles.** When the remediator finds a recurring issue (every Word export missing language metadata, every image lacking alt text), that is a workflow problem the author needs to fix at the source, not a one-off the consultant should keep patching.
+- **Better tools, same duty.** Authors should expect training, checklists, and style guides as part of the engagement — and should ask for them if they're not offered.
+
+**The bottom line:**
+
+A remediation firm is leverage, not a substitute. The public entity stays legally responsible under ADA Title II § 35.200 and IITAA 2.1; WCAG 2.1 Level AA is a continuous standard that re-applies on every publish; and the only way the math works is if **new** content is authored accessible while the firm clears the **legacy** content. Treat remediation as a one-time floor-clearing exercise that gives your trained authors a clean room to work in — not a service that absolves them.
+
+**See also:**
+
+- [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva) — applies the same "agency stays responsible" logic to embedded vendor platforms
+- [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use) — IITAA-aligned procurement language Illinois DoIT recommends
+
+**References:**
+
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">ADA Title II web rule (89 FR 31320)</a> — places the WCAG 2.1 AA duty on the public entity (28 CFR § 35.200)
+- <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule (April 20, 2026)</a> — extended compliance to April 26, 2027 (technical standard unchanged)
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — state-law obligations on agencies (30 ILCS 587)
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — flowing accessibility duties into vendor contracts
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — the technical bar both rules reference
 
 ---
 

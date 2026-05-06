@@ -6,6 +6,25 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.2] - 2026-05-06
+
+### FAQ content — third-party content and remediation-firm misconceptions
+
+Two recurring author misconceptions surfaced from recent agency conversations: (1) "we just embed an iframe — the vendor is responsible," and (2) "we hired a remediation firm, so staff don't need to worry about accessibility anymore." Both were addressed directly in `content/faqs.md` with explicit citations to ADA Title II 28 CFR § 35.200, IITAA / IITAA 2.1 Standards (30 ILCS 587), and WCAG 2.1 Level AA. Tagged `{new:2026-05-06}` so they sort to the top of "Latest first."
+
+- **Refined: "How do we ensure accessibility compliance with third-party tools…"** — title now includes Canva alongside the existing LMS/DocuSign/Tableau/ArcGIS list. Added a prominent upfront section addressing the "we only get an iframe" misconception, a per-rule rundown (28 CFR § 35.200 contractual-arrangement responsibility under ADA Title II; IITAA's no-carve-out posture; WCAG 2.1 AA's medium-agnostic application), Canva-specific guidance (Canva embeds/exports inherit author choices about contrast, color, and alt text; PDF exports are typically untagged), and ArcGIS-specific guidance (Esri VPATs are per-product-line; embed iframes need a keyboard exit path; provide an HTML data-table alternative).
+- **New: "We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?"** — explains why the legal duty under ADA Title II § 35.200 and IITAA 2.1 stays with the public entity regardless of vendor engagement, why WCAG 2.1 AA is a continuous-state standard (not a one-time audit grade), and how a remediator-and-author division of labor actually works. Includes recommended contract clauses (knowledge transfer, author training, re-test rights, WCAG 2.1 AA acceptance criterion, deliverables held by the agency).
+
+### Changed
+
+- `content/faqs.md` — `lastUpdated: 2026-05-06`.
+
+### Verification
+
+- axe-core AA across `/`, `/faqs`, `/faqs-print` — 0 violations.
+
+---
+
 ## [1.2.1] - 2026-05-06
 
 ### Fixed
