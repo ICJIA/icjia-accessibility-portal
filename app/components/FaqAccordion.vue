@@ -24,7 +24,7 @@
             v-if="item.isNew"
             class="new-badge"
           >
-            New{{ item.newDate ? ` (${formatDate(item.newDate)})` : '' }}
+            Updated{{ item.newDate ? ` (${formatDate(item.newDate)})` : '' }}
           </span>
           <span class="faq-question-text">{{ item.question }}</span>
         </div>

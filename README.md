@@ -21,7 +21,7 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
 
 - **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation
   - Dynamic countdown timer showing days until the April 26, 2027 deadline
-  - "New" badge system for recently added questions (auto-expires after 10 days)
+  - "Updated" badge system for newly added or recently revised questions (auto-expires after 10 days)
   - Searchable accordion interface with proper ARIA attributes
   - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
@@ -124,8 +124,8 @@ yarn generate:serve
 - **Dynamic Countdown Timer** - Shows days remaining until April 26, 2027 deadline (Chicago timezone)
   - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
   - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
-- **"New" Badge System** - Automatically displays and expires badges for recent FAQ additions [[memory:12683417]]
-  - Add `{new:YYYY-MM-DD}` after question heading in markdown
+- **"Updated" Badge System** - Automatically displays and expires badges for newly-added or recently-updated FAQ entries [[memory:12683417]]
+  - Add `{updated:YYYY-MM-DD}` after question heading in markdown
   - Badge auto-expires after 10 days (configurable)
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
   - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
@@ -737,17 +737,17 @@ After the fixes, all pages were verified clean using Puppeteer to capture consol
 
 1. Edit `content/faqs.md`
 2. Add your question as an H3 heading (`###`)
-3. Add the "new" badge tag on the next line (optional):
+3. Add the "updated" badge tag on the next line (optional):
 
 ```markdown
 ### Your New Question Here?
 
-{new:2026-01-01}
+{updated:2026-01-01}
 
 **Quick answer:** Your answer here...
 ```
 
-The "New" badge will:
+The "Updated" badge will:
 
 - Display automatically for 10 days from the specified date
 - Appear as a green chip next to the question
@@ -1034,7 +1034,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
   - Keyboard navigation support
   - Screen reader optimized
 - ✅ SEO optimized with automated sitemap generation
-- ✅ "New" badge system for FAQ questions
+- ✅ "Updated" badge system for FAQ questions
 - ✅ Dynamic countdown timer (April 26, 2027 deadline) on all pages
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
@@ -1108,7 +1108,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
   - Last-updated date for document tracking
   - Uses custom print layout (no navbar/footer)
   - 100% accessible (skip link, proper semantics)
-- Enhanced FAQ system with auto-expiring "New" badges
+- Enhanced FAQ system with auto-expiring "Updated" badges
 - Improved accessibility with comprehensive ARIA support
 - Implemented dynamic content placeholders
 - Added comprehensive project documentation

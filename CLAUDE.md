@@ -172,7 +172,7 @@ FAQs are in `content/faqs.md`. Structure:
 
 ### Question text here?
 
-{new:2026-01-15}   <!-- Optional: Shows "NEW" badge for 10 days -->
+{updated:2026-01-15}   <!-- Optional: Shows "UPDATED" badge for 10 days -->
 
 **Quick answer:** Brief answer...
 
@@ -182,7 +182,7 @@ Detailed explanation...
 **Key patterns:**
 - H2 (`##`) = Section headings
 - H3 (`###`) = Questions
-- `{new:YYYY-MM-DD}` = "New" badge (auto-expires after 10 days)
+- `{updated:YYYY-MM-DD}` = "Updated" badge (auto-expires after 10 days)
 - `{days_until_deadline}` = Dynamic placeholder replaced with actual days
 
 ### Internal Links in FAQs
@@ -274,7 +274,7 @@ node audit-accessibility.js  # Terminal 2: Run audit
 ### Modifying FAQ Content
 
 1. Edit `content/faqs.md`
-2. Add `{new:YYYY-MM-DD}` for new questions
+2. Add `{updated:YYYY-MM-DD}` for new or updated questions
 3. Run `yarn dev` to preview
 4. Run `yarn test` to verify transformations
 5. Run `yarn audit:a11y` to check accessibility
@@ -285,7 +285,7 @@ node audit-accessibility.js  # Terminal 2: Run audit
 
 2. **Static docs in public/**: The `/docs/` directory contains static HTML. Nuxt prerendering ignores these paths (`nitro.prerender.ignore`).
 
-3. **FAQ "New" badges**: Auto-expire after 10 days. Configure in `app/utils/faqTransform.ts` (`NEW_QUESTION_DAYS`).
+3. **FAQ "Updated" badges**: Auto-expire after 10 days. Configure in `app/utils/faqTransform.ts` (`NEW_QUESTION_DAYS`).
 
 4. **Timezone handling**: Always use explicit timezone offsets for deadline calculations.
 

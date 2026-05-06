@@ -54,7 +54,7 @@ type MiniMarkNode = MarkdownNode;
 
 /**
  * Number of days a question is considered "new" after its date tag.
- * Questions marked with {new:YYYY-MM-DD} will show a "NEW" badge for this many days.
+ * Questions marked with {updated:YYYY-MM-DD} will show an "UPDATED" badge for this many days.
  *
  * @constant {number}
  * @default 10
@@ -197,17 +197,17 @@ function isHeadingLikeParagraph(node: MarkdownNode): boolean {
 }
 
 /**
- * Regular expression pattern to match the "new" tag in various formats.
+ * Regular expression pattern to match the "updated" tag in various formats.
  *
  * Supports:
- * - `{new:2025-12-27}` - Curly braces format (preferred, survives markdown parsing)
- * - `<!-- new:2025-12-27 -->` - HTML comment format (may be stripped by parser)
+ * - `{updated:2025-12-27}` - Curly braces format (preferred, survives markdown parsing)
+ * - `<!-- updated:2025-12-27 -->` - HTML comment format (may be stripped by parser)
  *
  * @constant {RegExp}
  * @private
  */
 const NEW_TAG_PATTERN =
-  /(?:\{new:\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*new:\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
+  /(?:\{updated:\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*updated:\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
 
 /**
  * Extracts the date from a `{new:YYYY-MM-DD}` (or `<!-- new:YYYY-MM-DD -->`) tag,
@@ -290,7 +290,7 @@ export function extractNewDate(answerNodes: MarkdownNode[]): string | null {
 export function filterNewComments(answerNodes: MarkdownNode[]): MarkdownNode[] {
   try {
     const newTagFullPattern =
-      /(?:\{new:\s*\d{4}-\d{2}-\d{2}\}|<!--\s*new:\s*\d{4}-\d{2}-\d{2}\s*-->)/g;
+      /(?:\{updated:\s*\d{4}-\d{2}-\d{2}\}|<!--\s*updated:\s*\d{4}-\d{2}-\d{2}\s*-->)/g;
 
     return answerNodes
       .map((node) => {

@@ -15,7 +15,7 @@ import {
  * All dates are handled in the context of Illinois state agencies,
  * which operate in the Chicago timezone (America/Chicago).
  * 
- * Note: The {new:YYYY-MM-DD} date tags in FAQs are interpreted as
+ * Note: The {updated:YYYY-MM-DD} date tags in FAQs are interpreted as
  * local dates (Chicago time) for determining if content is "new".
  */
 describe('faqTransform', () => {
@@ -95,7 +95,7 @@ describe('faqTransform', () => {
       const dateStr = recentDate.toISOString().split('T')[0]
       
       const nodes = [
-        ['p', {}, `{new:${dateStr}}`],
+        ['p', {}, `{updated:${dateStr}}`],
         ['p', {}, 'Answer text']
       ]
       
@@ -110,7 +110,7 @@ describe('faqTransform', () => {
       const dateStr = recentDate.toISOString().split('T')[0]
       
       const nodes = [
-        ['p', {}, `<!-- new:${dateStr} -->`],
+        ['p', {}, `<!-- updated:${dateStr} -->`],
         ['p', {}, 'Answer text']
       ]
       
@@ -131,7 +131,7 @@ describe('faqTransform', () => {
       // Use a date that's definitely outside the 10-day window
       const oldDate = '2020-01-01'
       const nodes = [
-        ['p', {}, `{new:${oldDate}}`]
+        ['p', {}, `{updated:${oldDate}}`]
       ]
       
       const result = extractNewDate(nodes)
@@ -143,7 +143,7 @@ describe('faqTransform', () => {
     it('should extract tagged date even if outside new window', () => {
       const oldDate = '2020-01-01'
       const nodes = [
-        ['p', {}, `{new:${oldDate}}`],
+        ['p', {}, `{updated:${oldDate}}`],
         ['p', {}, 'Answer text']
       ]
       const result = extractTaggedDate(nodes as any)
@@ -160,7 +160,7 @@ describe('faqTransform', () => {
   describe('filterNewComments', () => {
     it('should remove new tag from nodes', () => {
       const nodes = [
-        ['p', {}, '{new:2026-01-01}'],
+        ['p', {}, '{updated:2026-01-01}'],
         ['p', {}, 'Answer text']
       ]
       
@@ -181,7 +181,7 @@ describe('faqTransform', () => {
 
     it('should filter out empty nodes after removing new tag', () => {
       const nodes = [
-        ['p', {}, '{new:2026-01-01}']
+        ['p', {}, '{updated:2026-01-01}']
       ]
       
       const result = filterNewComments(nodes)
@@ -190,7 +190,7 @@ describe('faqTransform', () => {
 
     it('should handle mixed content with new tags and regular text', () => {
       const nodes = [
-        ['p', {}, '{new:2026-01-01}'],
+        ['p', {}, '{updated:2026-01-01}'],
         ['p', {}, 'First paragraph'],
         ['p', {}, 'Second paragraph']
       ]
@@ -270,7 +270,7 @@ describe('faqTransform', () => {
       
       const nodes = [
         ['h3', {}, 'What is accessibility?'],
-        ['p', {}, `{new:${dateStr}}`],
+        ['p', {}, `{updated:${dateStr}}`],
         ['p', {}, 'Accessibility means...']
       ]
       

@@ -38,8 +38,8 @@ async function main() {
   // Remove existing YAML frontmatter
   markdown = markdown.replace(/^---[\s\S]*?---\n*/m, "");
 
-  // Clean up {new:YYYY-MM-DD} tags - convert to visible badges
-  markdown = markdown.replace(/\{new:\s*(\d{4}-\d{2}-\d{2})\}/g, "🆕 *New*");
+  // Clean up {updated:YYYY-MM-DD} tags - convert to visible badges
+  markdown = markdown.replace(/\{updated:\s*(\d{4}-\d{2}-\d{2})\}/g, "🔄 *Updated*");
 
   // Create header
   const header = `# ICJIA Digital Accessibility FAQ

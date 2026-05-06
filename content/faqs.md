@@ -128,7 +128,7 @@ _Last updated: April 20, 2026_
 
 ### Why should I trust this FAQ if it wasn't created by agency leadership or official accessibility experts?
 
-{new:2026-01-23}
+{updated:2026-01-23}
 
 **Quick answer:** This FAQ is based on official sources — Illinois DoIT guidance, federal ADA regulations, and W3C standards — not personal opinion. The content's authority comes from the sources it cites, not the person who compiled it.
 
@@ -156,7 +156,7 @@ Here's why this FAQ is worth your time:
 
 ### I'm already busy. Why should accessibility be a priority when I have other responsibilities?
 
-{new:2026-01-23}
+{updated:2026-01-23}
 
 **Quick answer:** Accessibility helps ensure that the people we serve can actually use the services and information we provide. For agencies committed to diversity, equity, inclusion, and accessibility (DEIA), accessible content is part of how we put those values into practice.
 
@@ -323,7 +323,7 @@ These four skills address the most common issues per the <a href="https://webaim
 
 ### How should I track my accessibility fixes as a content creator?
 
-{new:2026-01-23}
+{updated:2026-01-23}
 
 **Quick answer:** Keep it simple — use whatever tool you already use for tracking work. A shared spreadsheet, a note in your existing task system, or even a running document is fine. The goal is consistency, not complexity. Track what you fixed, when, and what's left.
 
@@ -486,7 +486,7 @@ A simple spreadsheet or task list gives you this information.
 
 ### What exactly am I accountable for as a manager (vs. what my team is accountable for)?
 
-{new:2025-12-30}
+{updated:2025-12-30}
 
 **Quick answer:** You're accountable for **making accessibility possible and expected**: ownership, priorities, time/tools/training, and accountability. Your team is accountable for **creating and maintaining accessible content and systems** in their day-to-day work.
 
@@ -507,7 +507,7 @@ A simple spreadsheet or task list gives you this information.
 
 ### How can I track and demonstrate "good-faith progress" toward compliance?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **Quick answer:** Maintain a clear inventory, a prioritized backlog, and evidence of steady progress (what was fixed, when, and what's next). However, based on ADA Title II and IITAA requirements, **documentation of effort is not the same as meeting the compliance standard**.
 
@@ -572,7 +572,7 @@ Don't let "we're making progress" become a substitute for "we meet the standard.
 
 ### Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?
 
-{new:2026-01-02}
+{updated:2026-01-02}
 
 **Quick answer:** There is no single official "WCAG certificate" you can buy that guarantees compliance. **Compliance is demonstrated by meeting WCAG 2.1 Level AA success criteria across the defined scope of your digital content.** If you choose to make a formal statement, WCAG defines how to make a **conformance claim** — and it's **optional**.
 
@@ -622,7 +622,7 @@ While web developers handle technical implementation (code structure, keyboard n
 
 ### I'm already overloaded — how am I supposed to add accessibility to my workload?
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Quick answer:** Accessibility isn't additional work on top of your job — it's a change in _how_ you do work you're already doing. Creating an accessible document takes only a few extra minutes once you know the basics.
 
@@ -667,7 +667,7 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a co
 
 ### Who's going to notice if we're not compliant by April 26, 2027?
 
-{new:2026-01-07}
+{updated:2026-01-07}
 
 **Quick answer:** Non-compliance is likely to be discovered through multiple channels: agency audits, automated website scans, content reviews, individual complaints, and enforcement actions. While violations might not be identified immediately, accessibility compliance is actively monitored. Non-compliance can result in legal action, financial costs, and damage to your agency's reputation. From a risk management perspective, the question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption.
 
@@ -755,7 +755,7 @@ Accessibility violations have characteristics that make them more likely to be d
 
 ### Given the uncertainty around enforcement, can we tell staff to continue with their current workflows for now?
 
-{new:2026-01-23}
+{updated:2026-01-23}
 
 **Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 26, 2027, under both ADA Title II and Illinois IITAA. Directing staff to ignore accessibility requirements exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
 
@@ -816,7 +816,7 @@ Instead of "don't worry about it," consider: _"Accessibility is a new compliance
 
 ### What is WCAG?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **WCAG (Web Content Accessibility Guidelines)** are international standards that explain how to make digital content accessible to people with disabilities. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone.
 
@@ -845,7 +845,7 @@ WCAG is organized around four principles, known as **POUR**:
 
 ### What does "WCAG 2.1 Level AA" mean?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 WCAG has three conformance levels:
 
@@ -884,7 +884,7 @@ This is what defeats the "we'll just exclude the embed/widget/PDF from the audit
 
 ### What are the most common accessibility mistakes and issues to avoid?
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 > **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.1.1) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
@@ -1029,7 +1029,7 @@ These are **internal employment matters** determined by agency policy, not direc
 
 ### Why are we just hearing about this now?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **This is a common question.** Here are the facts:
 
@@ -1065,7 +1065,7 @@ Regardless of what happened before, the requirement is clear and the deadline is
 
 ### After April 26, 2027, how do we maintain compliance (so we don't fall out of compliance again)?
 
-{new:2026-01-02}
+{updated:2026-01-02}
 
 **Quick answer:** Treat accessibility like **security and privacy**: it’s not a one-time remediation project. Maintaining compliance means building accessibility into **every publish/purchase/build workflow**, continuously testing, fixing regressions, and keeping documentation current.
 
@@ -1099,7 +1099,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### What if we can't meet the April 26, 2027 deadline?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** DOJ has already extended the deadline once (from April 24, 2026 to April 26, 2027) via an Interim Final Rule. Agencies should not plan around the possibility of further extensions. If full compliance isn't achievable by April 26, 2027, prioritize high-impact content, document your plan, and keep making progress.
 
@@ -1139,7 +1139,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### Are there exceptions to the April 2027 deadline? What qualifies?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 > **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
 
@@ -1502,7 +1502,7 @@ This is a legal determination, not an administrative one.
 
 ### What is the IITAA?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 24, 2024) require conformance with WCAG 2.1 Level AA.
 
@@ -1520,7 +1520,7 @@ This is a legal determination, not an administrative one.
 
 ### Who must comply with the IITAA?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 The IITAA applies to:
 
@@ -1546,7 +1546,7 @@ The IITAA does **not** directly apply to:
 
 ### How is the IITAA enforced?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** The IITAA is implemented through Illinois DoIT standards, oversight, and agency compliance processes. It is separate from (and in addition to) ADA Title II.
 
@@ -1582,7 +1582,7 @@ DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not 
 
 ### What does the IITAA cover?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **See also:** [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover) for comparison with ADA Title II requirements.
 
@@ -1606,7 +1606,7 @@ The IITAA covers all "information and communication technology," including:
 
 ### When did the current IITAA standards take effect?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 - **IITAA 1.0** — August 20, 2008 (original standards).
 - **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA).
@@ -1653,7 +1653,7 @@ For questions or comments about information technology accessibility or the IITA
 
 ### What is the ADA Title II digital accessibility rule?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 26, 2027 (for entities serving 50,000+ population).
 
@@ -1696,7 +1696,7 @@ The duty-bearer is the **public entity**; the verb is **"shall ensure";** and th
 
 ### When must we comply with the ADA Title II rule?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 | Entity Size                                    | Compliance Deadline |
 | ---------------------------------------------- | ------------------- |
@@ -1731,7 +1731,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 ### What does the April 2027 deadline cover?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **See also:** [What does the IITAA cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-iitaa-cover) for comparison with Illinois state requirements.
 
@@ -1760,7 +1760,7 @@ The "directly or through contractual, licensing, or other arrangements" language
 
 ### Does ADA Title II apply to internal documents?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
@@ -1876,7 +1876,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 **Illinois testing guidance:** <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/testing.html</a>
 
-**See also:** [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+**See also:** [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do we ensure accessibility compliance with third-party tools?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 
 **WCAG References:**
 
@@ -1887,7 +1887,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 ### Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?
 
-{new:2026-01-02}
+{updated:2026-01-02}
 
 **Quick answer:** An external audit is **not the only way** to validate accessibility, but it can be worth it for **high-risk, high-visibility services** or when you need **independent evidence**. Regardless of who does it, **no automated tool alone can determine conformance** — knowledgeable human evaluation is required.
 
@@ -1912,7 +1912,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 ### Can’t we just use an accessibility overlay/widget (a “one-click fix”) instead of doing remediation?
 
-{new:2026-01-02}
+{updated:2026-01-02}
 
 **Quick answer:** No. Overlays/widgets can add UI features, but they **do not reliably make a site conform to WCAG 2.1 Level AA** because accessibility issues usually require **fixing the underlying code and content**. Also, **conformance cannot be validated by automation alone**.
 
@@ -1936,7 +1936,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 ### What WCAG requirements are commonly overlooked?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **See also:** [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid) | [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
@@ -2004,7 +2004,7 @@ When your agency uses third-party platforms (Docebo, DocuSign, Tableau, ArcGIS, 
 
 4. **Data visualizations need text alternatives (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts and maps must provide equivalent information for users who can't see them.
 
-**See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+**See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 
 #### Why These Matter
 
@@ -2034,7 +2034,7 @@ These requirements are often missed because:
 
 ### What color contrast ratio is required?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 > **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
@@ -2076,7 +2076,7 @@ For WCAG 2.1 Level AA:
 
 ### What are focus indicators and why do they matter?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 > **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
@@ -2135,7 +2135,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 ### Do I need to caption all videos?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 > **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
@@ -2218,7 +2218,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 ### What about cognitive accessibility and plain language?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **Quick answer:** WCAG 2.1 Level AA includes several requirements that support cognitive accessibility: readable text, predictable navigation, error prevention, and sufficient time. Beyond WCAG compliance, plain language principles help make content accessible to users with cognitive disabilities, learning disabilities, limited literacy, and non-native speakers.
 
@@ -2271,7 +2271,7 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 ### How do I make forms accessible?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **Quick answer:** Every form field needs a visible label that is programmatically associated with the field, error messages must be clear and specific, and users must be able to navigate and complete the form using only a keyboard.
 
@@ -2445,7 +2445,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 ### Does our agency's password-protected intranet need to be accessible?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **See also:** [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet)
 
@@ -2517,7 +2517,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 
 ### My documents look fine — why do they need to be "accessible"?
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Quick answer:** "Looking fine" means you can see the content visually. "Accessible" means people using screen readers, keyboard navigation, or other assistive technologies can also use the content — and that requires specific structure that's invisible to you but essential for them.
 
@@ -2747,7 +2747,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 ### Do all documents need to be accessible?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 26, 2027 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
 
@@ -2874,7 +2874,7 @@ Document Title (Heading 1)
 
 ### How do I make a PDF accessible?
 
-{new:2026-01-06}
+{updated:2026-01-06}
 
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 
@@ -2938,7 +2938,7 @@ The best approach depends on the source:
 
 ### Is there a quick way to test PDF files for accessibility?
 
-{new:2026-03-10}
+{updated:2026-03-10}
 
 **See also:** [How do I make a PDF accessible?](#content-accessibility-documents-pdfs-presentations-how-do-i-make-a-pdf-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
@@ -3030,7 +3030,7 @@ Key steps for accessible Excel files:
 
 ### I work with complex data tables. Why does our website use Markdown, and how do I make my tables accessible?
 
-{new:2026-01-23}
+{updated:2026-01-23}
 
 **Quick answer:** Markdown is the bridge between your Word documents and live web content. It's a simple text format that content management systems (like Strapi) use to store and display content on websites. For complex tables, **start with an accessible Word table** — proper headers, simple structure, no merged cells — and the conversion to Markdown will be straightforward. The accessibility principles are the same in both formats.
 
@@ -3152,7 +3152,7 @@ Key steps for accessible PowerPoint:
 
 ### How do I make emails and newsletters accessible?
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Quick answer:** Emails follow the same principles as documents: use heading structure, add alt text to images, write descriptive links, and ensure good color contrast. The biggest difference is that many email clients have limited support for accessibility features, so simpler is better.
 
@@ -3227,7 +3227,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 ### Do social media posts need to be accessible? How do I make them accessible?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.201(e) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
 
@@ -3298,7 +3298,7 @@ When procuring technology products or services:
 
 ### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" does not transfer the legal duty. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
 
@@ -3613,7 +3613,7 @@ Illinois DoIT recommends including language similar to:
 
 ### What is a VPAT? What is an ACR or MCAR?
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Quick answer:** A **VPAT (Voluntary Product Accessibility Template)** is a standardized form vendors fill out to describe how their product meets accessibility standards. An **ACR (Accessibility Conformance Report)** is the completed VPAT — the actual document you request from vendors. **MCAR** stands for **Manufacturer's Conformance Accessibility Report**, which is essentially the same thing.
 
@@ -3666,7 +3666,7 @@ Illinois DoIT recommends including language similar to:
 
 ### We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?
 
-{new:2026-05-06}
+{updated:2026-05-06}
 
 **Quick answer:** No. Hiring a remediation consultant **does not transfer your agency's legal duty** under ADA Title II or IITAA, and it does not stop the daily creation of new inaccessible content. A remediator cleans up the **past**; only trained authors keep the **future** clean. Both are needed.
 
@@ -3820,7 +3820,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 ### ICJIA has many public sites. Where can I see the audit reports for each site?
 
-{new:2025-12-30}
+{updated:2025-12-30}
 
 **Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Additionally, website audit reports will be posted on an ongoing basis as they become available.
 
@@ -3854,7 +3854,7 @@ Website audit reports for existing public websites will be posted on an ongoing 
 
 ### How do we handle accessibility complaints?
 
-{new:2025-12-31}
+{updated:2025-12-31}
 
 **Quick answer:** A formal complaint handling procedure has not yet been established at ICJIA. The guidance below is provisional and will be updated once the process is finalized.
 
@@ -3932,7 +3932,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Legal and Standards Terms
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **ADA (Americans with Disabilities Act)** — Federal civil rights law that prohibits discrimination against people with disabilities. **Title I** covers employment accommodations. **Title II** covers public services and requires state and local governments to make digital content accessible. <a href="https://www.ada.gov/" target="_blank" rel="noopener noreferrer">Learn more about ADA</a>
 
@@ -3948,7 +3948,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Procurement Terms
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **ACR (Accessibility Conformance Report)** — The completed document a vendor provides showing how their product meets (or doesn't meet) accessibility standards. This is the actual report you request from vendors — the filled-out version of a VPAT. <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Learn how to create an ACR</a>
 
@@ -3965,7 +3965,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Technical Terms
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Alt text (Alternative text)** — A brief written description of an image that screen readers read aloud to users who can't see the image. Example: "Director Smith presenting award to Officer Jones at the annual ceremony." Best practice: Keep concise (roughly 15-25 words), though modern screen readers handle longer text when needed.
 
@@ -3993,7 +3993,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Content-Specific Terms
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Accessible document** — A document (Word, PDF, PowerPoint, Excel) that has proper structure (headings, not just bold text), alt text for images, readable tables, and other features that make it usable by assistive technologies. <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Learn how to create accessible documents</a>
 
@@ -4005,7 +4005,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### Process Terms
 
-{new:2025-12-27}
+{updated:2025-12-27}
 
 **Automated testing** — Using software tools (like <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE</a>, <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe DevTools</a>, Lighthouse) to automatically scan for accessibility issues. These tools catch many problems but can't detect everything — manual testing is also required. <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Testing Resources</a>
 
@@ -4095,7 +4095,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 ### Procurement & Third-Party Tools
 
 - [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services)
-- [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, and ArcGIS?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-and-arcgis)
+- [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 - [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)
 - [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
 

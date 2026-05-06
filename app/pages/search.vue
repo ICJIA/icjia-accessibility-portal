@@ -70,7 +70,7 @@
                     v-if="result.item.isNew"
                     class="new-badge mr-2"
                   >
-                    NEW
+                    UPDATED
                   </span>
                   <span v-html="highlightMatches(result.item.question, result)"></span>
                 </h2>

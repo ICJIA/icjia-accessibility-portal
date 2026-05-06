@@ -290,8 +290,8 @@ function markdownToDocxParagraphs(markdown) {
       continue;
     }
 
-    // Skip {new:YYYY-MM-DD} tags
-    if (/^\{new:\s*\d{4}-\d{2}-\d{2}\}$/.test(trimmed)) {
+    // Skip {updated:YYYY-MM-DD} tags
+    if (/^\{updated:\s*\d{4}-\d{2}-\d{2}\}$/.test(trimmed)) {
       i++;
       continue;
     }

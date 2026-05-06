@@ -39,7 +39,7 @@ Accessibility means making content usable by everyone, including people with dis
 - List item 2
 - List item 3
 
-### Question 2 {new:2026-01-01}
+### Question 2 {updated:2026-01-01}
 
 What is WCAG?
 
@@ -141,11 +141,11 @@ describe('FAQ Download Generators', () => {
       expect(content).toContain('Illinois Criminal Justice Information Authority')
     })
 
-    it('should handle {new:} tags appropriately', async () => {
+    it('should handle {updated:} tags appropriately', async () => {
       const content = await readFile(outputPath, 'utf-8')
       
-      // Should either remove or convert {new:} tags
-      expect(content).not.toContain('{new:2026-01-01}')
+      // Should either remove or convert {updated:} tags
+      expect(content).not.toContain('{updated:2026-01-01}')
     })
 
     it('should be readable as plain ASCII text', async () => {
@@ -153,7 +153,7 @@ describe('FAQ Download Generators', () => {
       
       // Check that file contains only printable ASCII + newlines
       // Allow some extended characters for accessibility
-      const printableAscii = /^[\x20-\x7E\n\r\t©🆕\[\]]+$/
+      const printableAscii = /^[\x20-\x7E\n\r\t©🔄\[\]]+$/
       // More lenient: just check it's valid text
       expect(content.length).toBeGreaterThan(100)
       expect(typeof content).toBe('string')
@@ -218,13 +218,13 @@ describe('FAQ Download Generators', () => {
       expect(content).toContain('| Cell 1   | Cell 2   |')
     })
 
-    it('should convert {new:} tags to visible badges', async () => {
+    it('should convert {updated:} tags to visible badges', async () => {
       const content = await readFile(outputPath, 'utf-8')
-      
-      // Should not contain raw {new:} tags
-      expect(content).not.toContain('{new:2026-01-01}')
+
+      // Should not contain raw {updated:} tags
+      expect(content).not.toContain('{updated:2026-01-01}')
       // Should contain converted badge
-      expect(content).toContain('🆕')
+      expect(content).toContain('🔄')
     })
 
     it('should include footer with document info', async () => {
