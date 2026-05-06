@@ -2122,6 +2122,20 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 - **Pre-recorded audio only** — Requires a text transcript (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.1 - Level A</a>).
 - **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.5 - Level AA</a>). For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
+**Verbatim from WCAG 2.1 (W3C, normative):**
+
+> **SC 1.2.2 Captions (Prerecorded) — Level A:** "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such."
+
+— <a href="https://www.w3.org/TR/WCAG21/#captions-prerecorded" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.2.2 (W3C)</a>
+
+> **SC 1.2.4 Captions (Live) — Level AA:** "Captions are provided for all live audio content in synchronized media."
+
+— <a href="https://www.w3.org/TR/WCAG21/#captions-live" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.2.4 (W3C)</a>
+
+> **SC 1.2.5 Audio Description (Prerecorded) — Level AA:** "Audio description is provided for all prerecorded video content in synchronized media."
+
+— <a href="https://www.w3.org/TR/WCAG21/#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.2.5 (W3C)</a>
+
 **Are AI-generated subtitles (like YouTube's auto-captions) enough?**
 
 **No.** AI-generated subtitles are a **starting point**, but they typically contain errors that must be corrected for WCAG 2.1 Level AA compliance. Success Criterion 1.2.2 requires captions to be **accurate** and **synchronized**. AI-generated captions that contain errors do not meet the accuracy requirement.

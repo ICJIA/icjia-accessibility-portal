@@ -6,6 +6,74 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.4] - 2026-05-06
+
+### FAQ content — primary-source pullouts across the FAQ + critical citation correction
+
+Continuing the manager-skeptic-proofing pass started in v1.2.3. Pullouts now appear at the canonical question for each major regulatory or technical claim across the FAQ, anchored to verbatim text and direct primary-source links. Other Q&As cross-reference these anchors instead of paraphrasing.
+
+### Fixed — critical citation correction (§ 35.200(b)(N) → § 35.201(a)–(e))
+
+The FAQ's exceptions section had been citing the five ADA Title II web rule exceptions as `28 CFR § 35.200(b)(1)–(5)`. **This is incorrect.** Per the published rule (verified against Cornell LII):
+
+- `§ 35.200` = "Requirements for web and mobile accessibility" (the duty + technical standard + compliance dates)
+- `§ 35.201` = "Exceptions" (the five carve-outs)
+
+`§ 35.200(b)` is the compliance-dates subsection — `(b)(1)` is the date for entities serving 50,000+, `(b)(2)` is the date for entities under 50,000, `(b)(3)` incorporates WCAG 2.1 by reference. None of those are exceptions. Fixed every occurrence (5 exception headings, 7 cells in the practical-examples table, 5 procedure-section bullet points, plus 3 cross-references in other questions). Anyone who quoted the wrong citation to colleagues should update their notes.
+
+### Added — primary-source pullouts (verbatim, with links)
+
+Each pullout uses the same format: bold "Verbatim from [source]:" header, blockquote with exact text, em-dash + linked source.
+
+**Compliance Requirements section:**
+
+- "What is the IITAA?" — DoIT IITAA "shall ensure" + WCAG 2.1 AA standard
+- "Who must comply with the IITAA?" — DoIT scope quote
+- "How is the IITAA enforced?" — DoIT IITAA-vs-ADA relationship quote
+- "What does the IITAA cover?" — DoIT ICT-scope quote with explicit callout that IITAA reaches kiosks/hardware/telecom that the federal web rule does not
+- "When did the current IITAA standards take effect?" — DoIT effective-date quote with manager-facing reminder that IITAA 2.1 is in force NOW (since June 24, 2024)
+- "What is the ADA Title II digital accessibility rule?" — verbatim 28 CFR § 35.200(a)
+- "When must we comply with the ADA Title II rule?" — verbatim § 35.200(b) compliance dates as extended by the April 20, 2026 IFR
+- "What does the April 2027 deadline cover?" — § 35.200(a) scope quote
+- "Does ADA Title II apply to internal documents?" — IITAA broader-scope quote
+- "Are there exceptions to the April 2027 deadline?" — verbatim § 35.201 anchor with all five exceptions
+
+**Common Concerns section:**
+
+- "What is WCAG?" — WCAG 2.1 "Layers of Guidance" + "why WCAG matters legally" callout (regulations point to it = legal force)
+- "What does 'WCAG 2.1 Level AA' mean?" — verbatim Conformance Requirement 1 (Conformance Level) and Conformance Requirement 2 (Full pages, "cannot be achieved if part of a web page is excluded")
+
+**State Agency Applicability section:**
+
+- "What if we can't meet the April 26, 2027 deadline?" — verbatim 28 CFR § 35.205 ("Effect of noncompliance that has a minimal impact on access") with explicit warning that the provision is much narrower than it sounds
+
+**Website Accessibility section:**
+
+- "What color contrast ratio is required?" — verbatim WCAG 2.1 SC 1.4.3 "Contrast (Minimum)" with all three exceptions (Large Text, Incidental, Logotypes)
+- "Do I need to caption all videos?" — verbatim WCAG 2.1 SC 1.2.2 (Prerecorded), SC 1.2.4 (Live), SC 1.2.5 (Audio Description)
+- "Does our agency's password-protected intranet need to be accessible?" — IITAA quote anchoring why state law reaches employee-facing intranets even when the federal web rule does not; clarifies that § 35.201(d) is for individualized documents, not shared internal portals
+
+**Social Media Accessibility section:**
+
+- "Do social media posts need to be accessible?" — verbatim § 35.201(e) with note that the exception applies only to posts before the agency's compliance date
+
+### Sources used (all linked from the FAQ body)
+
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.205" target="_blank" rel="noopener noreferrer">28 CFR § 35.205 (Cornell LII)</a>
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+- <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Specification (W3C, normative)</a>
+- <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1 § 5 Conformance</a>
+- <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.3 (Contrast Minimum)</a>
+- <a href="https://www.w3.org/TR/WCAG21/#captions-prerecorded" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.2.2 (Captions Prerecorded)</a>
+
+### Verification
+
+- axe-core AA across `/`, `/faqs`, `/faqs-print` — 0 violations after every edit batch.
+
+---
+
 ## [1.2.3] - 2026-05-06
 
 ### FAQ content — primary-source quote blocks for the third-party content + remediator FAQs
