@@ -3109,6 +3109,66 @@ The duty attaches to the public entity that **publishes** the content for a publ
 - **IITAA + IITAA 2.1 Standards** (30 ILCS 587; standards effective June 24, 2024). IITAA applies to "information and communication technology" that an Illinois state agency develops, procures, maintains, or uses. There is **no carve-out for embedded or hosted content**. If you ship it to the public from an `il.gov` page, IITAA 2.1 applies and the technical bar is WCAG 2.1 Level AA. Illinois DoIT's IITAA Procurement Guidance specifically directs agencies to flow these requirements into vendor contracts.
 - **WCAG 2.1 Level AA** — the technical standard cited by both rules. WCAG is **medium-agnostic**: it does not change behavior based on whether content is rendered in-line, in an iframe, or via a third-party SDK. If a screen-reader user can't operate the embedded map, WCAG 2.1 AA is not met — full stop.
 
+**What the rules actually say (verbatim, with sources):**
+
+Don't take this FAQ's word for it. Here are the operative quotes — copy these directly into a memo if you need to. Each one links to its primary source.
+
+**ADA Title II — 28 CFR § 35.200(a) "General":**
+
+> "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities:
+>
+> (1) Web content that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements; and
+>
+> (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+
+The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" An ArcGIS or Canva license is exactly the kind of contractual arrangement the rule names.
+
+**ADA Title II — 28 CFR § 35.201(c) "Exceptions":**
+
+> "Content posted by a third party — unless the third party is posting due to contractual, licensing, or other arrangements with the public entity."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+
+The exception is for content the public did not contract for — a member of the public leaving a forum comment is a textbook example. **A vendor you pay (Esri, Canva, Tableau, DocuSign, etc.) is the express opposite of this exception** — the rule explicitly says the exception does **not** apply when the third party is posting "due to contractual, licensing, or other arrangements."
+
+**Illinois IITAA — 30 ILCS 587 / IITAA 2.1 Standards:**
+
+> "The IITAA requires Illinois agencies and universities to ensure that their web sites, information systems, and information technologies are accessible to people with disabilities."
+>
+> "The IITAA 2.1 Standards, which require conformance with WCAG 2.1 AA, went into effect on June 24, 2024."
+>
+> "While the Americans with Disabilities Act and Section 504 of the Rehabilitation Act already require the State to ensure its communications and services are accessible, the IITAA establishes specific technical standards and encourages the State to address accessibility proactively."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+IITAA is a **separate state-law obligation** that applies to Illinois state agencies independently of (and in addition to) ADA Title II. It has been in effect since 2008 and predates the federal web rule by 16 years. There is no "we follow ADA, so we don't need to worry about IITAA" — they apply simultaneously and IITAA's scope is broader (it covers internal-facing IT, hardware, kiosks, and procurement, not just public-facing web/mobile).
+
+**Illinois IITAA — Procurement contract language (DoIT-recommended):**
+
+> "All information technology, including electronic information, software, systems, and equipment, **developed or provided under this contract or procurement** must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">DoIT: IITAA Procurement Guidance</a>
+
+The state's own procurement language explicitly reaches IT "developed or provided under this contract or procurement" — i.e., **vendor-supplied** IT. The duty stays with the agency; the contract is the lever to push it onto vendors.
+
+**WCAG 2.1 — Conformance Requirement 2: Full pages:**
+
+> "Conformance (and conformance level) is for full web page(s) only, and **cannot be achieved if part of a web page is excluded**."
+
+— <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance)</a>
+
+You cannot conform to WCAG by saying "the rest of our page is accessible — just ignore the embedded map." Conformance is a property of the **whole page**.
+
+**WCAG 2.1 — Third-party content (W3C Understanding doc):**
+
+> "When an author makes a decision to use a third party implementation, they should choose products that meet WCAG requirements. **If all content on a page, including third party content, meets all WCAG success criteria then the page conforms to WCAG.**"
+
+— <a href="https://www.w3.org/WAI/WCAG21/Understanding/conformance" target="_blank" rel="noopener noreferrer">W3C WAI: Understanding Conformance</a>
+
+W3C is unambiguous: **the author's page** does not conform unless the embedded third-party content also meets the success criteria. Choosing the embed is itself an accessibility decision.
+
 **What that means in practice for ArcGIS, Canva, and similar embeds:**
 
 - **You are the publisher.** "Vendor said it's accessible" is not a defense; you must verify and test in your context.
@@ -3410,6 +3470,90 @@ Illinois DoIT recommends including language similar to:
 - **The legal duty rests with the public entity, not the vendor.** Under the **ADA Title II web rule (28 CFR § 35.200(a))**, "a public entity shall ensure" that the web content and mobile apps it "provides or makes available, directly or through contractual, licensing, or other arrangements" comply with WCAG 2.1 Level AA. The verb "ensure" attaches to the public entity. Outsourcing the work does not outsource the duty. If a remediated page regresses or a new inaccessible PDF is uploaded tomorrow, the agency — not the consultant — is the entity out of compliance.
 - **Illinois IITAA (30 ILCS 587) and the IITAA 2.1 Standards** apply to information and communication technology that the agency "develops, procures, maintains, or uses." There is no provision that suspends agency responsibility while a vendor is engaged. DoIT's IITAA Procurement Guidance treats vendors as an extension of the agency's compliance program — they help the agency meet its duty; they do not absorb it.
 - **WCAG 2.1 Level AA** is a continuous-state standard, not a one-time audit grade. A page that conformed yesterday can fail today the moment an author replaces an alt text with `image1.jpg`, pastes a low-contrast color, or uploads an untagged PDF. The standard re-applies on every save.
+
+**Why IITAA matters even if you think you're "covered" by ADA Title II:**
+
+Managers often hear "ADA Title II web rule" and assume that's the entire universe of rules they need to worry about. **It is not.** Illinois has had its own digital-accessibility statute on the books since 2008 — long before the federal rule existed — and that statute applies to your agency *independently* of the federal rule. The DoIT site is unambiguous about this:
+
+> "While the Americans with Disabilities Act and Section 504 of the Rehabilitation Act already require the State to ensure its communications and services are accessible, the IITAA establishes specific technical standards and encourages the State to address accessibility proactively."
+>
+> — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+In practical terms, that means:
+
+- **Two laws apply at once.** ADA Title II (federal) and IITAA (state) both apply to Illinois state agencies. They share the same technical standard (WCAG 2.1 Level AA) but have **separate enforcement paths** — DOJ for ADA Title II; DoIT plus state procurement and governance controls for IITAA. Compliance with one is not a defense to the other.
+- **IITAA is broader than the federal web rule in scope.** The federal rule is specifically about web content and mobile apps. IITAA covers all "information and communication technology" — websites, electronic documents, software, computers and peripherals, information kiosks, multifunction office machines, telecommunications equipment. A remediator focused only on web/PDF leaves a chunk of your IITAA exposure untouched.
+- **IITAA has been in force since 2008.** The IITAA 2.1 Standards (effective June 24, 2024) require WCAG 2.1 AA — but the underlying obligation predates the federal rule by 16 years. "We'll get to it by April 2027" is a federal-deadline answer, not an IITAA answer; under IITAA, the duty is already in effect today.
+- **Procurement language is state-mandated, not optional.** DoIT's recommended IITAA contract language (quoted below) is what state agencies are expected to use. A remediator's contract that omits the IITAA reference is not a complete IITAA-compliant procurement document.
+- **Both laws place the duty on the agency, not the vendor.** Hiring a remediator does not give you a defense under either law. The agency is the regulated entity in both regimes.
+
+If a manager only reads one quote on this point, this is the one:
+
+> "The IITAA requires Illinois agencies and universities to **ensure** that their web sites, information systems, and information technologies are accessible to people with disabilities."
+>
+> — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+The duty is on the **agency**, not its vendors, and the verb is **"ensure"** — not "delegate," not "outsource," not "contract for."
+
+**What the rules actually say (verbatim, with sources):**
+
+If a manager is going to push back on this guidance, the only thing that ends the argument is the actual regulatory text. Each block below is a verbatim quote linked to its primary source.
+
+**ADA Title II — 28 CFR § 35.200(a) "General":**
+
+> "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities:
+>
+> (1) Web content that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements; and
+>
+> (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+
+The duty-bearer is **"a public entity,"** the verb is **"shall ensure,"** and the scope reaches content the entity provides "**directly or through contractual, licensing, or other arrangements**" — i.e., a remediation vendor's work product is not on a separate compliance plane.
+
+**Illinois IITAA — agency duty:**
+
+> "The IITAA requires Illinois agencies and universities to ensure that their web sites, information systems, and information technologies are accessible to people with disabilities."
+>
+> "The IITAA covers all 'information and communication technology,' including: websites, electronic documents & videos; software & applications; computers and peripherals; information kiosks; multifunction office machines; telecommunications equipment"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+The duty under state law is on the **agency**. The scope of "information and communication technology" is broader than the federal web rule and explicitly includes things a typical web-remediation engagement won't touch (kiosks, office machines, telecommunications equipment).
+
+**Illinois IITAA — current technical standard:**
+
+> "The IITAA 2.1 Standards, which require conformance with WCAG 2.1 AA, went into effect on June 24, 2024."
+>
+> "Illinois' accessibility standards are based on the United States' Section 508 Standards and require conformance with the World Wide Web Consortium's Web Content Accessibility Guidelines (WCAG) 2.1 Level AA"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+The IITAA technical bar is in effect **now** (since June 24, 2024) — not on the federal-rule timeline.
+
+**Illinois IITAA — Procurement contract language (DoIT-recommended):**
+
+> "All information technology, including electronic information, software, systems, and equipment, **developed or provided under this contract or procurement** must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards"
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">DoIT: IITAA Procurement Guidance</a>
+
+The state's own recommended language reaches IT "developed or provided under this contract" — i.e., a remediator's deliverables are explicitly within the IITAA frame. The contract is how the agency pushes its duty *toward* the vendor; it is not how the agency divests the duty.
+
+**WCAG 2.1 — Conformance Requirement 2: Full pages:**
+
+> "Conformance (and conformance level) is for full web page(s) only, and **cannot be achieved if part of a web page is excluded**."
+
+— <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance)</a>
+
+A remediated page that is later joined by a fresh non-conforming widget, embed, or PDF link **breaks** the page-level conformance the remediator delivered. WCAG does not let you carve out the new content and claim conformance for the old.
+
+**WCAG 2.1 — Third-party content (W3C Understanding doc):**
+
+> "When an author makes a decision to use a third party implementation, they should choose products that meet WCAG requirements. **If all content on a page, including third party content, meets all WCAG success criteria then the page conforms to WCAG.**"
+
+— <a href="https://www.w3.org/WAI/WCAG21/Understanding/conformance" target="_blank" rel="noopener noreferrer">W3C WAI: Understanding Conformance</a>
+
+Even W3C — which does not enforce anything — places the choice of third-party content on the **author** and conditions page conformance on the third-party content meeting the same success criteria. Hiring a remediator does not change who the "author" is for new content.
 
 **Why "the firm will catch it" is a treadmill, not a strategy:**
 

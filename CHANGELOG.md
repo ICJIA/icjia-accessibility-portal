@@ -6,6 +6,30 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.3] - 2026-05-06
+
+### FAQ content — primary-source quote blocks for the third-party content + remediator FAQs
+
+Authors and managers reading the v1.2.2 FAQs reported that without verbatim regulatory quotes and direct links to primary sources, the guidance was easy to dismiss as the FAQ author's interpretation. Both new FAQs now include a "What the rules actually say (verbatim, with sources)" block with quoted-and-linked text from each primary source — usable as a copy-paste memo when a manager pushes back.
+
+- **Refined: third-party tools FAQ (ArcGIS / Canva / etc.)** — added verbatim quotes from 28 CFR § 35.200(a) (Cornell LII), 28 CFR § 35.201(c) (the third-party exception), DoIT's IITAA scope and IITAA-vs-ADA-relationship statements, DoIT's IITAA Procurement contract-language template, WCAG 2.1 Conformance Requirement 2 (Full pages), and W3C WAI "Understanding Conformance" on third-party implementations. Each block links directly to its source.
+- **Refined: remediator-firm FAQ** — same primary-source block, plus a new "Why IITAA matters even if you think you're 'covered' by ADA Title II" section. The new section addresses the recurring assumption that compliance with the federal rule is the same thing as compliance with Illinois state law. Quoted directly from DoIT: "the IITAA establishes specific technical standards and encourages the State to address accessibility proactively" — establishing IITAA as a separate, simultaneously-enforceable obligation that has been in effect since 2008, has broader scope than the federal web rule (covers ICT including kiosks, hardware, telecom equipment), and runs through DoIT's enforcement path rather than DOJ's.
+
+### Sources used (all linked from the FAQ body)
+
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">DoIT: IITAA Procurement Guidance</a>
+- <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance)</a>
+- <a href="https://www.w3.org/WAI/WCAG21/Understanding/conformance" target="_blank" rel="noopener noreferrer">W3C WAI: Understanding Conformance</a>
+
+### Verification
+
+- axe-core AA across `/`, `/faqs`, `/faqs-print` — 0 violations.
+
+---
+
 ## [1.2.2] - 2026-05-06
 
 ### FAQ content — third-party content and remediation-firm misconceptions
