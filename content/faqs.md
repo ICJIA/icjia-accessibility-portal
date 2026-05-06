@@ -816,6 +816,8 @@ Instead of "don't worry about it," consider: _"Accessibility is a new compliance
 
 ### What is WCAG?
 
+{new:2026-05-06}
+
 **WCAG (Web Content Accessibility Guidelines)** are international standards that explain how to make digital content accessible to people with disabilities. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone.
 
 WCAG is organized around four principles, known as **POUR**:
@@ -842,6 +844,8 @@ WCAG is organized around four principles, known as **POUR**:
 **See also:** [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-2-1-level-aa-mean) | [What WCAG requirements are commonly overlooked?](#website-accessibility-what-wcag-requirements-are-commonly-overlooked)
 
 ### What does "WCAG 2.1 Level AA" mean?
+
+{new:2026-05-06}
 
 WCAG has three conformance levels:
 
@@ -1095,6 +1099,8 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### What if we can't meet the April 26, 2027 deadline?
 
+{new:2026-05-06}
+
 **Quick answer:** DOJ has already extended the deadline once (from April 24, 2026 to April 26, 2027) via an Interim Final Rule. Agencies should not plan around the possibility of further extensions. If full compliance isn't achievable by April 26, 2027, prioritize high-impact content, document your plan, and keep making progress.
 
 **What to do:**
@@ -1133,7 +1139,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### Are there exceptions to the April 2027 deadline? What qualifies?
 
-{new:2026-01-26}
+{new:2026-05-06}
 
 > **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
 
@@ -1496,6 +1502,8 @@ This is a legal determination, not an administrative one.
 
 ### What is the IITAA?
 
+{new:2026-05-06}
+
 **The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 24, 2024) require conformance with WCAG 2.1 Level AA.
 
 **Verbatim from Illinois DoIT:**
@@ -1511,6 +1519,8 @@ This is a legal determination, not an administrative one.
 **See also:** [What is the ADA Title II digital accessibility rule?](#compliance-requirements-iitaa-and-ada-title-ii-what-is-the-ada-title-ii-digital-accessibility-rule) for the federal requirements that apply alongside IITAA.
 
 ### Who must comply with the IITAA?
+
+{new:2026-05-06}
 
 The IITAA applies to:
 
@@ -1535,6 +1545,8 @@ The IITAA does **not** directly apply to:
 **Note:** Local governments and school districts still have obligations under ADA Title II.
 
 ### How is the IITAA enforced?
+
+{new:2026-05-06}
 
 **Quick answer:** The IITAA is implemented through Illinois DoIT standards, oversight, and agency compliance processes. It is separate from (and in addition to) ADA Title II.
 
@@ -1570,6 +1582,8 @@ DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not 
 
 ### What does the IITAA cover?
 
+{new:2026-05-06}
+
 **See also:** [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover) for comparison with ADA Title II requirements.
 
 The IITAA covers all "information and communication technology," including:
@@ -1591,6 +1605,8 @@ The IITAA covers all "information and communication technology," including:
 **Important:** This is broader than the federal ADA Title II web rule, which is specifically about web content and mobile apps. IITAA reaches **kiosks, hardware, multifunction office machines, and telecommunications equipment** that the federal web rule does not address.
 
 ### When did the current IITAA standards take effect?
+
+{new:2026-05-06}
 
 - **IITAA 1.0** — August 20, 2008 (original standards).
 - **IITAA 2.0** — January 18, 2018 (aligned with WCAG 2.0 AA).
@@ -1637,7 +1653,7 @@ For questions or comments about information technology accessibility or the IITA
 
 ### What is the ADA Title II digital accessibility rule?
 
-{new:2026-01-06}
+{new:2026-05-06}
 
 **Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 26, 2027 (for entities serving 50,000+ population).
 
@@ -1680,6 +1696,8 @@ The duty-bearer is the **public entity**; the verb is **"shall ensure";** and th
 
 ### When must we comply with the ADA Title II rule?
 
+{new:2026-05-06}
+
 | Entity Size                                    | Compliance Deadline |
 | ---------------------------------------------- | ------------------- |
 | Entities serving populations of 50,000 or more | **April 26, 2027**  |
@@ -1713,6 +1731,8 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 ### What does the April 2027 deadline cover?
 
+{new:2026-05-06}
+
 **See also:** [What does the IITAA cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-iitaa-cover) for comparison with Illinois state requirements.
 
 **Everything digital and public-facing.** The deadline applies to all public-facing digital content, not just websites:
@@ -1739,6 +1759,8 @@ The "directly or through contractual, licensing, or other arrangements" language
 **See also:** [How do I make mobile apps accessible?](#website-accessibility-how-do-i-make-mobile-apps-accessible)
 
 ### Does ADA Title II apply to internal documents?
+
+{new:2026-05-06}
 
 **See also:** [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
 
@@ -2012,6 +2034,8 @@ These requirements are often missed because:
 
 ### What color contrast ratio is required?
 
+{new:2026-05-06}
+
 > **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 For WCAG 2.1 Level AA:
@@ -2111,7 +2135,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 ### Do I need to caption all videos?
 
-{new:2026-01-06}
+{new:2026-05-06}
 
 > **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
@@ -2421,6 +2445,8 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 ### Does our agency's password-protected intranet need to be accessible?
 
+{new:2026-05-06}
+
 **See also:** [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet)
 
 **Quick answer:** Password-protected intranet sites for employees only are generally **not covered by the ADA Title II web rule's WCAG requirement** (because the rule focuses on content made available to the public). However, they **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
@@ -2720,6 +2746,8 @@ The alt text describes what's visually happening. The caption adds context that 
 - <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/" target="_blank" rel="noopener noreferrer">W3C: Alt Decision Tree</a> — Helps determine what kind of text alternative is needed
 
 ### Do all documents need to be accessible?
+
+{new:2026-05-06}
 
 **Quick answer:** For public-facing documents, yes — with limited exceptions. Under both IITAA and ADA Title II, conventional electronic documents must be accessible. **Public-facing** documents created or published after April 26, 2027 must meet WCAG 2.1 Level AA under the ADA Title II web rule. **Internal** documents and intranet content may still need to be accessible under IITAA and employment/accommodation obligations.
 
@@ -3198,6 +3226,8 @@ If your message still makes sense in all those scenarios, you're doing it right.
 ## Social Media Accessibility
 
 ### Do social media posts need to be accessible? How do I make them accessible?
+
+{new:2026-05-06}
 
 **Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.201(e) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
 
