@@ -6,6 +6,28 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.8] - 2026-05-06
+
+### FAQ — new Q&A: "Why does SiteImprove show 98% when axe-core shows 100%?"
+
+A new question in the Website Accessibility section addressing a recurring source of manager confusion: SiteImprove's overall score is a weighted rollup that mixes WCAG AAA and SiteImprove's own "best practices" into the same number as Level A and AA results. When the law (ADA Title II web rule + IITAA 2.1 Standards) only requires WCAG 2.1 Level AA, sub-100 SiteImprove rollups are usually being pulled down by AAA criteria or editorial best-practice rules — not real AA failures.
+
+**Worked example uses the actual ICJIA SiteImprove export of vpp.icjia.illinois.gov (Violence Prevention Plan, May 6, 2026).** Of 75 issue rules tested:
+
+  - 38 of 38 Level A rules: 100/100
+  - 10 of 10 Level AA rules: 100/100
+  - 5 of 8 Level AAA rules: 100/100; 3 below 100 (color contrast enhanced 1.4.6, target size enhanced 2.5.5, visual presentation 1.4.8)
+  - 6 of 6 WAI-ARIA authoring practice rules: 100/100
+  - 12 of 13 SiteImprove "best practices": 100/100; 1 below 100 (overuse of italics — not in WCAG)
+
+The Q&A walks through how to read a SiteImprove report when AA is the target (filter by Conformance column), explains how axe-core's default rule set differs (WCAG A + AA only; AAA and best-practice tags are opt-in), and gives three rules of thumb for handling scanner disagreement: aim for AA (AAA is a stretch goal), treat SiteImprove "best practices" as editorial guidance, and when tools disagree look at rule sets first rather than scores.
+
+Placed between "How do I test my website for accessibility?" and "Do we need an independent (external) accessibility audit?" so it sits in the natural reading flow for someone working through the testing/audit material.
+
+axe-core AA on /faqs: 0 violations.
+
+---
+
 ## [1.2.7] - 2026-05-06
 
 ### Updated — bump all "Last updated" displayed dates to May 6, 2026

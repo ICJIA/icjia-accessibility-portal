@@ -1887,6 +1887,81 @@ You don't need to become a screen reader expert, but basic testing helps identif
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#resize-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.4 Resize Text - Level AA</a> (zoom/200% requirement)
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
+### Why does SiteImprove (or another scanner) show 98% when axe-core shows 100%?
+
+{updated:2026-05-06}
+
+**Quick answer:** The two tools are scoring different rule sets. **axe-core** runs WCAG 2.0/2.1 Level A and Level AA rules — the actual ADA Title II / IITAA 2.1 target. **SiteImprove's overall score** rolls in WCAG **AAA** criteria, ARIA authoring practices, and SiteImprove's own "best practices" alongside AA. Items in those extra categories pull the score below 100 even when every Level A and Level AA rule is satisfied. So the 2-point gap between "100" and "98" is almost always sitting in AAA or best-practice rules the law doesn't actually require.
+
+**A worked example (real ICJIA SiteImprove export, May 6, 2026):**
+
+The Violence Prevention Plan site (`vpp.icjia.illinois.gov`) was audited by SiteImprove. Here's how the issue rules broke down:
+
+| Conformance category                       | # of rules | # at 100/100 | # below 100 |
+| ------------------------------------------ | ---------- | ------------ | ----------- |
+| **WCAG 2.1 Level A**                       | 38         | **38**       | **0**       |
+| **WCAG 2.1 Level AA**                      | 10         | **10**       | **0**       |
+| WCAG 2.1 Level AAA                         | 8          | 5            | 3           |
+| WAI-ARIA authoring practices               | 6          | 6            | 0           |
+| SiteImprove "best practices" (not WCAG)    | 13         | 12           | 1           |
+
+**Every single Level A and Level AA rule scored 100/100.** The site is fully WCAG 2.1 Level AA compliant per SiteImprove's own data.
+
+**The four findings below 100/100, with their actual standing:**
+
+| Finding (from SiteImprove)                              | Score    | What it actually is                                                                |
+| ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
+| Color contrast does not meet enhanced requirement       | 44.33    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#contrast-enhanced" target="_blank" rel="noopener noreferrer">1.4.6</a> — **AAA** (7:1 ratio; AA only requires 4.5:1, which the site already meets)         |
+| Interactive element does not meet enhanced size         | 62.03    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#target-size" target="_blank" rel="noopener noreferrer">2.5.5</a> — **AAA** (44×44 CSS pixels; WCAG 2.1 has no AA equivalent)            |
+| Line height is below minimum value                      | 72.98    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#visual-presentation" target="_blank" rel="noopener noreferrer">1.4.8</a> Visual Presentation — **AAA** (1.5× line height for paragraphs) |
+| Overuse of italics                                      | 65.07    | SiteImprove "best practice" — **not in WCAG at any level**                         |
+
+The ~98 rollup score is being pulled down by three AAA criteria and one editorial best-practice rule. None of those are required by:
+
+- The **ADA Title II web rule** (28 CFR § 35.200(b)(3) cites **WCAG 2.1 Level AA**, full stop — no AAA mandate).
+- **IITAA 2.1 Standards** (also cite **WCAG 2.1 Level AA** — see [When did the current IITAA standards take effect?](#compliance-requirements-iitaa-and-ada-title-ii-when-did-the-current-iitaa-standards-take-effect)).
+
+**Why axe-core stays at 100 here:**
+
+axe-core's default audit runs WCAG 2.0/2.1 Level A and Level AA rules. It doesn't include AAA criteria unless you explicitly opt in (`axe.run({ runOnly: { type: 'tag', values: ['wcag2aaa', 'wcag21aaa'] } })`), and it doesn't include any vendor "best practice" rules (those live behind a separate `best-practice` tag opt-in). So axe-core and SiteImprove aren't disagreeing about the WCAG 2.1 AA result — they're scoring different rule sets.
+
+**How to read a SiteImprove report when AA is your target:**
+
+When a manager or auditor cites "your SiteImprove score is X," ask three questions:
+
+1. **What conformance level are the sub-100 items at?** AAA findings don't fail an AA audit. The "Conformance" column in SiteImprove's CSV exports tells you this directly.
+2. **Are any of them "best practices" rather than WCAG criteria?** Editorial rules like "overuse of italics" aren't in WCAG. SiteImprove labels these as "Accessibility best practices" — not "A," "AA," or "AAA."
+3. **What's the score if you filter to Level A + Level AA only?** That's the number that maps to ADA Title II / IITAA 2.1 conformance. In the worked example above, it's 100%.
+
+If the answer is "all sub-100 findings are AAA or best-practice," the rollup score is misleading for legal-compliance purposes — the site is at 100% on the standard the law actually requires.
+
+**Why is the rollup formula like this?**
+
+SiteImprove sells a single accessibility score because customers want a single number to track over time. To compute it, the platform mixes multiple rule families into one weighted average. That's reasonable as an editorial-quality dashboard. It's just not the right number to point at when the question is "are we WCAG 2.1 AA compliant under ADA Title II?" — that question wants the AA-only result.
+
+**Practical takeaway:**
+
+Three rules of thumb when scanners disagree:
+
+- **Aiming for AAA is admirable but not required.** WCAG 2.1 AAA is a stretch goal. Hitting AA is what the law asks for. Ship at AA, then chase AAA where it adds real value (e.g., enhanced contrast for vision-impaired users, larger tap targets for motor-impaired users).
+- **SiteImprove "best practices" are editorial guidance, not law.** Treat them like internal style-guide items: useful, opinion-bearing, sometimes worth fixing, but not part of compliance.
+- **When tools disagree, look at rule sets first, not scores.** Two tools showing different scores on the same site usually means they're testing different criteria, not that one is wrong. Get the per-finding breakdown — it almost always explains the gap.
+
+**See also:**
+
+- [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) — the broader testing guidance
+- [Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?](#website-accessibility-do-we-need-an-independent-external-accessibility-audit-to-prove-compliance-when-is-it-worth-it) — when an external audit adds value
+- [What does "WCAG 2.1 Level AA" mean?](#common-concerns-what-does-wcag-2-1-level-aa-mean) — the A vs AA vs AAA distinction
+- [When did the current IITAA standards take effect?](#compliance-requirements-iitaa-and-ada-title-ii-when-did-the-current-iitaa-standards-take-effect) — IITAA 2.1's WCAG 2.1 AA target
+
+**References:**
+
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#contrast-enhanced" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.6 Contrast (Enhanced) — AAA</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#visual-presentation" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.8 Visual Presentation — AAA</a>
+- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#target-size" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 2.5.5 Target Size — AAA</a>
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> — federal rule cites WCAG 2.1 Level AA
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — IITAA 2.1 cites WCAG 2.1 Level AA
+
 ### Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?
 
 {updated:2026-01-02}
