@@ -110,7 +110,7 @@ yarn generate:serve
   - 100% pass rate in accessibility audits (12/12 skip links working)
 - **ARIA Support**:
   - Live regions for dynamic content (countdown timer with `aria-live="polite"`)
-  - `aria-describedby` relationships linking FAQ questions to answers
+  - FAQ accordion uses Vuetify's `aria-expanded` disclosure pattern; trigger accessible name is the question text
   - `aria-current="page"` on active navigation items
   - Proper ARIA labels on all interactive elements
   - Decorative icons marked with `aria-hidden="true"`

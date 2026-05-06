@@ -902,7 +902,8 @@ useSeo({
   background: #f5f5f5;
   padding: 0.75rem;
   border: 1px solid #ddd;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */
   font-size: 0.75rem; /* 9pt equivalent */
   margin: 0.75rem 0;

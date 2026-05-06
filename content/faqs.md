@@ -2907,8 +2907,10 @@ If you're creating tables with many columns, merged headers, or nested data:
 
 ❌ **Hard to make accessible:**
 
+```
 | Region | Q1 Sales | Q1 % | Q2 Sales | Q2 % | Q3 Sales | Q3 % | Q4 Sales | Q4 % | Total | YoY Change |
 | ------ | -------- | ---- | -------- | ---- | -------- | ---- | -------- | ---- | ----- | ---------- |
+```
 
 ✅ **Easier approach:** Split into multiple tables (one per quarter) or provide a summary with a link to detailed data.
 

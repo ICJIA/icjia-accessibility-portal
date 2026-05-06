@@ -18,7 +18,6 @@
       <v-expansion-panel-title
         class="faq-question"
         :class="{ 'has-new-badge': item.isNew }"
-        :aria-describedby="`answer-${getQuestionId(item.question)}`"
       >
         <div class="faq-question-wrapper">
           <span

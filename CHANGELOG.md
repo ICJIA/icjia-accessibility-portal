@@ -6,6 +6,31 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.1] - 2026-05-06
+
+### Fixed
+
+- **Production CSP unblocking client sqlite-wasm** — `netlify.toml` `Content-Security-Policy` `script-src` now includes `'wasm-unsafe-eval'`. Nuxt Content 3 ships sqlite-wasm to the client to back content queries; the previous policy blocked WebAssembly compilation in production, surfacing as console errors (`WebAssembly.instantiate(): … violates the following Content Security policy directive`) on accessibility.icjia.app. Dev was unaffected because Netlify headers don't apply to the local server. `'wasm-unsafe-eval'` is scoped to WebAssembly only — it does **not** enable `eval()`/`Function()` in JavaScript, so the strict CSP posture is preserved.
+- **`aria-describedby` broken-reference (WCAG 4.1.2)** — `app/components/FaqAccordion.vue` set `aria-describedby="answer-XXX"` on every collapsed FAQ trigger, but Vuetify's `v-expansion-panel-text` lazy-renders its slot, so the referenced ID didn't exist in the DOM until the panel was opened. axe-core flagged 99 elements on `/` and `/faqs` ("ARIA attribute element ID does not exist on the page"). Removed the binding — the question text already provides the trigger's accessible name and Vuetify continues to manage `aria-expanded` for the disclosure pattern.
+- **Empty `<table>` in FAQ content (WCAG 1.3.1)** — `content/faqs.md` rendered an example "hard to make accessible" table as live HTML with a header row and no body rows, tripping `th-has-data-cells`. Converted to a fenced code block — preserves the visual demonstration of the wide markdown table without producing an ill-formed DOM table.
+- **Scrollable `<pre>` on `/faqs-print` without keyboard access (WCAG 2.1.1)** — `app/pages/faqs-print.vue` styled `pre` with `overflow-x: auto`, creating a horizontally-scrollable region that keyboard users couldn't reach. Switched to `white-space: pre-wrap; word-break: break-word` so long lines wrap. Bonus: print output no longer truncates wide code blocks.
+
+### Accessibility audit
+
+Full axe-core sweep across all five pages (`/`, `/faqs`, `/faqs-print`, `/links`, `/search`) — **0 WCAG A+AA violations** before and after fixes. The four needs-review items listed above were resolved at the source.
+
+A separate contrast audit was run with `contrastcap` (pixel-sampling, supplementary to axe). Confirmed one **false positive** on the homepage FAQ sort `<select>` (`#faq-sort-select-home`, reported as 1.69:1):
+
+- Computed CSS in Chromium: `background-color: rgb(30, 41, 59)` (dark surface, opaque) over `color: rgb(248, 250, 252)` — actual ratio ~14:1, passes AAA.
+- Cause of the false positive: the chevron is rendered via `background-image` (inline-SVG), which triggers contrastcap's `pixel-sample-over-image` fallback. The sampler blends chevron-stroke pixels into the bg sample and reports a degraded ratio that does not reflect the visible text background. Visual screenshot confirmed the rendered control is fully readable.
+- No code change made; documenting here so future audits don't re-investigate the same artifact. If the warning needs to be silenced for tooling reasons, the chevron can be moved to a pseudo-element instead of `background-image`.
+
+### Changed
+
+- **README** — removed the now-stale `aria-describedby relationships linking FAQ questions to answers` claim from the ARIA support list. The accordion's accessibility now relies on the trigger's accessible name + Vuetify's `aria-expanded` for the disclosure pattern.
+
+---
+
 ## [1.2.0] - 2026-04-20
 
 ### Deadline extended to April 26, 2027
