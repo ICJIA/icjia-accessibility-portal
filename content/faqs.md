@@ -2020,6 +2020,16 @@ For WCAG 2.1 Level AA:
 - **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio.
 - **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 1.4.11 Non-text Contrast - Level AA</a>).
 
+**Verbatim from WCAG 2.1, Success Criterion 1.4.3 "Contrast (Minimum)" (Level AA):**
+
+> "The visual presentation of text and images of text has a **contrast ratio of at least 4.5:1**, except for the following:
+>
+> - **Large Text:** Large-scale text and images of large-scale text have a contrast ratio of at least 3:1;
+> - **Incidental:** Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
+> - **Logotypes:** Text that is part of a logo or brand name has no contrast requirement."
+
+— <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.3 (W3C, normative)</a>
+
 **Check contrast:** <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">https://webaim.org/resources/contrastchecker/</a>
 
 **Visual example: Color contrast ratios**
@@ -2400,6 +2410,14 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 **See also:** [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet)
 
 **Quick answer:** Password-protected intranet sites for employees only are generally **not covered by the ADA Title II web rule's WCAG requirement** (because the rule focuses on content made available to the public). However, they **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
+
+**Verbatim from Illinois IITAA — why the intranet may still need to be accessible under state law:**
+
+> "The IITAA requires Illinois agencies and universities to ensure that their **web sites, information systems, and information technologies** are accessible to people with disabilities."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+The IITAA's "information systems and information technologies" language is **broader** than the federal web rule's public-content scope and reaches employee-facing systems. For Illinois state agencies, an internal intranet is squarely within IITAA's scope even when it's outside the federal web rule's. **Note:** § 35.201(d) (the federal "individualized, password-protected documents" exception) is narrower than a general intranet exemption — it covers specific individual's documents (e.g., a person's account statements), not shared internal portals.
 
 **Full explanation:**
 
@@ -3168,6 +3186,14 @@ If your message still makes sense in all those scenarios, you're doing it right.
 ### Do social media posts need to be accessible? How do I make them accessible?
 
 **Yes.** Under the ADA Title II rule, new social media posts by state and local governments must meet accessibility standards. Pre-existing posts (made before the compliance date) may qualify for an exception under § 35.201(e) — see [Are there exceptions to the April 2027 deadline?](#state-agency-applicability-are-there-exceptions-to-the-april-2027-deadline-what-qualifies) for full details on all five exceptions and their limitations.
+
+**Verbatim from the rule (28 CFR § 35.201(e) "Preexisting social media posts"):**
+
+> "[T]he requirements of § 35.200 do not apply to a public entity's social media posts that were posted **before** the date the public entity is required to comply with this rule."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+
+The exception is **only** for posts made before the agency's compliance date (April 26, 2027 for entities serving 50,000+; April 26, 2028 for under-50,000 entities). Every post made on or after that date is fully subject to § 35.200's WCAG 2.1 Level AA requirement, including alt text on images, captions on video, and accessible link text.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
