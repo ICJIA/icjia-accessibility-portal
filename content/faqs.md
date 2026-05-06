@@ -463,7 +463,7 @@ A simple spreadsheet or task list gives you this information.
 1. **Designate an accessibility coordinator** with authority to coordinate across departments and report progress
 2. **Adopt an agency accessibility policy** (WCAG 2.1 Level AA, scope, timelines, enforcement)
 3. **Fund training and tools** (documents, web, video, procurement) and allocate staff time for remediation
-4. **Require accessibility in procurement** (WCAG requirements in contracts; review VPAT/ACR; remediation commitments)
+4. **Require accessibility in procurement** (WCAG requirements in contracts; review VPAT/ACR — _Voluntary Product Accessibility Template / Accessibility Conformance Report; the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)_; remediation commitments)
 5. **Establish reporting** (inventory → prioritized backlog → milestones → risks → monthly/quarterly updates)
 
 **What "good" looks like (practical, defensible):**
@@ -503,7 +503,7 @@ A simple spreadsheet or task list gives you this information.
 
 - **Content creators** — headings, link text, alt text, accessible documents, captions/transcripts.
 - **Developers/IT** — accessible code, testing, fixing defects, vendor integration requirements.
-- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs before purchase.
+- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs (_Voluntary Product Accessibility Template / Accessibility Conformance Report — the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)_) before purchase.
 
 **Helpful framing:** Accessibility is a compliance deliverable like security and privacy — it needs ownership, a plan, and execution across roles.
 
@@ -2026,7 +2026,7 @@ These requirements are often missed because:
 | **PDFs**              | Adobe Acrobat Accessibility Checker, PAC 2024, screen reader testing               |
 | **Word/PowerPoint**   | Microsoft Accessibility Checker, screen reader testing                             |
 | **Excel**             | Microsoft Accessibility Checker, verify navigation with screen reader              |
-| **Third-party tools** | Request VPAT/ACR from vendor, test critical user workflows manually                |
+| **Third-party tools** | Request VPAT/ACR from vendor (the vendor's self-reported accessibility assessment — see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)), test critical user workflows manually |
 
 **References:**
 
@@ -3468,7 +3468,9 @@ W3C is unambiguous: **the author's page** does not conform unless the embedded t
 - **The embed wrapper is part of the page.** Your `<iframe>` needs an accessible name (`title`), focusable controls around it, and a path for keyboard users to reach and leave it.
 - **Configuration choices you make inside the third-party platform are yours.** Color combinations, font sizes, alt text on a Canva graphic, layer labels in ArcGIS, axis titles in Tableau — those are authored by your staff inside the vendor's tool and inherit your agency's compliance duty.
 - **An accessible alternative is required when the embed itself can't meet WCAG 2.1 AA.** A static data table next to a Tableau dashboard, a text/list alternative next to an ArcGIS map, an accessible PDF or HTML version of a Canva infographic, or a transcript and captions for embedded video. The alternative must convey the **same information** — not a stripped-down summary.
-- **Procurement is the leverage point.** Require WCAG 2.1 AA conformance in the contract, request a current VPAT/ACR for the exact product version, and document remediation timelines for known issues. (See [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use))
+- **Procurement is the leverage point.** Require WCAG 2.1 AA conformance in the contract, request a current VPAT/ACR for the exact product version, and document remediation timelines for known issues. (See [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use).)
+
+> **What's a VPAT?** A **VPAT** (_Voluntary Product Accessibility Template_) is a standardized form a vendor fills out to describe how their product meets accessibility standards. The completed document a vendor hands you is technically called an **ACR** (_Accessibility Conformance Report_), but most people use "VPAT" and "ACR" interchangeably. Treat it as the vendor's self-reported accessibility resume — useful as a starting point, not a guarantee. Always verify with your own testing. Full breakdown: [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
 
 **Specifically for Canva embeds and exports:**
 
@@ -3863,7 +3865,7 @@ Most remediation engagements have a **finite scope** — a specific list of page
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | Audits the existing inventory and produces a prioritized backlog                | Stop the bleeding: every new document/page authored to WCAG 2.1 AA from day one |
 | Tags legacy PDFs, adds alt text, fixes color contrast, repairs broken structure | Write descriptive headings, meaningful link text, real alt text at creation     |
-| Provides VPAT-style evidence and remediation logs for procurement records       | Maintain the accessibility of pages they own after remediation hand-back        |
+| Provides VPAT-style evidence and remediation logs for procurement records (VPAT = the vendor's accessibility self-assessment; see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)) | Maintain the accessibility of pages they own after remediation hand-back |
 | Trains staff and writes templates/style guides                                  | Use the templates; raise issues the templates don't cover                       |
 | Re-tests after major platform changes                                           | Run a quick checklist (headings, alt text, contrast, link text) before publish  |
 

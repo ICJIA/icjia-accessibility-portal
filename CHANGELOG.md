@@ -6,6 +6,23 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.6] - 2026-05-06
+
+### FAQ — inline VPAT definitions wherever VPAT is referenced
+
+Acronym-on-first-use across the FAQ instead of relying on readers to find the canonical "What is a VPAT?" question. Every section that mentions VPAT/ACR before the canonical definition now has an inline gloss linking to the full Q&A.
+
+**Spots covered (one inline gloss per section, applied at first-mention only):**
+
+- Quick Reference checklists — executive + procurement bullets
+- "How do I test my website for accessibility?" — third-party-tools row in the testing table
+- Third-party-tools FAQ — full callout block right after first VPAT mention (covers the question's 9 subsequent mentions)
+- Remediator-firm FAQ — division-of-labor table cell
+
+The canonical "What is a VPAT? What is an ACR or MCAR?" Q&A and the Glossary entries (VPAT, ACR, MCAR, VPAT ratings, VPAT/ACR review) remain as the source of truth — the inline glosses link back to them.
+
+---
+
 ## [1.2.5] - 2026-05-06
 
 ### FAQ — voice, Tableau coverage, source-vs-PDF Q&A, feedback callout
