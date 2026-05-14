@@ -6,6 +6,31 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.10] - 2026-05-14
+
+### FAQ — official-source citation sweep + new IAAP-certification Q&A
+
+Both changes follow the principle that, for an Illinois state agency, only the three governing authorities — the IITAA, ADA Title II, and WCAG 2.1 — carry weight as sources.
+
+### Changed
+
+- **Every regulatory citation now links to an official government source.** Replaced all 30 `law.cornell.edu` (Cornell LII) links in `content/faqs.md`:
+  - 28 CFR Part 35 sections (§§ 35.107, 35.130, 35.200, 35.201, 35.205) → the official **eCFR** (`ecfr.gov`), with the correct subpart path for each section.
+  - U.S. Code sections (42 U.S.C. §§ 12131–12133; 29 U.S.C. § 794) → **govinfo.gov**, the U.S. Government Publishing Office's official permalink service.
+  - "(Cornell LII)" labels updated to "(eCFR)". Cornell LII only mirrors the regulation text — but a citation labeled as a third-party legal site reads as carrying no weight for a state agency. The authority itself was never in question (28 CFR Part 35 _is_ the ADA Title II regulation); the host and label were. Net result: 24 eCFR + 7 govinfo.gov official links, zero third-party-mirror links.
+
+### Added
+
+- **New Q&A: "Does IAAP certification help — and can it build agency confidence in our accessibility work?"** in the State Agency Applicability section. A qualified yes: IAAP certification (CPACC, WAS, CPWA) is not required by any of the three governing authorities, but it can build agency confidence — as a structured path to genuine competence, a credible signal of good-faith investment, and a hedge against single-person risk — provided it is understood as strengthening the _people_ doing the work, not as a substitute for the _content_ meeting WCAG 2.1 Level AA. Cross-linked with the coordinator Q&A and the "can we certify compliance?" Q&A; added to the Keyword Index.
+
+### Verification
+
+- All 98 unit tests pass; **202/202 internal links valid** (faqInternalLinks suite).
+- Zero `law.cornell.edu` links remain in the FAQ; confirmed in-browser (no Cornell links anywhere on the rendered `/faqs` page).
+- New IAAP Q&A confirmed in-browser: renders fully, and its deep-link scrolls to and expands the panel correctly on a fresh load.
+
+---
+
 ## [1.2.9] - 2026-05-14
 
 ### FAQ — adversarial review pass: accuracy fixes, primary-source strengthening, new remediator-liability Q&A

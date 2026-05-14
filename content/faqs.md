@@ -953,7 +953,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **Quick answer:** Yes. The coordinator should be in an executive, compliance, or management role — not a web developer or content creator. Practitioners are busy doing compliance work and typically lack organizational authority for policy and resource decisions.
 
-**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so a designated coordinator is not optional. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
+**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so a designated coordinator is not optional. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
 
 **Why practitioners can't be the coordinator:**
 
@@ -1023,13 +1023,54 @@ Not by title alone. `§ 35.107(a)` requires the agency to _designate_ a responsi
 
 **No — no certification is required by the IITAA, the ADA Title II web rule, or WCAG.** None of the three authorities that govern an Illinois state agency mention a credential. A coordinator with the right knowledge, authority, and cross-domain reach is qualified whether or not they hold a certificate.
 
-That said, certification _can_ help — as a structured way to build the knowledge above and as a signal of baseline competence. If a coordinator wants a path, the **IAAP CPACC** (Certified Professional in Accessibility Core Competencies, from the International Association of Accessibility Professionals) is the one aimed at this role: it covers disabilities and assistive technology, accessibility standards, and the legal and policy landscape — the "core competencies" a coordinator coordinates around. IAAP's deeper technical credential (the WAS, Web Accessibility Specialist) is aimed at hands-on practitioners, not coordinators. Treat CPACC as a useful option, not a requirement — the job is coordination, authority, and a program mindset, not a line on a résumé.
+That said, certification _can_ help — as a structured way to build the knowledge above and as a signal of baseline competence. If a coordinator wants a path, the **IAAP CPACC** (Certified Professional in Accessibility Core Competencies, from the International Association of Accessibility Professionals) is the one aimed at this role: it covers disabilities and assistive technology, accessibility standards, and the legal and policy landscape — the "core competencies" a coordinator coordinates around. IAAP's deeper technical credential (the WAS, Web Accessibility Specialist) is aimed at hands-on practitioners, not coordinators. Treat CPACC as a useful option, not a requirement — the job is coordination, authority, and a program mindset, not a line on a résumé. (Whether certification builds _agency-wide_ confidence — for leadership, auditors, and the public — is a related but broader question: see [Does IAAP certification help — and can it build agency confidence in our accessibility work?](#state-agency-applicability-does-iaap-certification-help-and-can-it-build-agency-confidence-in-our-accessibility-work).)
 
 **Bottom line:** Yes, you need an accessibility coordinator — and neither web developers nor content creators can fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done. And the role is **permanent**: accessibility is an ongoing program, not a project that closes at the April 2027 deadline.
 
 **References:**
 
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107 (Cornell LII)</a> — requires a designated responsible employee (ADA Coordinator) and published grievance procedures for public entities with 50 or more employees
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">ADA Title II — 28 CFR § 35.107 (eCFR)</a> — requires a designated responsible employee (ADA Coordinator) and published grievance procedures for public entities with 50 or more employees
+
+### Does IAAP certification help — and can it build agency confidence in our accessibility work?
+
+{updated:2026-05-14}
+
+**Quick answer:** Certification is **not required** by any of the three authorities that govern an Illinois state agency — the IITAA, the ADA Title II web rule, and WCAG 2.1 say nothing about a credential. But yes, it **can** build agency confidence: it turns "we think we know accessibility" into "our people demonstrably do," and it is a credible signal — to leadership, to Illinois DoIT, to the public, and in any enforcement review — that the agency invested in real expertise. The one rule: treat it as something that strengthens the _people_ doing the work, not as a substitute for the _content_ actually meeting WCAG 2.1 Level AA.
+
+**What IAAP certification is:**
+
+The **IAAP** (International Association of Accessibility Professionals) offers vendor-neutral credentials. The three that matter here:
+
+- **CPACC** — _Certified Professional in Accessibility Core Competencies._ Broad and non-technical: disabilities and assistive technology, accessibility standards, and the legal and policy landscape. This is the one aimed at **coordinators, managers, and content leads** — the people who set direction.
+- **WAS** — _Web Accessibility Specialist._ Technical and hands-on: evaluating and remediating web content against WCAG. Aimed at **web developers and practitioners** — the people who build and fix.
+- **CPWA** — _Certified Professional in Web Accessibility._ Simply CPACC and WAS together.
+
+It is **not** a compliance certificate. No IAAP credential — and no credential of any kind — makes your websites or documents conform. (See [Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?](#getting-started-who-signs-off-that-we-re-compliant-can-we-certify-wcag-2-1-level-aa-compliance).) Certification is a statement about a **person's** knowledge; conformance is a property of your **content**.
+
+**How it can build agency confidence:**
+
+- **Real competence instead of guesswork.** A structured curriculum means staff actually understand the standards, the range of disabilities, the assistive technology, and what the rules require — rather than improvising. That is the difference between an accessibility program and an accessibility hope.
+- **A credible signal of good-faith investment.** "Our accessibility lead holds CPACC; our web developers hold WAS" is concrete evidence the agency took this seriously and resourced it — for leadership weighing whether to trust the program, for Illinois DoIT, and, if it ever comes to it, as part of the good-faith record in an enforcement review.
+- **Harder to be snowed.** Certified staff can read a vendor's VPAT/ACR critically, push back on a consultant, and judge a remediation plan on its merits — because they know the standard and share the vocabulary.
+- **Less single-person risk.** Spreading certification across a few roles reduces the "what happens when that one person leaves" exposure.
+
+**The honest limit:**
+
+The confidence the three frameworks actually reward is **demonstrated WCAG 2.1 Level AA conformance plus a documented process** — not credentials on a wall. A fully certified team sitting on an inaccessible site is still out of compliance. Certification raises the floor on your _people_; it does not certify your _content_. Pair it with the real work: testing, remediation, and accessible-by-default authoring.
+
+**Practical approach:**
+
+- **CPACC** for the accessibility coordinator and any managers or content leads who set direction.
+- **WAS** for the web developers doing hands-on remediation.
+- You do not need to certify everyone — target the people who set direction and the people who build. For everyone else, role-based training (for example, <a href="https://doit.illinois.gov/initiatives/accessibility/training.html" target="_blank" rel="noopener noreferrer">Illinois DoIT's free accessibility courses</a>) is the right level.
+
+**See also:** [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator) | [Who signs off that we're compliant? Can we "certify" WCAG 2.1 Level AA compliance?](#getting-started-who-signs-off-that-we-re-compliant-can-we-certify-wcag-2-1-level-aa-compliance) | [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
+
+**References:**
+
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — the IITAA sets WCAG 2.1 Level AA as the standard; it does not require any staff credential
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">ADA Title II — 28 CFR § 35.200 (eCFR)</a> — the web rule requires content to meet WCAG 2.1 Level AA; it does not require certified staff
+- <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance)</a> — conformance is defined by meeting the success criteria, not by who evaluated them
 
 ### Why does your agency need to worry about digital accessibility? What does the April 2027 deadline mean?
 
@@ -1074,7 +1115,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 **Legal and enforcement consequences:**
 
 - **Department of Justice investigations** — The DOJ has authority to investigate complaints and pursue enforcement actions against non-compliant agencies (<a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a>).
-- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II</a>).
+- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II</a>).
 - **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content.
 - **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust.
 
@@ -1082,7 +1123,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 **What this means for you professionally:**
 
-**Important distinction:** ADA Title II obligations apply to the **public entity** (the government agency), not to individual employees as personal defendants. (See the definition of “public entity” in <a href="https://www.law.cornell.edu/uscode/text/42/12131" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12131</a> and Title II’s enforcement/remedies framework in <a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>.) In practice, DOJ enforcement actions target the organization’s compliance. However, your agency may establish internal policies and expectations that affect individual staff:
+**Important distinction:** ADA Title II obligations apply to the **public entity** (the government agency), not to individual employees as personal defendants. (See the definition of “public entity” in <a href="https://www.govinfo.gov/link/uscode/42/12131" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12131</a> and Title II’s enforcement/remedies framework in <a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>.) In practice, DOJ enforcement actions target the organization’s compliance. However, your agency may establish internal policies and expectations that affect individual staff:
 
 - **Required remediation** — Your agency may ask you to fix inaccessible content you created as part of organizational compliance efforts.
 - **Training requirements** — Your agency may require staff who create content to complete accessibility training.
@@ -1203,7 +1244,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 >
 > (d) Otherwise participate in or benefit from the same services, programs, and activities as individuals without disabilities."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.205" target="_blank" rel="noopener noreferrer">28 CFR § 35.205 (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.205" target="_blank" rel="noopener noreferrer">28 CFR § 35.205 (eCFR)</a>
 
 **Read this carefully — it is much narrower than it sounds.** § 35.205 is **not** a general "we missed the deadline, give us a pass" defense. It applies only when the public entity can **demonstrate** that the specific noncompliance has **minimal impact on access** — i.e., that a person with a disability can still access the same information, do the same things, with substantially equivalent timeliness/privacy/independence/ease of use as someone without a disability. A wholesale failure to meet WCAG 2.1 AA across an agency's site is not "minimal impact." A single subtle WCAG-AA failure that doesn't actually block any user might be. **Document barriers and remediation progress** so the record is in your favor if you ever need to invoke this provision.
 
@@ -1252,7 +1293,7 @@ The ADA Title II web rule defines exactly five categories of content that may be
 >
 > **(e) Preexisting social media posts.** … the requirements of § 35.200 do not apply to a public entity's social media posts that were posted before the date the public entity is required to comply with this rule."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (eCFR)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 Each subsection below maps to one of the lettered exceptions above.
 
@@ -1659,7 +1700,7 @@ DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not 
 
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements and Oversight</a> — Illinois DoIT
 - <a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a> — Federal complaint process
-- <a href="https://www.law.cornell.edu/uscode/text/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a> — Title II remedies (statutory enforcement framework)
+- <a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a> — Title II remedies (statutory enforcement framework)
 
 ### What does the IITAA cover?
 
@@ -1764,11 +1805,11 @@ The ADA has multiple titles addressing different contexts:
 >
 > (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 Notice three things: the rule is talking to the **public entity** (your agency), the verb is **"shall ensure,"** and the scope explicitly reaches content the agency provides "directly or through contractual, licensing, or other arrangements." The rule doesn't put vendor-provided or embedded content on a separate track — it pulls them in.
 
-**The duty isn't new — the web rule builds on a decades-old foundation.** The 2024 web rule sits on top of the ADA statute itself — <a href="https://www.law.cornell.edu/uscode/text/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a>, which bars a public entity from excluding a person with a disability from its services, programs, or activities — and on top of the general Title II regulation that has been in force since 1991:
+**The duty isn't new — the web rule builds on a decades-old foundation.** The 2024 web rule sits on top of the ADA statute itself — <a href="https://www.govinfo.gov/link/uscode/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a>, which bars a public entity from excluding a person with a disability from its services, programs, or activities — and on top of the general Title II regulation that has been in force since 1991:
 
 **Verbatim from the rule (28 CFR § 35.130(b)(1)):**
 
@@ -1776,7 +1817,7 @@ Notice three things: the rule is talking to the **public entity** (your agency),
 >
 > (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
 That "directly or through contractual, licensing, or other arrangements" phrase is the same one the 2024 web rule uses — and it is why an agency cannot push the accessibility duty onto a vendor, a contractor, or a remediation firm. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration." See [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability) for how this plays out.
 
@@ -1786,8 +1827,8 @@ That "directly or through contractual, licensing, or other arrangements" phrase 
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text
 - <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II Overview</a> — General Title II guidance
 - <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">ADA Title I Overview</a> — Employment provisions (for comparison)
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (Cornell LII)</a> — general Title II non-discrimination rule, including the "contractual, licensing, or other arrangements" language; in force since 1991
-- <a href="https://www.law.cornell.edu/uscode/text/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a> — the core ADA Title II statutory prohibition the 2024 web rule implements
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (eCFR)</a> — general Title II non-discrimination rule, including the "contractual, licensing, or other arrangements" language; in force since 1991
+- <a href="https://www.govinfo.gov/link/uscode/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a> — the core ADA Title II statutory prohibition the 2024 web rule implements
 
 ### When must we comply with the ADA Title II rule?
 
@@ -1808,7 +1849,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 >
 > "A public entity that, on April 24, 2024, has a total population of less than 50,000 … shall, beginning April 26, 2028, ensure that the web content and mobile apps that a public entity provides or makes available … comply with [WCAG 2.1] Level A and Level AA success criteria and conformance requirements."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200(b) (Cornell LII)</a> — original dates of April 24, 2026 / April 26, 2027 were each extended one year by the <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule of April 20, 2026</a>. The technical standard (WCAG 2.1 Level AA) is unchanged.
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200(b) (eCFR)</a> — original dates of April 24, 2026 / April 26, 2027 were each extended one year by the <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule of April 20, 2026</a>. The technical standard (WCAG 2.1 Level AA) is unchanged.
 
 **Important — IITAA is already in effect:** The federal deadlines above only set the date by which **federal** ADA Title II web compliance becomes enforceable. **The IITAA 2.1 Standards (state law) have been in effect since June 24, 2024** and apply to Illinois state agencies right now — see [When did the current IITAA standards take effect?](#compliance-requirements-iitaa-and-ada-title-ii-when-did-the-current-iitaa-standards-take-effect).
 
@@ -1845,7 +1886,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 > "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities: (1) Web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements;** and (2) Mobile apps that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements.**"
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a>
 
 The "directly or through contractual, licensing, or other arrangements" language is what makes the scope so broad. It explicitly reaches third-party platforms, embedded vendor tools, and contractor-produced content. See [How do we ensure accessibility compliance with third-party tools…](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva) for application to specific platforms.
 
@@ -2052,7 +2093,7 @@ Three rules of thumb when scanners disagree:
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#contrast-enhanced" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.6 Contrast (Enhanced) — AAA</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#visual-presentation" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.8 Visual Presentation — AAA</a>
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#target-size" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 2.5.5 Target Size — AAA</a>
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> — federal rule cites WCAG 2.1 Level AA
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> — federal rule cites WCAG 2.1 Level AA
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — IITAA 2.1 cites WCAG 2.1 Level AA
 
 ### Do we need an independent (external) accessibility audit to prove compliance? When is it worth it?
@@ -3491,7 +3532,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 > "[T]he requirements of § 35.200 do not apply to a public entity's social media posts that were posted **before** the date the public entity is required to comply with this rule."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (eCFR)</a>
 
 The exception is **only** for posts made before the agency's compliance date (April 26, 2027 for entities serving 50,000+; April 26, 2028 for under-50,000 entities). Every post made on or after that date is fully subject to § 35.200's WCAG 2.1 Level AA requirement, including alt text on images, captions on video, and accessible link text.
 
@@ -3582,7 +3623,7 @@ Don't take this FAQ's word for it. Here are the actual quotes from the rules —
 >
 > (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" A Tableau, ArcGIS, or Canva license is exactly the kind of contractual arrangement the rule names.
 
@@ -3592,7 +3633,7 @@ The verb is **"shall ensure"** and it attaches to the public entity. The subject
 >
 > (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
 This is the older, broader hook. The 2024 web rule's "directly or through contractual, licensing, or other arrangements" language did not come out of nowhere — § 35.130(b)(1) has used it since 1991. An agency cannot do through a vendor what it is barred from doing itself, and § 35.130(b)(3) extends the same principle to "methods of administration."
 
@@ -3600,7 +3641,7 @@ This is the older, broader hook. The 2024 web rule's "directly or through contra
 
 > "Content posted by a third party — unless the third party is posting due to contractual, licensing, or other arrangements with the public entity."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (eCFR)</a>
 
 The exception is for content the public did not contract for — a member of the public leaving a forum comment is a textbook example. **A vendor you pay (Esri, Canva, Tableau, DocuSign, etc.) is the express opposite of this exception** — the rule explicitly says the exception does **not** apply when the third party is posting "due to contractual, licensing, or other arrangements."
 
@@ -3988,7 +4029,7 @@ If a manager is going to push back on this guidance, the only thing that ends th
 >
 > (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 Read the subject and verb: the rule is talking to **"a public entity"** — your agency — and it says that entity **"shall ensure"** the requirement is met. The scope is broad on purpose: content provided **"directly or through contractual, licensing, or other arrangements."** A remediation vendor's deliverables fit squarely inside that scope, not outside it.
 
@@ -3998,7 +4039,7 @@ Read the subject and verb: the rule is talking to **"a public entity"** — your
 >
 > (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
 This provision predates the web rule by 33 years and says the same thing in plainer terms: a public entity may not discriminate **"directly or through contractual, licensing, or other arrangements."** Hiring a remediation firm is a contractual arrangement — it sits squarely inside § 35.130(b)(1), not around it. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration."
 
@@ -4121,7 +4162,7 @@ Both rules were drafted with outsourcing in mind, and both close the door on it.
 >
 > (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a>
 
 The subject of that sentence is the **public entity**, and the verb is **"shall ensure."** The rule does not say "shall ensure, unless a vendor is doing the work." It extends the duty to content provided "through contractual ... arrangements" — a remediation contract is exactly that kind of arrangement, so it falls _inside_ the duty, not outside it.
 
@@ -4131,7 +4172,7 @@ The subject of that sentence is the **public entity**, and the verb is **"shall 
 >
 > (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
 
-— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+— <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
 This is the older, broader hook, and it is the cleanest statement of the principle: **a public entity cannot do through a contractor what it is not allowed to do itself.** The 2024 web rule did not invent agency responsibility for contracted work — § 35.130(b)(1) has said so for three decades, and § 35.130(b)(3) applies the same rule to "methods of administration."
 
@@ -4165,7 +4206,7 @@ Plenty — just not as a shield. The useful question is not _"are we shielded?"_
 
 - **Documented remediation progress** — a real inventory, a prioritized backlog, dated fixes. See [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance).
 - **Stopping the bleeding** — trained authors so new content is born accessible and the backlog stops refilling.
-- **A designated ADA coordinator and a published grievance procedure** — not optional: <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107</a> requires both for public entities with 50 or more employees.
+- **A designated ADA coordinator and a published grievance procedure** — not optional: <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107</a> requires both for public entities with 50 or more employees.
 - **An effective-communication process** — a fast path to provide accessible alternatives on request (28 CFR § 35.160).
 
 **Bottom line:** A remediator is **leverage, not liability transfer.** Use one to clear legacy content faster and to build the evidence file — but the agency is the entity named in both rules, and it stays the entity named in both rules no matter what the contract says. Write the contract to make your compliance posture _stronger_; do not write it expecting it to make the duty _someone else's_.
@@ -4181,9 +4222,9 @@ Plenty — just not as a shield. The useful question is not _"are we shielded?"_
 
 **References:**
 
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> — "a public entity shall ensure"; the duty attaches to the public entity
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (Cornell LII)</a> — no discrimination "directly or through contractual, licensing, or other arrangements"
-- <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107 (Cornell LII)</a> — required ADA coordinator and grievance procedures for entities with 50 or more employees
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> — "a public entity shall ensure"; the duty attaches to the public entity
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (eCFR)</a> — no discrimination "directly or through contractual, licensing, or other arrangements"
+- <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107 (eCFR)</a> — required ADA coordinator and grievance procedures for entities with 50 or more employees
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (89 FR 31320)</a> — full rule text
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — state-law duty on the agency (30 ILCS 587)
 
@@ -4233,7 +4274,7 @@ Website audit reports for existing public websites will be posted on an ongoing 
 
 **Quick answer:** A formal complaint handling procedure has not yet been established at ICJIA. The guidance below is provisional and will be updated once the process is finalized.
 
-**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Finalizing this procedure is not optional for ICJIA; doing so closes a real compliance gap.
+**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Finalizing this procedure is not optional for ICJIA; doing so closes a real compliance gap.
 
 **Provisional guidance:**
 
@@ -4317,7 +4358,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **IITAA (Illinois Information Technology Accessibility Act)** — Illinois state law (30 ILCS 587) requiring Illinois state agencies and universities to ensure their digital content is accessible to people with disabilities. Current standards require **WCAG 2.1 Level AA** compliance. <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Learn more about IITAA</a>
 
-**Section 504** — Part of the Rehabilitation Act of 1973 that requires organizations receiving federal funding to ensure their programs and activities are accessible to people with disabilities. <a href="https://www.law.cornell.edu/uscode/text/29/794" target="_blank" rel="noopener noreferrer">Read 29 U.S.C. § 794 (Section 504)</a>
+**Section 504** — Part of the Rehabilitation Act of 1973 that requires organizations receiving federal funding to ensure their programs and activities are accessible to people with disabilities. <a href="https://www.govinfo.gov/link/uscode/29/794" target="_blank" rel="noopener noreferrer">Read 29 U.S.C. § 794 (Section 504)</a>
 
 **WCAG (Web Content Accessibility Guidelines)** — International standards published by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone. <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Learn more about WCAG</a>
 
@@ -4481,6 +4522,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 ### Agency Management
 
 - [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator)
+- [Does IAAP certification help — and can it build agency confidence in our accessibility work?](#state-agency-applicability-does-iaap-certification-help-and-can-it-build-agency-confidence-in-our-accessibility-work)
 - [How do we prioritize accessibility work with limited resources and a ticking clock?](#state-agency-applicability-how-do-we-prioritize-accessibility-work-with-limited-resources-and-a-ticking-clock)
 - [What's the bare minimum we need to do by April 2027?](#state-agency-applicability-what-s-the-bare-minimum-we-need-to-do-by-april-2027)
 - [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance)
