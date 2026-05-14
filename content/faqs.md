@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-05-06
+lastUpdated: 2026-05-14
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -36,7 +36,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
-_Last updated: May 6, 2026_
+_Last updated: May 14, 2026_
 
 > **⚠️ Deadline extended (April 20, 2026):** The U.S. Department of Justice has published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the ADA Title II web accessibility compliance date by one year — from **April 24, 2026** to **April 26, 2027** (for public entities serving populations of 50,000 or more). Smaller jurisdictions (under 50,000) have until **April 26, 2028**. The technical standard (WCAG 2.1 Level AA) is unchanged; only the compliance date has moved. **The extra year is for implementation, not delay** — agencies that are already planning or remediating should continue.
 
@@ -267,6 +267,8 @@ Digital accessibility means that websites, applications, documents, and other di
 
 ### How does digital accessibility and compliance fit into an agency's DEIA mission?
 
+{updated:2026-05-14}
+
 **Quick answer:** **Accessibility is the "A" in DEIA** — it's how we deliver **equitable access** to services and information by **removing systemic barriers** in our digital work. It's backed by **accountability** through enforceable law (IITAA + ADA Title II) and a **measurable standard** (**WCAG 2.1 Level AA**) with a compliance deadline.
 
 **In practice:**
@@ -274,6 +276,17 @@ Digital accessibility means that websites, applications, documents, and other di
 - **Publish accessibly by default** — headings, link text, alt text, captions are part of equitable communication
 - **Procure responsibly** — require accessibility in contracts to prevent "outsourcing" inequity
 - **Fix barriers when found** — treat accessibility issues like service issues
+
+**Why this fits ICJIA's mission specifically:**
+
+For ICJIA, accessibility is not adjacent to the mission — it _is_ the mission, applied to the agency's own digital work.
+
+- **ICJIA exists to serve the criminal- and social-justice community** — crime victims and survivors, justice-involved individuals, researchers, practitioners, and policymakers. That is who ICJIA's websites, research, grant information, and victim resources are _for_.
+- **Disability is over-represented in exactly that community.** People involved in the justice system — victims of crime, defendants, and incarcerated and formerly incarcerated people — experience physical, sensory, cognitive, and psychiatric disabilities at notably higher rates than the general public. An inaccessible ICJIA PDF or website does not exclude people in the abstract; it disproportionately excludes the population ICJIA exists to serve.
+- **DEI in criminal and social justice means removing systemic barriers.** An inaccessible website, an untagged PDF, an uncaptioned video — those _are_ systemic barriers, sitting on the agency's own digital front door. Fixing them is the same equity work ICJIA's mission calls for, pointed inward.
+- **Equity is concrete here.** A survivor with a cognitive disability trying to find victim services; a researcher who is blind trying to use ICJIA data; a grant applicant with a motor disability trying to complete a form — accessibility determines whether ICJIA's work actually reaches them. Inaccessible content quietly narrows who the agency serves.
+
+So when accessibility is treated as "just compliance," it is being undersold. Compliance (IITAA + ADA Title II) is the floor and the enforcement mechanism — but the _reason_ it matters to ICJIA is that equitable access to justice information is the agency's purpose.
 
 **Key takeaway:** Accessibility is how DEIA commitments show up in real work — **equitable access with accountability**.
 
@@ -669,7 +682,7 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a co
 
 ### Who's going to notice if we're not compliant by April 26, 2027?
 
-{updated:2026-01-07}
+{updated:2026-05-14}
 
 **Quick answer:** Non-compliance is likely to be discovered through multiple channels: agency audits, automated website scans, content reviews, individual complaints, and enforcement actions. While violations might not be identified immediately, accessibility compliance is actively monitored. Non-compliance can result in legal action, financial costs, and damage to your agency's reputation. From a risk management perspective, the question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption.
 
@@ -715,7 +728,7 @@ This is a legitimate question that many agencies are asking. Understanding how c
 
 **Potential consequences of non-compliance:**
 
-- **Legal action:** Lawsuits can result in court orders requiring immediate compliance, ongoing monitoring, and payment of attorney's fees. While ADA Title II doesn't provide for monetary damages to individuals, legal costs and remediation expenses can be substantial.
+- **Legal action:** Lawsuits can result in court orders requiring immediate compliance, ongoing monitoring, and payment of attorney's fees. Legal-defense costs, settlements, and emergency remediation expenses can be substantial. Questions about monetary-damages exposure are fact-specific — route those to your agency's legal counsel.
 - **Agency audits:** Comprehensive reviews that examine all digital content can be time-consuming and require significant staff resources to address findings.
 - **Financial impact:** Enforcement actions, legal fees, remediation costs, and potential grant impacts can create budget pressures.
 - **Reputational considerations:** Public awareness of accessibility failures can affect public trust and agency reputation.
@@ -733,7 +746,7 @@ Accessibility violations have characteristics that make them more likely to be d
 **Risk management considerations:**
 
 - **Before April 26, 2027:** Agencies have time to achieve compliance proactively, which typically costs less than reactive remediation
-- **After April 26, 2027:** Non-compliance becomes a violation of federal law, subject to enforcement. The ADA does not have a statute of limitations for ongoing violations — accessibility barriers that exist after the deadline can be subject to enforcement at any time.
+- **After April 26, 2027:** Non-compliance becomes a violation of federal law, subject to enforcement. An accessibility barrier left in place is an ongoing problem — the obligation does not expire because the deadline passed, and a barrier that still exists can still draw a complaint or an enforcement action.
 - **Good faith efforts:** Documenting progress toward compliance, even if not fully achieved by the deadline, can demonstrate good faith efforts, which may be considered in enforcement actions.
 
 **Practical steps for agencies:**
@@ -847,7 +860,7 @@ WCAG is organized around four principles, known as **POUR**:
 
 ### What does "WCAG 2.1 Level AA" mean?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 WCAG has three conformance levels:
 
@@ -875,7 +888,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 This is what defeats the "we'll just exclude the embed/widget/PDF from the audit" argument. WCAG conformance is a property of the **whole page** as delivered to the user — you cannot carve out an inaccessible piece and still claim the page conforms.
 
-**Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 Level AA is compliant with current federal requirements. WCAG versions are backward-compatible, so meeting 2.2 also means meeting 2.1 and 2.0.
+**Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 Level AA is compliant with current federal requirements. WCAG versions are largely backward-compatible, so meeting 2.2 generally means meeting 2.1 and 2.0 — with one wrinkle: WCAG 2.2 removed SC 4.1.1 Parsing as obsolete, so it remains part of 2.1 but is not carried into 2.2. In practice 4.1.1 is satisfied by well-formed modern HTML, so this rarely changes a real compliance assessment.
 
 **References:**
 
@@ -936,7 +949,11 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 ### Do we need an agency accessibility coordinator?
 
+{updated:2026-05-14}
+
 **Quick answer:** Yes. The coordinator should be in an executive, compliance, or management role — not a web developer or content creator. Practitioners are busy doing compliance work and typically lack organizational authority for policy and resource decisions.
+
+**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so a designated coordinator is not optional. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
 
 **Why practitioners can't be the coordinator:**
 
@@ -952,7 +969,67 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **Who should be the coordinator:** Compliance officer, IT director/manager, communications director, program manager, or executive staff member — someone with organizational authority across departments.
 
-**Bottom line:** Yes, you need an accessibility coordinator — and neither web developers nor content creators can fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done.
+**Is accessibility a project — or something bigger?**
+
+It's bigger — and this is the most important thing to settle before naming a coordinator, because it decides whether the role is temporary or permanent.
+
+A **project** has a start date, an end date, a defined deliverable, and then it closes. **Remediating your legacy content** — the existing backlog of inaccessible PDFs, pages, and videos — _is_ project-shaped: bounded scope, a finish line. But **accessibility itself is a program, not a project** — a standing operating requirement with no end date. All three authorities that govern an Illinois state agency point the same way:
+
+- **ADA Title II — `28 CFR § 35.200`** requires that web content _be_ accessible. That is a continuous-state obligation: every new page, document, form, and video has to clear the bar, indefinitely.
+- **WCAG 2.1 Level AA conformance** is a property of a page _as delivered, every time it is published_. A page that conformed last month fails the moment someone uploads an untagged PDF or pastes low-contrast text. There is no "done" state to reach and lock in.
+- **The IITAA** has been in force since **2008** — sixteen-plus years. If accessibility were a project, it would have "ended" long ago. It has not, because it is not one.
+
+The **April 26, 2027 deadline** is what misleads people. It looks like a project deadline — hit the date, ship it, close the project. It is not. It is the date the _ongoing_ federal obligation becomes enforceable; the IITAA obligation is already in force today. After April 2027 the work does not stop — it just becomes federally enforceable on top of the state obligation that was already there. See [After April 26, 2027, how do we maintain compliance (so we don't fall out of compliance again)?](#state-agency-applicability-after-april-26-2027-how-do-we-maintain-compliance-so-we-don-t-fall-out-of-compliance-again) for what the ongoing program looks like.
+
+**So can a project manager just "run the accessibility project"?**
+
+This is a common assumption — that accessibility coordination is a project, so a project manager (PMP, Six Sigma, or similar) can be handed "the accessibility project" and run it to completion. It is half right, and the half that is wrong causes real problems.
+
+**The half that is right:** project-management skill is genuinely useful here, and the _legacy-remediation backlog_ is a real project — bounded scope, a prioritized list, a finish line. A project manager is often exactly the right person to run _that_ effort, under the coordinator.
+
+**The half that is wrong:** accessibility itself is not a project, so "manage the accessibility project to completion" is the wrong assignment. A coordinator whose mental model is "deliver by the deadline, then close it out" will:
+
+- disband the effort at April 2027 instead of standing up the permanent program,
+- treat each new inaccessible document as scope creep rather than the normal, continuous workload it is, and
+- let the agency drift back out of compliance — the exact failure mode the maintain-compliance guidance warns about.
+
+Project-management skill is also not the _qualification_ — it is one useful skill among several. The `§ 35.107` responsible-employee role is a **standing** assignment, not a project posting. The coordinator needs **organizational authority across departments**, **accessibility literacy**, and a **program mindset** (ongoing, like security and privacy — not bounded). A project manager who brings all three can absolutely be the coordinator — but at that point they are functioning as a _program owner_, not running a project. A project manager handed only "close the accessibility project by the deadline" is set up to mismanage it.
+
+**The practical split:** let a project manager run the _remediation project_ under the coordinator. Do not let "we'll assign a PM to the accessibility project" stand in for naming a permanent coordinator who owns the ongoing program.
+
+**Is being the IT manager — or any manager — enough?**
+
+Not by title alone. `§ 35.107(a)` requires the agency to _designate_ a responsible employee — a deliberate, documented assignment, not a role someone becomes "de facto" because they happen to run a department. An IT director or manager can be an excellent choice — they already have the organizational authority the role needs — but the title is not the qualification. Two things have to come with it:
+
+- **Cross-domain reach.** Accessibility spans documents, web, video, social media, procurement, and training — not just the IT stack. A coordinator who can only direct the web team is coordinating a slice, not the program. The role is to coordinate _across_ departments, including ones the coordinator does not manage.
+- **Accessibility literacy — or a real commitment to build it.** A coordinator does not need to fix a contrast bug or tag a PDF themselves (that is the practitioners' job). But they do need to understand what the rules require, how the work is distributed, and enough to tell a credible remediation plan from a hopeful one. A manager who treats accessibility as "the web team's problem" is not coordinating it.
+
+**What the coordinator should know:**
+
+- **The legal landscape** — the IITAA, the ADA Title II web rule, and WCAG 2.1 Level AA as the shared standard. Enough to know what the rules _do_ and _do not_ require: that the target is AA (not AAA), that the exceptions are narrow, that "effective communication" still applies, that no certificate or vendor "makes you compliant."
+- **What WCAG 2.1 AA covers conceptually** — the categories of barriers (perceivable, operable, understandable, robust), not necessarily the line-level fixes.
+- **How the work is distributed** — what content creators, developers, and procurement each own, because coordination means knowing who does what and where the gaps are.
+- **Testing reality** — automated tools catch only part of the picture, human testing is required, and a vendor's VPAT is a starting point rather than proof.
+- **Why this is mission work, not box-checking** — for ICJIA specifically, accessibility is the agency's own social- and criminal-justice mission applied to its digital front door (see [How does digital accessibility and compliance fit into an agency's DEIA mission?](#understanding-accessibility-how-does-digital-accessibility-and-compliance-fit-into-an-agency-s-deia-mission)). A coordinator who understands that leads it as mission work; one who does not treats it as paperwork.
+- **Where the authoritative answers live** — Illinois DoIT for IITAA guidance and training, agency legal counsel for legal determinations.
+
+**What experience helps:**
+
+- **Cross-departmental program coordination** — translating a requirement into operational practice across teams that do not report to you.
+- **Compliance, policy, or governance work** — accessibility is a compliance deliverable like security and privacy, and it is run the same way.
+- **Enough technical literacy to talk credibly with the web team** — not hands-on remediation experience; the coordinator owns the program, the practitioners do the fixes.
+
+**Does the coordinator need to be IAAP-certified?**
+
+**No — no certification is required by the IITAA, the ADA Title II web rule, or WCAG.** None of the three authorities that govern an Illinois state agency mention a credential. A coordinator with the right knowledge, authority, and cross-domain reach is qualified whether or not they hold a certificate.
+
+That said, certification _can_ help — as a structured way to build the knowledge above and as a signal of baseline competence. If a coordinator wants a path, the **IAAP CPACC** (Certified Professional in Accessibility Core Competencies, from the International Association of Accessibility Professionals) is the one aimed at this role: it covers disabilities and assistive technology, accessibility standards, and the legal and policy landscape — the "core competencies" a coordinator coordinates around. IAAP's deeper technical credential (the WAS, Web Accessibility Specialist) is aimed at hands-on practitioners, not coordinators. Treat CPACC as a useful option, not a requirement — the job is coordination, authority, and a program mindset, not a line on a résumé.
+
+**Bottom line:** Yes, you need an accessibility coordinator — and neither web developers nor content creators can fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done. And the role is **permanent**: accessibility is an ongoing program, not a project that closes at the April 2027 deadline.
+
+**References:**
+
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107 (Cornell LII)</a> — requires a designated responsible employee (ADA Coordinator) and published grievance procedures for public entities with 50 or more employees
 
 ### Why does your agency need to worry about digital accessibility? What does the April 2027 deadline mean?
 
@@ -1141,7 +1218,7 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 ### Are there exceptions to the April 2027 deadline? What qualifies?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 > **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
 
@@ -1379,7 +1456,7 @@ This is a legal determination, not an administrative one.
 
 **Even If Content Qualifies: The Effective Communication Obligation Remains**
 
-**This is critical:** Even for content that legitimately qualifies for an exception, the ADA still requires **effective communication** under 28 CFR § 35.130. If a person with a disability requests access to excepted material, you are obligated to provide it in an accessible format upon request.
+**This is critical:** Even for content that legitimately qualifies for an exception, the ADA still requires **effective communication** under 28 CFR § 35.160 ("Communications"). If a person with a disability requests access to excepted material, you are obligated to provide it in an accessible format upon request.
 
 **As Ohio State's guidance emphasizes:**
 
@@ -1504,7 +1581,7 @@ This is a legal determination, not an administrative one.
 
 ### What is the IITAA?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 **The IITAA (Illinois Information Technology Accessibility Act)** requires Illinois agencies and universities to ensure that their websites, information systems, and information technologies are accessible to people with disabilities. The current IITAA 2.1 Standards (effective June 24, 2024) require conformance with WCAG 2.1 Level AA.
 
@@ -1515,6 +1592,8 @@ This is a legal determination, not an administrative one.
 > "Illinois' accessibility standards are based on the United States' Section 508 Standards and require conformance with the World Wide Web Consortium's Web Content Accessibility Guidelines (WCAG) 2.1 Level AA"
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+**The statute itself (primary source):** The IITAA is codified at <a href="https://www.ilga.gov/legislation/ilcs/ilcs3.asp?ActID=2918" target="_blank" rel="noopener noreferrer">30 ILCS 587</a>. **§ 587/5** sets the State policy that information technology developed, purchased, or provided by the State be accessible to individuals with disabilities; **§ 587/10** defines the broad range of covered "electronic and information technology"; and **§ 587/15** directs the State to develop and publish the technical accessibility standards (now the IITAA 2.1 Standards). When you need a primary source for the IITAA, cite the statute — the DoIT page is the plain-language explainer, not the law itself.
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
@@ -1655,7 +1734,7 @@ For questions or comments about information technology accessibility or the IITA
 
 ### What is the ADA Title II digital accessibility rule?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 **Quick answer:** On April 24, 2024, the U.S. Department of Justice published a <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule</a> requiring state and local governments to make public-facing web content and mobile apps meet **WCAG 2.1 Level AA** by April 26, 2027 (for entities serving 50,000+ population).
 
@@ -1689,12 +1768,26 @@ The ADA has multiple titles addressing different contexts:
 
 Notice three things: the rule is talking to the **public entity** (your agency), the verb is **"shall ensure,"** and the scope explicitly reaches content the agency provides "directly or through contractual, licensing, or other arrangements." The rule doesn't put vendor-provided or embedded content on a separate track — it pulls them in.
 
+**The duty isn't new — the web rule builds on a decades-old foundation.** The 2024 web rule sits on top of the ADA statute itself — <a href="https://www.law.cornell.edu/uscode/text/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a>, which bars a public entity from excluding a person with a disability from its services, programs, or activities — and on top of the general Title II regulation that has been in force since 1991:
+
+**Verbatim from the rule (28 CFR § 35.130(b)(1)):**
+
+> "A public entity, in providing any aid, benefit, or service, may not, directly or through contractual, licensing, or other arrangements, on the basis of disability—
+>
+> (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+
+That "directly or through contractual, licensing, or other arrangements" phrase is the same one the 2024 web rule uses — and it is why an agency cannot push the accessibility duty onto a vendor, a contractor, or a remediation firm. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration." See [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability) for how this plays out.
+
 **References:**
 
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — DOJ plain-language summary
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text
 - <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II Overview</a> — General Title II guidance
 - <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">ADA Title I Overview</a> — Employment provisions (for comparison)
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (Cornell LII)</a> — general Title II non-discrimination rule, including the "contractual, licensing, or other arrangements" language; in force since 1991
+- <a href="https://www.law.cornell.edu/uscode/text/42/12132" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12132</a> — the core ADA Title II statutory prohibition the 2024 web rule implements
 
 ### When must we comply with the ADA Title II rule?
 
@@ -3461,7 +3554,7 @@ When procuring technology products or services:
 
 ### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 **Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" doesn't change the answer. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
 
@@ -3492,6 +3585,16 @@ Don't take this FAQ's word for it. Here are the actual quotes from the rules —
 — <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" A Tableau, ArcGIS, or Canva license is exactly the kind of contractual arrangement the rule names.
+
+**ADA Title II — 28 CFR § 35.130(b)(1) (the general non-discrimination rule, in force since 1991):**
+
+> "A public entity, in providing any aid, benefit, or service, may not, directly or through contractual, licensing, or other arrangements, on the basis of disability—
+>
+> (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+
+This is the older, broader hook. The 2024 web rule's "directly or through contractual, licensing, or other arrangements" language did not come out of nowhere — § 35.130(b)(1) has used it since 1991. An agency cannot do through a vendor what it is barred from doing itself, and § 35.130(b)(3) extends the same principle to "methods of administration."
 
 **ADA Title II — 28 CFR § 35.201(c) "Exceptions":**
 
@@ -3528,6 +3631,14 @@ The state's own procurement language explicitly reaches IT "developed or provide
 — <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance)</a>
 
 You cannot conform to WCAG by saying "the rest of our page is accessible — just ignore the embedded map." Conformance is a property of the **whole page**.
+
+**WCAG 2.1 — Conformance Requirement 3: Complete processes:**
+
+> "When a web page is one of a series of web pages presenting a process (i.e., a sequence of steps that need to be completed in order to accomplish an activity), all web pages in the process conform at the specified level or better."
+
+— <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, Section 5 (Conformance Requirement 3)</a>
+
+This is why testing the **whole workflow** matters, not just the landing page. A DocuSign signing flow, an LMS enrollment-to-completion path, or a multi-step ArcGIS search is a "process" — if step 3 is inaccessible, the process does not conform, even if steps 1 and 2 do.
 
 **WCAG 2.1 — Third-party content (W3C Understanding doc):**
 
@@ -3831,7 +3942,7 @@ Illinois DoIT recommends including language similar to:
 
 ### We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?
 
-{updated:2026-05-06}
+{updated:2026-05-14}
 
 **Quick answer:** No. Hiring a remediation consultant **doesn't move the responsibility off your agency** under ADA Title II or IITAA, and it does not stop the daily creation of new inaccessible content. A remediator cleans up the **past**; only trained authors keep the **future** clean. Both are needed.
 
@@ -3880,6 +3991,16 @@ If a manager is going to push back on this guidance, the only thing that ends th
 — <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
 Read the subject and verb: the rule is talking to **"a public entity"** — your agency — and it says that entity **"shall ensure"** the requirement is met. The scope is broad on purpose: content provided **"directly or through contractual, licensing, or other arrangements."** A remediation vendor's deliverables fit squarely inside that scope, not outside it.
+
+**ADA Title II — 28 CFR § 35.130(b)(1) (the general non-discrimination rule, in force since 1991):**
+
+> "A public entity, in providing any aid, benefit, or service, may not, directly or through contractual, licensing, or other arrangements, on the basis of disability—
+>
+> (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+
+This provision predates the web rule by 33 years and says the same thing in plainer terms: a public entity may not discriminate **"directly or through contractual, licensing, or other arrangements."** Hiring a remediation firm is a contractual arrangement — it sits squarely inside § 35.130(b)(1), not around it. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration."
 
 **Illinois IITAA — agency duty:**
 
@@ -3966,6 +4087,7 @@ A remediation firm is leverage, not a substitute. The agency is the entity named
 
 **See also:**
 
+- [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability) — the liability-specific version of this question
 - [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva) — applies the same "agency stays responsible" logic to embedded vendor platforms
 - [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use) — IITAA-aligned procurement language Illinois DoIT recommends
 
@@ -3976,6 +4098,94 @@ A remediation firm is leverage, not a substitute. The agency is the entity named
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — state-law obligations on agencies (30 ILCS 587)
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — flowing accessibility duties into vendor contracts
 - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — the technical bar both rules reference
+
+### Does hiring a remediator shield our agency from compliance liability?
+
+{updated:2026-05-14}
+
+**Quick answer:** No. A remediation vendor can do the _work_, but it cannot become the entity that is _responsible_ for the result. Both the ADA Title II web rule and the IITAA put the duty on the **public entity** — your agency — in language that specifically reaches work done "through contractual, licensing, or other arrangements." A contract can shift **cost** (through indemnification); it cannot shift **liability**. When DOJ investigates or a member of the public files a complaint, it is the agency's name on the matter, not the vendor's.
+
+**Full explanation:**
+
+This usually shows up as some version of: _"We're paying a firm to handle remediation — doesn't that move the risk to them?"_ It's a reasonable instinct, and it's how risk works in a lot of procurement. It is not how it works here.
+
+**1. The duty is non-delegable — that is written into the rules themselves.**
+
+Both rules were drafted with outsourcing in mind, and both close the door on it.
+
+**ADA Title II — 28 CFR § 35.200(a) "General":**
+
+> "A public entity shall ensure that the following are readily accessible to and usable by individuals with disabilities:
+>
+> (1) Web content that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements; and
+>
+> (2) Mobile apps that a public entity provides or makes available, directly or through contractual, licensing, or other arrangements."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a>
+
+The subject of that sentence is the **public entity**, and the verb is **"shall ensure."** The rule does not say "shall ensure, unless a vendor is doing the work." It extends the duty to content provided "through contractual ... arrangements" — a remediation contract is exactly that kind of arrangement, so it falls _inside_ the duty, not outside it.
+
+**ADA Title II — 28 CFR § 35.130(b)(1) (the general non-discrimination rule, in force since 1991):**
+
+> "A public entity, in providing any aid, benefit, or service, may not, directly or through contractual, licensing, or other arrangements, on the basis of disability—
+>
+> (i) Deny a qualified individual with a disability the opportunity to participate in or benefit from the aid, benefit, or service; ..."
+
+— <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (Cornell LII)</a>
+
+This is the older, broader hook, and it is the cleanest statement of the principle: **a public entity cannot do through a contractor what it is not allowed to do itself.** The 2024 web rule did not invent agency responsibility for contracted work — § 35.130(b)(1) has said so for three decades, and § 35.130(b)(3) applies the same rule to "methods of administration."
+
+**Illinois IITAA (30 ILCS 587):**
+
+> "The IITAA requires Illinois agencies and universities to **ensure** that their web sites, information systems, and information technologies are accessible to people with disabilities."
+
+— <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
+
+Same structure under state law: the duty is on the **agency**, and the verb is **"ensure"** — not "arrange for," not "delegate." IITAA is also a separate obligation with a separate enforcement path, so even a flawless ADA-focused remediation contract leaves the IITAA duty sitting where it always was.
+
+**2. Enforcement runs against the agency, not the vendor.**
+
+If a member of the public encounters a barrier, they file a complaint against your agency with DOJ — or bring a private suit against your agency. DOJ investigates the **public entity's** compliance. The remediation firm is not the respondent and is not the entity a settlement or consent decree binds. You can hire a vendor to _do_ the remediation; you cannot hire a vendor to _be the one the regulator is asking about._
+
+**3. A contract shifts cost — not liability. Know the difference.**
+
+|  | What it does | What it does **not** do |
+| --- | --- | --- |
+| **Indemnification clause** | May let the agency recover _money_ from the vendor if a vendor failure causes a loss — assuming the clause is well-drafted, the failure is within scope, and the vendor is solvent | Does **not** change who answers to DOJ, a court, DoIT, or a complainant. The agency is still the responsible party. |
+| **"WCAG 2.1 AA" acceptance criteria** | Gives the agency leverage to make the vendor fix substandard work, plus a paper trail | Does **not** make the vendor the legally responsible party for the public-facing result |
+| **A VPAT/ACR or audit report from the vendor** | Useful _evidence_ the agency can show DOJ or DoIT | Is **not** a liability shield — it is the agency's evidence, in the agency's file |
+
+Indemnification is risk _allocation between two private parties_. Regulatory liability is a relationship _between the agency and the public/government_. A contract can only touch the first one.
+
+**4. So what is a remediator actually good for?**
+
+Plenty — just not as a shield. The useful question is not _"are we shielded?"_ — it is _"does this engagement make our compliance posture stronger and more defensible?"_ A good remediation contract delivers **capacity** (clears a legacy backlog faster than internal staff could), **expertise** (deep PDF/tagging/ARIA knowledge most agencies lack in-house), **evidence** (audit reports and remediation logs showing systematic, good-faith progress), and **knowledge transfer** (templates and author training that keep _new_ content clean). All of that strengthens the agency's position. None of it moves the agency out of the position.
+
+**5. What actually lowers exposure (instead of relocating it):**
+
+- **Documented remediation progress** — a real inventory, a prioritized backlog, dated fixes. See [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance).
+- **Stopping the bleeding** — trained authors so new content is born accessible and the backlog stops refilling.
+- **A designated ADA coordinator and a published grievance procedure** — not optional: <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107</a> requires both for public entities with 50 or more employees.
+- **An effective-communication process** — a fast path to provide accessible alternatives on request (28 CFR § 35.160).
+
+**Bottom line:** A remediator is **leverage, not liability transfer.** Use one to clear legacy content faster and to build the evidence file — but the agency is the entity named in both rules, and it stays the entity named in both rules no matter what the contract says. Write the contract to make your compliance posture _stronger_; do not write it expecting it to make the duty _someone else's_.
+
+**Important disclaimer:** This is general guidance, not legal advice. Indemnification language, contractual risk allocation, and your agency's specific exposure are questions for your agency's legal counsel. Use this to frame that conversation — not to replace it.
+
+**See also:**
+
+- [We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?](#procurement-and-third-party-tools-we-hired-a-third-party-remediation-firm-does-that-mean-authors-don-t-need-to-learn-accessibility-anymore) — the broader version of this misconception
+- [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva) — same "agency stays responsible" logic for embedded vendor platforms
+- [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use) — IITAA-aligned procurement language
+- [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance) — what documentation actually helps
+
+**References:**
+
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (Cornell LII)</a> — "a public entity shall ensure"; the duty attaches to the public entity
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130 (Cornell LII)</a> — no discrimination "directly or through contractual, licensing, or other arrangements"
+- <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107 (Cornell LII)</a> — required ADA coordinator and grievance procedures for entities with 50 or more employees
+- <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Web Rule (89 FR 31320)</a> — full rule text
+- <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — state-law duty on the agency (30 ILCS 587)
 
 ---
 
@@ -4019,9 +4229,11 @@ Website audit reports for existing public websites will be posted on an ongoing 
 
 ### How do we handle accessibility complaints?
 
-{updated:2025-12-31}
+{updated:2026-05-14}
 
 **Quick answer:** A formal complaint handling procedure has not yet been established at ICJIA. The guidance below is provisional and will be updated once the process is finalized.
+
+**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.law.cornell.edu/cfr/text/28/35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Finalizing this procedure is not optional for ICJIA; doing so closes a real compliance gap.
 
 **Provisional guidance:**
 
@@ -4263,6 +4475,8 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 - [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 - [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)
 - [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+- [We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?](#procurement-and-third-party-tools-we-hired-a-third-party-remediation-firm-does-that-mean-authors-don-t-need-to-learn-accessibility-anymore)
+- [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability)
 
 ### Agency Management
 
@@ -4286,4 +4500,4 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ---
 
-_Last updated: May 6, 2026_
+_Last updated: May 14, 2026_

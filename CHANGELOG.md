@@ -6,6 +6,43 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.9] - 2026-05-14
+
+### FAQ — adversarial review pass: accuracy fixes, primary-source strengthening, new remediator-liability Q&A
+
+A fresh adversarial read of every Q&A in `content/faqs.md`, scoped to the three authorities that actually govern an Illinois state agency — **IITAA, ADA Title II, and WCAG 2.1**. The April 20, 2026 DOJ Interim Final Rule (deadline extension to April 26, 2027) was re-verified against primary sources and confirmed accurate as described in the FAQ.
+
+### Added
+
+- **New Q&A: "Does hiring a remediator shield our agency from compliance liability?"** in the Procurement and Third-Party Tools section. Answers a recurring manager assumption with a clear "no": the duty is non-delegable on the face of `28 CFR § 35.200(a)` ("a public entity shall ensure") and `§ 35.130(b)(1)` ("directly or through contractual, licensing, or other arrangements"); enforcement runs against the public entity, not the vendor; and a contract can shift _cost_ (indemnification) but not _liability_. Includes a cost-vs-liability table and reframes the remediator as leverage and evidence, not a shield. Reciprocal "See also" link added to the existing remediation-firm Q&A, and both are now listed in the Keyword Index (the remediation-firm Q&A had been missing from the index).
+- **`28 CFR § 35.130(b)(1)` verbatim pullouts** added to "What is the ADA Title II digital accessibility rule?", the third-party-tools Q&A, and the remediation-firm Q&A. This is the general non-discrimination provision — in force since 1991 — and the cleanest statement that an agency cannot do through a contractor what it cannot do itself. The FAQ's non-delegation argument previously rested only on the 2024 web rule's `§ 35.200(a)`.
+- **`28 CFR § 35.107` citations** added to "Do we need an agency accessibility coordinator?" (with a new References block) and "How do we handle accessibility complaints?". The section _requires_ public entities with 50+ employees to designate a responsible ADA Coordinator (§ 35.107(a)) and adopt/publish grievance procedures (§ 35.107(b)) — both Q&As now frame these as legal requirements, not just best practices.
+- **`42 U.S.C. § 12132`** (the core Title II statutory prohibition) added to "What is the ADA Title II digital accessibility rule?".
+- **`30 ILCS 587/5, /10, /15` pinpoint citations** added to "What is the IITAA?" — the FAQ previously cited only the DoIT website describing the IITAA, not the statute itself.
+- **WCAG 2.1 Conformance Requirement 3 (Complete Processes)** verbatim pullout added to the third-party-tools Q&A — the regulatory backing for "test the whole workflow, not just the landing page."
+- **Expanded "Do we need an agency accessibility coordinator?"** with sections on coordinator qualities, knowledge, and experience; whether being an IT or other manager is enough; whether a project manager (PMP/Six Sigma) can run accessibility "as a project" (answer: a PM can run the legacy-remediation _project_, but accessibility itself is an ongoing _program_, not a project — grounded in `§ 35.200`'s continuous-state obligation, per-publish WCAG conformance, and IITAA's 16-year track record); and IAAP CPACC certification (not required by any of the three governing authorities, but can help as a structured knowledge path). The role is framed as permanent, not a "get to April 2027" appointment.
+- **Expanded "How does digital accessibility and compliance fit into an agency's DEIA mission?"** with an ICJIA-specific section: disability is over-represented in justice-involved populations, so inaccessible ICJIA content disproportionately excludes the exact community the agency exists to serve — accessibility is ICJIA's social- and criminal-justice mission applied to its own digital front door, not a compliance side-task.
+
+### Fixed
+
+- **Accuracy + internal contradiction — ADA Title II damages.** "Who's going to notice if we're not compliant?" stated that "ADA Title II doesn't provide for monetary damages to individuals" — inaccurate, and it contradicted another Q&A. Rescoped to what the three pillars support, deferring monetary-damages questions to legal counsel.
+- **Accuracy — statute of limitations.** The same Q&A claimed "the ADA does not have a statute of limitations." Replaced with the defensible point: a barrier left in place stays exposed; the obligation does not expire when the deadline passes.
+- **Citation precision — effective communication.** The exceptions Q&A cited `§ 35.130` for the effective-communication obligation; corrected to `§ 35.160` ("Communications"), the specific provision.
+- **Accuracy — WCAG version compatibility.** "What does WCAG 2.1 Level AA mean?" claimed WCAG versions are fully backward-compatible; added the known exception (WCAG 2.2 removed SC 4.1.1 Parsing, so it remains in 2.1 but not 2.2 — trivially met by modern HTML in practice).
+
+### Changed
+
+- `{updated:2026-05-14}` tag set or added on all 11 touched/new Q&As so the "Updated" badge reflects the edit.
+- Displayed "last updated" dates refreshed to May 14, 2026: `content/faqs.md` frontmatter `lastUpdated` and the two `_Last updated:_` prose markers, plus the home-page countdown-timer constant in `app/pages/index.vue` (the `Created` date is now the exact first-commit date, December 15, 2025).
+
+### Verification
+
+- All 98 unit tests pass (`yarn test:unit`), including the internal-link checker: **194/194 internal links valid** — confirms the new Q&A's anchor and every new cross-link resolve.
+- `faqTransform` and `faqInternalLinks` suites pass; no new near-max-length IDs introduced.
+- axe-core AA not re-run for this content-only change — run `yarn audit:a11y` before deploy if a fresh 0-violations confirmation is wanted.
+
+---
+
 ## [1.2.8] - 2026-05-06
 
 ### FAQ — new Q&A: "Why does SiteImprove show 98% when axe-core shows 100%?"
