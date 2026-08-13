@@ -6,6 +6,18 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.13] - 2026-08-13
+
+### Improve — star prefix on the NEW chip (color-independent cue)
+
+User testing of the deployed chips showed the New/Updated distinction was easy to miss at a glance: in dark mode, v1.2.11's pale-blue NEW chip sat beside pale-green UPDATED chips — a color-only difference, weak for everyone and near-invisible for deuteranopia. v1.2.12's dark-blue chip helps; this release adds a **★ prefix** (aria-hidden, so screen readers still hear just "New") so the cue no longer depends on color perception at all. Combined with the New-first "Latest first" ordering, newly added questions are now unmistakable.
+
+### Verification
+
+- axe-core AA audit on live `/faqs/` (v1.2.12): **0 violations** — contrast hotfix confirmed on production; local re-audit with the star prefix: 0 violations.
+
+---
+
 ## [1.2.12] - 2026-08-13
 
 ### Fix — NEW chip color contrast (WCAG 1.4.3)
