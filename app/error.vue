@@ -11,10 +11,10 @@
                 <span class="error-number">{{ error.statusCode || 404 }}</span>
               </div>
 
-              <h1 class="text-h4 mb-4">Page Not Found</h1>
+              <h1 class="text-h4 mb-4">{{ (error.statusCode || 404) === 404 ? "Page Not Found" : "Something Went Wrong" }}</h1>
 
               <p class="text-body-1 mb-6 text-medium-emphasis">
-                The page you're looking for doesn't exist or has been moved.
+                We couldn't find that page — it may have moved.
               </p>
 
               <div class="mb-6">
@@ -88,7 +88,7 @@ const props = defineProps<{
 }>();
 
 useSeoMeta({
-  title: `${props.error.statusCode || 404} - Page Not Found`,
+  title: `${props.error.statusCode || 404} - ${(props.error.statusCode || 404) === 404 ? 'Page Not Found' : 'Something Went Wrong'}`,
   description: "The page you are looking for could not be found.",
 });
 </script>

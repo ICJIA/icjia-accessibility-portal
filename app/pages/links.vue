@@ -24,7 +24,7 @@
           <p class="text-subtitle-1 text-medium-emphasis mb-6">
             {{
               page?.description ||
-              "A collection of useful accessibility resources and links."
+              "A collection of helpful accessibility resources and links."
             }}
           </p>
 

@@ -81,7 +81,7 @@
           style="color: rgb(var(--v-theme-on-surface)) !important; text-decoration: underline !important; font-weight: 700 !important; font-size: 1rem !important; display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 4px 8px; line-height: 1.5; box-sizing: border-box; opacity: 1 !important;"
         >
           <span style="margin-right: 4px; font-size: 1.1em; color: inherit !important;" aria-hidden="true">↗</span>
-          ADA Title II Deadline: April 26, 2027
+          ADA Title II Compliance Deadline: April 26, 2027
         </a>
       </p>
     </div>

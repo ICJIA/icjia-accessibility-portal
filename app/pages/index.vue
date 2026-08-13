@@ -85,7 +85,7 @@
                 class="compliance-link"
               >
                 <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiOpenInNew" />
-                ADA Title II Digital Accessibility Compliance Deadline: April 26, 2027
+                ADA Title II Compliance Deadline: April 26, 2027
               </NuxtLink>
             </p>
             <p class="text-caption mt-3 text-medium-emphasis site-dates">

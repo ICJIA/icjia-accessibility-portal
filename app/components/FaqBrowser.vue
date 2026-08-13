@@ -311,7 +311,7 @@ function replaceDeadlineText(node: any): any {
     text = text.replace(
       /That's less than two years away, and achieving compliance requires systematic work across all digital content\. Organizations are realizing that this work needs to start now\./g,
       passed
-        ? `The compliance deadline has passed. Immediate action is required to achieve compliance.`
+        ? `The compliance deadline has passed. If your digital content isn't compliant yet, that work is now overdue — start it right away.`
         : `${days} days remain, and achieving compliance requires systematic work across all digital content. Organizations are realizing that this work needs to start now.`
     );
 

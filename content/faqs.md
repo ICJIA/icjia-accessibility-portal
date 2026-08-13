@@ -7,7 +7,7 @@ disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
   - label: "Corrections"
-    text: "We make mistakes. We welcome feedback. If you find any incorrect or incomplete information, **please immediately contact ICJIA's IDS Unit** with specific corrections."
+    text: "We make mistakes. We welcome feedback. If you find any incorrect or incomplete information, **please contact ICJIA's IDS Unit** with specific corrections."
   - label: "Not legal advice"
     text: "This FAQ provides general guidance based on public information and common practices. It is not legal advice. For specific legal questions or interpretations, consult with ICJIA's legal counsel or Illinois DoIT's accessibility guidance."
 ---
@@ -45,7 +45,7 @@ _Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
 
 **What you need to know right now:**
 
-1. **The deadline is real:** April 26, 2027 (extended one year from April 24, 2026). Illinois state agencies must make all public-facing digital content accessible to people with disabilities — websites, documents, PDFs, videos, social media, and mobile apps.
+1. **The deadline is real:** April 26, 2027 (extended one year from April 24, 2026). Illinois state agencies are required to make all public-facing digital content accessible to people with disabilities — websites, documents, PDFs, videos, social media, and mobile apps.
 
 2. **Two laws require this:**
    - **Illinois law:** The <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois Information Technology Accessibility Act (IITAA)</a> has required accessible digital content for state agencies since 2008. The current <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 standards</a> (effective June 24, 2024) require WCAG 2.1 Level AA compliance.
@@ -103,7 +103,7 @@ _Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
 
 ### For Web Developers
 
-**What accessibility means for you:** You build the foundation that makes all digital content accessible or inaccessible. Semantic HTML, keyboard navigation, color contrast, and ARIA labels aren't optional extras — they're core requirements of your work. Your technical expertise directly determines whether people with disabilities can access government information and services.
+**What accessibility means for you:** You build the foundation that makes all digital content accessible or inaccessible. Semantic HTML, keyboard navigation, color contrast, and ARIA labels are core requirements under WCAG 2.1 AA — not optional extras. Your technical expertise directly determines whether people with disabilities can access government information and services.
 
 | Action                             | Impact                                                                                                                                                                                                                       |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -197,16 +197,16 @@ The learning curve is real, but manageable. Most accessibility improvements don'
 
 Accessible content tends to be better-organized, easier to navigate, and more usable for all audiences. The same structure that helps a screen reader user also helps someone skimming a document or searching for specific information. Accessibility improvements often make content better for everyone.
 
-**6. Accessible content has no downsides — only upsides.**
+**6. Accessible content has few downsides — and a long list of upsides.**
 
-There's no tradeoff here. Accessible content doesn't look worse, perform slower, or cost more to maintain. In fact, the opposite is true:
+There's rarely a tradeoff here. Accessible content generally doesn't look worse, perform slower, or cost more to maintain. In fact, the opposite is true:
 
 - **Better SEO (Search Engine Optimization):** Search engines can't "see" images or understand poorly structured pages. The same practices that make content accessible — descriptive headings, alt text, semantic structure, transcripts — also help search engines index and rank your content. More accessible content means more people can *find* it in the first place.
 - **Wider reach:** Content that works for people with disabilities also works for people on slow connections, older devices, or non-standard browsers.
 - **Future-proofing:** Well-structured, semantic content adapts more easily to new technologies and platforms.
 - **Reduced legal risk:** Accessible content is compliant content — fewer complaints, fewer remediation emergencies.
 
-Accessibility is one of the rare cases where doing the right thing also happens to be the practical thing. There's no version of this where inaccessible content is the better choice.
+Accessibility is one of the rare cases where doing the right thing also happens to be the practical thing. It's hard to find a case where inaccessible content is the better choice.
 
 **In summary:**
 
@@ -546,7 +546,7 @@ Document your progress, but don't mistake documentation for compliance. The goal
 - **Systematic, documented progress** is better than reactive fixes or no documented plan
 - **Communication with affected individuals** about barriers, workarounds, and remediation timelines demonstrates responsiveness
 
-**Practical manager artifacts (simple, defensible):**
+**What to keep on file (simple, easy to stand behind):**
 
 1. **Inventory** of public-facing content/tools (web, PDFs, forms, videos, social, vendor tools)
 2. **Prioritized backlog** (top services + top traffic + complete blockers first)
@@ -598,7 +598,7 @@ Don't let "we're making progress" become a substitute for "we meet the standard.
 
 - **WCAG is a standard, not a licensing program.** Organizations can evaluate their websites/apps against WCAG and document results, but WCAG itself does not create a "certified by W3C" program.
 - **Conformance claims are optional and scoped.** WCAG allows you to publish a conformance claim (for one page, a set of pages, or a set of related pages), but the claim must include required components and clearly define scope and level.
-- **In practice, "sign-off" is an internal governance decision.** For agencies, the defensible approach is to require a written scope (what's included), the target level (WCAG 2.1 AA), and evidence (test results + remediation record), then have the appropriate leadership/compliance owners approve the risk posture.
+- **In practice, "sign-off" is an internal governance decision.** For agencies, the defensible approach is to require a written scope (what's included), the target level (WCAG 2.1 AA), and evidence (test results + remediation record), then have the right leaders sign off on the plan and accept any remaining risk.
 
 **What to do (manager-friendly, defensible):**
 
@@ -687,11 +687,11 @@ If you genuinely don't have bandwidth, escalate it. Say: _"Accessibility is a co
 
 {updated:2026-05-14}
 
-**Quick answer:** Non-compliance is likely to be discovered through multiple channels: agency audits, automated website scans, content reviews, individual complaints, and enforcement actions. While violations might not be identified immediately, accessibility compliance is actively monitored. Non-compliance can result in legal action, financial costs, and damage to your agency's reputation. From a risk management perspective, the question isn't whether violations will be found, but when — and proactive compliance reduces both legal risk and organizational disruption.
+**Quick answer:** Non-compliance is likely to be discovered through multiple channels: agency audits, automated website scans, content reviews, individual complaints, and enforcement actions. While violations might not be identified immediately, accessibility compliance is actively monitored. Non-compliance can result in legal action, financial costs, and damage to your agency's reputation. From a risk management perspective, it's safer to assume issues will surface eventually than to bet they won't — and proactive compliance reduces both legal risk and organizational disruption.
 
 **Full explanation:**
 
-This is a legitimate question that many agencies are asking. Understanding how compliance is monitored helps agencies make informed decisions about resource allocation and risk management.
+This is a legitimate question that many agencies are asking. Knowing how issues get noticed helps you decide where to focus first.
 
 **How non-compliance is typically discovered:**
 
@@ -731,10 +731,10 @@ This is a legitimate question that many agencies are asking. Understanding how c
 
 **Potential consequences of non-compliance:**
 
-- **Legal action:** Lawsuits can result in court orders requiring immediate compliance, ongoing monitoring, and payment of attorney's fees. Legal-defense costs, settlements, and emergency remediation expenses can be substantial. Questions about monetary-damages exposure are fact-specific — route those to your agency's legal counsel.
+- **Legal action:** Lawsuits can result in court orders requiring immediate compliance, ongoing monitoring, and payment of attorney's fees. Legal-defense costs, settlements, and emergency remediation expenses can be substantial. Questions about monetary-damages exposure depend on the specifics — take those to your agency's legal counsel.
 - **Agency audits:** Comprehensive reviews that examine all digital content can be time-consuming and require significant staff resources to address findings.
 - **Financial impact:** Enforcement actions, legal fees, remediation costs, and potential grant impacts can create budget pressures.
-- **Reputational considerations:** Public awareness of accessibility failures can affect public trust and agency reputation.
+- **Reputation:** accessibility failures are public, and they erode trust.
 - **Service delivery:** Inaccessible content excludes people with disabilities from accessing government services and information, which limits your agency's ability to serve all Illinois residents.
 
 **Why accessibility compliance is different from some other regulations:**
@@ -762,7 +762,7 @@ Accessibility violations have characteristics that make them more likely to be d
 6. **Plan for ongoing compliance** — Accessibility requires ongoing attention as content is created and updated
 7. **Allocate resources** — Ensure adequate staff time and budget for accessibility work
 
-**Key takeaway:** Non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions — the question isn't whether violations will be found, but when. Proactive compliance reduces both legal risk and organizational disruption. Agencies that allocate appropriate resources now are better positioned to meet the deadline and demonstrate their commitment to serving all Illinois residents.
+**Key takeaway:** Non-compliance is likely to be discovered through audits, scans, complaints, or enforcement actions — it's safer to assume issues will surface eventually than to bet they won't. Proactive compliance reduces both legal risk and organizational disruption. Agencies that allocate appropriate resources now are better positioned to meet the deadline and demonstrate their commitment to serving all Illinois residents.
 
 **References:**
 
@@ -775,7 +775,7 @@ Accessibility violations have characteristics that make them more likely to be d
 
 {updated:2026-01-23}
 
-**Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 26, 2027, under both ADA Title II and Illinois IITAA. Directing staff to ignore accessibility requirements exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
+**Quick answer:** No. While enforcement details may still be evolving, the legal requirements are clear: WCAG 2.1 Level AA compliance is required by April 26, 2027, under both ADA Title II and Illinois IITAA. Putting accessibility on hold exposes the agency to legal risk and creates a larger remediation burden later. A "wait and see" approach is understandable but ultimately more costly than starting now.
 
 **Full explanation:**
 
@@ -784,7 +784,7 @@ It's natural to feel overwhelmed by new compliance requirements, especially when
 **What is NOT uncertain:**
 
 - **The deadline is set:** April 26, 2027, is codified in federal regulation. This is not a proposal or guideline — it's law.
-- **The standard is defined:** WCAG 2.1 Level AA is the specific, measurable requirement. There's no ambiguity about what compliance means.
+- **The standard is defined:** WCAG 2.1 Level AA is the specific, measurable requirement. The standard itself spells out what compliance means.
 - **Illinois law already requires this:** IITAA has required accessible digital content since 2008. The federal ADA rule reinforces existing state obligations.
 - **The legal framework is established:** ADA Title II has been enforced for decades. The web accessibility rule clarifies how it applies to digital content, but the underlying civil rights protections are long-standing.
 
@@ -889,7 +889,7 @@ Illinois requires Level AA conformance, which includes all Level A and Level AA 
 
 — <a href="https://www.w3.org/TR/WCAG21/#conformance" target="_blank" rel="noopener noreferrer">WCAG 2.1, § 5.2.2 (W3C)</a>
 
-This is what defeats the "we'll just exclude the embed/widget/PDF from the audit" argument. WCAG conformance is a property of the **whole page** as delivered to the user — you cannot carve out an inaccessible piece and still claim the page conforms.
+This is what defeats the "we'll just exclude the embed/widget/PDF from the audit" argument. WCAG conformance is a property of the **whole page** as delivered to the user — the standard doesn't let you carve out an inaccessible piece and still claim the page conforms.
 
 **Note about WCAG versions:** WCAG 2.2 was published in October 2023 and adds additional success criteria. However, the ADA Title II rule specifically requires WCAG 2.1 Level AA. Content that meets WCAG 2.1 Level AA is compliant with current federal requirements. WCAG versions are largely backward-compatible, so meeting 2.2 generally means meeting 2.1 and 2.0 — with one wrinkle: WCAG 2.2 removed SC 4.1.1 Parsing as obsolete, so it remains part of 2.1 but is not carried into 2.2. In practice 4.1.1 is satisfied by well-formed modern HTML, so this rarely changes a real compliance assessment.
 
@@ -982,9 +982,9 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **Quick answer:** Yes. The coordinator should be in an executive, compliance, or management role — not a web developer or content creator. Practitioners are busy doing compliance work and typically lack organizational authority for policy and resource decisions.
 
-**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so a designated coordinator is not optional. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
+**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so the rule already requires ICJIA to have one. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
 
-**Why practitioners can't be the coordinator:**
+**Why a practitioner usually isn't the right coordinator:**
 
 - **Limited scope** — Web developers handle websites; content creators handle documents. Accessibility covers both, plus videos, social media, mobile apps, and third-party tools.
 - **Busy doing the work** — They're implementing standards and remediating content, not coordinating organizational strategy.
@@ -1054,7 +1054,7 @@ Not by title alone. `§ 35.107(a)` requires the agency to _designate_ a responsi
 
 That said, certification _can_ help — as a structured way to build the knowledge above and as a signal of baseline competence. If a coordinator wants a path, the **IAAP CPACC** (Certified Professional in Accessibility Core Competencies, from the International Association of Accessibility Professionals) is the one aimed at this role: it covers disabilities and assistive technology, accessibility standards, and the legal and policy landscape — the "core competencies" a coordinator coordinates around. IAAP's deeper technical credential (the WAS, Web Accessibility Specialist) is aimed at hands-on practitioners, not coordinators. Treat CPACC as a useful option, not a requirement — the job is coordination, authority, and a program mindset, not a line on a résumé. (Whether certification builds _agency-wide_ confidence — for leadership, auditors, and the public — is a related but broader question: see [Does IAAP certification help — and can it build agency confidence in our accessibility work?](#state-agency-applicability-does-iaap-certification-help-and-can-it-build-agency-confidence-in-our-accessibility-work).)
 
-**Bottom line:** Yes, you need an accessibility coordinator — and neither web developers nor content creators can fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done. And the role is **permanent**: accessibility is an ongoing program, not a project that closes at the April 2027 deadline.
+**Bottom line:** Yes, you need an accessibility coordinator — and web developers and content creators generally aren't positioned to fill this role. Both are essential practitioners doing the actual compliance work, but they lack the organizational authority, cross-departmental visibility, and strategic positioning the coordinator role requires. The coordinator should be someone in executive, compliance, or management roles who can set policy, allocate resources, coordinate across departments, and report to leadership — while relying on web developers and content creators as the technical experts who get the work done. And the role is **permanent**: accessibility is an ongoing program, not a project that closes at the April 2027 deadline.
 
 **References:**
 
@@ -1144,7 +1144,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 **Legal and enforcement consequences:**
 
 - **Department of Justice investigations** — The DOJ has authority to investigate complaints and pursue enforcement actions against non-compliant agencies (<a href="https://www.ada.gov/file-a-complaint/" target="_blank" rel="noopener noreferrer">ADA.gov: File a Complaint</a>).
-- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II; the statute provides remedies and attorney’s fees provisions by incorporating the Rehabilitation Act enforcement framework (<a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II</a>).
+- **Complaints and lawsuits** — Individuals with disabilities can file administrative complaints with the DOJ. Individuals may also bring lawsuits under ADA Title II — its remedies, including attorney’s fees, come from the Rehabilitation Act’s enforcement framework (<a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>; <a href="https://www.ada.gov/topics/title-ii/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II</a>).
 - **Legal costs and remediation expenses** — Agencies may face significant costs for legal defense, settlements, and emergency remediation of inaccessible content.
 - **Reputational harm** — Public awareness of accessibility failures can damage an agency's reputation and public trust.
 
@@ -1152,7 +1152,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 **What this means for you professionally:**
 
-**Important distinction:** ADA Title II obligations apply to the **public entity** (the government agency), not to individual employees as personal defendants. (See the definition of “public entity” in <a href="https://www.govinfo.gov/link/uscode/42/12131" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12131</a> and Title II’s enforcement/remedies framework in <a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>.) In practice, DOJ enforcement actions target the organization’s compliance. However, your agency may establish internal policies and expectations that affect individual staff:
+**Important distinction:** ADA Title II obligations apply to the **public entity** (the government agency), not to individual employees personally. (See the definition of “public entity” in <a href="https://www.govinfo.gov/link/uscode/42/12131" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12131</a> and Title II’s enforcement/remedies framework in <a href="https://www.govinfo.gov/link/uscode/42/12133" target="_blank" rel="noopener noreferrer">42 U.S.C. § 12133</a>.) In practice, DOJ enforcement actions target the organization’s compliance. However, your agency may establish internal policies and expectations that affect individual staff:
 
 - **Required remediation** — Your agency may ask you to fix inaccessible content you created as part of organizational compliance efforts.
 - **Training requirements** — Your agency may require staff who create content to complete accessibility training.
@@ -1168,7 +1168,7 @@ These are **internal employment matters** determined by agency policy, not direc
 - **Delayed projects** — New digital projects may be delayed while existing accessibility issues are addressed.
 - **Increased scrutiny** — Agencies with known accessibility issues may face increased oversight and reporting requirements.
 
-**The bottom line:** If it's digital and public-facing, it needs to be accessible by April 26, 2027. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
+**The bottom line:** If it's digital and public-facing, it generally needs to be accessible by April 26, 2027 — the § 35.201 exceptions are narrow. Agencies that start working toward compliance now have time to address issues systematically. Those that delay may face costly emergency remediation and legal consequences.
 
 **See also:** [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover) for details on what content is included.
 
@@ -1204,7 +1204,7 @@ Before 2024, accessibility was a best practice and a general legal principle, bu
 
 The 2024 federal rule created accountability that didn't exist before — a **hard deadline, a measurable standard, and real enforcement consequences**. Communication across large organizations is always imperfect, and accessibility wasn't always prioritized the same way across all roles. That's understandable given competing demands.
 
-It's also worth acknowledging that large organizations have many competing priorities, and communication across departments is never perfect. This isn't about blame — it's about moving forward from where we are now.
+This isn't about blame — it's about moving forward from where we are now.
 
 **What matters now:**
 
@@ -1290,11 +1290,11 @@ If accessibility is treated as a one-time “cleanup,” it will erode quickly. 
 
 {updated:2026-08-13}
 
-> **⚠️ CRITICAL: This is the most commonly misunderstood aspect of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. **This is incorrect.** The exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites will NOT qualify. While DoIT takes a pragmatic approach to helping agencies manage existing content, they should be fully aware that very little content actually meets the strict criteria for these exceptions.
+> **Heads up — this is the most commonly misunderstood part of the ADA Title II web rule.** Many agencies assume that documents created before April 26, 2027 are automatically exempt. That's a misreading: the exceptions are narrowly defined, strictly interpreted, and most content actively linked from agency websites won't qualify. DoIT takes a pragmatic approach to helping agencies manage existing content, but agencies should know that very little content actually meets the strict criteria for these exceptions.
 
 **The Big Misconception: "Pre-2027 Content Is Automatically Exempt"**
 
-**No. This is wrong.**
+**It isn't — the rule doesn't work that way, and this misreading catches a lot of agencies.**
 
 The ADA Title II rule includes exceptions for certain archived content and pre-existing documents, but these exceptions are **narrowly defined** and require meeting **all** specified criteria. Simply existing before the compliance deadline does not make content exempt.
 
@@ -1330,7 +1330,7 @@ Each subsection below maps to one of the lettered exceptions above.
 
 **Exception 1: Archived Web Content (§ 35.201(a))**
 
-**This is the strictest exception.** Web pages qualify **only if ALL FOUR** of these criteria are met:
+**This is the strictest exception.** Web pages qualify **only if all four** of these criteria are met:
 
 | Criterion | Requirement | What This Means |
 | --------- | ----------- | --------------- |
@@ -1361,11 +1361,11 @@ PDFs, Word documents, spreadsheets, and presentations posted before April 26, 20
 | Aspect | Web Pages (Exception 1) | Documents (Exception 2) |
 | ------ | ----------------------- | ----------------------- |
 | **Test for exemption** | Must meet ALL 4 criteria | Only 1 test: Is it used to "apply for, gain access to, or participate in" services? |
-| **Archive area required?** | **YES** — must be in dedicated, clearly marked archive section | **NO** — no archive area requirement |
-| **Does being "linked" matter?** | **YES** — linked from active navigation suggests current use | **NO** — linking for reference purposes does not automatically disqualify |
-| **Must be "never updated"?** | **YES** — any edit disqualifies it | **NO** — only the "apply for/participate in" test matters |
+| **Archive area required?** | **Yes** — must be in dedicated, clearly marked archive section | **No** — no archive area requirement |
+| **Does being "linked" matter?** | **Yes** — linked from active navigation suggests current use | **No** — linking for reference purposes does not automatically disqualify |
+| **Must be "never updated"?** | **Yes** — any edit disqualifies it | **No** — only the "apply for/participate in" test matters |
 
-**This means:** A research report from 2015 that you link to from a publications page for historical reference may qualify for the exception — it's a pre-existing document not used to apply for services. But a grant application form from 2015 that people still use to apply for grants does NOT qualify — it's used to "apply for" services.
+**This means:** A research report from 2015 that you link to from a publications page for historical reference may qualify for the exception — it's a pre-existing document not used to apply for services. But a grant application form from 2015 that people still use to apply for grants does not qualify — it's used to "apply for" services.
 
 **Exception 3: Third-Party Content (§ 35.201(c))**
 
@@ -1440,7 +1440,7 @@ The DOJ is the federal agency responsible for enforcing ADA Title II. Their guid
 
 **Ohio State University's ADA Digital Accessibility Center**
 
-Ohio State's ADA Digital Accessibility Center has published authoritative legal analysis interpreting the federal rule, citing 28 C.F.R. § 35.104 (defining "archived web content") and § 35.201(a) (the archived-web-content exception). Their analysis is used by universities and agencies nationwide as guidance.
+Ohio State's ADA Digital Accessibility Center has published widely cited analysis of the rule's archived-content exception (28 C.F.R. §§ 35.104 and 35.201(a)). Their analysis is used by universities and agencies nationwide as guidance.
 
 **On the nature of the exception:**
 
@@ -1470,24 +1470,24 @@ Ohio State's ADA Digital Accessibility Center has published authoritative legal 
 
 | Content Type | Exception? | Why |
 | ------------ | ---------- | --- |
-| **Active website pages** | ❌ **NO** | Currently used by the public for services |
-| **Login pages, forms, applications** | ❌ **NO** | Used to access or participate in services |
-| **Documents created after April 2027** | ❌ **NO** | The preexisting-content exceptions never cover new content; only the narrow third-party (§ 35.201(c)) and individualized, secured-document (§ 35.201(d)) exceptions can apply to new content |
-| **Current grant application PDF** | ❌ **NO** | Used to apply for services — § 35.201(b) explicitly excludes documents currently used to apply for, access, or participate in services |
-| **Reports still relevant to current programs** | ❌ **NO** | Informs public about agency work — serves a current purpose |
-| **Annual reports that inform the public** | ❌ **NO** | Documents that inform the public about agency work serve a current purpose |
-| **Research publications that inform policy** | ❌ **NO** | If they inform current policy discussions, they serve a current purpose |
+| **Active website pages** | ❌ No | Currently used by the public for services |
+| **Login pages, forms, applications** | ❌ No | Used to access or participate in services |
+| **Documents created after April 2027** | ❌ No | The preexisting-content exceptions never cover new content; only the narrow third-party (§ 35.201(c)) and individualized, secured-document (§ 35.201(d)) exceptions can apply to new content |
+| **Current grant application PDF** | ❌ No | Used to apply for services — § 35.201(b) explicitly excludes documents currently used to apply for, access, or participate in services |
+| **Reports still relevant to current programs** | ❌ No | Informs public about agency work — serves a current purpose |
+| **Annual reports that inform the public** | ❌ No | Documents that inform the public about agency work serve a current purpose |
+| **Research publications that inform policy** | ❌ No | If they inform current policy discussions, they serve a current purpose |
 | **Content linked from main website navigation** | ❌ **Likely NO** | Placement in active navigation suggests current programmatic use |
-| **Anything edited after being archived** | ❌ **NO** | Edits disqualify archived web content from § 35.201(a) (per the § 35.104 definition of "archived web content") |
-| **Forms someone needs to fill out** | ❌ **NO** | Used to apply for or participate in services |
-| **Embedded vendor content (ArcGIS, Tableau)** | ❌ **NO** | Contractual relationship means you're responsible |
-| **Board agenda PDF from 2020** | ✅ **YES** | Pre-existing document not used to apply for current services — may be exempt under § 35.201(b) |
-| **Research report from 2015 kept for reference** | ✅ **YES** | Pre-existing document maintained for historical reference — may be exempt under § 35.201(b) |
-| **Historical meeting minutes from 2019** | ✅ **YES** | Pre-existing documents — nobody uses old meeting minutes to apply for current services |
-| **Newsletter archive (pre-2027 issues)** | ✅ **YES** | Pre-existing documents kept for historical reference — may be exempt under § 35.201(b) |
-| **Old HTML page moved to /archive/ with banner** | ✅ **YES** | If moved to dedicated archive area with clear labeling and not updated, may meet § 35.201(a) |
-| **User comments on your Facebook page** | ✅ **YES** | Third-party content not under contract — § 35.201(c) |
-| **Legacy content with no current use** | ✅ **YES** | Historical records truly kept only for research purposes |
+| **Anything edited after being archived** | ❌ No | Edits disqualify archived web content from § 35.201(a) (per the § 35.104 definition of "archived web content") |
+| **Forms someone needs to fill out** | ❌ No | Used to apply for or participate in services |
+| **Embedded vendor content (ArcGIS, Tableau)** | ❌ No | Contractual relationship means you're responsible |
+| **Board agenda PDF from 2020** | ✅ Yes | Pre-existing document not used to apply for current services — may be exempt under § 35.201(b) |
+| **Research report from 2015 kept for reference** | ✅ Yes | Pre-existing document maintained for historical reference — may be exempt under § 35.201(b) |
+| **Historical meeting minutes from 2019** | ✅ Yes | Pre-existing documents — nobody uses old meeting minutes to apply for current services |
+| **Newsletter archive (pre-2027 issues)** | ✅ Yes | Pre-existing documents kept for historical reference — may be exempt under § 35.201(b) |
+| **Old HTML page moved to /archive/ with banner** | ✅ Yes | If moved to dedicated archive area with clear labeling and not updated, may meet § 35.201(a) |
+| **User comments on your Facebook page** | ✅ Yes | Third-party content not under contract — § 35.201(c) |
+| **Legacy content with no current use** | ✅ Yes | Historical records truly kept only for research purposes |
 
 **Documents That MAY Qualify for an Exception**
 
@@ -1514,12 +1514,12 @@ This is a legal determination, not an administrative one.
 
 - **Agency legal counsel** makes the final determination for your agency — this is a legal interpretation of federal regulation
 - **DoIT provides guidance, not determinations** — DoIT offers training and technical assistance, but exceptions are legal determinations based on the federal rule. DoIT does not grant, approve, or determine exceptions.
-- **Before assuming content qualifies, consult your agency's legal counsel** — don't rely on internal assumptions
+- **Before assuming content qualifies, consult your agency's legal counsel first**
 - **Document your reasoning** — if you claim an exception, document why the content meets all required criteria
 
 **Even If Content Qualifies: The Effective Communication Obligation Remains**
 
-**This is critical:** Even for content that legitimately qualifies for an exception, the ADA still requires **effective communication** under 28 CFR § 35.160 (in subpart E — Communications). If a person with a disability requests access to excepted material, you are obligated to provide it in an accessible format upon request.
+**This is the part people miss:** Even for content that legitimately qualifies for an exception, the ADA still requires **effective communication** under 28 CFR § 35.160. If a person with a disability requests access to excepted material, you are obligated to provide it in an accessible format upon request.
 
 **As Ohio State's guidance emphasizes:**
 
@@ -1529,11 +1529,11 @@ This is a legal determination, not an administrative one.
 
 - Establish a clear process for accommodation requests
 - Include a visible way for users to request accessible versions of archived or excepted content
-- Be prepared to remediate documents upon request — you cannot refuse
+- Be prepared to remediate documents upon request — the effective-communication rule doesn't leave room to decline
 - Respond to requests in a timely manner
 - Budget for on-demand remediation
 
-**The exception reduces your proactive remediation burden — it does NOT eliminate your obligation to provide access when needed.**
+**The exception reduces your proactive remediation burden — it does not eliminate your obligation to provide access when needed.**
 
 **How to Approach Compliance**
 
@@ -1548,7 +1548,7 @@ This is a legal determination, not an administrative one.
    - Move content there
    - Add a clear "This content is archived and is maintained for historical reference only" banner
    - Document that it's for reference only
-   - **Never edit it after archiving** — any edit disqualifies it
+   - **Leave it untouched after archiving** — under the rule, any edit, however minor, disqualifies it
    - Establish a process for accommodation requests
 
 5. **For documents (§ 35.201(b)):** Focus remediation on documents people need to **apply for, access, or participate in** current services (grant applications, registration forms, required submissions). Historical documents kept for reference may be exempt — but verify with legal counsel.
@@ -1571,7 +1571,7 @@ This is a legal determination, not an administrative one.
 
 - **Effective communication is still required** — You must provide accessible alternatives upon request even for legitimately excepted content.
 
-- **Verify exact language** — For questions about whether specific content qualifies, consult your agency's legal counsel and verify exact language in the Federal Register document.
+- **Verify the exact language** — for questions about whether specific content qualifies, have your agency's legal counsel check the Federal Register text.
 
 **Authoritative References:**
 
@@ -1588,7 +1588,7 @@ This is a legal determination, not an administrative one.
 
 **Expert Analysis:**
 
-- <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State University ADA Digital Accessibility Center: Archived Content Exception</a> — Authoritative legal analysis and checklist for evaluating content against exception criteria
+- <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State University ADA Digital Accessibility Center: Archived Content Exception</a> — Widely cited analysis and checklist for evaluating content against exception criteria
 - <a href="https://www.ala.org/accessibility/ada-rule-exceptions" target="_blank" rel="noopener noreferrer">American Library Association: ADA Web Rule Exceptions</a> — Guidance for public institutions on understanding exceptions
 - <a href="https://www.section508.gov/manage/laws-and-policies/update-agency-policies/" target="_blank" rel="noopener noreferrer">Section508.gov: Update Agency Accessibility Policies</a> — Federal guidance on accessibility policy updates
 
@@ -1634,7 +1634,7 @@ This is a legal determination, not an administrative one.
 
 **What can wait:** Archived unused content, low-traffic pages, historical social posts.
 
-**What cannot skip:** New content accessible going forward; high-impact services; accessible alternatives upon request (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>).
+**What can't wait:** New content accessible going forward; high-impact services; accessible alternatives upon request (<a href="https://www.ada.gov/resources/effective-communication/" target="_blank" rel="noopener noreferrer">ADA.gov: Effective Communication</a>).
 
 **References:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> | <a href="https://www.w3.org/WAI/planning/interim-repairs/" target="_blank" rel="noopener noreferrer">W3C: Interim Repairs</a>
 
@@ -1656,7 +1656,7 @@ This is a legal determination, not an administrative one.
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
 
-**The statute itself (primary source):** The IITAA is codified at <a href="https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2918&ChapterID=7" target="_blank" rel="noopener noreferrer">30 ILCS 587</a>. **§ 587/5** sets the State policy that information technology developed, purchased, or provided by the State be accessible to individuals with disabilities; **§ 587/10** defines the broad range of covered "electronic and information technology"; and **§ 587/15** directs the State to develop and publish the technical accessibility standards (now the IITAA 2.1 Standards). When you need a primary source for the IITAA, cite the statute — the DoIT page is the plain-language explainer, not the law itself.
+**The statute itself (primary source):** The IITAA itself lives at <a href="https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2918&ChapterID=7" target="_blank" rel="noopener noreferrer">30 ILCS 587</a>. **Section 5** sets the State policy that information technology developed, purchased, or provided by the State be accessible to individuals with disabilities; **Section 10** defines the broad range of covered "electronic and information technology"; and **Section 15** directs the State to develop and publish the technical accessibility standards (now the IITAA 2.1 Standards). When you need a primary source for the IITAA, cite the statute — the DoIT page is the plain-language explainer, not the law itself.
 
 **Official IITAA page:** <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/initiatives/accessibility/iitaa.html</a>
 
@@ -1700,7 +1700,7 @@ The IITAA does **not** directly apply to:
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
 
-DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not a substitute for them. Compliance with one is not a defense to the other.
+DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not a substitute for them. Complying with one doesn't get you off the hook for the other.
 
 **Key differences from ADA Title II enforcement:**
 
@@ -1708,7 +1708,7 @@ DoIT is explicit that the IITAA is **in addition to** ADA / Section 504 — not 
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | **Primary oversight**                            | Illinois DoIT Office of Information Accessibility                                                                       | U.S. Department of Justice (DOJ)                                                                                   |
 | **How issues typically surface**                 | State standards compliance, agency governance, and DoIT guidance/training                                               | DOJ complaints/investigations and, in some cases, litigation                                                       |
-| **What “enforcement” usually means in practice** | Direction to remediate and align with IITAA standards; procurement and program controls may be used to drive compliance | Court orders/settlements/consent decrees and required remediation; remedies are set by statute and depend on facts |
+| **What “enforcement” usually means in practice** | Direction to remediate and align with IITAA standards; procurement and program controls may be used to drive compliance | Court orders/settlements/consent decrees and required remediation; what's ordered depends on the statute and the situation |
 
 **Practical implications:**
 
@@ -1762,7 +1762,7 @@ The IITAA covers all "information and communication technology," including:
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
 
-**Important takeaway for managers:** The IITAA technical standard is in effect **today** — it is not waiting for April 26, 2027. The federal compliance date is for the ADA Title II web rule; the IITAA 2.1 Standards have been operative since June 24, 2024.
+**Important takeaway for managers:** The IITAA technical standard is in effect **today** — it is not waiting for April 26, 2027. The federal compliance date is for the ADA Title II web rule; the IITAA 2.1 Standards have applied since June 24, 2024.
 
 **References:**
 
@@ -1834,9 +1834,9 @@ The ADA has multiple titles addressing different contexts:
 
 **Why Title II may feel "new":** Title II has existed since 1990, but the **April 2024 web rule** is the first time DOJ established specific technical standards (WCAG 2.1 Level AA) for digital content. This replaces previous case-by-case enforcement with a clear, measurable requirement.
 
-**For Illinois state agencies:** You must comply with both — **Title I** for employee accommodations and **Title II** for public-facing digital content.
+**For Illinois state agencies:** Both titles apply — **Title I** for employee accommodations and **Title II** for public-facing digital content.
 
-**Key regulatory text:** The rule amends 28 CFR Part 35 to add §§ 35.200–35.205 establishing web and mobile app accessibility requirements.
+**Where the rule lives:** It adds §§ 35.200–35.205 to 28 CFR Part 35, establishing web and mobile app accessibility requirements.
 
 **Verbatim from the rule (28 CFR § 35.200(a) "General"):**
 
@@ -1860,7 +1860,7 @@ Notice three things: the rule is talking to the **public entity** (your agency),
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
-That "directly or through contractual, licensing, or other arrangements" phrase is the same one the 2024 web rule uses — and it is why an agency cannot push the accessibility duty onto a vendor, a contractor, or a remediation firm. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration." See [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability) for how this plays out.
+That "directly or through contractual, licensing, or other arrangements" phrase is the same one the 2024 web rule uses — and it is why an agency cannot push the accessibility duty onto a vendor, a contractor, or a remediation firm. Its neighbor, § 35.130(b)(3), applies the same rule to "methods of administration." See [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability) for how this plays out.
 
 **References:**
 
@@ -1913,11 +1913,11 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 {new:2026-08-13}
 
-**Quick answer:** April 26, 2027 is the compliance date in current federal law, but it is not beyond change. It was set by an Interim Final Rule that DOJ could still revise after reviewing public comments, and a pending federal lawsuit asks a court to strike the extension and restore the original 2026 deadline. Plan your remediation so your agency would be defensible under either date.
+**Quick answer:** April 26, 2027 is the compliance date in current federal law, but it is not beyond change. It was set by an Interim Final Rule that DOJ could still revise after reviewing public comments, and a pending federal lawsuit asks a court to strike the extension and restore the original 2026 deadline. Plan your remediation so your agency would be in good shape under either date.
 
 **Two ways the date could move:**
 
-**1. DOJ could revise its own rule.** The extension was issued as an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> — effective immediately on April 20, 2026, with a public comment period that closed June 22, 2026. An agency may modify an interim final rule when it finalizes it. As of August 13, 2026, DOJ has published no follow-up rule confirming, revising, or withdrawing the extension.
+**1. DOJ could revise its own rule.** The extension was issued as an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> — effective immediately on April 20, 2026, with a public comment period that closed June 22, 2026. DOJ can still revise an interim final rule when it finalizes it. As of August 13, 2026, DOJ has published no follow-up rule confirming, revising, or withdrawing the extension.
 
 **2. A court could vacate the extension.** In _National Federation of the Blind v. Department of Justice_ (U.S. District Court for the District of Maryland, filed May 21, 2026), the NFB argues that DOJ and HHS violated the Administrative Procedure Act by extending the deadlines without notice-and-comment rulemaking, and asks the court to restore the original compliance dates. No ruling has been issued as of August 13, 2026. (<a href="https://nfb.org/about-us/press-room/national-federation-blind-sues-government-over-delay-accessibility-rules" target="_blank" rel="noopener noreferrer">NFB press release</a> · <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">case docket</a>)
 
@@ -1925,7 +1925,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 - **The law today:** 28 CFR § 35.200(b) requires WCAG 2.1 Level AA by **April 26, 2027** for Illinois state agencies — see [When must we comply with the ADA Title II rule?](#compliance-requirements-iitaa-and-ada-title-ii-when-must-we-comply-with-the-ada-title-ii-rule)
 - **The floor if the extension falls:** the original date — April 24, 2026 — has already passed. If a court restores the original deadlines, covered entities would effectively be past due the day of the ruling.
-- **The safe strategy is identical under every outcome:** keep remediating on your current schedule. The IITAA 2.1 Standards already require WCAG 2.1 Level AA **now**, so an Illinois agency working toward IITAA compliance is protected whichever way the federal date moves — see [Did the federal deadline extension give Illinois agencies an extra year?](#compliance-requirements-iitaa-and-ada-title-ii-did-the-federal-deadline-extension-give-illinois-agencies-an-extra-year)
+- **The safe strategy is the same no matter which way this goes:** keep remediating on your current schedule. The IITAA 2.1 Standards already require WCAG 2.1 Level AA **now**, so an Illinois agency working toward IITAA compliance is in good shape whichever way the federal date moves — see [Did the federal deadline extension give Illinois agencies an extra year?](#compliance-requirements-iitaa-and-ada-title-ii-did-the-federal-deadline-extension-give-illinois-agencies-an-extra-year)
 
 **Status note:** Litigation and rulemaking status in this answer is current as of the "Last reviewed" date shown at the top of this page.
 
@@ -1967,13 +1967,13 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 {new:2026-08-13}
 
-**Quick answer:** Yes. April 26, 2027 is when the web rule's **specific WCAG 2.1 AA technical standard** becomes enforceable — it is not an immunity period. Title II's general nondiscrimination and effective-communication obligations have bound state agencies since the early 1990s and are enforceable today.
+**Quick answer:** Yes. April 26, 2027 is when the web rule's **specific WCAG 2.1 AA technical standard** becomes enforceable — it isn't a grace period. Title II's general nondiscrimination and effective-communication obligations have bound state agencies since the early 1990s and are enforceable today.
 
-**Three ways exposure exists right now:**
+**Three ways that can happen right now:**
 
 1. **DOJ complaints and investigations under existing Title II duties.** The general regulation (28 CFR § 35.130) has required equal access to services, programs, and activities since 1991 — inaccessible web content can violate it today, without waiting for the web rule's date. Individuals can file complaints with DOJ at any time.
 
-2. **Private lawsuits.** ADA Title II provides a private right of action (42 U.S.C. § 12133). Private plaintiffs suing over effective communication or program access are not bound by the web rule's compliance schedule.
+2. **Private lawsuits.** People can sue under Title II directly (42 U.S.C. § 12133), and suits over effective communication or program access don't have to wait for the web rule's dates.
 
 3. **The effective-communication duty applies continuously:**
 
@@ -1981,7 +1981,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-E/section-35.160" target="_blank" rel="noopener noreferrer">28 CFR § 35.160(a)(1) (eCFR)</a>
 
-If a person with a disability cannot use your PDF, form, or page today, you must provide an accessible alternative today — the 2027 date does not defer that.
+If a person with a disability cannot use your PDF, form, or page today, § 35.160 already requires an accessible alternative today — the 2027 date doesn't push that back.
 
 **And separately: the IITAA applies now.** The state-law requirement (WCAG 2.1 Level AA under IITAA 2.1) has been in effect since June 24, 2024 — see [How is the IITAA enforced?](#compliance-requirements-iitaa-and-ada-title-ii-how-is-the-iitaa-enforced)
 
@@ -2101,7 +2101,7 @@ The technical standard (WCAG 2.1 Level AA) is unchanged. Like DOJ's extension, t
 
 - The work is the same work: WCAG 2.1 Level AA on your public-facing digital content satisfies IITAA, prepares you for ADA Title II's April 26, 2027 date, and covers Section 504's web requirements for HHS-funded programs.
 - The two federal clocks now run about two weeks apart (April 26 and May 11, 2027) — one remediation effort serves both.
-- ICJIA's primary federal funding flows through DOJ's Office of Justice Programs, not HHS; DOJ's own Section 504 regulations do not currently contain the web-specific deadline scheme. Consult your legal counsel about which funding-based rules attach to your agency's grants.
+- ICJIA's primary federal funding flows through DOJ's Office of Justice Programs, not HHS; DOJ's own Section 504 regulations don't currently include these web deadlines. Consult your legal counsel about which funding-based rules apply to your agency's grants.
 
 **References:**
 
@@ -2305,7 +2305,7 @@ Three rules of thumb when scanners disagree:
 
 **See also:** [What are the most common accessibility mistakes and issues to avoid?](#common-concerns-what-are-the-most-common-accessibility-mistakes-and-issues-to-avoid) | [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
-Beyond the most common issues (alt text, color contrast, headings), these WCAG 2.1 Level AA requirements are frequently missed during accessibility reviews. **Note:** WCAG applies to websites, documents (PDFs, Word, Excel, PowerPoint), videos, and third-party tools — not just websites.
+Beyond the most common issues (alt text, color contrast, headings), these WCAG 2.1 Level AA requirements are frequently missed during accessibility reviews. **Note:** WCAG applies to websites, documents (PDFs, Word, Excel, PowerPoint), videos, and third-party tools — not just web pages.
 
 > **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.1) and a conformance level (A, AA, or AAA). For example, "SC 2.4.1" means Success Criterion 2.4.1. You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — use the search box to find specific criteria by number or keyword.
 
@@ -2489,7 +2489,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 1. Tab through your entire page using only the keyboard
 2. Verify you can always see which element has focus
 3. Check that focus indicators are visible on all background colors
-4. Ensure focus order matches visual reading order
+4. Check that focus order matches the visual reading order
 
 **WCAG Reference:**
 
@@ -2507,7 +2507,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 **Quick answer:** Yes, for WCAG 2.1 Level AA compliance:
 
 - **Pre-recorded video with audio** — Requires synchronized captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.2 - Level A</a>).
-- **Live video with audio** — Requires live captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-live" target="_blank" rel="noopener noreferrer">SC 1.2.4 - Level AA</a>). Accuracy matters; auto-captions may need human support.
+- **Live video with audio** — Requires live captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-live" target="_blank" rel="noopener noreferrer">SC 1.2.4 - Level AA</a>). Accuracy matters; plan on a human review of auto-captions.
 - **Pre-recorded audio only** — Requires a text transcript (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.1 - Level A</a>).
 - **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.5 - Level AA</a>). For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
@@ -2539,7 +2539,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 **What to do instead:**
 
-1. **Use AI subtitles as a starting point** — YouTube's auto-generated captions can save time, but you must:
+1. **Use AI subtitles as a starting point** — YouTube's auto-generated captions can save time, but to get to compliance you'll need to:
    - Review and edit the captions for accuracy
    - Correct misspellings and word errors
    - Add proper punctuation and capitalization
@@ -2638,14 +2638,14 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 {updated:2026-01-06}
 
-**Quick answer:** Every form field needs a visible label that is programmatically associated with the field, error messages must be clear and specific, and users must be able to navigate and complete the form using only a keyboard.
+**Quick answer:** Give every form field a visible label that's programmatically associated with it, error messages must be clear and specific, and users must be able to navigate and complete the form using only a keyboard.
 
 **Critical elements of accessible forms:**
 
 **1. Labels and Instructions**
 
-- Every input field must have a visible `<label>` element associated using `for` and `id` attributes
-- Placeholder text is NOT a substitute for labels (it disappears when users start typing)
+- Give every input field a visible `<label>`, associated using `for` and `id` attributes
+- Placeholder text is **not** a substitute for labels (it disappears when users start typing)
 - Group related fields (like address components) using `<fieldset>` and `<legend>`
 - Provide clear instructions before the form, not just inline
 
@@ -2679,13 +2679,13 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 **3. Required Fields**
 
-- Indicate required fields both visually AND programmatically
+- Indicate required fields both visually and programmatically
 - Use `required` attribute or `aria-required="true"`
 - Don't rely only on asterisks (\*) — explain what they mean
 
 **4. Keyboard Accessibility**
 
-- All form controls must be reachable and operable via keyboard
+- All form controls must be reachable and operable via keyboard (<a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard" target="_blank" rel="noopener noreferrer">WCAG SC 2.1.1 Keyboard — Level A</a>)
 - Tab order should follow visual order
 - Custom controls (date pickers, dropdowns) need keyboard support
 
@@ -2721,7 +2721,7 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 ### How do I make mobile apps accessible?
 
-**Quick answer:** Mobile apps must meet the same WCAG 2.1 Level AA standards as websites. This includes proper labeling, keyboard/gesture navigation, sufficient color contrast, and compatibility with mobile screen readers (VoiceOver on iOS, TalkBack on Android).
+**Quick answer:** Mobile apps your agency provides to the public must meet the same WCAG 2.1 Level AA standards as websites. This includes proper labeling, keyboard/gesture navigation, sufficient color contrast, and compatibility with mobile screen readers (VoiceOver on iOS, TalkBack on Android).
 
 **Full explanation:**
 
@@ -2734,7 +2734,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
    - **Android:** TalkBack (built-in)
    - Content should be properly labeled and navigable
 
-2. **Touch target size** — While WCAG 2.1 Level AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. This is considered essential best practice for users with motor disabilities.
+2. **Touch target size** — While WCAG 2.1 Level AA doesn't mandate specific sizes, platform guidelines recommend at least 44x44 points (iOS) or 48x48 density-independent pixels (Android) for usability. It's a strong best practice for users with motor disabilities.
 
 3. **Color contrast** — Same 4.5:1 ratio for normal text, 3:1 for large text as web content
 
@@ -2806,7 +2806,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover)
 
-**Key takeaway:** Test the workflows people actually use. If the tool can't be made accessible quickly, you still need to provide an **accessible alternative** for the service.
+**Key takeaway:** Test the workflows people actually use. If the app can't be made accessible right away, you still need to provide an **accessible alternative** for the service.
 
 ### Does our agency's password-protected intranet need to be accessible?
 
@@ -2814,7 +2814,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **See also:** [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet)
 
-**Quick answer:** Password-protected intranet sites for employees only are generally **not covered by the ADA Title II web rule's WCAG requirement** (because the rule focuses on content made available to the public). However, they **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). Always prioritize employee accommodations if requested.
+**Quick answer:** Password-protected intranet sites for employees only are generally **not covered by the ADA Title II web rule's WCAG requirement** (because the rule focuses on content made available to the public). However, they **may still need to be accessible under Illinois state law (IITAA), ADA Title I (employment), and Section 504** (federal funding). If an employee requests an accommodation, treat that as the top priority.
 
 **Verbatim from Illinois IITAA — why the intranet may still need to be accessible under state law:**
 
@@ -2822,7 +2822,7 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
 
-The IITAA's "information systems and information technologies" language is **broader** than the federal web rule's public-content scope and reaches employee-facing systems. For Illinois state agencies, an internal intranet is squarely within IITAA's scope even when it's outside the federal web rule's. **Note:** § 35.201(d) (the federal "individualized, password-protected documents" exception) is narrower than a general intranet exemption — it covers specific individual's documents (e.g., a person's account statements), not shared internal portals.
+The IITAA's "information systems and information technologies" language is **broader** than the federal web rule's public-content scope and reaches employee-facing systems. For Illinois state agencies, an internal intranet is squarely within IITAA's scope even when it's outside the federal web rule's. **Note:** § 35.201(d) (the federal "individualized, password-protected documents" exception) is narrower than a general intranet exemption — it covers a specific individual's documents (e.g., a person's account statements), not shared internal portals.
 
 **Full explanation:**
 
@@ -2844,7 +2844,7 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 2. **ADA Title I (Employment)** — Employers must provide reasonable accommodations for employees with disabilities. If an employee needs to access the intranet to do their job, it may need to be accessible
 3. **Section 504** — Organizations receiving federal funding must ensure programs are accessible to employees with disabilities
 
-**Best practice:** Make your intranet accessible proactively. It supports employees with disabilities, prevents costly retrofitting, and ensures compliance with IITAA.
+**Best practice:** Make your intranet accessible proactively. It supports employees with disabilities, prevents costly retrofitting, and helps you meet IITAA's requirements.
 
 **Resources:**
 
@@ -2868,13 +2868,13 @@ The ADA Title II web rule focuses on content "provided or made available to the 
 - Old versions replaced by newer documents
 - Content no longer needed for business operations
 
-**Exception:** Even archived documents should be made accessible if they're:
+**Exception:** You should still make archived documents accessible if they're:
 
 - Referenced or linked from active intranet pages
 - Part of a searchable document library
 - Needed for reference or historical context
 
-**If an employee needs access to archived content:** Coordinate with your ADA/HR process to provide an accessible alternative in a timely manner (for example, an accessible version of the document, or another effective format that provides equivalent access).
+**If an employee needs access to archived content:** Coordinate with your ADA/HR process to provide an accessible alternative promptly (for example, an accessible version of the document, or another effective format that provides equivalent access).
 
 **Reference:** <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">Archive.ADA.gov: Employment (Title I)</a>
 
@@ -3146,7 +3146,7 @@ The alt text describes what's visually happening. The caption adds context that 
 
 While the Title II web rule focuses on public-facing content, Illinois state agencies should still plan for accessibility in internal systems and documents under IITAA and workplace accommodation obligations. See: [Does ADA Title II apply to internal documents?](#compliance-requirements-iitaa-and-ada-title-ii-does-ada-title-ii-apply-to-internal-documents) | [Does our agency's password-protected intranet need to be accessible?](#website-accessibility-does-our-agency-s-password-protected-intranet-need-to-be-accessible) | [What about archived documents on the intranet?](#website-accessibility-what-about-archived-documents-on-the-intranet)
 
-**Accessibility best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." If you must use a document format, follow established guidance and test it (see <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a>). This aligns with WCAG 2.1 Level AA requirements and accessibility best practices.
+**Accessibility best practice:** Before creating a document (especially a PDF), consider whether the content could be published as webpage text instead. HTML webpages are generally easier to make and keep accessible than PDFs. As <a href="https://it.cornell.edu/accessibility/create-accessible-pdfs" target="_blank" rel="noopener noreferrer">Cornell IT notes</a>, "Remediating PDFs for web accessibility can be more time consuming than creating a webpage. When possible, convert your PDFs to HTML web pages." If you must use a document format, follow established guidance and test it (see <a href="https://www.section508.gov/create/pdfs/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible PDFs</a>).
 
 **Best practices:**
 
@@ -3245,7 +3245,7 @@ Document Title (Heading 1)
 
 **Best practice:** Consider publishing content as webpage text instead of PDF when feasible — it's generally easier to make and keep accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) for details. If you must use a PDF, follow the steps below.
 
-**Critical: Scanned PDFs are not accessible**
+**Important: Scanned PDFs are not accessible**
 
 A scanned PDF (created by scanning a paper document) is essentially an image — screen readers cannot read the text. Scanned PDFs require:
 
@@ -3311,7 +3311,7 @@ The best approach depends on the source:
 
 Several agency managers have responded to "fix it in Word" with some version of: "We hired a remediation vendor — they fix any PDF we publish. Why does the source matter?" That sounds clean. Until you look at how documents actually move through an agency.
 
-**The PDF lifecycle most managers haven't thought through:**
+**The PDF lifecycle that's easy to overlook:**
 
 1. Author creates a Word document → "Save As PDF" → publishes the PDF.
 2. Vendor remediates the PDF in Acrobat: tags headings, fixes reading order, adds alt text, marks language. **All those fixes live only in the PDF — not the Word source.**
@@ -3415,13 +3415,13 @@ Automated remediation can't fix everything — meaningful alt text, correct read
 - **App:** <a href="https://audit.icjia.app" target="_blank" rel="noopener noreferrer">https://audit.icjia.app</a>
 - **GitHub repository:** <a href="https://github.com/ICJIA/file-accessibility-audit" target="_blank" rel="noopener noreferrer">https://github.com/ICJIA/file-accessibility-audit</a>
 
-**Note:** Automated checkers (including this one) catch many common issues but cannot verify everything — for example, whether alt text accurately describes an image or whether reading order is logical. Always combine automated testing with manual review for full compliance.
+**Note:** Automated checkers (including this one) catch many common issues but cannot verify everything — for example, whether alt text accurately describes an image or whether reading order is logical. Pair automated testing with manual review — neither alone gives the full picture.
 
 ### Is Canva accessible?
 
 {updated:2026-08-13}
 
-**Canva has made progress on accessibility** and offers several helpful features. However, tool capabilities change over time — always verify current features with Canva's latest documentation.
+**Canva has made progress on accessibility** and offers several helpful features. However, tool capabilities change over time — check Canva's latest documentation for current features.
 
 _Note: The information below reflects Canva's accessibility features as of August 2026. Verify current capabilities at <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">Canva's accessibility page</a>._
 
@@ -3432,7 +3432,7 @@ _Note: The information below reflects Canva's accessibility features as of Augus
 - **Reading order and heading tagging** — Better structure for PDFs
 - **Easier for non-designers** — More accessible than learning Adobe InDesign
 
-**Important limitation:** Canva PDFs may not be fully WCAG or PDF/UA compliant out of the box. Always test exported content.
+**Important limitation:** Canva PDFs may not be fully WCAG or PDF/UA compliant out of the box. Test exported content before publishing.
 
 **How to export a tagged (accessible) PDF from Canva:**
 
@@ -3697,7 +3697,7 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (eCFR)</a>
 
-The exception is **only** for posts made before the agency's compliance date (April 26, 2027 for entities serving 50,000+; April 26, 2028 for under-50,000 entities). Every post made on or after that date is fully subject to § 35.200's WCAG 2.1 Level AA requirement, including alt text on images, captions on video, and accessible link text.
+The exception is **only** for posts made before the agency's compliance date (April 26, 2027 for entities serving 50,000+; April 26, 2028 for under-50,000 entities). Every post made on or after that date is covered by the rule's WCAG 2.1 AA requirement (§ 35.200), including alt text on images, captions on video, and accessible link text.
 
 **Note:** Social media platforms themselves have accessibility limitations, but you can control the content you post.
 
@@ -3760,19 +3760,19 @@ When procuring technology products or services:
 
 {updated:2026-08-13}
 
-**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" doesn't change the answer. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
+**Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" doesn't change who's responsible under the rule. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
 
 **The "we only get an iframe" misconception:**
 
 Authors sometimes assume that because a dashboard (Tableau), a map (ArcGIS), an infographic (Canva), or a video (YouTube) is built on a vendor's platform and pulled in as an `<iframe>`, the vendor is solely responsible for accessibility. **That isn't what the rule says, and it isn't how the experience works for users.**
 
-Whoever **publishes** content for a public program or service is the one on the hook for whether people with disabilities can use it. The accessibility outcome doesn't follow the bytes back to whoever's server they came from — it sits with the page that brought them in. If your agency embeds it, your agency owns the outcome.
+Whoever **publishes** content for a public program or service is the one on the hook for whether people with disabilities can use it. The accessibility outcome doesn't follow the bytes back to whoever's server they came from — it sits with the page that brought them in. If your agency embeds it, the responsibility stays with your agency.
 
 **The relevant rules:**
 
-- **ADA Title II web rule — 28 CFR § 35.200** (89 FR 31320, April 24, 2024; compliance dates extended by the April 20, 2026 Interim Final Rule to April 26, 2027 for entities serving 50,000+). § 35.200(a) reaches "web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements**" — the contractual-arrangement language is in the rule itself, not just the preamble. The narrow third-party exception is at § 35.201(c), and it applies only to content posted by a third party "**unless** the third party is posting due to contractual, licensing, or other arrangements with the public entity." A member of the public leaving a forum comment is excepted; a Tableau, ArcGIS, or Canva license you pay for and embed is the opposite of excepted.
+- **ADA Title II web rule — 28 CFR § 35.200** (89 FR 31320, April 24, 2024; compliance dates extended by the April 20, 2026 Interim Final Rule to April 26, 2027 for entities serving 50,000+). § 35.200(a) reaches "web content that a public entity **provides or makes available, directly or through contractual, licensing, or other arrangements**" — the contractual-arrangement language is in the rule itself, not just the preamble. The narrow third-party exception is at § 35.201(c), and it applies only to content posted by a third party "**unless** the third party is posting due to contractual, licensing, or other arrangements with the public entity." A forum comment from a member of the public qualifies for the exception; a Tableau, ArcGIS, or Canva license you pay for and embed does not.
 - **IITAA + IITAA 2.1 Standards** (30 ILCS 587; standards effective June 24, 2024). IITAA applies to "information and communication technology" that an Illinois state agency develops, procures, maintains, or uses. **It doesn't exclude embedded or hosted content.** If you ship it to the public from an `il.gov` page, IITAA 2.1 applies and the technical bar is WCAG 2.1 Level AA. Illinois DoIT's IITAA Procurement Guidance specifically directs agencies to flow these requirements into vendor contracts.
-- **WCAG 2.1 Level AA** — the technical standard cited by both rules. WCAG is **medium-agnostic**: it does not change behavior based on whether content is rendered in-line, in an iframe, or via a third-party SDK. If a screen-reader user can't operate the embedded map, WCAG 2.1 AA is not met — full stop.
+- **WCAG 2.1 Level AA** — the technical standard cited by both rules. WCAG is **medium-agnostic**: it does not change behavior based on whether content is rendered in-line, in an iframe, or via a third-party SDK. If a screen-reader user can't operate the embedded map, the page doesn't meet WCAG 2.1 AA.
 
 **What the rules actually say (verbatim, with sources):**
 
@@ -3788,7 +3788,7 @@ Don't take this FAQ's word for it. Here are the actual quotes from the rules —
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> · <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">final rule, 89 FR 31320 (Apr. 24, 2024)</a>
 
-The verb is **"shall ensure"** and it attaches to the public entity. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" A Tableau, ArcGIS, or Canva license is exactly the kind of contractual arrangement the rule names.
+The verb is **"shall ensure"** and it points at the public entity, not the vendor. The subject is web content the public entity "provides or makes available, **directly or through contractual, licensing, or other arrangements.**" A Tableau, ArcGIS, or Canva license is exactly the kind of contractual arrangement the rule names.
 
 **ADA Title II — 28 CFR § 35.130(b)(1) (the general non-discrimination rule, in force since 1991):**
 
@@ -3798,7 +3798,7 @@ The verb is **"shall ensure"** and it attaches to the public entity. The subject
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
-This is the older, broader hook. The 2024 web rule's "directly or through contractual, licensing, or other arrangements" language did not come out of nowhere — § 35.130(b)(1) has used it since 1991. An agency cannot do through a vendor what it is barred from doing itself, and § 35.130(b)(3) extends the same principle to "methods of administration."
+This is the older, broader hook. The 2024 web rule's "directly or through contractual, licensing, or other arrangements" language did not come out of nowhere — § 35.130(b)(1) has used it since 1991. An agency can't use a vendor to do what the rule bars it from doing directly, and § 35.130(b)(3) extends the same principle to "methods of administration."
 
 **ADA Title II — 28 CFR § 35.201(c) "Exceptions":**
 
@@ -3806,7 +3806,7 @@ This is the older, broader hook. The 2024 web rule's "directly or through contra
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.201" target="_blank" rel="noopener noreferrer">28 CFR § 35.201 (eCFR)</a>
 
-The exception is for content the public did not contract for — a member of the public leaving a forum comment is a textbook example. **A vendor you pay (Esri, Canva, Tableau, DocuSign, etc.) is the express opposite of this exception** — the rule explicitly says the exception does **not** apply when the third party is posting "due to contractual, licensing, or other arrangements."
+The exception is for content the public did not contract for — a member of the public leaving a forum comment is a textbook example. **A vendor you pay (Esri, Canva, Tableau, DocuSign, etc.) is exactly the case this exception does not cover** — the rule explicitly says the exception does **not** apply when the third party is posting "due to contractual, licensing, or other arrangements."
 
 **Illinois IITAA — 30 ILCS 587 / IITAA 2.1 Standards:**
 
@@ -3818,7 +3818,7 @@ The exception is for content the public did not contract for — a member of the
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a>
 
-IITAA is a **separate state-law obligation** that applies to Illinois state agencies independently of (and in addition to) ADA Title II. It has been in effect since 2008 and predates the federal web rule by 16 years. There is no "we follow ADA, so we don't need to worry about IITAA" — they apply simultaneously and IITAA's scope is broader (it covers internal-facing IT, hardware, kiosks, and procurement, not just public-facing web/mobile).
+IITAA is a **separate state-law obligation** that applies to Illinois state agencies independently of (and in addition to) ADA Title II. It has been in effect since 2008 and predates the federal web rule by 16 years. "We follow the ADA, so IITAA is covered" doesn't hold up — they apply simultaneously and IITAA's scope is broader (it covers internal-facing IT, hardware, kiosks, and procurement, not just public-facing web/mobile).
 
 **Illinois IITAA — Procurement contract language (DoIT-recommended):**
 
@@ -3826,7 +3826,7 @@ IITAA is a **separate state-law obligation** that applies to Illinois state agen
 
 — <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">DoIT: IITAA Procurement Guidance</a>
 
-The state's own procurement language explicitly reaches IT "developed or provided under this contract or procurement" — i.e., **vendor-supplied** IT. The duty stays with the agency; the contract is the lever to push it onto vendors.
+The state's own procurement language explicitly reaches IT "developed or provided under this contract or procurement" — i.e., **vendor-supplied** IT. The responsibility stays with the agency; the contract is your lever for holding vendors to it.
 
 **WCAG 2.1 — Conformance Requirement 2: Full pages:**
 
@@ -3854,17 +3854,17 @@ W3C is unambiguous: **the author's page** does not conform unless the embedded t
 
 **What that means in practice for Tableau, ArcGIS, Canva, and similar embeds:**
 
-- **You are the publisher.** "Vendor said it's accessible" is not a defense; you must verify and test in your context.
+- **You are the publisher.** "The vendor says it's accessible" is a starting point, not the finish — verify with your own testing, in your own context.
 - **The embed wrapper is part of the page.** Your `<iframe>` needs an accessible name (`title`), focusable controls around it, and a path for keyboard users to reach and leave it.
-- **Configuration choices you make inside the third-party platform are yours.** Color combinations, font sizes, alt text on a Canva graphic, layer labels in ArcGIS, axis titles in Tableau — those are authored by your staff inside the vendor's tool and inherit your agency's compliance duty.
-- **An accessible alternative is required when the embed itself can't meet WCAG 2.1 AA.** A static data table next to a Tableau dashboard, a text/list alternative next to an ArcGIS map, an accessible PDF or HTML version of a Canva infographic, or a transcript and captions for embedded video. The alternative must convey the **same information** — not a stripped-down summary.
+- **Configuration choices you make inside the third-party platform are yours.** Color combinations, font sizes, alt text on a Canva graphic, layer labels in ArcGIS, axis titles in Tableau — those are authored by your staff inside the vendor's tool and are your agency's responsibility.
+- **If the embed itself can't meet WCAG 2.1 AA, provide an accessible alternative.** A static data table next to a Tableau dashboard, a text/list alternative next to an ArcGIS map, an accessible PDF or HTML version of a Canva infographic, or a transcript and captions for embedded video. The alternative must convey the **same information** — not a stripped-down summary.
 - **Procurement is the leverage point.** Require WCAG 2.1 AA conformance in the contract, request a current VPAT/ACR for the exact product version, and document remediation timelines for known issues. (See [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use).)
 
 > **What's a VPAT?** A **VPAT** (_Voluntary Product Accessibility Template_) is a standardized form a vendor fills out to describe how their product meets accessibility standards. The completed document a vendor hands you is technically called an **ACR** (_Accessibility Conformance Report_), but most people use "VPAT" and "ACR" interchangeably. Treat it as the vendor's self-reported accessibility resume — useful as a starting point, not a guarantee. Always verify with your own testing. Full breakdown: [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
 
 **Specifically for Canva embeds and exports:**
 
-Canva is a common source of inaccessible content because the design surface lets authors do things WCAG 2.1 AA forbids: low-contrast text over photos (1.4.3), color-only emphasis (1.4.1), and text inside images that can't be resized or read by assistive tech (1.4.5). Decorative fonts at small sizes and undersized tap targets aren't AA-level violations on their own, but they compound the contrast and cognitive-load problems that are. The "embed" or PDF export does not fix any of those choices.
+Canva is a common source of inaccessible content because the design surface lets authors make choices that fail WCAG 2.1 AA: low-contrast text over photos (1.4.3), color-only emphasis (1.4.1), and text inside images that can't be resized or read by assistive tech (1.4.5). Decorative fonts at small sizes and undersized tap targets aren't AA-level violations on their own, but they compound the contrast and cognitive-load problems that are. The "embed" or PDF export does not fix any of those choices.
 
 - Treat Canva graphics like any other image: WCAG 1.1.1 requires a text alternative that conveys the same information. A short `alt` is not enough for a poster crammed with statistics — provide a long-description, a plain-text equivalent on the page, or both.
 - Avoid putting essential information **inside** the Canva graphic. Repeat the key facts as real text on the surrounding page so screen-reader and low-vision users get them without depending on the image.
@@ -3895,7 +3895,7 @@ Under the ADA Title II web rule, public entities are responsible for the accessi
 - Payment processors, scheduling tools, chat widgets
 - Survey and form tools integrated into your site
 
-**Important note:** Vendor accessibility status changes over time. All major vendors (Docebo, DocuSign, Tableau, Esri/ArcGIS) publish accessibility information and VPATs on their websites. The guidance below reflects general principles — always verify current accessibility status with the vendor's latest documentation for your specific product version and configuration.
+**Important note:** Vendor accessibility status changes over time. All major vendors (Docebo, DocuSign, Tableau, Esri/ArcGIS) publish accessibility information and VPATs on their websites. The guidance below reflects general principles — verify current accessibility status against the vendor's latest documentation for your specific product version and configuration.
 
 **For Learning Management Systems (LMSs) like Docebo:**
 
@@ -3930,7 +3930,7 @@ Compliance varies by platform, version, and configuration. Even if an LMS platfo
 
 **For DocuSign:**
 
-**Compliance requirement:**
+**Does this apply to us?**
 
 Yes. If you use DocuSign for public-facing services, the **signing workflow** and the **documents you send** must be accessible.
 
@@ -3949,7 +3949,7 @@ Yes. If you use DocuSign for public-facing services, the **signing workflow** an
 
 **For Tableau Dashboards:**
 
-**Compliance requirement:**
+**Does this apply to us?**
 
 Yes. If you use Tableau dashboards for public-facing services, the **dashboard interface** and the **data visualization** must be accessible, or you must provide an accessible alternative.
 
@@ -3984,7 +3984,7 @@ Yes. If you use Tableau dashboards for public-facing services, the **dashboard i
 
 **For ArcGIS Maps:**
 
-**Compliance requirement:**
+**Does this apply to us?**
 
 Yes. If you use ArcGIS maps for public-facing services, the **map interface** and the **geographic information** must be accessible, or you must provide an accessible alternative.
 
@@ -4051,11 +4051,11 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 
 **Common pitfalls to avoid:**
 
-- **Assuming vendor claims are accurate** — Always verify with current VPAT/ACR and test yourself
+- **Assuming vendor claims are accurate** — Verify with a current VPAT/ACR and test it yourself
 - **Focusing only on the platform** — Your content and configuration matter just as much
 - **Ignoring customizations** — Custom themes, plugins, or integrations can introduce accessibility issues
 - **Skipping workflow testing** — Testing individual pages isn't enough; test complete user journeys
-- **No backup plan** — Always have an accessible alternative ready
+- **No backup plan** — Keep an accessible alternative ready
 
 **Ongoing monitoring:**
 
@@ -4078,7 +4078,7 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 - <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">DoIT Testing Resources</a> — Illinois-specific testing guidance
 - <a href="https://www.section508.gov/test/" target="_blank" rel="noopener noreferrer">Section 508 Testing Resources</a> — Federal testing guidance
 
-**Key takeaway:** Third-party tools don't exempt you from accessibility requirements. Verify platform accessibility, ensure your content is accessible, test real workflows, and always have an accessible alternative ready.
+**Key takeaway:** Third-party tools don't exempt you from accessibility requirements. Verify platform accessibility, ensure your content is accessible, test real workflows, and keep an accessible alternative ready.
 
 ### What contract language should I use?
 
@@ -4137,7 +4137,7 @@ Illinois DoIT recommends including language similar to:
 - Vague or missing explanations
 - No commitment to remediation
 
-**The bottom line:** Always request a current VPAT/ACR before purchasing technology. It won't guarantee accessibility, but it's your first line of defense against buying inaccessible tools.
+**The bottom line:** Request a current VPAT/ACR before purchasing technology. It won't guarantee accessibility, but it's your first line of defense against buying inaccessible tools.
 
 **References:**
 
@@ -4206,7 +4206,7 @@ Illinois DoIT recommends including language similar to:
 
 **Why IITAA matters even if you think you're "covered" by ADA Title II:**
 
-Managers often hear "ADA Title II web rule" and assume that's the entire universe of rules they need to worry about. **It is not.** Illinois has had its own digital-accessibility statute on the books since 2008 — long before the federal rule existed — and that statute applies to your agency *independently* of the federal rule. The DoIT site is unambiguous about this:
+Managers often hear "ADA Title II web rule" and assume that's the entire universe of rules they need to worry about. It isn't the whole picture. Illinois has had its own digital-accessibility statute on the books since 2008 — long before the federal rule existed — and that statute applies to your agency *independently* of the federal rule. The DoIT site is unambiguous about this:
 
 > "While the Americans with Disabilities Act and Section 504 of the Rehabilitation Act already require the State to ensure its communications and services are accessible, the IITAA establishes specific technical standards and encourages the State to address accessibility proactively."
 >
@@ -4217,7 +4217,7 @@ In practical terms, that means:
 - **Two laws apply at once.** ADA Title II (federal) and IITAA (state) both apply to Illinois state agencies. They share the same technical standard (WCAG 2.1 Level AA) but have **separate enforcement paths** — DOJ for ADA Title II; DoIT plus state procurement and governance controls for IITAA. Doing one well doesn't get you a pass on the other.
 - **IITAA is broader than the federal web rule in scope.** The federal rule is specifically about web content and mobile apps. IITAA covers all "information and communication technology" — websites, electronic documents, software, computers and peripherals, information kiosks, multifunction office machines, telecommunications equipment. A remediator focused only on web/PDF leaves a chunk of your IITAA exposure untouched.
 - **IITAA has been in force since 2008.** The IITAA 2.1 Standards (effective June 24, 2024) require WCAG 2.1 AA — but the underlying obligation predates the federal rule by 16 years. "We'll get to it by April 2027" is a federal-deadline answer, not an IITAA answer; under IITAA, the duty is already in effect today.
-- **Procurement language is state-mandated, not optional.** DoIT's recommended IITAA contract language (quoted below) is what state agencies are expected to use. A remediator's contract that omits the IITAA reference is not a complete IITAA-compliant procurement document.
+- **DoIT expects state agencies to use its recommended procurement language.** DoIT's recommended IITAA contract language (quoted below) is what state agencies are expected to use. A remediator's contract that omits the IITAA reference is not a complete IITAA-compliant procurement document.
 - **Both laws point at the agency, not the vendor.** Hiring a remediator doesn't give you a "we paid someone to handle it" answer under either one. In both rules, your agency is the entity being asked to comply.
 
 If a manager only reads one quote on this point, this is the one:
@@ -4230,7 +4230,7 @@ The duty is on the **agency**, not its vendors, and the verb is **"ensure"** —
 
 **What the rules actually say (verbatim, with sources):**
 
-If a manager is going to push back on this guidance, the only thing that ends the argument is the actual regulatory text. Each block below is a verbatim quote linked to its primary source.
+If a manager is going to push back on this guidance, the regulatory text itself is the most persuasive answer. Each block below is a verbatim quote linked to its primary source.
 
 **ADA Title II — 28 CFR § 35.200(a) "General":**
 
@@ -4252,7 +4252,7 @@ Read the subject and verb: the rule is talking to **"a public entity"** — your
 
 — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-B/section-35.130" target="_blank" rel="noopener noreferrer">28 CFR § 35.130(b)(1) (eCFR)</a>
 
-This provision predates the web rule by 33 years and says the same thing in plainer terms: a public entity may not discriminate **"directly or through contractual, licensing, or other arrangements."** Hiring a remediation firm is a contractual arrangement — it sits squarely inside § 35.130(b)(1), not around it. The companion provision, § 35.130(b)(3), applies the same rule to "methods of administration."
+This provision predates the web rule by 33 years and says the same thing in plainer terms: a public entity may not discriminate **"directly or through contractual, licensing, or other arrangements."** Hiring a remediation firm is a contractual arrangement — it sits squarely inside § 35.130(b)(1), not around it. Its neighbor, § 35.130(b)(3), applies the same rule to "methods of administration."
 
 **Illinois IITAA — agency duty:**
 
@@ -4329,7 +4329,7 @@ If you are bringing in a remediator, write the contract so the work compounds in
 
 **What changes for individual authors:**
 
-- **Less ambiguity, not less work.** A good remediator will give you concrete templates and patterns. Use them. The expectation is that **new** content goes out accessible — the remediator is not signing up to babysit your output.
+- **Less ambiguity, not less work.** A good remediator will give you concrete templates and patterns. Use them. The expectation is that **new** content goes out accessible — the remediator isn't signing up to check every new piece you publish.
 - **Faster review cycles.** When the remediator finds a recurring issue (every Word export missing language metadata, every image lacking alt text), that is a workflow problem the author needs to fix at the source, not a one-off the consultant should keep patching.
 - **Better tools, same duty.** Authors should expect training, checklists, and style guides as part of the engagement — and should ask for them if they're not offered.
 
@@ -4355,13 +4355,13 @@ A remediation firm is leverage, not a substitute. The agency is the entity named
 
 {updated:2026-05-14}
 
-**Quick answer:** No. A remediation vendor can do the _work_, but it cannot become the entity that is _responsible_ for the result. Both the ADA Title II web rule and the IITAA put the duty on the **public entity** — your agency — in language that specifically reaches work done "through contractual, licensing, or other arrangements." A contract can shift **cost** (through indemnification); it cannot shift **liability**. When DOJ investigates or a member of the public files a complaint, it is the agency's name on the matter, not the vendor's.
+**Quick answer:** No. A remediation vendor can do the _work_, but it cannot become the entity that is _responsible_ for the result. Both the ADA Title II web rule and the IITAA put the duty on the **public entity** — your agency — in language that specifically reaches work done "through contractual, licensing, or other arrangements." A contract can shift **cost** (through indemnification), but the **liability** stays with the agency. When DOJ investigates or a member of the public files a complaint, it is the agency's name on the matter, not the vendor's.
 
 **Full explanation:**
 
 This usually shows up as some version of: _"We're paying a firm to handle remediation — doesn't that move the risk to them?"_ It's a reasonable instinct, and it's how risk works in a lot of procurement. It is not how it works here.
 
-**1. The duty is non-delegable — that is written into the rules themselves.**
+**1. The duty stays with the agency — the rules themselves say so.**
 
 Both rules were drafted with outsourcing in mind, and both close the door on it.
 
@@ -4417,7 +4417,7 @@ Plenty — just not as a shield. The useful question is not _"are we shielded?"_
 
 - **Documented remediation progress** — a real inventory, a prioritized backlog, dated fixes. See [How can I track and demonstrate "good-faith progress" toward compliance?](#getting-started-how-can-i-track-and-demonstrate-good-faith-progress-toward-compliance).
 - **Stopping the bleeding** — trained authors so new content is born accessible and the backlog stops refilling.
-- **A designated ADA coordinator and a published grievance procedure** — not optional: <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107</a> requires both for public entities with 50 or more employees.
+- **A designated ADA coordinator and a published grievance procedure** — <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107</a> requires both for public entities with 50 or more employees.
 - **An effective-communication process** — a fast path to provide accessible alternatives on request (28 CFR § 35.160).
 
 **Bottom line:** A remediator is **leverage, not liability transfer.** Use one to clear legacy content faster and to build the evidence file — but the agency is the entity named in both rules, and it stays the entity named in both rules no matter what the contract says. Write the contract to make your compliance posture _stronger_; do not write it expecting it to make the duty _someone else's_.
@@ -4464,7 +4464,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 **Website audit reports:**
 
-Website audit reports for existing public websites will be posted on an ongoing basis as they become available. Remediation is challenging and time-consuming, so reports will be posted as soon as they're ready. Web developers are working as fast and as efficiently as possible to audit and remediate all of ICJIA's sites. Check back periodically for updates.
+Remediation is challenging and time-consuming, so reports for the remaining sites will be posted as soon as they're ready. Check back periodically for updates.
 
 **Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
 
@@ -4475,17 +4475,17 @@ Website audit reports for existing public websites will be posted on an ongoing 
 
 **Important limitations:**
 
-- **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They do NOT cover PDFs, Word documents, Excel files, or other content files.
+- **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They don't cover PDFs, Word documents, Excel files, or other content files.
 - **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
-- **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still required for full compliance.
+- **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still needed to confirm full compliance.
 
 ### How do we handle accessibility complaints?
 
 {updated:2026-05-14}
 
-**Quick answer:** A formal complaint handling procedure has not yet been established at ICJIA. The guidance below is provisional and will be updated once the process is finalized.
+**Quick answer:** ICJIA hasn't yet finalized a formal complaint-handling procedure. The guidance below is provisional and will be updated once the process is finalized.
 
-**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Finalizing this procedure is not optional for ICJIA; doing so closes a real compliance gap.
+**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Because § 35.107(b) applies to ICJIA, finalizing this procedure closes a real compliance gap.
 
 **Provisional guidance:**
 

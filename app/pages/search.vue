@@ -10,7 +10,7 @@
               <span>Search FAQs</span>
             </h1>
             <p class="text-subtitle-1 text-medium-emphasis">
-              Search ICJIA accessibility FAQs for WCAG compliance, remediation deadlines, and state agency requirements.
+              Search ICJIA accessibility FAQs for WCAG compliance, the compliance deadline, and state agency requirements.
             </p>
           </div>
 
@@ -19,7 +19,7 @@
             <v-text-field
               v-model="searchQuery"
               ref="searchInputRef"
-              label="Search FAQs..."
+              label="Search FAQs"
               :prepend-inner-icon="mdiMagnify"
               variant="outlined"
               clearable
@@ -98,7 +98,7 @@
               <v-icon size="64" color="grey-lighten-1" class="mb-4" :icon="mdiFileSearchOutline" />
               <h2 class="text-h6 text-medium-emphasis mb-2">No results found</h2>
               <p class="text-body-2 text-medium-emphasis">
-                Try different keywords or check your spelling.
+                Try different or broader keywords.
               </p>
             </div>
           </div>

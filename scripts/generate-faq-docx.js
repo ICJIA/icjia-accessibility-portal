@@ -550,7 +550,7 @@ async function main() {
           size: 22,
         }),
         new TextRun({
-          text: ". While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA guidelines into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.",
+          text: ". While ICJIA web developers have years of experience with accessibility work, creating comprehensive FAQs about accessibility compliance is new to ICJIA IT staff due to recent compliance requirements. This represents our best effort to translate the new ADA requirements into practical guidance, and we recognize that we may make mistakes as we navigate this new territory. We welcome feedback and corrections.",
           size: 22,
         }),
       ],
@@ -568,7 +568,7 @@ async function main() {
           size: 22,
         }),
         new TextRun({
-          text: "please immediately contact ICJIA's IDS Unit",
+          text: "please contact ICJIA's IDS Unit",
           bold: true,
           size: 22,
         }),

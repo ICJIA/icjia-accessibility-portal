@@ -16,8 +16,8 @@
 
       <v-card-text class="download-dialog-content">
         <p class="download-dialog-description">
-          Choose your preferred accessible format. All formats are fully
-          accessible and maintain the document structure.
+          Choose your preferred accessible format. Each format is accessible
+          and keeps the document's structure intact.
         </p>
 
         <div class="download-options" role="list">
@@ -69,7 +69,7 @@
               </span>
               <span class="download-option-llm">
                 <v-icon size="14" color="info" aria-hidden="true" :icon="mdiRobot" />
-                Great for AI: Perfect for pasting into ChatGPT, Claude, or other LLMs
+                Great for AI: works well pasted into ChatGPT, Claude, or other AI tools
               </span>
             </div>
             <v-icon class="download-option-arrow" aria-hidden="true" :icon="mdiChevronRight" />
@@ -90,7 +90,7 @@
               <span class="download-option-title">Markdown (.md)</span>
               <span class="download-option-description">
                 Plain text with formatting syntax. Opens in any text editor, 
-                or renders beautifully in VS Code, GitHub, Obsidian, or Typora.
+                or renders with full formatting in VS Code, GitHub, Obsidian, or Typora.
               </span>
               <span class="download-option-accessibility">
                 <v-icon size="14" color="success" aria-hidden="true" :icon="mdiCheckCircle" />
@@ -98,7 +98,7 @@
               </span>
               <span class="download-option-llm">
                 <v-icon size="14" color="info" aria-hidden="true" :icon="mdiRobot" />
-                Great for AI: Ideal for pasting into ChatGPT, Claude, or other LLMs
+                Great for AI: works well pasted into ChatGPT, Claude, or other AI tools
               </span>
             </div>
             <v-icon class="download-option-arrow" aria-hidden="true" :icon="mdiChevronRight" />
@@ -115,13 +115,13 @@
             <p>
               <strong>Markdown</strong> is a simple text format that uses symbols like <code>#</code> for headings, 
               <code>**bold**</code> for bold text, and <code>[links](url)</code> for hyperlinks. It's readable 
-              as plain text but renders beautifully in compatible viewers.
+              as plain text but renders with full formatting in compatible viewers.
             </p>
             
             <div class="icjia-viewer-highlight">
               <p class="section-heading"><strong>⭐ ICJIA Markdown Viewer (Recommended):</strong></p>
               <p>
-                ICJIA provides an excellent online Markdown viewer and editor that makes viewing 
+                ICJIA's online Markdown viewer and editor makes viewing 
                 <code>.md</code> files easy — no software installation required:
               </p>
               <ul>
@@ -197,16 +197,15 @@
 
       <v-card-actions class="download-dialog-actions">
         <v-spacer />
-        <a
-          href="javascript:void(0)"
-          @click.prevent="close"
+        <button
+          type="button"
+          @click="close"
           class="cancel-link"
-          role="button"
           aria-label="Cancel and close download dialog"
-          style="color: rgb(var(--v-theme-on-surface)) !important; text-decoration: underline; font-weight: 700; font-size: 1rem; padding: 12px 16px; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; line-height: 1.5; box-sizing: border-box;"
+          style="background: transparent; border: none; cursor: pointer; font-family: inherit; color: rgb(var(--v-theme-on-surface)) !important; text-decoration: underline; font-weight: 700; font-size: 1rem; padding: 12px 16px; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; line-height: 1.5; box-sizing: border-box;"
         >
           Cancel
-        </a>
+        </button>
       </v-card-actions>
     </v-card>
   </v-dialog>

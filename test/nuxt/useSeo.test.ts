@@ -20,7 +20,7 @@ describe('useSeo', () => {
       title: 'FAQs - Accessibility'
     })
     
-    expect(result.title).toBe('FAQs - Accessibility | ICJIA Accessibility Portal')
+    expect(result.title).toBe('FAQs - Accessibility | ICJIA Accessibility')
   })
 
   it('should set custom description', () => {
@@ -140,7 +140,7 @@ describe('useSeo', () => {
       modifiedTime: '2026-01-02T00:00:00Z'
     })
     
-    expect(result.title).toBe('Test Page | ICJIA Accessibility Portal')
+    expect(result.title).toBe('Test Page | ICJIA Accessibility')
     expect(result.description).toBe('Test description')
     expect(result.url).toBe('https://accessibility.icjia.app/test')
     expect(result.image).toBe('https://accessibility.icjia.app/test-image.png')

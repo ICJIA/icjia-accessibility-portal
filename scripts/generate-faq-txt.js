@@ -154,6 +154,9 @@ Accessibility Portal: https://accessibility.icjia.app
 For questions about this document, contact your agency's accessibility
 coordinator or Illinois DoIT: DoIT.Accessibility@Illinois.gov
 
+This FAQ offers general guidance, not legal advice. For legal questions,
+talk with your agency's legal counsel or Illinois DoIT.
+
 ${"=".repeat(70)}
 `;
 

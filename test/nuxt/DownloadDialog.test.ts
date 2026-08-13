@@ -186,8 +186,9 @@ describe('DownloadDialog', () => {
 
     it('should have cancel button with aria-label', () => {
       const wrapper = mountComponent()
-      const cancelBtn = wrapper.find('button.v-btn')
+      const cancelBtn = wrapper.find('button.cancel-link')
       expect(cancelBtn.exists()).toBe(true)
+      expect(cancelBtn.attributes('aria-label')).toBe('Cancel and close download dialog')
     })
   })
 
@@ -195,7 +196,7 @@ describe('DownloadDialog', () => {
     it('should emit update:modelValue when cancel is clicked', async () => {
       const wrapper = mountComponent()
       
-      const cancelBtn = wrapper.find('button.v-btn')
+      const cancelBtn = wrapper.find('button.cancel-link')
       await cancelBtn.trigger('click')
       
       expect(wrapper.emitted('update:modelValue')).toBeTruthy()
@@ -247,8 +248,8 @@ describe('DownloadDialog', () => {
 
     it('should indicate Plain Text is good for LLM input', () => {
       const wrapper = mountComponent()
-      expect(wrapper.text()).toContain('Perfect for pasting')
-      expect(wrapper.text()).toContain('LLM')
+      expect(wrapper.text()).toContain('works well pasted')
+      expect(wrapper.text()).toContain('AI')
     })
 
     it('should explain how to use with AI assistants', () => {

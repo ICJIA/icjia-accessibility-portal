@@ -17,7 +17,7 @@
             Digital Accessibility FAQ for the Illinois Criminal Justice Information Authority
           </h1>
           <p class="print-subtitle">
-            A comprehensive guide to digital accessibility compliance for ICJIA.
+            A practical guide to digital accessibility compliance for ICJIA.
           </p>
           <p class="print-date">
             <strong>Last Updated:</strong> {{ lastUpdated }}

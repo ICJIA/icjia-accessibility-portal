@@ -30,7 +30,7 @@ describe("usePrintLinks", () => {
           return { processPrintLinks };
         },
         template:
-          '<div class="print-answer"><a href="https://example.com">Example Link</a></div>',
+          '<div class="print-container"><div class="print-answer"><a href="https://example.com">Example Link</a></div></div>',
       });
 
       const wrapper = mount(TestComponent, {
@@ -58,7 +58,7 @@ describe("usePrintLinks", () => {
           return { processPrintLinks };
         },
         template:
-          '<div class="print-answer"><a href="https://example.com"></a></div>',
+          '<div class="print-container"><div class="print-answer"><a href="https://example.com"></a></div></div>',
       });
 
       const wrapper = mount(TestComponent, {
@@ -84,7 +84,7 @@ describe("usePrintLinks", () => {
           return { processPrintLinks };
         },
         template:
-          '<div class="print-answer"><a href="#section-1">Go to Section 1</a></div>',
+          '<div class="print-container"><div class="print-answer"><a href="#section-1">Go to Section 1</a></div></div>',
       });
 
       const wrapper = mount(TestComponent, {
@@ -93,10 +93,12 @@ describe("usePrintLinks", () => {
 
       await new Promise((resolve) => setTimeout(resolve, 600));
 
-      const link = wrapper.find("a");
-      expect(link.classes()).toContain("print-internal-link");
-      // Internal links should have href removed
-      expect(link.attributes("href")).toBeUndefined();
+      // The composable replaces internal anchors with a non-interactive bold span
+      const span = wrapper.find("span.print-internal-link");
+      expect(span.exists()).toBe(true);
+      expect(span.text()).toContain("Go to Section 1");
+      // The original anchor should be gone entirely
+      expect(wrapper.find("a").exists()).toBe(false);
 
       wrapper.unmount();
     });

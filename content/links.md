@@ -148,10 +148,10 @@ A curated collection of links for website and content accessibility compliance, 
 
 **Important Canva Limitations:**
 
-- Canva PDFs are not fully PDF/UA or WCAG compliant
+- Canva-exported PDFs usually aren't fully PDF/UA or WCAG compliant on their own
 - Automatic tagging works best on simple designs
 - Complex designs require manual remediation in Adobe Acrobat Pro
-- Always verify exported PDFs with PAC or Adobe accessibility checker
+- Verify exported PDFs with PAC or Adobe's accessibility checker before publishing
 
 ### Other Design Tools
 

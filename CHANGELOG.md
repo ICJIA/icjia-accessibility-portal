@@ -6,6 +6,34 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.1] - 2026-08-13
+
+### Fixed — all 7 long-standing test failures (suite now 234/234)
+
+Each failure was diagnosed to intent rather than blindly appeased:
+
+- **useSeo (2)** — tests expected the title suffix "| ICJIA Accessibility Portal"; the composable deliberately uses the shorter "| ICJIA Accessibility" (documented ≤60-char SEO constraint, from the earlier "SEO fixes" commit). Tests updated to the intended behavior.
+- **DownloadDialog (2)** — tests targeted a `v-btn` cancel button that had been replaced with an `<a href="javascript:void(0)" role="button">` link. That markup was itself an accessibility wart (announces as a button but doesn't activate on Space), so the control is now a real `<button type="button">` with identical styling, and the tests target it — one now also asserts the aria-label it was named for.
+- **usePrintLinks (3)** — tests mounted content outside `.print-container`, the scope the composable (correctly) restricts itself to, and asserted pre-conversion behavior. Tests now mirror the real print-page DOM and assert the actual contract: internal anchors become non-interactive `span.print-internal-link` elements.
+
+### Changed — full-app tone pass (colleague voice: professional, accurate, not lawyerly, not absolute)
+
+Reviewed every FAQ answer and every user-facing UI string against the owner's voice target; applied ~160 phrase-level edits across `content/faqs.md`, `content/links.md`, and 8 app/script files. Verbatim regulation quotes, citations, dates, and legal meaning untouched throughout — hard requirements stay hard, but are now attributed to the rule ("§ 35.107 requires…") instead of commanded by the FAQ ("you must… not optional").
+
+- **De-absolutized:** removed "No. This is wrong.", "⚠️ CRITICAL"/"This is critical:" alarms, "not optional" (×4), "you cannot refuse", "Never edit", "full stop", "It is not.", the "no downsides/no tradeoff/no ambiguity" overclaim cluster, ~10 "Always …" commands on practice advice, and shouting caps (ALL FOUR, NOT, YES/NO table cells → sentence case).
+- **De-lawyered:** "codified at" → "lives at", "companion provision" → "its neighbor", "non-delegable" → "stays with the agency", "immunity period" → "grace period", "exposure" → plain phrasing, "private right of action" sentence rewritten in plain language, "is excepted/opposite of excepted" → plain, section-symbol stacks spelled out ("Section 5 … Section 10 …"), "defensible/risk posture/fact-specific/attaches/operative/scheme" all translated; softened "authoritative legal analysis" for the OSU commentary per the sourcing-pillars rule.
+- **Warmed and tightened:** scolding recasts removed ("Directing staff to ignore…" → "Putting accessibility on hold…", "babysit your output" → "check every new piece you publish", "most managers haven't thought through" → "easy to overlook"), duplicate sentences cut, passive institutional voice made active.
+- **UI copy:** post-deadline countdown message no longer barks "Immediate action is required"; download dialog drops superlatives ("Perfect/Ideal/excellent/beautifully") and its absolute "fully accessible" claim; error page now says "Something Went Wrong" for non-404s (was "500 - Page Not Found") with a friendlier message; search page copy no longer tells users to check their spelling while advertising typo-tolerant search; deadline label standardized to "ADA Title II Compliance Deadline" across countdown and homepage; TXT download gains the not-legal-advice line its sibling formats already carried; DOCX/MD download headers synced with the softened frontmatter disclaimer and "ADA guidelines" corrected to "ADA requirements".
+
+Editorial-only pass: no facts changed, so individual Q&As were not re-tagged `{updated:}` (displayed dates already read August 13, 2026).
+
+### Verification
+
+- Test suite: **234/234 passing** (one dialog test updated where it asserted the old marketing copy).
+- axe-core AA: `/` and `/faqs` — 0 violations; 404 page verified in-browser (heading, friendlier message, correct title).
+
+---
+
 ## [1.3.0] - 2026-08-13
 
 ### Refactor — homepage and /faqs now share one FAQ component (parity by construction)
