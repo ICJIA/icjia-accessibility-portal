@@ -77,27 +77,36 @@
               "Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements."
             }}
           </p>
-          <p
+          <div
             v-if="lastUpdatedLabel || lastReviewedLabel"
-            class="text-caption text-medium-emphasis mb-6"
+            class="review-status"
+            role="note"
           >
-            <span v-if="lastUpdatedLabel">
-              <strong>Last updated:</strong> {{ lastUpdatedLabel }}
-            </span>
-            <span
-              v-if="lastUpdatedLabel && lastReviewedLabel"
+            <v-icon
+              class="review-status-icon"
+              size="20"
               aria-hidden="true"
-            >
-              ·
-            </span>
-            <span v-if="lastReviewedLabel">
-              <strong>Last reviewed:</strong> {{ lastReviewedLabel }}
-            </span>
-            <span v-if="lastReviewedLabel" class="d-block mt-1">
-              These FAQs are reviewed periodically to keep them current and
-              accurate.
-            </span>
-          </p>
+              :icon="mdiCalendarCheck"
+            />
+            <div>
+              <span v-if="lastReviewedLabel">
+                <strong>Last reviewed:</strong> {{ lastReviewedLabel }}
+              </span>
+              <span
+                v-if="lastUpdatedLabel && lastReviewedLabel"
+                aria-hidden="true"
+              >
+                ·
+              </span>
+              <span v-if="lastUpdatedLabel">
+                <strong>Last updated:</strong> {{ lastUpdatedLabel }}
+              </span>
+              <span class="review-status-note">
+                These FAQs are re-verified periodically against official
+                sources.
+              </span>
+            </div>
+          </div>
 
           <div v-if="faqSections.length > 0 || introContent">
             <!-- Render intro content -->
@@ -144,7 +153,11 @@
  */
 
 import { computed, watchEffect, ref } from "vue";
-import { mdiInformation, mdiFrequentlyAskedQuestions } from '~/utils/icons'
+import {
+  mdiInformation,
+  mdiFrequentlyAskedQuestions,
+  mdiCalendarCheck,
+} from '~/utils/icons'
 import {
   wrapTablesForResponsiveScroll,
   wrapSeeAlsoLinks,
@@ -586,6 +599,33 @@ useBreadcrumbStructuredData([
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Review-status strip: prominent "Last reviewed / Last updated" panel.
+   Mirrors .faq-section-heading's audited surface-variant + primary-border pattern. */
+.review-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgb(var(--v-theme-on-surface));
+  background: rgb(var(--v-theme-surface-variant));
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  border-radius: 0 8px 8px 0;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-status-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.review-status-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
 }
 
 /* Intro content styling */

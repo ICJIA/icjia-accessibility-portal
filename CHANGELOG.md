@@ -6,6 +6,21 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.14] - 2026-08-13
+
+### Improve — "Last reviewed" promoted to a visible review-status panel
+
+The v1.2.11 "Last reviewed / Last updated" line rendered as caption-size, medium-emphasis text under the page description — technically present, practically invisible (user testing on prod: it went unnoticed). It is now a proper review-status strip on `/faqs`: calendar-check icon, normal-size text ("**Last reviewed:** … · **Last updated:** …"), and the note "These FAQs are re-verified periodically against official sources," styled on the same audited surface-variant + primary-left-border pattern as the section headings. `role="note"` for assistive tech; icon `aria-hidden`.
+
+Also added a "Reviewed:" date to the home page's Created/Updated caption line (new `lastReviewed` constant in `index.vue`, alongside the countdown-date constants that get refreshed each release).
+
+### Verification
+
+- Local axe AA audit with the new panel: **0 violations**; test suite unchanged (227 passing, 7 pre-existing failures).
+- Production re-verified via a fresh isolated browser session: "Latest first" leads with all 8 "★ New" chips (#1d4ed8) followed by the 18 "Updated on 08/13/2026" chips — confirming v1.2.12/v1.2.13 behavior is live and earlier "missing chips" reports trace to browser-cached assets.
+
+---
+
 ## [1.2.13] - 2026-08-13
 
 ### Improve — star prefix on the NEW chip (color-independent cue)

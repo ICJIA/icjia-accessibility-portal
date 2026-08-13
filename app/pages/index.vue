@@ -98,6 +98,11 @@
                 <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiUpdate" />
                 Updated: {{ lastUpdated }}
               </span>
+              <span class="date-separator" aria-hidden="true">•</span>
+              <span class="date-item">
+                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiCalendarCheck" />
+                Reviewed: {{ lastReviewed }}
+              </span>
             </p>
           </div>
         </v-card>
@@ -202,7 +207,7 @@
  */
 
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { mdiOpenInNew, mdiCreation, mdiUpdate, mdiInformation, mdiFrequentlyAskedQuestions } from "~/utils/icons";
+import { mdiOpenInNew, mdiCreation, mdiUpdate, mdiCalendarCheck, mdiInformation, mdiFrequentlyAskedQuestions } from "~/utils/icons";
 import {
   transformFaqsToAccordionData,
   extractTaggedDate,
@@ -226,6 +231,9 @@ const siteCreated = "December 15, 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
 const lastUpdated = "August 13, 2026";
+
+/** @type {string} Last full review date - update when the FAQ is re-verified against official sources */
+const lastReviewed = "August 13, 2026";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =

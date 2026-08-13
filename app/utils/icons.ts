@@ -7,6 +7,7 @@
  */
 
 import {
+  mdiCalendarCheck as _mdiCalendarCheck,
   mdiCheckCircle as _mdiCheckCircle,
   mdiChevronDown as _mdiChevronDown,
   mdiChevronRight as _mdiChevronRight,
@@ -39,6 +40,7 @@ import {
 /** Prefix raw SVG paths with 'svg:' for Vuetify's mdi-svg icon set */
 const svg = (path: string) => `svg:${path}`
 
+export const mdiCalendarCheck = svg(_mdiCalendarCheck)
 export const mdiCheckCircle = svg(_mdiCheckCircle)
 export const mdiChevronDown = svg(_mdiChevronDown)
 export const mdiChevronRight = svg(_mdiChevronRight)
