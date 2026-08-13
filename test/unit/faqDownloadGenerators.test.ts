@@ -43,6 +43,10 @@ Accessibility means making content usable by everyone, including people with dis
 
 What is WCAG?
 
+### Question 3 {new:2026-02-01}
+
+What is a brand-new question?
+
 WCAG stands for [Web Content Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/).
 
 ## Section Two
@@ -144,8 +148,9 @@ describe('FAQ Download Generators', () => {
     it('should handle {updated:} tags appropriately', async () => {
       const content = await readFile(outputPath, 'utf-8')
       
-      // Should either remove or convert {updated:} tags
+      // Should either remove or convert {updated:}/{new:} tags
       expect(content).not.toContain('{updated:2026-01-01}')
+      expect(content).not.toContain('{new:2026-02-01}')
     })
 
     it('should be readable as plain ASCII text', async () => {
@@ -221,10 +226,12 @@ describe('FAQ Download Generators', () => {
     it('should convert {updated:} tags to visible badges', async () => {
       const content = await readFile(outputPath, 'utf-8')
 
-      // Should not contain raw {updated:} tags
+      // Should not contain raw {updated:}/{new:} tags
       expect(content).not.toContain('{updated:2026-01-01}')
-      // Should contain converted badge
+      expect(content).not.toContain('{new:2026-02-01}')
+      // Should contain converted badges
       expect(content).toContain('🔄')
+      expect(content).toContain('🆕')
     })
 
     it('should include footer with document info', async () => {

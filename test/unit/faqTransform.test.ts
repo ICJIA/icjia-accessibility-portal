@@ -3,6 +3,7 @@ import {
   isWithinNewWindow,
   extractNewDate,
   extractTaggedDate,
+  extractTaggedInfo,
   filterNewComments,
   wrapFaqQuestionsIntoCards,
   transformFaqsToAccordionData,
@@ -39,10 +40,10 @@ describe('faqTransform', () => {
 
     it('should return false for dates outside the new window', () => {
       const today = new Date()
-      const fifteenDaysAgo = new Date(today)
-      fifteenDaysAgo.setDate(today.getDate() - 15)
-      const dateStr = getDateString(fifteenDaysAgo)
-      
+      const twentyFiveDaysAgo = new Date(today)
+      twentyFiveDaysAgo.setDate(today.getDate() - 25)
+      const dateStr = getDateString(twentyFiveDaysAgo)
+
       expect(isWithinNewWindow(dateStr)).toBe(false)
     })
 
@@ -51,38 +52,33 @@ describe('faqTransform', () => {
       expect(isWithinNewWindow(today)).toBe(true)
     })
 
-    it('should return true for dates exactly 10 days ago', () => {
+    it('should return true for dates near the end of the 21-day window', () => {
       const today = new Date()
-      const tenDaysAgo = new Date(today)
-      tenDaysAgo.setDate(today.getDate() - 10)
-      tenDaysAgo.setHours(0, 0, 0, 0) // Set to start of day to avoid time issues
-      const dateStr = getDateString(tenDaysAgo)
-      
-      // The function uses <= so 10 days should be true, but account for time differences
-      // Use a date that's definitely within the window (9 days ago)
-      const nineDaysAgo = new Date(today)
-      nineDaysAgo.setDate(today.getDate() - 9)
-      nineDaysAgo.setHours(0, 0, 0, 0)
-      const nineDaysStr = getDateString(nineDaysAgo)
-      expect(isWithinNewWindow(nineDaysStr)).toBe(true)
+      // The function uses <= so 21 days should be true, but account for time differences
+      // Use a date that's definitely within the window (20 days ago)
+      const twentyDaysAgo = new Date(today)
+      twentyDaysAgo.setDate(today.getDate() - 20)
+      twentyDaysAgo.setHours(0, 0, 0, 0)
+      const twentyDaysStr = getDateString(twentyDaysAgo)
+      expect(isWithinNewWindow(twentyDaysStr)).toBe(true)
     })
 
     it('should handle date comparisons consistently in Chicago timezone context', () => {
       // This test verifies that date strings (YYYY-MM-DD) are compared
       // correctly regardless of the local timezone where tests run.
-      // The "new" window is 10 days from today.
-      
+      // The badge window is 21 days from today.
+
       const today = new Date()
-      
+
       // 5 days ago should definitely be within window
       const fiveDaysAgo = new Date(today)
       fiveDaysAgo.setDate(today.getDate() - 5)
       expect(isWithinNewWindow(getDateString(fiveDaysAgo))).toBe(true)
-      
-      // 20 days ago should definitely be outside window
-      const twentyDaysAgo = new Date(today)
-      twentyDaysAgo.setDate(today.getDate() - 20)
-      expect(isWithinNewWindow(getDateString(twentyDaysAgo))).toBe(false)
+
+      // 30 days ago should definitely be outside window
+      const thirtyDaysAgo = new Date(today)
+      thirtyDaysAgo.setDate(today.getDate() - 30)
+      expect(isWithinNewWindow(getDateString(thirtyDaysAgo))).toBe(false)
     })
   })
 
@@ -150,10 +146,48 @@ describe('faqTransform', () => {
       expect(result).toBe(oldDate)
     })
 
+    it('should extract date from a {new:} tag', () => {
+      const nodes = [
+        ['p', {}, '{new:2026-08-13}'],
+        ['p', {}, 'Answer text']
+      ]
+      const result = extractTaggedDate(nodes as any)
+      expect(result).toBe('2026-08-13')
+    })
+
     it('should return null if no tag is present', () => {
       const nodes = [['p', {}, 'No tag here']]
       const result = extractTaggedDate(nodes as any)
       expect(result).toBeNull()
+    })
+  })
+
+  describe('extractTaggedInfo', () => {
+    it('should return kind "updated" for {updated:} tags', () => {
+      const nodes = [['p', {}, '{updated:2026-08-13}']]
+      const result = extractTaggedInfo(nodes as any)
+      expect(result).toEqual({ date: '2026-08-13', kind: 'updated' })
+    })
+
+    it('should return kind "new" for {new:} tags', () => {
+      const nodes = [['p', {}, '{new:2026-08-13}']]
+      const result = extractTaggedInfo(nodes as any)
+      expect(result).toEqual({ date: '2026-08-13', kind: 'new' })
+    })
+
+    it('should support the HTML comment format for both kinds', () => {
+      expect(extractTaggedInfo(['<!-- new:2026-08-13 -->'] as any)).toEqual({
+        date: '2026-08-13',
+        kind: 'new'
+      })
+      expect(extractTaggedInfo(['<!-- updated:2026-08-13 -->'] as any)).toEqual({
+        date: '2026-08-13',
+        kind: 'updated'
+      })
+    })
+
+    it('should return null if no tag is present', () => {
+      expect(extractTaggedInfo([['p', {}, 'No tag here']] as any)).toBeNull()
     })
   })
 
@@ -163,7 +197,18 @@ describe('faqTransform', () => {
         ['p', {}, '{updated:2026-01-01}'],
         ['p', {}, 'Answer text']
       ]
-      
+
+      const result = filterNewComments(nodes)
+      expect(result).toHaveLength(1)
+      expect(result[0]).toEqual(['p', {}, 'Answer text'])
+    })
+
+    it('should remove {new:} tags from nodes', () => {
+      const nodes = [
+        ['p', {}, '{new:2026-08-13}'],
+        ['p', {}, 'Answer text']
+      ]
+
       const result = filterNewComments(nodes)
       expect(result).toHaveLength(1)
       expect(result[0]).toEqual(['p', {}, 'Answer text'])

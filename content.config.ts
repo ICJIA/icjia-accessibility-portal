@@ -44,6 +44,7 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string().optional(),
         lastUpdated: z.string().optional(),
+        lastReviewed: z.string().optional(),
         disclaimer: z.array(z.object({
           label: z.string(),
           text: z.string(),

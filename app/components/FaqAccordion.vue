@@ -23,8 +23,14 @@
           <span
             v-if="item.isNew"
             class="new-badge"
+            :class="{ 'new-badge--new': item.badgeKind === 'new' }"
           >
-            Updated{{ item.newDate ? ` (${formatDate(item.newDate)})` : '' }}
+            <template v-if="item.badgeKind === 'new'">New</template>
+            <template v-else
+              >Updated on{{
+                item.newDate ? ` ${formatDate(item.newDate)}` : ""
+              }}</template
+            >
           </span>
           <span class="faq-question-text">{{ item.question }}</span>
         </div>
@@ -70,8 +76,9 @@ import { mdiChevronDown } from '~/utils/icons'
  * @typedef {Object} FaqItem
  * @property {string} question - FAQ question text
  * @property {MiniMarkNode[]} answer - FAQ answer content as markdown nodes
- * @property {boolean} [isNew] - Whether this FAQ was recently added (within 7 days)
- * @property {string} [newDate] - Date the FAQ was added (YYYY-MM-DD format)
+ * @property {boolean} [isNew] - Whether this FAQ should display a chip (within 21 days of its tag date)
+ * @property {string} [newDate] - Date from the FAQ's {new:}/{updated:} tag (YYYY-MM-DD format)
+ * @property {('new'|'updated')} [badgeKind] - Chip kind: "new" (New chip) or "updated" (Updated-on chip)
  */
 type MiniMarkNode = any;
 
@@ -80,6 +87,7 @@ interface FaqItem {
   answer: MiniMarkNode[];
   isNew?: boolean;
   newDate?: string;
+  badgeKind?: "new" | "updated";
 }
 
 /**
@@ -508,9 +516,9 @@ onUnmounted(() => {
 });
 
 /**
- * Format date for display in NEW badge
+ * Format date for display in the Updated-on chip
  * @param {string} dateStr - Date in YYYY-MM-DD format
- * @returns {string} Formatted date like "Dec 30, 2025"
+ * @returns {string} Formatted date like "08/13/2026" (mm/dd/yyyy)
  */
 function formatDate(dateStr: string): string {
   try {
@@ -520,9 +528,9 @@ function formatDate(dateStr: string): string {
       return dateStr;
     }
     const [year, month, day] = parts;
-    const date = new Date(year, month - 1, day); // month is 0-indexed
-    const monthName = date.toLocaleDateString('en-US', { month: 'short' });
-    return `${monthName} ${day}, ${year}`;
+    const mm = String(month).padStart(2, '0');
+    const dd = String(day).padStart(2, '0');
+    return `${mm}/${dd}/${year}`;
   } catch {
     return dateStr;
   }
@@ -613,6 +621,11 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   overflow-wrap: break-word;
   overflow: visible;
   max-width: 100%;
+}
+
+.new-badge--new {
+  background-color: rgb(var(--v-theme-primary));
+  color: rgb(var(--v-theme-on-primary));
 }
 
 .faq-chevron {

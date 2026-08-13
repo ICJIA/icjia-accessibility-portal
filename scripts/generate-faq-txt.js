@@ -99,7 +99,8 @@ function markdownToPlainText(markdown) {
   // Remove table separator rows
   text = text.replace(/^\|[-:\s|]+\|$/gm, "");
 
-  // Clean up {updated:YYYY-MM-DD} tags
+  // Clean up {new:YYYY-MM-DD} and {updated:YYYY-MM-DD} tags
+  text = text.replace(/\{new:\s*\d{4}-\d{2}-\d{2}\}/g, "[NEW]");
   text = text.replace(/\{updated:\s*\d{4}-\d{2}-\d{2}\}/g, "[UPDATED]");
 
   // Clean up multiple newlines

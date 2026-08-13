@@ -17,7 +17,7 @@
 ### Overview
 
 The FAQ system includes an automatic "new" badge that highlights recently added questions. The badge:
-- Displays for 10 days (configurable)
+- Displays for 21 days (configurable)
 - Auto-expires without manual cleanup
 - Works in both online and printer-friendly versions
 
@@ -56,16 +56,16 @@ Add a "new" tag on its own line after the question heading:
 
 1. **Detection**: Parser scans answer content for `{new:YYYY-MM-DD}` pattern
 2. **Date Check**: Compares tag date to current date
-3. **Display**: If within 10 days, shows badge; otherwise hidden
+3. **Display**: If within 21 days, shows chip; otherwise hidden
 4. **Filtering**: Tag removed from displayed content
-5. **Expiration**: Automatically stops showing after 10 days
+5. **Expiration**: Automatically stops showing after 21 days
 
 ### Configuration
 
 **Duration**: Edit `NEW_QUESTION_DAYS` in `app/utils/faqTransform.ts`:
 
 ```typescript
-const NEW_QUESTION_DAYS = 10; // Change this number
+const NEW_QUESTION_DAYS = 21; // Change this number
 ```
 
 **Why Curly Braces?**
@@ -93,7 +93,7 @@ const NEW_QUESTION_DAYS = 10; // Change this number
 **Key Functions**:
 - `extractNewDate()` - Detects and validates date
 - `filterNewComments()` - Removes tag from display
-- `isWithinNewWindow()` - Checks if still within 10 days
+- `isWithinNewWindow()` - Checks if still within 21 days
 
 ---
 

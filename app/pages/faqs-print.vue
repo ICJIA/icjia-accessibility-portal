@@ -22,6 +22,9 @@
           <p class="print-date">
             <strong>Last Updated:</strong> {{ lastUpdated }}
           </p>
+          <p v-if="lastReviewed" class="print-date">
+            <strong>Last Reviewed:</strong> {{ lastReviewed }}
+          </p>
           <p class="print-deadline">
             <strong>ADA Title II Compliance Deadline:</strong> April 26, 2027
           </p>
@@ -105,7 +108,11 @@
               >Q{{ itemIndex + 1 }}:</span
             >
             {{ item.question }}
-            <span v-if="item.isNew" class="print-new-badge">NEW</span>
+            <span v-if="item.isNew" class="print-new-badge">{{
+              item.badgeKind === "new"
+                ? "NEW"
+                : `UPDATED ${formatBadgeDate(item.newDate)}`
+            }}</span>
           </h3>
           <div class="print-answer">
             <ContentRenderer
@@ -142,7 +149,7 @@
           >{{ baseUrl }}/docs/accessibility/</a>
         </p>
         <p class="print-footer-text">
-          Last Updated: {{ lastUpdated }} | ADA Title II Compliance Deadline: April 26, 2027
+          Last Updated: {{ lastUpdated }}<template v-if="lastReviewed"> | Last Reviewed: {{ lastReviewed }}</template> | ADA Title II Compliance Deadline: April 26, 2027
         </p>
       </div>
     </div>
@@ -171,7 +178,13 @@ definePageMeta({
 import { computed } from "vue";
 import { useSeo } from "../composables/useSeo";
 import { usePrintLinks } from "../composables/usePrintLinks";
-import { wrapTablesForResponsiveScroll, filterNewComments } from "../utils/faqTransform";
+import {
+  wrapTablesForResponsiveScroll,
+  filterNewComments,
+  extractTaggedInfo,
+  isWithinNewWindow,
+} from "../utils/faqTransform";
+import type { FaqBadgeKind } from "../utils/faqTransform";
 
 /** @type {import('nuxt/app').AsyncData<import('@nuxt/content').ParsedContent>} FAQ page content */
 const { data: page } = await useAsyncData("faqs-print", () => {
@@ -210,49 +223,14 @@ function extractText(node: any): string {
 }
 
 /**
- * Check if a date string is within the "new" window (10 days)
+ * Format a YYYY-MM-DD tag date as mm/dd/yyyy for the printed chip
  */
-function isWithinNewWindow(dateStr: string): boolean {
-  const addedDate = new Date(dateStr);
-  const now = new Date();
-  const diffTime = now.getTime() - addedDate.getTime();
-  const diffDays = diffTime / (1000 * 60 * 60 * 24);
-  return diffDays <= 10;
-}
-
-/**
- * Pattern to match the new tag
- */
-const NEW_TAG_PATTERN =
-  /(?:\{new:\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*new:\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
-
-/**
- * Extract the "new" date from answer nodes if present
- */
-function extractNewDate(answerNodes: MiniMarkNode[]): string | null {
-  for (const node of answerNodes) {
-    if (typeof node === "string") {
-      const match = node.match(NEW_TAG_PATTERN);
-      if (match) {
-        const dateStr = match[1] || match[2];
-        if (dateStr && isWithinNewWindow(dateStr)) {
-          return dateStr;
-        }
-      }
-    }
-    // Check inside paragraph nodes
-    if (isElementNode(node) && tagName(node) === "p") {
-      const text = extractText(node);
-      const match = text.match(NEW_TAG_PATTERN);
-      if (match) {
-        const dateStr = match[1] || match[2];
-        if (dateStr && isWithinNewWindow(dateStr)) {
-          return dateStr;
-        }
-      }
-    }
-  }
-  return null;
+function formatBadgeDate(dateStr?: string): string {
+  if (!dateStr) return "";
+  const parts = dateStr.split("-").map(Number);
+  if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return dateStr;
+  const [year, month, day] = parts;
+  return `${String(month).padStart(2, "0")}/${String(day).padStart(2, "0")}/${year}`;
 }
 
 /**
@@ -271,6 +249,8 @@ const faqSections = computed(() => {
       question: string;
       answer: MiniMarkNode[];
       isNew?: boolean;
+      newDate?: string;
+      badgeKind?: FaqBadgeKind;
       answerContent?: any;
     }>;
   }> = [];
@@ -280,6 +260,8 @@ const faqSections = computed(() => {
       question: string;
       answer: MiniMarkNode[];
       isNew?: boolean;
+      newDate?: string;
+      badgeKind?: FaqBadgeKind;
       answerContent?: any;
     }>;
   } | null = null;
@@ -322,8 +304,11 @@ const faqSections = computed(() => {
         }
 
         if (questionText) {
-          // Check for "new" date
-          const newDate = extractNewDate(answerNodes);
+          // Check for a {new:}/{updated:} tag within the badge window
+          const taggedInfo = extractTaggedInfo(answerNodes);
+          const showBadge = taggedInfo
+            ? isWithinNewWindow(taggedInfo.date)
+            : false;
           const filteredAnswer = filterNewComments(answerNodes);
           const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
 
@@ -341,7 +326,9 @@ const faqSections = computed(() => {
           currentSection.items.push({
             question: questionText,
             answer: responsiveAnswer,
-            isNew: newDate !== null,
+            isNew: showBadge,
+            newDate: taggedInfo?.date,
+            badgeKind: taggedInfo?.kind,
             answerContent: answerContent,
           });
         }
@@ -426,6 +413,12 @@ const lastUpdated = computed(() => {
     });
   }
   return formatIsoDateLong(raw);
+});
+
+// Last reviewed date - dynamically from FAQ content frontmatter
+const lastReviewed = computed(() => {
+  const raw = (page.value as any)?.lastReviewed as string | undefined;
+  return raw ? formatIsoDateLong(raw) : "";
 });
 
 // Disclaimer items - dynamically from FAQ content frontmatter

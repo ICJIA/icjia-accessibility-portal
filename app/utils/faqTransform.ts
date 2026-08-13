@@ -53,13 +53,14 @@ export type MarkdownNode = MarkdownTextNode | MarkdownElementNode;
 type MiniMarkNode = MarkdownNode;
 
 /**
- * Number of days a question is considered "new" after its date tag.
- * Questions marked with {updated:YYYY-MM-DD} will show an "UPDATED" badge for this many days.
+ * Number of days a question keeps its badge after its date tag.
+ * Questions marked with {new:YYYY-MM-DD} show a "NEW" chip and questions marked
+ * with {updated:YYYY-MM-DD} show an "Updated on mm/dd/yyyy" chip for this many days.
  *
  * @constant {number}
- * @default 10
+ * @default 21
  */
-const NEW_QUESTION_DAYS = 10;
+const NEW_QUESTION_DAYS = 21;
 
 /**
  * Calculates days remaining until the compliance deadline (April 26, 2027).
@@ -197,53 +198,84 @@ function isHeadingLikeParagraph(node: MarkdownNode): boolean {
 }
 
 /**
- * Regular expression pattern to match the "updated" tag in various formats.
+ * The kind of badge a question carries: brand-new question vs. revised question.
+ */
+export type FaqBadgeKind = "new" | "updated";
+
+/**
+ * Badge information extracted from a question's date tag.
+ *
+ * @interface TaggedBadgeInfo
+ * @property {string} date - Date string in YYYY-MM-DD format
+ * @property {FaqBadgeKind} kind - "new" for {new:...} tags, "updated" for {updated:...} tags
+ */
+export interface TaggedBadgeInfo {
+  date: string;
+  kind: FaqBadgeKind;
+}
+
+/**
+ * Regular expression pattern to match the "new"/"updated" tags in various formats.
  *
  * Supports:
- * - `{updated:2025-12-27}` - Curly braces format (preferred, survives markdown parsing)
- * - `<!-- updated:2025-12-27 -->` - HTML comment format (may be stripped by parser)
+ * - `{new:2026-08-13}` / `{updated:2025-12-27}` - Curly braces format (preferred, survives markdown parsing)
+ * - `<!-- new:2026-08-13 -->` / `<!-- updated:2025-12-27 -->` - HTML comment format (may be stripped by parser)
+ *
+ * Capture groups: [1] kind (curly), [2] date (curly), [3] kind (comment), [4] date (comment)
  *
  * @constant {RegExp}
  * @private
  */
 const NEW_TAG_PATTERN =
-  /(?:\{updated:\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*updated:\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
+  /(?:\{(new|updated):\s*(\d{4}-\d{2}-\d{2})\}|<!--\s*(new|updated):\s*(\d{4}-\d{2}-\d{2})\s*-->)/;
 
 /**
- * Extracts the date from a `{new:YYYY-MM-DD}` (or `<!-- new:YYYY-MM-DD -->`) tag,
- * regardless of whether the date is still within the "new" window.
- *
- * This is useful for features like sorting by the tag date while still keeping
- * the visual "NEW" badge limited to a recent window.
+ * Extracts the date and kind from a `{new:YYYY-MM-DD}` or `{updated:YYYY-MM-DD}` tag
+ * (or their HTML-comment equivalents), regardless of whether the date is still
+ * within the badge window.
  *
  * @param answerNodes - Array of answer nodes to search
- * @returns Date string (YYYY-MM-DD) if found, null otherwise
+ * @returns Badge info ({date, kind}) if a tag is found, null otherwise
  */
-export function extractTaggedDate(answerNodes: MarkdownNode[]): string | null {
+export function extractTaggedInfo(
+  answerNodes: MarkdownNode[]
+): TaggedBadgeInfo | null {
   try {
     for (const node of answerNodes) {
+      let text: string | null = null;
       if (typeof node === "string") {
-        const match = node.match(NEW_TAG_PATTERN);
-        if (match) {
-          const dateStr = match[1] || match[2];
-          if (dateStr) return dateStr;
-        }
+        text = node;
+      } else if (isElementNode(node) && tagName(node) === "p") {
+        text = extractNodeText(node);
       }
-      // Check inside paragraph nodes
-      if (isElementNode(node) && tagName(node) === "p") {
-        const text = extractNodeText(node);
+      if (text) {
         const match = text.match(NEW_TAG_PATTERN);
         if (match) {
-          const dateStr = match[1] || match[2];
-          if (dateStr) return dateStr;
+          const kind = (match[1] || match[3]) as FaqBadgeKind | undefined;
+          const dateStr = match[2] || match[4];
+          if (kind && dateStr) return { date: dateStr, kind };
         }
       }
     }
     return null;
   } catch (error) {
-    console.error("Error extracting tagged date from FAQ nodes:", error);
+    console.error("Error extracting tagged badge info from FAQ nodes:", error);
     return null;
   }
+}
+
+/**
+ * Extracts the date from a `{new:YYYY-MM-DD}` or `{updated:YYYY-MM-DD}` tag,
+ * regardless of whether the date is still within the badge window.
+ *
+ * This is useful for features like sorting by the tag date while still keeping
+ * the visual chip limited to a recent window.
+ *
+ * @param answerNodes - Array of answer nodes to search
+ * @returns Date string (YYYY-MM-DD) if found, null otherwise
+ */
+export function extractTaggedDate(answerNodes: MarkdownNode[]): string | null {
+  return extractTaggedInfo(answerNodes)?.date ?? null;
 }
 
 /**
@@ -290,7 +322,7 @@ export function extractNewDate(answerNodes: MarkdownNode[]): string | null {
 export function filterNewComments(answerNodes: MarkdownNode[]): MarkdownNode[] {
   try {
     const newTagFullPattern =
-      /(?:\{updated:\s*\d{4}-\d{2}-\d{2}\}|<!--\s*updated:\s*\d{4}-\d{2}-\d{2}\s*-->)/g;
+      /(?:\{(?:new|updated):\s*\d{4}-\d{2}-\d{2}\}|<!--\s*(?:new|updated):\s*\d{4}-\d{2}-\d{2}\s*-->)/g;
 
     return answerNodes
       .map((node) => {
@@ -439,14 +471,16 @@ export function wrapFaqQuestionsIntoCards(
  * @interface FaqItem
  * @property {string} question - The question text (extracted from H3 heading)
  * @property {MiniMarkNode[]} answer - Array of nodes containing the answer content
- * @property {boolean} [isNew] - Whether the question should display a "NEW" badge
- * @property {string} [newDate] - The date string (YYYY-MM-DD) when the question was marked as new
+ * @property {boolean} [isNew] - Whether the question should display a badge chip
+ * @property {string} [newDate] - The date string (YYYY-MM-DD) from the question's tag
+ * @property {FaqBadgeKind} [badgeKind] - "new" (NEW chip) or "updated" (Updated-on chip)
  */
 export interface FaqItem {
   question: string;
   answer: MarkdownNode[];
   isNew?: boolean;
   newDate?: string;
+  badgeKind?: FaqBadgeKind;
 }
 
 /**
@@ -631,9 +665,9 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
           }
 
           if (questionText) {
-            // Capture the tag date for sorting, and compute "new" badge window separately
-            const taggedDate = extractTaggedDate(answerNodes);
-            const isNew = taggedDate ? isWithinNewWindow(taggedDate) : false;
+            // Capture the tag date/kind for sorting + chips; badge window computed separately
+            const taggedInfo = extractTaggedInfo(answerNodes);
+            const isNew = taggedInfo ? isWithinNewWindow(taggedInfo.date) : false;
             const filteredAnswer = filterNewComments(answerNodes);
             const seeAlsoWrapped = wrapSeeAlsoLinks(filteredAnswer);
             const responsiveAnswer = wrapTablesForResponsiveScroll(seeAlsoWrapped);
@@ -642,7 +676,8 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
               question: questionText,
               answer: responsiveAnswer,
               isNew,
-              newDate: taggedDate || undefined,
+              newDate: taggedInfo?.date,
+              badgeKind: taggedInfo?.kind,
             });
           }
         } catch (error) {

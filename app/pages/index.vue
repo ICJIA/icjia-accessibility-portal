@@ -218,14 +218,14 @@ import {
   useWebSiteStructuredData,
 } from "../composables/useStructuredData";
 
-/** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 26, 2027) */
-const targetDate = new Date("2027-04-26T00:00:00").getTime();
+/** @type {number} Target date timestamp for WCAG 2.1 AA compliance deadline (April 26, 2027, midnight Chicago CDT) */
+const targetDate = new Date("2027-04-26T00:00:00-05:00").getTime();
 
 /** @type {string} Site creation date */
 const siteCreated = "December 15, 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "May 14, 2026";
+const lastUpdated = "August 13, 2026";
 
 // Get deadline countdown information
 const { daysRemaining, deadlinePassed, daysRemainingText, urgencyText } =

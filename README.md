@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.2.10](https://img.shields.io/badge/Version-1.2.10-blue)](CHANGELOG.md)
+[![Version 1.2.11](https://img.shields.io/badge/Version-1.2.11-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -21,7 +21,8 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
 
 - **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation
   - Dynamic countdown timer showing days until the April 26, 2027 deadline
-  - "Updated" badge system for newly added or recently revised questions (auto-expires after 10 days)
+  - "New" and "Updated on mm/dd/yyyy" chips distinguishing newly added questions (`{new:YYYY-MM-DD}`) from recently revised ones (`{updated:YYYY-MM-DD}`); both auto-expire after 21 days
+  - "Last updated" and "Last reviewed" dates displayed at the top (driven by `lastUpdated`/`lastReviewed` frontmatter in `content/faqs.md`), signaling that content is periodically re-verified against official sources
   - Searchable accordion interface with proper ARIA attributes
   - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
@@ -1116,12 +1117,12 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - Enhanced content management system
 - Navigation improvements (**Print** + **Download** links added to navbar and footer)
 - **Footer refactor** - Modern, centered design with links for **Print**, **Download**, **Documentation**, **Accessibility**, and GitHub. Fully responsive and accessible with proper ARIA labels.
-- **SEO enhancements** - Complete SEO implementation with Open Graph, Twitter Cards, JSON-LD structured data (GovernmentOrganization, WebSite, FAQPage with 93 questions, BreadcrumbList), Google Search Console verification, and comprehensive sitemap
+- **SEO enhancements** - Complete SEO implementation with Open Graph, Twitter Cards, JSON-LD structured data (GovernmentOrganization, WebSite, FAQPage with 100+ questions, BreadcrumbList), Google Search Console verification, and comprehensive sitemap
 
 ### Version Information
 
-**Version**: 1.2.10
-**Last Updated**: May 14, 2026
+**Version**: 1.2.11
+**Last Updated**: August 13, 2026
 
 **Core Dependencies**:
 

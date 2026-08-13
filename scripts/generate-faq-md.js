@@ -38,7 +38,8 @@ async function main() {
   // Remove existing YAML frontmatter
   markdown = markdown.replace(/^---[\s\S]*?---\n*/m, "");
 
-  // Clean up {updated:YYYY-MM-DD} tags - convert to visible badges
+  // Clean up {new:YYYY-MM-DD} and {updated:YYYY-MM-DD} tags - convert to visible badges
+  markdown = markdown.replace(/\{new:\s*(\d{4}-\d{2}-\d{2})\}/g, "🆕 *New*");
   markdown = markdown.replace(/\{updated:\s*(\d{4}-\d{2}-\d{2})\}/g, "🔄 *Updated*");
 
   // Create header

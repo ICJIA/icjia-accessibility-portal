@@ -78,10 +78,25 @@
             }}
           </p>
           <p
-            v-if="lastUpdatedLabel"
+            v-if="lastUpdatedLabel || lastReviewedLabel"
             class="text-caption text-medium-emphasis mb-6"
           >
-            <strong>Last updated:</strong> {{ lastUpdatedLabel }}
+            <span v-if="lastUpdatedLabel">
+              <strong>Last updated:</strong> {{ lastUpdatedLabel }}
+            </span>
+            <span
+              v-if="lastUpdatedLabel && lastReviewedLabel"
+              aria-hidden="true"
+            >
+              ·
+            </span>
+            <span v-if="lastReviewedLabel">
+              <strong>Last reviewed:</strong> {{ lastReviewedLabel }}
+            </span>
+            <span v-if="lastReviewedLabel" class="d-block mt-1">
+              These FAQs are reviewed periodically to keep them current and
+              accurate.
+            </span>
           </p>
 
           <div v-if="faqSections.length > 0 || introContent">
@@ -133,10 +148,11 @@ import { mdiInformation, mdiFrequentlyAskedQuestions } from '~/utils/icons'
 import {
   wrapTablesForResponsiveScroll,
   wrapSeeAlsoLinks,
-  extractTaggedDate,
+  extractTaggedInfo,
   filterNewComments,
   isWithinNewWindow,
 } from "../utils/faqTransform";
+import type { FaqBadgeKind } from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
 import {
   useFAQStructuredData,
@@ -168,6 +184,12 @@ function formatIsoDateLong(dateStr: string): string {
 
 const lastUpdatedLabel = computed(() => {
   const raw = (page.value as any)?.lastUpdated as string | undefined;
+  if (!raw) return "";
+  return formatIsoDateLong(raw);
+});
+
+const lastReviewedLabel = computed(() => {
+  const raw = (page.value as any)?.lastReviewed as string | undefined;
   if (!raw) return "";
   return formatIsoDateLong(raw);
 });
@@ -255,6 +277,7 @@ const faqSections = computed(() => {
       answer: MiniMarkNode[];
       isNew?: boolean;
       newDate?: string;
+      badgeKind?: FaqBadgeKind;
     }>;
   }> = [];
   let currentSection: {
@@ -264,6 +287,7 @@ const faqSections = computed(() => {
       answer: MiniMarkNode[];
       isNew?: boolean;
       newDate?: string;
+      badgeKind?: FaqBadgeKind;
     }>;
   } | null = null;
   let i = 0;
@@ -305,14 +329,15 @@ const faqSections = computed(() => {
         }
 
         if (questionText) {
-          const taggedDate = extractTaggedDate(answerNodes);
+          const taggedInfo = extractTaggedInfo(answerNodes);
           currentSection.items.push({
             question: questionText,
             answer: wrapTablesForResponsiveScroll(
               wrapSeeAlsoLinks(filterNewComments(answerNodes))
             ),
-            isNew: taggedDate ? isWithinNewWindow(taggedDate) : false,
-            newDate: taggedDate || undefined,
+            isNew: taggedInfo ? isWithinNewWindow(taggedInfo.date) : false,
+            newDate: taggedInfo?.date,
+            badgeKind: taggedInfo?.kind,
           });
         }
         continue;
@@ -346,9 +371,15 @@ const sortedFaqItems = computed(() => {
       return a.__originalIndex - b.__originalIndex;
     });
   } else if (faqSort.value === "latest") {
+    // Same-date ties rank brand-new questions above revised ones, so a batch of
+    // additions and updates published together surfaces the new material first
+    const kindRank = (item: { badgeKind?: FaqBadgeKind }) =>
+      item.badgeKind === "new" ? 0 : 1;
     items.sort((a, b) => {
       const diff = dateSortValue(b.newDate) - dateSortValue(a.newDate);
       if (diff !== 0) return diff;
+      const kindDiff = kindRank(a) - kindRank(b);
+      if (kindDiff !== 0) return kindDiff;
       return a.__originalIndex - b.__originalIndex;
     });
   }

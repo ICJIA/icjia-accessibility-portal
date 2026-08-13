@@ -182,7 +182,8 @@ Detailed explanation...
 **Key patterns:**
 - H2 (`##`) = Section headings
 - H3 (`###`) = Questions
-- `{updated:YYYY-MM-DD}` = "Updated" badge (auto-expires after 10 days)
+- `{new:YYYY-MM-DD}` = "New" chip for brand-new questions (auto-expires after 21 days)
+- `{updated:YYYY-MM-DD}` = "Updated on mm/dd/yyyy" chip for revised questions (auto-expires after 21 days)
 - `{days_until_deadline}` = Dynamic placeholder replaced with actual days
 
 ### Internal Links in FAQs
@@ -285,7 +286,7 @@ node audit-accessibility.js  # Terminal 2: Run audit
 
 2. **Static docs in public/**: The `/docs/` directory contains static HTML. Nuxt prerendering ignores these paths (`nitro.prerender.ignore`).
 
-3. **FAQ "Updated" badges**: Auto-expire after 10 days. Configure in `app/utils/faqTransform.ts` (`NEW_QUESTION_DAYS`).
+3. **FAQ "New"/"Updated" chips**: Auto-expire after 21 days. Configure in `app/utils/faqTransform.ts` (`NEW_QUESTION_DAYS`).
 
 4. **Timezone handling**: Always use explicit timezone offsets for deadline calculations.
 

@@ -6,6 +6,85 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.11] - 2026-08-13
+
+### FAQ — August 2026 accuracy review, eight new Q&As, NEW/UPDATED chips, "Last reviewed" date
+
+### Added — eight new Q&As (each tagged `{new:2026-08-13}`)
+
+1. **"Is the April 26, 2027 deadline final, or could a court move it back?"** — the IFR's unfinished rulemaking + the NFB v. DOJ vacatur risk, and why the safe strategy is identical under every outcome (Compliance Requirements).
+2. **"Did the federal deadline extension give Illinois agencies an extra year?"** — No: quotes DoIT's April 20, 2026 announcement verbatim ("…the extension only changes when the DOJ may begin taking additional enforcement actions"); two-clock table of IITAA-now vs. federal-2027 (Compliance Requirements).
+3. **"Can we face complaints or lawsuits before April 2027?"** — pre-deadline exposure under § 35.130 (since 1991), § 35.160 effective communication (quoted verbatim from eCFR), and 42 U.S.C. § 12133 private enforcement (Compliance Requirements).
+4. **"Did the Section 504 web deadlines change too?"** — HHS's parallel May 2026 IFR (May 11, 2027 / May 10, 2028), framed strictly as context per the sourcing-pillars rule (Compliance Requirements).
+5. **"Could the IITAA standards change in 2026?"** — 30 ILCS 587/25 quoted verbatim: DoIT must review the standards "in calendar year 2026"; what that means for planning and procurement (Compliance Requirements).
+6. **"Should we test against WCAG 2.2 or WCAG 2.1?"** — legal targets pin 2.1 AA (the rule IBRs the June 5, 2018 version); 2.2 as voluntary headroom; WCAG 3.0 caution (Common Concerns).
+7. **"What if a vendor has no VPAT or refuses to provide one?"** — five-step escalation path ending in documented risk acceptance + accessible alternative (Procurement).
+8. **"A vendor's VPAT uses WCAG 2.2 — does it satisfy our WCAG 2.1 AA requirement?"** — usually yes; how to read 2.2-based ACRs against a 2.1 target, and why WCAG 2.0-only ACRs are the real red flag (Procurement).
+
+All eight added to the Keyword Index. Also extended "Is Canva accessible?" with a step-by-step tagged-PDF export procedure (PDF Standard export, "Flatten PDF" unchecked, Edit text semantics, verify in PAC).
+
+### Added — NEW vs UPDATED chips (21-day window)
+
+- **New `{new:YYYY-MM-DD}` tag** for brand-new questions renders a **"NEW" chip** (primary color); `{updated:YYYY-MM-DD}` now renders an **"Updated on mm/dd/yyyy" chip** (success color) — so readers can tell at a glance what was added vs. revised, and nothing gets lost.
+- **Badge window extended from 10 to 21 days** (`NEW_QUESTION_DAYS` in `app/utils/faqTransform.ts`).
+- **"Latest first" sorting ranks NEW above UPDATED on date ties**, so a review cycle that adds and revises questions on the same day surfaces all the brand-new material at the very top (verified in-browser: all 8 new Q&As lead the list, followed by the 18 updated ones).
+- New `extractTaggedInfo()` util returns `{date, kind}`; `extractTaggedDate()` retained for compatibility; both tag kinds stripped from rendered/exported output.
+- `/faqs-print` now uses the shared util (its local copy only matched `{new:}` and used a 10-day window, so its badges never fired for the `{updated:}` tags the content actually uses — fixed) and prints "NEW" / "UPDATED mm/dd/yyyy" chips.
+- Download generators updated: Markdown exports show 🆕 *New* / 🔄 *Updated*, plain text shows [NEW] / [UPDATED], Word skips both tags.
+- Docs updated (CLAUDE.md, README, FAQ_CONTENT_GUIDE); 6 new unit tests, and window-boundary tests recalibrated to 21 days.
+
+### FAQ — August 2026 accuracy review, "Last reviewed" date, NFB-litigation note
+
+Full re-verification of the FAQ against primary sources as of August 13, 2026 — every load-bearing claim checked against eCFR, the Federal Register, ADA.gov, Illinois DoIT, ILGA, W3C, CDC, and vendor documentation (~250 claims, ~190 links). Core premise confirmed: the April 20, 2026 DOJ Interim Final Rule (91 FR 20902, AG Order No. 6742-2026) remains in effect and codified — current eCFR § 35.200(b) reads April 26, 2027 (≥50k population) / April 26, 2028 (<50k and special districts), WCAG 2.1 AA unchanged, with no amending action since the comment period closed June 22, 2026.
+
+### Added
+
+- **"Last reviewed" date** — new `lastReviewed` frontmatter field (validated in `content.config.ts`), displayed at the top of `/faqs` ("Last updated … · Last reviewed …" plus a "reviewed periodically" note) and in the `/faqs-print` header and footer, so readers can see the FAQ is re-verified on a schedule.
+- **Litigation note** — _National Federation of the Blind v. Department of Justice_ (D. Md., filed May 21, 2026) challenges the deadline extension under the APA and seeks restoration of the original dates. Noted in the executive summary and the "When must we comply?" Q&A with NFB press-release and docket links: the extended dates remain law, but agencies should treat the extra year as provisional.
+- **Special-district row** in the compliance-deadline table — special district governments get April 26, 2028 regardless of population under § 35.200(b)(2); the previous two-row table implied population alone controls.
+
+### Changed — quote hygiene (the FAQ's "direct quotes" promise, enforced)
+
+- **§ 35.200(b) "verbatim" quote replaced with the actual regulation text** (fetched from the eCFR API, current through Aug 11, 2026). The prior quote's sentence structure ("A public entity that, on April 24, 2024, has a total population of …") appears nowhere in the section and omitted both special-district clauses. The true text also surfaces the fundamental-alteration/undue-burden proviso the FAQ never quoted before.
+- **Removed an unverifiable ALA quotation** ("The exceptions are narrow and specific…") that does not appear on the cited ALA page.
+- **§ 35.201 exceptions block now true verbatim** (was a paraphrase labeled "Verbatim"), including "this subpart" (not "this rule") in (e), the two-part § 35.201(d) test, and the (b) "available … before" posting-date language.
+- **DOJ "First Steps" quotes now match the page word-for-word** (the prior version hybridized two different sentences); the scope quote misattributed to the DOJ fact sheet is now correctly quoted from and attributed to 28 CFR § 35.200(a).
+- **DoIT IITAA quotes** now carry the page's full sentence ("The Illinois Information Technology Accessibility Act (IITAA) requires…") with an explicit _(emphasis added)_ marker where the FAQ bolds words.
+
+### Changed — statistics and technical claims
+
+- Illinois disability prevalence corrected to match the cited CDC DHDS source: **~2.3 million adults, roughly 1 in 4 (23.7%, 2022 BRFSS)** — was "1.3 million (12.6%)," a figure from a different (Census ACS-style) source. National figure updated from "over 60 million" to **more than 70 million adults**; cognitive-difficulty prevalence updated from ~12% to **~14%** with a CDC citation.
+- **axe-core best-practice claim corrected** (it was backwards): a bare `axe.run()` *does* include axe's best-practice rules; ICJIA's audits exclude them because they restrict to WCAG A/AA tags via `runOnly`. AAA rules are off by default either way.
+- Deque automated-coverage range restated as **20–57%** to match the cited study (57% found; 20–30% prior industry estimates).
+- #999999-on-white contrast example corrected from 3.0:1 to **2.8:1**; § 35.200(b)(1)–(2) (not (b)(3)) now cited as the source of the A/AA mandate.
+- **audit.icjia.app description rewritten to match the current tool**: audits PDF, Word, PowerPoint, and Excel (was "PDF only"); produces A–F letter grades with severity-ranked findings (was "pass/fail per check"); offers optional server-side PDF auto-remediation (was "checker, not a remediator"); files are processed server-side in memory and deleted immediately (was "processed locally in your browser — not uploaded"); GitHub link updated to the renamed `ICJIA/file-accessibility-audit` repo.
+- **Canva guidance updated**: Canva now exports tagged PDFs (PDF Standard export with "Flatten PDF" unchecked, "Edit text semantics" for headings/reading order); exports still commonly fail PDF/UA, so verify in PAC.
+- UI paths refreshed: Acrobat "All tools > Prepare for accessibility" (legacy paths noted), Office "View Alt Text" label, new-Outlook accessibility checker location, Gmail image alt text (supported since 2022 — the FAQ said the opposite), X's "+ALT" button.
+- "PAC 2024" → version-neutral "PAC (PDF Accessibility Checker)" (current release is PAC 2026); "IT Industry Council" → **Information Technology Industry Council** (ITI); MCAR relabeled as an informal solicitation term rather than a standardized synonym for ACR; softened the unsourced "2–10x" remediation-cost multiplier; "sixteen-plus years" of IITAA → eighteen; Section 508 context added to the "first technical standard" claim.
+- Social-media exception bullets reframed: § 35.201(e) has no "currently used" carve-out (the pinned/linked-post limits were practice advice presented as legal limits — now labeled as practical caution).
+
+### Fixed — broken/moved links (12)
+
+- Illinois DoIT training page (404, site restructure) — six references now point to DoIT's Accessibility Guides page, with training requests via DoIT.Accessibility@Illinois.gov; the IITAA-training Q&A no longer lists the retired course catalog.
+- ILGA statute link for 30 ILCS 587 (ILGA redesign killed `ilcs3.asp` URLs) → new `Legislation/ILCS/Articles` URL.
+- `initiatives/accessibility/iitaa-2-1-update.html` (path-mix 404) → the real IITAA 2.1 Standards page; `ada.gov/topics/web-accessibility/` → `ada.gov/resources/web-guidance/`; `ada.gov/topics/title-i/` → archive.ada.gov Title I page (and the "ADA Title I Regulations" label corrected to "ADA Statute (as amended)"); CDC infographic → post-2024-migration URL; R3 audit report → `/documentation/accessibility/`; SFS → `/accessibility` statement page.
+- `index.vue` countdown target now uses the explicit Chicago offset (`2027-04-26T00:00:00-05:00`), matching `useDeadlineCountdown` and the project convention.
+
+### Known issues (flagged, not fixed)
+
+- **i2i and VPP audit-report links return 404** with no discoverable replacement — need correct paths from those sites' owners (or re-publish the reports).
+- **HHS Section 504 fact-sheet link** blocks automated checks (403); verify manually in a browser.
+- **7 pre-existing test failures** (useSeo site-name suffix, DownloadDialog cancel aria-label, usePrintLinks link styling) — present on clean `main` before this change; tests appear stale relative to earlier copy changes.
+
+### Verification
+
+- All verification performed against primary sources; § 35.200 text pulled directly from the eCFR API (current through 2026-08-11).
+- Replacement URLs curl-verified 200 before substitution (CDC and NFB pages are bot-blocked 403 but confirmed current via search indexes and agent cross-checks).
+- Full test suite: 221 passing, 7 failures — identical failures reproduce on clean HEAD (verified via stash), so no regressions from this change.
+- `/faqs` and `/faqs-print` confirmed in-browser: dates line renders ("Last updated … · Last reviewed August 13, 2026"), print header/footer carry both dates.
+
+---
+
 ## [1.2.10] - 2026-05-14
 
 ### FAQ — official-source citation sweep + new IAAP-certification Q&A
