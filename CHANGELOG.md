@@ -6,6 +6,18 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.2.12] - 2026-08-13
+
+### Fix — NEW chip color contrast (WCAG 1.4.3)
+
+A post-deploy axe audit of the live site found one serious violation introduced in v1.2.11: the NEW chip used the theme's `primary`/`on-primary` pair, and the light theme's primary (`#2563EB`) with white 10px text sits below the 4.5:1 minimum — flagged on all eight new Q&As (the dark theme masked it during pre-deploy checks). The chip now uses fixed colors — white on `#1d4ed8` (the palette's own darker brand blue) — which computes to **6.7:1 in both themes**. Theme tokens were deliberately not used: the dark theme's lighter primary (`#3B82F6`) would fail with white text.
+
+### Verification
+
+- axe-core AA audit: live `/faqs/` before fix — 1 serious violation (color-contrast, 8 elements); local `/faqs` after fix — **0 violations**.
+
+---
+
 ## [1.2.11] - 2026-08-13
 
 ### FAQ — August 2026 accuracy review, eight new Q&As, NEW/UPDATED chips, "Last reviewed" date

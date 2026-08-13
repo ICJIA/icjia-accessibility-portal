@@ -624,8 +624,10 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 }
 
 .new-badge--new {
-  background-color: rgb(var(--v-theme-primary));
-  color: rgb(var(--v-theme-on-primary));
+  /* Fixed colors (not theme tokens): white on #1D4ED8 is 6.7:1 in both themes;
+     the dark theme's lighter primary (#3B82F6) would fail 4.5:1 with white text */
+  background-color: #1d4ed8;
+  color: #ffffff;
 }
 
 .faq-chevron {

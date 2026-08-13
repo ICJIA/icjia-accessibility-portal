@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.2.11](https://img.shields.io/badge/Version-1.2.11-blue)](CHANGELOG.md)
+[![Version 1.2.12](https://img.shields.io/badge/Version-1.2.12-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -125,9 +125,9 @@ yarn generate:serve
 - **Dynamic Countdown Timer** - Shows days remaining until April 26, 2027 deadline (Chicago timezone)
   - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
   - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
-- **"Updated" Badge System** - Automatically displays and expires badges for newly-added or recently-updated FAQ entries [[memory:12683417]]
-  - Add `{updated:YYYY-MM-DD}` after question heading in markdown
-  - Badge auto-expires after 10 days (configurable)
+- **"New"/"Updated" Chip System** - Automatically displays and expires chips for newly-added or recently-updated FAQ entries [[memory:12683417]]
+  - Add `{new:YYYY-MM-DD}` (New chip) or `{updated:YYYY-MM-DD}` (Updated on mm/dd/yyyy chip) after the question heading in markdown
+  - Chips auto-expire after 21 days (configurable); "Latest first" sorting ranks New above Updated on date ties
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
   - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
   - Keyboard-friendly: scroll container is focusable (`tabindex="0"`)
@@ -1121,7 +1121,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.2.11
+**Version**: 1.2.12
 **Last Updated**: August 13, 2026
 
 **Core Dependencies**:
