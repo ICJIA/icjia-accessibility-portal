@@ -6,6 +6,15 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.2] - 2026-08-13
+
+### Docs — README/CLAUDE.md currency sync
+
+- README's Content Management how-to still documented the old badge system (single `{updated:}` tag, 10-day window, green-chip-only); it now documents both tags, the 21-day window, the chip appearance, and the New-first sort. Three remaining "new badge" annotations in the structure tree and feature list updated to the chip terminology.
+- CLAUDE.md Quick Reference updated: test coverage now reads 234/234 passing; "Last Major Update" moved from January 2026 to August 2026.
+
+---
+
 ## [1.3.1] - 2026-08-13
 
 ### Fixed — all 7 long-standing test failures (suite now 234/234)

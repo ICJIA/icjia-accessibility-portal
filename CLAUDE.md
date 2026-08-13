@@ -304,7 +304,7 @@ node audit-accessibility.js  # Terminal 2: Run audit
 ## Quick Reference: Project Status
 
 - **WCAG Compliance**: 100% (0 violations)
-- **Test Coverage**: Unit + Nuxt tests passing
+- **Test Coverage**: 234/234 tests passing (unit + Nuxt)
 - **Node Version**: 22.14.0
-- **Last Major Update**: January 2026
+- **Last Major Update**: August 2026
 - **Deadline**: April 26, 2027

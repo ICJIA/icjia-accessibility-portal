@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.3.1](https://img.shields.io/badge/Version-1.3.1-blue)](CHANGELOG.md)
+[![Version 1.3.2](https://img.shields.io/badge/Version-1.3.2-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -342,11 +342,11 @@ The automated build process:
 │   │   ├── suppress-vuetify-logs.client.ts  # Suppresses Vuetify console warnings (client)
 │   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
-│   │   └── faqTransform.ts     # FAQ AST transforms: "new" badges, "See also" cards, responsive tables
+│   │   └── faqTransform.ts     # FAQ AST transforms: New/Updated chips, "See also" cards, responsive tables
 │   ├── router.options.ts       # Custom router configuration
 │   └── error.vue               # Error page component
 ├── content/
-│   ├── faqs.md                 # FAQ content (with "new" badge support)
+│   ├── faqs.md                 # FAQ content (with New/Updated chip support)
 │   └── links.md                # Accessibility links content
 ├── public/
 │   ├── favicon.svg             # Site favicon
@@ -738,20 +738,21 @@ After the fixes, all pages were verified clean using Puppeteer to capture consol
 
 1. Edit `content/faqs.md`
 2. Add your question as an H3 heading (`###`)
-3. Add the "updated" badge tag on the next line (optional):
+3. Tag it on the next line (optional): `{new:YYYY-MM-DD}` for a brand-new question, or `{updated:YYYY-MM-DD}` for a revised one:
 
 ```markdown
 ### Your New Question Here?
 
-{updated:2026-01-01}
+{new:2026-08-13}
 
 **Quick answer:** Your answer here...
 ```
 
-The "Updated" badge will:
+The chip will:
 
-- Display automatically for 10 days from the specified date
-- Appear as a green chip next to the question
+- Display automatically for 21 days from the specified date
+- Appear next to the question — a blue "★ New on mm/dd/yyyy" chip for `{new:}`, a green "Updated on mm/dd/yyyy" chip for `{updated:}`
+- Rank New above Updated in the "Latest first" sort on date ties
 - Auto-expire without any manual cleanup needed
 
 ### Adding Links
@@ -915,7 +916,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 - **[PRINTER_FRIENDLY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PRINTER_FRIENDLY_GUIDE.md)** - Complete printer-friendly FAQ guide (overview, implementation, verification)
 - **[ACCESSIBILITY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_GUIDE.md)** - Complete accessibility documentation (audit results, skip links, testing)
 - **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete accessibility audit script guide (1355 lines with GitHub links) - Script architecture, configuration, testing modes, challenges & solutions, and reuse instructions
-- **[FAQ_CONTENT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FAQ_CONTENT_GUIDE.md)** - FAQ management ("new" badge system, content guidelines, references)
+- **[FAQ_CONTENT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FAQ_CONTENT_GUIDE.md)** - FAQ management (New/Updated chip system, content guidelines, references)
 - **[SEO_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/SEO_GUIDE.md)** - Complete SEO guide with implementation details and external action recommendations
 - **[CONFIGURATION_ABSTRACTION.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/CONFIGURATION_ABSTRACTION.md)** - Configuration management guide
 
@@ -1035,7 +1036,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
   - Keyboard navigation support
   - Screen reader optimized
 - ✅ SEO optimized with automated sitemap generation
-- ✅ "Updated" badge system for FAQ questions
+- ✅ "New"/"Updated" chip system for FAQ questions (21-day window)
 - ✅ Dynamic countdown timer (April 26, 2027 deadline) on all pages
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
@@ -1121,7 +1122,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.3.1
+**Version**: 1.3.2
 **Last Updated**: August 13, 2026
 
 **Core Dependencies**:
