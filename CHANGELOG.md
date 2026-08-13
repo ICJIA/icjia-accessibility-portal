@@ -6,6 +6,27 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.0] - 2026-08-13
+
+### Refactor — homepage and /faqs now share one FAQ component (parity by construction)
+
+User testing caught the homepage FAQ list showing no NEW chips while /faqs showed them — because the two pages each carried their own near-copy of the FAQ pipeline (section builder, chip wiring, sorting), and the v1.2.11–13 chip work only reached /faqs. This release ends that class of bug: the entire FAQ experience now lives in one shared component, **`app/components/FaqBrowser.vue`** — frontmatter-driven disclaimer card, title/sort header, review-status panel, intro content, sectioned `FaqAccordion` with New/Updated chips, and all sorting logic — rendered by both routes with small presentational props (`title-tag`, `show-description`, `wrap-in-card`, `inject-faq-schema`).
+
+**Parity gains for the homepage** (previously drifted): dated ★ NEW chips, New-first "Latest first" ordering, the review-status panel, the frontmatter-driven disclaimer (was hardcoded text), and `aria-hidden` on the FAQ title icon. **Parity gain for /faqs**: the dynamic deadline-text replacement (countdown-aware phrasing like "X days remain…") that previously ran only on the homepage. `/faqs` keeps its `h1`, card layout, and FAQPage structured data (schema injection is prop-gated to that route).
+
+### Added — dates on NEW chips
+
+The NEW chip now reads "★ New on mm/dd/yyyy," matching the "Updated on mm/dd/yyyy" chip format, on both pages and in the print version ("NEW mm/dd/yyyy").
+
+### Verification
+
+- Both routes verified in-browser: "Latest first" leads with all 8 "★ New on 08/13/2026" chips, then the 18 "Updated on 08/13/2026" chips; review panel and disclaimer present on both; /faqs retains h1 + card + FAQPage schema.
+- axe-core AA audits: `/` — 0 violations; `/faqs` — 0 violations.
+- Test suite: 227 passing; same 7 pre-existing failures.
+- `index.vue` shrank by ~370 lines of duplicated template/logic/styles.
+
+---
+
 ## [1.2.14] - 2026-08-13
 
 ### Improve — "Last reviewed" promoted to a visible review-status panel

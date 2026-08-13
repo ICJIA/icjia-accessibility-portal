@@ -110,7 +110,7 @@
             {{ item.question }}
             <span v-if="item.isNew" class="print-new-badge">{{
               item.badgeKind === "new"
-                ? "NEW"
+                ? `NEW ${formatBadgeDate(item.newDate)}`
                 : `UPDATED ${formatBadgeDate(item.newDate)}`
             }}</span>
           </h3>

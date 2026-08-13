@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.2.14](https://img.shields.io/badge/Version-1.2.14-blue)](CHANGELOG.md)
+[![Version 1.3.0](https://img.shields.io/badge/Version-1.3.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -19,7 +19,7 @@ A modern, accessible portal for the Illinois Criminal Justice Information Author
 
 This accessibility portal serves as a centralized hub for all accessibility-related information to ensure compliance with the **ADA Title II April 26, 2027 guideline**. The portal includes:
 
-- **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation
+- **FAQs**: Comprehensive frequently asked questions about accessibility requirements, compliance, and implementation — rendered by a single shared `FaqBrowser` component on both the homepage and `/faqs`, so the two views always stay in parity
   - Dynamic countdown timer showing days until the April 26, 2027 deadline
   - "New" and "Updated on mm/dd/yyyy" chips distinguishing newly added questions (`{new:YYYY-MM-DD}`) from recently revised ones (`{updated:YYYY-MM-DD}`); both auto-expire after 21 days
   - Prominent review-status panel at the top ("Last reviewed" / "Last updated," driven by `lastReviewed`/`lastUpdated` frontmatter in `content/faqs.md`), signaling that content is periodically re-verified against official sources
@@ -126,7 +126,7 @@ yarn generate:serve
   - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
   - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
 - **"New"/"Updated" Chip System** - Automatically displays and expires chips for newly-added or recently-updated FAQ entries [[memory:12683417]]
-  - Add `{new:YYYY-MM-DD}` (star-prefixed New chip) or `{updated:YYYY-MM-DD}` (Updated on mm/dd/yyyy chip) after the question heading in markdown
+  - Add `{new:YYYY-MM-DD}` (star-prefixed "New on mm/dd/yyyy" chip) or `{updated:YYYY-MM-DD}` (Updated on mm/dd/yyyy chip) after the question heading in markdown
   - Chips auto-expire after 21 days (configurable); "Latest first" sorting ranks New above Updated on date ties
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
   - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
@@ -1121,7 +1121,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.2.14
+**Version**: 1.3.0
 **Last Updated**: August 13, 2026
 
 **Core Dependencies**:

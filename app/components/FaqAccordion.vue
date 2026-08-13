@@ -26,7 +26,9 @@
             :class="{ 'new-badge--new': item.badgeKind === 'new' }"
           >
             <template v-if="item.badgeKind === 'new'"
-              ><span aria-hidden="true">★&nbsp;</span>New</template
+              ><span aria-hidden="true">★&nbsp;</span>New on{{
+                item.newDate ? ` ${formatDate(item.newDate)}` : ""
+              }}</template
             >
             <template v-else
               >Updated on{{
