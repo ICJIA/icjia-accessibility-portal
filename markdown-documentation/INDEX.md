@@ -1,7 +1,7 @@
 # Documentation Index
 
-**Last Updated**: January 6, 2026  
-**Total Documents**: 18  
+**Last Updated**: September 2, 2026  
+**Total Documents**: 19  
 **Purpose**: Quick reference guide to all project documentation
 
 ---
@@ -71,7 +71,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 | **[TESTING_REPORTS_PROMPT.md](TESTING_REPORTS_PROMPT.md)** 🆕 | Prompt to add Vitest runner + `/docs/tests/` report | Adding unit/nuxt/e2e reporting |
 | **[ARCHITECTURE_DOCS_PROMPT.md](ARCHITECTURE_DOCS_PROMPT.md)** 🆕 | Prompt to generate `/docs/architecture/` from markdown | Adding architecture docs generation |
 
-### Features & Guides (6 files)
+### Features & Guides (7 files)
 
 | Document                                                                       | Purpose                                                | When to Read                          |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------- |
@@ -79,6 +79,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 | **[ACCESSIBILITY_GUIDE.md](ACCESSIBILITY_GUIDE.md)**                           | All accessibility documentation                        | Working on accessibility features     |
 | **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** | Complete accessibility audit script guide (1355 lines) | Using or customizing the audit script |
 | **[FAQ_CONTENT_GUIDE.md](FAQ_CONTENT_GUIDE.md)**                               | FAQ management and "new" badge system                  | Adding/managing FAQ content           |
+| **[PROPOSED_FAQ_ADDITIONS.md](PROPOSED_FAQ_ADDITIONS.md)** 🆕                   | Seven drafted, pillar-sourced FAQ entries proposed in the September 2026 review | Reviewing or adding new FAQ content |
 | **[SEO_GUIDE.md](SEO_GUIDE.md)**                                               | Complete SEO guide with external action recommendations | Improving search rankings             |
 | **[CONFIGURATION_ABSTRACTION.md](CONFIGURATION_ABSTRACTION.md)**               | Configuration management patterns                      | Setting up environments               |
 

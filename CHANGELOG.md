@@ -6,6 +6,52 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.3] - 2026-09-02
+
+### Content — September 2026 periodic accuracy review
+
+Full re-verification of `content/faqs.md` against primary sources: eCFR (28 CFR §§ 35.104, 35.107, 35.130, 35.160, 35.200–35.205 as of 2026-09-01), the Federal Register API, reginfo.gov, regulations.gov, the CourtListener docket, ada.gov, Illinois DoIT and ILGA, W3C (WCAG 2.1/2.2/3.0, Understanding docs), and vendor/tool documentation (ITI VPAT, PAC, Canva, Adobe, NVDA, Microsoft, IAAP, WebAIM, Deque, CDC DHDS). All status markers now read September 2, 2026, and every Q&A whose content changed carries `{updated:2026-09-02}` (six of the August 13 `{new:}` questions changed and were re-tagged; the two that did not change keep their `{new:}` tag and expire on schedule).
+
+**Verified unchanged — no edit needed:** the compliance dates in 28 CFR § 35.200(b) (April 26, 2027 / April 26, 2028, as amended at 91 FR 20912); every verbatim regulation quote in the FAQ; the DoIT IITAA page quotes and version history (1.0 2008, 2.0 2018, 2.1 June 24, 2024); the 30 ILCS 587/25 review-year text; DoIT contact numbers; all WCAG 2.1 quotes (conformance requirements, SC 1.2.2/1.2.4/1.2.5/1.4.3); the W3C "no tool alone" and third-party-content quotes; ITI VPAT 2.5Rev (April 2025) covering WCAG 2.2; PAC 2026; the Deque 57% study; IAAP credential descriptions; CDC figures (DHDS 2022 is still the latest release); DOJ's own Section 504 regulations contain no web deadlines.
+
+**Status refreshed (as of September 2, 2026):**
+
+- **NFB v. DOJ** (D. Md. 1:26-cv-02007) — court entered a briefing schedule June 29, 2026; last docketed activity July 13, 2026; no ruling. Executive summary, "When must we comply with the ADA Title II rule?", and "Is the April 26, 2027 deadline final…?" refreshed.
+- **DOJ Interim Final Rule** (91 FR 20902) — no final rule, revision, or withdrawal; docket DOJ-CRT-2026-0067 holds only the IFR. **New:** DOJ's 2026 Unified Agenda (published August 14, 2026; RIN 1190-AA82) says the Department is considering an NPRM "to reconsider whether some of the regulatory provisions imposed by the April 24, 2024 rule could be made less burdensome," timing "To Be Determined" — added as a third scenario ("DOJ could propose changes to the rule itself") in "Is the deadline final," cited to reginfo.gov.
+- **HHS Section 504 IFR** — title corrected to the IFR's actual title; added effective date May 7, 2026, publication May 11, 2026 (91 FR 25496), comment close July 6, 2026; canonical Federal Register URL; "HHS has not finalized, revised, or withdrawn" status line.
+- **IITAA 2026 statutory review** — still unannounced (no draft, workgroup, or comment period on DoIT's site or news feed; window runs through December 31, 2026); DoIT accessibility-news page now linked.
+
+**Corrections:**
+
+- 30 ILCS 587/25 was *amended* (not added) by P.A. 103-729; the review requirement dates to the original 2007 Act (P.A. 95-307) — P.A. 103-729 set the calendar-year-2026 date.
+- "online guides, live trainings, and technical assistance" is on DoIT's DOJ Rule page, not guides.html — now cited correctly; that page's "Illinois agencies have a head start, but there is still work to do" quote added to "Did the federal deadline extension give Illinois agencies an extra year?"
+- Canva: reading order is set from the Position panel's layer order plus "Match reading order to layers" at download — "Edit text semantics" sets headings only (both Canva Q&As fixed); added Canva's own caveat that its Design Accessibility checker "isn't a compliance tool"; freshness note → September 2026.
+- WCAG 2.2's AA-only criteria list now includes 2.5.7 Dragging Movements (four AA additions, not three); WCAG 3.0 is described as a Working Draft (latest March 3, 2026) that W3C says "still has several years of work"; noted WCAG 2.1's May 6, 2025 errata republication (the federal rule still pins the June 5, 2018 edition).
+- NVDA quit shortcut is Insert+Q *then Enter*; Acrobat's legacy menu path labeled as the classic interface of older versions; the Illinois 23.7% disability prevalence labeled age-adjusted (CDC DHDS 2022).
+- `content/links.md`: "PAC 2024" → "PAC 2026".
+
+### Links — citation link check (231 unique URLs)
+
+- **Repaired (moved pages):** HHS Section 504 fact sheet → the Part 84 final-rule fact sheet; Section508.gov "Update and Maintain Agency Accessibility Policy"; PlainLanguage.gov → Digital.gov plain-language guides; JAWS and Colour Contrast Analyser → vispero.com; W3C mobile-accessibility page; Apple accessibility developer docs; Microsoft Accessibility Checker; Markdown Guide tables anchor (extended syntax); Level Access Title II guide; IAAP certification overview; UK LGA social-media guide; Figma accessibility; W3C "Content Usable" objective page; CommonLook (now Allyant); IBM Equal Access checker.
+- **WCAG quick reference:** all 124 quick-reference links now point at W3C's current URL (`WCAG22/quickref/?versions=2.1#…`), where the old `WCAG21/quickref` URLs 301-redirect. The redirect also drops the old `?levels=aa` parameter, which in the quickref's URL scheme *hides* the listed level — so the old links were hiding the very criteria they pointed at. The two AAA "target size" links now point at the WCAG 2.1 spec anchor (the quickref anchor id changed).
+- **Removed / relabeled:** i2i and VPP audit-report links (both pages 404 with no replacement on those sites — the table rows now read "Report temporarily unavailable"); Safe From the Start relabeled "View Accessibility Statement" (it is a statement, not an audit report); Digital.gov social-media toolkit (404, no successor) dropped from `links.md`; Yale social-media article (now a video page) replaced with the University of Michigan guide; the ADA.gov "Title II Web Rule" link relabeled as DOJ's overview/webinar page; Adobe "PDF Specifications" label corrected.
+- **Not re-tagged:** URL-only repairs did not receive `{updated:}` chips (same policy as the v1.3.1 editorial pass); the audit-report table did, because its content changed.
+
+### Added — proposed FAQ entries for review (not yet in the FAQ)
+
+- `markdown-documentation/PROPOSED_FAQ_ADDITIONS.md` — seven fully drafted, pillar-sourced Q&As with verbatim rule text, ready to paste: conforming alternate versions (28 CFR § 35.202); the undue-burden / fundamental-alteration defense (§ 35.204); live captions for streamed meetings and webinars (WCAG 1.2.4 + § 35.160); which file types are "conventional electronic documents" (§ 35.104); PDF/UA vs. WCAG 2.1; whether WCAG 2.1 AA would still apply if the federal rule were withdrawn (IITAA); and accessibility statements (§ 35.107).
+
+### Dates / version
+
+- `lastUpdated` and `lastReviewed` → 2026-09-02 in `content/faqs.md` frontmatter and both prose markers; homepage `lastUpdated`/`lastReviewed` constants → September 2, 2026; version 1.3.3 (package.json, README badge and Version Information).
+
+### Verification
+
+- Test suite: 234/234 passing (unit + Nuxt), including the FAQ internal-link check.
+- Citation link check: 231 unique URLs across `faqs.md` and `links.md` — 153 OK, 65 redirected (all rewritten to their targets), 11 broken (all repaired, replaced, or removed), 2 unverifiable by automation (Adobe help pages; verify manually).
+
+---
+
 ## [1.3.2] - 2026-08-13
 
 ### Docs — README/CLAUDE.md currency sync

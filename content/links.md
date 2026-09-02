@@ -26,7 +26,7 @@ A curated collection of links for website and content accessibility compliance, 
 
 ### Third-Party Guidance
 
-- <a href="https://www.levelaccess.com/blog/ada-title-ii-updates-what-to-know-about-the-dojs-proposed-revisions/" target="_blank" rel="noopener noreferrer">**Level Access - ADA Title II Requirements Guide**</a> — Comprehensive breakdown with compliance steps
+- <a href="https://www.levelaccess.com/blog/ada-title-ii-updates/" target="_blank" rel="noopener noreferrer">**Level Access - ADA Title II Requirements Guide**</a> — Comprehensive breakdown with compliance steps
 - <a href="https://accessible.org/ada-title-ii-web-accessibility/" target="_blank" rel="noopener noreferrer">**Accessible.org - ADA Title II Web Accessibility Guide**</a> — FAQ and implementation guidance
 - <a href="https://www.deque.com/blog/ada-title-ii-urgent-digital-accessibility-requirements-for-us-state-and-local-governments-and-their-third-party-vendors/" target="_blank" rel="noopener noreferrer">**Deque - ADA Title II Requirements for Government**</a> — Focus on third-party vendor requirements
 
@@ -42,7 +42,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">**WCAG 2 at a Glance**</a> — Quick reference summary
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/" target="_blank" rel="noopener noreferrer">**What's New in WCAG 2.1**</a> — Summary of the 17 new success criteria
 - <a href="https://www.w3.org/WAI/WCAG21/Understanding/understanding-techniques" target="_blank" rel="noopener noreferrer">**Techniques for WCAG 2.1**</a> — Implementation guidance
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">**How to Meet WCAG (Quick Reference)**</a> — Filterable checklist of all success criteria
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">**How to Meet WCAG (Quick Reference)**</a> — Filterable checklist of all success criteria
 
 ### WCAG Educational Resources
 
@@ -77,7 +77,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">**WAVE Web Accessibility Evaluator**</a> — Visual feedback tool from WebAIM (Chrome, Firefox, Edge)
 - <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">**axe DevTools Extension**</a> — Developer-focused testing from Deque
 - <a href="https://www.ssa.gov/accessibility/andi/help/install.html" target="_blank" rel="noopener noreferrer">**ANDI (Accessible Name & Description Inspector)**</a> — SSA bookmarklet for Section 508 testing
-- <a href="https://www.ibm.com/able/toolkit/verify/accessibility-checker/" target="_blank" rel="noopener noreferrer">**IBM Equal Access Accessibility Checker**</a> — Browser extension with guided testing
+- <a href="https://www.ibm.com/able/toolkit/verify/automated/" target="_blank" rel="noopener noreferrer">**IBM Equal Access Accessibility Checker**</a> — Browser extension with guided testing
 - <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener noreferrer">**Lighthouse**</a> — Built into Chrome DevTools
 
 ### Evaluation Tool Directories
@@ -88,7 +88,7 @@ A curated collection of links for website and content accessibility compliance, 
 ### Color Contrast Checkers
 
 - <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">**WebAIM Contrast Checker**</a> — Simple ratio calculator
-- <a href="https://www.tpgi.com/color-contrast-checker/" target="_blank" rel="noopener noreferrer">**TPGi Colour Contrast Analyser**</a> — Desktop application for Windows/Mac
+- <a href="https://vispero.com/lp/color-contrast-checker/" target="_blank" rel="noopener noreferrer">**Colour Contrast Analyser (TPGi / Vispero)**</a> — Desktop application for Windows/Mac
 - <a href="https://accessible-colors.com/" target="_blank" rel="noopener noreferrer">**Accessible Colors**</a> — Suggests accessible color alternatives
 
 ---
@@ -97,13 +97,13 @@ A curated collection of links for website and content accessibility compliance, 
 
 ### Testing Tools
 
-- <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">**PAC 2024 (PDF Accessibility Checker)**</a> — Free PDF/UA validator
+- <a href="https://pac.pdf-accessibility.org/" target="_blank" rel="noopener noreferrer">**PAC 2026 (PDF Accessibility Checker)**</a> — Free PDF/UA validator
 - <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">**Adobe Acrobat Pro - Accessibility Tools**</a> — Built-in accessibility checker and remediation
 
 ### Remediation Software
 
 - <a href="https://equidox.co/" target="_blank" rel="noopener noreferrer">**Equidox**</a> — PDF remediation software
-- <a href="https://commonlook.com/accessibility-software/commonlook-pdf/" target="_blank" rel="noopener noreferrer">**CommonLook PDF**</a> — Professional remediation tool
+- <a href="https://allyant.com/pdf-accessibility-software-solutions/commonlook-pdf/" target="_blank" rel="noopener noreferrer">**CommonLook PDF (Allyant)**</a> — Professional remediation tool
 - <a href="https://www.continualengine.com/prep-pdf-remediation-software/" target="_blank" rel="noopener noreferrer">**PREP by Continual Engine**</a> — AI-powered document remediation
 - <a href="https://www.foxit.com/pdf-editor/" target="_blank" rel="noopener noreferrer">**Foxit PDF Editor**</a> — Alternative to Adobe with accessibility features
 
@@ -120,10 +120,9 @@ A curated collection of links for website and content accessibility compliance, 
 ### Guidelines and Best Practices
 
 - <a href="https://www.section508.gov/create/social-media/" target="_blank" rel="noopener noreferrer">**Section508.gov - Social Media Accessibility**</a> — Federal social media guidance
-- <a href="https://digital.gov/resources/improving-the-accessibility-of-social-media-in-government" target="_blank" rel="noopener noreferrer">**Digital.gov - Improving Social Media Accessibility in Government**</a> — Comprehensive toolkit
 - <a href="https://www.w3.org/WAI/standards-guidelines/atag/social-media/" target="_blank" rel="noopener noreferrer">**W3C WAI - Social Media Platform Guidelines (ATAG)**</a> — Standards for authoring tools
-- <a href="https://usability.yale.edu/web-accessibility/articles/social-media" target="_blank" rel="noopener noreferrer">**Yale - Social Media Accessibility**</a> — Platform-specific guidance
-- <a href="https://www.local.gov.uk/our-support/leadership-workforce-and-communications/comms-hub-communications-support/social-media-4" target="_blank" rel="noopener noreferrer">**UK Local Government Association - Social Media Accessibility Guide**</a> — Practical tips for government accounts
+- <a href="https://accessibility.umich.edu/how-to/social-media/make-posts-accessible" target="_blank" rel="noopener noreferrer">**University of Michigan - Make Social Media Posts Accessible**</a> — Platform-specific guidance
+- <a href="https://www.local.gov.uk/our-support/communications-and-community-engagement/social-media-guidance-councillors/guide" target="_blank" rel="noopener noreferrer">**UK Local Government Association - Social Media Accessibility Guide**</a> — Practical tips for government accounts
 
 ### Key Social Media Accessibility Practices
 
@@ -155,7 +154,7 @@ A curated collection of links for website and content accessibility compliance, 
 
 ### Other Design Tools
 
-- <a href="https://www.figma.com/accessibility/" target="_blank" rel="noopener noreferrer">**Figma Accessibility Resources**</a> — Accessibility features and plugins
+- <a href="https://help.figma.com/hc/en-us/articles/35063862380311-Accessibility-at-Figma" target="_blank" rel="noopener noreferrer">**Figma Accessibility Resources**</a> — Accessibility features and plugins
 - <a href="https://www.getstark.co/" target="_blank" rel="noopener noreferrer">**Stark Plugin for Figma**</a> — Accessibility testing for designers
 - <a href="https://www.adobe.com/accessibility.html" target="_blank" rel="noopener noreferrer">**Adobe Creative Cloud Accessibility**</a> — Accessibility across Adobe products
 
@@ -174,7 +173,7 @@ A curated collection of links for website and content accessibility compliance, 
 ### Certification Programs
 
 - <a href="https://www.dhs.gov/508-training" target="_blank" rel="noopener noreferrer">**DHS Trusted Tester Certification**</a> — Free federal testing certification
-- <a href="https://www.accessibilityassociation.org/certification" target="_blank" rel="noopener noreferrer">**IAAP Certifications (CPACC, WAS, CPWA)**</a> — Professional credentials
+- <a href="https://www.accessibilityassociation.org/certification-overview" target="_blank" rel="noopener noreferrer">**IAAP Certifications (CPACC, WAS, CPWA)**</a> — Professional credentials
 
 ---
 
@@ -185,7 +184,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.w3.org/WAI/test-evaluate/preliminary/" target="_blank" rel="noopener noreferrer">**Easy Checks - A First Review**</a> — Quick accessibility evaluation
 - <a href="https://www.w3.org/WAI/standards-guidelines/atag/" target="_blank" rel="noopener noreferrer">**Authoring Tool Accessibility Guidelines (ATAG)**</a> — Standards for content management systems
 - <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">**ARIA Authoring Practices**</a> — Patterns for interactive components
-- <a href="https://www.w3.org/WAI/WCAG2/supplemental/objectives/o1-understandable-content/" target="_blank" rel="noopener noreferrer">**Content Usable - Cognitive Accessibility**</a> — Guidance for cognitive disabilities
+- <a href="https://www.w3.org/WAI/WCAG2/supplemental/objectives/o1-understandable/" target="_blank" rel="noopener noreferrer">**Content Usable - Cognitive Accessibility**</a> — Guidance for cognitive disabilities
 
 ---
 

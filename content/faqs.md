@@ -1,8 +1,8 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-08-13
-lastReviewed: 2026-08-13
+lastUpdated: 2026-09-02
+lastReviewed: 2026-09-02
 disclaimer:
   - label: "Created by"
     text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
@@ -35,13 +35,13 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 ### Executive summary: what you need to know right now
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
-_Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
+_Last updated: September 2, 2026 · Last reviewed: September 2, 2026_
 
-> **⚠️ Deadline extended (April 20, 2026):** The U.S. Department of Justice has published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the ADA Title II web accessibility compliance date by one year — from **April 24, 2026** to **April 26, 2027** (for public entities serving populations of 50,000 or more). Smaller jurisdictions (under 50,000) have until **April 26, 2028**. The technical standard (WCAG 2.1 Level AA) is unchanged; only the compliance date has moved. **The extra year is for implementation, not delay** — agencies that are already planning or remediating should continue. **Update (August 2026):** the extension is being challenged in federal court (_National Federation of the Blind v. DOJ_, filed May 2026, asking the court to restore the original deadlines); the extended dates remain in effect while the case proceeds, but plan as if the clock could tighten.
+> **⚠️ Deadline extended (April 20, 2026):** The U.S. Department of Justice has published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the ADA Title II web accessibility compliance date by one year — from **April 24, 2026** to **April 26, 2027** (for public entities serving populations of 50,000 or more). Smaller jurisdictions (under 50,000) have until **April 26, 2028**. The technical standard (WCAG 2.1 Level AA) is unchanged; only the compliance date has moved. **The extra year is for implementation, not delay** — agencies that are already planning or remediating should continue. **Status (September 2, 2026):** the extension is being challenged in federal court (_National Federation of the Blind v. DOJ_, filed May 2026, asking the court to restore the original deadlines), and DOJ has neither finalized nor revised its interim rule. No ruling has been issued and the extended dates remain in effect while the case proceeds — but plan as if the clock could tighten.
 
 **What you need to know right now:**
 
@@ -53,7 +53,7 @@ _Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
 
 3. **This applies to your work:** If you create documents, websites, videos, social media posts, or procure digital tools — accessibility is part of your job now.
 
-4. **The standard is clear:** <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> — think of it as a **compliance checklist for digital content**. In practice: proper headings, alt text on images, captions on videos, keyboard navigation, sufficient color contrast, and accessible forms.
+4. **The standard is clear:** <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> — think of it as a **compliance checklist for digital content**. In practice: proper headings, alt text on images, captions on videos, keyboard navigation, sufficient color contrast, and accessible forms.
 
 5. **Start small, start now:** You don't have to fix everything today. Focus on new content first, then prioritize high-traffic pages and critical services. Every small improvement counts.
 
@@ -61,7 +61,7 @@ _Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
 
 **More people need accessible content than you might expect:**
 
-- **In Illinois alone:** Approximately **2.3 million adults** — roughly 1 in 4 (23.7%, 2022 data) — have a disability that may affect how they access digital content, including mobility, cognitive, hearing, and vision impairments (see CDC’s Disability and Health Data System (DHDS): <a href="https://www.cdc.gov/dhds/about/index.html" target="_blank" rel="noopener noreferrer">About DHDS</a>).
+- **In Illinois alone:** Approximately **2.3 million adults** — roughly 1 in 4 (23.7%, age-adjusted, 2022 data — the most recent CDC release) — have a disability that may affect how they access digital content, including mobility, cognitive, hearing, and vision impairments (see CDC’s Disability and Health Data System (DHDS): <a href="https://www.cdc.gov/dhds/about/index.html" target="_blank" rel="noopener noreferrer">About DHDS</a>).
 - **Beyond Illinois:** ICJIA's research, publications, and resources reach a **national and global audience** — researchers, policymakers, criminal justice professionals, and the public. Accessibility isn't just a state compliance issue; it determines who can access your work worldwide.
 - **Temporary and situational disabilities count too:** A broken arm, recovery from surgery, bright sunlight on a screen, or aging-related vision changes — accessible content helps everyone at some point.
 
@@ -77,7 +77,7 @@ _Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA (Illinois Information Technology Accessibility Act)</a> — Illinois state accessibility requirements
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Federal accessibility requirements and the April 2027 deadline
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: ADA Title II Final Rule</a> — Official rule text (April 24, 2024)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — Filterable checklist of accessibility requirements
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — Filterable checklist of accessibility requirements
 - <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Full Specification</a> — Complete technical standard
 - <a href="https://doit.illinois.gov/initiatives/accessibility/guides.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility Guides</a> — Free state-provided guides; request live training via DoIT.Accessibility@Illinois.gov
 
@@ -256,12 +256,12 @@ Digital accessibility means that websites, applications, documents, and other di
 - **Websites** provide the structure and navigation — if a website isn't accessible, users can't navigate or interact with it, regardless of how accessible the content is.
 - **Content** provides the actual information — if documents, videos, or images aren't accessible, users can't access the information, even if the website structure is perfect.
 
-**The standard:** Both websites and content must meet <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> requirements, which is the compliance standard required by both <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA</a> and <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II</a>.
+**The standard:** Both websites and content must meet <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA</a> requirements, which is the compliance standard required by both <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA</a> and <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II</a>.
 
 **References:**
 
 - <a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">W3C: Introduction to Web Accessibility</a> — Official overview of digital accessibility
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA Quick Reference</a> — The accessibility standard required for compliance
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Level AA Quick Reference</a> — The accessibility standard required for compliance
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — Federal requirements for state and local governments
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — Illinois state accessibility requirements
 - <a href="https://www.section508.gov/" target="_blank" rel="noopener noreferrer">Section508.gov</a> — Federal accessibility resources and guidance
@@ -425,7 +425,7 @@ A simple spreadsheet or task list gives you this information.
 3. **Form labels** — Every field needs a proper label: <a href="https://webaim.org/techniques/forms/" target="_blank" rel="noopener noreferrer">WebAIM: Forms</a>
 4. **Install testing tools** — axe DevTools or WAVE browser extensions
 
-**Standards:** <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> | <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">ARIA APG</a> (use semantic HTML first)
+**Standards:** <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> | <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer">ARIA APG</a> (use semantic HTML first)
 
 **Testing:** Automated (axe/WAVE/Lighthouse) + manual (keyboard-only + screen reader). Download <a href="https://www.nvaccess.org/download/" target="_blank" rel="noopener noreferrer">NVDA</a> (free).
 
@@ -902,15 +902,15 @@ This is what defeats the "we'll just exclude the embed/widget/PDF from the audit
 
 ### Should we test against WCAG 2.2 or WCAG 2.1?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
 **Quick answer:** Your **legal targets are WCAG 2.1 Level AA** — both the ADA Title II web rule and the IITAA 2.1 Standards cite it specifically. WCAG 2.2 is the newest W3C Recommendation and is worth adopting voluntarily, but its new criteria are not required by either law.
 
 **What each version is:**
 
-- **WCAG 2.1** (2018) — the version both of your legal obligations point at. The federal rule incorporates it by reference — 28 CFR § 35.200(b)(3) pins the June 5, 2018 version — and IITAA 2.1 requires WCAG 2.1 Level AA.
+- **WCAG 2.1** (2018) — the version both of your legal obligations point at. The federal rule incorporates it by reference — 28 CFR § 35.200(b)(3) pins the June 5, 2018 version — and IITAA 2.1 requires WCAG 2.1 Level AA. (W3C has since republished WCAG 2.1 with errata, most recently on May 6, 2025; the rule still points to the 2018 edition.)
 - **WCAG 2.2** (2023, the current W3C Recommendation) — keeps all WCAG 2.1 requirements (it retires only the obsolete parsing criterion, 4.1.1) and adds nine criteria, mostly about focus visibility, dragging alternatives, target size, and accessible authentication. W3C states WCAG 2.2 does not deprecate WCAG 2.1.
-- **WCAG 3.0** — an exploratory Working Draft, years from becoming a standard. Don't wait for it, and be skeptical of vendors marketing "WCAG 3.0 readiness."
+- **WCAG 3.0** — still a Working Draft (latest March 3, 2026) that W3C says "still has several years of work." Don't wait for it, and be skeptical of vendors marketing "WCAG 3.0 readiness."
 
 **The practical answer for Illinois agencies:**
 
@@ -930,7 +930,7 @@ This is what defeats the "we'll just exclude the embed/widget/PDF from the audit
 
 {updated:2025-12-27}
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.1.1) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 1.1.1) and a conformance level (A, AA, or AAA). You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 **Quick answer:** Most accessibility issues come from a small set of common mistakes. Avoid these and you'll prevent the majority of accessibility problems. Beyond the basics (alt text, color contrast, headings), there are also specific WCAG requirements that are frequently overlooked.
 
@@ -938,23 +938,23 @@ This is what defeats the "we'll just exclude the embed/widget/PDF from the audit
 
 | ❌ Don't do this                                                                            | ✅ Do this instead                                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1. Skip alt text on images** — "The image is self-explanatory"                            | Write alt text for every image. If you took the photo for a reason, that reason needs words. (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)            |
-| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule" (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">SC 2.4.4 - Level A</a>)           |
-| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one  | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate. (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)              |
+| **1. Skip alt text on images** — "The image is self-explanatory"                            | Write alt text for every image. If you took the photo for a reason, that reason needs words. (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)            |
+| **2. Use "Click here" or "Read more" for links** — Screen readers read links out of context | Write descriptive links: "Download the 2025 Annual Report" or "View training schedule" (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#link-purpose-in-context" target="_blank" rel="noopener noreferrer">SC 2.4.4 - Level A</a>)           |
+| **3. Make text bold instead of using heading styles** — Looks like a heading but isn't one  | Use Heading 1, Heading 2, Heading 3 styles. Screen readers use headings to navigate. (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)              |
 | **4. Put essential info only in images** — Images may not load or be visible                | Always include the same information as text in the document or caption                                                                                                                                                                                  |
-| **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1 - Level A</a>)                                                    |
+| **5. Use color alone to convey meaning** — "Required fields are in red"                     | Use text labels, icons, or patterns in addition to color (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1 - Level A</a>)                                                    |
 | **6. Create PDFs by scanning paper** — Results in an image, not readable text               | Use OCR or create documents digitally with proper structure                                                                                                                                                                                             |
-| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's a compliance requirement and benefits everyone. (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.2 - Level A</a>)                           |
-| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">SC 1.4.3 - Level AA</a>) |
-| **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)                           |
+| **7. Skip captions on videos** — "People can figure it out"                                 | Always add captions. It's a compliance requirement and benefits everyone. (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.2 - Level A</a>)                           |
+| **8. Use tiny or low-contrast text** — Light gray on white, small fonts                     | Use at least 4.5:1 contrast ratio for normal text; avoid very small text sizes that reduce readability (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">SC 1.4.3 - Level AA</a>) |
+| **9. Build complex tables with merged cells** — Screen readers can't interpret them         | Use simple tables with clear headers; avoid merging cells when possible (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)                           |
 | **10. Assume "IT will fix it later"** — Accessibility is everyone's job                     | Make accessibility part of your workflow from the start                                                                                                                                                                                                 |
 
 **Other common website accessibility issues:**
 
-- **Missing form labels** — Form fields without associated labels (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)
-- **Keyboard inaccessibility** — Interactive elements that can't be reached or operated with a keyboard (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#keyboard" target="_blank" rel="noopener noreferrer">SC 2.1.1 - Level A</a>)
-- **Missing page titles** or duplicate titles across pages (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#page-titled" target="_blank" rel="noopener noreferrer">SC 2.4.2 - Level A</a>)
-- **Auto-playing media** without controls (<a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-control" target="_blank" rel="noopener noreferrer">SC 1.4.2 - Level A</a>)
+- **Missing form labels** — Form fields without associated labels (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)
+- **Keyboard inaccessibility** — Interactive elements that can't be reached or operated with a keyboard (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#keyboard" target="_blank" rel="noopener noreferrer">SC 2.1.1 - Level A</a>)
+- **Missing page titles** or duplicate titles across pages (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#page-titled" target="_blank" rel="noopener noreferrer">SC 2.4.2 - Level A</a>)
+- **Auto-playing media** without controls (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#audio-control" target="_blank" rel="noopener noreferrer">SC 1.4.2 - Level A</a>)
 - **Removing focus indicators** — The blue outline helps keyboard users know where they are
 - **Using placeholder text as labels** — Placeholder text disappears when you start typing
 - **Making clickable areas too small** — For usability, aim for touch targets of at least 44x44 pixels (strongly recommended best practice)
@@ -1129,7 +1129,7 @@ Accessibility is no longer just "best practice" — it's a compliance requiremen
 
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">IITAA Requirements</a> — Illinois state agency accessibility requirements
 - <a href="https://doit.illinois.gov/doit-news/accessibility-news/iitaa-2-1-update.html" target="_blank" rel="noopener noreferrer">IITAA 2.1 Update (DoIT)</a> — Effective date + what changed
-- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule</a> — Federal accessibility requirements for state/local governments
+- <a href="https://www.ada.gov/title-ii-web-rule/" target="_blank" rel="noopener noreferrer">ADA.gov: Title II Web Rule (overview and recorded webinar)</a> — DOJ's landing page for the rule
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Fact Sheet</a> — Plain language summary of requirements and deadlines
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register (Final Rule)</a> — Full legal text
 
@@ -1590,7 +1590,7 @@ This is a legal determination, not an administrative one.
 
 - <a href="https://accessibility.osu.edu/title-ii/archived-content-exception" target="_blank" rel="noopener noreferrer">Ohio State University ADA Digital Accessibility Center: Archived Content Exception</a> — Widely cited analysis and checklist for evaluating content against exception criteria
 - <a href="https://www.ala.org/accessibility/ada-rule-exceptions" target="_blank" rel="noopener noreferrer">American Library Association: ADA Web Rule Exceptions</a> — Guidance for public institutions on understanding exceptions
-- <a href="https://www.section508.gov/manage/laws-and-policies/update-agency-policies/" target="_blank" rel="noopener noreferrer">Section508.gov: Update Agency Accessibility Policies</a> — Federal guidance on accessibility policy updates
+- <a href="https://www.section508.gov/manage/laws-and-policies/update-maintain-agency-accessibility-policy/" target="_blank" rel="noopener noreferrer">Section508.gov: Update and Maintain Agency Accessibility Policy</a> — Federal guidance on accessibility policy updates
 
 **Illinois-Specific:**
 
@@ -1771,20 +1771,20 @@ The IITAA covers all "information and communication technology," including:
 
 ### Could the IITAA standards change in 2026?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
-**Quick answer:** Possibly. The IITAA statute requires the State to review its accessibility standards **during calendar year 2026**, so an update — for example, alignment with WCAG 2.2 — is legally possible this year. As of August 13, 2026, DoIT has announced no change: the IITAA 2.1 Standards (WCAG 2.1 Level AA) remain current.
+**Quick answer:** Possibly. The IITAA statute requires the State to review its accessibility standards **during calendar year 2026**, so an update — for example, alignment with WCAG 2.2 — is legally possible this year. As of September 2, 2026, DoIT has announced no change — no draft standards, workgroup, or comment period has been posted — and the IITAA 2.1 Standards (WCAG 2.1 Level AA) remain current. The statutory review window runs through December 31, 2026.
 
 **Verbatim from the statute (30 ILCS 587/25, "Review and amendment of standards"):**
 
 > "In calendar year 2026 and not less often than every 3 years thereafter, the Department of Innovation and Technology shall review the accessibility standards and, as appropriate, amend the standards to reflect technological advances or changes in electronic and information technology."
 
-— <a href="https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2918&ChapterID=7" target="_blank" rel="noopener noreferrer">30 ILCS 587/25</a> (added by P.A. 103-729, effective August 2, 2024)
+— <a href="https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2918&ChapterID=7" target="_blank" rel="noopener noreferrer">30 ILCS 587/25</a> (as amended by P.A. 103-729, effective August 2, 2024, which set the calendar-year-2026 date; the review requirement itself dates to the original 2007 Act)
 
 **What this means for your planning:**
 
 - **Nothing about your current work is wasted.** If DoIT moves to WCAG 2.2, everything built for WCAG 2.1 Level AA still counts — WCAG 2.2 keeps the 2.1 requirements and adds a small number of new criteria. See [Should we test against WCAG 2.2 or WCAG 2.1?](#common-concerns-should-we-test-against-wcag-2-2-or-wcag-2-1)
-- **Watch DoIT's accessibility news page** for review outcomes; standards changes come with their own effective dates and transition guidance (IITAA 2.1's announcement preceded its effective date by two months).
+- **Watch <a href="https://doit.illinois.gov/initiatives/accessibility/news.html" target="_blank" rel="noopener noreferrer">DoIT's accessibility news page</a>** for review outcomes; standards changes come with their own effective dates and transition guidance (IITAA 2.1 was announced April 24, 2024, two months before its June 24, 2024 effective date).
 - **Procurement teams should note** the statute's follow-through requirement: after amended standards are published, State entities have six months to fold them into procurement policies and procedures.
 
 **References:**
@@ -1794,9 +1794,9 @@ The IITAA covers all "information and communication technology," including:
 
 ### Where can I get IITAA training?
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
-The Illinois Department of Innovation & Technology (DoIT) Office of Information Accessibility provides free help for state agencies. DoIT currently describes its offerings as **online guides, live trainings, and technical assistance**; past topics have included accessible Word documents, PDFs, PowerPoint presentations, and web development.
+The Illinois Department of Innovation & Technology (DoIT) Office of Information Accessibility provides free help for state agencies. DoIT currently describes its offerings as **online guides, live trainings, and technical assistance** (<a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/doj-rule.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: DOJ Rule on Web Accessibility</a>); past topics have included accessible Word documents, PDFs, PowerPoint presentations, and web development.
 
 **Request training:** DoIT.Accessibility@Illinois.gov
 
@@ -1873,7 +1873,7 @@ That "directly or through contractual, licensing, or other arrangements" phrase 
 
 ### When must we comply with the ADA Title II rule?
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
 | Entity Size                                             | Compliance Deadline |
 | ------------------------------------------------------- | ------------------- |
@@ -1883,7 +1883,7 @@ That "directly or through contractual, licensing, or other arrangements" phrase 
 
 Both deadlines were extended by one year from the original dates (April 24, 2026 and April 26, 2027 respectively) by the DOJ <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> published April 20, 2026.
 
-**The extension is under legal challenge (status as of August 13, 2026):** The National Federation of the Blind has sued DOJ and HHS in the U.S. District Court for the District of Maryland (_National Federation of the Blind v. Department of Justice_, filed May 21, 2026), arguing the extensions violated the Administrative Procedure Act and asking the court to restore the original deadlines. No ruling has been issued, and the extended dates remain the law today — but agencies planning around the extra year should treat it as provisional and keep remediating on their current schedule. (<a href="https://nfb.org/about-us/press-room/national-federation-blind-sues-government-over-delay-accessibility-rules" target="_blank" rel="noopener noreferrer">NFB press release</a> · <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">case docket</a>)
+**The extension is under legal challenge (status as of September 2, 2026):** The National Federation of the Blind has sued DOJ and HHS in the U.S. District Court for the District of Maryland (_National Federation of the Blind v. Department of Justice_, filed May 21, 2026), arguing the extensions violated the Administrative Procedure Act and asking the court to restore the original deadlines. The court set a briefing schedule on June 29, 2026; no ruling has been issued, and the extended dates remain the law today — but agencies planning around the extra year should treat it as provisional and keep remediating on their current schedule. (<a href="https://nfb.org/about-us/press-room/national-federation-blind-sues-government-over-delay-accessibility-rules" target="_blank" rel="noopener noreferrer">NFB press release</a> · <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">case docket</a>)
 
 For all Illinois state agencies, the applicable deadline is **April 26, 2027** (since Illinois has over 12 million residents, state agencies fall under the 50,000+ population tier).
 
@@ -1911,15 +1911,17 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 
 ### Is the April 26, 2027 deadline final, or could a court move it back?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
-**Quick answer:** April 26, 2027 is the compliance date in current federal law, but it is not beyond change. It was set by an Interim Final Rule that DOJ could still revise after reviewing public comments, and a pending federal lawsuit asks a court to strike the extension and restore the original 2026 deadline. Plan your remediation so your agency would be in good shape under either date.
+**Quick answer:** April 26, 2027 is the compliance date in current federal law, but it is not beyond change. It was set by an Interim Final Rule that DOJ could still revise after reviewing public comments, a pending federal lawsuit asks a court to strike the extension and restore the original 2026 deadline, and DOJ's 2026 regulatory agenda flags a possible future proposal to revise parts of the rule itself. Plan your remediation so your agency would be in good shape under either date.
 
-**Two ways the date could move:**
+**Three ways the date — or the rule — could move:**
 
-**1. DOJ could revise its own rule.** The extension was issued as an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> — effective immediately on April 20, 2026, with a public comment period that closed June 22, 2026. DOJ can still revise an interim final rule when it finalizes it. As of August 13, 2026, DOJ has published no follow-up rule confirming, revising, or withdrawing the extension.
+**1. DOJ could revise its own rule.** The extension was issued as an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> — effective immediately on April 20, 2026, with a public comment period that closed June 22, 2026. DOJ can still revise an interim final rule when it finalizes it. As of September 2, 2026, DOJ has published no follow-up rule confirming, revising, or withdrawing the extension.
 
-**2. A court could vacate the extension.** In _National Federation of the Blind v. Department of Justice_ (U.S. District Court for the District of Maryland, filed May 21, 2026), the NFB argues that DOJ and HHS violated the Administrative Procedure Act by extending the deadlines without notice-and-comment rulemaking, and asks the court to restore the original compliance dates. No ruling has been issued as of August 13, 2026. (<a href="https://nfb.org/about-us/press-room/national-federation-blind-sues-government-over-delay-accessibility-rules" target="_blank" rel="noopener noreferrer">NFB press release</a> · <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">case docket</a>)
+**2. A court could vacate the extension.** In _National Federation of the Blind v. Department of Justice_ (U.S. District Court for the District of Maryland, filed May 21, 2026), the NFB argues that DOJ and HHS violated the Administrative Procedure Act by extending the deadlines without notice-and-comment rulemaking, and asks the court to restore the original compliance dates. The court entered a briefing schedule on June 29, 2026; as of September 2, 2026, no ruling has been issued. (<a href="https://nfb.org/about-us/press-room/national-federation-blind-sues-government-over-delay-accessibility-rules" target="_blank" rel="noopener noreferrer">NFB press release</a> · <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">case docket</a>)
+
+**3. DOJ could propose changes to the rule itself, not just its date.** DOJ's 2026 regulatory agenda, published August 14, 2026, lists this rulemaking at the final-rule stage and says the Department "is considering whether to extend the deadlines for implementation of the final rule then publish a Notice of Proposed Rulemaking (NPRM) to reconsider whether some of the regulatory provisions imposed by the April 24, 2024 rule could be made less burdensome." The NPRM's timing is listed as "To Be Determined," and no proposal has been published. If one is, it would go through public notice and comment before anything changed — and the IITAA would still require WCAG 2.1 Level AA in the meantime. (<a href="https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202510&RIN=1190-AA82" target="_blank" rel="noopener noreferrer">2026 Unified Agenda entry, RIN 1190-AA82 (reginfo.gov)</a>)
 
 **What this means in practice:**
 
@@ -1934,10 +1936,11 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 - <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule (91 FR 20902, Apr. 20, 2026)</a> — The extension and its comment period
 - <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> — Current compliance dates in force
 - <a href="https://www.courtlistener.com/docket/73378158/national-federation-of-the-blind-v-department-of-justice/" target="_blank" rel="noopener noreferrer">NFB v. DOJ docket (CourtListener)</a> — The pending APA challenge
+- <a href="https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202510&RIN=1190-AA82" target="_blank" rel="noopener noreferrer">2026 Unified Agenda, RIN 1190-AA82 (reginfo.gov)</a> — DOJ's stated plans for the rule as of August 14, 2026
 
 ### Did the federal deadline extension give Illinois agencies an extra year?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
 **Quick answer:** No — not for the standard your content must meet. The extension moved only the date when the **federal ADA Title II web rule** becomes enforceable. The IITAA 2.1 Standards (Illinois state law) have required WCAG 2.1 Level AA since **June 24, 2024**, and that obligation never moved.
 
@@ -1954,7 +1957,7 @@ For all Illinois state agencies, the applicable deadline is **April 26, 2027** (
 | **IITAA 2.1 Standards** (state law) | WCAG 2.1 Level AA | **In effect since June 24, 2024** — applies to your content today |
 | **ADA Title II web rule** (federal) | WCAG 2.1 Level AA | Enforceable **beginning April 26, 2027** (as extended) |
 
-**The practical takeaway:** the federal extension is breathing room for the *enforcement* clock, not a pause on the *requirement*. DoIT's framing — that the extended timeline "provides welcome opportunity to build on this momentum" — treats the extra year as implementation time, which is exactly how agencies should use it.
+**The practical takeaway:** the federal extension is breathing room for the *enforcement* clock, not a pause on the *requirement*. DoIT's framing — that the extended timeline "provides welcome opportunity to build on this momentum" — treats the extra year as implementation time, which is exactly how agencies should use it. DoIT's own guidance page on the federal rule puts it plainly: "Because this is the same requirement as the IITAA, Illinois agencies have a head start, but there is still work to do." (<a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/doj-rule.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: DOJ Rule on Web Accessibility</a>)
 
 **See also:** [When did the current IITAA standards take effect?](#compliance-requirements-iitaa-and-ada-title-ii-when-did-the-current-iitaa-standards-take-effect) | [How is the IITAA enforced?](#compliance-requirements-iitaa-and-ada-title-ii-how-is-the-iitaa-enforced)
 
@@ -2075,7 +2078,7 @@ The IITAA reaches "information systems and information technologies" — languag
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule (28 CFR Part 35)</a> — Full legal text defining scope of covered content
 - <a href="https://archive.ada.gov/ada_title_I.htm" target="_blank" rel="noopener noreferrer">ADA Title I Overview (archive.ada.gov)</a> — Employment provisions requiring reasonable accommodations
 - <a href="https://www.ada.gov/law-and-regs/ada/" target="_blank" rel="noopener noreferrer">ADA Statute (as amended)</a> — Full ADA text including Title I employment provisions (the Title I regulations themselves are EEOC's, at 29 CFR part 1630)
-- <a href="https://www.hhs.gov/civil-rights/for-individuals/disability/section-504-fact-sheet/index.html" target="_blank" rel="noopener noreferrer">HHS: Section 504 Fact Sheet</a> — Requirements for recipients of federal funding
+- <a href="https://www.hhs.gov/civil-rights/for-individuals/disability/section-504-rehabilitation-act-of-1973/part-84-final-rule-fact-sheet/index.html" target="_blank" rel="noopener noreferrer">HHS: Section 504 Final Rule Fact Sheet (45 CFR Part 84)</a> — Requirements for recipients of HHS funding, including web and mobile accessibility
 
 **Statewide sources:**
 
@@ -2084,18 +2087,18 @@ The IITAA reaches "information systems and information technologies" — languag
 
 ### Did the Section 504 web deadlines change too?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
 **Quick answer:** Yes — in a move parallel to DOJ's, HHS extended the web and mobile-app compliance dates of its 2024 Section 504 rule by one year. This is **context, not a new obligation to track for its own sake**: your load-bearing requirements remain the IITAA, ADA Title II, and WCAG 2.1 Level AA. But if your agency receives HHS funding, the parallel clock is worth knowing about.
 
-**What happened:** HHS's 2024 rule updating its Section 504 regulations (45 CFR part 84) set web/mobile accessibility deadlines for recipients of HHS federal financial assistance, using the same WCAG 2.1 Level AA standard. In May 2026, HHS published an <a href="https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-in-programs-or" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending those dates by one year:
+**What happened:** HHS's 2024 rule updating its Section 504 regulations (45 CFR part 84) set web/mobile accessibility deadlines for recipients of HHS federal financial assistance, using the same WCAG 2.1 Level AA standard. HHS then published an <a href="https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> — effective May 7, 2026, published May 11, 2026, with a comment period that closed July 6, 2026 — extending those dates by one year:
 
 | Recipient size | Extended compliance date |
 | -------------- | ------------------------ |
 | Fifteen or more employees | May 11, 2027 |
 | Fewer than fifteen employees | May 10, 2028 |
 
-The technical standard (WCAG 2.1 Level AA) is unchanged. Like DOJ's extension, the HHS extension is challenged in the pending _National Federation of the Blind_ lawsuit — see [Is the April 26, 2027 deadline final, or could a court move it back?](#compliance-requirements-iitaa-and-ada-title-ii-is-the-april-26-2027-deadline-final-or-could-a-court-move-it-back)
+The technical standard (WCAG 2.1 Level AA) is unchanged. As of September 2, 2026, HHS has not finalized, revised, or withdrawn the interim rule. Like DOJ's extension, the HHS extension is challenged in the pending _National Federation of the Blind_ lawsuit — see [Is the April 26, 2027 deadline final, or could a court move it back?](#compliance-requirements-iitaa-and-ada-title-ii-is-the-april-26-2027-deadline-final-or-could-a-court-move-it-back)
 
 **Why this doesn't change your plan:**
 
@@ -2105,7 +2108,7 @@ The technical standard (WCAG 2.1 Level AA) is unchanged. Like DOJ's extension, t
 
 **References:**
 
-- <a href="https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-in-programs-or" target="_blank" rel="noopener noreferrer">HHS Interim Final Rule (May 11, 2026)</a> — The Section 504 web-deadline extension
+- <a href="https://www.federalregister.gov/documents/2026/05/11/2026-09266/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">HHS Interim Final Rule (91 FR 25496, May 11, 2026)</a> — "Extension of Compliance Dates for Nondiscrimination on the Basis of Disability; Accessibility of Web Content and Mobile Applications of Recipients of Departmental Financial Assistance" (45 CFR § 84.84)
 - <a href="https://www.govinfo.gov/link/uscode/29/794" target="_blank" rel="noopener noreferrer">29 U.S.C. § 794 (Section 504)</a> — The underlying statute
 
 ---
@@ -2113,6 +2116,8 @@ The technical standard (WCAG 2.1 Level AA) is unchanged. Like DOJ's extension, t
 ## Website Accessibility
 
 ### How do I test my website for accessibility?
+
+{updated:2026-09-02}
 
 **See also:** [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility) (for testing PDF documents specifically)
 
@@ -2154,7 +2159,7 @@ You don't need to become a screen reader expert, but basic testing helps identif
 5. Press **D** to jump between landmarks — is the page structure clear?
 6. Test forms — are labels announced when you focus on form fields?
 7. Test images — is meaningful alt text announced?
-8. Press **Insert+Q** to quit NVDA
+8. Press **Insert+Q**, then **Enter**, to quit NVDA
 
 **What to listen for:**
 
@@ -2170,10 +2175,10 @@ You don't need to become a screen reader expert, but basic testing helps identif
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#keyboard" target="_blank" rel="noopener noreferrer">Success Criterion 2.1.1 Keyboard - Level A</a> (keyboard navigation)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#name-role-value" target="_blank" rel="noopener noreferrer">Success Criterion 4.1.2 Name, Role, Value - Level A</a> (screen reader compatibility)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#resize-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.4 Resize Text - Level AA</a> (zoom/200% requirement)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#keyboard" target="_blank" rel="noopener noreferrer">Success Criterion 2.1.1 Keyboard - Level A</a> (keyboard navigation)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#name-role-value" target="_blank" rel="noopener noreferrer">Success Criterion 4.1.2 Name, Role, Value - Level A</a> (screen reader compatibility)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#resize-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.4 Resize Text - Level AA</a> (zoom/200% requirement)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### Why does SiteImprove (or another scanner) show 98% when axe-core shows 100%?
 
@@ -2199,9 +2204,9 @@ The Violence Prevention Plan site (`vpp.icjia.illinois.gov`) was audited by Site
 
 | Finding (from SiteImprove)                              | Score    | What it actually is                                                                |
 | ------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| Color contrast does not meet enhanced requirement       | 44.33    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#contrast-enhanced" target="_blank" rel="noopener noreferrer">1.4.6</a> — **AAA** (7:1 ratio; AA only requires 4.5:1, which the site already meets)         |
-| Interactive element does not meet enhanced size         | 62.03    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#target-size" target="_blank" rel="noopener noreferrer">2.5.5</a> — **AAA** (44×44 CSS pixels; WCAG 2.1 has no AA equivalent)            |
-| Line height is below minimum value                      | 72.98    | WCAG SC <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#visual-presentation" target="_blank" rel="noopener noreferrer">1.4.8</a> Visual Presentation — **AAA** (1.5× line height for paragraphs) |
+| Color contrast does not meet enhanced requirement       | 44.33    | WCAG SC <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-enhanced" target="_blank" rel="noopener noreferrer">1.4.6</a> — **AAA** (7:1 ratio; AA only requires 4.5:1, which the site already meets)         |
+| Interactive element does not meet enhanced size         | 62.03    | WCAG SC <a href="https://www.w3.org/TR/WCAG21/#target-size" target="_blank" rel="noopener noreferrer">2.5.5</a> — **AAA** (44×44 CSS pixels; WCAG 2.1 has no AA equivalent)            |
+| Line height is below minimum value                      | 72.98    | WCAG SC <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#visual-presentation" target="_blank" rel="noopener noreferrer">1.4.8</a> Visual Presentation — **AAA** (1.5× line height for paragraphs) |
 | Overuse of italics                                      | 65.07    | SiteImprove "best practice" — **not in WCAG at any level**                         |
 
 The ~98 rollup score is being pulled down by three AAA criteria and one editorial best-practice rule. None of those are required by:
@@ -2244,9 +2249,9 @@ Three rules of thumb when scanners disagree:
 
 **References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#contrast-enhanced" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.6 Contrast (Enhanced) — AAA</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#visual-presentation" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.8 Visual Presentation — AAA</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aaa#target-size" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 2.5.5 Target Size — AAA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-enhanced" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.6 Contrast (Enhanced) — AAA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#visual-presentation" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.4.8 Visual Presentation — AAA</a>
+- <a href="https://www.w3.org/TR/WCAG21/#target-size" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 2.5.5 Target Size — AAA</a>
 - <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200" target="_blank" rel="noopener noreferrer">28 CFR § 35.200 (eCFR)</a> — federal rule cites WCAG 2.1 Level AA
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — IITAA 2.1 cites WCAG 2.1 Level AA
 
@@ -2307,55 +2312,55 @@ Three rules of thumb when scanners disagree:
 
 Beyond the most common issues (alt text, color contrast, headings), these WCAG 2.1 Level AA requirements are frequently missed during accessibility reviews. **Note:** WCAG applies to websites, documents (PDFs, Word, Excel, PowerPoint), videos, and third-party tools — not just web pages.
 
-> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.1) and a conformance level (A, AA, or AAA). For example, "SC 2.4.1" means Success Criterion 2.4.1. You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — use the search box to find specific criteria by number or keyword.
+> **What does "SC" mean?** SC stands for **Success Criterion** — the specific, testable requirements within WCAG. Each SC has a number (like 2.4.1) and a conformance level (A, AA, or AAA). For example, "SC 2.4.1" means Success Criterion 2.4.1. You can look up any SC at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a> — use the search box to find specific criteria by number or keyword.
 
 #### Website-Specific Requirements Often Missed
 
 **Navigation and Structure:**
 
-1. **Skip links / Bypass blocks (<a href="https://www.w3.org/WAI/WCAG21/quickref/#bypass-blocks" target="_blank" rel="noopener noreferrer">SC 2.4.1 - Level A</a>)** — Pages with repeated content (like navigation menus) should provide a way to skip directly to main content. This is typically implemented as a "Skip to main content" link.
+1. **Skip links / Bypass blocks (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#bypass-blocks" target="_blank" rel="noopener noreferrer">SC 2.4.1 - Level A</a>)** — Pages with repeated content (like navigation menus) should provide a way to skip directly to main content. This is typically implemented as a "Skip to main content" link.
 
-2. **Consistent navigation (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>)** — Navigation menus should appear in the same relative order across all pages of a website.
+2. **Consistent navigation (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>)** — Navigation menus should appear in the same relative order across all pages of a website.
 
-3. **Multiple ways to find pages (<a href="https://www.w3.org/WAI/WCAG21/quickref/#multiple-ways" target="_blank" rel="noopener noreferrer">SC 2.4.5 - Level AA</a>)** — Users should have more than one way to locate pages (e.g., navigation menu + site search + sitemap).
+3. **Multiple ways to find pages (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#multiple-ways" target="_blank" rel="noopener noreferrer">SC 2.4.5 - Level AA</a>)** — Users should have more than one way to locate pages (e.g., navigation menu + site search + sitemap).
 
 **Forms and User Input:**
 
-4. **Error identification (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>)** — When a form error is detected, the error must be identified and described in text. Visual indicators alone (like red borders) are not sufficient.
+4. **Error identification (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>)** — When a form error is detected, the error must be identified and described in text. Visual indicators alone (like red borders) are not sufficient.
 
-5. **Error suggestions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>)** — When an error is detected and suggestions for correction are known, provide them to the user (e.g., "Please enter a valid email address in the format name@example.com").
+5. **Error suggestions (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>)** — When an error is detected and suggestions for correction are known, provide them to the user (e.g., "Please enter a valid email address in the format name@example.com").
 
-6. **Labels or instructions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#labels-or-instructions" target="_blank" rel="noopener noreferrer">SC 3.3.2 - Level A</a>)** — All form fields must have clear labels or instructions. Placeholder text alone is not sufficient.
+6. **Labels or instructions (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#labels-or-instructions" target="_blank" rel="noopener noreferrer">SC 3.3.2 - Level A</a>)** — All form fields must have clear labels or instructions. Placeholder text alone is not sufficient.
 
-7. **Timing adjustable (<a href="https://www.w3.org/WAI/WCAG21/quickref/#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>)** — If a page has a time limit (session timeout, form expiration), users must be able to turn off, adjust, or extend the time.
+7. **Timing adjustable (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>)** — If a page has a time limit (session timeout, form expiration), users must be able to turn off, adjust, or extend the time.
 
 **Content Presentation:**
 
-8. **Reflow (<a href="https://www.w3.org/WAI/WCAG21/quickref/#reflow" target="_blank" rel="noopener noreferrer">SC 1.4.10 - Level AA</a>)** — Content must reflow without horizontal scrolling at 400% zoom (or 320px viewport width). Content should not require scrolling in two dimensions.
+8. **Reflow (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#reflow" target="_blank" rel="noopener noreferrer">SC 1.4.10 - Level AA</a>)** — Content must reflow without horizontal scrolling at 400% zoom (or 320px viewport width). Content should not require scrolling in two dimensions.
 
-9. **Text spacing (<a href="https://www.w3.org/WAI/WCAG21/quickref/#text-spacing" target="_blank" rel="noopener noreferrer">SC 1.4.12 - Level AA</a>)** — Content must remain readable when users adjust line height, paragraph spacing, letter spacing, or word spacing. No loss of content or functionality.
+9. **Text spacing (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#text-spacing" target="_blank" rel="noopener noreferrer">SC 1.4.12 - Level AA</a>)** — Content must remain readable when users adjust line height, paragraph spacing, letter spacing, or word spacing. No loss of content or functionality.
 
-10. **Language of page (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — The default human language of each page must be programmatically determined (e.g., `<html lang="en">`).
+10. **Language of page (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — The default human language of each page must be programmatically determined (e.g., `<html lang="en">`).
 
 #### Document-Specific Requirements Often Missed (PDFs, Word, Excel, PowerPoint)
 
 These requirements apply to all documents, not just websites:
 
-1. **Document language (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — Set the document language in document properties. Screen readers use this to pronounce words correctly.
+1. **Document language (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>)** — Set the document language in document properties. Screen readers use this to pronounce words correctly.
 
-2. **Proper tags and reading order (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/#meaningful-sequence" target="_blank" rel="noopener noreferrer">SC 1.3.2 - Level A</a>)** — PDFs must have tags that define structure (headings, lists, tables). Reading order must match visual order.
+2. **Proper tags and reading order (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#meaningful-sequence" target="_blank" rel="noopener noreferrer">SC 1.3.2 - Level A</a>)** — PDFs must have tags that define structure (headings, lists, tables). Reading order must match visual order.
 
 3. **Scanned documents = inaccessible** — A scanned PDF is an image. Without OCR and manual remediation, screen readers cannot read the text.
 
-4. **Table headers (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Tables in documents must have designated header rows/columns so screen readers announce column/row context.
+4. **Table headers (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Tables in documents must have designated header rows/columns so screen readers announce column/row context.
 
-5. **Color alone to convey meaning (<a href="https://www.w3.org/WAI/WCAG21/quickref/#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1 - Level A</a>)** — "Items in red are required" fails because users who can't perceive color won't know which items are required.
+5. **Color alone to convey meaning (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1 - Level A</a>)** — "Items in red are required" fails because users who can't perceive color won't know which items are required.
 
-6. **Complex images without text alternatives (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts, graphs, and infographics need both alt text and a text description of the data (often as a data table or long description).
+6. **Complex images without text alternatives (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts, graphs, and infographics need both alt text and a text description of the data (often as a data table or long description).
 
-7. **Excel spreadsheets without context (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Spreadsheets need named ranges, header rows, and text descriptions explaining how to navigate the data.
+7. **Excel spreadsheets without context (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Spreadsheets need named ranges, header rows, and text descriptions explaining how to navigate the data.
 
-8. **PowerPoint without slide titles (<a href="https://www.w3.org/WAI/WCAG21/quickref/#page-titled" target="_blank" rel="noopener noreferrer">SC 2.4.2 - Level A</a>)** — Every slide needs a unique title for navigation. Decorative "title-less" slides fail this requirement.
+8. **PowerPoint without slide titles (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#page-titled" target="_blank" rel="noopener noreferrer">SC 2.4.2 - Level A</a>)** — Every slide needs a unique title for navigation. Decorative "title-less" slides fail this requirement.
 
 #### Third-Party Tools Requirements Often Missed
 
@@ -2363,11 +2368,11 @@ When your agency uses third-party platforms (Docebo, DocuSign, Tableau, ArcGIS, 
 
 1. **Vendor claims ≠ your compliance** — A vendor saying "we're accessible" doesn't mean your implementation is accessible. Your content, configurations, and customizations must also be accessible.
 
-2. **Interactive elements must be keyboard accessible (<a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard" target="_blank" rel="noopener noreferrer">SC 2.1.1 - Level A</a>)** — If users can't complete a workflow using only a keyboard, it fails. Test all critical user paths.
+2. **Interactive elements must be keyboard accessible (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#keyboard" target="_blank" rel="noopener noreferrer">SC 2.1.1 - Level A</a>)** — If users can't complete a workflow using only a keyboard, it fails. Test all critical user paths.
 
-3. **Custom content on vendor platforms (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Training modules, survey questions, dashboards, and maps that you create must meet the same standards.
+3. **Custom content on vendor platforms (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>, <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1 - Level A</a>)** — Training modules, survey questions, dashboards, and maps that you create must meet the same standards.
 
-4. **Data visualizations need text alternatives (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts and maps must provide equivalent information for users who can't see them.
+4. **Data visualizations need text alternatives (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1 - Level A</a>)** — Charts and maps must provide equivalent information for users who can't see them.
 
 **See also:** [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 
@@ -2393,7 +2398,7 @@ These requirements are often missed because:
 
 **References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA filter)</a> — Complete list of Level A and AA requirements
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA filter)</a> — Complete list of Level A and AA requirements
 - <a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener noreferrer">WebAIM WCAG 2 Checklist</a> — Simplified checklist format
 - <a href="https://www.section508.gov/create/" target="_blank" rel="noopener noreferrer">Section508.gov: Create Accessible Content</a> — Guidance for documents, presentations, and more
 
@@ -2401,13 +2406,13 @@ These requirements are often missed because:
 
 {updated:2026-08-13}
 
-> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 For WCAG 2.1 Level AA:
 
 - **Normal text** (smaller than 18pt/~24px regular or 14pt/~19px bold): **4.5:1** contrast ratio.
 - **Large text** (18pt/~24px+ regular or 14pt/~19px+ bold): **3:1** contrast ratio.
-- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 1.4.11 Non-text Contrast - Level AA</a>).
+- **UI components and graphics**: **3:1** contrast ratio (for interactive elements, icons, and graphical objects required to understand content - WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 1.4.11 Non-text Contrast - Level AA</a>).
 
 **Verbatim from WCAG 2.1, Success Criterion 1.4.3 "Contrast (Minimum)" (Level AA):**
 
@@ -2434,8 +2439,8 @@ For WCAG 2.1 Level AA:
 
 **WCAG Reference:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a>
 
 **See also:** [What are focus indicators and why do they matter?](#website-accessibility-what-are-focus-indicators-and-why-do-they-matter) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start)
 
@@ -2443,9 +2448,9 @@ For WCAG 2.1 Level AA:
 
 {updated:2026-01-06}
 
-> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
-**Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (<a href="https://www.w3.org/WAI/WCAG21/quickref/#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 2.4.7 - Level AA</a>). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
+**Quick answer:** Focus indicators are the visible outlines or highlights that show which element currently has keyboard focus. WCAG 2.1 Level AA requires that focus is visible (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion (SC) 2.4.7 - Level AA</a>). Removing or suppressing focus indicators creates a significant barrier for keyboard users.
 
 **Why focus indicators matter:**
 
@@ -2459,7 +2464,7 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 1. **Removing outlines with CSS** — `outline: none` or `outline: 0` without providing an alternative focus style removes focus indicators entirely. This is a WCAG failure.
 
-2. **Low-contrast focus indicators** — Focus indicators must meet the 3:1 contrast requirement against adjacent colors (<a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener noreferrer">SC 1.4.11 Non-text Contrast - Level AA</a>).
+2. **Low-contrast focus indicators** — Focus indicators must meet the 3:1 contrast requirement against adjacent colors (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-contrast" target="_blank" rel="noopener noreferrer">SC 1.4.11 Non-text Contrast - Level AA</a>).
 
 3. **Invisible focus on certain backgrounds** — A blue outline may be visible on white but invisible on dark blue backgrounds.
 
@@ -2493,8 +2498,8 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 **WCAG Reference:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.7 Focus Visible - Level AA</a> — Focus indicator must be visible
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a> — Focus indicators need 3:1 contrast
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#focus-visible" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.7 Focus Visible - Level AA</a> — Focus indicator must be visible
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-contrast" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.11 Non-text Contrast - Level AA</a> — Focus indicators need 3:1 contrast
 
 **See also:** [What color contrast ratio is required?](#website-accessibility-what-color-contrast-ratio-is-required) | [I'm a web developer. Where do I start?](#getting-started-i-m-a-web-developer-where-do-i-start) | [How do I test my website?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
@@ -2502,14 +2507,14 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 {updated:2026-05-06}
 
-> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
 **Quick answer:** Yes, for WCAG 2.1 Level AA compliance:
 
-- **Pre-recorded video with audio** — Requires synchronized captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.2 - Level A</a>).
-- **Live video with audio** — Requires live captions (<a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-live" target="_blank" rel="noopener noreferrer">SC 1.2.4 - Level AA</a>). Accuracy matters; plan on a human review of auto-captions.
-- **Pre-recorded audio only** — Requires a text transcript (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.1 - Level A</a>).
-- **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.5 - Level AA</a>). For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
+- **Pre-recorded video with audio** — Requires synchronized captions (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.2 - Level A</a>).
+- **Live video with audio** — Requires live captions (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-live" target="_blank" rel="noopener noreferrer">SC 1.2.4 - Level AA</a>). Accuracy matters; plan on a human review of auto-captions.
+- **Pre-recorded audio only** — Requires a text transcript (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.1 - Level A</a>).
+- **Video with essential visual content** — Requires audio description at Level AA **only if** important visual information isn't already conveyed in the existing audio track (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">SC 1.2.5 - Level AA</a>). For example, a video where a speaker says 'as you can see on this chart...' without describing the chart would need audio description. A talking-head video where the speaker fully explains their points verbally typically does not.
 
 **Verbatim from WCAG 2.1 (W3C, normative):**
 
@@ -2574,10 +2579,10 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> — Requires accurate, synchronized captions
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-live" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.4 Captions (Live) - Level AA</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.1 Audio-only and Video-only (Prerecorded) - Level A</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.5 Audio Description (Prerecorded) - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> — Requires accurate, synchronized captions
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-live" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.4 Captions (Live) - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.1 Audio-only and Video-only (Prerecorded) - Level A</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#audio-description-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.5 Audio Description (Prerecorded) - Level AA</a>
 
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [What about cognitive accessibility and plain language?](#website-accessibility-what-about-cognitive-accessibility-and-plain-language)
 
@@ -2589,21 +2594,21 @@ Users who navigate by keyboard (including screen reader users, users with motor 
 
 **WCAG 2.1 Level AA requirements supporting cognitive accessibility:**
 
-> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
+> **Note:** "SC" = Success Criterion. Look up any SC number at the <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference</a>.
 
-1. **Readable content** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>) — Specify the language of the page so assistive technologies can render it correctly.
+1. **Readable content** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1 - Level A</a>) — Specify the language of the page so assistive technologies can render it correctly.
 
-2. **Consistent navigation** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>) — Navigation appears in the same order across pages, reducing cognitive load.
+2. **Consistent navigation** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#consistent-navigation" target="_blank" rel="noopener noreferrer">SC 3.2.3 - Level AA</a>) — Navigation appears in the same order across pages, reducing cognitive load.
 
-3. **Consistent identification** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#consistent-identification" target="_blank" rel="noopener noreferrer">SC 3.2.4 - Level AA</a>) — Components with the same function are identified consistently (e.g., all "Submit" buttons use the same label).
+3. **Consistent identification** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#consistent-identification" target="_blank" rel="noopener noreferrer">SC 3.2.4 - Level AA</a>) — Components with the same function are identified consistently (e.g., all "Submit" buttons use the same label).
 
-4. **Error identification** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>) — Errors are clearly described in text, helping users understand what went wrong.
+4. **Error identification** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-identification" target="_blank" rel="noopener noreferrer">SC 3.3.1 - Level A</a>) — Errors are clearly described in text, helping users understand what went wrong.
 
-5. **Error suggestion** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>) — When errors are detected, provide specific suggestions for correction.
+5. **Error suggestion** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-suggestion" target="_blank" rel="noopener noreferrer">SC 3.3.3 - Level AA</a>) — When errors are detected, provide specific suggestions for correction.
 
-6. **Error prevention** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">SC 3.3.4 - Level AA</a>) — For pages with legal commitments or financial transactions, allow users to review, correct, or confirm before final submission.
+6. **Error prevention** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">SC 3.3.4 - Level AA</a>) — For pages with legal commitments or financial transactions, allow users to review, correct, or confirm before final submission.
 
-7. **Timing adjustable** (<a href="https://www.w3.org/WAI/WCAG21/quickref/#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>) — Users can extend time limits, important for users who need more time to read and process content.
+7. **Timing adjustable** (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#timing-adjustable" target="_blank" rel="noopener noreferrer">SC 2.2.1 - Level A</a>) — Users can extend time limits, important for users who need more time to read and process content.
 
 **Plain language best practices (beyond WCAG compliance):**
 
@@ -2630,9 +2635,9 @@ Cognitive disabilities are the most common type of disability. According to the 
 **References:**
 
 - <a href="https://www.w3.org/WAI/cognitive/" target="_blank" rel="noopener noreferrer">W3C: Cognitive Accessibility at W3C</a> — Overview of cognitive accessibility efforts
-- <a href="https://www.plainlanguage.gov/" target="_blank" rel="noopener noreferrer">PlainLanguage.gov</a> — Federal plain language guidelines
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#readable" target="_blank" rel="noopener noreferrer">WCAG 2.1: Readable (Guideline 3.1)</a> — Make text content readable and understandable
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#input-assistance" target="_blank" rel="noopener noreferrer">WCAG 2.1: Input Assistance (Guideline 3.3)</a> — Help users avoid and correct mistakes
+- <a href="https://digital.gov/guides/plain-language" target="_blank" rel="noopener noreferrer">Digital.gov: Plain Language Guides (formerly PlainLanguage.gov)</a> — Federal plain language guidelines
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#readable" target="_blank" rel="noopener noreferrer">WCAG 2.1: Readable (Guideline 3.1)</a> — Make text content readable and understandable
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#input-assistance" target="_blank" rel="noopener noreferrer">WCAG 2.1: Input Assistance (Guideline 3.3)</a> — Help users avoid and correct mistakes
 
 ### How do I make forms accessible?
 
@@ -2685,7 +2690,7 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 **4. Keyboard Accessibility**
 
-- All form controls must be reachable and operable via keyboard (<a href="https://www.w3.org/WAI/WCAG21/quickref/#keyboard" target="_blank" rel="noopener noreferrer">WCAG SC 2.1.1 Keyboard — Level A</a>)
+- All form controls must be reachable and operable via keyboard (<a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#keyboard" target="_blank" rel="noopener noreferrer">WCAG SC 2.1.1 Keyboard — Level A</a>)
 - Tab order should follow visual order
 - Custom controls (date pickers, dropdowns) need keyboard support
 
@@ -2714,10 +2719,10 @@ Cognitive disabilities are the most common type of disability. According to the 
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#labels-or-instructions" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.2 Labels or Instructions - Level A</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-identification" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.1 Error Identification - Level A</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-suggestion" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.3 Error Suggestion - Level AA</a>
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.4 Error Prevention - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#labels-or-instructions" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.2 Labels or Instructions - Level A</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-identification" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.1 Error Identification - Level A</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-suggestion" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.3 Error Suggestion - Level AA</a>
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#error-prevention-legal-financial-data" target="_blank" rel="noopener noreferrer">Success Criterion 3.3.4 Error Prevention - Level AA</a>
 
 ### How do I make mobile apps accessible?
 
@@ -2799,9 +2804,9 @@ Mobile apps provided to the public by state and local governments must meet WCAG
 
 **Resources:**
 
-- <a href="https://developer.apple.com/accessibility/ios/" target="_blank" rel="noopener noreferrer">Apple iOS Accessibility</a>
+- <a href="https://developer.apple.com/documentation/accessibility" target="_blank" rel="noopener noreferrer">Apple Accessibility (developer documentation)</a>
 - <a href="https://developer.android.com/guide/topics/ui/accessibility" target="_blank" rel="noopener noreferrer">Android Accessibility</a>
-- <a href="https://www.w3.org/WAI/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
+- <a href="https://www.w3.org/WAI/standards-guidelines/mobile/" target="_blank" rel="noopener noreferrer">W3C Mobile Accessibility</a>
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Mobile Apps</a>
 
 **See also:** [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility) | [What does the April 2027 deadline cover?](#compliance-requirements-iitaa-and-ada-title-ii-what-does-the-april-2027-deadline-cover)
@@ -2948,7 +2953,7 @@ Alt text is a brief written description of an image that screen readers read alo
 
 **WCAG Reference:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> — All non-text content must have a text alternative
 
 **See also:** [How long should alt text be?](#content-accessibility-documents-pdfs-presentations-how-long-should-alt-text-be) | [How do I handle complex images like charts, graphs, or infographics?](#content-accessibility-documents-pdfs-presentations-how-do-i-handle-complex-images-like-charts-graphs-or-infographics) | [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
 
@@ -2969,7 +2974,7 @@ Alt text is a brief written description of an image that screen readers read alo
 
 - <a href="https://webaim.org/techniques/alttext/" target="_blank" rel="noopener noreferrer">WebAIM: Alternative Text</a> — Best practices for writing alt text
 - <a href="https://www.w3.org/WAI/tutorials/images/" target="_blank" rel="noopener noreferrer">W3C: Images Tutorial</a> — Official guidance on alt text length and complexity
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — WCAG requirement for text alternatives
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — WCAG requirement for text alternatives
 
 **See also:** [What about photos your agency takes at events — like speeches or awards ceremonies? Do those need to be accessible?](#content-accessibility-documents-pdfs-presentations-what-about-photos-your-agency-takes-at-events-like-speeches-or-awards-ceremonies-do-those-need-to-b) | [How do I handle complex images like charts, graphs, or infographics?](#content-accessibility-documents-pdfs-presentations-how-do-i-handle-complex-images-like-charts-graphs-or-infographics) | [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start)
 
@@ -3018,8 +3023,8 @@ Some images — like charts, graphs, infographics, or images containing lots of 
 
 **WCAG Reference:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — Complex images need text alternatives that serve equivalent purpose
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#images-of-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.5 Images of Text - Level AA</a> — Avoid images of text; use actual text when possible
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — Complex images need text alternatives that serve equivalent purpose
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#images-of-text" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.5 Images of Text - Level AA</a> — Avoid images of text; use actual text when possible
 
 ### How do I make images accessible on social media, Constant Contact, or Canva?
 
@@ -3065,7 +3070,7 @@ If you're sharing a complex image on social media or email, ask yourself: "If so
 **References:**
 
 - <a href="https://www.section508.gov/create/social-media/" target="_blank" rel="noopener noreferrer">Section508.gov: Social Media Accessibility</a> — Federal guidance on accessible social media
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — WCAG requirement for text alternatives
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content</a> — WCAG requirement for text alternatives
 
 ### Who should write the alt text for photos?
 
@@ -3232,14 +3237,14 @@ Document Title (Heading 1)
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (heading structure, table headers, lists)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (heading structure, table headers, lists)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### How do I make a PDF accessible?
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
 **See also:** [I'm a content creator. Where do I start?](#getting-started-i-m-a-content-creator-where-do-i-start) | [My documents look fine — why do they need to be "accessible"?](#content-accessibility-documents-pdfs-presentations-my-documents-look-fine-why-do-they-need-to-be-accessible) | [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Is there a quick way to test PDF files for accessibility?](#content-accessibility-documents-pdfs-presentations-is-there-a-quick-way-to-test-pdf-files-for-accessibility)
 
@@ -3267,8 +3272,8 @@ The best approach depends on the source:
 
 **If you only have the PDF (not scanned):**
 
-1. Run the Accessibility Checker in Adobe Acrobat Pro (All tools > Prepare for accessibility > Check for accessibility; in the legacy UI: Tools > Accessibility > Full Check)
-2. Add tags using the Reading Order tool (All tools > Prepare for accessibility > Fix reading order; legacy UI: Tools > Accessibility > Reading Order)
+1. Run the Accessibility Checker in Adobe Acrobat Pro (All tools > Prepare for accessibility > Check for accessibility; in the classic interface of older Acrobat versions: Tools > Accessibility > Full Check)
+2. Add tags using the Reading Order tool (All tools > Prepare for accessibility > Fix reading order; older classic interface: Tools > Accessibility > Reading Order)
 3. Add alt text to images (Right-click image > Edit Alt Text)
 4. Set the document language (File > Properties > Advanced > Reading Options)
 5. Verify reading order matches visual order
@@ -3293,13 +3298,13 @@ The best approach depends on the source:
 **Adobe guidance:**
 
 - <a href="https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html" target="_blank" rel="noopener noreferrer">Create and verify PDF accessibility (Acrobat Pro)</a>
-- <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">Adobe PDF Accessibility Overview</a>
+- <a href="https://www.adobe.com/accessibility/pdf.html" target="_blank" rel="noopener noreferrer">Adobe: PDF Specifications (PDF/UA and accessibility standards)</a>
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (document structure, reading order)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (document structure, reading order)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">Success Criterion 3.1.1 Language of Page - Level A</a> (document language)
 
 ### Why fix the source document (Word) instead of fixing the PDF after it's published?
 
@@ -3328,12 +3333,12 @@ When the structure lives in the Word source — proper Heading 1/2/3 styles, rea
 
 Word has a built-in checker (Review tab → "Check Accessibility") that catches the exact issues that end up costing the most in PDF remediation:
 
-- Images without alt text (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>)
-- Headings used inconsistently or skipped levels (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#headings-and-labels" target="_blank" rel="noopener noreferrer">SC 2.4.6</a>)
+- Images without alt text (WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">SC 1.1.1</a>)
+- Headings used inconsistently or skipped levels (WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">SC 1.3.1</a>, <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#headings-and-labels" target="_blank" rel="noopener noreferrer">SC 2.4.6</a>)
 - Tables without header rows (WCAG SC 1.3.1)
-- Document language not set (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1</a>)
-- Hyperlinks with non-descriptive text like "click here" (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">SC 2.4.4</a>)
-- Color used as the only way to convey information (WCAG <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1</a>)
+- Document language not set (WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">SC 3.1.1</a>)
+- Hyperlinks with non-descriptive text like "click here" (WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#link-purpose-in-context" target="_blank" rel="noopener noreferrer">SC 2.4.4</a>)
+- Color used as the only way to convey information (WCAG <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#use-of-color" target="_blank" rel="noopener noreferrer">SC 1.4.1</a>)
 
 The checker runs in seconds, surfaces issues in a clickable list that scrolls you to each problem, and explains the fix. **It costs an author 2–5 minutes per document.** The same set of issues, found later by a remediation vendor in Acrobat Pro, typically costs hours per document — because Acrobat is editing a finished output, not the structured source.
 
@@ -3382,10 +3387,10 @@ A remediation vendor is the right answer for documents you can't fix at the sour
 
 **References:**
 
-- <a href="https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f" target="_blank" rel="noopener noreferrer">Microsoft: Improve accessibility with the Accessibility Checker</a> — How to run Word's built-in checker
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.3.1 Info and Relationships</a> — the criterion that "Save As PDF" without proper Word styles fails
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.1.1 Non-text Content</a> — alt text for images
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#language-of-page" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 3.1.1 Language of Page</a> — document language
+- <a href="https://support.microsoft.com/en-us/accessibility/office-accessibility/improve-accessibility-with-the-accessibility-checker" target="_blank" rel="noopener noreferrer">Microsoft: Improve accessibility with the Accessibility Checker</a> — How to run Word's built-in checker
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.3.1 Info and Relationships</a> — the criterion that "Save As PDF" without proper Word styles fails
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 1.1.1 Non-text Content</a> — alt text for images
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#language-of-page" target="_blank" rel="noopener noreferrer">WCAG 2.1 SC 3.1.1 Language of Page</a> — document language
 
 ### Is there a quick way to test PDF files for accessibility?
 
@@ -3419,11 +3424,11 @@ Automated remediation can't fix everything — meaningful alt text, correct read
 
 ### Is Canva accessible?
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
 **Canva has made progress on accessibility** and offers several helpful features. However, tool capabilities change over time — check Canva's latest documentation for current features.
 
-_Note: The information below reflects Canva's accessibility features as of August 2026. Verify current capabilities at <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">Canva's accessibility page</a>._
+_Note: The information below reflects Canva's accessibility features as of September 2026. Verify current capabilities at <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">Canva's accessibility page</a>._
 
 **What Canva offers (verify current features):**
 
@@ -3432,11 +3437,11 @@ _Note: The information below reflects Canva's accessibility features as of Augus
 - **Reading order and heading tagging** — Better structure for PDFs
 - **Easier for non-designers** — More accessible than learning Adobe InDesign
 
-**Important limitation:** Canva PDFs may not be fully WCAG or PDF/UA compliant out of the box. Test exported content before publishing.
+**Important limitation:** Canva's own help pages say the Design Accessibility checker "isn't a compliance tool," and Canva PDFs may not be fully WCAG or PDF/UA compliant out of the box. Test exported content before publishing.
 
 **How to export a tagged (accessible) PDF from Canva:**
 
-1. **Set the structure inside Canva first** — add alt text to images, and use Canva's "Edit text semantics" tools to mark headings and check reading order
+1. **Set the structure inside Canva first** — add alt text to images; mark headings with File > Accessibility > **Edit text semantics** (web and desktop apps only); and set reading order in the **Position** panel's layer list (the bottom layer is read first), then choose **Match reading order to layers** when you download
 2. **Download as "PDF Standard"** — the print-oriented "PDF Print" option is for output quality, and flattening destroys structure
 3. **Leave "Flatten PDF" unchecked** — flattening converts the page to an image and **strips all accessibility tags**
 4. **Verify the export in PAC** — Canva's tagged exports still commonly fail full PDF/UA checks (reading order, table markup), so test every export
@@ -3484,10 +3489,10 @@ Key steps for accessible Excel files:
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (table structure, headers)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for charts/images)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#use-of-color" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.1 Use of Color - Level A</a> (don't rely on color alone)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (table structure, headers)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for charts/images)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#use-of-color" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.1 Use of Color - Level A</a> (don't rely on color alone)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ### I work with complex data tables. Why does our website use Markdown, and how do I make my tables accessible?
 
@@ -3582,7 +3587,7 @@ If you're creating tables with many columns, merged headers, or nested data:
 
 **References:**
 
-- <a href="https://www.markdownguide.org/basic-syntax/#tables" target="_blank" rel="noopener noreferrer">Markdown Guide: Tables</a> — Basic Markdown table syntax
+- <a href="https://www.markdownguide.org/extended-syntax/#tables" target="_blank" rel="noopener noreferrer">Markdown Guide: Tables</a> — Basic Markdown table syntax
 - <a href="https://www.tablesgenerator.com/markdown_tables" target="_blank" rel="noopener noreferrer">Tables Generator</a> — Visual tool for creating Markdown tables
 - <a href="https://www.w3.org/WAI/tutorials/tables/" target="_blank" rel="noopener noreferrer">W3C: Tables Tutorial</a> — Comprehensive guide to accessible tables
 - <a href="https://webaim.org/techniques/tables/data" target="_blank" rel="noopener noreferrer">WebAIM: Creating Accessible Tables</a> — Practical accessibility guidance
@@ -3604,12 +3609,12 @@ Key steps for accessible PowerPoint:
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (reading order, structure)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#page-titled" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.2 Page Titled - Level A</a> (slide titles)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (video captions)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (reading order, structure)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#page-titled" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.2 Page Titled - Level A</a> (slide titles)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (video captions)
 
 ### How do I make emails and newsletters accessible?
 
@@ -3676,10 +3681,10 @@ If your message still makes sense in all those scenarios, you're doing it right.
 
 **WCAG References:**
 
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (structure)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#info-and-relationships" target="_blank" rel="noopener noreferrer">Success Criterion 1.3.1 Info and Relationships - Level A</a> (structure)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#link-purpose-in-context" target="_blank" rel="noopener noreferrer">Success Criterion 2.4.4 Link Purpose (In Context) - Level A</a> (link text)
 
 ---
 
@@ -3733,9 +3738,9 @@ The exception is **only** for posts made before the agency's compliance date (Ap
 - **Platform-specific guidance:** <a href="https://www.section508.gov/create/social-media/" target="_blank" rel="noopener noreferrer">https://www.section508.gov/create/social-media/</a>
 - **ADA Title II Reference:** <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule - Social Media</a> (see the "Preexisting social media posts" exception discussion)
 - **WCAG References:**
-  - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (captions)
-  - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for images)
-  - <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
+  - <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#captions-prerecorded" target="_blank" rel="noopener noreferrer">Success Criterion 1.2.2 Captions (Prerecorded) - Level A</a> (captions)
+  - <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#non-text-content" target="_blank" rel="noopener noreferrer">Success Criterion 1.1.1 Non-text Content - Level A</a> (alt text for images)
+  - <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1#contrast-minimum" target="_blank" rel="noopener noreferrer">Success Criterion 1.4.3 Contrast (Minimum) - Level AA</a> (color contrast)
 
 ---
 
@@ -3758,7 +3763,7 @@ When procuring technology products or services:
 
 ### How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?
 
-{updated:2026-08-13}
+{updated:2026-09-02}
 
 **Quick answer:** Your agency is responsible for accessibility of services delivered through third-party tools, even if you don't control the platform code and even if you only paste an embed iframe onto your page. "We just embed it — they design it" doesn't change who's responsible under the rule. This requires: (1) verifying the platform's accessibility claims, (2) ensuring your content and workflows are accessible, (3) testing real user workflows, and (4) providing accessible alternatives when needed.
 
@@ -3868,7 +3873,7 @@ Canva is a common source of inaccessible content because the design surface lets
 
 - Treat Canva graphics like any other image: WCAG 1.1.1 requires a text alternative that conveys the same information. A short `alt` is not enough for a poster crammed with statistics — provide a long-description, a plain-text equivalent on the page, or both.
 - Avoid putting essential information **inside** the Canva graphic. Repeat the key facts as real text on the surrounding page so screen-reader and low-vision users get them without depending on the image.
-- Canva can now export **tagged** PDFs — use the "PDF Standard" export and leave "Flatten PDF" **unchecked** (flattening strips the tags), and use Canva's "Edit text semantics" tools to set headings and reading order. Exports still commonly fail full PDF/UA checks, so verify in PAC and remediate in Acrobat Pro — or recreate the document in Word/HTML — if issues remain.
+- Canva can now export **tagged** PDFs — use the "PDF Standard" export and leave "Flatten PDF" **unchecked** (flattening strips the tags), set headings with File > Accessibility > "Edit text semantics," and set reading order by arranging layers in the Position panel and choosing "Match reading order to layers" at download. Exports still commonly fail full PDF/UA checks, so verify in PAC and remediate in Acrobat Pro — or recreate the document in Word/HTML — if issues remain.
 - Embedded Canva designs (`<iframe>`) inherit the same rules as any other embed: provide an accessible name, ensure keyboard reachability, and provide a non-iframe alternative for the same information.
 
 **Specifically for ArcGIS embeds:**
@@ -4073,7 +4078,7 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 - <a href="https://www.ada.gov/resources/2024-03-08-web-rule/" target="_blank" rel="noopener noreferrer">ADA Title II Web Rule Fact Sheet</a> — See section on "Third-Party Content"
 - <a href="https://www.federalregister.gov/documents/2024/04/24/2024-07758/nondiscrimination-on-the-basis-of-disability-accessibility-of-web-information-and-services-of-state" target="_blank" rel="noopener noreferrer">Federal Register: Final Rule</a> — § 35.200(a) on contractual arrangements
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — Illinois-specific procurement requirements
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — Filterable checklist of accessibility requirements
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — Filterable checklist of accessibility requirements
 - <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener noreferrer">WebAIM Contrast Checker</a> — Tool for checking color contrast ratios
 - <a href="https://doit.illinois.gov/initiatives/accessibility/testing.html" target="_blank" rel="noopener noreferrer">DoIT Testing Resources</a> — Illinois-specific testing guidance
 - <a href="https://www.section508.gov/test/" target="_blank" rel="noopener noreferrer">Section 508 Testing Resources</a> — Federal testing guidance
@@ -4084,7 +4089,7 @@ Yes. If you use ArcGIS maps for public-facing services, the **map interface** an
 
 Illinois DoIT recommends including language similar to:
 
-> "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/accessibility/iitaa" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
+> "All information technology, including electronic information, software, systems, and equipment, developed or provided under this contract or procurement must comply with the applicable requirements of the Illinois Information Technology Accessibility Act (30 ILCS 587) Standards as published at <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">https://doit.illinois.gov/accessibility/iitaa</a>"
 
 **References:**
 
@@ -4170,7 +4175,7 @@ Illinois DoIT recommends including language similar to:
 
 ### A vendor's VPAT uses WCAG 2.2 — does it satisfy our WCAG 2.1 AA requirement?
 
-{new:2026-08-13}
+{updated:2026-09-02}
 
 **Quick answer:** Usually yes — if the report genuinely covers the criteria that matter. WCAG 2.2 includes every WCAG 2.1 Level A/AA success criterion (it retires only the obsolete parsing criterion, 4.1.1), so a credible WCAG 2.2 Level AA conformance report speaks directly to your WCAG 2.1 Level AA target. The version label is less important than whether the 2.1-relevant rows say "Supports."
 
@@ -4180,7 +4185,7 @@ Illinois DoIT recommends including language similar to:
 
 1. **Check the edition and standard listed** on the report's first pages — a WCAG 2.2 report's tables include the WCAG 2.1 A/AA criteria as a subset.
 2. **Read the ratings on the 2.1-level rows** ("Supports" / "Partially Supports" / "Does Not Support") — those rows *are* your WCAG 2.1 AA assessment.
-3. **Ignore 2.2-only rows for compliance purposes** (target size 2.5.8, focus not obscured 2.4.11, accessible authentication 3.3.8, etc.) — useful signal, but not part of the legal target. See [Should we test against WCAG 2.2 or WCAG 2.1?](#common-concerns-should-we-test-against-wcag-2-2-or-wcag-2-1)
+3. **Ignore 2.2-only rows for compliance purposes** (the four Level AA criteria new in 2.2 — focus not obscured 2.4.11, dragging movements 2.5.7, target size 2.5.8, and accessible authentication 3.3.8 — along with 2.2's Level A and AAA additions) — useful signal, but not part of the legal target. See [Should we test against WCAG 2.2 or WCAG 2.1?](#common-concerns-should-we-test-against-wcag-2-2-or-wcag-2-1)
 4. **Treat any ACR as a starting claim, not proof** — spot-check the product's key workflows yourself, and get remediation commitments for anything rated "Partially Supports."
 
 **The reverse situation is the risky one:** an ACR evaluated only against WCAG 2.0 or Section 508's 2017 baseline does **not** cover the criteria added in WCAG 2.1 (mobile/reflow, orientation, input modalities). Ask those vendors for a current report.
@@ -4349,7 +4354,7 @@ A remediation firm is leverage, not a substitute. The agency is the entity named
 - <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">DOJ Interim Final Rule (April 20, 2026)</a> — extended compliance to April 26, 2027 (technical standard unchanged)
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa.html" target="_blank" rel="noopener noreferrer">Illinois DoIT: IITAA</a> — state-law obligations on agencies (30 ILCS 587)
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — flowing accessibility duties into vendor contracts
-- <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — the technical bar both rules reference
+- <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">WCAG 2.1 Quick Reference (Level AA)</a> — the technical bar both rules reference
 
 ### Does hiring a remediator shield our agency from compliance liability?
 
@@ -4447,7 +4452,7 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 ### ICJIA has many public sites. Where can I see the audit reports for each site?
 
-{updated:2025-12-30}
+{updated:2026-09-02}
 
 **Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Additionally, website audit reports will be posted on an ongoing basis as they become available.
 
@@ -4457,10 +4462,10 @@ This section contains information specific to the Illinois Criminal Justice Info
 | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Domestic Violence Fatality Review (dvfr.illinois.gov)| <a href="https://dvfr.illinois.gov/docs/accessibility/" target="_blank" rel="noopener noreferrer">View Report</a>                   |
 | ICJIA Accessibility Portal (this site)               | <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>   |
-| i2i (i2i.illinois.gov)                               | <a href="https://i2i.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a> |
+| i2i (i2i.illinois.gov)                               | Report temporarily unavailable — will be re-linked when republished                                                               |
 | R3 (r3.illinois.gov)                                 | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>           |
-| Safe From the Start (sfs.icjia.illinois.gov)         | <a href="https://sfs.icjia.illinois.gov/accessibility" target="_blank" rel="noopener noreferrer">View Report</a>              |
-| Violence Prevention Project (vpp.icjia.illinois.gov) | <a href="https://vpp.icjia.illinois.gov/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>    |
+| Safe From the Start (sfs.icjia.illinois.gov)         | <a href="https://sfs.icjia.illinois.gov/accessibility" target="_blank" rel="noopener noreferrer">View Accessibility Statement</a>              |
+| Violence Prevention Project (vpp.icjia.illinois.gov) | Report temporarily unavailable — will be re-linked when republished                                                               |
 
 **Website audit reports:**
 
@@ -4573,7 +4578,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **WCAG (Web Content Accessibility Guidelines)** — International standards published by the World Wide Web Consortium (W3C) that explain how to make digital content accessible. Think of them as a detailed checklist for making websites, documents, and apps usable by everyone. <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank" rel="noopener noreferrer">Learn more about WCAG</a>
 
-**WCAG 2.1 Level AA** — The specific accessibility standard required by both IITAA and ADA Title II. "Level AA" means meeting both Level A (minimum) and Level AA (standard) criteria. This is the compliance target for all public-facing digital content. <a href="https://www.w3.org/WAI/WCAG21/quickref/?levels=aa" target="_blank" rel="noopener noreferrer">View WCAG 2.1 Level AA Quick Reference</a>
+**WCAG 2.1 Level AA** — The specific accessibility standard required by both IITAA and ADA Title II. "Level AA" means meeting both Level A (minimum) and Level AA (standard) criteria. This is the compliance target for all public-facing digital content. <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">View WCAG 2.1 Level AA Quick Reference</a>
 
 ### Procurement Terms
 
@@ -4616,7 +4621,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 **Keyboard navigation** — The ability to access and use all website features using only a keyboard (Tab, Enter, Space, arrow keys) without a mouse. Required for WCAG 2.1 Level AA compliance.
 
-**Screen reader** — Software that reads digital content aloud for people who are blind or have low vision. Common screen readers include <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">NVDA</a> (free, Windows), <a href="https://www.freedomscientific.com/products/software/jaws/" target="_blank" rel="noopener noreferrer">JAWS</a> (Windows), and VoiceOver (built into Mac/iOS).
+**Screen reader** — Software that reads digital content aloud for people who are blind or have low vision. Common screen readers include <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">NVDA</a> (free, Windows), <a href="https://vispero.com/jaws-screen-reader-software/" target="_blank" rel="noopener noreferrer">JAWS</a> (Windows), and VoiceOver (built into Mac/iOS).
 
 **Transcript** — A written version of spoken audio content. Required for audio-only content (like podcasts) under WCAG 2.1 Level AA. <a href="https://www.w3.org/WAI/media/av/transcripts/" target="_blank" rel="noopener noreferrer">Learn about transcripts</a>
 
@@ -4761,4 +4766,4 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ---
 
-_Last updated: August 13, 2026 · Last reviewed: August 13, 2026_
+_Last updated: September 2, 2026 · Last reviewed: September 2, 2026_
