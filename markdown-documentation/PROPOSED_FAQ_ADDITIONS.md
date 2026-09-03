@@ -377,7 +377,7 @@ W3C's <a href="https://www.w3.org/WAI/planning/statements/" target="_blank" rel=
 
 **For ICJIA specifically:** ICJIA has not yet designated an accessibility coordinator or finalized a complaint procedure (see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints)). Standing up an accessibility page with the § 35.107 items is one of the concrete steps that would close that gap.
 
-**See also:** [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator) | [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints) | [ICJIA has many public sites. Where can I see the audit reports for each site?](#icjia-specific-information-icjia-has-many-public-sites-where-can-i-see-the-audit-reports-for-each-site)
+**See also:** [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator) | [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints)
 
 **References:**
 

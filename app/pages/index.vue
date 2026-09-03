@@ -140,7 +140,7 @@ const targetDate = new Date("2027-04-26T00:00:00-05:00").getTime();
 const siteCreated = "December 15, 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "September 2, 2026";
+const lastUpdated = "September 3, 2026";
 
 /** @type {string} Last full review date - update when the FAQ is re-verified against official sources */
 const lastReviewed = "September 2, 2026";

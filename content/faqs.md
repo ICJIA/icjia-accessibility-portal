@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions
 description: Common questions about accessibility
-lastUpdated: 2026-09-02
+lastUpdated: 2026-09-03
 lastReviewed: 2026-09-02
 disclaimer:
   - label: "Created by"
@@ -39,7 +39,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 
 **Feeling overwhelmed? Start here.** You don't need to understand everything to begin making progress.
 
-_Last updated: September 2, 2026 · Last reviewed: September 2, 2026_
+_Last updated: September 3, 2026 · Last reviewed: September 2, 2026_
 
 > **⚠️ Deadline extended (April 20, 2026):** The U.S. Department of Justice has published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending the ADA Title II web accessibility compliance date by one year — from **April 24, 2026** to **April 26, 2027** (for public entities serving populations of 50,000 or more). Smaller jurisdictions (under 50,000) have until **April 26, 2028**. The technical standard (WCAG 2.1 Level AA) is unchanged; only the compliance date has moved. **The extra year is for implementation, not delay** — agencies that are already planning or remediating should continue. **Status (September 2, 2026):** the extension is being challenged in federal court (_National Federation of the Blind v. DOJ_, filed May 2026, asking the court to restore the original deadlines), and DOJ has neither finalized nor revised its interim rule. No ruling has been issued and the extended dates remain in effect while the case proceeds — but plan as if the clock could tighten.
 
@@ -4450,40 +4450,6 @@ Plenty — just not as a shield. The useful question is not _"are we shielded?"_
 
 This section contains information specific to the Illinois Criminal Justice Information Authority (ICJIA). If you work for a different Illinois state agency, the general principles apply, but the specific resources and contacts may differ.
 
-### ICJIA has many public sites. Where can I see the audit reports for each site?
-
-{updated:2026-09-02}
-
-**Quick answer:** ICJIA web developers are methodically adding accessibility reports for each public site. Look for an "Accessibility Report" link in the footer of ICJIA websites. Additionally, website audit reports will be posted on an ongoing basis as they become available.
-
-**Available website audit reports:**
-
-| Site                                                 | Accessibility Report                                                                                                                |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Domestic Violence Fatality Review (dvfr.illinois.gov)| <a href="https://dvfr.illinois.gov/docs/accessibility/" target="_blank" rel="noopener noreferrer">View Report</a>                   |
-| ICJIA Accessibility Portal (this site)               | <a href="https://accessibility.icjia.app/docs/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>   |
-| i2i (i2i.illinois.gov)                               | Report temporarily unavailable — will be re-linked when republished                                                               |
-| R3 (r3.illinois.gov)                                 | <a href="https://r3.illinois.gov/documentation/accessibility/index.html" target="_blank" rel="noopener noreferrer">View Report</a>           |
-| Safe From the Start (sfs.icjia.illinois.gov)         | <a href="https://sfs.icjia.illinois.gov/accessibility" target="_blank" rel="noopener noreferrer">View Accessibility Statement</a>              |
-| Violence Prevention Project (vpp.icjia.illinois.gov) | Report temporarily unavailable — will be re-linked when republished                                                               |
-
-**Website audit reports:**
-
-Remediation is challenging and time-consuming, so reports for the remaining sites will be posted as soon as they're ready. Check back periodically for updates.
-
-**Important:** These website audit reports cover existing public websites only. Content (PDFs, Word documents, videos, etc.) and social media require their own separate auditing and remediation processes. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible) | [Do I need to caption all videos?](#website-accessibility-do-i-need-to-caption-all-videos) | [Do social media posts need to be accessible?](#social-media-accessibility-do-social-media-posts-need-to-be-accessible-how-do-i-make-them-accessible) | <a href="https://www.section508.gov/create/documents/" target="_blank" rel="noopener noreferrer">Section508.gov: Accessible Documents</a> | <a href="https://www.w3.org/WAI/media/av/captions/" target="_blank" rel="noopener noreferrer">W3C: Video Captions</a>
-
-**How to find audit reports for websites:**
-
-- **Look in the footer** — Most ICJIA sites will have an "Accessibility Report" link in the footer.
-- **Reports are site-specific** — Each website has its own report documenting that site's accessibility status.
-
-**Important limitations:**
-
-- **Website reports only** — These reports use <a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer">axe-core</a> to test websites (HTML, navigation, forms). They don't cover PDFs, Word documents, Excel files, or other content files.
-- **Content creator responsibility** — If you create documents, you're responsible for making them accessible. See: [Do all documents need to be accessible?](#content-accessibility-documents-pdfs-presentations-do-all-documents-need-to-be-accessible)
-- **Automated testing limits** — Manual testing with keyboard navigation and screen readers is still needed to confirm full compliance.
-
 ### How do we handle accessibility complaints?
 
 {updated:2026-05-14}
@@ -4761,9 +4727,8 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 
 ### ICJIA-Specific
 
-- [ICJIA has many public sites. Where can I see the audit reports for each site?](#icjia-specific-information-icjia-has-many-public-sites-where-can-i-see-the-audit-reports-for-each-site)
 - [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints)
 
 ---
 
-_Last updated: September 2, 2026 · Last reviewed: September 2, 2026_
+_Last updated: September 3, 2026 · Last reviewed: September 2, 2026_

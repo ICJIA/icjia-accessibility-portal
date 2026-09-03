@@ -6,6 +6,28 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.4] - 2026-09-03
+
+### Removed — "ICJIA has many public sites. Where can I see the audit reports for each site?"
+
+- The Q&A and its per-site audit-report table are withdrawn from `content/faqs.md` (ICJIA-Specific Information section) and from the question index at the end of the file. The report locations have changed and each site's accessibility report is being updated over the coming weeks; the Q&A will return once the new locations are confirmed. (H3 question count: 112 → 111.)
+- Removed the "See also" link to the withdrawn Q&A from `markdown-documentation/PROPOSED_FAQ_ADDITIONS.md`. A repo-wide sweep (content, app, tests, docs, `public/`, README, CHANGELOG) found no other reference to the question text or its anchor.
+
+### Chore — single lockfile
+
+- Deleted the stale `package-lock.json` (untouched since January 2026). Yarn is the project's package manager: `yarn.lock` (current as of April 2026) covers every declared dependency, `node_modules` carries the `.yarn-integrity` marker, and README, CLAUDE.md, and the Netlify build all use yarn. This clears the VS Code "multiple lockfiles" warning.
+
+### Dates / version
+
+- `lastUpdated` → September 3, 2026 (`content/faqs.md` frontmatter and both prose markers; `app/pages/index.vue`). `lastReviewed` stays September 2, 2026 — no accuracy review was performed in this release.
+- `routes.json` / `public/sitemap.xml` regenerated (lastmod 2026-09-03).
+- Version 1.3.3 → 1.3.4 (`package.json`, README badge and Version Information).
+
+### Verification
+
+- `yarn test:run`: 13 files, 234/234 tests passing.
+- Dev server (`yarn dev`): `/` and `/faqs` render HTTP 200; the withdrawn question no longer appears on `/faqs`, and the neighboring "How do we handle accessibility complaints?" Q&A is intact.
+
 ## [1.3.3] - 2026-09-02
 
 ### Content — September 2026 periodic accuracy review
