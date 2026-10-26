@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.3.4](https://img.shields.io/badge/Version-1.3.4-blue)](CHANGELOG.md)
+[![Version 1.3.5](https://img.shields.io/badge/Version-1.3.5-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -25,6 +25,7 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
   - Prominent review-status panel at the top ("Last reviewed" / "Last updated," driven by `lastReviewed`/`lastUpdated` frontmatter in `content/faqs.md`), signaling that content is periodically re-verified against official sources
   - Searchable accordion interface with proper ARIA attributes
   - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
+  - **Screen Reader Testing (voicecap)** section — eight Q&As on ICJIA's free, open-source [voicecap](https://github.com/ICJIA/voicecap) tool, which runs the real NVDA screen reader through every page of a site and saves every word it says as transcripts, as the complement to code checkers such as axe and Pa11y
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
@@ -1042,6 +1043,15 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
+### Recent Updates (October 2026)
+
+- **v1.3.5 — voicecap section + October 2026 accuracy review** (2026-10-26):
+  - **NEW**: "Screen Reader Testing (voicecap)" FAQ section — eight Q&As covering what voicecap is and why ICJIA built it, how it differs from axe/Pa11y/Lighthouse/SiteImprove (mapped to WCAG 2.1 success criteria), how it works, measured time savings, accuracy and verification, its limits (and why a clean report isn't a compliance claim), setup on Windows, and the test-fix-compare-share workflow
+  - Cross-linked from the website-testing, web-developer, manager, SiteImprove, external-audit, overlay, good-faith-progress, sign-off, and maintain-compliance answers; added to the Keyword Index, Glossary, Free Testing Tools table, and the Links page
+  - Adversarial accuracy review of all 120 Q&As against primary sources (eCFR, Federal Register, ILGA, Illinois DoIT, W3C, and vendor documentation). It corrected the federal rule's reach to internal content, IITAA 2.1's scope, the § 35.201(b) document test, the archive criteria, and dozens of product instructions; see [CHANGELOG.md](CHANGELOG.md). All 229 external citation URLs were re-checked and all 290 internal links verified
+  - Footer "Print" link: accessible name now contains its visible label (WCAG 2.5.3 Label in Name, flagged by axe-core 4.14)
+  - Plain-text FAQ download: fenced code examples now come through verbatim (they were garbled by stray backticks)
+
 ### Recent Updates (March 2026)
 
 - **v1.1.0 — Security Hardening** (2026-03-26):
@@ -1122,8 +1132,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.3.4
-**Last Updated**: September 3, 2026
+**Version**: 1.3.5
+**Last Updated**: October 26, 2026
 
 **Core Dependencies**:
 

@@ -80,6 +80,12 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.ibm.com/able/toolkit/verify/automated/" target="_blank" rel="noopener noreferrer">**IBM Equal Access Accessibility Checker**</a> — Browser extension with guided testing
 - <a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener noreferrer">**Lighthouse**</a> — Built into Chrome DevTools
 
+### Screen Reader Testing (Free)
+
+- <a href="https://www.nvaccess.org/" target="_blank" rel="noopener noreferrer">**NVDA (NV Access)**</a> — Free, open-source screen reader for Windows, and one of the two most widely used
+- <a href="https://github.com/ICJIA/voicecap" target="_blank" rel="noopener noreferrer">**voicecap (ICJIA)**</a> — Free, open-source tool that runs NVDA through each page on a site's sitemap or page list and saves every word it says as transcripts, with a plain-language report and a fingerprinted record; runs on Windows
+- <a href="https://voicecap.icjia.app/" target="_blank" rel="noopener noreferrer">**ICJIA Screen Reader Tests (voicecap.icjia.app)**</a> — ICJIA's published voicecap reports, with notes on how the results can be checked
+
 ### Evaluation Tool Directories
 
 - <a href="https://www.w3.org/WAI/test-evaluate/tools/list/" target="_blank" rel="noopener noreferrer">**W3C WAI - Web Accessibility Evaluation Tools List**</a> — Comprehensive directory of testing tools

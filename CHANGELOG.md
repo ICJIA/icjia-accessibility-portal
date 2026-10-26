@@ -6,6 +6,143 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.5] - 2026-10-26
+
+### Added — "Screen Reader Testing (voicecap)" FAQ section (eight new Q&As)
+
+A new section in `content/faqs.md`, between "Website Accessibility" and "Content Accessibility," on ICJIA's free, open-source [voicecap](https://github.com/ICJIA/voicecap) tool: it runs the real NVDA screen reader through every page of a site and saves every word NVDA says as transcripts, as the complement to code checkers such as axe and Pa11y. All eight questions carry `{new:2026-10-26}`:
+
+1. What is voicecap, and why did ICJIA build it? (includes a full-disclosure note that it's ICJIA's own tool)
+2. How is voicecap different from automated checkers like axe, Pa11y, Lighthouse, or SiteImprove? (comparison table; WCAG 2.1 SC 1.1.1, 2.4.4, 2.4.6, 1.3.2, 4.1.2, and 2.4.1 mapping; SC 1.1.1 verbatim; WebAIM Screen Reader User Survey #11 figures; note that voicecap's own axe run includes WCAG 2.2 and best-practice rules beyond the 2.1 AA target)
+3. How does voicecap work, step by step? (the three NVDA passes, focus checks, the sealed record, and a real transcript excerpt)
+4. How much time does voicecap save? (measured run times from voicecap's documentation; the hand-testing comparison is labeled as an illustration, not a measurement)
+5. How accurate is voicecap, and how can a manager or auditor check its results?
+6. What doesn't voicecap do? Does a clean voicecap report mean our site is compliant? (WCAG 2.1 Conformance Requirement 2 verbatim; W3C "no tool alone")
+7. What do I need to run voicecap, and how do I get started?
+8. When should we run voicecap, and what do we do with the results?
+
+- Facts are taken from voicecap's README at v0.22.2 (npm `@icjia/voicecap`, released October 24, 2026), including that its audits run on Windows with NVDA and that a Mac/VoiceOver version isn't planned for now. Example figures (the October 6, 2026 i2i run: 32 pages, 2,219 spoken lines, just under an hour) are the README's own.
+- **Cross-links into the new section:** body text added to "How do I test my website for accessibility?", "I'm a web developer. Where do I start?", and "I'm a manager. Where do I start?" (re-tagged `{updated:2026-10-26}`); "See also" links added to the SiteImprove, external-audit, overlay, commonly-overlooked, common-mistakes, good-faith-progress, sign-off, and maintain-compliance answers (link-only additions, not re-tagged — same policy as v1.3.3).
+- **Keyword Index:** new "Screen Reader Testing (voicecap)" group, plus an entry under Testing & Auditing. **Glossary** (Process Terms): voicecap entry. **Free Testing Tools:** voicecap row; "ICJIA PDF Audit" relabeled "ICJIA File Accessibility Audit (PDF, Word, PowerPoint, Excel)" to match what audit.icjia.app checks.
+- `content/links.md`: new "Screen Reader Testing (Free)" subsection — NVDA, voicecap, and ICJIA's published results at voicecap.icjia.app.
+- H3 count 111 → 120 (eight Q&As plus the new Keyword Index group); H2 count 15 → 16.
+
+### Content — October 2026 periodic accuracy review
+
+Every Q&A re-read, and the open legal and standards threads re-verified against primary sources: the Federal Register API, eCFR (title 28 current to 2026-10-22), reginfo.gov and OIRA's review lists, regulations.gov, the CourtListener docket, Illinois DoIT's accessibility news feed and IITAA pages, ILGA (30 ILCS 587 and every 104th General Assembly Public Act), W3C, WebAIM, and NV Access.
+
+**Verified unchanged — no edit needed:** the compliance dates in 28 CFR § 35.200(b) (April 26, 2027 / April 26, 2028); DOJ's Interim Final Rule (91 FR 20902) is still DOJ's latest document on the rule — no final rule, NPRM, correction, or further extension; the Unified Agenda entry for RIN 1190-AA82 (pubId 202510 is still the current edition, and the RIN isn't under OIRA review); HHS's Section 504 IFR (91 FR 25496) and the 45 CFR § 84.84 dates; _NFB v. DOJ_ — no ruling, and no docketed activity after July 13, 2026 on CourtListener; the IITAA — no review announcement, draft, or comment period, 30 ILCS 587/25 unchanged, and no 104th General Assembly Public Act touches 30 ILCS 587; the WCAG 2.1 (May 6, 2025) and WCAG 2.2 (December 12, 2024) editions.
+
+**Status refreshed:** every "as of" marker now reads October 26, 2026 — the executive summary, "When must we comply with the ADA Title II rule?", "Is the April 26, 2027 deadline final…?" (two markers), "Did the Section 504 web deadlines change too?", and "Could the IITAA standards change in 2026?" (each re-tagged `{updated:2026-10-26}`).
+
+**Updated:** WCAG 3.0's latest Working Draft is now September 10, 2026 (was March 3, 2026), and the draft is now linked; it still says it "still has several years of work," so the quote stands.
+
+**Corrections:**
+
+- "Why does your agency need to worry about digital accessibility?" said the April 26, 2027 deadline came from "the ADA Title II web rule … and IITAA 2.1 standards." The date is federal only; the IITAA 2.1 Standards have applied since June 24, 2024. Fixed.
+- "Given the uncertainty around enforcement…" — the same conflation in its quick answer is fixed. The "deadline is set" bullet now notes that the date has moved once and that a pending lawsuit asks to move it earlier. The "The rules might change" row, written before the April 2026 extension, now acknowledges the one-time federal date change and DOJ's agenda signal, while noting that the WCAG 2.1 AA standard hasn't changed and that the IITAA requires it regardless.
+- Word alt text: "Right-click image > Edit Alt Text" → "View Alt Text" (the Microsoft 365 label; "Edit Alt Text" in older versions), matching the FAQ's other mention; the same fix in the "Why fix the source document" table.
+- Third-party tools: "from an `il.gov` page" → "from a state agency site" (Illinois agency sites aren't on il.gov).
+
+**Considered — no change:** WebAIM's Screen Reader User Survey #11 (results posted September 29, 2026) now has JAWS leading both "primary" (55.0%) and "commonly used" (69.2%) screen readers; nothing in the FAQ claimed otherwise (the testing table's "Most common choice for testing" for NVDA describes testers, not users), and the new section cites the survey. NVDA 2026.3 (released October 26, 2026) doesn't affect the FAQ, which pins no NVDA version. A secondary-source report of a September 28 summary-judgment motion in _NFB v. DOJ_ isn't visible on the docket, so the FAQ says only that no ruling has been issued.
+
+### Content — adversarial review of every Q&A (October 26, 2026)
+
+All 120 `###` entries were split into seven slices, and each slice was adversarially reviewed against current primary sources. Every finding was then checked against the source before anything changed: eCFR (28 CFR Part 35 as of 2026-10-22), the Federal Register text of the 2024 rule and the 2026 IFR, ILGA (30 ILCS 587), DoIT's IITAA, IITAA 2.1 Standards, procurement, DOJ-rule, guides and testing pages, ADA.gov's fact sheet, W3C, WebAIM, Microsoft, YouTube and Cornell. One finding was refuted and not applied (see below). 67 Q&As carry `{updated:2026-10-26}`; link-only "See also" and index additions weren't re-tagged.
+
+**Legal accuracy (ADA Title II and IITAA):**
+
+- **Internal content and intranets.** Three answers said the federal rule covers only content "provided or made available to the public" — a phrase that isn't in the rule. § 35.200(a) says "provides or makes available," and DOJ declined to exempt "internal, non-public applications, such as web content used solely by employees" (89 FR 31320). "Does ADA Title II apply to internal documents?", "Does our agency's password-protected intranet need to be accessible?", and "Do all documents need to be accessible?" now say the federal question is unsettled. They also say the IITAA settles it for Illinois agencies: 30 ILCS 587/10 covers "internet and intranet systems," and IITAA 2.1 Standards E203.1 and E205.3 cover intranet pages, forms, training materials, and policy announcements. "What about archived documents on the intranet?" now rests on IITAA (E202.2, E205.3) instead of Title I.
+- **What IITAA 2.1 applies to.** DoIT's standards page says IITAA 2.1 applies to technology "developed, procured, or substantially modified … after June 24, 2024," with older technology held to IITAA 2.0 (WCAG 2.0 Level AA). 30 ILCS 587/20 says the same. Answers that said IITAA 2.1 "applies to your content today" now say so precisely, in five Q&As plus two of today's own edits.
+- **The pre-2027 document exception, § 35.201(b).** This is now a three-part test: file type, posted before the date *and not revised since* (89 FR: a revised document "would no longer be 'preexisting'"), and not currently used to apply for, access, or take part in services. The examples table no longer applies the archive test to old reports. DOJ's own examples (old COVID-19 statistics, decades of water-quality reports) "generally need not conform."
+- **Archived web content.** The criteria now match § 35.104: reproductions of pre-deadline paper are covered, and the "never update" cut-off is the archiving date, not the compliance date. The county-park quote now includes its dropped qualifier and is marked _(emphasis added)_.
+- **Deadline framing.** "One-time implementation accommodation" was removed; it isn't DOJ's language. The IFR's actual conditions are quoted instead ("will consider issuing an NPRM"; "circumstances suggesting further delays"). "After April 26, 2027, non-compliance becomes a violation of federal law" no longer implies a grace period before then. "Total population," not "serving populations," is used throughout, and special district governments are noted.
+- **Other legal fixes:**
+  - The IITAA was signed August 20, 2007; its standards took effect in 2008.
+  - The general Title II regulation dates from 1991 and took effect in 1992 ("on the books since 1991").
+  - Complaints are due within 180 days (§ 35.170), and grantors can receive them (§ 35.170(c)).
+  - Attorney's fees are cited to 42 U.S.C. § 12205.
+  - Effective-communication limits now cite § 35.164, and § 35.202 limits "accessible alternatives" for Tableau and ArcGIS embeds.
+  - § 35.107(a) also requires publishing the coordinator's contact details.
+  - "How is the IITAA enforced?" now describes what the statute actually does (§§ 15, 20, 25; Standards E101.1).
+  - Section 508 used WCAG 2.0 AA.
+  - DOJ has said since 1996 that Title II covers government websites.
+- **Quotes made verbatim:** the DoIT DOJ-rule quote (full Act name), the § 35.201(c) wording, "through" (not "under") arrangements, the DoIT IITAA quote's opening, the full Cornell IT quote, and "who must comply," now quoted from the statute (30 ILCS 587/10, which adds "public bodies"). _(emphasis added)_ marks were added wherever bold was inserted into a quote.
+
+**Standards and guidance:**
+
+- **Unsupported claims replaced:** the WebAIM Million claim (2026 data: low contrast 83.9%, missing alt text 53.1%, empty links 46.3%; headings aren't in the top six), "studies suggest 20-57%" (one Deque study), and "remediation costs several times more" (W3C's business case doesn't say so).
+- **WCAG nuances added:** 4.1.1 (WCAG 2.1's current note; 2.2's "may need to continue to test and report"), the PowerPoint slide-title mapping (SC 1.3.1/2.4.6; 2.4.2 is the presentation's own title), SC 1.4.2 (audio over 3 seconds), SC 2.4.2 (titles that describe), and Excel named ranges (not required).
+- **SiteImprove Q&A:** it no longer calls a scanner score "fully compliant," and it describes axe's tag configuration generally rather than as ICJIA's.
+- **Overlays:** WebAIM's numbers (69% "not very" or "not at all" effective) and Illinois DoIT's advice against overlays on State websites.
+- **Captions:** W3C's statement that auto-captions don't meet requirements unless "confirmed to be fully accurate," and CART for live events.
+- **Alt text length:** aligned with WebAIM and Microsoft ("a few words," rarely more than a sentence or two). An alt text that repeats its caption is no longer recommended.
+- **CDC:** cognitive disability is 13.9% (serious difficulty). BJS sources now back the DEIA answer's over-representation claim.
+
+**Product instructions (current UI):**
+
+- **Microsoft 365:** Word document language (Review > Language > Set Proofing Language; "Set as Preferred"), Table Design > Header Row, the checker's categories (no icon claims; Intelligent Services added), and the Word checker's real rule list (no checks for language, link text, heading order, or color-only meaning), plus the PowerPoint Reading Order Pane.
+- **Outlook:** checker paths (Windows: Review; web: Options or Message; Mac: Edit) and "Add alternate text".
+- **Acrobat:** "Automatically tag PDF" and Figures Alternate Text > Fix.
+- **Other apps:** YouTube Studio (Subtitles > Edit / Duplicate and edit > Publish), Instagram (More options > Write alt text), Canva's **Digital** PDF preset (formerly "PDF Standard") and its alt-text gaps (no alt text in PNG/MP4 downloads or scheduled posts), and NVDA (Ctrl+Alt+N works once NVDA is installed). DoIT's WAVE caution ("can't (yet) test within shadow DOMs") and training sign-up are now cited.
+- **audit.icjia.app:** a 25 MB/5-file limit (not "no usage limits"), "a web page" rather than "runs in your browser," the 365-day usage log, and "scores WCAG 2.1 A/AA and lists 2.2's additions separately."
+- **Quick tests:** documents now get a meaningful quick test (the checker plus Word's Navigation Pane), and the Word "Format as Table" mix-up in the Markdown Q&A is fixed.
+
+**Procurement:** the full DoIT contract clause, including the VPAT/ACR requirement and the optional demonstration clause; DoIT's "should include a requirement similar to" wording; the ITI VPAT rating definitions, including "Not Evaluated" (AAA only); and MCAR described as a non-ITI label (its unverified expansion was removed).
+
+**voicecap section (independently reviewed against voicecap's README and source):**
+
+- A clean report needs every page reviewed: the "Nothing needs attention" verdict alone doesn't show that a person read every transcript.
+- `--compare previous` doesn't match a `--page` re-run, so use a run id.
+- What `verify` and the in-browser check can and can't prove; keep the record in Git with a protected branch.
+- The NVDA-log check applies from 0.17.0 and runs in the shareable report.
+- Repeats can't promise the same words.
+- Two gaps in the window check.
+- JAWS leads in North America (72.5%, WebAIM 2026); reads happen at 1280 × 960; AppLocker or WDAC can block recordings; Node 24; and "about 7,900" tests.
+
+**Keyword Index:** 23 Q&As that weren't indexed are now listed.
+
+**Refuted — not applied:** one reviewer said "develops, procures, maintains, or uses" was Section 508 wording, not IITAA. IITAA 2.1 Standards E201.1 uses exactly that formula ("ICT that is procured, developed, maintained, or used by agencies"), so the FAQ keeps it and now cites E201.1.
+
+**Needs owner confirmation (no change made):**
+
+- Whether ICJIA has designated its § 35.107(a) ADA coordinator. The notes are dated March 10 and "May 2026," and § 35.107(a) requires publishing the coordinator's name and contact details.
+- ICJIA's headcount (≥ 50).
+- The status of the complaint procedure.
+- The origin of "MCAR."
+- The VPP SiteImprove figures.
+- Whether ICJIA's federal funding includes HHS pass-throughs.
+- Outside the FAQ:
+  - `audit-accessibility.js` passes `tags:` and `exclude:` to `axe.run()`, which ignores both options, so it runs axe's full default rule set.
+  - voicecap's GitHub description and some README and site text still promise VoiceOver audits (and the description has a typo, "vision-imparied").
+  - The file-audit tool's README links a 404 ADA.gov page.
+
+### Fixed — footer "Print" link (WCAG 2.5.3 Label in Name)
+
+- axe-core 4.14 flagged `label-content-name-mismatch` on every page: the footer link's visible text is "Print," but its accessible name was "View printer-friendly version of FAQs," which doesn't contain it (voice-control users say what they see). `app/components/AppFooter.vue`: `aria-label` → "Print version of FAQs." axe-core 4.14 runs this rule by default; earlier versions marked it experimental, which is why the project's own audit (axe-core 4.11) didn't flag it.
+
+### Fixed — plain-text download garbled code examples
+
+- `scripts/generate-faq-txt.js` converted inline code before handling fenced code blocks, so it paired backticks across fences (every code block in `ICJIA-Accessibility-FAQs.txt` came out wrapped in stray ``"`"`` marks), and its emphasis, table, and HTML rules then rewrote the code itself (for example, the Markdown table sample). Fenced blocks are now set aside first and restored verbatim, indented four spaces, without their fences. New regression tests in `test/unit/faqDownloadGenerators.test.ts` cover a top-level fence and an indented fence inside a list item. The real TXT export now has no stray backticks.
+
+### Links
+
+- Citation link check: 229 unique URLs across `faqs.md` and `links.md` — 220 return 200 (a few through benign redirects; the DoIT training sign-up redirects to the State's Microsoft login, as expected for an "Illinois staff only" page), and 9 return 403 to automated clients because the sites serve bot challenges (Canva ×3, HHS, SSA, NFB, University of Michigan, UK LGA, and npm). npm's package page was confirmed with `npm view @icjia/voicecap` (0.22.2). The rest should be spot-checked in a regular browser at the next review.
+- Internal links: 290/290 valid (`test/unit/faqInternalLinks.test.ts`).
+
+### Dates / version
+
+- `lastUpdated` and `lastReviewed` → 2026-10-26 (`content/faqs.md` frontmatter and both prose markers; `app/pages/index.vue` constants).
+- Version 1.3.4 → 1.3.5 (`package.json`, README badge, Version Information, and Recent Updates).
+- `public/sitemap.xml` regenerated (lastmod 2026-10-26). `routes.json` regenerated with `yarn generate:routes`, and now lists the five real pages (`/`, `/faqs`, `/faqs-print`, `/links`, `/search`). The committed copy listed `/`, `/docs`, and `/docs/accessibility`, which is what a `yarn test:run` writes, so a test run had overwritten it before the v1.3.4 commit.
+
+### Verification
+
+- `yarn test:run`: 13 files, **236/236 passing** (234 plus the two new plain-text regression tests), including the FAQ internal-link check: 290/290 links valid.
+- Rendered-page link check (headless Chrome against `yarn dev`): all 103 distinct `#anchor` targets that `faqs.md` links to exist as element IDs on `/faqs`, and a deep link to each of the eight new questions opens its panel with the answer shown.
+- axe-core 4.14, WCAG 2.1 A + AA: `/`, `/faqs`, `/faqs-print`, and `/links` at desktop and mobile widths, plus `/faqs` deep-linked open to four of the new answers and to the rewritten exceptions answer (tables, code blocks, blockquotes): **0 violations** after the footer fix, rechecked on the final content.
+- Downloads regenerated from the new content: the Word file has no field codes (`w:instrText`/`w:fldChar`: 0; `updateFields`: 0); the Markdown and plain-text files include the new section, and the plain-text file has no stray backticks.
+
 ## [1.3.4] - 2026-09-03
 
 ### Removed — "ICJIA has many public sites. Where can I see the audit reports for each site?"

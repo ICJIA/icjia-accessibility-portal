@@ -165,6 +165,70 @@ describe('FAQ Download Generators', () => {
     })
   })
 
+  describe('Plain Text Generator — fenced code blocks', () => {
+    const codeInputPath = join(tempDir, 'test-code-faqs.md')
+    const codeOutputPath = join(tempDir, 'test-code-output.txt')
+    // A top-level fence and an indented one inside a list item, each holding text the
+    // inline-code, emphasis, table, and HTML conversions would otherwise rewrite.
+    const codeMarkdown = [
+      '## Section',
+      '',
+      '### How do I run it?',
+      '',
+      'Run these, in order:',
+      '',
+      '```',
+      'npx example-tool preflight --site https://www.example.org',
+      '| not | a | table |',
+      '```',
+      '',
+      '1. **Step one:**',
+      '',
+      '   ```html',
+      '   <label for="email_address">Email_address_field</label>',
+      '   ```',
+      '',
+      'Then use `inline code` as usual.',
+      '',
+    ].join('\n')
+
+    beforeAll(async () => {
+      if (!existsSync(tempDir)) {
+        await mkdir(tempDir, { recursive: true })
+      }
+      await writeFile(codeInputPath, codeMarkdown, 'utf-8')
+      execSync(
+        `node ${join(rootDir, 'scripts', 'generate-faq-txt.js')} --input ${codeInputPath} --out ${codeOutputPath}`,
+        { cwd: rootDir }
+      )
+    })
+
+    afterAll(async () => {
+      for (const path of [codeInputPath, codeOutputPath]) {
+        try {
+          await unlink(path)
+        } catch {
+          // Ignore cleanup errors
+        }
+      }
+    })
+
+    it('should keep fenced code verbatim, without its fences', async () => {
+      const content = await readFile(codeOutputPath, 'utf-8')
+
+      expect(content).toContain('npx example-tool preflight --site https://www.example.org')
+      expect(content).toContain('| not | a | table |')
+      expect(content).toContain('<label for="email_address">Email_address_field</label>')
+      expect(content).not.toContain('`')
+    })
+
+    it('should still convert inline code outside fences', async () => {
+      const content = await readFile(codeOutputPath, 'utf-8')
+
+      expect(content).toContain('"inline code"')
+    })
+  })
+
   describe('Markdown Generator (generate-faq-md.js)', () => {
     const outputPath = join(tempDir, 'test-output.md')
 

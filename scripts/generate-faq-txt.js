@@ -46,6 +46,19 @@ function markdownToPlainText(markdown) {
   // Remove YAML frontmatter
   text = text.replace(/^---[\s\S]*?---\n*/m, "");
 
+  // Set fenced code blocks aside before any conversion: the inline-code, emphasis,
+  // table, and HTML rules below would otherwise rewrite their contents (and pair up
+  // backticks across fences). They're restored verbatim, indented, at the end.
+  const codeBlocks = [];
+  text = text.replace(
+    /^([ \t]*)```[^\n]*\n([\s\S]*?)^[ \t]*```[ \t]*$/gm,
+    (_, indent, code) => {
+      const lines = code.replace(/\n$/, "").split("\n");
+      codeBlocks.push(lines.map((line) => (line.startsWith(indent) ? line.slice(indent.length) : line)));
+      return `\u0000CODE${codeBlocks.length - 1}\u0000`;
+    }
+  );
+
   // Convert headers to uppercase with underlines
   text = text.replace(/^# (.+)$/gm, (_, title) => {
     const clean = stripHtml(title);
@@ -105,6 +118,11 @@ function markdownToPlainText(markdown) {
 
   // Clean up multiple newlines
   text = text.replace(/\n{4,}/g, "\n\n\n");
+
+  // Restore fenced code blocks, indented four spaces, without their fences
+  text = text.replace(/\u0000CODE(\d+)\u0000/g, (_, i) =>
+    codeBlocks[Number(i)].map((line) => (line ? `    ${line}` : "")).join("\n")
+  );
 
   return text.trim();
 }

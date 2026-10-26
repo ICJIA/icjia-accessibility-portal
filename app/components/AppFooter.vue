@@ -32,7 +32,7 @@
         <a
           href="/faqs-print"
           class="footer-link"
-          aria-label="View printer-friendly version of FAQs"
+          aria-label="Print version of FAQs"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiPrinter" />
           <span>Print</span>
