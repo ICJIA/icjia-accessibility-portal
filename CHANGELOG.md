@@ -6,6 +6,34 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.7] - 2026-10-26
+
+### Content — ICJIA's ADA grievance procedure (4 Ill. Adm. Code Part 150)
+
+"How do we handle accessibility complaints?" said ICJIA "hasn't yet finalized a formal complaint-handling procedure." It has had one since 1993: [4 Ill. Adm. Code Part 150](https://ilga.gov/agencies/JCAR/EntirePart?titlepart=00400150), adopted at 17 Ill. Reg. 19120 (effective October 25, 1993) to implement 28 CFR § 35.107. The answer now says so, links the rule on ilga.gov, and summarizes how it works: the EEO Officer investigates (§ 150.10); complaints are filed in writing on ICJIA's form within 180 days (§ 150.20); findings are due within 10 working days, and the Executive Director issues the final written decision within 5 working days of the EEO Officer's report (§§ 150.20–150.40). Step 4 of the formal-complaint list now sends complaints to the EEO Officer, bringing in IT for digital barriers, and the closing note says whom to contact instead of promising an update once a procedure exists. Chip 2026-05-14 → 2026-10-26.
+
+### Content — "MCAR" removed
+
+No source uses "MCAR" for an accessibility document: not ITI's VPAT materials, not DoIT's IITAA procurement guidance, and no Illinois solicitation found (IDOT's "MCAR" is a construction contractor's Monthly Contract Activity Report). The term is removed from the VPAT question's title, quick answer, and term list, and from the Procurement Terms glossary. The question is now "What is a VPAT? What is an ACR?", and all eight links to it use the new anchor (`#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr`).
+
+### Content — ICJIA headcount cited
+
+"Do we need an agency accessibility coordinator?" says ICJIA is well over § 35.107's 50-employee threshold. It now cites the [Illinois State Budget for Fiscal Year 2027](https://budget.illinois.gov/content/dam/soi/en/web/budget/documents/budget-book/fy2027-budget/Fiscal-Year-2027-Operating-Budget.pdf): 130 employees in FY2025 (actual), 150 estimated for FY2026.
+
+### Content — voicecap
+
+- Removed the "It reads and moves through pages — it doesn't operate them" bullet from "What doesn't voicecap do? Does a clean voicecap report mean our site is compliant?"
+- Removed the "Interactive pages need hands-on testing, too" paragraph from "When should we run voicecap, and what do we do with the results?"
+
+### Version
+
+- 1.3.6 → 1.3.7 (`package.json`, README badge, Recent Updates, and Version Information). `lastUpdated` and `lastReviewed` were already October 26, 2026.
+
+### Verification
+
+- `yarn test:run`: 13 files, 236/236 tests passing, including the FAQ internal-link check (all eight links to the renamed VPAT question resolve).
+- New citation URLs return 200: the Part 150 rule on ilga.gov and the FY2027 budget book on budget.illinois.gov. Part 150's text, authority note, and source note were read on ilga.gov. The headcount comes from ICJIA's "Resources by Fund" and "Headcount by Division" tables in the budget book, and IDOT's "Monthly Contract Activity Report (MCAR)" from its November 6, 2026 letting notice.
+
 ## [1.3.6] - 2026-10-26
 
 ### Content — ICJIA accessibility-coordinator status confirmed as of October 26, 2026

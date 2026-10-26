@@ -487,7 +487,7 @@ A simple spreadsheet or task list gives you this information.
 1. **Designate an accessibility coordinator** with authority to coordinate across departments and report progress
 2. **Adopt an agency accessibility policy** (WCAG 2.1 Level AA, scope, timelines, enforcement)
 3. **Fund training and tools** (documents, web, video, procurement) and allocate staff time for remediation
-4. **Require accessibility in procurement** (WCAG requirements in contracts; review VPAT/ACR — _Voluntary Product Accessibility Template / Accessibility Conformance Report; the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)_; remediation commitments)
+4. **Require accessibility in procurement** (WCAG requirements in contracts; review VPAT/ACR — _Voluntary Product Accessibility Template / Accessibility Conformance Report; the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)_; remediation commitments)
 5. **Establish reporting** (inventory → prioritized backlog → milestones → risks → monthly/quarterly updates)
 
 **What "good" looks like (practical, defensible):**
@@ -527,7 +527,7 @@ A simple spreadsheet or task list gives you this information.
 
 - **Content creators** — headings, link text, alt text, accessible documents, captions/transcripts.
 - **Developers/IT** — accessible code, testing, fixing defects, vendor integration requirements.
-- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs (_Voluntary Product Accessibility Template / Accessibility Conformance Report — the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)_) before purchase.
+- **Procurement/program teams** — require WCAG 2.1 AA and review VPAT/ACRs (_Voluntary Product Accessibility Template / Accessibility Conformance Report — the vendor's self-reported accessibility assessment, see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)_) before purchase.
 
 **Helpful framing:** Accessibility is a compliance deliverable like security and privacy — it needs ownership, a plan, and execution across roles.
 
@@ -996,7 +996,7 @@ If you can answer "yes" to all five, you've avoided the most common problems.
 
 **Quick answer:** Yes. The coordinator should be in an executive, compliance, or management role — not a web developer or content creator. Practitioners are busy doing compliance work and typically lack organizational authority for policy and resource decisions.
 
-**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold, so the rule already requires ICJIA to have one — and to make that employee's name, office address, and telephone number available to all interested individuals. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
+**This is a legal requirement, not just good practice.** Under ADA Title II, <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(a)</a> requires every public entity with 50 or more employees to **designate at least one responsible employee** to coordinate its efforts to comply with Title II — commonly called the agency's "ADA Coordinator." ICJIA is well over that threshold (130 employees in fiscal year 2025, according to the <a href="https://budget.illinois.gov/content/dam/soi/en/web/budget/documents/budget-book/fy2027-budget/Fiscal-Year-2027-Operating-Budget.pdf" target="_blank" rel="noopener noreferrer">Illinois State Budget for Fiscal Year 2027</a>), so the rule already requires ICJIA to have one — and to make that employee's name, office address, and telephone number available to all interested individuals. Digital accessibility is one of the things that coordinator has to coordinate; the open questions are _who_ holds the role and _with what authority_ — not _whether_. (The same section, § 35.107(b), separately requires a published grievance procedure — see [How do we handle accessibility complaints?](#icjia-specific-information-how-do-we-handle-accessibility-complaints).)
 
 **Why a practitioner usually isn't the right coordinator:**
 
@@ -2434,7 +2434,7 @@ These requirements are often missed because:
 | **PDFs**              | Adobe Acrobat Accessibility Checker, PAC (PDF Accessibility Checker), screen reader testing |
 | **Word/PowerPoint**   | Microsoft Accessibility Checker, screen reader testing                             |
 | **Excel**             | Microsoft Accessibility Checker, verify navigation with screen reader              |
-| **Third-party tools** | Request VPAT/ACR from vendor (the vendor's self-reported accessibility assessment — see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)), test critical user workflows manually |
+| **Third-party tools** | Request VPAT/ACR from vendor (the vendor's self-reported accessibility assessment — see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)), test critical user workflows manually |
 
 **References:**
 
@@ -3099,7 +3099,6 @@ For a real site: the redesigned i2i site — 32 pages, 2,219 spoken lines — to
 **What voicecap doesn't do:**
 
 - **It doesn't decide.** Its flags point to places worth a closer listen; they never pass or fail a page. A person reads the transcripts and makes the call.
-- **It reads and moves through pages — it doesn't operate them.** Its three passes use Down Arrow, H, and Tab. It doesn't fill in forms, open menus or dialogs, play videos, or submit anything. Test interactive flows (applications, sign-ups, search, error messages) by hand with NVDA — voicecap can file that hands-on session in the same record with `voicecap manual add`.
 - **It uses one screen reader and one browser.** NVDA with Chrome, on Windows. It doesn't test JAWS — the primary screen reader for 72.5% of North American respondents in WebAIM's 2026 survey — or VoiceOver, TalkBack, or mobile apps, and it reads each page in one desktop-sized window (1280 × 960), so it doesn't hear a site's phone-sized layout. (On a Mac, voicecap can set up and check VoiceOver, but its audits run on Windows, and a VoiceOver version isn't planned for now.)
 - **It can't hear what isn't spoken.** Color contrast, zoom and reflow, visible focus, captions, and audio description don't show up in a transcript. Use axe, WAVE, a contrast checker, and the manual checks in [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 - **It reads web pages, not documents.** PDFs, Word files, and other non-HTML links are skipped. Check documents with ICJIA's file checker at <a href="https://audit.icjia.app" target="_blank" rel="noopener noreferrer">audit.icjia.app</a>.
@@ -3200,8 +3199,6 @@ npx @icjia/voicecap init
 5. **Record your decisions.** `voicecap review` records a page as reviewed with no issues, as having an issue, or as fixed, with a note. `voicecap review --replay` reads saved transcripts aloud at a normal speaking pace — by default, the pages that still need attention — and records a decision with one key press per page. Each decision is saved with your name, the date, and the fingerprints of the transcripts you reviewed.
 6. **Share it.** `voicecap share` makes the dated copies to send: the report page, its Word copy, the voice page, and the Markdown and JSON versions. Before you send, remember that a report is easy to forward — share only what you'd be comfortable putting on a public page.
 7. **Keep the record.** Keep voicecap's transcripts folder in a private Git repository, pushed often to a branch protected against force-pushes and deletion. `voicecap verify` then shows whether any recorded file has changed, and the Git history shows anything deleted or sealed again.
-
-**Interactive pages need hands-on testing, too.** Forms, menus, dialogs, and multi-step processes need a person to operate them with NVDA. When you do that, `voicecap manual add` files the session — from NVDA's Speech Viewer or its log — in the same record. (NVDA's log records everything typed, including into password fields, so use `--redact-typing` and check the result before you commit it.)
 
 **See also:** [What doesn't voicecap do? Does a clean voicecap report mean our site is compliant?](#screen-reader-testing-voicecap-what-doesn-t-voicecap-do-does-a-clean-voicecap-report-mean-our-site-is-compliant) | [How do I make forms accessible?](#website-accessibility-how-do-i-make-forms-accessible) | [After April 26, 2027, how do we maintain compliance (so we don't fall out of compliance again)?](#state-agency-applicability-after-april-26-2027-how-do-we-maintain-compliance-so-we-don-t-fall-out-of-compliance-again)
 
@@ -4200,7 +4197,7 @@ W3C is unambiguous: **the author's page** does not conform unless the embedded t
 - **If the embed itself can't meet WCAG 2.1 AA, provide an accessible alternative.** A static data table next to a Tableau dashboard, a text/list alternative next to an ArcGIS map, an accessible PDF or HTML version of a Canva infographic, or a transcript and captions for embedded video. The alternative must convey the **same information** — not a stripped-down summary. One limit: under <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.202" target="_blank" rel="noopener noreferrer">28 CFR § 35.202</a>, a separate accessible version counts toward compliance "only where it is not possible to make web content directly accessible due to technical or legal limitations." Running out of time isn't one of those.
 - **Procurement is the leverage point.** Require WCAG 2.1 AA conformance in the contract, request a current VPAT/ACR for the exact product version, and document remediation timelines for known issues. (See [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use).)
 
-> **What's a VPAT?** A **VPAT** (_Voluntary Product Accessibility Template_) is a standardized form a vendor fills out to describe how their product meets accessibility standards. The completed document a vendor hands you is technically called an **ACR** (_Accessibility Conformance Report_), but most people use "VPAT" and "ACR" interchangeably. Treat it as the vendor's self-reported accessibility resume — useful as a starting point, not a guarantee. Always verify with your own testing. Full breakdown: [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+> **What's a VPAT?** A **VPAT** (_Voluntary Product Accessibility Template_) is a standardized form a vendor fills out to describe how their product meets accessibility standards. The completed document a vendor hands you is technically called an **ACR** (_Accessibility Conformance Report_), but most people use "VPAT" and "ACR" interchangeably. Treat it as the vendor's self-reported accessibility resume — useful as a starting point, not a guarantee. Always verify with your own testing. Full breakdown: [What is a VPAT? What is an ACR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)
 
 **Specifically for Canva embeds and exports:**
 
@@ -4439,11 +4436,11 @@ DoIT also suggests this optional clause:
 - <a href="https://doit.illinois.gov/initiatives/accessibility/iitaa/iitaa-procurement.html" target="_blank" rel="noopener noreferrer">IITAA Procurement Guidance</a> — Official Illinois contract language recommendations
 - <a href="https://www.section508.gov/buy/request-accessibility-information/" target="_blank" rel="noopener noreferrer">Section508.gov: Request Accessibility Information</a> — Federal procurement best practices
 
-### What is a VPAT? What is an ACR or MCAR?
+### What is a VPAT? What is an ACR?
 
 {updated:2026-10-26}
 
-**Quick answer:** A **VPAT (Voluntary Product Accessibility Template)** is a standardized form vendors fill out to describe how their product meets accessibility standards. An **ACR (Accessibility Conformance Report)** is the completed VPAT — the actual document you request from vendors. You may see other labels in solicitations, such as **MCAR**. ITI's template uses only two terms, VPAT and ACR, so ask the buyer what they mean — it's almost always the completed ACR.
+**Quick answer:** A **VPAT (Voluntary Product Accessibility Template)** is a standardized form vendors fill out to describe how their product meets accessibility standards. An **ACR (Accessibility Conformance Report)** is the completed VPAT — the actual document you request from vendors. ITI's template uses only these two terms, so if a solicitation asks for a document by another name, ask the buyer what they mean.
 
 **Full explanation:**
 
@@ -4451,7 +4448,6 @@ DoIT also suggests this optional clause:
 
 - **VPAT (Voluntary Product Accessibility Template)** — The blank template created by the Information Technology Industry Council (ITI) that provides a standard format for documenting accessibility conformance
 - **ACR (Accessibility Conformance Report)** — The completed document a vendor provides, showing how their specific product meets (or doesn't meet) accessibility standards
-- **MCAR** — A label some solicitations use; it isn't an ITI term, so ask what's meant (it's almost always the completed ACR)
 
 **What a VPAT/ACR tells you:**
 
@@ -4509,7 +4505,7 @@ DoIT also suggests this optional clause:
 
 **Remember why this matters:** the rule pulls vendor content into *your* obligation — a vendor's silence on accessibility becomes your compliance gap. See [Does hiring a remediator shield our agency from compliance liability?](#procurement-and-third-party-tools-does-hiring-a-remediator-shield-our-agency-from-compliance-liability)
 
-**See also:** [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services) | [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+**See also:** [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services) | [What is a VPAT? What is an ACR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)
 
 **References:**
 
@@ -4534,7 +4530,7 @@ DoIT also suggests this optional clause:
 
 **The reverse situation is the risky one:** an ACR evaluated only against WCAG 2.0 or Section 508's 2017 baseline does **not** cover the criteria added in WCAG 2.1 (mobile/reflow, orientation, input modalities). Ask those vendors for a current report.
 
-**See also:** [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+**See also:** [What is a VPAT? What is an ACR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)
 
 **References:**
 
@@ -4662,7 +4658,7 @@ Most remediation engagements have a **finite scope** — a specific list of page
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | Audits the existing inventory and produces a prioritized backlog                | Stop the bleeding: every new document/page authored to WCAG 2.1 AA from day one |
 | Tags legacy PDFs, adds alt text, fixes color contrast, repairs broken structure | Write descriptive headings, meaningful link text, real alt text at creation     |
-| Provides VPAT-style evidence and remediation logs for procurement records (VPAT = the vendor's accessibility self-assessment; see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)) | Maintain the accessibility of pages they own after remediation hand-back |
+| Provides VPAT-style evidence and remediation logs for procurement records (VPAT = the vendor's accessibility self-assessment; see [What is a VPAT?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)) | Maintain the accessibility of pages they own after remediation hand-back |
 | Trains staff and writes templates/style guides                                  | Use the templates; raise issues the templates don't cover                       |
 | Re-tests after major platform changes                                           | Run a quick checklist (headings, alt text, contrast, link text) before publish  |
 
@@ -4796,13 +4792,18 @@ This section contains information specific to the Illinois Criminal Justice Info
 
 ### How do we handle accessibility complaints?
 
-{updated:2026-05-14}
+{updated:2026-10-26}
 
-**Quick answer:** ICJIA hasn't yet finalized a formal complaint-handling procedure. The guidance below is provisional and will be updated once the process is finalized.
+**Quick answer:** ICJIA has had a formal ADA grievance procedure since 1993: <a href="https://ilga.gov/agencies/JCAR/EntirePart?titlepart=00400150" target="_blank" rel="noopener noreferrer">4 Ill. Adm. Code Part 150</a>. Formal complaints of disability discrimination go to ICJIA's Equal Employment Opportunity (EEO) Officer, who investigates; the Executive Director makes the final decision. The guidance below covers everyday reports of accessibility barriers, which you can often resolve before they become formal complaints.
 
-**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). Because § 35.107(b) applies to ICJIA, finalizing this procedure closes a real compliance gap.
+**Note — a published grievance procedure is a standing legal requirement, not just a best practice.** ADA Title II's <a href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-A/section-35.107" target="_blank" rel="noopener noreferrer">28 CFR § 35.107(b)</a> requires every public entity with 50 or more employees to **adopt and publish grievance procedures** for prompt and equitable resolution of disability-discrimination complaints. The same section, § 35.107(a), requires a designated ADA Coordinator — see [Do we need an agency accessibility coordinator?](#state-agency-applicability-do-we-need-an-agency-accessibility-coordinator). ICJIA's procedure is Part 150, adopted in 1993 to implement § 35.107.
 
-**Provisional guidance:**
+**How a formal complaint works under Part 150:**
+
+- **Who handles it:** ICJIA's EEO Officer investigates, documents the facts, presents findings, and advises management on resolving the complaint (§ 150.10).
+- **How to file:** In writing, on ICJIA's discrimination complaint form, within 180 days of the last incident. ICJIA must explain how to get the form and, on request, help the person fill it out (§ 150.20).
+- **Timeline:** The EEO Officer's findings and recommendation are due within 10 working days. The Executive Director then issues ICJIA's final written decision within 5 working days of receiving the EEO Officer's report (§§ 150.20–150.40).
+- **Other options stay open:** Using Part 150 doesn't take away anyone's right to file with an outside agency (§ 150.10), and every stage of the process must itself be accessible (§ 150.50).
 
 **If someone reports an accessibility barrier:**
 
@@ -4828,11 +4829,11 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 1. **Notify executive staff immediately** — This requires leadership involvement
 2. **Contact your agency's legal counsel** — They will guide the formal response
 3. **Document everything** — Preserve records of the complaint, your accessibility efforts, and any communication
-4. **Coordinate with the accessibility coordinator** (once designated) or **ICJIA's IT department** — They should be involved in the response
+4. **Send it to ICJIA's EEO Officer** — Part 150 makes the EEO Officer responsible for the investigation. If the barrier is on a website or in a digital file, bring in **ICJIA's IT department** too, so the fix can start right away
 
 **The goal:** Treat accessibility reports as service improvement opportunities, not as problems to defend against. Most people who report barriers just want to access the service — they're not looking for legal action.
 
-**This section will be updated** once ICJIA designates an accessibility coordinator and establishes a formal complaint handling procedure. In the meantime, contact **ICJIA's IT department** with accessibility complaints or concerns.
+**Who to contact:** Formal complaints of disability discrimination go to ICJIA's EEO Officer under Part 150. To report an accessibility barrier, or for accessibility questions, contact **ICJIA's IT department**.
 
 ---
 
@@ -4901,8 +4902,6 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 {updated:2026-10-26}
 
 **ACR (Accessibility Conformance Report)** — The completed document a vendor provides showing how their product meets (or doesn't meet) accessibility standards. This is the actual report you request from vendors — the filled-out version of a VPAT. <a href="https://www.section508.gov/sell/how-to-create-acr-with-vpat/" target="_blank" rel="noopener noreferrer">Learn how to create an ACR</a>
-
-**MCAR** — A label you may see in solicitations. It isn't an ITI term; ask what the buyer means (it's almost always the completed ACR).
 
 **VPAT (Voluntary Product Accessibility Template)** — The blank template created by the Information Technology Industry Council (ITI) that provides a standard format for documenting accessibility conformance. Vendors fill out VPATs to create ACRs. <a href="https://www.itic.org/policy/accessibility/vpat" target="_blank" rel="noopener noreferrer">Download VPAT template</a>
 
@@ -5092,7 +5091,7 @@ Under ADA Title II, individuals may file complaints with the U.S. Department of 
 - [What should I do when purchasing software or services?](#procurement-and-third-party-tools-what-should-i-do-when-purchasing-software-or-services)
 - [How do we ensure accessibility compliance with third-party tools like LMSs (Docebo), DocuSign, Tableau, ArcGIS, and Canva?](#procurement-and-third-party-tools-how-do-we-ensure-accessibility-compliance-with-third-party-tools-like-lmss-docebo-docusign-tableau-arcgis-and-canva)
 - [What contract language should I use?](#procurement-and-third-party-tools-what-contract-language-should-i-use)
-- [What is a VPAT? What is an ACR or MCAR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr-or-mcar)
+- [What is a VPAT? What is an ACR?](#procurement-and-third-party-tools-what-is-a-vpat-what-is-an-acr)
 - [What if a vendor has no VPAT or refuses to provide one?](#procurement-and-third-party-tools-what-if-a-vendor-has-no-vpat-or-refuses-to-provide-one)
 - [A vendor's VPAT uses WCAG 2.2 — does it satisfy our WCAG 2.1 AA requirement?](#procurement-and-third-party-tools-a-vendor-s-vpat-uses-wcag-2-2-does-it-satisfy-our-wcag-2-1-aa-requirement)
 - [We hired a third-party remediation firm — does that mean authors don't need to learn accessibility anymore?](#procurement-and-third-party-tools-we-hired-a-third-party-remediation-firm-does-that-mean-authors-don-t-need-to-learn-accessibility-anymore)
