@@ -6,6 +6,22 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.8] - 2026-10-26
+
+### Content
+
+- **voicecap:** "How is voicecap different from automated checkers like axe, Pa11y, Lighthouse, or SiteImprove?" no longer lists forms among the things left to manual checks (now "contrast, zoom, captions").
+- **Section 504 / HHS:** in "Did the Section 504 web deadlines change too?", the ICJIA funding note now cites [USAspending.gov](https://www.usaspending.gov/recipient/6d56daa9-a718-d1a7-e00c-7e39bb997d00-C/all). DOJ made all of ICJIA's direct federal grant awards in fiscal years 2022–2026 ($234.3 million, 89.6% through the Office of Justice Programs), and HHS accounts for $13,500 of about $1.06 billion in direct awards since FY2008. The note now also says that HHS's rule covers HHS money received "through another recipient" ([45 CFR § 84.10](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-84/subpart-A/section-84.10), definition of "recipient"), so pass-through funding counts too, and it keeps "consult your legal counsel."
+
+### Version
+
+- 1.3.7 → 1.3.8 (`package.json`, README badge, Recent Updates, and Version Information).
+
+### Verification
+
+- `yarn test:run`: 13 files, 236/236 tests passing.
+- New citation URLs return 200 (the USAspending recipient profile and eCFR § 84.10). The funding figures come from the USAspending API (awards by awarding agency and subagency, FY2022–FY2026 and FY2008–FY2026), and the "recipient" definition was read on eCFR (Title 45, issue date October 22, 2026).
+
 ## [1.3.7] - 2026-10-26
 
 ### Content — ICJIA's ADA grievance procedure (4 Ill. Adm. Code Part 150)

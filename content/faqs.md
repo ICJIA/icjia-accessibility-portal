@@ -2136,7 +2136,7 @@ The technical standard (WCAG 2.1 Level AA) is unchanged. As of October 26, 2026,
 
 - The work is the same work: WCAG 2.1 Level AA on your web content, documents, and apps is what IITAA expects of that content, what ADA Title II requires by April 26, 2027, and what Section 504's web rule requires of HHS-funded programs.
 - The two federal clocks now run about two weeks apart (April 26 and May 11, 2027) — one remediation effort serves both.
-- ICJIA's primary federal funding flows through DOJ's Office of Justice Programs, not HHS; DOJ's own Section 504 regulations don't currently include these web deadlines. Consult your legal counsel about which funding-based rules apply to your agency's grants.
+- ICJIA's federal grants come almost entirely from the U.S. Department of Justice — mostly its Office of Justice Programs — not HHS (<a href="https://www.usaspending.gov/recipient/6d56daa9-a718-d1a7-e00c-7e39bb997d00-C/all" target="_blank" rel="noopener noreferrer">USAspending.gov</a>). DOJ's own Section 504 regulations don't currently include these web deadlines. HHS's rule also covers HHS money received "through another recipient" (<a href="https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-A/part-84/subpart-A/section-84.10" target="_blank" rel="noopener noreferrer">45 CFR § 84.10</a>), so consult your legal counsel about which funding-based rules apply to your agency's grants.
 
 **References:**
 
@@ -2979,7 +2979,7 @@ An automated checker can confirm that a text alternative exists. Only a person l
 
 **Why NVDA?** NVDA is a free, open-source screen reader for Windows and, along with JAWS, one of the two most widely used. In <a href="https://webaim.org/projects/screenreadersurvey11/" target="_blank" rel="noopener noreferrer">WebAIM's Screen Reader User Survey #11</a> (July–August 2026, 1,780 respondents), 59.3% said they commonly use NVDA — second only to JAWS, at 69.2%. Every screen reader gets a page from the same place — what the browser makes of the page's code — so a button with no name has no name in JAWS either, and a link that only says "click here" says it in every screen reader. And because NVDA is free, anyone — an auditor, a vendor, a developer — can repeat a run without buying a license.
 
-**The practical split:** Run automated checkers early and often; they're fast and catch a whole class of code mistakes. Use voicecap on the deployed site to hear what those checks can't. Then cover the rest — contrast, zoom, captions, forms — with the manual checks in [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
+**The practical split:** Run automated checkers early and often; they're fast and catch a whole class of code mistakes. Use voicecap on the deployed site to hear what those checks can't. Then cover the rest — contrast, zoom, captions — with the manual checks in [How do I test my website for accessibility?](#website-accessibility-how-do-i-test-my-website-for-accessibility)
 
 **References:**
 
