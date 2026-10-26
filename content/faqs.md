@@ -25,7 +25,7 @@ A practical guide to common accessibility questions for staff at Illinois state 
 > - **New to accessibility jargon?** See the [Glossary](#glossary) for plain-language definitions
 > - **Need a real person?** For ICJIA questions, contact the IT department. For IITAA + ADA Title II questions, contact Illinois DoIT: `DoIT.Accessibility@Illinois.gov`
 >
-> **ICJIA Contact Note (March 10, 2026):** No agency accessibility coordinator has been identified yet. This FAQ will be updated with coordinator contact information when available. In the meantime, contact **ICJIA's IT department** with specific accessibility questions or concerns.
+> **ICJIA Contact Note (October 26, 2026):** No agency accessibility coordinator has been designated yet. This FAQ will be updated with coordinator contact information when available. In the meantime, contact **ICJIA's IT department** with specific accessibility questions or concerns.
 >
 > **Note (scope):** This FAQ is practical guidance for ICJIA staff and partners. It's not legal advice. For official interpretations and agency-specific direction, consult Illinois DoIT guidance and your agency's legal/compliance leadership.
 
@@ -135,7 +135,7 @@ _Last updated: October 26, 2026 · Last reviewed: October 26, 2026_
 
 ### Why should I trust this FAQ if it wasn't created by agency leadership or official accessibility experts?
 
-{updated:2026-01-23}
+{updated:2026-10-26}
 
 **Quick answer:** This FAQ is based on official sources — Illinois DoIT guidance, federal ADA regulations, and W3C standards — not personal opinion. The content's authority comes from the sources it cites, not the person who compiled it.
 
@@ -151,7 +151,7 @@ Here's why this FAQ is worth your time:
 
 3. **Web development has been doing this for years:** ICJIA's web development team has incorporated accessibility practices into website builds for years — semantic HTML, keyboard navigation, color contrast, alt text, and screen reader compatibility have been part of the work all along. What's changed isn't the practice; it's that accessibility is now a legal mandate rather than a best practice. If anyone in this agency has hands-on experience with accessibility requirements, it's the people who've been implementing them in code.
 
-4. **This fills a gap, not a role:** As of May 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
+4. **This fills a gap, not a role:** As of October 26, 2026, ICJIA has not yet designated an official accessibility coordinator. This FAQ exists because staff needed practical guidance now — not because anyone is claiming authority they don't have.
 
 5. **Feedback — and disagreement — is welcome:** If you find errors, outdated information, language that reads wrong, framing you don't agree with, or areas where this FAQ doesn't align with official guidance, please contact **ICJIA's IDS Unit** with specifics. Disagree with how something is phrased? Tell us. Think a section overstates the law? Tell us. The goal is accuracy and clarity, not protecting the author's prose. Corrections ship promptly.
 
@@ -474,7 +474,7 @@ A simple spreadsheet or task list gives you this information.
 - **Build into processes:** Require accessibility in procurement, add pre-publish checkpoints.
 - **Establish accountability:** Assign responsibilities, set expectations, track progress.
 
-**ICJIA Contact:** No accessibility coordinator identified yet. Contact **ICJIA's IT department** for accessibility questions.
+**ICJIA Contact (October 26, 2026):** No accessibility coordinator designated yet. Contact **ICJIA's IT department** for accessibility questions.
 
 **Resources:** <a href="https://doit.illinois.gov/initiatives/accessibility.html" target="_blank" rel="noopener noreferrer">Illinois DoIT Accessibility</a> | <a href="https://www.w3.org/WAI/planning-and-managing/" target="_blank" rel="noopener noreferrer">W3C: Planning Accessibility</a> | <a href="/links" target="_self">Accessibility Links</a>
 

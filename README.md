@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.3.5](https://img.shields.io/badge/Version-1.3.5-blue)](CHANGELOG.md)
+[![Version 1.3.6](https://img.shields.io/badge/Version-1.3.6-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -1045,6 +1045,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (October 2026)
 
+- **v1.3.6 — ICJIA coordinator status confirmed** (2026-10-26): ICJIA still hasn't designated an agency accessibility coordinator. The FAQ's three dated status notes now read October 26, 2026 (they were dated March and May 2026)
 - **v1.3.5 — voicecap section + October 2026 accuracy review** (2026-10-26):
   - **NEW**: "Screen Reader Testing (voicecap)" FAQ section — eight Q&As covering what voicecap is and why ICJIA built it, how it differs from axe/Pa11y/Lighthouse/SiteImprove (mapped to WCAG 2.1 success criteria), how it works, measured time savings, accuracy and verification, its limits (and why a clean report isn't a compliance claim), setup on Windows, and the test-fix-compare-share workflow
   - Cross-linked from the website-testing, web-developer, manager, SiteImprove, external-audit, overlay, good-faith-progress, sign-off, and maintain-compliance answers; added to the Keyword Index, Glossary, Free Testing Tools table, and the Links page
@@ -1132,7 +1133,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.3.5
+**Version**: 1.3.6
 **Last Updated**: October 26, 2026
 
 **Core Dependencies**:

@@ -6,6 +6,26 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.6] - 2026-10-26
+
+### Content — ICJIA accessibility-coordinator status confirmed as of October 26, 2026
+
+The site owner confirmed that ICJIA still hasn't designated an agency accessibility coordinator, which settles the first owner-confirmation item listed in 1.3.5. Each dated ICJIA status note in `content/faqs.md` now carries that date:
+
+- Intro "ICJIA Contact Note": dated October 26, 2026 (was March 10, 2026); "has been identified" → "has been designated."
+- "Why should I trust this FAQ if it wasn't created by agency leadership or official accessibility experts?", item 4: "As of October 26, 2026" (was "As of May 2026"). Its chip moves from 2026-01-23 to 2026-10-26.
+- "I'm a manager. Where do I start?", "ICJIA Contact" line: now dated October 26, 2026; "identified" → "designated."
+
+"Designated" is the term 28 CFR § 35.107(a) uses. Nothing else changed: both notes still send readers to ICJIA's IT department, and the complaint-handling Q&A ("once designated") and the general "Do we need an agency accessibility coordinator?" guidance are untouched.
+
+### Version
+
+- 1.3.5 → 1.3.6 (`package.json`, README badge and Version Information). `lastUpdated` and `lastReviewed` were already October 26, 2026 (set in 1.3.5).
+
+### Verification
+
+- `yarn test:run`: 13 files, 236/236 tests passing.
+
 ## [1.3.5] - 2026-10-26
 
 ### Added — "Screen Reader Testing (voicecap)" FAQ section (eight new Q&As)
