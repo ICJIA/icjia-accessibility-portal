@@ -1,6 +1,6 @@
 # Vuetify 3 + Nuxt 4: Complete Architecture & Implementation Guide
 
-**Last Updated**: January 8, 2026  
+**Last Updated**: November 6, 2026 (v1.4.1)  
 **For**: Developers and LLMs building Vuetify 3 + Nuxt 4 applications  
 **Purpose**: Comprehensive guide to building, maintaining, and troubleshooting Vuetify 3 + Nuxt 4 applications
 
@@ -165,7 +165,9 @@ app/layouts/
 │   │   ├── CountdownTimer.vue  # Deadline countdown
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
 │   │   ├── FaqAccordion.vue    # FAQ display component
-│   │   └── SkipLink.vue        # Accessibility skip link
+│   │   ├── FaqBrowser.vue      # Shared FAQ view (homepage and /faqs)
+│   │   ├── SkipLink.vue        # Accessibility skip link
+│   │   └── WhatsNewBanner.vue  # Newest What's New entry (top of the countdown card)
 │   ├── composables/            # Vue composables (reusable logic)
 │   │   ├── useDeadlineCountdown.ts
 │   │   ├── useFaqCollapse.ts
@@ -181,22 +183,27 @@ app/layouts/
 │   │   ├── faqs.vue            # Dedicated FAQs page
 │   │   ├── faqs-print.vue      # Printer-friendly FAQs
 │   │   ├── links.vue           # Resources page
-│   │   └── search.vue          # Fuzzy search page (Fuse.js)
+│   │   ├── search.vue          # Fuzzy search page (Fuse.js)
+│   │   └── whats-new.vue       # What's New archive (every entry, newest first)
 │   ├── plugins/                # Nuxt plugins
 │   │   ├── content-links.client.ts
 │   │   ├── ensure-accessibility-report.server.ts
 │   │   ├── optimize-css.client.ts
 │   │   ├── optimize-fonts.client.ts
-│   │   ├── resource-hints.server.ts
 │   │   ├── suppress-vuetify-logs.client.ts
 │   │   └── suppress-vuetify-logs.server.ts
 │   ├── utils/                  # Utility functions
-│   │   └── faqTransform.ts     # FAQ parsing and transformation
+│   │   ├── faqTransform.ts     # FAQ parsing and transformation
+│   │   ├── icons.ts            # Tree-shaken @mdi/js SVG icons (28)
+│   │   └── whatsNew.ts         # What's New entries (newest first) and date helpers
 │   ├── app.vue                 # Root app component
 │   └── router.options.ts       # Router configuration
 ├── content/                     # Markdown content files
-│   ├── faqs.md                 # FAQ content (3000+ lines)
+│   ├── faqs.md                 # FAQ content (5000+ lines)
 │   └── links.md                # Resource links
+├── server/                      # Nitro server code
+│   ├── plugins/fix-vuetify-ssr-nan.ts
+│   └── routes/                 # On-demand .docx/.md downloads in `yarn dev`; legacy /faqs.pdf (410)
 ├── public/                      # Static assets
 │   ├── docs/                   # Generated documentation
 │   │   ├── accessibility/     # Accessibility audit reports
@@ -215,15 +222,20 @@ app/layouts/
 │   ├── generate-faq-docx.js     # Generate accessible Word document
 │   ├── generate-faq-md.js       # Generate Markdown with metadata
 │   ├── generate-faq-txt.js      # Generate plain text version
+│   ├── generate-icjia-logo.js
+│   ├── generate-og-image.js     # OG image (with og-image-template.html)
 │   ├── generate-routes.js
-│   ├── generate-sitemap.js
-│   └── regenerate-faq-links.mjs # Regenerate internal FAQ links with 150-char slugs
+│   └── generate-sitemap.js
 ├── test/                        # Test suites
 │   ├── unit/                   # Unit tests (pure functions)
+│   │   ├── faqDownloadGenerators.test.ts
+│   │   ├── faqInternalLinks.test.ts
 │   │   ├── faqTransform.test.ts
 │   │   ├── searchConfig.test.ts
-│   │   └── useSlugify.test.ts
+│   │   ├── useSlugify.test.ts
+│   │   └── whatsNew.test.ts
 │   ├── nuxt/                   # Nuxt environment tests
+│   │   ├── DownloadDialog.test.ts
 │   │   ├── FaqAccordion.test.ts
 │   │   ├── search.test.ts
 │   │   ├── useDeadlineCountdown.test.ts
@@ -240,6 +252,7 @@ app/layouts/
 │   ├── PRINTER_FRIENDLY_GUIDE.md
 │   └── [other docs]
 ├── audit-accessibility.js       # Custom axe-core audit script
+├── regenerate-faq-links.mjs     # Regenerate internal FAQ links with 150-char slugs
 ├── nuxt.config.ts              # Nuxt configuration
 ├── content.config.ts           # Nuxt Content configuration
 ├── search.config.json          # Fuse.js search configuration
@@ -260,6 +273,7 @@ app/pages/faqs.vue        →  /faqs
 app/pages/faqs-print.vue  →  /faqs-print
 app/pages/links.vue       →  /links
 app/pages/search.vue      →  /search
+app/pages/whats-new.vue   →  /whats-new
 ```
 
 **Benefits**:
@@ -274,7 +288,7 @@ app/pages/search.vue      →  /search
 
 ### Markdown Structure
 
-**File**: `content/faqs.md` (3000+ lines) - [View on GitHub](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/content/faqs.md)
+**File**: `content/faqs.md` (5000+ lines, 101 questions) - [View on GitHub](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/content/faqs.md)
 
 **Structure**:
 
@@ -317,7 +331,7 @@ Answer content...
 
 1. **`extractNewDate()`** - Detects `{new:YYYY-MM-DD}` tags
 2. **`filterNewComments()`** - Removes tags from display
-3. **`isWithinNewWindow()`** - Checks if date is within 10 days
+3. **`isWithinNewWindow()`** - Checks if date is within 21 days
 4. **`replaceDynamicPlaceholders()`** - Replaces `{days_until_deadline}`
 
 **How it Works**:
@@ -388,7 +402,7 @@ Answer content...
 
 **Features**:
 
-- Badge shows for 10 days (configurable via `NEW_QUESTION_DAYS`)
+- Badge shows for 21 days (configurable via `NEW_QUESTION_DAYS`)
 - Auto-expires (no manual cleanup needed)
 - Supports both `{new:DATE}` and `<!-- new:DATE -->` formats
 - Curly braces survive markdown parsing better
@@ -398,6 +412,47 @@ Answer content...
 - Green chip in FaqAccordion component
 - "NEW" text badge in printer-friendly version
 - Accessible (doesn't rely only on color)
+
+### What's New Banner and Archive
+
+**Purpose**: Tell readers what changed, in plain language, at the top of the countdown card, with an archive of every update
+
+**Files**:
+
+- [`app/utils/whatsNew.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/utils/whatsNew.ts) - the entries array (newest first) plus `getWhatsNewEntries()`, `getLatestWhatsNew()`, `formatWhatsNewDate()`, `formatWhatsNewShortDate()`, `isExternalWhatsNewLink()`
+- [`app/components/WhatsNewBanner.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/WhatsNewBanner.vue) - the newest entry (badge, date, title, summary, "See all updates" link); a `compact` prop shows only the title and link
+- [`app/pages/whats-new.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/pages/whats-new.vue) - `/whats-new`, every entry newest first
+- [`test/unit/whatsNew.test.ts`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/unit/whatsNew.test.ts) - unique ids, real dates, required fields, newest-first source order, and that every `/faqs#…` link points to a real question
+
+**Where it appears**:
+
+- `/` - the full banner at the top of the countdown card in `index.vue`
+- `/faqs` and `/links` - the compact banner inside `CountdownTimer.vue` (`compact` prop)
+- The footer (`AppFooter.vue`) links to `/whats-new`
+
+It replaced the April 2026 deadline-extension notice that used to sit at the top of the countdown card; that notice is now an entry in the archive.
+
+**Entry shape**:
+
+```typescript
+// app/utils/whatsNew.ts
+export const WHATS_NEW_ENTRIES: WhatsNewEntry[] = [
+{
+  id: "2026-11-06-november-review", // unique; also the entry's anchor on /whats-new
+  date: "2026-11-06",               // YYYY-MM-DD string, never a Date
+  badge: "Reviewed",                // short label, shown uppercase with the date
+  title: "…",                       // one-line headline
+  summary: "…",                     // one or two sentences; the banner shows this
+  details: ["…"],                   // optional bullets, shown on /whats-new
+  links: [{ text: "Read the FAQs", href: "/faqs" }], // optional
+},
+// ...older entries
+];
+```
+
+**Why static data**: Dates are plain strings and the list is a constant, so the server and the browser render identical markup (no hydration mismatch, no layout shift), and the banner does not need `<ClientOnly>`.
+
+**Adding an entry**: Add it at the **top** of the entries array with each release that changes what readers see, and write for readers, not developers.
 
 ### Internal Link Management with 150-Character Slugs
 
@@ -584,12 +639,16 @@ This ensures that internal links in markdown content match the IDs generated by 
 **File**: [`app/components/FaqAccordion.vue`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/app/components/FaqAccordion.vue)
 
 ```vue
-<v-expansion-panel :aria-describedby="`answer-${item.id}`">
-  <v-expansion-panel-title :id="`question-${item.id}`">
-    {{ item.question }}
+<!-- Vuetify's disclosure pattern: the title is a button with aria-expanded;
+     its accessible name is the question text -->
+<v-expansion-panel :id="getQuestionId(item.question)">
+  <v-expansion-panel-title>
+    <span class="faq-question-text">{{ item.question }}</span>
   </v-expansion-panel-title>
-  <v-expansion-panel-text :id="`answer-${item.id}`">
-    <!-- Answer content -->
+  <v-expansion-panel-text>
+    <div :id="`answer-${getQuestionId(item.question)}`">
+      <!-- Answer content -->
+    </div>
   </v-expansion-panel-text>
 </v-expansion-panel>
 ```
@@ -635,15 +694,22 @@ This ensures that internal links in markdown content match the IDs generated by 
 # 1. Install dependencies
 yarn install
 
-# 2. Pre-build steps (automatic)
+# 2. Pre-generate steps (automatic, `pregenerate`)
+- Ensure accessibility report exists
 - Generate routes.json (scan pages directory)
 - Generate sitemap.xml (from routes.json)
-- Ensure accessibility report exists
+- Generate JSDoc/TypeDoc API docs (`generate:jsdoc`)
 
 # 3. Generate static site
 yarn generate
 
-# 4. Output to .output/public/
+#    (a Nitro `close` hook rewrites routes.json from the prerendered output)
+
+# 4. Post-generate steps (automatic, `postgenerate`)
+- Regenerate sitemap.xml
+- Generate FAQ downloads (.docx, .md, .txt) into .output/public/
+
+# 5. Output to .output/public/
 - HTML files for each route
 - JavaScript chunks (code-split)
 - CSS files (optimized)
@@ -777,17 +843,18 @@ writeFileSync("public/sitemap.xml", xml);
   # NPM flags (optional)
   NPM_FLAGS = "--version"
 
-# SPA fallback - redirects all routes to index.html
-# Required for client-side routing in static-generated Nuxt apps
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA fallback redirect: every route is prerendered to its own index.html
 
 # Security headers for all pages
 [[headers]]
   for = "/*"
   [headers.values]
+    # Content-Security-Policy (self-hosted assets; Plausible is the only third-party origin)
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://plausible.icjia.cloud; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://plausible.icjia.cloud; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+    # Enforce HTTPS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
     # Prevent clickjacking
     X-Frame-Options = "DENY"
 
@@ -868,7 +935,7 @@ Specify in `[build.environment]`:
 
 **Why Node 22.22.3+?**
 
-- Nuxt 4 requires Node 18.18.0 or higher
+- Nuxt 4.6 requires Node `^22.22.3 || ^24.15.0 || >=26.0.0` (its `engines` field)
 - Node 22.x provides better performance and latest features
 - Ensures compatibility with Vuetify 3 and all dependencies
 
@@ -880,7 +947,7 @@ Specify in `[build.environment]`:
 
 1. **Netlify clones your repository**
 2. **Installs dependencies**: `yarn install` (or `npm install`)
-3. **Runs build command**: `yarn generate`
+3. **Runs build command**: `npx playwright install chromium && yarn run generate`
    - This executes your `pregenerate` script (if defined)
    - Runs `nuxt generate` to create static files
    - Executes your `postgenerate` script (if defined)
@@ -952,6 +1019,8 @@ Static-generated Nuxt apps use client-side routing. When users navigate to route
 
 **Important**: This redirect must come **after** any specific route redirects you might have.
 
+**This project does not use it.** Every route is prerendered to its own `index.html`, so Netlify serves `/faqs`, `/links`, `/whats-new`, etc. directly, and `netlify.toml` has no `[[redirects]]` section. A catch-all rewrite would serve the homepage (status 200) for mistyped URLs instead of a 404.
+
 #### Security Headers
 
 **Netlify Docs**: [Headers](https://docs.netlify.com/routing/headers/), [Custom headers](https://docs.netlify.com/routing/headers/#syntax)
@@ -960,6 +1029,8 @@ Static-generated Nuxt apps use client-side routing. When users navigate to route
 
 **Why these headers matter**:
 
+- **Content-Security-Policy**: Only same-origin scripts, styles, and fonts, plus Plausible (`https://plausible.icjia.cloud`) for analytics; no framing, `base-uri`/`form-action` locked to self. Because `font-src` is `'self'`, no CDN icon font (such as `@mdi/font`) can load, which is why icons are SVG (`mdi-svg`)
+- **Strict-Transport-Security**: Enforces HTTPS for one year, including subdomains (preload)
 - **X-Frame-Options**: Prevents your site from being embedded in iframes (prevents clickjacking)
 - **X-XSS-Protection**: Enables browser XSS filtering
 - **X-Content-Type-Options**: Prevents MIME type sniffing attacks
@@ -1053,7 +1124,7 @@ export default defineNuxtConfig({
    - **File**: [`.nvmrc`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/.nvmrc)
 
 2. **Routes return 404**
-   - Verify SPA fallback redirect is configured
+   - Verify the route was prerendered (`.output/public/<route>/index.html`; check `routes.json`)
    - Check that `publish` directory is `.output/public`
    - **File**: [`netlify.toml`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/netlify.toml) (redirects section)
    - **Netlify Docs**: [Redirects](https://docs.netlify.com/routing/redirects/)
@@ -1074,7 +1145,7 @@ export default defineNuxtConfig({
 - ✅ Build command is `yarn generate` (or `npm run generate`)
 - ✅ Publish directory is `.output/public`
 - ✅ Node version specified (`.nvmrc` or `netlify.toml`)
-- ✅ SPA fallback redirect configured
+- ✅ Every route prerendered (no SPA fallback redirect needed)
 - ✅ Security headers configured
 - ✅ Cache headers for static assets configured
 
@@ -1226,8 +1297,8 @@ function extractNewDate(answerNodes) {
     const match = text.match(NEW_TAG_PATTERN);
     if (match) {
       const dateStr = match[1];
-      if (isWithinWindow(dateStr, 10)) {
-        // 10 days
+      if (isWithinWindow(dateStr, NEW_QUESTION_DAYS)) {
+        // 21 days
         return dateStr;
       }
     }
@@ -1800,7 +1871,8 @@ After implementing the fix:
 2. **Server Routes** (in `server/routes/` for `yarn dev`):
    - `ICJIA-Accessibility-FAQs.docx.ts`
    - `ICJIA-Accessibility-FAQs.md.ts`
-   - `ICJIA-Accessibility-FAQs.txt.ts`
+   - (no `.txt` route: the plain-text file exists only after `yarn generate`)
+   - `faqs.pdf.ts` - legacy `/faqs.pdf`, returns 410 Gone pointing to the accessible formats
 
 3. **Build Time Generation** (`postgenerate` script):
    - Files generated to `.output/public/` during `yarn generate`
@@ -2024,8 +2096,11 @@ export default defineNuxtConfig({
           // Your theme configuration
         },
       },
+      // Must be in vuetifyOptions (not moduleOptions). Without it, vuetify-nuxt-module
+      // falls back to the `mdi` font set and injects @mdi/font from a CDN,
+      // which a strict CSP (font-src 'self') blocks.
       icons: {
-        defaultSet: "mdi", // Material Design Icons
+        defaultSet: "mdi-svg", // SVG paths from @mdi/js (see app/utils/icons.ts)
       },
     },
   },
@@ -2532,7 +2607,8 @@ All composables, utilities, and plugins include detailed JSDoc comments that are
     "app/utils/*.ts",
     "app/plugins/*.ts",
     "docs-temp/components/*.ts",
-    "docs-temp/pages/*.ts"
+    "docs-temp/pages/*.ts",
+    "docs-temp/layouts/*.ts"
   ],
   "out": "public/docs/jsdoc",
   "name": "ICJIA Accessibility Portal - API Documentation",
@@ -2564,10 +2640,11 @@ yarn generate
 | Category | Files | Description |
 |----------|-------|-------------|
 | **Composables** | 6 | `useDeadlineCountdown`, `useFaqCollapse`, `usePrintLinks`, `useSeo`, `useSlugify`, `useStructuredData` |
-| **Utilities** | 1 | `faqTransform.ts` with 15+ functions |
-| **Plugins** | 7 | Client and server plugins |
-| **Vue Components** | 5 | `AppFooter`, `AppNavbar`, `CountdownTimer`, `FaqAccordion`, `SkipLink` |
-| **Vue Pages** | 5 | `index`, `faqs`, `faqs-print`, `links`, `search` |
+| **Utilities** | 3 | `faqTransform.ts` (15+ functions), `icons.ts`, `whatsNew.ts` |
+| **Plugins** | 6 | Client and server plugins |
+| **Vue Components** | 8 | `AppFooter`, `AppNavbar`, `CountdownTimer`, `DownloadDialog`, `FaqAccordion`, `FaqBrowser`, `SkipLink`, `WhatsNewBanner` |
+| **Vue Pages** | 6 | `index`, `faqs`, `faqs-print`, `links`, `search`, `whats-new` |
+| **Layouts** | 2 | `default`, `print` |
 
 ### Output Location
 
@@ -2631,9 +2708,9 @@ export function functionName(paramName: string): ReturnType {
 
 **Current Scale**:
 
-- 4 routes
-- 1 large markdown file (3000 lines)
-- ~50 FAQ questions
+- 6 routes
+- 1 large markdown file (5000+ lines)
+- 101 FAQ questions
 - Static generation works perfectly
 
 **If Scaling to 100+ Routes**:
@@ -2654,7 +2731,7 @@ export function functionName(paramName: string): ReturnType {
 1. **Content Updates**
    - Edit markdown files directly
    - Add `{new:YYYY-MM-DD}` for new questions
-   - Badge expires automatically after 10 days
+   - Badge expires automatically after 21 days
 
 2. **Accessibility Audits**
    - Run `yarn audit:a11y` before each release

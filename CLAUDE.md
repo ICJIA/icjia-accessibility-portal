@@ -33,11 +33,11 @@ This document provides essential context for AI assistants working on this codeb
 ```
 app/
 ├── pages/           # Route pages (index.vue, faqs.vue, faqs-print.vue, links.vue, search.vue, whats-new.vue)
-├── components/      # Vue components (FaqAccordion, CountdownTimer, SkipLink, etc.)
+├── components/      # Vue components (FaqBrowser, FaqAccordion, CountdownTimer, WhatsNewBanner, SkipLink, etc.)
 ├── composables/     # Reusable logic (useDeadlineCountdown, useFaqCollapse, useSlugify, useSeo)
 ├── layouts/         # Page layouts (default.vue, print.vue)
 ├── plugins/         # Nuxt plugins (client/server)
-├── utils/           # Utility functions (faqTransform.ts)
+├── utils/           # Utility functions (faqTransform.ts, icons.ts, whatsNew.ts)
 └── error.vue        # Error page
 
 content/
@@ -172,7 +172,7 @@ FAQs are in `content/faqs.md`. Structure:
 
 ### Question text here?
 
-{updated:2026-01-15}   <!-- Optional: Shows "UPDATED" badge for 10 days -->
+{updated:2026-01-15}   <!-- Optional: Shows "Updated on mm/dd/yyyy" chip for 21 days -->
 
 **Quick answer:** Brief answer...
 
@@ -200,7 +200,7 @@ Use the `useSlugify` composable pattern for internal FAQ links:
 |------|-----------|---------|-------------|
 | Unit | `test/unit/` | `yarn test:unit` | Pure function tests |
 | Nuxt | `test/nuxt/` | `yarn test:nuxt` | Component tests with Nuxt context |
-| E2E | `test/e2e/` | `yarn test:e2e` | End-to-end browser tests |
+| E2E | `test/e2e/` | `yarn test:e2e` | End-to-end browser tests (project currently commented out in `vitest.config.ts`) |
 
 ### Running Tests
 
@@ -229,9 +229,11 @@ node audit-accessibility.js  # Terminal 2: Run audit
 1. Ensures accessibility report placeholder exists
 2. Generates routes.json
 3. Generates sitemap.xml
-4. Runs Nuxt static generation
-5. Generates FAQ downloads (DOCX, MD, TXT)
-6. Outputs to `.output/public/`
+4. Generates JSDoc API docs (`generate:jsdoc`)
+5. Runs Nuxt static generation (a Nitro `close` hook rewrites routes.json from the prerendered output)
+6. Regenerates sitemap.xml
+7. Generates FAQ downloads (DOCX, MD, TXT)
+8. Outputs to `.output/public/`
 
 ### Netlify Deployment
 
@@ -308,7 +310,7 @@ Every release that changes what readers see gets a What's New entry. Entries liv
 ## Quick Reference: Project Status
 
 - **WCAG Compliance**: 100% (0 violations)
-- **Test Coverage**: 236/236 tests passing (unit + Nuxt)
+- **Test Coverage**: 249/249 tests passing across 14 files (unit + Nuxt)
 - **Node Version**: 22.23.4
-- **Last Major Update**: October 2026
+- **Last Major Update**: November 2026 (v1.4.1)
 - **Deadline**: April 26, 2027

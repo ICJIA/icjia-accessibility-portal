@@ -6,6 +6,27 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.4.2] - 2026-11-06
+
+### Docs — README and architecture documents brought current
+
+Checked against the code after v1.4.0 (What's New) and v1.4.1 (dependency refresh); each change was verified against the files it describes.
+
+- **README.md:** Nuxt and Vue badges (4.6.4+, 3.5.45+); axe-core 4.14.0+ and Playwright 1.65.0+; build steps include JSDoc generation; project tree adds `FaqBrowser.vue`, `utils/icons.ts`, and the `docs/architecture`, `docs/jsdoc`, and `docs/tests` folders, and drops `resource-hints.server.ts` (no longer exists); the FAQ accordion is described by its real ARIA pattern (`aria-expanded` disclosure; nothing in `app/` uses `aria-describedby`); "SPA fallback redirects" and "custom 404 handling" removed (`netlify.toml` has no redirects); the countdown is on `/`, `/faqs`, and `/links`, not "all pages"; What's New added to the status list.
+- **CLAUDE.md:** components and utils lists include What's New; the chip window is 21 days (was "10 days"); the E2E project is noted as commented out in `vitest.config.ts`; the build steps match `pregenerate`/`postgenerate`; 249/249 tests across 14 files; last major update November 2026.
+- **ARCHITECTURE_GUIDE.md:** new "What's New Banner and Archive" section; directory tree, routes (6), and question count (101) current; `server/` directory added; badge window 21 days (4 places); build pipeline; Netlify config shows the real CSP and HSTS headers and no redirects; Node requirement is Nuxt 4.6's `^22.22.3 || ^24.15.0 || >=26.0.0`; the Vuetify example uses `mdi-svg` in `vuetifyOptions`; TypeDoc coverage counts; the accordion ARIA example matches the markup.
+- **INDEX.md:** dates, the guide's length, and section pointers.
+
+### Fixed — the published architecture page (`/docs/architecture/`)
+
+- **Regenerated** from the current guide (`yarn generate:docs`). The published copy dated from January and still gave the deadline as April 24, 2026.
+- **Accessibility** (`scripts/generate-architecture-docs.js`), the published page failed 2 axe-core AA rules on 274 elements (color contrast, links told apart by color alone), and the regenerated one also a third (a code block keyboard users couldn't scroll); it now has 0 violations, best practices included, at desktop and mobile widths:
+  - light theme: links, accents, and the sticky header used the dark theme's colors (`#60a5fa` on white, about 2.5:1; a dark header behind dark text). The light theme now has its own blues (`#1d4ed8`, 4.5:1 or more) and header background (WCAG 1.4.3);
+  - links are underlined, so a link in a sentence isn't told apart by color alone (WCAG 1.4.1), with a visible focus outline;
+  - code blocks have `tabindex="0"`, so a keyboard user can scroll a wide one (WCAG 2.1.1);
+  - the page content is in a `<main>` landmark.
+- **Broken links:** the generator's `_italic_` rule matched inside HTML attributes, so nine `target="_blank"` links were written as `target="em>blank"`. Underscore italics now apply only at word boundaries and never across a quote or tag; the guide's two real underscore italics still render.
+
 ## [1.4.1] - 2026-11-06
 
 ### Dependencies — one refresh in place of 26 stale Dependabot PRs

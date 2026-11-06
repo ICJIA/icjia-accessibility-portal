@@ -4,10 +4,10 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.4.1](https://img.shields.io/badge/Version-1.4.1-blue)](CHANGELOG.md)
+[![Version 1.4.2](https://img.shields.io/badge/Version-1.4.2-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
-[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
-[![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
+[![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
+[![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
 [![Lighthouse 100%](https://img.shields.io/badge/Lighthouse-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
@@ -126,7 +126,7 @@ yarn generate:serve
 - **Dynamic Countdown Timer** - Shows days remaining until April 26, 2027 deadline (Chicago timezone)
   - All date calculations use Chicago timezone (America/Chicago) for Illinois state agencies
   - Uses explicit timezone offsets (CDT = UTC-5 in April, CST = UTC-6 in winter)
-- **"New"/"Updated" Chip System** - Automatically displays and expires chips for newly-added or recently-updated FAQ entries [[memory:12683417]]
+- **"New"/"Updated" Chip System** - Automatically displays and expires chips for newly-added or recently-updated FAQ entries
   - Add `{new:YYYY-MM-DD}` (star-prefixed "New on mm/dd/yyyy" chip) or `{updated:YYYY-MM-DD}` (Updated on mm/dd/yyyy chip) after the question heading in markdown
   - Chips auto-expire after 21 days (configurable); "Latest first" sorting ranks New above Updated on date ties
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
@@ -272,8 +272,6 @@ The `netlify.toml` file includes:
   - Referrer-Policy: strict-origin-when-cross-origin
   - Permissions-Policy: Blocks geolocation, microphone, camera
 - **Cache headers** for static assets (1 year cache for immutable files)
-- **SPA fallback** redirects for client-side routing
-- **Custom 404 handling**
 
 ### Deployment Steps
 
@@ -302,11 +300,12 @@ The automated build process:
 1. Ensures accessibility report placeholder exists
 2. Generates `routes.json` from pages and content
 3. Generates `sitemap.xml` from routes
-4. Builds/generates the Nuxt application
-5. Regenerates routes.json with Nuxt-discovered routes
-6. Updates sitemap with final routes
-7. Generates accessible FAQ downloads (Word, Markdown, Plain Text)
-8. Optimizes and outputs to `.output/public/`
+4. Generates JSDoc/TypeDoc API documentation (`generate:jsdoc`, `yarn generate` only)
+5. Builds/generates the Nuxt application
+6. Regenerates routes.json with Nuxt-discovered routes
+7. Updates sitemap with final routes
+8. Generates accessible FAQ downloads (Word, Markdown, Plain Text)
+9. Optimizes and outputs to `.output/public/`
 
 **Note**: The sitemap automatically excludes `/docs/` routes (documentation pages are public but not indexed for SEO purposes).
 
@@ -331,8 +330,9 @@ The automated build process:
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
+│   │   ├── FaqBrowser.vue      # Shared FAQ view (homepage and /faqs)
 │   │   ├── WhatsNewBanner.vue  # Newest What's New entry, at the top of the countdown card
-│   │   └── FaqAccordion.vue    # FAQ accordion with aria-describedby
+│   │   └── FaqAccordion.vue    # FAQ accordion (Vuetify aria-expanded disclosure pattern)
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
 │   │   ├── useFaqCollapse.ts        # Composable for FAQ collapse state
@@ -345,11 +345,11 @@ The automated build process:
 │   │   ├── ensure-accessibility-report.server.ts  # Server plugin for report placeholder
 │   │   ├── optimize-css.client.ts   # Client plugin for CSS optimization
 │   │   ├── optimize-fonts.client.ts # Client plugin for font loading optimization
-│   │   ├── resource-hints.server.ts # Server plugin for resource preload hints
 │   │   ├── suppress-vuetify-logs.client.ts  # Suppresses Vuetify console warnings (client)
 │   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
 │   │   ├── faqTransform.ts     # FAQ AST transforms: New/Updated chips, "See also" cards, responsive tables
+│   │   ├── icons.ts            # Tree-shaken @mdi/js SVG icons (28 icons, `svg:` prefixed)
 │   │   └── whatsNew.ts         # What's New entries (newest first) and date helpers
 │   ├── router.options.ts       # Custom router configuration
 │   └── error.vue               # Error page component
@@ -370,6 +370,9 @@ The automated build process:
 │       │   ├── index.html      # Accessibility audit report (generated)
 │       │   ├── errors.json     # Accessibility errors data
 │       │   └── violations.json # Accessibility violations data
+│       ├── architecture/       # Architecture documentation page
+│       ├── jsdoc/              # TypeDoc API documentation (generated)
+│       └── tests/              # Test results report (generated by `yarn test`)
 ├── scripts/
 │   ├── ensure-accessibility-report.js  # Ensures accessibility report placeholder exists
 │   ├── extract-vue-scripts.js          # Extracts script blocks from Vue SFCs for TypeDoc
@@ -383,7 +386,7 @@ The automated build process:
 │   └── generate-sitemap.js             # Sitemap generation script
 ├── audit-accessibility.js      # Comprehensive accessibility audit script - Tests WCAG 2.1 AA compliance using axe-core
 ├── markdown-documentation/     # Project documentation and audit results
-│   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (1300+ lines, with GitHub links)
+│   ├── ARCHITECTURE_GUIDE.md       # Complete technical architecture guide (2900+ lines, with GitHub links)
 │   ├── INDEX.md                    # Documentation index (all 23+ files organized by topic)
 │   ├── PROJECT_REVIEW.md           # Comprehensive project review
 │   └── (20+ other documentation files)
@@ -404,7 +407,7 @@ This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages ha
 - **Keyboard Navigation**: Fully keyboard navigable interface with visible focus indicators
 - **Screen Reader Support**:
   - ARIA live regions for dynamic content (countdown timer)
-  - ARIA describedby relationships linking FAQ questions to answers
+  - FAQ accordion uses Vuetify's `aria-expanded` disclosure pattern (question text is the button's accessible name)
   - Proper ARIA labels on all interactive elements
   - Decorative icons marked with aria-hidden
 - **Semantic HTML**: Proper heading hierarchy and semantic structure
@@ -1045,13 +1048,15 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
   - Screen reader optimized
 - ✅ SEO optimized with automated sitemap generation
 - ✅ "New"/"Updated" chip system for FAQ questions (21-day window)
-- ✅ Dynamic countdown timer (April 26, 2027 deadline) on all pages
+- ✅ Dynamic countdown timer (April 26, 2027 deadline) on `/`, `/faqs`, and `/links`
+- ✅ What's New banner (top of the countdown card) and `/whats-new` archive
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
 ### Recent Updates (November 2026)
 
+- **v1.4.2 — documentation brought current** (2026-11-06): README, CLAUDE.md, the Architecture Guide, and the docs index checked against the code after v1.4.0 and v1.4.1 (What's New, Node 22.23.4, current dependency versions, project trees, build pipeline, Netlify config, 249 tests). The published architecture page (`/docs/architecture/`) is regenerated (it still said April 24, 2026) and now passes axe-core with 0 violations, best practices included: its light theme had low-contrast links and header, links in text were told apart by color alone, code blocks weren't keyboard-scrollable, there was no `<main>` landmark, and `target="_blank"` links were broken by the generator's italic rule
 - **v1.4.1 — dependency refresh** (2026-11-06): one combined update replaces 26 stale Dependabot PRs and takes open Dependabot alerts from 317 to 7 (the rest are build-time or dev-only tools with no non-major fix). Nuxt 4.6.4, Vue 3.5.45, Vuetify 3.13.7, Nuxt Content 3.16.2, Vitest 4.1.12, Fuse.js 7.5.0; dev majors @nuxt/test-utils 4, happy-dom 21, netlify-cli 27. **Node is now 22.23.4** (Nuxt 4.6 requires 22.22.3 or later): `.nvmrc`, `netlify.toml`
 - **v1.4.0 — What's New banner and page** (2026-11-06): the deadline-extension notice at the top of the countdown card is replaced by a **What's New** banner showing the newest update (a shorter version on `/faqs` and `/links`), with a link to the new **`/whats-new`** page, which lists every update newest first, back to the portal's launch on December 15, 2025. "What's New" is also the first link in the footer. Entries live in `app/utils/whatsNew.ts`
 - **v1.3.9 — November 2026 review; voicecap across the FAQ** (2026-11-06): every Q&A checked for stale content (legal status re-verified: § 35.200 dates, no new DOJ or HHS web rule, no ruling in NFB v. DOJ, no IITAA change announced); "as of" status dates moved to November 6, 2026; an adversarial accuracy pass then corrected about 30 small overstatements (legal wording, the ICJIA grievance procedure, sourcing, tool details); the voicecap section matches voicecap 0.24.1 (voice page, five published ICJIA sites); voicecap is now pointed to from the coordinator, deadline, enforcement, executive, WCAG 2.2-vs-2.1, PDF-checker, and third-party-tools answers and the glossary; the stale 2021 Canva VPAT link is replaced with Canva's accessibility statement
@@ -1148,7 +1153,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.4.1
+**Version**: 1.4.2
 **Last Updated**: November 6, 2026
 
 **Core Dependencies**:
@@ -1164,8 +1169,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - **Vitest** - Fast unit and integration testing
 - **@nuxt/test-utils** - Nuxt-specific testing utilities
 - **@vue/test-utils** - Vue component testing
-- **axe-core**: 4.11.0+ (accessibility testing)
-- Playwright: 1.57.0+ (browser automation)
+- **axe-core**: 4.14.0+ (accessibility testing)
+- Playwright: 1.65.0+ (browser automation)
 
 ### Project Review & Improvement Roadmap
 

@@ -37,9 +37,9 @@ function markdownToHtml(markdown) {
     placeholderIndex++
     
     if (isAsciiTree) {
-      codeBlockPlaceholders.push(`<pre class="ascii-tree"><code class="language-${language}">${escapedCode}</code></pre>`)
+      codeBlockPlaceholders.push(`<pre class="ascii-tree" tabindex="0"><code class="language-${language}">${escapedCode}</code></pre>`)
     } else {
-      codeBlockPlaceholders.push(`<pre><code class="language-${language}">${escapedCode}</code></pre>`)
+      codeBlockPlaceholders.push(`<pre tabindex="0"><code class="language-${language}">${escapedCode}</code></pre>`)
     }
     
     return placeholder
@@ -242,7 +242,9 @@ function processInlineMarkdown(text) {
 
   // Italic (avoid matching bold)
   processed = processed.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em>$1</em>')
-  processed = processed.replace(/(?<!_)_([^_]+)_(?!_)/g, '<em>$1</em>')
+  // Underscore italics only at word boundaries, and never across a quote or tag, so an
+  // attribute such as target="_blank" or a name such as my_file_name is left alone
+  processed = processed.replace(/(?<![\w"=])_([^_<>"\n]+)_(?![\w])/g, '<em>$1</em>')
 
   // Links (already processed in main function, but handle any remaining)
   processed = processed.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, url) => {
@@ -314,6 +316,7 @@ function generateHtml(content) {
       --code-border: rgba(96, 165, 250, 0.3);
       --link-color: #60a5fa;
       --link-hover: #93c5fd;
+      --header-bg: rgba(30, 41, 59, 0.95);
     }
 
     @media (prefers-color-scheme: light) {
@@ -326,6 +329,16 @@ function generateHtml(content) {
         --text-tertiary: #64748b;
         --code-bg: #f1f5f9;
         --code-border: rgba(15, 23, 42, 0.1);
+        /* Darker blues on light backgrounds (WCAG 1.4.3: 4.5:1 or more) */
+        --accent: #1d4ed8;
+        --accent-dark: #1e40af;
+        --accent-hover: #1e3a8a;
+        --link-color: #1d4ed8;
+        --link-hover: #1e3a8a;
+        --border: rgba(29, 78, 216, 0.25);
+        --border-strong: rgba(29, 78, 216, 0.5);
+        --warning-text: #92400e;
+        --header-bg: rgba(248, 250, 252, 0.95);
       }
     }
 
@@ -350,7 +363,7 @@ function generateHtml(content) {
       top: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
-      background: rgba(30, 41, 59, 0.95);
+      background: var(--header-bg);
     }
 
     .header-content {
@@ -471,14 +484,21 @@ function generateHtml(content) {
 
     a {
       color: var(--link-color);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.2s;
+      /* Underlined, so a link in a sentence isn't told apart by color alone (WCAG 1.4.1) */
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s;
     }
 
     a:hover {
       color: var(--link-hover);
-      border-bottom-color: var(--link-hover);
+      text-decoration-thickness: 2px;
+    }
+
+    a:focus-visible,
+    pre:focus-visible {
+      outline: 2px solid var(--link-color);
+      outline-offset: 2px;
     }
 
     a:focus-visible {
@@ -636,7 +656,7 @@ function generateHtml(content) {
     }
 
     .warning strong {
-      color: #fbbf24;
+      color: var(--warning-text, #fbbf24);
     }
 
     .back-link {
@@ -725,13 +745,13 @@ function generateHtml(content) {
     </div>
   </header>
 
-  <div class="container">
+  <main class="container">
     <a href="/docs" class="back-link">← Back to Documentation Portal</a>
     
     <div class="content">
       ${htmlContent}
     </div>
-  </div>
+  </main>
 </body>
 </html>`
 }

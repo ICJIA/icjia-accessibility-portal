@@ -1,6 +1,6 @@
 # Documentation Index
 
-**Last Updated**: September 2, 2026  
+**Last Updated**: November 6, 2026  
 **Total Documents**: 19  
 **Purpose**: Quick reference guide to all project documentation
 
@@ -11,7 +11,7 @@
 ### For New Developers or LLMs
 
 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** ⭐⭐⭐  
-**1300+ lines with GitHub links | Essential Reading**
+**2900+ lines with GitHub links | Essential Reading**
 
 Complete technical guide covering:
 
@@ -106,7 +106,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 
 #### Understand the entire application
 
-👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Start here! (1300+ lines with code links)
+👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Start here! (2900+ lines with code links)
 
 #### Create a documentation portal for my project
 
@@ -137,7 +137,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 #### Run accessibility audits
 
 👉 **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete script documentation (1355 lines with challenges & solutions)  
-👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 9: Testing  
+👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 10: Testing & Validation  
 👉 **[ACCESSIBILITY_GUIDE.md](ACCESSIBILITY_GUIDE.md)** - Audit configuration
 👉 Run: `yarn audit:a11y` or `yarn generate:accessibility`
 
@@ -149,7 +149,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 #### Improve SEO
 
 👉 **[SEO_GUIDE.md](SEO_GUIDE.md)** - SEO optimization guide  
-👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 8: Best Practices
+👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 9: Best Practices & Patterns
 
 #### Update content
 
@@ -165,7 +165,7 @@ This repo includes both. Use prompts when you want an LLM to implement a feature
 
 #### Build a similar app
 
-👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 10: Replicating This Application  
+👉 **[ARCHITECTURE_GUIDE.md](ARCHITECTURE_GUIDE.md)** - Section 14: Replicating Vuetify 3 + Nuxt 4 Applications  
 👉 **[PROJECT_REVIEW.md](PROJECT_REVIEW.md)** - Lessons learned
 
 ---
