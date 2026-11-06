@@ -6,6 +6,45 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.3.9] - 2026-11-06
+
+### Content — November 2026 review
+
+All 120 Q&As were checked for anything out of date as of November 6, 2026. Nothing was found to be wrong. The legal status behind the FAQ's dated status notes was re-verified against primary sources and still holds:
+
+- eCFR 28 CFR § 35.200(b) still reads April 26, 2027 / April 26, 2028; the Federal Register shows no DOJ follow-up to the April 20, 2026 IFR, and no Fall 2026 Unified Agenda has been published.
+- *NFB v. DOJ* (D. Md. 1:26-cv-02007): no ruling; the last docketed entry is July 13, 2026.
+- HHS has not changed 45 CFR § 84.84 (its Nov 3, 2026 Part 84 rule amends only § 84.4).
+- DoIT has announced no IITAA standards change; 30 ILCS 587/25 is unchanged.
+
+So the status dates moved from October 26 to November 6, 2026: the executive summary's "Status" line, the IITAA-change, compliance-dates, deadline-final (two places), and Section 504 answers, and (owner-confirmed: still no designated coordinator) the three ICJIA coordinator notes.
+
+### Content — voicecap
+
+- **voicecap section, matched to voicecap 0.24.1:** the voice page now starts each recording at 0.3× and shows each page's screenshot and transcripts beside its recording, outlining the line NVDA is saying; the voice page has its own fingerprint check; the published-results link now names the five ICJIA sites on voicecap.icjia.app; and the "window check" limit now says correctly that a window popping up just before a key press can get that one key press (the step is still thrown out). The Mac note no longer says what is or isn't planned.
+- **voicecap as an ICJIA tool in more answers:** "Do we need an agency accessibility coordinator?" (testing reality), "What if we can't meet the April 26, 2027 deadline?" (document efforts), "Who's going to notice if we're not compliant…?" (document progress), "I'm on executive staff. Where do I start?" (evidence retained), "Should we test against WCAG 2.2 or WCAG 2.1?" (voicecap's axe check includes 2.2 and best-practice rules), "Is there a quick way to test PDF files…?" (files vs. web pages), the third-party tools test plan (screen reader spot-check), and the glossary's "Screen reader" entry.
+
+### Content — adversarial accuracy review
+
+After the review above, every Q&A was checked again, adversarially, against primary sources (eCFR, the Federal Register, ILGA, DoIT, w3.org, ada.gov, voicecap v0.24.1, audit.icjia.app). Corrections:
+
+- **Legal precision:** "Who's going to notice…?" says who can file under § 35.170(a) ("an individual who believes" they faced disability discrimination), not "anyone"; the executive summary gives April 26, 2027 as the date for Illinois state agencies rather than for all state and local governments; "What happens after April 26, 2027?" names the rule's defenses as well as its exceptions (§§ 35.200(b), 35.201, 35.205); the fundamental-alteration determination can be made by the agency head "or a designee" (§ 35.164); the conventional-document formats are the four categories in § 35.104 (PDF, word processor, presentation, spreadsheet), not four brand names; the § 35.201(b) checklist now includes the file-format test; mobile apps are covered when the agency "provides or makes available" them (§ 35.200(a)(2)), not only when public; restoring the original deadlines would make only the 50,000+ tier past due; and an older document posted later can fit other exceptions too, with the archived-content test stated as § 35.104 defines it.
+- **ICJIA's grievance procedure (4 Ill. Adm. Code Part 150):** the 180-day limit notes the "extenuating circumstances" exception, and the outside filing right names the Illinois Department of Human Rights and the U.S. EEOC (§ 150.10(d)).
+- **Coordinator:** the executive summary's "your agency's accessibility coordinator" now notes ICJIA hasn't designated one yet.
+- **Sourcing:** unsupported claims removed or softened: NFB/ACB "monitor government websites" and law firms "regularly scan government sites"; Ohio State's analysis as "widely cited … used nationwide"; WebAIM's overlay figure is its stated 67% (was 69%), and the survey measured ratings, not advice; DoIT's WAVE caveat is quoted as DoIT gives it; Deafblind/transcript wording follows W3C's.
+- **Tools:** audit.icjia.app's PDF categories and WCAG scope match the tool; Acrobat's classic check is "Accessibility Check, formerly called Full Check"; the W3C Images Tutorial reference no longer claims to cover alt text length.
+- **links.md:** the compliance-dates table includes special district governments; the POUR "Robust" summary no longer says WCAG 2.1 requires valid code.
+- **Keyword Index:** the overlay entry's link text matches its question exactly.
+
+### Links
+
+- The Canva VPAT/ACR link pointed to a June 2021 report; it now goes to Canva's accessibility statement, which says the latest report is in Canva's Trust & Security Portal.
+
+### Dates and version
+
+- `lastUpdated` / `lastReviewed` and both prose markers in `content/faqs.md`, and `lastUpdated` / `lastReviewed` in `app/pages/index.vue`: November 6, 2026. Edited Q&As carry `{updated:2026-11-06}`; the voicecap Q&As keep their `{new:2026-10-26}` chips, which are still inside the 21-day window.
+- 1.3.8 → 1.3.9 (`package.json`, README badge, Recent Updates, and Version Information).
+
 ## [1.3.8] - 2026-10-26
 
 ### Content

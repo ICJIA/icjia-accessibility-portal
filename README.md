@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.3.8](https://img.shields.io/badge/Version-1.3.8-blue)](CHANGELOG.md)
+[![Version 1.3.9](https://img.shields.io/badge/Version-1.3.9-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -1043,7 +1043,11 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
-### Recent Updates (October 2026)
+### Recent Updates (November 2026)
+
+- **v1.3.9 — November 2026 review; voicecap across the FAQ** (2026-11-06): every Q&A checked for stale content (legal status re-verified: § 35.200 dates, no new DOJ or HHS web rule, no ruling in NFB v. DOJ, no IITAA change announced); "as of" status dates moved to November 6, 2026; an adversarial accuracy pass then corrected about 30 small overstatements (legal wording, the ICJIA grievance procedure, sourcing, tool details); the voicecap section matches voicecap 0.24.1 (voice page, five published ICJIA sites); voicecap is now pointed to from the coordinator, deadline, enforcement, executive, WCAG 2.2-vs-2.1, PDF-checker, and third-party-tools answers and the glossary; the stale 2021 Canva VPAT link is replaced with Canva's accessibility statement
+
+### Earlier Updates (October 2026)
 
 - **v1.3.8 — voicecap wording; ICJIA's federal funding sourced** (2026-10-26): dropped "forms" from the voicecap section's list of manual checks; the Section 504 answer now cites USAspending.gov for ICJIA's DOJ funding and notes that HHS's rule also covers HHS money passed through another organization (45 CFR § 84.10)
 - **v1.3.7 — ICJIA's ADA grievance procedure, MCAR, headcount** (2026-10-26): the complaints answer now reflects ICJIA's formal ADA grievance procedure (4 Ill. Adm. Code Part 150, in effect since 1993); "MCAR" (no source uses it for an accessibility document) is removed and the VPAT question renamed; ICJIA's headcount is cited from the State's FY2027 budget; two passages trimmed from the voicecap section
@@ -1135,8 +1139,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.3.8
-**Last Updated**: October 26, 2026
+**Version**: 1.3.9
+**Last Updated**: November 6, 2026
 
 **Core Dependencies**:
 

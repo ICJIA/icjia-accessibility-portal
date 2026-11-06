@@ -20,7 +20,7 @@ A curated collection of links for website and content accessibility compliance, 
 | Population Size  | Compliance Deadline |
 | ---------------- | ------------------- |
 | 50,000 or more   | April 26, 2027      |
-| Less than 50,000 | April 26, 2028      |
+| Less than 50,000, or any special district government | April 26, 2028      |
 
 > **Extended (April 20, 2026):** DOJ published an <a href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web" target="_blank" rel="noopener noreferrer">Interim Final Rule</a> extending both compliance dates by one year. Illinois state agencies fall under the 50,000+ tier; the applicable deadline is **April 26, 2027**.
 
@@ -149,7 +149,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.canva.com/accessibility/" target="_blank" rel="noopener noreferrer">**Canva Accessibility Features**</a> — Overview of accessibility commitment
 - <a href="https://www.canva.com/help/using-design-accessibility/" target="_blank" rel="noopener noreferrer">**Canva - Design Accessibility Tool**</a> — Built-in accessibility checker
 - <a href="https://www.canva.com/help/canva-accessibility-features/" target="_blank" rel="noopener noreferrer">**Canva Accessibility Settings**</a> — User accessibility options
-- <a href="https://content-management-files.canva.com/e9ee69ee-b0c9-4493-93de-85f26a752a61/VPAT2.4WCAGCanva.pdf" target="_blank" rel="noopener noreferrer">**Canva VPAT/ACR**</a> — Accessibility conformance report
+- <a href="https://www.canva.com/policies/accessibility/" target="_blank" rel="noopener noreferrer">**Canva Accessibility Statement and VPAT/ACR**</a> — Canva's accessibility statement; it says the latest conformance report is in Canva's Trust & Security Portal
 
 **Important Canva Limitations:**
 
@@ -221,4 +221,4 @@ A curated collection of links for website and content accessibility compliance, 
 **Robust**
 
 - Compatible with assistive technologies
-- Valid, well-structured code
+- Code that assistive technologies can read correctly (proper names, roles, and states)
