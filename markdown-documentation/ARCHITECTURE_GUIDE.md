@@ -753,7 +753,7 @@ writeFileSync("public/sitemap.xml", xml);
 
 3. **Node Version**: Specify in `netlify.toml` or use `.nvmrc`
    - Ensures consistent builds across environments
-   - Node 22.14.0+ recommended for Nuxt 4
+   - Node 22.22.3+ required (Nuxt 4.6) for Nuxt 4
 
 **Complete Configuration**:
 
@@ -769,7 +769,7 @@ writeFileSync("public/sitemap.xml", xml);
 [build.environment]
   # Node version - must match your local development
   # Check your .nvmrc or package.json engines field
-  NODE_VERSION = "22.14.0"
+  NODE_VERSION = "22.23.4"
 
   # Yarn version (optional, but recommended for consistency)
   YARN_VERSION = "1.22.22"
@@ -835,7 +835,7 @@ writeFileSync("public/sitemap.xml", xml);
 Create a `.nvmrc` file in your project root:
 
 ```
-22.14.0
+22.23.4
 ```
 
 Netlify will automatically detect and use this version.
@@ -849,7 +849,7 @@ Specify in `[build.environment]`:
 
 ```toml
 [build.environment]
-  NODE_VERSION = "22.14.0"
+  NODE_VERSION = "22.23.4"
 ```
 
 **Option 3: Using `package.json` engines**
@@ -860,13 +860,13 @@ Specify in `[build.environment]`:
 ```json
 {
   "engines": {
-    "node": ">=22.14.0",
+    "node": ">=22.22.3",
     "npm": ">=10.0.0"
   }
 }
 ```
 
-**Why Node 22.14.0+?**
+**Why Node 22.22.3+?**
 
 - Nuxt 4 requires Node 18.18.0 or higher
 - Node 22.x provides better performance and latest features
@@ -1088,7 +1088,7 @@ export default defineNuxtConfig({
   publish = ".output/public"
 
 [build.environment]
-  NODE_VERSION = "22.14.0"
+  NODE_VERSION = "22.23.4"
 
 [[redirects]]
   from = "/*"

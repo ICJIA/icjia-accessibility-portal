@@ -1,6 +1,6 @@
 {
     "name": "icjia-accessibility",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "private": true,
     "type": "module",
     "scripts": {
@@ -50,11 +50,11 @@
     "devDependencies": {
         "@axe-core/cli": "^4.11.0",
         "@axe-core/playwright": "^4.11.0",
-        "@nuxt/test-utils": "^3.21.0",
+        "@nuxt/test-utils": "^4.3.4",
         "@vue/test-utils": "^2.4.6",
         "axe-core": "^4.11.0",
-        "happy-dom": "^20.0.11",
-        "netlify-cli": "^23.13.0",
+        "happy-dom": "^21.0.4",
+        "netlify-cli": "^27.16.2",
         "playwright": "^1.57.0",
         "playwright-core": "^1.57.0",
         "puppeteer": "^24.34.0",
