@@ -6,6 +6,25 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.4.1] - 2026-11-06
+
+### Dependencies — one refresh in place of 26 stale Dependabot PRs
+
+The 26 open Dependabot security PRs (#3–#43, January–April 2026) all conflicted with `main`, and newer advisories had landed on most of the packages they fixed. They're closed in favor of this single refresh, which takes open Dependabot alerts from **317 to 7**.
+
+- **In-range upgrade** (`yarn upgrade` within the existing ranges): Nuxt 4.6.4, Vue 3.5.45, Vuetify 3.13.7, Nuxt Content 3.16.2, Vite 8.3.6, Vitest 4.1.12, Fuse.js 7.5.0, and their dependencies.
+- **Dev majors:** `@nuxt/test-utils` 3 → 4 (required: the upgraded `vitest-environment-nuxt` pulls in test-utils 4, and with 3 alongside it every Nuxt test failed with `Missing "#nuxt-test-utils/h3" specifier`), `happy-dom` 20 → 21, `netlify-cli` 23 → 27. `.nuxtrc` records the test-utils setup version.
+- **Node 22.14.0 → 22.23.4** (`.nvmrc`, `NODE_VERSION` in `netlify.toml`, README, CLAUDE.md, and the Architecture Guide): Nuxt 4.6 requires Node `^22.22.3 || ^24.15`.
+- **Test:** Fuse.js 7.5 returns every item for an empty pattern (7.1 returned none). The search page already returns nothing for empty or too-short queries (`app/pages/search.vue`, `searchResults`), so the site is unaffected; `test/nuxt/search.test.ts` "should handle empty search query" now tests that guard instead of Fuse's raw result.
+- **Icon config fix:** `icons: { defaultSet: 'mdi-svg' }` moved from `vuetify.moduleOptions` to `vuetify.vuetifyOptions`, where vuetify-nuxt-module reads it. In the wrong place, the module fell back to the `mdi` font set and injected the `@mdi/font` stylesheet from a CDN. Before, a `{ key: 'mdi', rel: 'prefetch', href: '' }` head link papered over that; after the upgrade both links were emitted and the site's Content-Security-Policy blocked the stylesheet (a console error on every page of the deploy preview). That workaround link is removed, no CDN stylesheet is injected, and Vuetify's own icons (dropdown arrows, accordion chevrons) render as SVG.
+- **The 7 alerts left** have no non-major fix, or no fix at all, and are build-time or dev-only (the site is static): zod 3 (via @nuxt/content, netlify-cli, puppeteer), glob 13, minimatch 10, basic-ftp 5 and extract-zip (puppeteer, netlify-cli), and deepmerge.
+
+### Verification
+
+- `yarn install --frozen-lockfile` on Node 22.23.4; `yarn test:run`: 14 files, 249/249 passing.
+- `yarn generate`: succeeds; every route prerendered; the three FAQ downloads produced, and the .docx has no field codes.
+- axe-core (AA) on the built site: 0 violations on `/`, `/faqs/`, `/whats-new/`, and `/search/`. In Chrome, a search for "captions" returns results and an empty query returns none. No console errors on the built site; the Netlify deploy preview built on Node 22.23.4.
+
 ## [1.4.0] - 2026-11-06
 
 ### Added — What's New banner and page

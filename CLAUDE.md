@@ -25,7 +25,7 @@ This document provides essential context for AI assistants working on this codeb
 | Testing | **Vitest** (unit/integration), **Playwright** (E2E), **axe-core** (accessibility) |
 | Analytics | **Plausible** (privacy-friendly) |
 | Deployment | **Netlify** (static hosting) |
-| Node | **22.14.0** (see `.nvmrc`) |
+| Node | **22.23.4** (see `.nvmrc`) |
 | Package Manager | **Yarn** (preferred) |
 
 ## Project Structure
@@ -309,6 +309,6 @@ Every release that changes what readers see gets a What's New entry. Entries liv
 
 - **WCAG Compliance**: 100% (0 violations)
 - **Test Coverage**: 236/236 tests passing (unit + Nuxt)
-- **Node Version**: 22.14.0
+- **Node Version**: 22.23.4
 - **Last Major Update**: October 2026
 - **Deadline**: April 26, 2027

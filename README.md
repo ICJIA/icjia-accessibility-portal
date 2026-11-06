@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.4.0](https://img.shields.io/badge/Version-1.4.0-blue)](CHANGELOG.md)
+[![Version 1.4.1](https://img.shields.io/badge/Version-1.4.1-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -33,7 +33,7 @@ All accessibility information is organized in one place to facilitate easy acces
 ## Quick Start
 
 ```bash
-# Prerequisites: Node.js 22.14.0 (check .nvmrc)
+# Prerequisites: Node.js 22.23.4 (check .nvmrc)
 nvm use
 
 # Install dependencies
@@ -174,7 +174,7 @@ yarn generate:serve
 
 ## Prerequisites
 
-- **Node.js** 22.14.0 (see `.nvmrc` file)
+- **Node.js** 22.23.4 (see `.nvmrc` file)
 - **Yarn** 1.22.22 or later
 
 ## Installation
@@ -248,7 +248,7 @@ This site is configured for deployment on Netlify with automatic builds and opti
 
 - **Build command**: `npx playwright install chromium && yarn generate`
 - **Publish directory**: `.output/public`
-- **Node version**: 22.14.0 (specified in netlify.toml and .nvmrc)
+- **Node version**: 22.23.4 (specified in netlify.toml and .nvmrc)
 
 **Build-time accessible document generation:**
 
@@ -1052,6 +1052,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.4.1 — dependency refresh** (2026-11-06): one combined update replaces 26 stale Dependabot PRs and takes open Dependabot alerts from 317 to 7 (the rest are build-time or dev-only tools with no non-major fix). Nuxt 4.6.4, Vue 3.5.45, Vuetify 3.13.7, Nuxt Content 3.16.2, Vitest 4.1.12, Fuse.js 7.5.0; dev majors @nuxt/test-utils 4, happy-dom 21, netlify-cli 27. **Node is now 22.23.4** (Nuxt 4.6 requires 22.22.3 or later): `.nvmrc`, `netlify.toml`
 - **v1.4.0 — What's New banner and page** (2026-11-06): the deadline-extension notice at the top of the countdown card is replaced by a **What's New** banner showing the newest update (a shorter version on `/faqs` and `/links`), with a link to the new **`/whats-new`** page, which lists every update newest first, back to the portal's launch on December 15, 2025. "What's New" is also the first link in the footer. Entries live in `app/utils/whatsNew.ts`
 - **v1.3.9 — November 2026 review; voicecap across the FAQ** (2026-11-06): every Q&A checked for stale content (legal status re-verified: § 35.200 dates, no new DOJ or HHS web rule, no ruling in NFB v. DOJ, no IITAA change announced); "as of" status dates moved to November 6, 2026; an adversarial accuracy pass then corrected about 30 small overstatements (legal wording, the ICJIA grievance procedure, sourcing, tool details); the voicecap section matches voicecap 0.24.1 (voice page, five published ICJIA sites); voicecap is now pointed to from the coordinator, deadline, enforcement, executive, WCAG 2.2-vs-2.1, PDF-checker, and third-party-tools answers and the glossary; the stale 2021 Canva VPAT link is replaced with Canva's accessibility statement
 
@@ -1147,16 +1148,16 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.4.0
+**Version**: 1.4.1
 **Last Updated**: November 6, 2026
 
 **Core Dependencies**:
 
-- Node.js: 22.14.0
-- Nuxt: 4.2.2+
-- Vue: 3.5.26+
-- Vuetify: 3.11.6+
-- Nuxt Content: 3.10.0+
+- Node.js: 22.23.4
+- Nuxt: 4.6.4+
+- Vue: 3.5.45+
+- Vuetify: 3.13.7+
+- Nuxt Content: 3.16.2+
 
 **Testing Tools**:
 
