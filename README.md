@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.3.9](https://img.shields.io/badge/Version-1.3.9-blue)](CHANGELOG.md)
+[![Version 1.4.0](https://img.shields.io/badge/Version-1.4.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.2.2+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.26+-42b883)](https://vuejs.org)
@@ -132,6 +132,10 @@ yarn generate:serve
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
   - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
   - Keyboard-friendly: scroll container is focusable (`tabindex="0"`)
+- **What's New** - A banner at the top of the countdown card shows the newest update; `/whats-new` lists every update, newest first
+  - Entries live in `app/utils/whatsNew.ts` (`WHATS_NEW_ENTRIES`, newest first); add one with each release that changes what readers see
+  - Static data, so the banner renders identically on the server and the client (no hydration mismatch or layout shift)
+  - Linked from the banner ("See all updates") and from the footer
 - **Printer-Friendly FAQs** - Dedicated printer-friendly version at `/faqs-print`
   - Complete FAQ content in a clean, printable format
   - Internal links styled as bold text (non-clickable) - section references don't work when printed
@@ -319,13 +323,15 @@ The automated build process:
 │   │   ├── faqs.vue            # Dedicated FAQ page
 │   │   ├── faqs-print.vue      # Printer-friendly FAQs page
 │   │   ├── links.vue           # Accessibility links page
-│   │   └── search.vue          # Fuzzy search page with Fuse.js
+│   │   ├── search.vue          # Fuzzy search page with Fuse.js
+│   │   └── whats-new.vue       # What's New: every update, newest first
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
 │   │   ├── AppNavbar.vue       # Navigation bar; responsive (hamburger <600px, full nav ≥600px); aria-current support
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
+│   │   ├── WhatsNewBanner.vue  # Newest What's New entry, at the top of the countdown card
 │   │   └── FaqAccordion.vue    # FAQ accordion with aria-describedby
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
@@ -343,7 +349,8 @@ The automated build process:
 │   │   ├── suppress-vuetify-logs.client.ts  # Suppresses Vuetify console warnings (client)
 │   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
-│   │   └── faqTransform.ts     # FAQ AST transforms: New/Updated chips, "See also" cards, responsive tables
+│   │   ├── faqTransform.ts     # FAQ AST transforms: New/Updated chips, "See also" cards, responsive tables
+│   │   └── whatsNew.ts         # What's New entries (newest first) and date helpers
 │   ├── router.options.ts       # Custom router configuration
 │   └── error.vue               # Error page component
 ├── content/
@@ -1045,6 +1052,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.4.0 — What's New banner and page** (2026-11-06): the deadline-extension notice at the top of the countdown card is replaced by a **What's New** banner showing the newest update (a shorter version on `/faqs` and `/links`), with a link to the new **`/whats-new`** page, which lists every update newest first, back to the portal's launch on December 15, 2025. "What's New" is also the first link in the footer. Entries live in `app/utils/whatsNew.ts`
 - **v1.3.9 — November 2026 review; voicecap across the FAQ** (2026-11-06): every Q&A checked for stale content (legal status re-verified: § 35.200 dates, no new DOJ or HHS web rule, no ruling in NFB v. DOJ, no IITAA change announced); "as of" status dates moved to November 6, 2026; an adversarial accuracy pass then corrected about 30 small overstatements (legal wording, the ICJIA grievance procedure, sourcing, tool details); the voicecap section matches voicecap 0.24.1 (voice page, five published ICJIA sites); voicecap is now pointed to from the coordinator, deadline, enforcement, executive, WCAG 2.2-vs-2.1, PDF-checker, and third-party-tools answers and the glossary; the stale 2021 Canva VPAT link is replaced with Canva's accessibility statement
 
 ### Earlier Updates (October 2026)
@@ -1139,7 +1147,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.3.9
+**Version**: 1.4.0
 **Last Updated**: November 6, 2026
 
 **Core Dependencies**:

@@ -4,32 +4,8 @@
       <v-col cols="12" md="10" lg="8">
         <!-- Countdown Clock Section -->
         <v-card class="pa-0 mb-8 countdown-card" elevation="4" color="surface">
-          <!-- Deadline extension notice (prominent, in-card banner) -->
-          <div
-            class="extension-notice"
-            role="note"
-            aria-labelledby="countdown-extension-heading"
-          >
-            <span class="extension-notice-badge" aria-hidden="true">Extended 4/20/2026</span>
-            <span id="countdown-extension-heading" class="extension-notice-text">
-              <strong>Deadline extended one year by DOJ Interim Final Rule.</strong>
-              Illinois state agencies now have until
-              <strong>April 26, 2027</strong> (previously April 24, 2026). Verify for yourself:
-              <a
-                href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="extension-notice-link"
-              >Federal Register notice</a>
-              ·
-              <a
-                href="https://www.govtech.com/policy/federal-accessibility-deadline-will-be-delayed-one-year"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="extension-notice-link"
-              >Government Technology coverage</a>.
-            </span>
-          </div>
+          <!-- What's New: the newest entry from app/utils/whatsNew.ts -->
+          <WhatsNewBanner />
           <div class="text-center countdown-body pa-8">
             <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
             <p class="text-h6 mb-6 text-medium-emphasis">
@@ -296,79 +272,6 @@ useWebSiteStructuredData();
     0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
   border: 1px solid rgba(var(--v-theme-primary), 0.1);
   overflow: hidden;
-}
-
-/* In-card deadline extension notice — prominent banner on the countdown */
-.countdown-card .extension-notice {
-  background: #0F172A;
-  color: #FFFFFF;
-  border-bottom: 3px solid #F59E0B;
-  padding: 16px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 14px;
-  text-align: left;
-}
-
-.countdown-card .extension-notice-badge {
-  flex-shrink: 0;
-  background: #F59E0B;
-  color: #0F172A;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-
-.countdown-card .extension-notice-text {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: #F1F5F9 !important;
-  font-weight: 500;
-}
-
-.countdown-card .extension-notice-text strong {
-  color: #FFFFFF;
-}
-
-.countdown-card .extension-notice-link {
-  color: #FBBF24 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 2px;
-  font-weight: 700;
-}
-
-.countdown-card .extension-notice-link:hover,
-.countdown-card .extension-notice-link:focus-visible {
-  color: #FDE68A !important;
-  text-decoration-thickness: 2px;
-}
-
-.countdown-card .extension-notice-link:focus-visible {
-  outline: 2px solid #FBBF24;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-@media (max-width: 600px) {
-  .countdown-card .extension-notice {
-    padding: 12px 16px;
-  }
-  .countdown-card .extension-notice-text {
-    font-size: 0.875rem;
-  }
-}
-
-@media print {
-  .countdown-card .extension-notice {
-    display: none;
-  }
 }
 
 .countdown-card :deep(h1),

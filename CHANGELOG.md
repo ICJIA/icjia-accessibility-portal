@@ -6,6 +6,26 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.4.0] - 2026-11-06
+
+### Added — What's New banner and page
+
+- **What's New banner** (`app/components/WhatsNewBanner.vue`) replaces the April 2026 deadline-extension notice at the top of the countdown card. It shows the newest entry's badge and date, headline, and summary, with a "See all updates" link. On `/faqs` and `/links`, the countdown's compact version shows the headline and link only. On a phone, the badge sits above the text.
+- **`/whats-new` page** (`app/pages/whats-new.vue`): every update, newest first, each with its badge, date, headline, summary, details, and links. Each entry has its own anchor (`/whats-new#<id>`). SEO meta and breadcrumb structured data, like the other pages; included in `routes.json` and the sitemap.
+- **Entries** (`app/utils/whatsNew.ts`): nine entries, from the portal's launch (December 15, 2025) to today, written for readers from this CHANGELOG. The deadline-extension notice is now the April 20, 2026 entry, with the same Federal Register and Government Technology links. Static data with string dates, so server and client render the same markup.
+- **Footer:** "What's New" is the first link (with `aria-current="page"` on `/whats-new`). The top nav already holds six buttons, so the link went in the footer rather than crowding the nav at tablet widths.
+- **Tests:** `test/unit/whatsNew.test.ts` (13 tests): unique ids, valid dates, required fields, newest-first order in the source, every `/faqs#…` link resolves to a real question, and the date and link helpers.
+
+### Removed
+
+- The old extension-notice markup and CSS in `app/pages/index.vue` and `app/components/CountdownTimer.vue`.
+
+### Verification
+
+- `yarn test:run`: 14 files, 249/249 tests passing.
+- `yarn generate`: succeeds; `/whats-new` is prerendered and in the sitemap.
+- axe-core (AA, plus best practices on mobile): 0 violations on `/`, `/faqs`, and `/whats-new`, at desktop and mobile widths. Checked in Chrome at 1280 px and 390 px; no hydration warnings.
+
 ## [1.3.9] - 2026-11-06
 
 ### Content — November 2026 review

@@ -21,6 +21,15 @@
       <!-- Links Section -->
       <nav class="footer-links" aria-label="Footer navigation">
         <a
+          href="/whats-new"
+          class="footer-link"
+          :aria-current="route.path === '/whats-new' ? 'page' : undefined"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiUpdate" />
+          <span>What's New</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
           href="/search"
           class="footer-link"
           aria-label="Search FAQs"
@@ -114,7 +123,10 @@
  */
 
 import { ref } from "vue";
-import { mdiCopyright, mdiMagnify, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiFileDocumentOutline, mdiCheckCircle, mdiGithub, mdiOpenInNew } from '~/utils/icons'
+import { mdiUpdate, mdiCopyright, mdiMagnify, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiFileDocumentOutline, mdiCheckCircle, mdiGithub, mdiOpenInNew } from '~/utils/icons'
+
+/** Current route, for aria-current on the What's New link */
+const route = useRoute();
 
 /** @type {number} Current year for copyright display */
 const currentYear = new Date().getFullYear();

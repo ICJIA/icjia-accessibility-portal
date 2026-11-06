@@ -32,7 +32,7 @@ This document provides essential context for AI assistants working on this codeb
 
 ```
 app/
-├── pages/           # Route pages (index.vue, faqs.vue, faqs-print.vue, links.vue, search.vue)
+├── pages/           # Route pages (index.vue, faqs.vue, faqs-print.vue, links.vue, search.vue, whats-new.vue)
 ├── components/      # Vue components (FaqAccordion, CountdownTimer, SkipLink, etc.)
 ├── composables/     # Reusable logic (useDeadlineCountdown, useFaqCollapse, useSlugify, useSeo)
 ├── layouts/         # Page layouts (default.vue, print.vue)
@@ -271,6 +271,10 @@ node audit-accessibility.js  # Terminal 2: Run audit
 3. Include JSDoc file header
 4. Ensure ARIA compliance
 5. Add to test suite if complex
+
+### Adding a What's New Entry
+
+Every release that changes what readers see gets a What's New entry. Entries live in `app/utils/whatsNew.ts` (`WHATS_NEW_ENTRIES`); add the new one at the **top** (newest first; a unit test enforces the order). The newest entry is the banner at the top of the countdown card (`WhatsNewBanner.vue`, on `/`, `/faqs`, and `/links`); `/whats-new` lists them all. Write for readers, not developers: a short `title`, a one- or two-sentence `summary` (the banner shows it), optional `details` bullets, and optional `links` (`/faqs#…` anchors are checked by `test/unit/whatsNew.test.ts`). Dates are `YYYY-MM-DD` strings.
 
 ### Modifying FAQ Content
 

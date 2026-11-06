@@ -5,24 +5,7 @@
     :elevation="compact ? 2 : 4"
     color="surface"
   >
-    <div
-      class="extension-notice"
-      :class="{ 'extension-notice-compact': compact }"
-      role="note"
-      aria-labelledby="countdown-extension-heading"
-    >
-      <span class="extension-notice-badge" aria-hidden="true">Extended 4/20/2026</span>
-      <span id="countdown-extension-heading" class="extension-notice-text">
-        Deadline extended one year by DOJ Interim Final Rule —
-        <a
-          href="https://www.federalregister.gov/documents/2026/04/20/2026-07663/extension-of-compliance-dates-for-nondiscrimination-on-the-basis-of-disability-accessibility-of-web"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="extension-notice-link"
-        >now April 26, 2027</a>
-        (was April 24, 2026).
-      </span>
-    </div>
+    <WhatsNewBanner :compact="compact" />
     <div
       class="text-center countdown-content"
       :class="{ 'pa-8': !compact, 'pa-4': compact }"
@@ -189,81 +172,6 @@ onUnmounted(() => {
     0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
   border: 1px solid rgba(var(--v-theme-primary), 0.1);
   overflow: hidden;
-}
-
-/* Extension notice — prominent banner inside the countdown card */
-.extension-notice {
-  background: #0F172A;
-  color: #FFFFFF;
-  border-bottom: 3px solid #F59E0B;
-  padding: 14px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 14px;
-  text-align: left;
-}
-
-.extension-notice-compact {
-  padding: 10px 14px;
-  gap: 8px 10px;
-}
-
-.extension-notice-badge {
-  flex-shrink: 0;
-  background: #F59E0B;
-  color: #0F172A;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-
-.extension-notice-compact .extension-notice-badge {
-  font-size: 0.6875rem;
-  padding: 3px 8px;
-}
-
-.extension-notice-text {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.9375rem;
-  line-height: 1.45;
-  font-weight: 500;
-  color: #F1F5F9;
-}
-
-.extension-notice-compact .extension-notice-text {
-  font-size: 0.8125rem;
-  line-height: 1.4;
-}
-
-.extension-notice-link {
-  color: #FBBF24 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 2px;
-  font-weight: 700;
-}
-
-.extension-notice-link:hover,
-.extension-notice-link:focus-visible {
-  color: #FDE68A !important;
-  text-decoration-thickness: 2px;
-}
-
-.extension-notice-link:focus-visible {
-  outline: 2px solid #FBBF24;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-@media print {
-  .extension-notice {
-    display: none;
-  }
 }
 
 /* Override any Vuetify link styles within the countdown card */
