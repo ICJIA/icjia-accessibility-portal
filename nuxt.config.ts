@@ -27,8 +27,6 @@ export default defineNuxtConfig({
         // Preconnect to external domains for faster DNS resolution
         { rel: 'preconnect', href: 'https://plausible.icjia.cloud' },
         { rel: 'dns-prefetch', href: 'https://plausible.icjia.cloud' },
-        // Override vuetify-nuxt-module's @mdi/font CDN injection (we use @mdi/js SVG icons)
-        { key: 'mdi', rel: 'prefetch', href: '' } as any
       ]
     }
   },
@@ -81,11 +79,15 @@ export default defineNuxtConfig({
   vuetify: {
     moduleOptions: {
       styles: true,
-      icons: {
-        defaultSet: 'mdi-svg'
-      }
     },
     vuetifyOptions: {
+      // SVG icons from @mdi/js (app/utils/icons.ts). This must be in vuetifyOptions:
+      // vuetify-nuxt-module reads `vuetifyOptions.icons`, and without it falls back
+      // to the `mdi` font set and injects the @mdi/font stylesheet from a CDN,
+      // which the site's Content-Security-Policy blocks.
+      icons: {
+        defaultSet: 'mdi-svg'
+      },
       theme: {
         defaultTheme: 'dark',
         themes: {
