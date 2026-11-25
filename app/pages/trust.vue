@@ -190,8 +190,8 @@
       <section aria-labelledby="trust-objection" class="trust-section">
         <p class="pk-label">The objection</p>
         <h2 id="trust-objection" class="trust-h2">
-          "But one person wrote this. And they're not ICJIA's Executive
-          Leadership. Or a lawyer. <span class="trust-accent">It's just some IT guy!"</span>
+          "But one person wrote this. And they're not ICJIA Executive
+          Leadership. <span class="trust-accent">It's some random IT guy!"</span>
         </h2>
         <p class="trust-lead">
           <strong>True, and it matters less than it sounds.</strong> This FAQ

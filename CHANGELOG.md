@@ -12,7 +12,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 - The two sites shared the same cobalt (`#3559e0`), so after switching from one to the other it was hard to tell which was open. The brand colour is now a desaturated purple, **`#64439d`** (`--pk-brand` in `app/assets/css/plakat.css` and `brand` in the Vuetify theme), with `#553985` for hover. It is used for the home page's title block, the countdown band on reading pages, the "New" label on questions, the error page's main button, and the og:image.
 - **Contrast improves:** white on the purple is 7.4:1 (cobalt was 5.7:1). Later the same day the purple was made a little more saturated (`#64439d`) and then darker, twice: the final colour is **`#442c6d`** (hover `#362357`), and white text on it is **11.5:1**.
-- **Purple text:** the brand purple is too dark to be text on the black page (2.2:1), so a lighter shade of the same hue, `--pk-brand-text` (`#916ecf`, 5:1), is used where text is purple: "Check the sources." in the trust page headline, "It's just some IT guy!" in its objection heading, and "Sources do." in its closing line (was green).
+- **Purple text:** the brand purple is too dark to be text on the black page (2.2:1), so a lighter shade of the same hue, `--pk-brand-text` (`#916ecf`, 5:1), is used where text is purple: "Check the sources." in the trust page headline, "It's some random IT guy!" in its objection heading, and "Sources do." in its closing line (was green).
 - **Globe in the top bar:** lavender `#a489d2` (6.7:1 on the bar), from the same family, instead of the audit site's light cobalt.
 - **og:image** regenerated, and every README screenshot retaken.
 
@@ -34,7 +34,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 - **Review history:** `app/utils/reviewHistory.ts` lists the six full reviews since May 14, 2026. A new unit test (`test/unit/reviewHistory.test.ts`, 4 tests) checks the list is newest first and that its newest date equals `lastReviewed` in `content/faqs.md`, so a review can't move the date without being listed.
 - **Linked from:** the top bar (second, after Home), the footer (first), and the FAQ's own "Why should I trust this FAQ…?" answer (a "See also" line).
 - **What's New** entry added.
-- **Wording:** the objection now reads "But one person wrote this. And they're not ICJIA's Executive Leadership. Or a lawyer. It's just some IT guy!" The page's opening says each answer is checked, line by line, against the official sources it links to, again and again; it no longer says answers are "built on the law" (the author is not a lawyer, and the point is the checking).
+- **Wording:** the objection now reads "But one person wrote this. And they're not ICJIA Executive Leadership. It's some random IT guy!" The page's opening says each answer is checked, line by line, against the official sources it links to, again and again; it no longer says answers are "built on the law" (the author is not a lawyer, and the point is the checking).
 
 ### Changed — top bar
 
