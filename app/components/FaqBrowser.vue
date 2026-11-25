@@ -560,6 +560,20 @@ watchEffect(() => {
   font-weight: 700;
 }
 
+/* Links in a note (the maintainer's email): underlined, so colour is not the
+   only cue. --pk-link on the page is 7.6:1. */
+.about-faqs-item :deep(a) {
+  color: var(--pk-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+.about-faqs-item :deep(a:hover) {
+  color: var(--pk-link-hover);
+  text-decoration-thickness: 2px;
+}
+
 /* The label ("Created by:") sits on its own line as the note's heading. */
 .about-faqs-item :deep(strong:first-child) {
   display: block;

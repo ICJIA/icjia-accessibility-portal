@@ -586,7 +586,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--pk-heading) !important;
-  padding: 18px 0 !important;
+  /* Side padding keeps the text clear of the row's focus outline. */
+  padding: 18px 20px !important;
   min-height: 64px !important;
   align-items: baseline;
   gap: 16px;
@@ -667,7 +668,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 
 .faq-answer-content {
   max-width: 49rem;
-  padding: 4px 0 32px;
+  box-sizing: content-box;
+  padding: 8px 20px 32px;
   font-size: 1.1875rem;
   font-weight: 400;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Base line-height for content */
@@ -829,13 +831,13 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 /* Responsive design */
 @media (max-width: 767px) {
   .faq-question {
-    padding: 16px 0 !important;
+    padding: 16px 14px !important;
     font-size: 1.1875rem;
     line-height: 1.25;
   }
 
   .faq-answer-content {
-    padding: 4px 0 24px;
+    padding: 6px 14px 24px;
     font-size: 1.0625rem;
   }
 }

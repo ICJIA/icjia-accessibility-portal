@@ -5,7 +5,7 @@ lastUpdated: 2026-11-25
 lastReviewed: 2026-11-25
 disclaimer:
   - label: "Created by"
-    text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance."
+    text: "These FAQs were created by **ICJIA's IDS Unit** as a best-effort translation of new ADA guidelines into practical guidance. **Christopher Schweda** (<a href='mailto:christopher.schweda@illinois.gov'>christopher.schweda@illinois.gov</a>) created the FAQs and maintains, updates, and reviews them."
   - label: "Corrections"
     text: "We make mistakes. We welcome feedback. If you find any incorrect or incomplete information, **please contact ICJIA's IDS Unit** with specific corrections."
   - label: "Not legal advice"

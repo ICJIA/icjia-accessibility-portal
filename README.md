@@ -1,10 +1,8 @@
-# ICJIA Accessibility Portal
-
 ![ICJIA Accessibility Portal](public/og-image.png)
 
-A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
+# ICJIA Accessibility Portal
 
-[![Version 1.5.0](https://img.shields.io/badge/Version-1.5.0-blue)](CHANGELOG.md)
+[![Version 1.5.1](https://img.shields.io/badge/Version-1.5.1-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -12,6 +10,8 @@ A modern, accessible portal for the Illinois Criminal Justice Information Author
 [![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
 [![Security Audited](https://img.shields.io/badge/Security-Audited-blueviolet)](CHANGELOG.md#110---2026-03-26)
+
+A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
 > 📚 **For Developers**: See **[ARCHITECTURE_GUIDE.md](markdown-documentation/ARCHITECTURE_GUIDE.md)** for complete technical documentation, implementation details, challenges & solutions, and best practices.
 
@@ -29,6 +29,30 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
+
+## Screenshots
+
+The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.5.1 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
+
+**Home page** — the title block beside the countdown, the What's New strip, and the "About These FAQs" notes:
+
+![Home page: a blue block with the title "ICJIA Accessibility Portal" and the deadline link, beside an outlined panel counting down the days, hours, minutes and seconds; below them the What's New strip and three "About These FAQs" notes](markdown-documentation/screenshots/home.png)
+
+**An open answer** — questions are ruled rows with an "Open +" / "Close –" cue:
+
+![The question "For Content Creators" opened, showing a short paragraph and a five-row table of actions and their impact, with two closed questions below it](markdown-documentation/screenshots/faq-answer.png)
+
+**Links page** — an internal page: the compact countdown band, then the page title and a ruled list of resources:
+
+![Links page: a compact blue countdown band with the What's New strip under it, the title "Accessibility Links", and a list of official ADA Title II resources](markdown-documentation/screenshots/links.png)
+
+**What's New** — every update, newest first:
+
+![What's New page: the title and the newest entry, labelled "Redesigned", dated November 25, 2026](markdown-documentation/screenshots/whats-new.png)
+
+**On a phone** — the title block and countdown stack, and the links move into a menu:
+
+<img src="markdown-documentation/screenshots/home-mobile.png" alt="Home page at phone width: the blue title block above the countdown panel, with a menu button in the top bar" width="320">
 
 ## Quick Start
 
@@ -87,7 +111,8 @@ yarn generate:serve
 
 - **Vite** - Next-generation frontend build tool (via Nuxt)
 - **Yarn** - Fast, reliable package manager
-- **Playwright** - End-to-end testing and browser automation
+- **Puppeteer** - Drives headless Chrome for the accessibility audit and the og:image generator
+- **Playwright** - Browser automation for the end-to-end test project (currently commented out in `vitest.config.ts`); Chromium is installed during the Netlify build
 - **axe-core** - Accessibility testing engine (WCAG 2.1 AA compliance)
 - **TypeDoc** - API documentation generator from JSDoc comments
 - **Vitest** - Unit and integration testing framework
@@ -110,7 +135,7 @@ yarn generate:serve
   - Positioned off-screen (`top: -100px`) until focused
   - High z-index (10000) ensures visibility
   - Includes smooth scroll and respects reduced motion preferences
-  - 100% pass rate in accessibility audits (12/12 skip links working)
+  - Checked on every page and viewport by the audit script
 - **ARIA Support**:
   - Live regions for dynamic content (countdown timer with `aria-live="polite"`)
   - FAQ accordion uses Vuetify's `aria-expanded` disclosure pattern; trigger accessible name is the question text
@@ -133,7 +158,7 @@ yarn generate:serve
 - **Responsive Markdown Tables** - Wide markdown tables scroll horizontally on small screens (instead of being clipped)
   - Subtle mobile hint: “Scroll horizontally to see more →” (visual-only, `aria-hidden`)
   - Keyboard-friendly: scroll container is focusable (`tabindex="0"`)
-- **What's New** - A banner at the top of the countdown card shows the newest update; `/whats-new` lists every update, newest first
+- **What's New** - A strip under the countdown shows the newest update (below the home page hero; attached to the countdown band on `/faqs` and `/links`); `/whats-new` lists every update, newest first
   - Entries live in `app/utils/whatsNew.ts` (`WHATS_NEW_ENTRIES`, newest first); add one with each release that changes what readers see
   - Static data, so the banner renders identically on the server and the client (no hydration mismatch or layout shift)
   - Linked from the banner ("See all updates") and from the footer
@@ -148,14 +173,14 @@ yarn generate:serve
   - Fully accessible with discernible link text and table headers
   - Links display URLs for printed versions
 - **Accessible FAQ Downloads** - Multiple accessible formats via Download dialog
-  - **Word Document (.docx)** - H1–H4 heading hierarchy, 522 hyperlinks with visible text, `en-US` language declaration (WCAG 3.1.1), `<w:tblHeader/>` markup on every table header row (WCAG 1.3.1), complete document metadata (title/subject/creator/description/keywords)
-  - **Markdown (.md)** - 122 headings with zero level skips, 37 tables with header separators, no bare URLs
+  - **Word Document (.docx)** - H1–H4 heading hierarchy, hyperlinks with visible text, `en-US` language declaration (WCAG 3.1.1), `<w:tblHeader/>` markup on every table header row (WCAG 1.3.1), complete document metadata (title/subject/creator/description/keywords)
+  - **Markdown (.md)** - Headings with no skipped levels, tables with header separators, no bare URLs
   - **Plain Text (.txt)** - Universal format readable by any device or assistive technology, clear section separators
   - Download dialog has `role="dialog"`, `aria-modal`, and descriptive button labels
   - Download dialog explains each format and includes AI/LLM usage tips
   - Formats are generated at build time for static hosting, or on-demand during development
 - **Markdown-based Content** - Easy content management via Nuxt Content
-- **Dynamic Placeholders** - Auto-updating values like `{days_until_deadline}` in content
+- **Deadline text that stays current** - Fixed deadline phrases in the FAQ are rewritten with the live day count (see [Content Management](#deadline-text-that-stays-current))
 - **Fuzzy Search** - Instant client-side search with Fuse.js
   - Relevance-ranked results (best matches first)
   - Match highlighting in questions and answers
@@ -165,7 +190,7 @@ yarn generate:serve
 ### Design & Performance
 
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-  - **Navigation**: Full nav buttons (Home, Print, Download, Check PDF, Links, Search) on screens ≥600px; hamburger menu on small/xs screens only (<600px)
+  - **Navigation**: Full nav buttons (Home, Print, Download, Check PDF, Links, Search) on screens 900px and wider; a menu button below 900px (six text links need the room)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
 - **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one cobalt colour block per page. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
@@ -191,12 +216,9 @@ yarn install
 # Start development server (runs on http://localhost:3000)
 yarn dev
 
-# Run quick accessibility audit using axe-core (console output)
+# Run the accessibility audit (axe-core): console summary plus the HTML report
+# at public/docs/accessibility/index.html. Starts the dev server if none is running.
 yarn audit:a11y
-
-# Generate comprehensive accessibility report (HTML)
-# Note: Requires a running server (dev, preview, or generate:serve)
-yarn generate:accessibility
 ```
 
 ### Available Scripts
@@ -206,7 +228,9 @@ yarn generate:accessibility
 - `yarn generate` - Generate static site for deployment
 - `yarn preview` - Preview production build locally (port 3000)
 - `yarn generate:serve` - Generate and serve static site (port 5150)
-- `yarn audit:a11y` - Quick accessibility check (console output)
+- `yarn audit:a11y` - Accessibility audit (console summary and HTML report)
+- `yarn test` - Run all tests and write the HTML test report
+- `yarn generate:og-image` - Regenerate `public/og-image.png`
 - `yarn generate:routes` - Generate routes.json from pages/content
 - `yarn generate:sitemap` - Generate sitemap.xml from routes
 
@@ -327,12 +351,12 @@ The automated build process:
 │   │   └── whats-new.vue       # What's New: every update, newest first
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
-│   │   ├── AppNavbar.vue       # Navigation bar; responsive (hamburger <600px, full nav ≥600px); aria-current support
+│   │   ├── AppNavbar.vue       # Navigation bar; responsive (menu button <900px, full nav ≥900px); aria-current support
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
 │   │   ├── FaqBrowser.vue      # Shared FAQ view (homepage and /faqs)
-│   │   ├── WhatsNewBanner.vue  # Newest What's New entry, at the top of the countdown card
+│   │   ├── WhatsNewBanner.vue  # Newest What's New entry, shown under the countdown
 │   │   └── FaqAccordion.vue    # FAQ accordion (Vuetify aria-expanded disclosure pattern)
 │   ├── composables/
 │   │   ├── useDeadlineCountdown.ts  # Composable for deadline timer
@@ -400,7 +424,7 @@ The automated build process:
 
 ## Accessibility
 
-This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages have been verified with automated accessibility audits using **axe-core** (via @axe-core/playwright).
+This site is designed and tested to meet **WCAG 2.1 AA standards**. All pages have been verified with automated accessibility audits using **axe-core** (run in headless Chrome through Puppeteer by `audit-accessibility.js`). Automated checks cover only part of WCAG, so keyboard and screen reader testing are still needed.
 
 ### Accessibility Features
 
@@ -424,7 +448,7 @@ This project includes comprehensive accessibility testing tools powered by **axe
 
 **For detailed information about the accessibility audit script, see:**
 
-- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete guide to the audit script (1355 lines with challenges & solutions)
+- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete guide to the audit script (1,300+ lines with challenges & solutions)
   - Script architecture and design
   - Configuration options
   - Testing modes (development/production)
@@ -436,71 +460,32 @@ This project includes comprehensive accessibility testing tools powered by **axe
   - Troubleshooting guide
   - **Includes GitHub links to all code snippets**
 
-#### 1. Quick Console Audit (`yarn audit:a11y`)
+#### 1. Running the Audit (`yarn audit:a11y`)
 
-A lightweight script that runs accessibility checks and outputs results to the console. Useful for quick checks during development.
+One script, `audit-accessibility.js`, does both jobs: it prints a summary to the console and writes the HTML report. `yarn audit:a11y` runs it (the same as `node audit-accessibility.js`).
 
 ```bash
 yarn audit:a11y
 ```
 
-**Features:**
+**What it does:**
 
-- Automatically starts the development server
-- Tests all pages for WCAG 2.1 AA compliance
-- Displays violation reports in the console
-- Exits with error code if violations are found (useful for CI/CD)
+- **Starts the dev server** if one isn't already running on port 3000 (`DEV_SERVER_PORT`), or tests the production URL when `TARGET_ENV` is set to `"production"` at the top of the script
+- **Uses sitemap.xml** - Tests every page listed in the sitemap
+- **Real browser** - Loads each page in headless Chrome through Puppeteer and runs axe-core in it
+- **Three viewports** - Desktop (1920x1080), tablet (768x1024), and mobile (375x812)
+- **Themes** - Tests the dark theme (the script can be configured for more)
+- **Skip link verification** - Checks that each page's skip link works
+- **Rule configuration** - Enable or disable individual rules with booleans
+- **Exit code** - Exits with an error if violations are found (useful for CI/CD)
 
-#### 2. Comprehensive HTML Report (`yarn generate:accessibility`)
+#### 2. The HTML Report
 
-A full-featured accessibility report generator that creates a detailed HTML report for all pages in the sitemap.
-
-```bash
-# First, start a server (choose one):
-yarn dev              # Development server (port 3000)
-yarn preview          # Preview server (port 3000)
-yarn generate:serve  # Generated site server (port 5150)
-
-# Then, in another terminal, generate the report:
-yarn generate:accessibility
-```
-
-**Features:**
-
-- **Uses sitemap.xml** - Automatically tests all pages listed in the sitemap
-- **Comprehensive testing** - Full WCAG 2.1 AA compliance audit using axe-core
-- **Multi-viewport testing** - Tests desktop, tablet, and mobile viewports
-- **Multi-theme testing** - Tests light/dark themes (if configured)
-- **Skip link verification** - Validates skip link functionality
-- **Dynamic rule configuration** - Enable/disable rules via boolean values
-- **HTML report generation** - Creates a beautiful, dark-themed HTML report
-- **Clickable page links** - All page URLs in the report are clickable and open in new tabs
-- **Detailed violation information** - Includes violation IDs, descriptions, impact levels, affected elements, and remediation guidance
-- **Interactive modals** - Additional information about rules, tests, and configuration
-- **Report location** - Generated at `/public/docs/accessibility/index.html` and accessible at `/docs/accessibility`
-- **Documentation portal** - Report is accessible via the documentation portal at `/docs`
-
-**Report Contents:**
-
-- Summary statistics (total pages, passed/failed counts, total violations)
-- Violation breakdown by impact level (critical, serious, moderate, minor)
-- Per-page results with pass/fail status
-- Detailed violation information for each page
-- **Configured rules status** - Shows enabled/disabled rules with descriptions
-- Information about axe-core and why it's a trusted accessibility testing tool
-- Interactive modal windows for additional context
-
-**Requirements:**
-
-- A server must be running (dev, preview, or generate:serve)
-- The script will automatically detect the running server on common ports (3000, 5150, 4173, 3003)
-- If no server is detected, the script will provide clear instructions
-
-**Accessing the Report:**
-
-- After generation, view the report at: `http://localhost:[port]/docs/accessibility`
-- Or access via the documentation portal: `http://localhost:[port]/docs`
-- The report is also available in the footer navigation (Accessibility Report link)
+- **Location** - Written to `public/docs/accessibility/index.html` (with `errors.json` and `violations.json`) and served at `/docs/accessibility/`; the footer's "Accessibility" link and the documentation portal at `/docs/` both lead to it
+- **Summary statistics** - Total pages, passed/failed counts, total violations, and a breakdown by impact level (critical, serious, moderate, minor)
+- **Per-page results** - Pass/fail status with clickable page links, and for each violation its ID, description, impact, affected elements, and remediation guidance
+- **Configured rules** - Which rules are enabled or disabled, with descriptions
+- **Background** - Notes on axe-core and what the audit covers, in modal windows
 
 #### 3. Script Configuration
 
@@ -517,7 +502,7 @@ The audit script (`audit-accessibility.js`) is highly configurable:
 
 **📁 Script Location**: [`audit-accessibility.js`](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js)
 
-**Configuration Section**: [Lines 23-299](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L23-L299)
+**Configuration Section**: [Lines 25-292](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/audit-accessibility.js#L25-L292)
 
 #### 4. Reusing the Script
 
@@ -620,7 +605,7 @@ When using CSS media queries to show/hide elements (e.g., responsive nav with ha
 
 ```css
 .mobile-nav { display: flex !important; align-items: center; }
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .mobile-nav { display: none !important; }
 }
 ```
@@ -661,8 +646,8 @@ During SSR, there is no browser viewport, so `useDisplay()` returns default valu
 <style scoped>
 .desktop-nav { display: none !important; }
 .mobile-nav { display: flex !important; align-items: center; }
-/* 600px = Vuetify "small" breakpoint. Hamburger only on small/xs screens. */
-@media (min-width: 600px) {
+/* Menu button only below 900px (the breakpoint was 600px until v1.5.0). */
+@media (min-width: 900px) {
   .desktop-nav { display: flex !important; align-items: center; }
   .mobile-nav { display: none !important; }
 }
@@ -736,7 +721,7 @@ After the fixes, all pages were verified clean using Puppeteer to capture consol
 
 | File | Change |
 | --- | --- |
-| `app/components/AppNavbar.vue` | Removed `d-flex` from nav container divs; added `!important` to display rules; breakpoint 600px (hamburger on small/xs only) |
+| `app/components/AppNavbar.vue` | Removed `d-flex` from nav container divs; added `!important` to display rules; breakpoint 600px at the time (900px since v1.5.0) |
 | `app/pages/faqs.vue` | Removed `getCachedData: () => undefined` from `useAsyncData` |
 | `app/pages/faqs.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
 | `app/pages/links.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
@@ -778,82 +763,46 @@ The chip will:
 
 Links automatically open in new tabs with proper accessibility attributes.
 
-### Dynamic Placeholders
+### Deadline Text That Stays Current
 
-Content can include dynamic placeholders that auto-update:
+The FAQ never hard-codes "days left". `FaqBrowser.vue` rewrites a few fixed deadline phrases in the content (for example "less than two years away") with the live day count from `useDeadlineCountdown`, and switches to "the deadline has passed" wording after April 26, 2027. The count is worked out in the browser, so it stays right without rebuilding the site.
 
-- `{days_until_deadline}` - Shows days remaining until April 26, 2027
-
-Example:
-
-```markdown
-There are {days_until_deadline} days until the deadline.
-```
-
-This automatically updates without rebuilding the site.
+A general `{days_until_deadline}` placeholder helper also exists in `app/utils/faqTransform.ts` (`replaceDynamicPlaceholders`, covered by unit tests), but no page calls it and the current content does not use the placeholder.
 
 #### Why axe-core?
 
-**axe-core** is the industry-standard accessibility testing engine used by major tools and organizations worldwide. Here's why it's as effective as commercial solutions like SiteImprove:
+**axe-core** is the open-source accessibility testing engine from Deque. It is the most widely used engine of its kind.
 
-##### **Industry Standard & Widely Adopted**
+- **Widely adopted** - It is the engine behind Google Lighthouse's accessibility audits and Microsoft's Accessibility Insights, as well as Deque's own axe DevTools
+- **Open source and transparent** - You can read exactly what each rule tests ([rule descriptions](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md))
+- **Real browser testing** - Rules run against the fully rendered page in headless Chrome, after JavaScript has executed, not against static source
+- **Detailed reporting** - Each violation names the rule, the exact elements, and how to fix it
+- **CI/CD friendly** - The audit exits with an error when violations are found
+- **Low false-positive rate** - axe-core reports a violation only when it is sure; uncertain cases are returned separately as "needs review"
 
-- **Used by SiteImprove** - SiteImprove's automated testing incorporates axe-core rules
-- **Used by major companies** - Trusted by Microsoft, Google, Facebook, and thousands of other organizations
-- **Open source and transparent** - Unlike proprietary tools, you can inspect and understand exactly what's being tested
+**What it does not do:** no automated tool tests all of WCAG. axe-core 4.14 ships about 100 rules, of which about 70 map to WCAG 2.0/2.1 Level A and AA; Deque estimates that automated testing finds roughly 57% of accessibility issues by volume. Things like whether alt text is accurate, whether the reading order makes sense, and whether a page works with a keyboard and a screen reader need a person. "0 violations" here means none of the automated rules fail. It is not, by itself, a claim of full WCAG conformance.
 
-##### **Comprehensive WCAG Coverage**
-
-- **WCAG 2.1 AA compliance** - Tests against all WCAG 2.1 Level A and AA success criteria
-- **57+ accessibility rules** - Covers color contrast, ARIA usage, keyboard navigation, semantic HTML, and more
-- **Regular updates** - Actively maintained with new rules added as WCAG standards evolve
-- **Accurate results** - Low false positive rate compared to other automated tools
-
-##### **Technical Advantages**
-
-- **Real browser testing** - Uses Playwright to test in actual Chromium browsers (not just static analysis)
-- **Dynamic content support** - Waits for JavaScript to execute and tests fully rendered pages
-- **Detailed reporting** - Provides specific violation information with exact HTML elements and remediation guidance
-- **CI/CD integration** - Can be run in automated pipelines to catch accessibility issues before deployment
-
-##### **Comparison to Other Tools**
-
-| Feature              | axe-core     | SiteImprove |
-| -------------------- | ------------ | ----------- |
-| WCAG 2.1 AA Coverage | ✅ Full      | ✅ Full     |
-| Open Source          | ✅ Yes       | ❌ No       |
-| Cost                 | ✅ Free      | ❌ Paid     |
-| CI/CD Integration    | ✅ Excellent | ⚠️ Limited  |
-| Detailed Reporting   | ✅ Yes       | ✅ Yes      |
-| Real Browser Testing | ✅ Yes       | ✅ Yes      |
-
-**Conclusion**: axe-core provides the same level of WCAG 2.1 AA compliance testing as commercial tools like SiteImprove. By using axe-core directly, we get comprehensive testing with full transparency, no licensing costs, and better integration with our development workflow.
+**How it compares to a commercial scanner such as Siteimprove:** both automate the machine-checkable part of WCAG and neither replaces manual testing. Siteimprove uses its own engine and adds site-wide crawling, dashboards, and policy checks; axe-core is free, open source, and runs in our own build. When the two disagree, compare the specific rule and its WCAG level.
 
 #### Current Audit Status
 
 ✅ **All pages currently pass with zero violations detected and zero console errors.**
 
-Latest audit results:
+Latest check (November 25, 2026, v1.5.x, after the redesign), using axe-core 4.14 on the production build:
 
-- **Total Pages Tested**: 5 (/, /faqs, /faqs-print, /links, /search)
-- **WCAG 2.1 AA Violations**: 0
-- **Accessibility Score**: 100%
-- **Total Tests Run**: 1335
-- **Skip Links**: 15/15 working
-- **Console Errors**: 0 (all hydration mismatches resolved)
-- **Last Audited**: March 2026
+- **Pages tested**: 6 (/, /faqs, /faqs-print, /links, /search, /whats-new)
+- **Violations**: 0 (WCAG 2.1 A/AA rules, plus best practices on every page except /faqs-print); `/` and `/links` also checked at mobile width
+- **Console errors**: 0 (all hydration mismatches resolved)
+
+Last full run of the audit script (March 26, 2026, before `/whats-new` existed): 5 pages × 3 viewports, 1,335 checks, 0 violations, 15/15 skip links working. The published report at `/docs/accessibility/` is from that run until `yarn audit:a11y` is run again.
 
 #### Lighthouse Scores
-
-All pages score **100%** in Accessibility, Best Practices, Performance, and SEO:
 
 | Page | Performance | Accessibility | Best Practices | SEO |
 | -------------- | ----------- | ------------- | -------------- | --- |
 | Home (`/`) | 100 | 100 | 100 | 100 |
 
-> **Production scores** (April 2026): All four Lighthouse categories at 100 on desktop after switching to tree-shaken SVG icons and eliminating render-blocking font CSS.
-
-The audit is run regularly during development to ensure ongoing compliance with WCAG 2.1 AA standards. Detailed audit results are available at `public/docs/accessibility/index.html`.
+> Measured November 25, 2026 on the production build (desktop), after the redesign. Only the home page was measured.
 
 #### Sitemap Generation
 
@@ -918,7 +867,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 
 #### 📐 Core (4 files)
 
-- **[ARCHITECTURE_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md)** ⭐ - **Complete technical guide** (1300+ lines with 30+ GitHub links to source files) - **Start here!**
+- **[ARCHITECTURE_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ARCHITECTURE_GUIDE.md)** ⭐ - **Complete technical guide** (2,900+ lines with GitHub links to source files) - **Start here!**
 - **[DOCUMENTATION_PORTAL_PROMPT.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/DOCUMENTATION_PORTAL_PROMPT.md)** 🆕 - **LLM-ready prompt** for creating documentation portals (accessibility, tests, JSDoc, architecture)
 - **[INDEX.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/INDEX.md)** - Documentation index and navigation hub
 - **[PROJECT_REVIEW.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PROJECT_REVIEW.md)** - Complete project review with improvement suggestions
@@ -927,7 +876,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 
 - **[PRINTER_FRIENDLY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/PRINTER_FRIENDLY_GUIDE.md)** - Complete printer-friendly FAQ guide (overview, implementation, verification)
 - **[ACCESSIBILITY_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_GUIDE.md)** - Complete accessibility documentation (audit results, skip links, testing)
-- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete accessibility audit script guide (1355 lines with GitHub links) - Script architecture, configuration, testing modes, challenges & solutions, and reuse instructions
+- **[ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/ACCESSIBILITY_AUDIT_SCRIPT_GUIDE.md)** - Complete accessibility audit script guide (1,300+ lines with GitHub links) - Script architecture, configuration, testing modes, challenges & solutions, and reuse instructions
 - **[FAQ_CONTENT_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/FAQ_CONTENT_GUIDE.md)** - FAQ management (New/Updated chip system, content guidelines, references)
 - **[SEO_GUIDE.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/SEO_GUIDE.md)** - Complete SEO guide with implementation details and external action recommendations
 - **[CONFIGURATION_ABSTRACTION.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/markdown-documentation/CONFIGURATION_ABSTRACTION.md)** - Configuration management guide
@@ -943,7 +892,7 @@ Comprehensive documentation is available in the `markdown-documentation/` folder
 - **[test/E2E_TEST_PLAN.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/E2E_TEST_PLAN.md)** - Comprehensive E2E test implementation plan (coverage, strategy, examples)
 - **[test/README.md](https://github.com/ICJIA/icjia-accessibility-portal/blob/main/test/README.md)** - Complete test suite documentation (unit, Nuxt, E2E plans)
 
-**Total**: 22 documentation files organized by category
+**Total**: 23 files in `markdown-documentation/` (the main ones are listed above; [INDEX.md](markdown-documentation/INDEX.md) lists them all), plus 2 in `test/`
 
 ### Live Documentation Portal
 
@@ -967,11 +916,8 @@ Access the documentation portal:
 Generate and view comprehensive audit reports:
 
 ```bash
-# Start server first
-yarn dev  # or yarn generate:serve
-
-# Generate accessibility report
-yarn generate:accessibility
+# Run the audit and write the report (starts the dev server if needed)
+yarn audit:a11y
 ```
 
 Reports include:
@@ -979,7 +925,6 @@ Reports include:
 - Summary statistics
 - Detailed violation information
 - Remediation guidance
-- Historical comparisons
 - Element-level details
 
 ## Security Audit (Red/Blue Team)
@@ -1039,7 +984,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 - ✅ All pages pass WCAG 2.1 AA compliance (zero violations)
 - ✅ Fully responsive design (mobile, tablet, desktop)
-- ✅ Dark theme with proper contrast ratios
+- ✅ Plakat look (dark), shared with audit.icjia.app, with proper contrast ratios
 - ✅ Static site generation optimized for Netlify
 - ✅ Comprehensive accessibility features:
   - Skip navigation link
@@ -1050,13 +995,14 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 - ✅ SEO optimized with automated sitemap generation
 - ✅ "New"/"Updated" chip system for FAQ questions (21-day window)
 - ✅ Dynamic countdown timer (April 26, 2027 deadline) on `/`, `/faqs`, and `/links`
-- ✅ What's New banner (top of the countdown card) and `/whats-new` archive
+- ✅ What's New strip (under the countdown) and `/whats-new` archive
 - ✅ Automated accessibility audits
 - ✅ Documentation portal with audit reports
 - ✅ Comprehensive JSDoc documentation throughout all JavaScript/TypeScript files
 
 ### Recent Updates (November 2026)
 
+- **v1.5.1 — maintainer named** (2026-11-25): the "Created by" note in About These FAQs (home, `/faqs`, `/faqs-print`) and the Word and Markdown downloads now name Christopher Schweda as the person who created the FAQs and maintains, updates, and reviews them, with an email link. Open questions have padding inside their focus outline, and this README was checked against the code and given screenshots
 - **v1.5.0 — new look, and a late-November accuracy review** (2026-11-25): every page is redesigned in the "Plakat" look of [audit.icjia.app](https://audit.icjia.app) — near-black page, heavy Archivo type (self-hosted), square corners, thick white rules, one cobalt block. The home page opens with the cobalt title block beside the countdown panel; `/faqs`, `/links`, `/search`, `/whats-new`, and the error page share one reading-page layout; questions are ruled rows with an "Open +" / "Close –" cue. No functionality or logic changed. axe-core reports 0 violations on every page (desktop and mobile), and the og:image is regenerated in the new look. The FAQ was also re-verified against official sources (dates unchanged; NFB v. DOJ summary-judgment motion noted; about 50 small corrections), and its reviewed/updated dates are November 25, 2026
 - **v1.4.2 — documentation brought current** (2026-11-06): README, CLAUDE.md, the Architecture Guide, and the docs index checked against the code after v1.4.0 and v1.4.1 (What's New, Node 22.23.4, current dependency versions, project trees, build pipeline, Netlify config, 249 tests). The published architecture page (`/docs/architecture/`) is regenerated (it still said April 24, 2026) and now passes axe-core with 0 violations, best practices included: its light theme had low-contrast links and header, links in text were told apart by color alone, code blocks weren't keyboard-scrollable, there was no `<main>` landmark, and `target="_blank"` links were broken by the generator's italic rule
 - **v1.4.1 — dependency refresh** (2026-11-06): one combined update replaces 26 stale Dependabot PRs and takes open Dependabot alerts from 317 to 7 (the rest are build-time or dev-only tools with no non-major fix). Nuxt 4.6.4, Vue 3.5.45, Vuetify 3.13.7, Nuxt Content 3.16.2, Vitest 4.1.12, Fuse.js 7.5.0; dev majors @nuxt/test-utils 4, happy-dom 21, netlify-cli 27. **Node is now 22.23.4** (Nuxt 4.6 requires 22.22.3 or later): `.nvmrc`, `netlify.toml`
@@ -1155,7 +1101,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.0
+**Version**: 1.5.1
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:
@@ -1259,12 +1205,8 @@ When adding or updating content:
 Before submitting changes:
 
 ```bash
-# Run quick accessibility audit
+# Run the accessibility audit and write the HTML report
 yarn audit:a11y
-
-# Generate full accessibility report
-yarn dev  # in one terminal
-yarn generate:accessibility  # in another terminal
 ```
 
 Ensure zero violations on all pages.

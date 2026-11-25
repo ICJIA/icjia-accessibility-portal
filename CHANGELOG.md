@@ -6,6 +6,25 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.1] - 2026-11-25
+
+### Content — the FAQ's maintainer is named
+
+- **"About These FAQs" → Created by** now names the person who created the FAQs and maintains, updates, and reviews them: Christopher Schweda, with an email link (`content/faqs.md` front matter). It shows on the home page, `/faqs`, and `/faqs-print`.
+- The Word and Markdown downloads say the same in their "Who created them" paragraph (`scripts/generate-faq-docx.js`, `scripts/generate-faq-md.js`).
+- Links inside an About note are underlined in the link blue (`FaqBrowser.vue`). axe-core: 0 violations on `/`, `/faqs`, and `/faqs-print`.
+
+### Changed — question rows have padding inside the focus outline
+
+- An open question draws a blue focus outline around the whole row, and the text sat tight against it on every side. Question titles and answers now have 20px of side padding (14px on phones), so the outline has room (`FaqAccordion.vue`).
+
+### Docs — README reviewed against the code, with screenshots
+
+- **Screenshots** (new section; files in `markdown-documentation/screenshots/`): the home page, an open answer, the Links page, What's New, and the home page on a phone, each with alt text.
+- **Corrected:** `yarn generate:accessibility` never existed — the audit is one script, run with `yarn audit:a11y`, which prints a summary and writes the HTML report (and uses Puppeteer, not `@axe-core/playwright`); the menu button appears below 900px, not 600px; the What's New strip sits under the countdown; stale counts removed or fixed (hyperlinks, headings, and tables in the downloads; documentation line and file counts; the audit script's configuration line range); the `{days_until_deadline}` placeholder is described as what it is (a tested helper no page calls) alongside the deadline-phrase rewriting the FAQ actually uses.
+- **"Why axe-core?" rewritten:** it no longer says Siteimprove uses axe-core or that automated rules cover all of WCAG 2.1 A/AA. It now says what automated testing can and cannot show, with current rule counts.
+- **Audit status** shows the November 25, 2026 check (6 pages, 0 violations) and notes that the published report dates from March 2026.
+
 ## [1.5.0] - 2026-11-25
 
 ### Changed — a complete visual redesign (the "Plakat" look of audit.icjia.app)
