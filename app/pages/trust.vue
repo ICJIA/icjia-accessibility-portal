@@ -433,7 +433,7 @@ useBreadcrumbStructuredData([
   max-width: 64rem;
 }
 
-/* "Check the sources." in the site's purple (the text shade, 5.8:1). */
+/* "Check the sources." in the site's purple (the text shade, 5:1). */
 .trust-accent {
   color: var(--pk-brand-text);
 }

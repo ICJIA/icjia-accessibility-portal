@@ -270,14 +270,14 @@ function openDownloadDialog(event: MouseEvent) {
   white-space: nowrap;
 }
 
-/* The globe, in a light lavender (9:1 on the bar): the same mark as
+/* The globe, in a lavender (6.7:1 on the bar): the same mark as
    audit.icjia.app, in this site's purple rather than its cobalt. */
 .brand-mark {
   flex-shrink: 0;
   width: 26px;
   height: 26px;
   margin-right: 10px;
-  color: #b9a6e0;
+  color: #a489d2;
 }
 
 /* "Audit PDF": the arrow-out-of-a-box icon says it leaves this site. */

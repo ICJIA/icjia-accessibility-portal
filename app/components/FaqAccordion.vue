@@ -687,7 +687,7 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 }
 
 /* A brand-new question is marked with the purple block instead (white on
-   the purple: 9:1), so "New" and "Updated" differ by more than their wording. */
+   the purple: 11.5:1), so "New" and "Updated" differ by more than their wording. */
 .new-badge--new {
   background-color: var(--pk-brand);
   color: var(--pk-brand-ink);

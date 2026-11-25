@@ -41,15 +41,15 @@
 
   /* Brand block: the one colour field on a page: a desaturated purple, so
      this site is easy to tell apart from audit.icjia.app (cobalt) when
-     switching between them. White on it is 9:1.
-     Never use --pk-brand as TEXT on the dark page (3.4:1): use --pk-link. */
-  --pk-brand: #56388a;
-  --pk-brand-hover: #442c6d;
+     switching between them. White on it is 11.5:1.
+     Never use --pk-brand as TEXT on the dark page (1.7:1): use --pk-brand-text or --pk-link. */
+  --pk-brand: #442c6d;
+  --pk-brand-hover: #362357;
   --pk-brand-ink: #ffffff;
   /* The brand purple as TEXT on the dark page. --pk-brand itself is only
-     2.7:1 there, too dark even for a large heading (3:1), so text uses this
-     lighter shade of the same hue: 5.8:1. */
-  --pk-brand-text: #9c79d8;
+     1.7:1 there, too dark even for a large heading (3:1), so text uses this
+     lighter shade of the same hue: 5:1. */
+  --pk-brand-text: #916ecf;
 
   /* Badges: green on its own dark wash is 9.5:1. */
   --pk-green: #4ade80;

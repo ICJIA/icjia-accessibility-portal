@@ -185,7 +185,7 @@ onUnmounted(() => {
 }
 
 .compliance-link {
-  /* White on the purple: 9:1. Underlined, so colour is not the only cue. */
+  /* White on the purple: 11.5:1. Underlined, so colour is not the only cue. */
   color: var(--pk-brand-ink);
   font-weight: 700;
   text-decoration: underline;
