@@ -1,6 +1,6 @@
 {
     "name": "icjia-accessibility",
-    "version": "1.4.2",
+    "version": "1.5.0",
     "private": true,
     "type": "module",
     "scripts": {
@@ -33,6 +33,7 @@
         "test:reports": "node test/generate-failed-tests-report.js"
     },
     "dependencies": {
+        "@fontsource-variable/archivo": "^5.3.0",
         "@mdi/js": "^7.4.47",
         "@nuxt/content": "^3.10.0",
         "@nuxtjs/plausible": "^2.0.1",

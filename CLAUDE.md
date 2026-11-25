@@ -19,7 +19,8 @@ This document provides essential context for AI assistants working on this codeb
 | Category | Technology |
 |----------|------------|
 | Framework | **Nuxt 4** (Vue 3 + TypeScript) |
-| UI Library | **Vuetify 3** (Material Design) |
+| UI Library | **Vuetify 3**, restyled in the "Plakat" look of audit.icjia.app (`app/assets/css/plakat.css`) |
+| Font | **Archivo**, self-hosted via `@fontsource-variable/archivo` |
 | Content | **Nuxt Content 3** (Markdown-based) |
 | Search | **Fuse.js** (client-side fuzzy search) |
 | Testing | **Vitest** (unit/integration), **Playwright** (E2E), **axe-core** (accessibility) |
@@ -47,7 +48,7 @@ content/
 scripts/
 ├── generate-routes.js          # Route generation for sitemap
 ├── generate-sitemap.js         # Sitemap generator
-├── generate-og-image.js        # OG image generator (serif font to match icjia-logo)
+├── generate-og-image.js        # OG image generator (Plakat look, self-hosted Archivo)
 ├── generate-faq-docx.js        # Word document generator
 ├── generate-faq-md.js          # Markdown export generator
 ├── generate-faq-txt.js         # Plain text export generator
@@ -93,7 +94,7 @@ yarn audit:a11y       # Quick console accessibility check (axe-core)
 yarn generate:jsdoc   # Generate API docs from JSDoc comments
 yarn generate:routes  # Generate routes.json
 yarn generate:sitemap # Generate sitemap.xml
-yarn generate:og-image # Regenerate og-image.png (serif font matching icjia-logo)
+yarn generate:og-image # Regenerate og-image.png (from scripts/og-image-template.html)
 ```
 
 ## Key Conventions
@@ -110,6 +111,15 @@ This is an **accessibility-focused project**. All code must maintain WCAG 2.1 AA
 - Add `alt` text to images (or `aria-hidden="true"` for decorative)
 - Use `aria-live` regions for dynamic content updates
 - Include skip links for keyboard navigation
+
+### 1a. Visual Design (Plakat look)
+
+The site shares its look with audit.icjia.app. Keep to it when adding UI:
+
+- Use the `--pk-*` tokens from `app/assets/css/plakat.css` (mirrored in the Vuetify dark theme in `nuxt.config.ts`); don't add new hex colours in components
+- One typeface (Archivo), heavy and tight for headings; square corners everywhere; thick white rules, not cards or shadows
+- One cobalt block (`.pk-block`, `--pk-brand`) per page. Cobalt is a background only, never text on the dark page (3.4:1); links use `--pk-link`
+- Reading pages use `.pk-page` > `.pk-page-head` (`.pk-label` + `.pk-page-title` + `.pk-page-intro`)
 
 ### 2. Vue 3 Composition API
 
@@ -252,7 +262,8 @@ node audit-accessibility.js  # Terminal 2: Run audit
 | `netlify.toml` | Deployment config, security headers, caching |
 | `search.config.json` | Fuse.js search configuration |
 | `audit-accessibility.js` | Comprehensive accessibility audit script |
-| `scripts/generate-og-image.js` | OG image generator (serif font to match icjia-logo) |
+| `scripts/generate-og-image.js` | OG image generator (Plakat look, self-hosted Archivo) |
+| `app/assets/css/plakat.css` | Design tokens (`--pk-*`) and global rules for the Plakat look |
 | `app/utils/faqTransform.ts` | FAQ markdown AST transformation |
 | `app/composables/useDeadlineCountdown.ts` | Countdown timer logic |
 
@@ -312,5 +323,5 @@ Every release that changes what readers see gets a What's New entry. Entries liv
 - **WCAG Compliance**: 100% (0 violations)
 - **Test Coverage**: 249/249 tests passing across 14 files (unit + Nuxt)
 - **Node Version**: 22.23.4
-- **Last Major Update**: November 2026 (v1.4.1)
+- **Last Major Update**: November 2026 (v1.5.0, Plakat redesign)
 - **Deadline**: April 26, 2027

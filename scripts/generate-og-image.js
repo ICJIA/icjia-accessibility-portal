@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * @fileoverview Generate the Open Graph image (og-image.png) with serif typography
- * @description Renders an HTML template using Puppeteer and saves a 1200x630 PNG.
- * Uses Libre Baskerville to match the classic serif style of the ICJIA logo
- * (icjia-logo.png). Keeps the same layout and dark background; only the font
- * is changed from sans-serif to serif.
+ * @fileoverview Generate the Open Graph image (og-image.png)
+ * @description Renders scripts/og-image-template.html using Puppeteer and saves
+ * a 1200x630 PNG. The template is in the site's Plakat look (near-black page,
+ * one cobalt block, heavy Archivo type) and loads the same self-hosted Archivo
+ * file the site uses, so no network is needed.
  *
  * Usage:
  *   node scripts/generate-og-image.js
@@ -49,7 +49,7 @@ async function main() {
     const page = await browser.newPage()
     await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 2 })
     await page.goto(fileUrl, { waitUntil: 'networkidle0' })
-    // Allow Google Fonts to load
+    // Allow the local font file to load and lay out
     await new Promise((r) => setTimeout(r, 1500))
     await page.screenshot({ path: outPath, type: 'png' })
     console.log('Saved:', outPath)

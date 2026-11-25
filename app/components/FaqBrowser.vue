@@ -1,63 +1,40 @@
 <template>
   <div>
-    <!-- FAQ Disclaimer Card - dynamically rendered from frontmatter -->
-    <v-card
+    <!-- About These FAQs - dynamically rendered from frontmatter -->
+    <section
       v-if="disclaimerItems.length > 0"
-      class="pa-6 mb-6 disclaimer-card"
-      elevation="4"
-      color="warning"
-      variant="tonal"
-      border
+      class="about-faqs"
+      aria-labelledby="about-faqs-heading"
     >
-      <div class="d-flex align-start">
-        <v-icon
-          class="mr-3 mt-1"
-          color="warning"
-          size="24"
-          aria-hidden="true"
-          :icon="mdiInformation" />
-        <div class="flex-grow-1">
-          <h2 class="text-h6 mb-3">About These FAQs</h2>
-          <div class="text-body-2">
-            <p
-              v-for="(item, index) in disclaimerItems"
-              :key="index"
-              :class="
-                index === disclaimerItems.length - 1 ? 'mb-0' : 'mb-2'
-              "
-              v-html="renderDisclaimerItem(item)"
-            ></p>
-          </div>
-        </div>
+      <h2 id="about-faqs-heading" class="about-faqs-title">About These FAQs</h2>
+      <div class="about-faqs-grid">
+        <p
+          v-for="(item, index) in disclaimerItems"
+          :key="index"
+          class="about-faqs-item"
+          v-html="renderDisclaimerItem(item)"
+        ></p>
       </div>
-    </v-card>
+    </section>
 
     <component
       :is="wrapInCard ? VCard : 'div'"
-      :class="wrapInCard ? 'pa-8' : 'faq-section'"
-      v-bind="wrapInCard ? { elevation: 0, color: 'surface' } : {}"
+      :class="wrapInCard ? 'faq-card' : 'faq-section'"
+      v-bind="wrapInCard ? { elevation: 0, color: 'transparent' } : {}"
     >
       <div
         class="faq-page-header"
-        :class="titleTag === 'h1' ? 'mb-4' : 'faq-header-row mb-6'"
+        :class="titleTag === 'h1' ? 'pk-page-head' : 'faq-header-row'"
       >
-        <component
-          :is="titleTag"
-          :class="
-            titleTag === 'h1'
-              ? 'text-h3 d-flex align-center flex-wrap mb-0'
-              : 'text-h4 faq-main-title'
-          "
-        >
-          <v-icon
-            :class="titleTag === 'h1' ? 'mr-3' : 'mr-2'"
-            :size="titleTag === 'h1' ? undefined : 32"
-            :color="titleTag === 'h1' ? 'primary' : undefined"
-            aria-hidden="true"
-            :icon="mdiFrequentlyAskedQuestions"
-          />
-          <span>{{ page?.title || "Frequently Asked Questions" }}</span>
-        </component>
+        <div class="faq-title-block">
+          <p v-if="titleTag === 'h1'" class="pk-label">Questions and answers</p>
+          <component
+            :is="titleTag"
+            :class="titleTag === 'h1' ? 'pk-page-title' : 'faq-main-title'"
+          >
+            {{ page?.title || "Frequently Asked Questions" }}
+          </component>
+        </div>
         <div class="faq-sort-wrapper">
           <label for="faq-sort-select" class="sr-only"
             >Sort Frequently Asked Questions</label
@@ -73,10 +50,7 @@
           </select>
         </div>
       </div>
-      <p
-        v-if="showDescription"
-        class="text-subtitle-1 text-medium-emphasis mb-6"
-      >
+      <p v-if="showDescription" class="pk-page-intro faq-description">
         {{
           page?.description ||
           "Find answers to common questions about web accessibility, WCAG guidelines, and compliance requirements."
@@ -87,29 +61,21 @@
         class="review-status"
         role="note"
       >
-        <v-icon
-          class="review-status-icon"
-          size="20"
+        <span v-if="lastReviewedLabel">
+          <strong>Last reviewed:</strong> {{ lastReviewedLabel }}
+        </span>
+        <span
+          v-if="lastUpdatedLabel && lastReviewedLabel"
           aria-hidden="true"
-          :icon="mdiCalendarCheck"
-        />
-        <div>
-          <span v-if="lastReviewedLabel">
-            <strong>Last reviewed:</strong> {{ lastReviewedLabel }}
-          </span>
-          <span
-            v-if="lastUpdatedLabel && lastReviewedLabel"
-            aria-hidden="true"
-          >
-            ·
-          </span>
-          <span v-if="lastUpdatedLabel">
-            <strong>Last updated:</strong> {{ lastUpdatedLabel }}
-          </span>
-          <span class="review-status-note">
-            These FAQs are re-verified periodically against official sources.
-          </span>
-        </div>
+        >
+          ·
+        </span>
+        <span v-if="lastUpdatedLabel">
+          <strong>Last updated:</strong> {{ lastUpdatedLabel }}
+        </span>
+        <span class="review-status-note">
+          These FAQs are re-verified periodically against official sources.
+        </span>
       </div>
 
       <div v-if="faqSections.length > 0 || introContent">
@@ -151,7 +117,7 @@
 <script setup lang="ts">
 /**
  * @fileoverview Shared FAQ browser component
- * @description Renders the complete FAQ experience — frontmatter-driven disclaimer card,
+ * @description Renders the complete FAQ experience — frontmatter-driven "About These FAQs" notes,
  * title/sort header, review-status panel, intro content, and sectioned FaqAccordion with
  * New/Updated chips and sorting. Used by both the homepage and /faqs so the two routes
  * can never drift apart again (they previously duplicated all of this logic and did).
@@ -159,11 +125,6 @@
 
 import { computed, watchEffect, ref } from "vue";
 import { VCard } from "vuetify/components/VCard";
-import {
-  mdiInformation,
-  mdiFrequentlyAskedQuestions,
-  mdiCalendarCheck,
-} from "~/utils/icons";
 import {
   wrapTablesForResponsiveScroll,
   wrapSeeAlsoLinks,
@@ -560,34 +521,83 @@ watchEffect(() => {
 </script>
 
 <style scoped>
-.disclaimer-card {
-  /* Make the disclaimer card stand out with a subtle but noticeable appearance */
-  border-width: 2px !important;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1),
-    0 10px 25px -5px rgba(var(--v-theme-warning), 0.2),
-    0 0 0 1px rgba(var(--v-theme-warning), 0.3) !important;
-  transition: all 0.2s ease;
+/* ------------------------------------------------------------------
+   About These FAQs: three ruled notes side by side (one column on a
+   reading page or a phone). Each note starts with its label on a line
+   of its own.
+   ------------------------------------------------------------------ */
+.about-faqs {
+  margin-top: 5.5rem;
 }
 
-/* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Ensure all paragraphs in disclaimer have 1.5+ line-height */
-.disclaimer-card :deep(p),
-.disclaimer-card :deep(.text-body-2) {
-  line-height: 1.5 !important;
+.about-faqs-title {
+  margin: 0 0 2.25rem;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--pk-heading);
 }
 
-.disclaimer-card:hover {
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1),
-    0 12px 30px -5px rgba(var(--v-theme-warning), 0.25),
-    0 0 0 1px rgba(var(--v-theme-warning), 0.4) !important;
+.about-faqs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem;
 }
 
+.about-faqs-item {
+  margin: 0;
+  border-top: 4px solid var(--pk-heading);
+  padding-top: 1rem;
+  font-size: 1rem;
+  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: at least 1.5 */
+  line-height: 1.55 !important;
+  color: var(--pk-text-2);
+}
+
+.about-faqs-item :deep(strong) {
+  color: var(--pk-heading);
+  font-weight: 700;
+}
+
+/* The label ("Created by:") sits on its own line as the note's heading. */
+.about-faqs-item :deep(strong:first-child) {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1875rem;
+  line-height: 1.3;
+}
+
+/* On a reading page the notes are quieter and stack in one column. */
+.pk-page .about-faqs {
+  margin-top: 2.5rem;
+}
+
+.pk-page .about-faqs-title {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pk-page .about-faqs-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.pk-page .about-faqs-item {
+  border-top-width: 2px;
+  border-top-color: var(--pk-border-alt);
+}
+
+/* ------------------------------------------------------------------
+   FAQ block
+   ------------------------------------------------------------------ */
 /* Plain-section wrapper (homepage embed) */
 .faq-section {
-  padding: 2rem 0;
+  margin-top: 6rem;
 }
 
 /* Header row: title + sort control */
@@ -595,64 +605,61 @@ watchEffect(() => {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem 2rem;
   flex-wrap: wrap;
 }
 
-/* Homepage-embed header variant: underlined divider */
-.faq-header-row {
-  border-bottom: 2px solid rgb(var(--v-theme-primary));
-  padding-bottom: 1rem;
+.faq-title-block {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+
+/* On the reading page the title takes the full line; the sort sits under it. */
+.pk-page-head .faq-title-block {
+  flex-basis: 100%;
 }
 
 .faq-main-title {
-  display: flex;
-  align-items: center;
-  color: rgb(var(--v-theme-primary));
   margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--pk-heading);
+}
+
+.faq-description {
+  margin-bottom: 1.5rem !important;
 }
 
 .faq-sort-wrapper {
   display: flex;
   flex-direction: column;
-  min-width: 180px;
-  max-width: 280px;
+  min-width: 13.75rem;
+  max-width: 17.5rem;
 }
 
 .faq-sort {
-  font-size: 0.813rem;
-  padding: 8px 12px;
-  padding-right: 32px;
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.3);
-  border-radius: 4px;
-  background-color: rgb(var(--v-theme-surface));
-  color: rgb(var(--v-theme-on-surface));
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0 2.5rem 0 0.875rem;
+  border: 2px solid var(--pk-heading);
+  background-color: var(--pk-body);
+  color: var(--pk-heading);
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-height: 44px;
   min-width: 44px;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='square'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 8px center;
+  background-position: right 12px center;
   background-size: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .faq-sort:hover {
-  border-color: rgba(var(--v-theme-primary), 0.5);
-  background-color: rgba(var(--v-theme-primary), 0.05);
-}
-
-.faq-sort:focus {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  border-color: rgb(var(--v-theme-primary));
-}
-
-.faq-sort:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
+  background-color: var(--pk-hover);
 }
 
 .sr-only {
@@ -667,36 +674,28 @@ watchEffect(() => {
   border-width: 0;
 }
 
-/* Review-status strip: prominent "Last reviewed / Last updated" panel.
-   Mirrors .faq-section-heading's audited surface-variant + primary-border pattern. */
+/* "Last reviewed / Last updated" line under the title. */
 .review-status {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.95rem;
+  margin: 1.25rem 0 0;
+  font-size: 1rem;
   line-height: 1.5;
-  color: rgb(var(--v-theme-on-surface));
-  background: rgb(var(--v-theme-surface-variant));
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 0 8px 8px 0;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.5rem;
+  color: var(--pk-text-2);
 }
 
-.review-status-icon {
-  flex-shrink: 0;
-  margin-top: 2px;
+.review-status strong {
+  color: var(--pk-heading);
+  font-weight: 700;
 }
 
 .review-status-note {
   display: block;
   margin-top: 2px;
-  font-size: 0.85rem;
 }
 
 /* Intro content styling */
 .faq-intro {
-  margin-bottom: 2rem;
+  margin: 2rem 0;
+  max-width: 49rem;
 }
 
 .faq-intro :deep(h1) {
@@ -704,87 +703,70 @@ watchEffect(() => {
 }
 
 .faq-intro :deep(p) {
-  font-size: 1.1rem;
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 0.85;
+  font-size: 1.1875rem;
+  color: var(--pk-text);
   margin-bottom: 1.5rem;
-  line-height: 1.75;
+  line-height: 1.55;
 }
 
 /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Ensure all links in FAQ intro meet 44x44px */
 .faq-intro :deep(a) {
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
   display: inline;
   min-height: 44px !important;
   padding: 8px 2px;
   box-sizing: border-box;
   line-height: 1.5;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .faq-intro :deep(a),
-.v-theme--dark .faq-intro :deep(a) {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
+  color: var(--pk-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .faq-intro :deep(hr) {
   border: none;
-  border-top: 2px solid rgba(var(--v-theme-primary), 0.2);
+  border-top: 2px solid var(--pk-border-alt);
   margin: 3rem 0;
 }
 
-/* Section headings */
+/* Section headings: a heavy rule, then the section name. */
 .faq-section-group {
-  margin-bottom: 3rem;
+  margin-bottom: 0;
 }
 
 .faq-section-heading {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: rgb(var(--v-theme-on-surface));
-  margin-top: 2.5rem;
-  margin-bottom: 1.25rem;
-  padding: 1rem 1.25rem;
-  background: rgb(var(--v-theme-surface-variant));
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 0 8px 8px 0;
+  margin: 3.5rem 0 1.375rem;
+  padding-top: 0.875rem;
+  border-top: 4px solid var(--pk-heading);
+  font-size: 1.875rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--pk-heading);
+  /* Lands below the fixed bar when jumped to */
+  scroll-margin-top: 80px;
 }
 
-@media (max-width: 960px) {
-  .v-card {
-    padding: 1.5rem !important;
-  }
+/* Sorted views have no section headings: give the single list its own gap. */
+.faq-section-group:first-child > .faq-accordion:first-child {
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 600px) {
-  .v-card {
-    padding: 1rem !important;
+  .about-faqs {
+    margin-top: 3.5rem;
   }
 
-  h1.text-h3 {
-    font-size: 1.5rem !important;
-  }
-
-  .text-subtitle-1 {
-    font-size: 0.9rem !important;
+  .faq-section {
+    margin-top: 4rem;
   }
 
   .faq-section-heading {
-    font-size: 1.2rem;
-    padding: 0.75rem 1rem;
-  }
-}
-
-@media (max-width: 400px) {
-  h1.text-h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.5rem;
+    margin-top: 2.75rem;
   }
 
-  .faq-section-heading {
-    font-size: 1.1rem;
-    padding: 0.5rem 0.75rem;
+  .faq-sort-wrapper {
+    max-width: none;
+    flex: 1 1 100%;
   }
 }
 </style>

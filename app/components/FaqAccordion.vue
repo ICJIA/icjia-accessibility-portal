@@ -3,7 +3,7 @@
     v-model="expandedPanels"
     class="faq-accordion"
     elevation="0"
-    color="surface"
+    bg-color="transparent"
     :multiple="false"
   >
     <v-expansion-panel
@@ -13,7 +13,7 @@
       :value="index"
       class="faq-panel"
       elevation="0"
-      color="surface"
+      bg-color="transparent"
     >
       <v-expansion-panel-title
         class="faq-question"
@@ -39,12 +39,9 @@
           <span class="faq-question-text">{{ item.question }}</span>
         </div>
         <template #actions>
-          <v-icon
-            :icon="mdiChevronDown"
-            class="faq-chevron"
-            size="24"
-            aria-hidden="true"
-          />
+          <!-- "Open +" / "Close –" cue, drawn by CSS from the panel state.
+               Decorative: the button's aria-expanded carries the state. -->
+          <span class="faq-cue" aria-hidden="true"></span>
         </template>
       </v-expansion-panel-title>
 
@@ -71,7 +68,6 @@
  */
 
 import { ref, watch, onMounted, onUnmounted, nextTick, computed } from "vue";
-import { mdiChevronDown } from '~/utils/icons'
 
 /** @typedef {any} MiniMarkNode */
 
@@ -552,53 +548,64 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
 </script>
 
 <style scoped>
+/* Plakat look: questions are ruled rows, not cards. Each row is a line of
+   heavy type with an "Open +" / "Close –" cue at the right. */
 .faq-accordion {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-left: 25px; /* Offset from section headings */
+  gap: 0;
+  border-bottom: 2px solid var(--pk-border-alt);
 }
 
 .faq-panel {
-  background: rgb(var(--v-theme-surface)) !important;
-  border: 1px solid;
-  border-color: rgba(var(--v-theme-on-surface), 0.12) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-  transition: all 150ms ease !important;
+  background: transparent !important;
+  border-top: 2px solid var(--pk-border-alt);
+  box-shadow: none !important;
+  margin: 0 !important;
   overflow: hidden;
   scroll-margin-top: 80px; /* Account for fixed navbar */
 }
 
-.faq-panel:hover {
-  border-color: rgb(var(--v-theme-primary)) !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  cursor: pointer;
+/* Vuetify's own shadow layer and divider line are not part of this look. */
+.faq-panel :deep(.v-expansion-panel__shadow) {
+  display: none;
 }
 
-.faq-panel:hover {
-  border-color: rgb(var(--v-theme-primary)) !important;
+.faq-panel::after {
+  display: none;
 }
 
 .faq-panel:focus-within {
-  outline: 2px solid rgb(var(--v-theme-primary));
+  outline: 2px solid var(--pk-link);
   outline-offset: 2px;
 }
 
 .faq-question {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.4;
-  color: rgb(var(--v-theme-on-surface)) !important;
-  padding: 24px !important;
-  min-height: auto !important;
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pk-heading) !important;
+  padding: 18px 0 !important;
+  min-height: 64px !important;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.faq-question:hover {
+  background: var(--pk-hover);
+}
+
+/* The hover wash above replaces Vuetify's grey overlay. */
+.faq-question :deep(.v-expansion-panel-title__overlay) {
+  display: none;
 }
 
 .faq-question-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 8px;
   flex: 1;
 }
 
@@ -607,60 +614,69 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   flex: 1;
 }
 
+.faq-cue {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--pk-heading);
+}
+
+.faq-cue::after {
+  content: "Open +";
+}
+
+.faq-question.v-expansion-panel-title--active .faq-cue::after {
+  content: "Close \2013";
+}
+
+/* New / Updated labels: green on its own dark wash (9.5:1), square. */
 .new-badge {
   display: inline-block;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 10px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: rgb(var(--v-theme-success));
-  color: rgb(var(--v-theme-on-success));
-  min-height: 20px;
-  height: auto;
-  line-height: 1.2;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 1px 8px;
+  background-color: var(--pk-green-wash);
+  color: var(--pk-green);
   white-space: normal;
-  word-wrap: break-word;
   overflow-wrap: break-word;
-  overflow: visible;
   max-width: 100%;
 }
 
+/* A brand-new question is marked with the cobalt block instead (white on
+   cobalt: 5.7:1), so "New" and "Updated" differ by more than their wording. */
 .new-badge--new {
-  /* Fixed colors (not theme tokens): white on #1D4ED8 is 6.7:1 in both themes;
-     the dark theme's lighter primary (#3B82F6) would fail 4.5:1 with white text */
-  background-color: #1d4ed8;
-  color: #ffffff;
-}
-
-.faq-chevron {
-  color: rgb(var(--v-theme-on-surface-variant)) !important;
-  transition: transform 200ms ease-in-out !important;
-}
-
-.faq-panel[aria-expanded="true"] .faq-chevron {
-  transform: rotate(180deg);
+  background-color: var(--pk-brand);
+  color: var(--pk-brand-ink);
 }
 
 .faq-answer {
   padding: 0 !important;
-  background: rgb(var(--v-theme-surface-variant)) !important;
+  background: transparent !important;
+}
+
+.faq-answer :deep(.v-expansion-panel-text__wrapper) {
+  padding: 0;
 }
 
 .faq-answer-content {
-  padding: 0 24px 24px 24px;
-  font-size: 16px;
+  max-width: 49rem;
+  padding: 4px 0 32px;
+  font-size: 1.1875rem;
   font-weight: 400;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Base line-height for content */
-  line-height: 1.5;
-  color: rgb(var(--v-theme-on-surface-variant)) !important;
+  line-height: 1.55;
+  color: var(--pk-text) !important;
 }
 
-/* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Ensure all text-containing elements in FAQ answers have minimum 1.5 line-height */
 .faq-answer-content :deep(div),
 .faq-answer-content :deep(span) {
-  /* Only apply to elements that contain text, not structural elements */
   line-height: inherit;
 }
 
@@ -669,23 +685,38 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   margin: 0 0 1rem 0;
   color: inherit;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
 }
 
 .faq-answer-content :deep(p:last-child) {
   margin-bottom: 0;
 }
 
+.faq-answer-content :deep(h4),
+.faq-answer-content :deep(h5) {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--pk-heading);
+}
+
 .faq-answer-content :deep(ul),
 .faq-answer-content :deep(ol) {
   margin: 0 0 1rem 0;
-  padding-left: 1.5rem;
+  padding-left: 1.625rem;
 }
 
 .faq-answer-content :deep(li) {
   margin: 0.5rem 0;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
+}
+
+.faq-answer-content :deep(strong) {
+  font-weight: 700;
+  color: var(--pk-heading);
 }
 
 /* Responsive table styling */
@@ -693,33 +724,35 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   width: 100%;
   border-collapse: collapse;
   margin: 0; /* Margin handled by wrapper */
-  font-size: 0.9rem;
+  font-size: 1rem;
   display: table;
+  border-top: 4px solid var(--pk-heading);
 }
 
 .faq-answer-content :deep(th) {
-  background: rgba(var(--v-theme-primary), 0.15);
-  color: rgb(var(--v-theme-on-surface));
-  font-weight: 600;
-  padding: 0.75rem 1rem;
+  background: transparent;
+  color: var(--pk-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem 0.75rem 0;
   text-align: left;
-  border-bottom: 2px solid rgba(var(--v-theme-primary), 0.3);
+  vertical-align: bottom;
+  border-bottom: 2px solid var(--pk-heading);
 }
 
 .faq-answer-content :deep(td) {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
-  background: rgba(var(--v-theme-surface-variant), 0.15);
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid var(--pk-border-alt);
+  background: transparent;
+  vertical-align: top;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-.faq-answer-content :deep(tr:last-child td) {
-  border-bottom: none;
-}
-
 .faq-answer-content :deep(a) {
-  color: rgb(var(--v-theme-primary-darken-1));
+  color: var(--pk-link) !important;
   text-decoration: underline;
   text-underline-offset: 2px;
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
@@ -730,172 +763,90 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   line-height: 1.5;
 }
 
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .faq-answer-content :deep(a),
-.v-theme--dark .faq-answer-content :deep(a) {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
 .faq-answer-content :deep(a:hover) {
+  color: var(--pk-link-hover) !important;
   text-decoration-thickness: 2px;
 }
 
-[data-v-theme="dark"] .faq-answer-content :deep(a:hover),
-.v-theme--dark .faq-answer-content :deep(a:hover) {
-  color: #93C5FD !important;
-}
-
+/* Callouts: a quiet raised note with a heavy left edge. */
 .faq-answer-content :deep(blockquote) {
   margin: 1rem 0;
   padding: 1rem 1.25rem;
-  background: rgba(var(--v-theme-primary), 0.08);
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
+  background: var(--pk-raised);
+  border: 1px solid var(--pk-border-alt);
+  border-left: 4px solid var(--pk-heading);
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
 }
 
 .faq-answer-content :deep(blockquote p) {
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
 }
 
 .faq-answer-content :deep(.see-also-card) {
-  background: rgba(var(--v-theme-primary), 0.08);
-  border: 1px solid rgba(var(--v-theme-primary), 0.2);
-  border-left: 3px solid rgba(var(--v-theme-primary), 0.5);
-  border-radius: 0 8px 8px 0;
-  padding: 0.75rem 1rem;
-  margin-top: 1.5rem;
+  background: transparent;
+  border-top: 2px solid var(--pk-border-alt);
+  padding: 0.875rem 0 0;
+  margin-top: 1.75rem;
   margin-bottom: 0.5rem;
-  font-size: 0.85em;
+  font-size: 1rem;
+  color: var(--pk-text-2);
 }
 
 .faq-answer-content :deep(.see-also-card p) {
   margin: 0.25rem 0;
-  line-height: 1.6;
-}
-
-[data-v-theme="dark"] .faq-answer-content :deep(.see-also-card),
-.v-theme--dark .faq-answer-content :deep(.see-also-card) {
-  background: rgba(var(--v-theme-primary), 0.1);
-  border-color: rgba(var(--v-theme-primary), 0.3);
-  border-left-color: rgba(var(--v-theme-primary), 0.6);
+  line-height: 1.6 !important;
 }
 
 .faq-answer-content :deep(code) {
-  background: rgba(var(--v-theme-surface-variant), 0.5);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
+  background: var(--pk-raised);
+  border: 1px solid var(--pk-border-alt);
+  padding: 0.1rem 0.375rem;
   font-size: 0.9em;
 }
 
-.faq-answer-content :deep(strong) {
-  font-weight: 600;
+.faq-answer-content :deep(pre) {
+  background: var(--pk-card);
+  border: 1px solid var(--pk-border-alt);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.faq-answer-content :deep(pre code) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.faq-answer-content :deep(hr) {
+  border: none;
+  border-top: 2px solid var(--pk-border-alt);
+  margin: 1.5rem 0;
 }
 
 /* Responsive design */
-@media (max-width: 1023px) {
-  .faq-question {
-    padding: 20px !important;
-    font-size: 17px;
-  }
-
-  .faq-answer-content {
-    padding: 0 20px 20px 20px;
-  }
-}
-
 @media (max-width: 767px) {
-  .faq-accordion {
-    gap: 20px;
-    margin-left: 16px; /* Reduced indentation on mobile for better space usage */
-  }
-
   .faq-question {
-    padding: 16px !important;
-    font-size: 16px;
-    line-height: 1.5; /* Slightly tighter line height for better readability on small screens */
+    padding: 16px 0 !important;
+    font-size: 1.1875rem;
+    line-height: 1.25;
   }
 
   .faq-answer-content {
-    padding: 0 16px 16px 16px;
-    font-size: 15px;
-  }
-
-  .faq-chevron {
-    min-width: 44px;
-    min-height: 44px;
+    padding: 4px 0 24px;
+    font-size: 1.0625rem;
   }
 }
 
-@media (max-width: 400px) {
-  .faq-accordion {
-    margin-left: 12px; /* Further reduced on very small screens */
-  }
-
-  .faq-question {
-    font-size: 15px; /* Slightly smaller on very small screens but still readable */
-    padding: 14px !important;
-  }
-
-  .faq-answer-content {
-    padding: 0 14px 14px 14px;
-    font-size: 14px;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .faq-panel,
-  .faq-chevron {
-    transition: none !important;
-  }
-
-  .faq-panel[aria-expanded="true"] .faq-chevron {
-    transform: rotate(180deg);
-  }
-}
-
-/* Link colors use theme primary - ensure AAA contrast and target size */
-/* Note: This rule is overridden by the more specific rule above, but kept for consistency */
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .faq-answer-content :deep(a),
-.v-theme--dark .faq-answer-content :deep(a) {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
-/* Search term highlighting */
-.search-term-highlight {
-  background: rgba(255, 235, 59, 0.7) !important;
-  color: inherit !important;
-  padding: 0.1em 0.15em;
-  border-radius: 3px;
-  font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  animation: highlight-pulse 1s ease-in-out;
-}
-
-@keyframes highlight-pulse {
-  0% {
-    background: rgba(255, 235, 59, 1);
-    box-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
-  }
-  100% {
-    background: rgba(255, 235, 59, 0.7);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* Also highlight in questions (for when opened from search) */
-.faq-question-text :deep(.search-term-highlight),
-.faq-question .search-term-highlight {
-  background: rgba(255, 235, 59, 0.7) !important;
-  color: inherit !important;
-  padding: 0.1em 0.15em;
-  border-radius: 3px;
-  font-weight: 600;
+/* Search term highlighting: dark ink on yellow (15:1). The <mark> elements
+   are created by script, so they are reached with :deep(). */
+.faq-answer-content :deep(.search-term-highlight),
+.faq-question-text :deep(.search-term-highlight) {
+  background: var(--pk-mark);
+  color: var(--pk-mark-ink);
+  padding: 0.05em 0.2em;
+  font-weight: 700;
 }
 </style>

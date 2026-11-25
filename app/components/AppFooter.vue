@@ -143,103 +143,64 @@ function openDownloadDialog() {
 </script>
 
 <style scoped>
+/* Plakat look: a heavy white rule, the copyright on the left and plain text
+   links on the right. The icons and dot separators are decorative
+   (aria-hidden) and are not drawn in this look. */
 .footer-wrapper {
   flex-shrink: 0;
-  background: rgb(var(--v-theme-surface));
-  border-top: 1px solid rgba(var(--v-theme-primary), 0.15);
-  padding: 2rem 1rem;
+  background: transparent;
+  padding: 6rem 24px 2.5rem;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
+  border-top: 4px solid var(--pk-heading);
+  padding-top: 0.75rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.25rem 2rem;
 }
 
-/* Copyright Section */
-.footer-copyright {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.copyright-link {
-  display: inline-flex;
-  align-items: center;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: on-surface should already meet AAA, but ensure it does */
-  color: rgb(var(--v-theme-on-surface));
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
-}
-
-/* Ensure copyright link maintains AAA contrast on hover */
-.copyright-link:hover {
-  color: rgb(var(--v-theme-on-surface)) !important;
-}
-
-.copyright-link:hover {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color on hover */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-/* Dark theme: use lighter color for AAA contrast on hover */
-[data-v-theme="dark"] .copyright-link:hover,
-.v-theme--dark .copyright-link:hover {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
-.copyright-link:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  background: rgba(var(--v-theme-primary), 0.1);
-}
-
-/* Links Section */
 .footer-links {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
   flex-wrap: wrap;
-  width: 100%;
+  align-items: center;
+  gap: 0 1.375rem;
 }
 
+.footer-wrapper .v-icon,
+.footer-separator {
+  display: none;
+}
+
+.copyright-link,
 .footer-link {
   display: inline-flex;
   align-items: center;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
+  justify-content: center;
+  /* 13.7:1 on the page */
+  color: var(--pk-text-2) !important;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  line-height: 1.5;
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-height: 44px;
   min-width: 44px;
-  padding: 0.5rem 0.75rem;
-  border-radius: 4px;
+  padding: 0;
   white-space: nowrap;
 }
 
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .footer-link,
-.v-theme--dark .footer-link {
-  color: #93C5FD !important; /* Lighter blue for 7:1+ contrast on dark background */
+.copyright-link {
+  white-space: normal;
+}
+
+/* The © icon is not drawn in this look; the sign is set as text instead. */
+.copyright-link span::before {
+  content: "\00a9\00a0";
 }
 
 /* Button-specific reset for footer-button */
@@ -248,143 +209,27 @@ function openDownloadDialog() {
   border: none;
   cursor: pointer;
   font-family: inherit;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
-  min-height: 44px;
-  min-width: 44px;
 }
 
+.copyright-link:hover,
 .footer-link:hover {
-  /* Maintain AAA contrast on hover - don't reduce opacity */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
+  color: var(--pk-heading) !important;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  background: rgba(var(--v-theme-primary), 0.1);
 }
 
-[data-v-theme="dark"] .footer-link:hover,
-.v-theme--dark .footer-link:hover {
-  color: #93C5FD !important;
+.footer-link[aria-current="page"] {
+  color: var(--pk-heading) !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
-.footer-link:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  background: rgba(var(--v-theme-primary), 0.15);
-}
-
-.footer-separator {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
-  color: rgba(var(--v-theme-on-surface), 0.7) !important;
-  font-size: 1rem;
-  line-height: 1;
-  user-select: none;
-}
-
-/* Dark theme: ensure AAA contrast for separators */
-[data-v-theme="dark"] .footer-separator,
-.v-theme--dark .footer-separator {
-  color: rgba(248, 250, 252, 0.7) !important; /* Higher contrast on dark background */
-}
-
-/* Tablet breakpoint */
-@media (max-width: 768px) {
-  .footer-wrapper {
-    padding: 1.5rem 1rem;
-  }
-
-  .footer-container {
-    gap: 0.875rem;
-  }
-
-  .copyright-link {
-    font-size: 0.8125rem;
-    /* Maintain 44x44px minimum on tablet */
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .footer-link {
-    font-size: 0.8125rem;
-    /* Maintain 44x44px minimum on tablet */
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .footer-links {
-    gap: 0.5rem;
-  }
-}
-
-/* Mobile breakpoint */
 @media (max-width: 600px) {
   .footer-wrapper {
-    padding: 1.25rem 0.75rem;
+    padding: 4rem 16px 2rem;
   }
-
-  .footer-container {
-    gap: 0.75rem;
-  }
-
-  .copyright-link {
-    font-size: 0.75rem;
-    /* Maintain 44x44px minimum on mobile */
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 0.6rem;
-  }
-
-  .footer-link {
-    font-size: 0.75rem;
-    /* Maintain 44x44px minimum on mobile */
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 0.6rem;
-  }
-
-  .footer-separator {
-    font-size: 0.875rem;
-  }
-}
-
-/* Small mobile breakpoint */
-@media (max-width: 400px) {
-  .footer-wrapper {
-    padding: 1rem 0.5rem;
-  }
-
-  .copyright-link {
-    font-size: 0.7rem;
-    /* Maintain 44x44px minimum on small mobile */
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .copyright-link span {
-    display: inline;
-  }
-
-  .footer-link {
-    font-size: 0.7rem;
-    /* Maintain 44x44px minimum on small mobile */
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .footer-separator {
-    display: none;
-  }
-
-  .footer-links {
-    gap: 0.5rem;
-  }
-}
-
-/* Ensure icons stay aligned */
-.v-icon {
-  flex-shrink: 0;
 }
 
 /* Print styles */

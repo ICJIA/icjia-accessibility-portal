@@ -4,7 +4,7 @@
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
-[![Version 1.4.2](https://img.shields.io/badge/Version-1.4.2-blue)](CHANGELOG.md)
+[![Version 1.5.0](https://img.shields.io/badge/Version-1.5.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -67,7 +67,8 @@ yarn generate:serve
 
 ### UI & Styling
 
-- **Vuetify 3** - Material Design component library with comprehensive accessibility support
+- **Vuetify 3** - Component library with comprehensive accessibility support, restyled in the "Plakat" look shared with [audit.icjia.app](https://audit.icjia.app) (see `app/assets/css/plakat.css`)
+- **Archivo** - The site's one typeface, self-hosted through `@fontsource-variable/archivo` (no font CDN request)
 - **Sass** - CSS preprocessor for maintainable stylesheets
 - **Material Design Icons (MDI)** - Tree-shaken SVG icons via `@mdi/js` (only used icons are bundled)
 
@@ -166,7 +167,7 @@ yarn generate:serve
 - **Responsive Design** - Mobile-first approach with proper breakpoints
   - **Navigation**: Full nav buttons (Home, Print, Download, Check PDF, Links, Search) on screens ≥600px; hamburger menu on small/xs screens only (<600px)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
-- **Dark Theme** - Modern dark theme by default using Vuetify Material Design
+- **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one cobalt colour block per page. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
 - **Performance Optimized** - Proper caching headers and optimized assets
 - **SEO Optimized** - Complete SEO setup with Open Graph, Twitter Cards, JSON-LD structured data, automated sitemap, and Google Search Console verification
@@ -381,7 +382,7 @@ The automated build process:
 │   ├── generate-faq-md.js              # Generates Markdown export from FAQ content
 │   ├── generate-faq-txt.js             # Generates plain text export from FAQ content
 │   ├── generate-icjia-logo.js          # ICJIA logo generation script
-│   ├── generate-og-image.js            # OG image generator (serif font matching icjia-logo)
+│   ├── generate-og-image.js            # OG image generator (Plakat look, self-hosted Archivo)
 │   ├── generate-routes.js              # Routes generation script (scans pages and content)
 │   └── generate-sitemap.js             # Sitemap generation script
 ├── audit-accessibility.js      # Comprehensive accessibility audit script - Tests WCAG 2.1 AA compliance using axe-core
@@ -1056,6 +1057,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.5.0 — new look, and a late-November accuracy review** (2026-11-25): every page is redesigned in the "Plakat" look of [audit.icjia.app](https://audit.icjia.app) — near-black page, heavy Archivo type (self-hosted), square corners, thick white rules, one cobalt block. The home page opens with the cobalt title block beside the countdown panel; `/faqs`, `/links`, `/search`, `/whats-new`, and the error page share one reading-page layout; questions are ruled rows with an "Open +" / "Close –" cue. No functionality or logic changed. axe-core reports 0 violations on every page (desktop and mobile), and the og:image is regenerated in the new look. The FAQ was also re-verified against official sources (dates unchanged; NFB v. DOJ summary-judgment motion noted; about 50 small corrections), and its reviewed/updated dates are November 25, 2026
 - **v1.4.2 — documentation brought current** (2026-11-06): README, CLAUDE.md, the Architecture Guide, and the docs index checked against the code after v1.4.0 and v1.4.1 (What's New, Node 22.23.4, current dependency versions, project trees, build pipeline, Netlify config, 249 tests). The published architecture page (`/docs/architecture/`) is regenerated (it still said April 24, 2026) and now passes axe-core with 0 violations, best practices included: its light theme had low-contrast links and header, links in text were told apart by color alone, code blocks weren't keyboard-scrollable, there was no `<main>` landmark, and `target="_blank"` links were broken by the generator's italic rule
 - **v1.4.1 — dependency refresh** (2026-11-06): one combined update replaces 26 stale Dependabot PRs and takes open Dependabot alerts from 317 to 7 (the rest are build-time or dev-only tools with no non-major fix). Nuxt 4.6.4, Vue 3.5.45, Vuetify 3.13.7, Nuxt Content 3.16.2, Vitest 4.1.12, Fuse.js 7.5.0; dev majors @nuxt/test-utils 4, happy-dom 21, netlify-cli 27. **Node is now 22.23.4** (Nuxt 4.6 requires 22.22.3 or later): `.nvmrc`, `netlify.toml`
 - **v1.4.0 — What's New banner and page** (2026-11-06): the deadline-extension notice at the top of the countdown card is replaced by a **What's New** banner showing the newest update (a shorter version on `/faqs` and `/links`), with a link to the new **`/whats-new`** page, which lists every update newest first, back to the portal's launch on December 15, 2025. "What's New" is also the first link in the footer. Entries live in `app/utils/whatsNew.ts`
@@ -1153,8 +1155,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.4.2
-**Last Updated**: November 6, 2026
+**Version**: 1.5.0
+**Last Updated**: November 25, 2026
 
 **Core Dependencies**:
 

@@ -1,15 +1,13 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="10" lg="8">
-        <v-card class="pa-8" elevation="0" color="surface">
+    <div class="pk-page">
+      <div class="pk-page-inner">
+        <div class="search-page">
           <!-- Header -->
-          <div class="search-header mb-6">
-            <h1 class="text-h3 d-flex align-center flex-wrap mb-4">
-              <v-icon class="mr-3" color="primary" aria-hidden="true" :icon="mdiMagnify" />
-              <span>Search FAQs</span>
-            </h1>
-            <p class="text-subtitle-1 text-medium-emphasis">
+          <div class="search-header pk-page-head">
+            <p class="pk-label">Find an answer</p>
+            <h1 class="pk-page-title">Search FAQs</h1>
+            <p class="pk-page-intro">
               Search ICJIA accessibility FAQs for WCAG compliance, the compliance deadline, and state agency requirements.
             </p>
           </div>
@@ -121,9 +119,9 @@
               </ul>
             </div>
           </div>
-        </v-card>
-      </v-col>
-    </v-row>
+        </div>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -463,6 +461,8 @@ function handleEnterKey() {
 </script>
 
 <style scoped>
+/* Plakat look: a heavy outlined search box, and results as bordered panels
+   on --pk-card. */
 .search-header {
   text-align: left;
 }
@@ -470,17 +470,35 @@ function handleEnterKey() {
 .search-input-wrapper {
   position: sticky;
   top: 64px;
-  background: rgb(var(--v-theme-surface));
+  background: var(--pk-body);
   padding: 1rem 0;
   z-index: 10;
 }
 
 .search-input {
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
 }
 
 .search-input :deep(.v-field__input) {
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
+  color: var(--pk-heading);
+}
+
+/* A 2px white outline instead of Vuetify's hairline. */
+.search-input :deep(.v-field__outline) {
+  --v-field-border-width: 2px;
+  --v-field-border-opacity: 1;
+  color: var(--pk-heading);
+}
+
+.search-input :deep(.v-field-label) {
+  color: var(--pk-text-2);
+  opacity: 1;
+}
+
+.search-input-wrapper .text-caption {
+  color: var(--pk-text-2) !important;
+  font-size: 0.9375rem !important;
 }
 
 /* Results list */
@@ -491,27 +509,24 @@ function handleEnterKey() {
 }
 
 .result-card {
-  background: rgb(var(--v-theme-surface));
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-  border-radius: 12px;
-  padding: 1.25rem;
+  background: var(--pk-card);
+  border: 1px solid var(--pk-border-alt);
+  padding: 1.25rem 1.375rem;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
 .result-card:hover {
-  border-color: rgb(var(--v-theme-primary));
-  box-shadow: 0 4px 12px rgba(var(--v-theme-primary), 0.15);
-  transform: translateY(-2px);
+  border-color: var(--pk-heading);
+  background: var(--pk-hover);
 }
 
 .result-card:focus {
-  outline: 2px solid rgb(var(--v-theme-primary));
+  outline: 3px solid var(--pk-link);
   outline-offset: 2px;
 }
 
 .result-card.result-new {
-  border-left: 4px solid rgb(var(--v-theme-success));
+  border-top: 4px solid var(--pk-green);
 }
 
 .relevance-indicator {
@@ -522,46 +537,55 @@ function handleEnterKey() {
 }
 
 .relevance-chip {
-  font-size: 0.625rem !important;
-  font-weight: 600;
+  font-size: 0.75rem !important;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+}
+
+/* The lowest relevance level uses Vuetify's grey, which gives white text on
+   #9e9e9e (2.7:1). Draw it on a dark surface instead: white on #333 is 12.6:1. */
+.relevance-chip.bg-grey {
+  background: var(--pk-border-input) !important;
+  color: var(--pk-heading) !important;
+}
+
+.result-section :deep(.v-chip) {
+  font-size: 0.75rem;
 }
 
 .result-number {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--pk-text-2) !important;
+  opacity: 1 !important;
 }
 
 .result-question {
-  font-size: 1.1rem;
-  font-weight: 600;
-  line-height: 1.4;
-  color: rgb(var(--v-theme-on-surface));
-  margin-bottom: 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pk-heading);
+  margin-bottom: 0.625rem;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 0.375rem;
 }
 
 .new-badge {
   display: inline-block;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 9px;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: rgb(var(--v-theme-success));
-  color: rgb(var(--v-theme-on-success));
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  padding: 1px 8px;
+  background-color: var(--pk-green-wash);
+  color: var(--pk-green);
   flex-shrink: 0;
-  min-height: auto;
-  height: auto;
-  line-height: 1.2;
   white-space: normal;
-  word-wrap: break-word;
   overflow-wrap: break-word;
-  overflow: visible;
   max-width: 100%;
 }
 
@@ -582,54 +606,70 @@ function handleEnterKey() {
 }
 
 .result-preview {
-  font-size: 0.9rem;
+  font-size: 1.0625rem;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
-  color: rgb(var(--v-theme-on-surface-variant));
+  line-height: 1.55 !important;
+  color: var(--pk-text);
   margin-bottom: 0.75rem;
 }
 
 /* Ensure all paragraphs in search result previews meet AAA line-height */
 .result-preview :deep(p) {
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+  line-height: 1.55 !important;
 }
 
 .open-indicator {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+  font-size: 0.875rem;
 }
 
-.result-card:hover .open-indicator {
-  opacity: 1;
-}
-
-/* Search highlights */
+/* Search highlights: dark ink on yellow (15:1). */
 :deep(.search-highlight) {
-  background: rgba(255, 235, 59, 0.6);
-  color: inherit;
-  padding: 0.1em 0.2em;
-  border-radius: 3px;
-  font-weight: 500;
+  background: var(--pk-mark);
+  color: var(--pk-mark-ink);
+  padding: 0.05em 0.2em;
+  font-weight: 700;
 }
 
 /* Empty/no results states */
 .empty-state,
 .no-results {
-  text-align: center;
-  padding: 3rem 1rem;
+  text-align: left;
+  padding: 2rem 0 1rem;
+  border-top: 2px solid var(--pk-border-alt);
+}
+
+.empty-state .v-icon,
+.no-results .v-icon {
+  display: none;
+}
+
+.empty-state h2,
+.no-results h2 {
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.15 !important;
+  color: var(--pk-heading) !important;
+  opacity: 1 !important;
+}
+
+.empty-state p,
+.no-results p,
+.search-tips li {
+  font-size: 1.0625rem !important;
+  color: var(--pk-text) !important;
+  opacity: 1 !important;
 }
 
 .search-tips {
-  background: rgba(var(--v-theme-primary), 0.05);
-  border-radius: 8px;
-  padding: 1rem;
+  background: var(--pk-card);
+  border: 1px solid var(--pk-border-alt);
+  padding: 1rem 1.25rem;
   text-align: left;
-  display: inline-block;
+  display: block;
 }
 
 .search-tips ul {
@@ -639,6 +679,7 @@ function handleEnterKey() {
 
 .search-tips li {
   margin: 0.25rem 0;
+  line-height: 1.5;
 }
 
 /* Transition animations */
@@ -657,33 +698,13 @@ function handleEnterKey() {
   transition: transform 0.3s ease;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .v-card {
-    padding: 1.5rem !important;
-  }
-}
-
 @media (max-width: 600px) {
-  .v-card {
-    padding: 1rem !important;
-  }
-
-  h1.text-h3 {
-    font-size: 1.5rem !important;
-  }
-
   .result-card {
     padding: 1rem;
   }
 
   .result-question {
-    font-size: 1rem;
-  }
-
-  .search-input-wrapper {
-    top: 56px;
+    font-size: 1.1875rem;
   }
 }
 </style>
-

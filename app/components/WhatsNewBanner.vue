@@ -49,69 +49,74 @@ const shortDate = computed(() =>
 </script>
 
 <style scoped>
-/*
- * Selectors are prefixed with .whats-new-banner so they outrank the countdown
- * card's own `.countdown-card :deep(p)` color rule on the home page.
- */
+/* Plakat look: a quiet raised strip, like the announcement bar on
+   audit.icjia.app. Text on --pk-raised is 16:1; the link blue is 6.9:1. */
 .whats-new-banner {
-  background: #0f172a;
-  color: #ffffff;
-  border-bottom: 3px solid #f59e0b;
-  padding: 16px 24px;
+  background: var(--pk-raised);
+  color: var(--pk-text);
+  border: 1px solid var(--pk-border-alt);
+  margin-top: 24px;
+  padding: 16px 22px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 10px 14px;
+  align-items: flex-start;
+  gap: 10px 18px;
   text-align: left;
 }
 
+/* Under the compact countdown band the strip is attached to it. */
 .whats-new-banner-compact {
-  padding: 10px 16px;
+  margin-top: 0;
+  border-top: 0;
+  padding: 12px 24px;
 }
 
 .whats-new-banner .whats-new-badge {
   flex-shrink: 0;
-  background: #f59e0b;
-  color: #0f172a;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  margin-top: 3px;
+  background: var(--pk-green-wash);
+  color: var(--pk-green);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 2px 9px;
   white-space: nowrap;
 }
 
 .whats-new-banner .whats-new-text {
-  flex: 1;
+  flex: 1 1 20rem;
   min-width: 0;
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.5;
-  color: #f1f5f9 !important;
-  font-weight: 500;
+  color: var(--pk-text) !important;
+  font-weight: 400;
 }
 
 .whats-new-banner-compact .whats-new-text {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .whats-new-banner .whats-new-label {
   display: block;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #fde68a;
+  color: var(--pk-heading);
   margin-bottom: 2px;
 }
 
 .whats-new-banner .whats-new-text strong {
-  color: #ffffff;
+  color: var(--pk-heading);
+  font-weight: 700;
 }
 
 .whats-new-banner .whats-new-link {
-  color: #fbbf24 !important;
+  color: var(--pk-link) !important;
   text-decoration: underline !important;
   text-underline-offset: 2px;
   font-weight: 700;
@@ -120,24 +125,19 @@ const shortDate = computed(() =>
 
 .whats-new-banner .whats-new-link:hover,
 .whats-new-banner .whats-new-link:focus-visible {
-  color: #fde68a !important;
+  color: var(--pk-link-hover) !important;
   text-decoration-thickness: 2px;
 }
 
-.whats-new-banner .whats-new-link:focus-visible {
-  outline: 2px solid #fbbf24;
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
 @media (max-width: 600px) {
-  .whats-new-banner {
+  .whats-new-banner,
+  .whats-new-banner-compact {
     padding: 12px 16px;
   }
   /* On a phone the badge sits above the text, so the text keeps the full width. */
   .whats-new-banner .whats-new-text {
     flex-basis: 100%;
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 }
 

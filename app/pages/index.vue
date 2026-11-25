@@ -1,96 +1,84 @@
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="10" lg="8">
-        <!-- Countdown Clock Section -->
-        <v-card class="pa-0 mb-8 countdown-card" elevation="4" color="surface">
-          <!-- What's New: the newest entry from app/utils/whatsNew.ts -->
-          <WhatsNewBanner />
-          <div class="text-center countdown-body pa-8">
-            <h1 class="text-h3 mb-4">ICJIA Accessibility Portal</h1>
-            <p class="text-h6 mb-6 text-medium-emphasis">
-              Countdown to WCAG 2.1 AA Compliance
-            </p>
-            <ClientOnly>
-              <div
-                class="countdown-display"
-                role="status"
-                aria-live="polite"
-                aria-atomic="false"
-              >
-                <span class="sr-only">{{ countdownAriaLabel }}</span>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ formattedDays }}</div>
-                  <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-separator" aria-hidden="true">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ formattedHours }}</div>
-                  <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-separator" aria-hidden="true">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ formattedMinutes }}</div>
-                  <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-separator" aria-hidden="true">:</div>
-                <div class="countdown-item">
-                  <div class="countdown-value">{{ formattedSeconds }}</div>
-                  <div class="countdown-label">Seconds</div>
-                </div>
-              </div>
-              <template #fallback>
-                <div class="countdown-display">
-                  <div class="countdown-loader">
-                    <v-progress-circular
-                      indeterminate
-                      color="primary"
-                      size="48"
-                      width="4"
-                      aria-label="Loading countdown timer"
-                    />
-                  </div>
-                </div>
-              </template>
-            </ClientOnly>
-            <p class="text-body-2 mt-4">
-              <NuxtLink
-                href="https://www.ada.gov/resources/2024-03-08-web-rule/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="compliance-link"
-              >
-                <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiOpenInNew" />
-                ADA Title II Compliance Deadline: April 26, 2027
-              </NuxtLink>
-            </p>
-            <p class="text-caption mt-3 text-medium-emphasis site-dates">
-              <span class="date-item">
-                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiCreation" />
-                Created: {{ siteCreated }}
-              </span>
-              <span class="date-separator" aria-hidden="true">•</span>
-              <span class="date-item">
-                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiUpdate" />
-                Updated: {{ lastUpdated }}
-              </span>
-              <span class="date-separator" aria-hidden="true">•</span>
-              <span class="date-item">
-                <v-icon size="14" class="mr-1" aria-hidden="true" :icon="mdiCalendarCheck" />
-                Reviewed: {{ lastReviewed }}
-              </span>
-            </p>
-          </div>
-        </v-card>
+  <v-container class="home">
+    <!-- Hero: the cobalt block (title, deadline, dates) beside the countdown panel -->
+    <section class="hero" aria-label="Countdown to the compliance deadline">
+      <div class="hero-block pk-block">
+        <h1 class="hero-title">ICJIA Accessibility Portal</h1>
+        <p class="hero-labels pk-label">
+          <span>Countdown to WCAG 2.1 AA Compliance</span>
+          <span aria-hidden="true">ADA Title II</span>
+        </p>
+        <p class="hero-deadline">
+          <NuxtLink
+            href="https://www.ada.gov/resources/2024-03-08-web-rule/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="compliance-link"
+          >
+            ADA Title II Compliance Deadline: April 26, 2027
+          </NuxtLink>
+        </p>
+        <p class="site-dates">
+          <span class="date-item">Created: {{ siteCreated }}</span>
+          <span class="date-separator" aria-hidden="true">·</span>
+          <span class="date-item">Updated: {{ lastUpdated }}</span>
+          <span class="date-separator" aria-hidden="true">·</span>
+          <span class="date-item">Reviewed: {{ lastReviewed }}</span>
+        </p>
+      </div>
 
-        <!-- Shared FAQ experience (disclaimer, sort, review panel, sections) — same component as /faqs -->
-        <FaqBrowser
-          title-tag="h2"
-          :show-description="false"
-          :wrap-in-card="false"
-        />
-      </v-col>
-    </v-row>
+      <div class="hero-countdown">
+        <ClientOnly>
+          <div
+            class="countdown-display"
+            role="status"
+            aria-live="polite"
+            aria-atomic="false"
+          >
+            <span class="sr-only">{{ countdownAriaLabel }}</span>
+            <div class="countdown-item countdown-item-days">
+              <div class="countdown-value">{{ formattedDays }}</div>
+              <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-value">{{ formattedHours }}</div>
+              <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-value">{{ formattedMinutes }}</div>
+              <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-value">{{ formattedSeconds }}</div>
+              <div class="countdown-label">Seconds</div>
+            </div>
+          </div>
+          <template #fallback>
+            <div class="countdown-display">
+              <div class="countdown-loader">
+                <v-progress-circular
+                  indeterminate
+                  color="primary"
+                  size="48"
+                  width="4"
+                  aria-label="Loading countdown timer"
+                />
+              </div>
+            </div>
+          </template>
+        </ClientOnly>
+      </div>
+    </section>
+
+    <!-- What's New: the newest entry from app/utils/whatsNew.ts -->
+    <WhatsNewBanner />
+
+    <!-- Shared FAQ experience (disclaimer, sort, review panel, sections) — same component as /faqs -->
+    <FaqBrowser
+      title-tag="h2"
+      :show-description="false"
+      :wrap-in-card="false"
+    />
   </v-container>
 </template>
 
@@ -102,7 +90,6 @@
  */
 
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { mdiOpenInNew, mdiCreation, mdiUpdate, mdiCalendarCheck } from "~/utils/icons";
 import { useSeo } from "../composables/useSeo";
 import {
   useOrganizationStructuredData,
@@ -116,10 +103,10 @@ const targetDate = new Date("2027-04-26T00:00:00-05:00").getTime();
 const siteCreated = "December 15, 2025";
 
 /** @type {string} Last update date - update when content is added or edited */
-const lastUpdated = "November 6, 2026";
+const lastUpdated = "November 25, 2026";
 
 /** @type {string} Last full review date - update when the FAQ is re-verified against official sources */
-const lastReviewed = "November 6, 2026";
+const lastReviewed = "November 25, 2026";
 
 
 /** @type {import('vue').Ref<boolean>} Whether component has mounted on client */
@@ -262,183 +249,148 @@ useWebSiteStructuredData();
 </script>
 
 <style scoped>
-
-.countdown-card {
-  background: rgb(var(--v-theme-surface)) !important;
-  color: rgb(var(--v-theme-on-surface)) !important;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -2px rgba(0, 0, 0, 0.1),
-    0 10px 25px -5px rgba(var(--v-theme-primary), 0.15) !important;
-  border: 1px solid rgba(var(--v-theme-primary), 0.1);
-  overflow: hidden;
+/* Plakat look: the home hero is the same two-part layout as audit.icjia.app —
+   one cobalt colour field on the left, a white-outlined panel on the right. */
+.home {
+  padding-top: 24px;
+  padding-bottom: 0;
 }
 
-.countdown-card :deep(h1),
-.countdown-card :deep(p),
-.countdown-card :deep(.text-h3),
-.countdown-card :deep(.text-h6),
-.countdown-card :deep(.text-body-2) {
-  color: rgb(var(--v-theme-on-surface)) !important;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.hero-block {
+  flex: 1.35 1 480px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 44px 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* The label row reads first on screen; the h1 stays first in the document. */
+.hero-labels {
+  order: -1;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  color: var(--pk-brand-ink);
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.5rem, 7.2vw, 5.75rem);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--pk-brand-ink);
+  overflow-wrap: break-word;
+}
+
+.hero-deadline {
+  margin: 0;
+  font-size: 1.3125rem;
+  line-height: 1.5;
 }
 
 .compliance-link {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
-  /* Use black for maximum contrast on light background (21:1) */
-  color: #000000 !important;
-  text-decoration: none;
-  font-weight: 500;
+  /* White on cobalt: 5.7:1. Underlined, so colour is not the only cue. */
+  color: var(--pk-brand-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  /* WCAG 2.5.5 Target Size (Enhanced): at least 44px tall */
   display: inline-flex;
   align-items: center;
-  transition: opacity 0.2s ease;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
-  min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 8px 12px;
-  box-sizing: border-box;
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .compliance-link,
-.v-theme--dark .compliance-link {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #BFDBFE !important; /* Lighter blue (#BFDBFE) for 7:1+ contrast on dark background */
+  min-height: 44px;
 }
 
 .compliance-link:hover {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Don't reduce opacity, maintain full contrast */
-  opacity: 1 !important;
-  text-decoration: underline;
-  /* Maintain AAA contrast on hover */
-  color: #000000 !important;
-}
-
-/* Dark theme: use lighter color for AAA contrast on hover */
-[data-v-theme="dark"] .compliance-link:hover,
-.v-theme--dark .compliance-link:hover {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain 7:1 contrast on hover */
-  color: #BFDBFE !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
-.compliance-link:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  border-radius: 4px;
+  text-decoration-thickness: 3px;
 }
 
 .site-dates {
+  margin: auto 0 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Override text-medium-emphasis for better contrast */
-  color: rgb(var(--v-theme-on-surface)) !important;
+  gap: 0 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--pk-brand-ink);
 }
 
-/* Dark theme: ensure AAA contrast for site dates */
-[data-v-theme="dark"] .site-dates,
-.v-theme--dark .site-dates {
-  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
-}
-
-.date-item {
-  display: inline-flex;
-  align-items: center;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure text meets AAA contrast */
-  color: rgb(var(--v-theme-on-surface)) !important;
-}
-
-/* Dark theme: ensure AAA contrast for date items */
-[data-v-theme="dark"] .date-item,
-.v-theme--dark .date-item {
-  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
-}
-
-.date-separator {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
-  opacity: 0.7 !important;
-  color: rgb(var(--v-theme-on-surface));
-}
-
-/* Dark theme: ensure AAA contrast for date separators */
-[data-v-theme="dark"] .date-separator,
-.v-theme--dark .date-separator {
-  opacity: 0.7 !important;
-  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
+.hero-countdown {
+  flex: 1 1 360px;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 3px solid var(--pk-heading);
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .countdown-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 2rem 0;
-  min-height: 120px;
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  min-height: 300px;
+  align-content: end;
 }
 
 .countdown-loader {
+  grid-column: 1 / -1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 2rem 0;
+  align-self: center;
 }
 
 .countdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
-  flex: 0 0 auto;
+  border-top: 3px solid var(--pk-heading);
+  padding-top: 12px;
+}
+
+.countdown-item-days {
+  grid-column: 1 / -1;
+  border-top: 0;
+  padding-top: 0;
 }
 
 .countdown-value {
-  font-size: 4.5rem;
-  font-weight: bold;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1;
-  color: rgb(var(--v-theme-primary));
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  color: var(--pk-heading);
+  /* Digits keep one width, so the numbers do not shuffle every second. */
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-item-days .countdown-value {
+  font-size: clamp(6rem, 17vw, 13.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.06em;
 }
 
 .countdown-label {
-  font-size: 0.875rem;
-  text-transform: uppercase;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  margin-top: 0.5rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
-  opacity: 0.9 !important;
-  color: rgb(var(--v-theme-on-surface)) !important;
+  text-transform: uppercase;
+  color: var(--pk-text-2);
 }
 
-/* Dark theme: ensure AAA contrast for countdown labels */
-[data-v-theme="dark"] .countdown-label,
-.v-theme--dark .countdown-label {
-  opacity: 1 !important;
-  color: rgb(248, 250, 252) !important; /* Full contrast on dark background */
-}
-
-.countdown-separator {
-  font-size: 3rem;
-  font-weight: bold;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher opacity for better contrast */
-  opacity: 0.7 !important;
-  padding: 0 0.25rem;
-  color: rgb(var(--v-theme-on-surface)) !important;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-
-/* Dark theme: ensure AAA contrast for countdown separators */
-[data-v-theme="dark"] .countdown-separator,
-.v-theme--dark .countdown-separator {
-  opacity: 0.8 !important;
-  color: rgb(248, 250, 252) !important; /* Higher contrast on dark background */
+.countdown-item-days .countdown-label {
+  margin-top: 14px;
 }
 
 /* Screen reader only text - visually hidden but available to assistive technologies */
@@ -454,79 +406,27 @@ useWebSiteStructuredData();
   border-width: 0;
 }
 
-@media (max-width: 960px) {
-  .countdown-card {
-    padding: 1.5rem !important;
-  }
-
-  .countdown-value {
-    font-size: 3.5rem;
-  }
-
-  .countdown-separator {
-    font-size: 2.5rem;
-    padding: 0 0.2rem;
-  }
-}
-
 @media (max-width: 600px) {
-  .countdown-card {
-    padding: 1rem !important;
+  .hero {
+    gap: 20px;
+  }
+
+  .hero-block {
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .hero-countdown {
+    padding: 24px;
   }
 
   .countdown-display {
-    gap: 0.25rem;
-    margin: 1.5rem 0;
-    min-height: 100px;
+    gap: 14px;
+    min-height: 220px;
   }
 
-  .countdown-value {
-    font-size: 2.5rem;
-  }
-
-  .countdown-item {
-    min-width: 55px;
-  }
-
-  .countdown-separator {
-    font-size: 1.75rem;
-    padding: 0 0.15rem;
-  }
-
-  .countdown-label {
-    font-size: 0.7rem;
-    margin-top: 0.25rem;
-  }
-
-  h1.text-h3 {
-    font-size: 1.5rem !important;
+  .hero-deadline {
+    font-size: 1.125rem;
   }
 }
-
-@media (max-width: 400px) {
-  .countdown-display {
-    gap: 0.2rem;
-    margin: 1rem 0;
-    min-height: 90px;
-  }
-
-  .countdown-value {
-    font-size: 2rem;
-  }
-
-  .countdown-item {
-    min-width: 45px;
-  }
-
-  .countdown-separator {
-    font-size: 1.5rem;
-    padding: 0 0.1rem;
-  }
-
-  .countdown-label {
-    font-size: 0.65rem;
-    margin-top: 0.2rem;
-  }
-}
-
 </style>
