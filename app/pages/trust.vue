@@ -6,10 +6,11 @@
         <p class="pk-label">Why trust these FAQs?</p>
         <h1 class="pk-page-title">Don't trust the author. Check the sources.</h1>
         <p class="pk-page-intro">
-          Every answer in this FAQ is built on the law and the standard
-          themselves, and links to them. You can check any answer in a couple
-          of clicks, without taking anyone's word for it, including the
-          author's.
+          Every answer in this FAQ is checked, line by line, against the
+          official sources it links to: the federal ADA rule, Illinois's IITAA,
+          and the WCAG standard. Those checks happen again and again, not once.
+          You can follow any answer to its source in a couple of clicks,
+          without taking anyone's word for it, including the author's.
         </p>
       </div>
 
@@ -23,7 +24,7 @@
           </div>
           <div class="trust-stat">
             <dt class="trust-stat-label">
-              links straight to the law and the standard (the federal
+              links straight to the official sources (the federal
               regulation, the Federal Register, ADA.gov, Illinois DoIT, the
               IITAA statute, and W3C)
             </dt>

@@ -41,7 +41,7 @@ The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia
 
 **Why trust these FAQs?** — the three authorities every answer rests on, how many links go straight to them, and every full review, dated:
 
-![Why trust these FAQs page: the headline "Don't trust the author. Check the sources." above four figures: 120 questions answered, 430 links straight to the law and the standard, 6 full reviews, and the last review date, November 25, 2026](markdown-documentation/screenshots/trust.png)
+![Why trust these FAQs page: the headline "Don't trust the author. Check the sources." above four figures: 120 questions answered, 430 links straight to the official sources, 6 full reviews, and the last review date, November 25, 2026](markdown-documentation/screenshots/trust.png)
 
 **An open answer** — questions are ruled rows with an "Open +" / "Close –" cue:
 
