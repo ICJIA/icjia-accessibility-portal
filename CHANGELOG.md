@@ -6,6 +6,13 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.3] - 2026-11-25
+
+### Changed — a brighter purple, with the same contrast as audit.icjia.app's blue
+
+- The dark purple (`#442c6d`) almost disappeared into the black page (1.7:1). The brand purple is now **`#7b4acf`** (hover `#6532bd`), chosen to match the audit site's cobalt on both counts: white text on it is **5.6:1** (cobalt 5.7:1), and it stands **3.5:1** off the page (cobalt 3.5:1). Same hue family, so the purple text, lavender labels, and globe are unchanged.
+- og:image and README screenshots retaken.
+
 ## [1.6.2] - 2026-11-25
 
 ### Changed — every green accent is now purple
