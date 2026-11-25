@@ -350,6 +350,21 @@ describe('FAQ Download Generators', () => {
       // Should contain word/document.xml reference
       expect(content).toContain('word/document.xml')
     })
+
+    it('should not print the YAML frontmatter as body text', async () => {
+      // Regression: the frontmatter skip started its search for the closing
+      // "---" at the opening one, so everything after the first line was
+      // written into the document as text.
+      const { default: JSZip } = await import('jszip')
+      const zip = await JSZip.loadAsync(await readFile(outputPath))
+      const xml = await zip.file('word/document.xml')!.async('string')
+      const text = xml.replace(/<[^>]+>/g, ' ')
+
+      expect(text).not.toContain('title: Test FAQs')
+      // The body after the frontmatter is still there
+      expect(text).toContain('Test FAQ Document')
+      expect(text).toContain('What is accessibility?')
+    })
   })
 })
 

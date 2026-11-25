@@ -271,13 +271,16 @@ function markdownToDocxParagraphs(markdown) {
   let inList = false;
   let listItems = [];
 
-  // Remove YAML frontmatter
-  if (lines[0] === "---") {
-    while (i < lines.length && lines[i] !== "---") {
+  // Remove YAML frontmatter: skip from the opening "---" (line 0) through the
+  // closing "---". The search for the closing marker has to start at line 1;
+  // starting at line 0 matched the opening marker, so only that one line was
+  // skipped and the rest of the front matter was printed as body text.
+  if (lines[0].trim() === "---") {
+    i = 1;
+    while (i < lines.length && lines[i].trim() !== "---") {
       i++;
     }
     i++; // Skip closing ---
-    if (lines[i] === "---") i++;
   }
 
   while (i < lines.length) {

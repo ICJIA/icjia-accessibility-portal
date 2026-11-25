@@ -6,6 +6,13 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.2] - 2026-11-25
+
+### Fixed — the Word download printed the page's front matter as text
+
+- `scripts/generate-faq-docx.js` meant to skip the YAML front matter at the top of `content/faqs.md`, but its search for the closing `---` started at the opening one, so only the first line was skipped. The rest (`title:`, `description:`, `lastUpdated:`, the `disclaimer:` notes) was written into the document as a run of body text just above the first heading. The front matter is now skipped whole. The Markdown and plain-text downloads were not affected.
+- **Test:** a regression test opens the generated `.docx` and checks that no front-matter text is in the body (250 tests, was 249).
+
 ## [1.5.1] - 2026-11-25
 
 ### Content — the FAQ's maintainer is named

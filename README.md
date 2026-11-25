@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.5.1](https://img.shields.io/badge/Version-1.5.1-blue)](CHANGELOG.md)
+[![Version 1.5.2](https://img.shields.io/badge/Version-1.5.2-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -1002,6 +1002,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.5.2 — Word download fix** (2026-11-25): the Word download no longer prints the page's front matter (title, dates, and the About notes in raw form) as text above the first heading
 - **v1.5.1 — maintainer named** (2026-11-25): the "Created by" note in About These FAQs (home, `/faqs`, `/faqs-print`) and the Word and Markdown downloads now name Christopher Schweda as the person who created the FAQs and maintains, updates, and reviews them, with an email link. Open questions have padding inside their focus outline, and this README was checked against the code and given screenshots
 - **v1.5.0 — new look, and a late-November accuracy review** (2026-11-25): every page is redesigned in the "Plakat" look of [audit.icjia.app](https://audit.icjia.app) — near-black page, heavy Archivo type (self-hosted), square corners, thick white rules, one cobalt block. The home page opens with the cobalt title block beside the countdown panel; `/faqs`, `/links`, `/search`, `/whats-new`, and the error page share one reading-page layout; questions are ruled rows with an "Open +" / "Close –" cue. No functionality or logic changed. axe-core reports 0 violations on every page (desktop and mobile), and the og:image is regenerated in the new look. The FAQ was also re-verified against official sources (dates unchanged; NFB v. DOJ summary-judgment motion noted; about 50 small corrections), and its reviewed/updated dates are November 25, 2026
 - **v1.4.2 — documentation brought current** (2026-11-06): README, CLAUDE.md, the Architecture Guide, and the docs index checked against the code after v1.4.0 and v1.4.1 (What's New, Node 22.23.4, current dependency versions, project trees, build pipeline, Netlify config, 249 tests). The published architecture page (`/docs/architecture/`) is regenerated (it still said April 24, 2026) and now passes axe-core with 0 violations, best practices included: its light theme had low-contrast links and header, links in text were told apart by color alone, code blocks weren't keyboard-scrollable, there was no `<main>` landmark, and `target="_blank"` links were broken by the generator's italic rule
@@ -1101,7 +1102,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.1
+**Version**: 1.5.2
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

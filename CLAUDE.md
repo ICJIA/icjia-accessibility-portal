@@ -321,7 +321,7 @@ Every release that changes what readers see gets a What's New entry. Entries liv
 ## Quick Reference: Project Status
 
 - **WCAG Compliance**: 100% (0 violations)
-- **Test Coverage**: 249/249 tests passing across 14 files (unit + Nuxt)
+- **Test Coverage**: 250/250 tests passing across 14 files (unit + Nuxt)
 - **Node Version**: 22.23.4
 - **Last Major Update**: November 2026 (v1.5.0, Plakat redesign)
 - **Deadline**: April 26, 2027
