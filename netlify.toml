@@ -1,5 +1,6 @@
 [build]
-# Ensure Playwright has a Chromium binary available for build-time PDF generation (postgenerate)
+# Installs the Chromium binary that the pinned Playwright devDependency expects.
+# (PDF generation was removed in January 2026; nothing in the build uses it today.)
 command = "npx playwright install chromium && yarn run generate"
 publish = ".output/public"
 
@@ -12,13 +13,28 @@ YARN_VERSION = "1.22.22"
 [[headers]]
 for = "/*"
 [headers.values]
-Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://plausible.icjia.cloud; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://plausible.icjia.cloud; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+# Content-Security-Policy (tightened in the November 25, 2026 security audit):
+#  - script-src: only this origin. Plausible is bundled with the app and only
+#    sends a fetch to plausible.icjia.cloud (connect-src); no script is loaded
+#    from it, so it is no longer a script source. 'unsafe-inline' has to stay:
+#    Nuxt writes its hydration data as an inline script, and the static /docs/
+#    pages use inline scripts. 'wasm-unsafe-eval' is for Nuxt Content's
+#    in-browser SQLite (WebAssembly).
+#  - img-src: this origin and data: URLs only (was any https: host). No page
+#    loads an image from another site.
+#  - object-src 'none': no plugins. upgrade-insecure-requests: never fetch http.
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://plausible.icjia.cloud; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 X-Frame-Options = "DENY"
-X-XSS-Protection = "1; mode=block"
+# The legacy XSS auditor is switched off, as OWASP recommends: it is removed
+# from current browsers and "1; mode=block" could be abused in old ones. The
+# Content-Security-Policy above is the control.
+X-XSS-Protection = "0"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
-Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+# Other sites' windows cannot keep a script handle on this one.
+Cross-Origin-Opener-Policy = "same-origin"
 
 [[headers]]
 for = "/_nuxt/*"

@@ -198,9 +198,12 @@ function getQuestionId(question: string): string {
  */
 function getHighlightTerm(): string | null {
   if (typeof window === "undefined") return null;
+  // URLSearchParams.get() already returns the decoded value. Decoding it a
+  // second time threw "URI malformed" for any search term containing "%"
+  // (for example "50%"), which stopped this component's setup on that page.
   const params = new URLSearchParams(window.location.search);
   const term = params.get("highlight");
-  return term ? decodeURIComponent(term) : null;
+  return term || null;
 }
 
 /**

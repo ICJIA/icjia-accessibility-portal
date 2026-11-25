@@ -2,14 +2,14 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.5.2](https://img.shields.io/badge/Version-1.5.2-blue)](CHANGELOG.md)
+[![Version 1.5.3](https://img.shields.io/badge/Version-1.5.3-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
 [![Lighthouse 100%](https://img.shields.io/badge/Lighthouse-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Best Practices 100%](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen)](https://developer.chrome.com/docs/lighthouse/)
 [![Zero Hydration Errors](https://img.shields.io/badge/Hydration%20Errors-0-brightgreen)](#ssr-hydration-fix-vuetify--nuxt)
-[![Security Audited](https://img.shields.io/badge/Security-Audited-blueviolet)](CHANGELOG.md#110---2026-03-26)
+[![Security Audited](https://img.shields.io/badge/Security-Audited%20Nov%202026-blueviolet)](#security-audits)
 
 A modern, accessible portal for the Illinois Criminal Justice Information Authority (ICJIA) designed to keep all accessibility information in one place to meet the **ADA Title II April 26, 2027 guideline**. This portal consolidates accessibility resources including comprehensive FAQs and curated links to ensure compliance and provide a centralized resource for accessibility information.
 
@@ -289,13 +289,15 @@ This site is configured for deployment on Netlify with automatic builds and opti
 The `netlify.toml` file includes:
 
 - **Security headers**:
-  - Content-Security-Policy: Restricts script/style/font/image sources; blocks framing, base-uri, and form-action
+  - Content-Security-Policy: scripts, styles, fonts, and images from this origin only (plus `data:` images); analytics `fetch` to `plausible.icjia.cloud`; `object-src 'none'`; blocks framing, `base-uri`, and `form-action`; `upgrade-insecure-requests`
   - Strict-Transport-Security: Enforces HTTPS with 1-year max-age, includeSubDomains, and preload
   - X-Frame-Options: DENY (prevents clickjacking)
   - X-Content-Type-Options: nosniff
-  - X-XSS-Protection: 1; mode=block
+  - X-XSS-Protection: 0 (the legacy filter is switched off; the Content-Security-Policy is the control)
   - Referrer-Policy: strict-origin-when-cross-origin
-  - Permissions-Policy: Blocks geolocation, microphone, camera
+  - Permissions-Policy: Blocks camera, microphone, geolocation, payment, USB, and motion sensors
+  - Cross-Origin-Opener-Policy: same-origin
+- **Security contact**: `/.well-known/security.txt`
 - **Cache headers** for static assets (1 year cache for immutable files)
 
 ### Deployment Steps
@@ -927,41 +929,86 @@ Reports include:
 - Remediation guidance
 - Element-level details
 
-## Security Audit (Red/Blue Team)
+## Security Audits
 
-A comprehensive red/blue team security assessment was conducted on **March 26, 2026**. Full details are documented in [CHANGELOG.md](CHANGELOG.md#110---2026-03-26).
+Every red/blue team security audit of this site is listed here, newest first. The most recent audit is shown in full; earlier ones are collapsed, each with its findings and mitigations.
 
-### Overall Risk Rating: LOW
+| Date | Version | Result |
+|------|---------|--------|
+| **November 25, 2026** | 1.5.3 | 0 critical, 0 high in the deployed site. 12 findings: 7 fixed, 3 accepted with reasons, 2 for the repository owner |
+| March 26, 2026 | 1.1.0 | 0 critical. 7 findings: 2 fixed (CSP and HSTS headers added), 5 dev-only or low risk |
 
-This is a statically-generated documentation site with no server-side processing, no authentication, no database, and no user uploads — a minimal attack surface by design.
+### November 25, 2026 — Red/Blue Team Audit (v1.5.3)
 
-### Red Team Findings Summary
+**Overall risk: LOW.** The site is static files on Netlify: no server code, no login, no database, no forms that post anywhere, and no user uploads. No way was found to run script in a visitor's browser, read anything private, or change the site.
 
-| Severity | Count | Description |
-|----------|-------|-------------|
-| **Critical** | 0 | No critical vulnerabilities in application code |
-| **High** | 3 | Transitive dev dependency issues (basic-ftp, devalue, axios) — not in production runtime |
-| **Medium** | 2 | Missing CSP and HSTS headers — **Fixed** |
-| **Low** | 4 | Conditional v-html usage, build-time dep issues — monitored |
+**Scope and method.** The deployed site (`accessibility.icjia.app`), the source at v1.5.2, the build pipeline, and the repository settings. Red team: every place the app writes HTML from a string; everything read from the URL; response headers on the live site; files that should not be public; third-party requests; `yarn audit` and GitHub Dependabot alerts; secrets in the tree and in git history. Blue team: each finding fixed or given a written reason, then re-tested.
 
-### Blue Team Strengths
+#### Red team findings
 
-- Zero dangerous patterns (`eval`, `Function`, `innerHTML` with user data)
-- Proper XSS escaping in search with `escapeHtml()` before `v-html`
-- External links secured with `rel="noopener noreferrer"`
-- Zod schema validation on all content frontmatter
-- No exposed secrets (`.env` gitignored, no API keys in source)
-- Static site generation eliminates server-side attack vectors
+| # | Severity | Finding | Mitigation | Status |
+|---|----------|---------|------------|--------|
+| 1 | Low | The Content-Security-Policy let images load from **any** `https:` host. If markup were ever injected, an image request could carry data out. | `img-src` is now `'self' data:` only. No page loads an image from another site. | **Fixed** |
+| 2 | Low | The policy listed `plausible.icjia.cloud` as a **script** source, but no script is loaded from it (the analytics code is bundled; it only sends a `fetch`). An unused script source is unneeded trust. | Removed from `script-src`; it stays in `connect-src`. | **Fixed** |
+| 3 | Low | The policy had no `object-src` and no `upgrade-insecure-requests`. | Added `object-src 'none'` and `upgrade-insecure-requests`. | **Fixed** |
+| 4 | Low | `X-XSS-Protection: 1; mode=block` switches on the old browser XSS filter, which is removed from current browsers and could be abused in old ones. | Set to `0`, as OWASP recommends. The Content-Security-Policy is the control. | **Fixed** |
+| 5 | Low | No `Cross-Origin-Opener-Policy`; `Permissions-Policy` named only three features. | Added `Cross-Origin-Opener-Policy: same-origin`; `Permissions-Policy` now also switches off payment, USB, and motion sensors. | **Fixed** |
+| 6 | Low | A link with a `%` in its `highlight` value (for example a search for "50%") threw `URI malformed` when the page opened, because the value was URL-decoded twice. That stopped the FAQ list's setup on the page. No script could run; the effect was a broken page for that link. | The second decode is removed (`FaqAccordion.vue`). | **Fixed** |
+| 7 | Low | No `security.txt`, so someone who finds a problem has no stated contact. | Added `/.well-known/security.txt` (RFC 9116) with a contact address and an expiry date. | **Fixed** |
+| 8 | Medium (residual) | `script-src` still allows `'unsafe-inline'`, so the policy would not stop an injected inline script. | Cannot be removed without breaking the site: Nuxt writes its page data as an inline script, and the static `/docs/` pages use inline scripts. Compensating controls: no injection point was found (see "Verified" below), and every other directive is narrowed to this origin. | **Accepted** |
+| 9 | High by advisory rating; low in practice | `yarn audit` reports 8 advisories (4 high, 4 moderate) in `zod` 3.x, `glob` 13.x, `minimatch` 10.x, `basic-ftp`, and `extract-zip`. | All are in build or developer tools (Nuxt Content's build step, Nitro's file tracing, Puppeteer, netlify-cli, test utilities). None is in the JavaScript sent to browsers (checked in the built bundle), and no server runs in production. Each needs attacker-supplied input, and these tools only read this repository's own files. None has a fix short of a major-version change in its parent package. | **Accepted, monitored** |
+| 10 | Info | Two "raw HTML" spots render text from `content/faqs.md` front matter (the About notes), which now includes a link. | The text comes only from the repository, never from a visitor. Changing it requires commit access, which already means control of the site. | **Accepted** |
+| 11 | Info (owner) | The GitHub repository is private, and on its current plan it has no branch protection on `main` and no secret scanning. | Recommended: turn on branch protection and secret scanning if the plan changes. No secret was found in the tree or in file names in history. | **Owner action** |
+| 12 | Info (owner) | The site's footer and this README link to the GitHub repository, which the public cannot open while it is private. | Not a security risk. Either make the repository public or remove the public link. | **Owner action** |
+
+The maintainer's email address is published on the site as a `mailto:` link at the owner's request; it can be collected by address harvesters. Noted, not counted as a finding.
+
+#### Blue team: verified with no finding
+
+- **No script injection.** The search page builds result HTML by escaping every piece of text first; typing `<img src=x onerror=alert(1)>` into search renders nothing. Search-term highlighting in answers uses text nodes, never HTML. Structured data (JSON-LD) escapes `<`, so content cannot break out of its script tag.
+- **URL input is handled safely.** The page hash is only ever looked up with `getElementById`; the `highlight` value is only ever inserted as text.
+- **Nothing private is served.** `/.env`, `/.git/config`, `/package.json`, and `/routes.json` all return 404. No source maps are published.
+- **No server code is deployed.** The four files in `server/routes/` run only in local development; Netlify publishes `.output/public` and nothing else.
+- **No third-party code.** The only request to another host is one analytics `fetch` to ICJIA's own Plausible server. Fonts, icons, and scripts are all served from this origin.
+- **Transport.** HTTP redirects to HTTPS (301); HSTS is one year with `includeSubDomains` and `preload`.
+- **Framing.** `X-Frame-Options: DENY` and `frame-ancestors 'none'`.
+- **Links.** All 497 links in the FAQ that open a new tab carry `rel="noopener noreferrer"`; no `javascript:` or `data:` links in content.
+- **Supply chain.** `yarn.lock` pins all 1,723 packages to the npm registry with integrity hashes.
+- **Secrets.** None in the tree; no `.env`, key, or credential file was ever committed.
+
+#### Re-test
+
+After the fixes: 250/250 tests pass; the production build was served locally with the new headers and every page (including `/docs/`) loaded with no Content-Security-Policy violation and no console error; axe-core reports 0 violations.
+
+<details>
+<summary><strong>March 26, 2026 — Red/Blue Team Audit (v1.1.0)</strong>: 0 critical; 7 findings; CSP and HSTS headers added</summary>
+
+**Overall risk: LOW.** A statically generated site with no server-side processing, no authentication, no database, and no user uploads. Full details: [CHANGELOG.md](CHANGELOG.md#110---2026-03-26).
+
+#### Red team findings
+
+| # | Severity | Finding | Mitigation | Status |
+|---|----------|---------|------------|--------|
+| 1 | Medium | No Content-Security-Policy header | Added: resources restricted to `'self'` and `plausible.icjia.cloud`; framing, `base-uri`, and `form-action` locked down | **Fixed** |
+| 2 | Medium | No Strict-Transport-Security header | Added: one year, `includeSubDomains`, `preload` | **Fixed** |
+| 3 | High | Vulnerable transitive dependencies (`basic-ftp` path traversal, `devalue` prototype pollution, `axios` denial of service) | Developer and build tools only, not in the production site. Most were cleared by the November 6, 2026 dependency refresh (v1.4.1), which took open Dependabot alerts from 317 to 7 | **Acknowledged** |
+| 4 | High (conditional) | `v-html` used to render the FAQ disclaimer | Content is repository front matter, not user input | **Low risk** |
+| 5 | Moderate | ReDoS in `ajv` (via netlify-cli) | Developer tool only | **Dev-only** |
+| 6 | Moderate | esbuild dev-server XSS | Development server only | **Dev-only** |
+| 7 | Moderate | `jsdiff` denial of service in `parsePatch` | Build-time only | **Build-only** |
+
+#### Blue team strengths
+
+- No `eval`, `Function`, or `innerHTML` with user data
+- Search output escaped with `escapeHtml()` before `v-html`
+- External links use `rel="noopener noreferrer"`
+- Zod schema validation on content front matter
+- No exposed secrets (`.env` is gitignored; no API keys in source)
+- Static generation removes server-side attack surface
 - Privacy-first analytics (self-hosted Plausible, no cookies)
+- `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and a `Permissions-Policy` blocking geolocation, microphone, and camera
 
-### Remediations Applied
-
-- **Content-Security-Policy** header added — restricts all resource loading to `'self'` and `plausible.icjia.cloud`
-- **Strict-Transport-Security** header added — enforces HTTPS with 1-year max-age and preload
-
-### Accessibility Audit (axe-core)
-
-Full axe-core assessment conducted on **March 26, 2026**:
+#### Accessibility audit run the same day (axe-core)
 
 | Metric | Result |
 |--------|--------|
@@ -971,6 +1018,8 @@ Full axe-core assessment conducted on **March 26, 2026**:
 | **Violations Found** | **0** |
 | **Skip Links Verified** | 15/15 |
 | **WCAG 2.1 AA Compliance** | 100% |
+
+</details>
 
 ## Changelog
 
@@ -1002,6 +1051,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.5.3 — red/blue team security audit** (2026-11-25): 12 findings, none critical or high in the deployed site. Seven fixed (tighter Content-Security-Policy and other headers, a crash on links whose search term contains "%", a new `security.txt`), three accepted with reasons, two for the repository owner. See [Security Audits](#security-audits)
 - **v1.5.2 — Word download fix** (2026-11-25): the Word download no longer prints the page's front matter (title, dates, and the About notes in raw form) as text above the first heading
 - **v1.5.1 — maintainer named** (2026-11-25): the "Created by" note in About These FAQs (home, `/faqs`, `/faqs-print`) and the Word and Markdown downloads now name Christopher Schweda as the person who created the FAQs and maintains, updates, and reviews them, with an email link. Open questions have padding inside their focus outline, and this README was checked against the code and given screenshots
 - **v1.5.0 — new look, and a late-November accuracy review** (2026-11-25): every page is redesigned in the "Plakat" look of [audit.icjia.app](https://audit.icjia.app) — near-black page, heavy Archivo type (self-hosted), square corners, thick white rules, one cobalt block. The home page opens with the cobalt title block beside the countdown panel; `/faqs`, `/links`, `/search`, `/whats-new`, and the error page share one reading-page layout; questions are ruled rows with an "Open +" / "Close –" cue. No functionality or logic changed. axe-core reports 0 violations on every page (desktop and mobile), and the og:image is regenerated in the new look. The FAQ was also re-verified against official sources (dates unchanged; NFB v. DOJ summary-judgment motion noted; about 50 small corrections), and its reviewed/updated dates are November 25, 2026
@@ -1102,7 +1152,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.2
+**Version**: 1.5.3
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

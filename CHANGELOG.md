@@ -6,6 +6,35 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.3] - 2026-11-25
+
+### Security (Red/Blue Team Audit)
+
+A red/blue team security audit of the deployed site, the source, the build pipeline, and the repository settings was run on 2026-11-25. **Overall risk: LOW**: 12 findings, none critical or high in the deployed site. The README's [Security Audits](README.md#security-audits) section has the full table and the list of what was verified with no finding; it now lists every audit, with only the newest shown open.
+
+#### Fixed
+
+- **Content-Security-Policy tightened** (`netlify.toml`): `img-src` is `'self' data:` (was any `https:` host); `plausible.icjia.cloud` removed from `script-src` (no script is loaded from it; it stays in `connect-src`); `object-src 'none'` and `upgrade-insecure-requests` added.
+- **`X-XSS-Protection: 0`** (was `1; mode=block`): the legacy filter is removed from current browsers and could be abused in old ones.
+- **`Cross-Origin-Opener-Policy: same-origin`** added; **`Permissions-Policy`** also switches off payment, USB, and motion sensors.
+- **`?highlight=` with a `%`** (`FaqAccordion.vue`): the value was URL-decoded twice, so a link from a search such as "50%" threw `URI malformed` and stopped the FAQ list's setup on that page. The second decode is removed.
+- **`/.well-known/security.txt`** added (RFC 9116), with a contact address and an expiry date.
+
+#### Accepted, with reasons
+
+- **`script-src 'unsafe-inline'`** stays: Nuxt writes its page data as an inline script and the static `/docs/` pages use inline scripts. No injection point was found, and every other directive is limited to this origin.
+- **8 dependency advisories** (4 high, 4 moderate: `zod` 3.x, `glob` 13.x, `minimatch` 10.x, `basic-ftp`, `extract-zip`): all in build or developer tools, none in the browser bundle, no server in production, and no fix short of a major-version change in the parent package.
+- **`v-html` for the About notes**: the text is repository front matter, never visitor input.
+
+#### For the repository owner
+
+- The repository is private, with no branch protection on `main` and no secret scanning on its current plan.
+- The footer and README link to the repository, which the public cannot open while it is private.
+
+#### Verified
+
+- 250/250 tests pass. The production build, served locally with the new headers, loaded every page (including `/docs/`) with no Content-Security-Policy violation and no console error. A search for `<img src=x onerror=alert(1)>` renders nothing.
+
 ## [1.5.2] - 2026-11-25
 
 ### Fixed — the Word download printed the page's front matter as text

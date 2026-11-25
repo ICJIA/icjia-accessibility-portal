@@ -1,0 +1,6 @@
+# Security contact for accessibility.icjia.app (RFC 9116)
+# To report a security problem with this site, email the address below.
+Contact: mailto:christopher.schweda@illinois.gov
+Expires: 2027-11-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://accessibility.icjia.app/.well-known/security.txt

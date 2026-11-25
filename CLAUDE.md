@@ -289,6 +289,10 @@ node audit-accessibility.js  # Terminal 2: Run audit
 
 Every release that changes what readers see gets a What's New entry. Entries live in `app/utils/whatsNew.ts` (`WHATS_NEW_ENTRIES`); add the new one at the **top** (newest first; a unit test enforces the order). The newest entry is the banner at the top of the countdown card (`WhatsNewBanner.vue`, on `/`, `/faqs`, and `/links`); `/whats-new` lists them all. Write for readers, not developers: a short `title`, a one- or two-sentence `summary` (the banner shows it), optional `details` bullets, and optional `links` (`/faqs#…` anchors are checked by `test/unit/whatsNew.test.ts`). Dates are `YYYY-MM-DD` strings.
 
+### Recording a Security Audit
+
+Every red/blue team security audit is listed in the README's **Security Audits** section, newest first, each dated with its findings and mitigations. **Only the most recent audit is shown open; every older one goes in its own collapsed `<details>` block** (keep its findings and mitigations). When adding an audit: collapse the one that was open, add a row to the summary table, add a CHANGELOG entry, and update the "Security Audited" badge date.
+
 ### Modifying FAQ Content
 
 1. Edit `content/faqs.md`
