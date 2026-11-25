@@ -4,7 +4,10 @@
       <!-- Head -->
       <div class="pk-page-head">
         <p class="pk-label">Why trust these FAQs?</p>
-        <h1 class="pk-page-title">Don't trust the author. Check the sources.</h1>
+        <h1 class="pk-page-title">
+          Don't trust the author.
+          <span class="trust-accent">Check the sources.</span>
+        </h1>
         <p class="pk-page-intro">
           Every answer in this FAQ is checked, line by line, against the
           official sources it links to: the federal ADA rule, Illinois's IITAA,
@@ -188,7 +191,7 @@
         <p class="pk-label">The objection</p>
         <h2 id="trust-objection" class="trust-h2">
           "But one person wrote this. And they're not on ICJIA's Executive
-          Staff. Or an ICJIA lawyer. An IT guy wrote this!"
+          Staff. Or an ICJIA lawyer. <span class="trust-accent">An IT guy wrote this!"</span>
         </h2>
         <p class="trust-lead">
           <strong>True, and it matters less than it sounds.</strong> This FAQ
@@ -428,6 +431,11 @@ useBreadcrumbStructuredData([
 /* Plakat reading page, wider than the others for the cards and stats. */
 .trust-page {
   max-width: 64rem;
+}
+
+/* "Check the sources." in the site's purple (the text shade, 5.8:1). */
+.trust-accent {
+  color: var(--pk-brand-text);
 }
 
 .trust-section {

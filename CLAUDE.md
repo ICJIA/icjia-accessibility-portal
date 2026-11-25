@@ -118,7 +118,7 @@ The site shares its look with audit.icjia.app. Keep to it when adding UI:
 
 - Use the `--pk-*` tokens from `app/assets/css/plakat.css` (mirrored in the Vuetify dark theme in `nuxt.config.ts`); don't add new hex colours in components
 - One typeface (Archivo), heavy and tight for headings; square corners everywhere; thick white rules, not cards or shadows
-- One purple block (`.pk-block`, `--pk-brand`, `#64439d`) per page. It is deliberately not audit.icjia.app's cobalt, so the two sites are easy to tell apart. It is a background only, never text on the dark page (2.7:1); links use `--pk-link`
+- One purple block (`.pk-block`, `--pk-brand`, `#56388a`) per page. It is deliberately not audit.icjia.app's cobalt, so the two sites are easy to tell apart. It is a background only, never text on the dark page (2.7:1): purple text uses `--pk-brand-text` (`#9c79d8`, 5.8:1); links use `--pk-link`
 - Reading pages use `.pk-page` > `.pk-page-head` (`.pk-label` + `.pk-page-title` + `.pk-page-intro`)
 
 ### 2. Vue 3 Composition API

@@ -112,7 +112,7 @@ export default defineNuxtConfig({
           // Plakat look (November 2026), matching audit.icjia.app. The tokens
           // are mirrored as --pk-* variables in app/assets/css/plakat.css.
           // `primary` is the LINK blue (7.6:1 on the page), because Vuetify
-          // uses primary as a text colour; the purple brand block (#64439d)
+          // uses primary as a text colour; the purple brand block (#56388a)
           // is only ever a background, never text (3.4:1 on the page).
           dark: {
             colors: {
@@ -126,7 +126,7 @@ export default defineNuxtConfig({
               secondary: '#A3A3A3',
               'secondary-darken-1': '#D4D4D4',
               accent: '#60A5FA',
-              brand: '#64439D',
+              brand: '#56388A',
               error: '#F87171',
               info: '#60A5FA',
               success: '#4ADE80',

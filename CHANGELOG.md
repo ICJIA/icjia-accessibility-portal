@@ -11,7 +11,8 @@ This project follows [Semantic Versioning](https://semver.org/).
 ### Changed — a purple brand colour, so this site doesn't look identical to audit.icjia.app
 
 - The two sites shared the same cobalt (`#3559e0`), so after switching from one to the other it was hard to tell which was open. The brand colour is now a desaturated purple, **`#64439d`** (`--pk-brand` in `app/assets/css/plakat.css` and `brand` in the Vuetify theme), with `#553985` for hover. It is used for the home page's title block, the countdown band on reading pages, the "New" label on questions, the error page's main button, and the og:image.
-- **Contrast improves:** white on the purple is 7.4:1 (cobalt was 5.7:1). A slightly more saturated purple (`#64439d`, was `#62498d` in the first pass the same day) keeps 7.4:1 and stands out more from the page.
+- **Contrast improves:** white on the purple is 7.4:1 (cobalt was 5.7:1). Later the same day the purple was made a little more saturated (`#64439d`) and then darker: the final colour is **`#56388a`** (hover `#442c6d`), and white text on it is **9:1**.
+- **Purple text:** the brand purple is too dark to be text on the black page (2.2:1), so a lighter shade of the same hue, `--pk-brand-text` (`#9c79d8`, 5.8:1), is used where text is purple: "Check the sources." in the trust page headline, and "An IT guy wrote this!" in its objection heading.
 - **Globe in the top bar:** light lavender `#b9a6e0` (9:1 on the bar), from the same family, instead of the audit site's light cobalt.
 - **og:image** regenerated, and every README screenshot retaken.
 
