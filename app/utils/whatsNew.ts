@@ -44,6 +44,21 @@ export interface WhatsNewEntry {
  */
 export const WHATS_NEW_ENTRIES: WhatsNewEntry[] = [
   {
+    id: "2026-11-25-why-trust-these-faqs",
+    date: "2026-11-25",
+    badge: "New",
+    title: "A new page on why these FAQs can be trusted",
+    summary:
+      "A new page shows what every answer rests on (ADA Title II, the Illinois IITAA, and WCAG 2.1), how many links go straight to them, and every full review of the FAQ, dated. It's linked from the top of every page.",
+    details: [
+      "The numbers on the page are counted from the FAQ itself each time the site is built: 120 questions, and more than 400 links straight to the federal regulation, the Federal Register, ADA.gov, Illinois DoIT, the IITAA statute, and W3C.",
+      "Every full review since May 2026 is listed with its date and what it found.",
+      "It answers the question head on: one person compiles this FAQ, and its weight comes from what it cites, not anyone's title.",
+      "Also new: the top bar matches ICJIA's document checker, and \"Audit PDF\" now sits at the end of it, marked as a link to that other site.",
+    ],
+    links: [{ text: "Why trust these FAQs?", href: "/trust" }],
+  },
+  {
     id: "2026-11-25-new-look-and-review",
     date: "2026-11-25",
     badge: "Redesigned",

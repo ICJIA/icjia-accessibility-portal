@@ -159,6 +159,8 @@ Here's why this FAQ is worth your time:
 
 **Bottom line:** Use this FAQ as a practical starting point, but verify anything critical against the official sources it cites. The deadline is real regardless of who explains it to you.
 
+**See also:** [Why trust these FAQs?](/trust) — the three authorities every answer rests on, how many links go straight to them, and every full review, dated.
+
 ---
 
 ### I'm already busy. Why should accessibility be a priority when I have other responsibilities?

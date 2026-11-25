@@ -21,6 +21,15 @@
       <!-- Links Section -->
       <nav class="footer-links" aria-label="Footer navigation">
         <a
+          href="/trust"
+          class="footer-link"
+          :aria-current="route.path === '/trust' ? 'page' : undefined"
+        >
+          <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiShieldCheckOutline" />
+          <span>Why trust this?</span>
+        </a>
+        <span class="footer-separator" aria-hidden="true">•</span>
+        <a
           href="/whats-new"
           class="footer-link"
           :aria-current="route.path === '/whats-new' ? 'page' : undefined"
@@ -62,10 +71,10 @@
           target="_blank"
           rel="noopener noreferrer"
           class="footer-link"
-          aria-label="Check PDF accessibility (opens in new tab)"
+          aria-label="Audit PDF (opens audit.icjia.app in a new tab)"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiFileCheckOutline" />
-          <span>Check PDF</span>
+          <span>Audit PDF</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a
@@ -123,7 +132,7 @@
  */
 
 import { ref } from "vue";
-import { mdiUpdate, mdiCopyright, mdiMagnify, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiFileDocumentOutline, mdiCheckCircle, mdiGithub, mdiOpenInNew } from '~/utils/icons'
+import { mdiShieldCheckOutline, mdiUpdate, mdiCopyright, mdiMagnify, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiFileDocumentOutline, mdiCheckCircle, mdiGithub, mdiOpenInNew } from '~/utils/icons'
 
 /** Current route, for aria-current on the What's New link */
 const route = useRoute();

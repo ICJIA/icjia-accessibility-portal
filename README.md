@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.5.5](https://img.shields.io/badge/Version-1.5.5-blue)](CHANGELOG.md)
+[![Version 1.6.0](https://img.shields.io/badge/Version-1.6.0-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -27,16 +27,21 @@ This accessibility portal serves as a centralized hub for all accessibility-rela
   - **Printer-friendly version** at `/faqs-print` - All FAQs in a clean, printable format with proper structure for printing or saving as PDF. Internal links are styled as bold text (non-clickable), while external links remain functional.
   - **Screen Reader Testing (voicecap)** section — eight Q&As on ICJIA's free, open-source [voicecap](https://github.com/ICJIA/voicecap) tool, which runs the real NVDA screen reader through every page of a site and saves every word it says as transcripts, as the complement to code checkers such as axe and Pa11y
 - **Links**: Curated collection of accessibility resources, tools, and related information organized by category
+- **Why trust these FAQs?** (`/trust`): what every answer rests on (ADA Title II, the IITAA, WCAG 2.1), how many links go straight to those sources (counted from `content/faqs.md` at build time), and every full review, dated. The review list is `app/utils/reviewHistory.ts`; a unit test keeps its newest date equal to `lastReviewed` in `content/faqs.md`
 
 All accessibility information is organized in one place to facilitate easy access and ensure that ICJIA meets its accessibility obligations under ADA Title II.
 
 ## Screenshots
 
-The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.5.1 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
+The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.6.0 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
 
-**Home page** — the title block beside the countdown, the What's New strip, and the "About These FAQs" notes:
+**Home page** — the globe wordmark and top bar, the title block beside the countdown, the What's New strip, and the "About These FAQs" notes:
 
 ![Home page: a blue block with the title "ICJIA Accessibility Portal" and the deadline link, beside an outlined panel counting down the days, hours, minutes and seconds; below them the What's New strip and three "About These FAQs" notes](markdown-documentation/screenshots/home.png)
+
+**Why trust these FAQs?** — the three authorities every answer rests on, how many links go straight to them, and every full review, dated:
+
+![Why trust these FAQs page: the headline "Don't trust the author. Check the sources." above four figures: 120 questions answered, 430 links straight to the law and the standard, 6 full reviews, and the last review date, November 25, 2026](markdown-documentation/screenshots/trust.png)
 
 **An open answer** — questions are ruled rows with an "Open +" / "Close –" cue:
 
@@ -190,7 +195,7 @@ yarn generate:serve
 ### Design & Performance
 
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-  - **Navigation**: Full nav buttons (Home, Print, Download, Check PDF, Links, Search) on screens 900px and wider; a menu button below 900px (six text links need the room)
+  - **Navigation**: Full nav buttons (Home, Why trust this?, Print, Download, Links, Search, Audit PDF) on screens 1024px and wider; a menu button below 1024px (seven text links and the wordmark need the room)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
 - **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one cobalt colour block per page. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
@@ -350,10 +355,11 @@ The automated build process:
 │   │   ├── faqs-print.vue      # Printer-friendly FAQs page
 │   │   ├── links.vue           # Accessibility links page
 │   │   ├── search.vue          # Fuzzy search page with Fuse.js
+│   │   ├── trust.vue           # Why trust these FAQs? (sources, link counts, review history)
 │   │   └── whats-new.vue       # What's New: every update, newest first
 │   ├── components/
 │   │   ├── SkipLink.vue        # Skip to main content link
-│   │   ├── AppNavbar.vue       # Navigation bar; responsive (menu button <900px, full nav ≥900px); aria-current support
+│   │   ├── AppNavbar.vue       # Navigation bar; globe wordmark; responsive (menu button <1024px, full nav ≥1024px); aria-current support
 │   │   ├── AppFooter.vue       # Footer with copyright, links, and navigation
 │   │   ├── CountdownTimer.vue  # Countdown timer with aria-live
 │   │   ├── DownloadDialog.vue  # Accessible download format selection
@@ -376,7 +382,8 @@ The automated build process:
 │   │   └── suppress-vuetify-logs.server.ts  # Suppresses Vuetify console warnings (server)
 │   ├── utils/
 │   │   ├── faqTransform.ts     # FAQ AST transforms: New/Updated chips, "See also" cards, responsive tables
-│   │   ├── icons.ts            # Tree-shaken @mdi/js SVG icons (28 icons, `svg:` prefixed)
+│   │   ├── icons.ts            # Tree-shaken @mdi/js SVG icons (29 icons, `svg:` prefixed)
+│   │   ├── reviewHistory.ts    # Every full FAQ review, newest first (shown on /trust)
 │   │   └── whatsNew.ts         # What's New entries (newest first) and date helpers
 │   ├── router.options.ts       # Custom router configuration
 │   └── error.vue               # Error page component
@@ -609,7 +616,7 @@ When using CSS media queries to show/hide elements (e.g., responsive nav with ha
 
 ```css
 .mobile-nav { display: flex !important; align-items: center; }
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .mobile-nav { display: none !important; }
 }
 ```
@@ -650,8 +657,8 @@ During SSR, there is no browser viewport, so `useDisplay()` returns default valu
 <style scoped>
 .desktop-nav { display: none !important; }
 .mobile-nav { display: flex !important; align-items: center; }
-/* Menu button only below 900px (the breakpoint was 600px until v1.5.0). */
-@media (min-width: 900px) {
+/* Menu button only below 1024px (600px until v1.5.0, 900px until v1.6.0). */
+@media (min-width: 1024px) {
   .desktop-nav { display: flex !important; align-items: center; }
   .mobile-nav { display: none !important; }
 }
@@ -725,7 +732,7 @@ After the fixes, all pages were verified clean using Puppeteer to capture consol
 
 | File | Change |
 | --- | --- |
-| `app/components/AppNavbar.vue` | Removed `d-flex` from nav container divs; added `!important` to display rules; breakpoint 600px at the time (900px since v1.5.0) |
+| `app/components/AppNavbar.vue` | Removed `d-flex` from nav container divs; added `!important` to display rules; breakpoint 600px at the time (1024px since v1.6.0) |
 | `app/pages/faqs.vue` | Removed `getCachedData: () => undefined` from `useAsyncData` |
 | `app/pages/faqs.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
 | `app/pages/links.vue` | Wrapped `CountdownTimer` in `<ClientOnly>` with loading fallback |
@@ -792,12 +799,12 @@ A general `{days_until_deadline}` placeholder helper also exists in `app/utils/f
 
 ✅ **All pages currently pass with zero violations detected and zero console errors.**
 
-Latest full run of the audit script (`yarn audit:a11y`, November 25, 2026, v1.5.5, axe-core 4.14):
+Latest full run of the audit script (`yarn audit:a11y`, November 25, 2026, v1.6.0, axe-core 4.14):
 
-- **Pages tested**: 6 (/, /faqs, /faqs-print, /links, /search, /whats-new), each at 3 viewports (desktop 1920x1080, tablet 768x1024, mobile 375x812)
+- **Pages tested**: 7 (/, /faqs, /faqs-print, /links, /search, /trust, /whats-new), each at 3 viewports (desktop 1920x1080, tablet 768x1024, mobile 375x812)
 - **Violations**: 0 (WCAG 2.1 A/AA, best-practice, and experimental rules)
-- **Checks run**: 1,749, of which 863 passed and the rest did not apply to the page
-- **Skip links**: 18/18 working
+- **Checks run**: 2,040, of which 974 passed and the rest did not apply to the page
+- **Skip links**: 21/21 working
 - **Console errors**: 0
 
 The report is published at `/docs/accessibility/`.
@@ -1057,6 +1064,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.6.0 — "Why trust these FAQs?" page; new top bar** (2026-11-25): a new `/trust` page, linked first in the top bar and the footer, shows the three authorities every answer rests on, how many of the FAQ's links go straight to them (counted from the content at build time), and every full review, dated (`app/utils/reviewHistory.ts`). The top bar now uses the same globe wordmark as audit.icjia.app ("ICJIA Accessibility Portal"), and "Check PDF" is now "Audit PDF", last in the bar, with an icon showing it opens another site
 - **v1.5.5 — the accessibility audit script now tests the whole page** (2026-11-25): the script had been leaving the app's root element out of the test, so its earlier "0 violations" results covered only the page title and language. Fixed, re-run on all 6 pages at 3 viewports: 0 violations, 18/18 skip links. Two things it found on the print page were fixed (a low-contrast email link, a repeated address). See [Current Audit Status](#current-audit-status)
 - **v1.5.4 — search terms are highlighted when a result opens** (2026-11-25): opening a search result in a new tab now highlights the search term in the answer and scrolls to it. Before, the highlight only appeared when the link was followed inside a page that was already open
 - **v1.5.3 — red/blue team security audit** (2026-11-25): 12 findings, none critical or high in the deployed site. Seven fixed (tighter Content-Security-Policy and other headers, a crash on links whose search term contains "%", a new `security.txt`), three accepted with reasons, two for the repository owner. See [Security Audits](#security-audits)
@@ -1160,7 +1168,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.5
+**Version**: 1.6.0
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

@@ -6,6 +6,23 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.0] - 2026-11-25
+
+### Added — "Why trust these FAQs?" page (`/trust`)
+
+- **Why:** as the deadline nears, readers ask who wrote the FAQ and why they should believe it. The page answers by showing what every answer rests on and inviting readers to check it, rather than by asking for trust. Modelled on the "Can I trust this?" page of audit.icjia.app.
+- **Sections:** the numbers (questions, links straight to the law and WCAG, full reviews, last review date); the three authorities (ADA Title II, the IITAA, WCAG 2.1) and where the FAQ's links go, grouped by source; how answers are checked; every full review, dated; the objection "one person wrote this", answered directly; how to check an answer yourself, and who to tell.
+- **Numbers are counted, not typed:** `app/pages/trust.vue` walks `content/faqs.md` at build time (120 questions; 430 links to W3C, Illinois DoIT, ADA.gov, eCFR, the Federal Register, and ILGA). Only the counts go into the page's data, not the 590 kB FAQ.
+- **Review history:** `app/utils/reviewHistory.ts` lists the six full reviews since May 14, 2026. A new unit test (`test/unit/reviewHistory.test.ts`, 4 tests) checks the list is newest first and that its newest date equals `lastReviewed` in `content/faqs.md`, so a review can't move the date without being listed.
+- **Linked from:** the top bar (second, after Home), the footer (first), and the FAQ's own "Why should I trust this FAQ…?" answer (a "See also" line).
+- **What's New** entry added.
+
+### Changed — top bar
+
+- **Wordmark:** the ICJIA logo image is replaced by the outline globe used on audit.icjia.app (in its light cobalt, `#7391ff`, decorative) and "ICJIA Accessibility Portal" in heavy capitals. The link's accessible name is now its visible text (it had an `aria-label` of "Accessibility Portal").
+- **"Check PDF" is now "Audit PDF"**, moved to the end of the bar (desktop and the mobile menu), with an arrow-out-of-a-box icon and screen-reader text "(opens audit.icjia.app in a new tab)". The footer link is renamed to match.
+- **Menu breakpoint:** the menu button now appears below 1024px (was 900px): seven links and the wider wordmark touched at 1000px.
+
 ## [1.5.5] - 2026-11-25
 
 ### Fixed — the accessibility audit script was not testing page content

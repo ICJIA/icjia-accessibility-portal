@@ -33,12 +33,12 @@ This document provides essential context for AI assistants working on this codeb
 
 ```
 app/
-├── pages/           # Route pages (index.vue, faqs.vue, faqs-print.vue, links.vue, search.vue, whats-new.vue)
+├── pages/           # Route pages (index.vue, faqs.vue, faqs-print.vue, links.vue, search.vue, trust.vue, whats-new.vue)
 ├── components/      # Vue components (FaqBrowser, FaqAccordion, CountdownTimer, WhatsNewBanner, SkipLink, etc.)
 ├── composables/     # Reusable logic (useDeadlineCountdown, useFaqCollapse, useSlugify, useSeo)
 ├── layouts/         # Page layouts (default.vue, print.vue)
 ├── plugins/         # Nuxt plugins (client/server)
-├── utils/           # Utility functions (faqTransform.ts, icons.ts, whatsNew.ts)
+├── utils/           # Utility functions (faqTransform.ts, icons.ts, reviewHistory.ts, whatsNew.ts)
 └── error.vue        # Error page
 
 content/
@@ -290,6 +290,10 @@ A11Y_PORT=3111 yarn audit:a11y     # Terminal 2
 
 Every release that changes what readers see gets a What's New entry. Entries live in `app/utils/whatsNew.ts` (`WHATS_NEW_ENTRIES`); add the new one at the **top** (newest first; a unit test enforces the order). The newest entry is the banner at the top of the countdown card (`WhatsNewBanner.vue`, on `/`, `/faqs`, and `/links`); `/whats-new` lists them all. Write for readers, not developers: a short `title`, a one- or two-sentence `summary` (the banner shows it), optional `details` bullets, and optional `links` (`/faqs#…` anchors are checked by `test/unit/whatsNew.test.ts`). Dates are `YYYY-MM-DD` strings.
 
+### Recording a FAQ Review
+
+After every full review of the FAQ, add an entry at the **top** of `REVIEW_HISTORY` in `app/utils/reviewHistory.ts` (date + one or two plain sentences on what was done and found), in the same commit that moves `lastReviewed` in `content/faqs.md`. The `/trust` page lists these; `test/unit/reviewHistory.test.ts` fails if the newest entry's date differs from `lastReviewed`.
+
 ### Recording a Security Audit
 
 Every red/blue team security audit is listed in the README's **Security Audits** section, newest first, each dated with its findings and mitigations. **Only the most recent audit is shown open; every older one goes in its own collapsed `<details>` block** (keep its findings and mitigations). When adding an audit: collapse the one that was open, add a row to the summary table, add a CHANGELOG entry, and update the "Security Audited" badge date.
@@ -326,7 +330,7 @@ Every red/blue team security audit is listed in the README's **Security Audits**
 ## Quick Reference: Project Status
 
 - **WCAG Compliance**: 100% (0 violations)
-- **Test Coverage**: 250/250 tests passing across 14 files (unit + Nuxt)
+- **Test Coverage**: 254/254 tests passing across 15 files (unit + Nuxt)
 - **Node Version**: 22.23.4
-- **Last Major Update**: November 2026 (v1.5.0, Plakat redesign)
+- **Last Major Update**: November 2026 (v1.6.0, trust page and new top bar)
 - **Deadline**: April 26, 2027

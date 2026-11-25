@@ -7,21 +7,25 @@
           href="/"
           class="d-flex align-center text-decoration-none logo-link"
           style="color: inherit"
-          aria-label="Accessibility Portal"
           @click="handleLogoClick"
         >
-          <img
-            src="/icjia-logo-1x.png"
-            srcset="/icjia-logo-1x.png 1x, /icjia-logo-2x.png 2x"
-            alt="Illinois Criminal Justice Information Authority"
-            class="navbar-logo"
-            loading="eager"
-            fetchpriority="high"
-            width="57"
-            height="40"
-            decoding="async"
-          />
-          <span class="portal-title ml-3">Accessibility Portal</span>
+          <!-- Brand mark: the same outline globe as audit.icjia.app, in its
+               light cobalt. Decoration only; the link's name is the text. -->
+          <svg
+            class="brand-mark"
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <ellipse cx="12" cy="12" rx="4.2" ry="10" />
+            <path d="M2 12h20M3.6 7h16.8M3.6 17h16.8" />
+          </svg>
+          <span class="portal-title">ICJIA Accessibility Portal</span>
         </a>
       </v-app-bar-title>
 
@@ -85,6 +89,20 @@
             >
               <v-list-item-title>Search</v-list-item-title>
             </v-list-item>
+            <v-list-item
+              :href="AUDIT_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              :prepend-icon="mdiFileCheckOutline"
+            >
+              <v-list-item-title class="external-title">
+                Audit PDF
+                <svg class="external-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+                <span class="sr-only">(opens audit.icjia.app in a new tab)</span>
+              </v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-menu>
       </div>
@@ -99,6 +117,20 @@
           :aria-current="route.path === '/search' ? 'page' : undefined"
         >
           Search
+        </v-btn>
+        <!-- LAST on purpose: the one link here that leaves this site. -->
+        <v-btn
+          :href="AUDIT_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="text"
+          class="nav-btn external-btn"
+        >
+          Audit PDF
+          <svg class="external-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+          <span class="sr-only">(opens audit.icjia.app in a new tab)</span>
         </v-btn>
       </div>
     </v-container>
@@ -116,7 +148,7 @@
  */
 
 import { ref } from "vue";
-import { mdiHome, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiLink, mdiMenu, mdiMagnify } from "~/utils/icons";
+import { mdiHome, mdiPrinter, mdiDownload, mdiFileCheckOutline, mdiLink, mdiMenu, mdiMagnify, mdiShieldCheckOutline } from "~/utils/icons";
 
 const route = useRoute();
 const { collapseAll } = useFaqCollapse();
@@ -133,11 +165,19 @@ interface NavItem {
   ariaLabel?: string;
 }
 
+/** ICJIA's document checker; the "Audit PDF" link, placed last in the nav. */
+const AUDIT_URL = "https://audit.icjia.app";
+
 const navItems: NavItem[] = [
   {
     title: "Home",
     to: "/",
     icon: mdiHome,
+  },
+  {
+    title: "Why trust this?",
+    to: "/trust",
+    icon: mdiShieldCheckOutline,
   },
   {
     title: "Print",
@@ -152,14 +192,6 @@ const navItems: NavItem[] = [
     icon: mdiDownload,
     isDownload: true,
     ariaLabel: "Download FAQs - choose format",
-  },
-  {
-    title: "Check PDF",
-    to: "https://audit.icjia.app",
-    icon: mdiFileCheckOutline,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    ariaLabel: "Check PDF accessibility (opens in new tab)",
   },
   {
     title: "Links",
@@ -208,8 +240,9 @@ function openDownloadDialog(event: MouseEvent) {
   display: flex !important;
   align-items: center;
 }
-/* Menu button only below 900px (six text links need the room). Full nav above. */
-@media (min-width: 900px) {
+/* Menu button only below 1024px (seven text links and the wordmark need the
+   room; at 1000px they touch). Full nav above. */
+@media (min-width: 1024px) {
   .desktop-nav {
     display: flex !important;
     align-items: center;
@@ -234,13 +267,42 @@ function openDownloadDialog(event: MouseEvent) {
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--pk-heading);
+  white-space: nowrap;
 }
 
-.navbar-logo {
-  height: 36px;
-  width: auto;
-  max-width: 200px;
-  object-fit: contain;
+/* The globe, in audit.icjia.app's light cobalt (#7391ff). */
+.brand-mark {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin-right: 10px;
+  color: #7391ff;
+}
+
+/* "Audit PDF": the arrow-out-of-a-box icon says it leaves this site. */
+.external-icon {
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  margin-left: 5px;
+  opacity: 0.75;
+}
+
+.external-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .logo-link {
@@ -287,23 +349,18 @@ function openDownloadDialog(event: MouseEvent) {
 }
 
 @media (max-width: 600px) {
-  .navbar-logo {
-    height: 32px;
-    max-width: 120px;
+  .brand-mark {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
   }
 
   .portal-title {
     font-size: 1rem;
-    margin-left: 0.5rem !important;
   }
 }
 
 @media (max-width: 400px) {
-  .navbar-logo {
-    height: 28px;
-    max-width: 100px;
-  }
-
   .portal-title {
     font-size: 0.875rem;
   }

@@ -31,6 +31,7 @@ import {
   mdiMagnify as _mdiMagnify,
   mdiMenu as _mdiMenu,
   mdiOpenInNew as _mdiOpenInNew,
+  mdiShieldCheckOutline as _mdiShieldCheckOutline,
   mdiPrinter as _mdiPrinter,
   mdiRobot as _mdiRobot,
   mdiTextSearch as _mdiTextSearch,
@@ -64,6 +65,7 @@ export const mdiLinkVariant = svg(_mdiLinkVariant)
 export const mdiMagnify = svg(_mdiMagnify)
 export const mdiMenu = svg(_mdiMenu)
 export const mdiOpenInNew = svg(_mdiOpenInNew)
+export const mdiShieldCheckOutline = svg(_mdiShieldCheckOutline)
 export const mdiPrinter = svg(_mdiPrinter)
 export const mdiRobot = svg(_mdiRobot)
 export const mdiTextSearch = svg(_mdiTextSearch)
