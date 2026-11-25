@@ -1,65 +1,33 @@
 <template>
   <v-app>
-    <SkipLink />
-    <AppNavbar />
-    <v-main id="main-content" tabindex="-1">
-      <v-container>
-        <v-row justify="center" align="center" class="min-height-screen">
-          <v-col cols="12" md="8" lg="6">
-            <v-card class="pa-8 text-center" elevation="2">
-              <div class="error-code mb-4">
-                <span class="error-number">{{ error.statusCode || 404 }}</span>
-              </div>
-
-              <h1 class="text-h4 mb-4">{{ (error.statusCode || 404) === 404 ? "Page Not Found" : "Something Went Wrong" }}</h1>
-
-              <p class="text-body-1 mb-6 text-medium-emphasis">
+    <div class="app-wrapper">
+      <SkipLink />
+      <AppNavbar />
+      <v-main id="main-content" tabindex="-1">
+        <v-container class="main-inner">
+          <div class="pk-page error-page">
+            <div class="pk-page-head">
+              <p class="pk-label">Error {{ error.statusCode || 404 }}</p>
+              <h1 class="pk-page-title">{{ (error.statusCode || 404) === 404 ? "Page Not Found" : "Something Went Wrong" }}</h1>
+              <p class="pk-page-intro">
                 We couldn't find that page — it may have moved.
               </p>
+            </div>
 
-              <div class="mb-6">
-                <v-icon size="64" class="mb-4" :icon="mdiFileQuestionOutline" />
-              </div>
+            <div class="error-actions">
+              <v-btn href="/" color="brand" size="large" variant="flat">
+                Go Home
+              </v-btn>
 
-              <div class="d-flex flex-column flex-sm-row gap-4 justify-center">
-                <v-btn
-                  href="/"
-                  color="primary"
-                  size="large"
-                  :prepend-icon="mdiHome"
-                >
-                  Go Home
-                </v-btn>
-
-                <v-btn
-                  href="/links"
-                  variant="outlined"
-                  size="large"
-                  :prepend-icon="mdiLink"
-                >
-                  Accessibility Links
-                </v-btn>
-              </div>
-
-              <v-divider class="my-6" />
-
-              <div class="text-body-2 text-medium-emphasis">
-                <p class="mb-2">You might be looking for:</p>
-                <div
-                  class="d-flex flex-column flex-sm-row gap-2 justify-center"
-                >
-                  <v-btn href="/links" variant="text" size="small">
-                    Accessibility Links
-                  </v-btn>
-                  <v-btn href="/" variant="text" size="small"> Home </v-btn>
-                </div>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <AppFooter />
-    </v-main>
+              <v-btn href="/links" variant="outlined" size="large">
+                Accessibility Links
+              </v-btn>
+            </div>
+          </div>
+        </v-container>
+        <AppFooter />
+      </v-main>
+    </div>
   </v-app>
 </template>
 
@@ -68,8 +36,6 @@
  * @fileoverview Error page component
  * @description Displays error pages (404, 500, etc.) with helpful navigation options
  */
-
-import { mdiFileQuestionOutline, mdiHome, mdiLink } from '~/utils/icons'
 
 /**
  * Component props
@@ -94,32 +60,29 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.min-height-screen {
-  min-height: calc(100vh - 200px);
+/* Plakat look: the same reading-page head as the other pages, then two
+   square buttons — the cobalt one is the main way out. */
+.error-page {
+  min-height: calc(100vh - 360px);
 }
 
-.error-code {
-  margin-bottom: 2rem;
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.error-number {
-  font-size: 8rem;
-  font-weight: bold;
-  line-height: 1;
-  background: linear-gradient(
-    135deg,
-    var(--v-primary-base),
-    var(--v-accent-base)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
+.error-actions .v-btn {
+  min-height: 48px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
 }
 
-@media (max-width: 600px) {
-  .error-number {
-    font-size: 5rem;
-  }
+.error-actions .v-btn--variant-outlined {
+  border: 2px solid var(--pk-heading);
+  color: var(--pk-heading);
 }
 </style>

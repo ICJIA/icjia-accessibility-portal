@@ -1,32 +1,31 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="10" lg="8">
+    <div class="pk-page">
+      <div class="pk-page-inner">
         <!-- Countdown Timer - ClientOnly to avoid hydration mismatch (timer differs server vs client) -->
         <ClientOnly>
           <CountdownTimer compact />
           <template #fallback>
-            <v-card class="countdown-card mb-4" elevation="2" color="surface">
-              <div class="text-center pa-4">
-                <p class="text-body-2 mb-2">Countdown to WCAG 2.1 AA Compliance</p>
-                <v-progress-circular indeterminate color="primary" size="32" width="3" aria-label="Loading countdown" />
-              </div>
-            </v-card>
+            <div class="countdown-fallback">
+              <p class="pk-label">Countdown to WCAG 2.1 AA Compliance</p>
+              <v-progress-circular indeterminate color="white" size="32" width="3" aria-label="Loading countdown" />
+            </div>
           </template>
         </ClientOnly>
 
-        <v-card class="pa-8" elevation="0">
-          <h1 class="text-h3 mb-4 d-flex align-center">
-            <v-icon class="mr-3" color="primary" aria-hidden="true"
-              :icon="mdiLinkVariant" />
-            {{ page?.title || "Accessibility Links" }}
-          </h1>
-          <p class="text-subtitle-1 text-medium-emphasis mb-6">
-            {{
-              page?.description ||
-              "A collection of helpful accessibility resources and links."
-            }}
-          </p>
+        <div class="links-page">
+          <div class="pk-page-head">
+            <p class="pk-label">Resources</p>
+            <h1 class="pk-page-title">
+              {{ page?.title || "Accessibility Links" }}
+            </h1>
+            <p class="pk-page-intro">
+              {{
+                page?.description ||
+                "A collection of helpful accessibility resources and links."
+              }}
+            </p>
+          </div>
 
           <div v-if="renderedPage" class="links-content">
             <ContentRenderer :value="renderedPage" />
@@ -35,11 +34,9 @@
             <v-progress-circular indeterminate color="primary" />
             <p class="mt-4 text-body-1">Loading links...</p>
           </div>
-
-          <v-divider class="my-8" />
-        </v-card>
-      </v-col>
-    </v-row>
+        </div>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -50,7 +47,6 @@
  */
 
 import { computed } from "vue";
-import { mdiLinkVariant } from '~/utils/icons'
 import { wrapFaqQuestionsIntoCards } from "../utils/faqTransform";
 import { useSeo } from "../composables/useSeo";
 import { useBreadcrumbStructuredData } from "../composables/useStructuredData";
@@ -119,44 +115,37 @@ useBreadcrumbStructuredData([
 </script>
 
 <style scoped>
-/* Links Content Styles - same as FAQ for consistency */
+/* Plakat look: a ruled reference list. Section names sit under a heavy rule,
+   link groups under a lighter one. */
+.links-content {
+  font-size: 1.0625rem;
+}
 
-/* Hide duplicate h1 from markdown */
 .links-content :deep(h1) {
   display: none;
 }
 
-/* Intro paragraph (first p before any h2) */
 .links-content :deep(> p:first-of-type) {
-  font-size: 1.1rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 1;
+  font-size: 1.1875rem;
+  color: var(--pk-text);
   margin-bottom: 1.5rem;
 }
 
-/* Horizontal rules as section dividers */
+/* The heavy rule above each section does the dividing. */
 .links-content :deep(hr) {
-  border: none;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border-top: 2px solid rgba(var(--v-theme-on-surface), 0.3);
-  margin: 3rem 0;
+  display: none;
 }
 
-/* ## = H2 section headings */
 .links-content :deep(h2) {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: rgb(var(--v-theme-on-surface));
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  padding: 0;
-  background: none;
-  border: none;
-}
-
-.links-content :deep(h2:first-of-type) {
-  margin-top: 0;
+  margin: 3.5rem 0 1.25rem;
+  padding: 0.875rem 0 0;
+  border-top: 4px solid var(--pk-heading);
+  font-size: 1.875rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--pk-heading);
+  scroll-margin-top: 80px;
 }
 
 .links-content :deep(h2 a),
@@ -167,40 +156,72 @@ useBreadcrumbStructuredData([
   cursor: default;
 }
 
-/* ### = H3 question heading */
 .links-content :deep(h3) {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-on-surface));
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin: 2rem 0 0.5rem;
   padding: 0;
-  background: none;
-  border: none;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pk-text-2);
 }
 
-/* Default paragraph styling (non-answer prose) */
 .links-content :deep(p) {
-  font-size: 1rem;
-  line-height: 1.75;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 1;
+  font-size: 1.0625rem;
+  line-height: 1.6 !important;
+  color: var(--pk-text);
   margin: 0 0 1rem 0;
-  padding: 0;
-  background: none;
-  border: none;
 }
 
-/* Content following H3 */
-.links-content :deep(h3 + p),
-.links-content :deep(h3 + ul),
-.links-content :deep(h3 + ol) {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+.links-content :deep(ul),
+.links-content :deep(ol) {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 2px solid var(--pk-border-alt);
 }
 
-/* Q/A Card wrapper - ensures everything stays together */
+.links-content :deep(li) {
+  display: block;
+  margin: 0;
+  padding: 0.75rem 0;
+  border-top: 2px solid var(--pk-border-alt);
+  color: var(--pk-text-2);
+  line-height: 1.5;
+  font-size: 1.0625rem;
+}
+
+.links-content :deep(a) {
+  color: var(--pk-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.links-content :deep(li a) {
+  font-weight: 700;
+  display: inline;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
+  min-height: 44px !important;
+  padding: 8px 2px 8px 0;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.links-content :deep(a:hover) {
+  color: var(--pk-link-hover);
+  text-decoration-thickness: 2px;
+}
+
+.links-content :deep(strong) {
+  color: var(--pk-heading);
+  font-weight: 700;
+}
+
+.links-content :deep(li strong) {
+  color: inherit;
+}
+
 .links-content :deep(.qa-card) {
   margin-bottom: 2rem;
 }
@@ -209,171 +230,39 @@ useBreadcrumbStructuredData([
   margin-top: 0;
 }
 
-.links-content :deep(.qa-card > h3:first-child) {
-  border-radius: 8px 8px 0 0;
-}
-
 .links-content :deep(.qa-card > *:last-child) {
   margin-bottom: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
-/* Lists: clean and modern */
-.links-content :deep(ul),
-.links-content :deep(ol) {
-  list-style: none;
-  padding-left: 0;
-  margin: 0 0 1.5rem 0;
-}
-
-/* List items - clean styling */
-.links-content :deep(li) {
-  display: block;
-  margin: 0.5rem 0;
-  padding: 0;
-  background: none;
-  border: none;
-  color: rgb(var(--v-theme-on-surface));
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-/* Links in list items */
-.links-content :deep(li a) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
-  /* Use black for maximum contrast on light backgrounds (21:1) */
-  color: #000000; /* Black for 21:1 contrast on white background - exceeds AAA requirement */
-  text-decoration: none;
-  font-weight: 500;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44px tap target height */
-  display: inline;
-  min-height: 44px !important;
-  padding: 8px 2px;
-  box-sizing: border-box;
-  line-height: 1.5;
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .links-content :deep(li a),
-.v-theme--dark .links-content :deep(li a) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #BFDBFE !important; /* Lighter blue (#BFDBFE) for 7:1+ contrast on dark background */
-}
-
-.links-content :deep(li a:hover) {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-[data-v-theme="dark"] .links-content :deep(li a:hover),
-.v-theme--dark .links-content :deep(li a:hover) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Maintain 7:1 contrast on hover */
-  color: #BFDBFE !important;
-}
-
-/* Bold text (link titles) */
-.links-content :deep(li strong) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
-  color: #000000; /* Black for 21:1 contrast on white background - exceeds AAA requirement */
-  font-weight: 600;
-}
-
-/* Dark theme: use lighter color for strong text */
-[data-v-theme="dark"] .links-content :deep(li strong),
-.v-theme--dark .links-content :deep(li strong) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #BFDBFE !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
-/* Q/A card styling - simplified */
-.links-content :deep(.qa-card) {
-  margin-bottom: 2rem;
-}
-
-.links-content :deep(.qa-card ul),
-.links-content :deep(.qa-card ol) {
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-@media (max-width: 960px) {
-  .v-card {
-    padding: 1.5rem !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .v-card {
-    padding: 1rem !important;
-  }
-
-  h1.text-h3 {
-    font-size: 1.5rem !important;
-  }
-
-  .text-subtitle-1 {
-    font-size: 0.9rem !important;
-  }
-
-  .links-content :deep(h2) {
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .links-content :deep(h3) {
-    font-size: 1.1rem;
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 400px) {
-  h1.text-h3 {
-    font-size: 1.25rem !important;
-  }
-
-  .links-content :deep(h2) {
-    font-size: 1.1rem;
-  }
-
-  .links-content :deep(h3) {
-    font-size: 1rem;
-  }
-}
-
-/* Tables */
 .links-content :deep(table) {
   width: 100%;
   border-collapse: collapse;
   margin: 1rem 0 1.5rem 0;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  overflow: hidden;
+  font-size: 1rem;
+  border-top: 4px solid var(--pk-heading);
 }
 
 .links-content :deep(th) {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure text meets 7:1 on background */
-  background: rgba(var(--v-theme-primary), 0.1);
-  color: rgb(var(--v-theme-on-surface));
-  font-weight: 600;
-  padding: 0.75rem 1rem;
+  color: var(--pk-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem 0.75rem 0;
   text-align: left;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border-bottom: 2px solid rgba(var(--v-theme-on-surface), 0.3);
+  border-bottom: 2px solid var(--pk-heading);
 }
 
 .links-content :deep(td) {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.1);
-  background: rgba(var(--v-theme-surface-variant), 0.15);
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid var(--pk-border-alt);
+  color: var(--pk-text);
 }
 
-.links-content :deep(tr:last-child td) {
-  border-bottom: none;
-}
-
-.links-content :deep(tr:hover td) {
-  background: rgba(var(--v-theme-surface-variant), 0.3);
+@media (max-width: 600px) {
+  .links-content :deep(h2) {
+    font-size: 1.5rem;
+    margin-top: 2.75rem;
+  }
 }
 </style>

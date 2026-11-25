@@ -292,31 +292,37 @@ function close() {
 </script>
 
 <style scoped>
+/* Plakat look: a square panel with a white outline (set for every overlay in
+   assets/css/plakat.css). Each format is a ruled row; the whole row is the
+   download link. */
 .download-dialog {
-  border-radius: 12px;
+  overflow-y: auto;
 }
 
 .download-dialog-title {
   display: flex;
   align-items: center;
-  padding: 1.25rem 1.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.3);
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
+  padding: 1.25rem 1.5rem 1rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--pk-heading);
+  white-space: normal;
+}
+
+.download-dialog-title .v-icon {
+  display: none;
 }
 
 .download-dialog-content {
-  padding: 1.5rem;
+  padding: 0 1.5rem 1rem !important;
 }
 
 .download-dialog-description {
   margin: 0 0 1.25rem 0;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  font-size: 0.9375rem;
+  color: var(--pk-text);
+  font-size: 1.0625rem;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
   line-height: 1.5;
 }
@@ -324,38 +330,24 @@ function close() {
 .download-options {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--pk-border-alt);
 }
 
 .download-option {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border: 2px solid rgba(var(--v-theme-on-surface), 0.3);
-  border-radius: 8px;
+  padding: 1rem 0.5rem 1rem 0;
+  border-top: 2px solid var(--pk-border-alt);
+  color: var(--pk-text);
   text-decoration: none;
-  color: inherit;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  min-height: 44px !important;
-  min-width: 44px !important;
-  box-sizing: border-box;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
 }
 
 .download-option:hover {
-  border-color: rgb(var(--v-theme-primary));
-  background: rgba(var(--v-theme-primary), 0.05);
-}
-
-.download-option:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  border-color: rgb(var(--v-theme-primary));
-  background: rgba(var(--v-theme-primary), 0.08);
+  background: var(--pk-hover);
 }
 
 .download-option-icon {
@@ -365,449 +357,191 @@ function close() {
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 8px;
-}
-
-.docx-icon {
-  background: rgba(41, 98, 255, 0.1);
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure icon color meets 3:1 on background */
-  color: #003d7a; /* Darker blue for better contrast */
-}
-
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .docx-icon,
-.v-theme--dark .docx-icon {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #FFFFFF !important; /* White for 21:1+ contrast on #1e293b background - exceeds AAA requirement */
-}
-
-.md-icon {
-  background: rgba(0, 0, 0, 0.08);
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use darker color for 3:1+ contrast */
-  color: #000000; /* Black for maximum contrast */
-}
-
-/* Dark theme: use white for icon */
-[data-v-theme="dark"] .md-icon,
-.v-theme--dark .md-icon {
-  color: #FFFFFF !important; /* White for contrast on dark background */
-}
-
-.txt-icon {
-  background: rgba(var(--v-theme-primary), 0.1);
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use darker primary for 3:1+ contrast */
-  color: #003d7a; /* Dark blue for 7:1+ contrast on white */
-}
-
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .txt-icon,
-.v-theme--dark .txt-icon {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #FFFFFF !important; /* White for 21:1+ contrast on #1e293b background - exceeds AAA requirement */
+  background: var(--pk-brand);
+  color: var(--pk-brand-ink);
 }
 
 .download-option-info {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
 .download-option-title {
-  font-weight: 600;
-  font-size: 1rem;
-  color: rgb(var(--v-theme-on-surface));
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
+  font-size: 1.1875rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--pk-heading);
+}
+
+.download-option:hover .download-option-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .download-option-description {
-  font-size: 0.8125rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  font-size: 1rem;
   line-height: 1.5;
+  color: var(--pk-text);
 }
 
-.download-option-accessibility {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.75rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure success color meets 7:1 on background */
-  /* Use darker green for AAA contrast */
-  color: #2E7D32; /* Dark green for 7:1+ contrast on white */
-  margin-top: 0.25rem;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
-}
-
-/* Dark theme: use lighter green for AAA contrast */
-[data-v-theme="dark"] .download-option-accessibility,
-.v-theme--dark .download-option-accessibility {
-  color: #81C784 !important; /* Light green for 7:1+ contrast on dark background */
-}
-
+.download-option-accessibility,
 .download-option-llm {
   display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.75rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Ensure info color meets 7:1 on background */
-  /* Use darker blue for AAA contrast */
-  color: #1565C0; /* Dark blue for 7:1+ contrast on white */
-  margin-top: 0.125rem;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
+  align-items: flex-start;
+  gap: 0.375rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
+  color: var(--pk-text-2);
 }
 
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .download-option-llm,
-.v-theme--dark .download-option-llm {
-  color: #FFFFFF !important; /* White for 21:1+ contrast on dark background - exceeds AAA requirement */
+.download-option-accessibility .v-icon,
+.download-option-llm .v-icon {
+  flex-shrink: 0;
+  margin-top: 4px;
 }
 
 .download-option-arrow {
   flex-shrink: 0;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  color: rgba(var(--v-theme-on-surface), 0.6);
-  transition: transform 0.2s ease;
+  align-self: center;
+  color: var(--pk-heading);
 }
 
-.download-option:hover .download-option-arrow {
-  transform: translateX(4px);
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use darker primary for 7:1+ contrast */
-  color: #003d7a; /* Dark blue for 7:1+ contrast on white */
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .download-option:hover .download-option-arrow,
-.v-theme--dark .download-option:hover .download-option-arrow {
-  color: #BFDBFE !important; /* Light blue for 7:1+ contrast on dark background */
-}
-
-/* Markdown Explainer */
+/* "What is Markdown?" — a folded note, closed until asked for. */
 .markdown-explainer {
-  margin-bottom: 1rem;
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-  border-radius: 6px;
-  overflow: hidden;
+  margin: 0 0 1rem;
+  border: 1px solid var(--pk-border-alt);
+  border-left: 4px solid var(--pk-heading);
+  background: var(--pk-raised);
 }
 
 .markdown-explainer-summary {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
+  padding: 0.625rem 1rem;
+  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
+  min-height: 44px;
   cursor: pointer;
-  background: rgba(var(--v-theme-on-surface), 0.03);
-  transition: background 0.2s ease;
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  min-height: 44px !important;
-  box-sizing: border-box;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pk-heading);
 }
 
 .markdown-explainer-summary:hover {
-  background: rgba(var(--v-theme-on-surface), 0.06);
-}
-
-.markdown-explainer-summary:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: -2px;
+  background: var(--pk-hover);
 }
 
 .markdown-explainer-content {
-  padding: 1rem;
-  font-size: 0.8125rem;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.3);
+  padding: 0.5rem 1rem 1rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--pk-text);
 }
 
 .markdown-explainer-content p {
-  margin: 0 0 0.75rem 0;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
-}
-
-.markdown-explainer-content p:last-of-type {
-  margin-bottom: 0;
-}
-
-.markdown-explainer-content .section-heading {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.markdown-explainer-content .section-heading:first-of-type {
-  margin-top: 0.5rem;
+  margin: 0 0 0.75rem;
+  line-height: 1.55 !important;
 }
 
 .markdown-explainer-content ul {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 1rem;
   padding-left: 1.25rem;
 }
 
 .markdown-explainer-content li {
-  margin: 0.25rem 0;
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
+  margin: 0.375rem 0;
+  line-height: 1.55;
 }
 
-.markdown-explainer-content kbd {
-  display: inline-block;
-  padding: 0.1rem 0.4rem;
-  font-family: monospace;
-  font-size: 0.75em;
-  background: rgba(var(--v-theme-on-surface), 0.1);
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.2);
-  border-radius: 3px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
-.markdown-explainer-content .tip-text {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.25rem;
-  margin-top: 1rem;
-  padding: 0.5rem 0.75rem;
-  background: rgba(var(--v-theme-success), 0.1);
-  border-radius: 4px;
-  font-size: 0.8em;
-}
-
-.markdown-explainer-content code {
-  background: rgba(var(--v-theme-on-surface), 0.08);
-  padding: 0.1rem 0.3rem;
-  border-radius: 3px;
-  font-family: monospace;
-  font-size: 0.8em;
-}
-
-.icjia-viewer-highlight {
-  background: rgba(var(--v-theme-primary), 0.08);
-  border: 1px solid rgba(var(--v-theme-primary), 0.25);
-  border-left: 4px solid rgb(var(--v-theme-primary));
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
-}
-
-.icjia-viewer-highlight .section-heading {
-  margin-top: 0 !important;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use darker primary for 7:1+ contrast */
-  color: #003d7a; /* Dark blue for 7:1+ contrast on white */
-}
-
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .icjia-viewer-highlight .section-heading,
-.v-theme--dark .icjia-viewer-highlight .section-heading {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text on dark background */
-  color: #FFFFFF !important; /* White for 21:1+ contrast on #1e293b background - exceeds AAA requirement */
-}
-
-.icjia-viewer-highlight p {
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5 !important;
-  margin-bottom: 0.5rem;
-}
-
-.icjia-viewer-highlight ul {
-  margin-bottom: 0;
+.markdown-explainer-content strong {
+  color: var(--pk-heading);
+  font-weight: 700;
 }
 
 .markdown-explainer-content a {
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text */
-  color: #000000; /* Black for 21:1 contrast on white - exceeds AAA requirement */
+  color: var(--pk-link);
   text-decoration: underline;
-  font-weight: 600; /* Increase weight for better visibility */
-  font-size: 1rem; /* Increase font size for better readability */
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-  display: inline-block;
-  min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 0.5rem 0.75rem;
-  box-sizing: border-box;
-  line-height: 1.5;
-  vertical-align: middle;
-  margin: 0.25rem 0;
-}
-
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .markdown-explainer-content a,
-.v-theme--dark .markdown-explainer-content a {
-  color: #FFFFFF !important; /* White for 21:1+ contrast on dark background */
-  font-weight: 600 !important; /* Increase weight for better visibility */
-  opacity: 1 !important;
+  text-underline-offset: 2px;
 }
 
 .markdown-explainer-content a:hover {
-  text-decoration: none;
+  color: var(--pk-link-hover);
+  text-decoration-thickness: 2px;
 }
 
+.markdown-explainer-content code,
+.markdown-explainer-content kbd {
+  background: var(--pk-body);
+  border: 1px solid var(--pk-border-input);
+  padding: 0.05rem 0.3rem;
+  font-size: 0.9em;
+  color: var(--pk-heading);
+}
+
+.markdown-explainer-content .section-heading {
+  margin: 1.25rem 0 0.375rem;
+}
+
+.icjia-viewer-highlight {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem 0.25rem;
+  background: var(--pk-card);
+  border: 1px solid var(--pk-border-alt);
+}
+
+.icjia-viewer-highlight .section-heading {
+  margin-top: 0;
+}
+
+.tip-text,
 .download-dialog-note {
   display: flex;
   align-items: flex-start;
   gap: 0.25rem;
   margin: 0;
-  padding: 0.75rem 1rem;
-  background: rgba(var(--v-theme-info), 0.1);
-  border-radius: 6px;
-  font-size: 0.8125rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 7:1 for normal text - use full opacity */
-  color: rgb(var(--v-theme-on-surface));
-  /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  line-height: 1.5 !important;
+  color: var(--pk-text-2);
 }
 
-.download-dialog-note .v-icon {
-  flex-shrink: 0;
-  margin-top: 2px;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use darker info color for 7:1+ contrast */
-  color: #1565C0; /* Dark blue for 7:1+ contrast on white */
+.tip-text {
+  display: block;
+  margin-top: 1rem;
 }
 
-/* Dark theme: use white for maximum AAA contrast */
-[data-v-theme="dark"] .download-dialog-note .v-icon,
-.v-theme--dark .download-dialog-note .v-icon {
-  color: #FFFFFF !important; /* White for 21:1+ contrast on dark background - exceeds AAA requirement */
+.download-dialog-note {
+  display: block;
+}
+
+.download-dialog-note strong,
+.tip-text strong {
+  color: var(--pk-heading);
 }
 
 .download-dialog-actions {
-  padding: 0.75rem 1.5rem 1rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: 3:1 for UI components */
-  border-top: 1px solid rgba(var(--v-theme-on-surface), 0.3);
+  padding: 0.5rem 1.5rem 1rem;
+  border-top: 2px solid var(--pk-border-alt);
 }
 
-/* Ensure Cancel button meets 44x44px target size */
-.download-dialog-actions .v-btn {
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
-  min-height: 44px !important;
-  min-width: 44px !important;
-  padding: 0.5rem 1rem !important;
-  box-sizing: border-box;
+.cancel-link:hover {
+  text-decoration-thickness: 3px !important;
 }
 
-/* ======================================
-   RESPONSIVE DESIGN
-   ====================================== */
-
-/* Tablet and smaller (< 960px) */
-@media (max-width: 959px) {
+@media (max-width: 600px) {
   .download-dialog-title {
-    font-size: 1.125rem;
-    padding: 1rem 1.25rem;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 0.75rem;
   }
-  
-  .download-dialog-description {
-    font-size: 0.875rem;
-  }
-}
 
-/* Small tablets and large phones (< 768px) */
-@media (max-width: 767px) {
   .download-dialog-content {
-    padding: 1.25rem;
+    padding: 0 1rem 1rem !important;
   }
 
   .download-option {
-    padding: 0.875rem;
     gap: 0.75rem;
-  }
-
-  .download-option-icon {
-    width: 44px;
-    height: 44px;
-  }
-
-  .download-option-icon .v-icon {
-    font-size: 26px !important;
-  }
-
-  .download-option-title {
-    font-size: 0.9375rem;
-  }
-
-  .download-option-description {
-    font-size: 0.75rem;
-    /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-    line-height: 1.5;
-  }
-
-  .download-option-accessibility,
-  .download-option-llm {
-    font-size: 0.6875rem;
-  }
-  
-  /* Hide arrow on smaller screens to save space */
-  .download-option-arrow {
-    display: none;
-  }
-
-  .markdown-explainer-summary {
-    font-size: 0.8125rem;
-    padding: 0.625rem 0.875rem;
-  }
-
-  .markdown-explainer-content {
-    font-size: 0.75rem;
-    padding: 0.875rem;
-  }
-
-  .download-dialog-note {
-    font-size: 0.75rem;
-    padding: 0.625rem 0.875rem;
-  }
-}
-
-/* Mobile phones (< 600px) - fullscreen mode */
-@media (max-width: 599px) {
-  .download-dialog {
-    border-radius: 0;
-    height: 100%;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .download-dialog-title {
-    font-size: 1.125rem;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-    flex-shrink: 0;
-  }
-
-  .download-dialog-content {
-    padding: 1rem;
-    flex: 1;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .download-dialog-description {
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .download-options {
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .download-option {
-    padding: 0.75rem;
-    gap: 0.625rem;
-    /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-    min-height: 44px !important;
-    min-width: 44px !important;
   }
 
   .download-option-icon {
@@ -815,197 +549,8 @@ function close() {
     height: 40px;
   }
 
-  .download-option-icon .v-icon {
-    font-size: 24px !important;
-  }
-
-  .download-option-title {
-    font-size: 0.875rem;
-  }
-
-  .download-option-description {
-    font-size: 0.6875rem;
-    /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-    line-height: 1.5;
-  }
-
-  .download-option-accessibility,
-  .download-option-llm {
-    font-size: 0.625rem;
-  }
-
-  .download-option-accessibility .v-icon,
-  .download-option-llm .v-icon {
-    font-size: 12px !important;
-  }
-
-  .markdown-explainer {
-    margin-bottom: 0.75rem;
-  }
-
-  .markdown-explainer-summary {
-    font-size: 0.75rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .markdown-explainer-content {
-    font-size: 0.6875rem;
-    padding: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .markdown-explainer-content ul {
-    padding-left: 1rem;
-  }
-
-  .markdown-explainer-content li {
-    margin: 0.125rem 0;
-  }
-
-  .markdown-explainer-content .section-heading {
-    margin-top: 0.75rem;
-    margin-bottom: 0.375rem;
-  }
-
-  .markdown-explainer-content kbd {
-    padding: 0.05rem 0.3rem;
-    font-size: 0.7em;
-  }
-
-  .markdown-explainer-content .tip-text {
-    padding: 0.375rem 0.5rem;
-    font-size: 0.65em;
-    margin-top: 0.75rem;
-  }
-
-  .download-dialog-note {
-    font-size: 0.6875rem;
-    padding: 0.5rem 0.75rem;
-    /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Minimum 1.5 line-height */
-    line-height: 1.5;
-  }
-
-  .download-dialog-note .v-icon {
-    font-size: 14px !important;
-    margin-top: 1px;
-  }
-
   .download-dialog-actions {
-    padding: 0.5rem 1rem;
-    flex-shrink: 0;
-    border-top: 1px solid rgba(var(--v-theme-on-surface), 0.12);
-  }
-}
-
-/* Very small phones (< 360px) */
-@media (max-width: 359px) {
-  .download-dialog-title {
-    font-size: 1rem;
-    padding: 0.75rem;
-  }
-
-  .download-dialog-content {
-    padding: 0.75rem;
-  }
-
-  .download-option {
-    padding: 0.625rem;
-    gap: 0.5rem;
-  }
-
-  .download-option-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .download-option-icon .v-icon {
-    font-size: 20px !important;
-  }
-
-  .download-option-title {
-    font-size: 0.8125rem;
-  }
-
-  .download-option-description {
-    font-size: 0.625rem;
-  }
-  
-  /* On very small screens, hide the LLM badge to save space */
-  .download-option-llm {
-    display: none;
-  }
-
-  .download-dialog-actions {
-    padding: 0.375rem 0.75rem;
-  }
-}
-
-/* Landscape orientation on mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-  .download-dialog-content {
-    padding: 0.75rem 1rem;
-  }
-
-  .download-options {
-    gap: 0.375rem;
-  }
-
-  .download-option {
-    padding: 0.5rem 0.75rem;
-    /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px clickable area */
-    min-height: 44px !important;
-    min-width: 44px !important;
-  }
-
-  .download-option-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .download-option-description {
-    display: none; /* Hide descriptions in landscape to fit content */
-  }
-
-  .markdown-explainer {
-    display: none; /* Hide expanded info in landscape */
-  }
-
-  .download-dialog-note {
-    display: none; /* Hide tip in landscape */
-  }
-}
-
-/* High contrast mode / forced colors */
-@media (forced-colors: active) {
-  .download-option {
-    border: 2px solid CanvasText;
-  }
-
-  .download-option:focus-visible {
-    outline: 3px solid Highlight;
-    outline-offset: 2px;
-  }
-
-  .download-option-icon {
-    forced-color-adjust: none;
-    background: Canvas;
-    border: 1px solid CanvasText;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .download-option,
-  .download-option-arrow,
-  .markdown-explainer-summary {
-    transition: none;
-  }
-}
-
-/* Print mode - hide the dialog */
-@media print {
-  .download-dialog-wrapper {
-    display: none !important;
+    padding: 0.5rem 1rem 1rem;
   }
 }
 </style>

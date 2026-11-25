@@ -41,7 +41,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.w3.org/WAI/WCAG21/Understanding/" target="_blank" rel="noopener noreferrer">**Understanding WCAG 2.1**</a> — Detailed explanations of each success criterion
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/glance/" target="_blank" rel="noopener noreferrer">**WCAG 2 at a Glance**</a> — Quick reference summary
 - <a href="https://www.w3.org/WAI/standards-guidelines/wcag/new-in-21/" target="_blank" rel="noopener noreferrer">**What's New in WCAG 2.1**</a> — Summary of the 17 new success criteria
-- <a href="https://www.w3.org/WAI/WCAG21/Understanding/understanding-techniques" target="_blank" rel="noopener noreferrer">**Techniques for WCAG 2.1**</a> — Implementation guidance
+- <a href="https://www.w3.org/WAI/WCAG21/Techniques/" target="_blank" rel="noopener noreferrer">**Techniques for WCAG 2.1**</a> — Implementation guidance
 - <a href="https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1" target="_blank" rel="noopener noreferrer">**How to Meet WCAG (Quick Reference)**</a> — Filterable checklist of all success criteria
 
 ### WCAG Educational Resources
@@ -58,7 +58,7 @@ A curated collection of links for website and content accessibility compliance, 
 
 - <a href="https://www.section508.gov/" target="_blank" rel="noopener noreferrer">**Section508.gov - Home**</a> — Official federal accessibility resource
 - <a href="https://www.section508.gov/training/" target="_blank" rel="noopener noreferrer">**Section508.gov - Training Overview**</a> — Free training courses and certification
-- <a href="https://www.section508.gov/training-home/" target="_blank" rel="noopener noreferrer">**Section508.gov - Training Courses**</a> — Self-paced online courses
+- <a href="https://www.section508.gov/training/courses/" target="_blank" rel="noopener noreferrer">**Section508.gov - Training Courses**</a> — Self-paced online courses
 - <a href="https://www.section508.gov/manage/laws-and-policies/" target="_blank" rel="noopener noreferrer">**Section508.gov - Laws and Policies**</a> — Legal framework overview
 - <a href="https://www.section508.gov/create/developer-training/" target="_blank" rel="noopener noreferrer">**Section508.gov - Developer Training**</a> — Technical implementation training
 - <a href="https://www.access-board.gov/ict/" target="_blank" rel="noopener noreferrer">**U.S. Access Board - ICT Standards**</a> — Technical standards for federal ICT

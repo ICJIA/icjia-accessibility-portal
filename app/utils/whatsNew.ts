@@ -44,6 +44,22 @@ export interface WhatsNewEntry {
  */
 export const WHATS_NEW_ENTRIES: WhatsNewEntry[] = [
   {
+    id: "2026-11-25-new-look-and-review",
+    date: "2026-11-25",
+    badge: "Redesigned",
+    title: "A new look, and a late-November accuracy review",
+    summary:
+      "The portal has a new design that matches ICJIA's document checker at audit.icjia.app. Every answer was also checked again against the official sources: Illinois state agencies still have until April 26, 2027, and about 50 small corrections make the FAQ more precise.",
+    details: [
+      "New design on every page: larger type, a dark background, the countdown at the top of the home page, and questions that open as simple rows. Nothing about how the site works has changed.",
+      "Re-checked against the official sources: the federal deadline (April 26, 2027 for Illinois state agencies), no new DOJ or HHS web rule, and no change to Illinois's IITAA standards.",
+      "The lawsuit over the deadline extension (NFB v. DOJ) has moved forward: the National Federation of the Blind asked the court for summary judgment on September 28, 2026, and on November 13 the court gave the government more time to respond. There is no ruling yet.",
+      "About 50 small corrections from a line-by-line review, mostly wording made more exact: what counts as archived web content, how each law is enforced, and which claims rest on the rules themselves.",
+      "ICJIA's document checker at audit.icjia.app now takes up to 25 files at a time, and voicecap's published results now cover seven ICJIA websites.",
+    ],
+    links: [{ text: "Read the FAQs", href: "/faqs" }],
+  },
+  {
     id: "2026-11-06-november-review",
     date: "2026-11-06",
     badge: "Reviewed",

@@ -6,6 +6,41 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.0] - 2026-11-25
+
+### Changed — a complete visual redesign (the "Plakat" look of audit.icjia.app)
+
+Every page now shares the Swiss-style design of ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app): a near-black page, one heavy grotesque (Archivo) set tight, square corners, thick white rules, small capital labels, and a single cobalt colour block per page. **No functionality or logic changed**: the countdown, sorting, deep links, search, downloads, and What's New all work as before, and the 249 tests pass unchanged.
+
+- **Design tokens:** `app/assets/css/plakat.css` (new) holds the `--pk-*` tokens and the global rules; the Vuetify dark theme in `nuxt.config.ts` mirrors them. `primary` is the link blue (`#60A5FA`, 7.6:1 on the page); the cobalt brand colour (`#3559E0`) is only ever a background (white on it is 5.7:1).
+- **Font:** Archivo, self-hosted through `@fontsource-variable/archivo` (new dependency), so there is no font CDN request and the CSP's `font-src 'self'` holds.
+- **Home page:** a two-part hero — the cobalt block (title, deadline link, created/updated/reviewed dates) beside a white-outlined countdown panel with the day count at poster scale — then the What's New strip, "About These FAQs" as three ruled notes, and the FAQ at the full 1180px width. The `h1` stays first in the document; the label row above it is placed with CSS `order`.
+- **Questions:** ruled rows instead of cards, with an "Open +" / "Close –" cue in place of the chevron (decorative; `aria-expanded` still carries the state). Answers are set at 19px in a 49rem column. New and Updated labels are square, green on a dark wash (9.5:1), with New on cobalt.
+- **Internal pages** (`/faqs`, `/links`, `/search`, `/whats-new`, and the error page): one reading-page layout (`.pk-page`) — a 46rem column under a heavy rule, a small label, a poster-scale title — like the reading pages on audit.icjia.app. The compact countdown is a cobalt band with the What's New strip attached. `/links` is a ruled reference list; search results and What's New entries are bordered panels.
+- **Top bar and footer:** a flat black bar with an uppercase wordmark and plain text links (the current page is underlined as well as marked with `aria-current`); the footer is a heavy rule with the copyright on the left and text links on the right. Icons were removed from both. The menu button now appears below 900px (was 600px), because six text links need the room.
+- **Download dialog and mobile menu:** square panels with a white outline; each download format is a ruled row.
+- **og:image** (`scripts/og-image-template.html`, `public/og-image.png`): redrawn in the new look, using the same self-hosted Archivo file, so generating it needs no network. It shows the deadline date, not a day count, so it never goes stale.
+- **Small wording additions:** labels above the internal page titles ("Questions and answers", "Resources", "Find an answer", "Update archive"). The error page's duplicate "You might be looking for" links were removed (the two buttons remain).
+- **Print page** (`/faqs-print`) is unchanged: the new global rules are scoped to the default layout.
+
+### Fixed — accessibility
+
+- **Search results:** the lowest relevance chip ("Partial") was white on Vuetify's grey (2.7:1); it is now white on `#333` (12.6:1). The section chip text is 12px (was 10px).
+- **Search-term highlights** are dark ink on yellow (15:1) instead of the page's light text on translucent yellow.
+- **Verified:** axe-core 0 violations (WCAG 2.1 A/AA plus best practices) on `/`, `/faqs`, `/links`, `/search`, and `/whats-new` at desktop width, and on `/` and `/links` at mobile width. A pixel-level contrast pass found no failing text (its one flag, the sort menu, samples the arrow image, not the background).
+
+### Content — late-November review of every question and answer
+
+Six parallel reviewers read all of `content/faqs.md` and `content/links.md`; each finding was checked against the primary source before it was applied.
+
+- **Status re-verified November 25, 2026:** 28 CFR § 35.200(b) still reads April 26, 2027 / April 26, 2028 (eCFR current through November 23); no DOJ document after the April 20, 2026 interim rule; no Fall 2026 Unified Agenda; HHS § 84.84 unchanged; DoIT has announced no IITAA change. All "as of" markers for these now read November 25, 2026.
+- **NFB v. DOJ:** the docket now shows the NFB's motion for summary judgment (September 28, 2026) and an order granting the government more time to respond (November 13, 2026). No ruling. The three places that describe the case say so.
+- **Overclaims softened** (sourced claims rest only on IITAA, ADA Title II, or WCAG 2.1): the rule has no "linked from navigation" test for archived content; accessibility is not "actively monitored" (it is complaint-driven and easy for anyone to check); the rules do not make good-faith effort a defense; DoIT's procurement guidance says the State "should include" IITAA language (not "directs"); the IITAA has no enforcement path of its own; the "contractual, licensing, or other arrangements" wording is the ADA rule's, not the IITAA's.
+- **Corrections:** audit.icjia.app checks up to 25 files at a time (was "five"); reading order is WCAG 1.3.2 Meaningful Sequence, not 1.3.1; mobile apps an agency "provides or makes available" (the rule has no "to the public" limit); documents posted "on or after" the compliance date can't use the preexisting-document exception; the multimedia summary now includes audio description; Acrobat's document-language steps cover Windows and Mac; voicecap's test count (about 8,300) and published sites (seven); pointers to the 2024 Federal Register text now note that its dates were extended.
+- **Links page:** "Techniques for WCAG 2.1" points to the techniques themselves; the Section508.gov training-courses link no longer goes through a redirect stub.
+- **Dates:** `lastUpdated`/`lastReviewed`, both prose markers, and the home page's Updated/Reviewed line are November 25, 2026; 31 edited questions carry `{updated:2026-11-25}`. The three notes that ICJIA has no designated accessibility coordinator were confirmed by the owner and re-dated November 25, 2026.
+- **What's New:** new entry for this release.
+
 ## [1.4.2] - 2026-11-06
 
 ### Docs — README and architecture documents brought current

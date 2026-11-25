@@ -1,16 +1,16 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <v-col cols="12" md="10" lg="8">
-        <v-card class="pa-8 whats-new-page" elevation="0">
-          <h1 class="text-h3 mb-4 d-flex align-center">
-            <v-icon class="mr-3" color="primary" aria-hidden="true" :icon="mdiUpdate" />
-            What's New
-          </h1>
-          <p class="text-subtitle-1 mb-8 whats-new-intro">
-            Every update to the portal and its FAQ, newest first: what changed and when. The
-            banner at the top of the home page shows the most recent one.
-          </p>
+    <div class="pk-page">
+      <div class="pk-page-inner">
+        <div class="whats-new-page">
+          <div class="pk-page-head">
+            <p class="pk-label">Update archive</p>
+            <h1 class="pk-page-title">What's New</h1>
+            <p class="pk-page-intro whats-new-intro">
+              Every update to the portal and its FAQ, newest first: what changed and when. The
+              banner at the top of the home page shows the most recent one.
+            </p>
+          </div>
 
           <ol v-if="entries.length" class="whats-new-list">
             <li
@@ -59,9 +59,9 @@
           <p class="mt-8">
             <NuxtLink to="/" class="whats-new-entry-link">Back to the home page</NuxtLink>
           </p>
-        </v-card>
-      </v-col>
-    </v-row>
+        </div>
+      </div>
+    </div>
   </v-container>
 </template>
 
@@ -73,7 +73,6 @@
  * entry; this page keeps the full history.
  */
 
-import { mdiUpdate } from "~/utils/icons";
 import {
   getWhatsNewEntries,
   formatWhatsNewDate,
@@ -106,11 +105,8 @@ useBreadcrumbStructuredData([
 </script>
 
 <style scoped>
-.whats-new-intro {
-  color: rgb(var(--v-theme-on-surface));
-  opacity: 1;
-}
-
+/* Plakat look: each update is a bordered panel on --pk-card, like the update
+   archive on audit.icjia.app. */
 .whats-new-list {
   list-style: none;
   padding: 0;
@@ -118,12 +114,10 @@ useBreadcrumbStructuredData([
 }
 
 .whats-new-entry {
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.3);
-  border-left: 4px solid #f59e0b;
-  border-radius: 8px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  background: rgba(var(--v-theme-on-surface), 0.03);
+  border: 1px solid var(--pk-border-alt);
+  background: var(--pk-card);
+  padding: 20px 22px;
+  margin-bottom: 16px;
   scroll-margin-top: 80px;
 }
 
@@ -131,84 +125,81 @@ useBreadcrumbStructuredData([
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 12px;
-  margin-bottom: 8px;
+  gap: 6px 14px;
+  margin-bottom: 10px;
 }
 
+/* Green on its own wash: 9.5:1. */
 .whats-new-entry-badge {
-  background: #f59e0b;
-  color: #0f172a;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  background: var(--pk-green-wash);
+  color: var(--pk-green);
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 2px 9px;
 }
 
 .whats-new-date {
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-on-surface));
+  color: var(--pk-text-2);
 }
 
 .whats-new-latest {
   font-size: 0.8125rem;
+  line-height: 1.25rem;
   font-weight: 700;
-  color: rgb(var(--v-theme-on-surface));
-  border: 1px solid rgba(var(--v-theme-on-surface), 0.6);
-  border-radius: 999px;
-  padding: 1px 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pk-heading);
 }
 
 .whats-new-title {
-  font-size: 1.375rem;
-  font-weight: 700;
-  line-height: 1.35;
-  margin: 0 0 8px;
-  color: rgb(var(--v-theme-on-surface));
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 10px;
+  color: var(--pk-heading);
 }
 
 .whats-new-summary,
 .whats-new-details li,
 .whats-new-links {
-  color: rgb(var(--v-theme-on-surface));
-  line-height: 1.6;
+  color: var(--pk-text);
+  font-size: 1.0625rem;
+  line-height: 1.6 !important;
 }
 
 .whats-new-summary {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 .whats-new-details {
-  margin: 0 0 8px;
-  padding-left: 1.25rem;
+  margin: 0 0 10px;
+  padding-left: 1.375rem;
 }
 
 .whats-new-details li {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .whats-new-links {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
 }
 
 .whats-new-entry-link {
-  color: rgb(var(--v-theme-primary));
+  color: var(--pk-link);
   text-decoration: underline;
   text-underline-offset: 2px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .whats-new-entry-link:hover,
 .whats-new-entry-link:focus-visible {
+  color: var(--pk-link-hover);
   text-decoration-thickness: 2px;
-}
-
-.whats-new-entry-link:focus-visible {
-  outline: 2px solid rgb(var(--v-theme-primary));
-  outline-offset: 2px;
-  border-radius: 2px;
 }
 
 .sr-only {
@@ -224,14 +215,11 @@ useBreadcrumbStructuredData([
 }
 
 @media (max-width: 600px) {
-  .whats-new-page {
-    padding: 16px !important;
-  }
   .whats-new-entry {
     padding: 16px;
   }
   .whats-new-title {
-    font-size: 1.2rem;
+    font-size: 1.3125rem;
   }
 }
 </style>

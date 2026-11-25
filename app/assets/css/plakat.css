@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Plakat look (November 2026)
+
+   The same visual language as audit.icjia.app: a near-black page, one heavy
+   grotesque (Archivo) set tight, square corners, thick white rules, small
+   capital labels, and a single cobalt colour field per page.
+
+   Everything here is scoped to the default layout (.app-wrapper) and to
+   Vuetify's overlay container (menus and dialogs teleport there), so the
+   print layout (/faqs-print) keeps its own paper look.
+
+   Archivo is self-hosted through @fontsource-variable/archivo (see
+   nuxt.config.ts `css`), so the browser makes no third-party font request and
+   the Content-Security-Policy's font-src 'self' holds.
+   ========================================================================== */
+
+:root {
+  --pk-font: "Archivo Variable", "Helvetica Neue", Helvetica, Arial,
+    ui-sans-serif, system-ui, sans-serif;
+
+  /* Surfaces */
+  --pk-body: #0a0a0a;
+  --pk-card: #111111;
+  --pk-raised: #16191f;
+  --pk-hover: #1a1a1a;
+
+  /* Borders */
+  --pk-border: #222222;
+  --pk-border-alt: #2a2a2a;
+  --pk-border-input: #333333;
+
+  /* Text (all 7:1 or better on --pk-body) */
+  --pk-heading: #ffffff;
+  --pk-text: #f5f5f5;
+  --pk-text-2: #d4d4d4;
+  --pk-muted: #a3a3a3;
+
+  /* Links: 7.6:1 on --pk-body. */
+  --pk-link: #60a5fa;
+  --pk-link-hover: #93c5fd;
+
+  /* Brand block: the one colour field on a page. White on it is 5.7:1.
+     Never use --pk-brand as TEXT on the dark page (3.4:1): use --pk-link. */
+  --pk-brand: #3559e0;
+  --pk-brand-hover: #2a49c4;
+  --pk-brand-ink: #ffffff;
+
+  /* Badges: green on its own dark wash is 9.5:1. */
+  --pk-green: #4ade80;
+  --pk-green-wash: #0f2a1a;
+
+  /* Search-term highlight: dark ink on yellow is 15:1. */
+  --pk-mark: #fde047;
+  --pk-mark-ink: #0a0a0a;
+}
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+.app-wrapper,
+.app-wrapper [class*="text-"],
+.app-wrapper .v-btn,
+.v-overlay-container,
+.v-overlay-container [class*="text-"],
+.v-overlay-container .v-btn,
+.v-overlay-container .v-card-title,
+.v-overlay-container .v-list-item-title {
+  font-family: var(--pk-font) !important;
+}
+
+.app-wrapper {
+  background: var(--pk-body);
+  color: var(--pk-text);
+}
+
+.app-wrapper h1,
+.app-wrapper h2,
+.app-wrapper h3,
+.v-overlay-container h1,
+.v-overlay-container h2,
+.v-overlay-container h3 {
+  letter-spacing: -0.03em;
+}
+
+/* --------------------------------------------------------------------------
+   Square corners everywhere. Unlayered and !important on purpose: it has to
+   win over Vuetify's component classes and every scoped rule.
+   -------------------------------------------------------------------------- */
+.app-wrapper *,
+.app-wrapper *::before,
+.app-wrapper *::after,
+.v-overlay-container *,
+.v-overlay-container *::before,
+.v-overlay-container *::after {
+  border-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Page frame
+   -------------------------------------------------------------------------- */
+.app-wrapper .v-container {
+  max-width: 1228px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Cards that sit directly on the page are not boxes any more: the content
+   stands on the page background, separated by rules. */
+.app-wrapper .main-inner .v-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0;
+  color: var(--pk-text) !important;
+}
+
+/* Small capitals label that sits above a block. */
+.pk-label {
+  font-size: 0.8125rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Reading pages (/faqs, /links, /search, /whats-new): one narrow column
+   under a heavy rule, a small label, then a poster-scale title.
+   -------------------------------------------------------------------------- */
+.pk-page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+}
+
+.pk-page-head {
+  border-top: 4px solid var(--pk-heading);
+  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.pk-page-head .pk-label {
+  display: block;
+  margin: 0 0 0.75rem;
+  color: var(--pk-text-2);
+}
+
+.app-wrapper .pk-page-title {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 5rem) !important;
+  line-height: 0.94 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.05em !important;
+  color: var(--pk-heading);
+  text-wrap: balance;
+}
+
+.app-wrapper .pk-page-intro {
+  margin: 1.5rem 0 0;
+  font-size: 1.1875rem !important;
+  line-height: 1.5 !important;
+  color: var(--pk-text) !important;
+  opacity: 1 !important;
+}
+
+/* Placeholder shown while the compact countdown loads on a reading page:
+   the same cobalt band, so nothing jumps when the numbers arrive. */
+.countdown-fallback {
+  background: var(--pk-brand);
+  color: var(--pk-brand-ink);
+  min-height: 7.5rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.countdown-fallback p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Focus: one visible ring everywhere. On the cobalt block the ring is white,
+   because the link blue does not stand out against cobalt.
+   -------------------------------------------------------------------------- */
+.app-wrapper *:focus-visible,
+.v-overlay-container *:focus-visible {
+  outline: 3px solid var(--pk-link);
+  outline-offset: 2px;
+}
+
+.app-wrapper .pk-block *:focus-visible {
+  outline-color: var(--pk-brand-ink);
+}
+
+/* The brand colour field. */
+.pk-block {
+  background-color: var(--pk-brand);
+  color: var(--pk-brand-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Overlays (mobile menu, download dialog)
+   -------------------------------------------------------------------------- */
+.v-overlay-container .v-list,
+.v-overlay-container .v-card {
+  background: var(--pk-card) !important;
+  color: var(--pk-text) !important;
+  border: 2px solid var(--pk-heading);
+  box-shadow: none !important;
+}
+
+.v-overlay-container .v-list-item-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive markdown tables: the scroll hint pill and edge fade, on the new
+   surfaces.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .app-wrapper .table-scroll-hint {
+    color: var(--pk-text);
+    background: var(--pk-raised);
+    border: 1px solid var(--pk-border-input);
+    backdrop-filter: none;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .app-wrapper .table-scroll-wrapper::after {
+    background: linear-gradient(to left, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0));
+  }
+}
+
+@media print {
+  .app-wrapper {
+    background: #ffffff;
+    color: #000000;
+  }
+}

@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar :elevation="2" color="surface" height="64">
-    <v-container class="d-flex align-center pa-0">
+  <v-app-bar :elevation="0" color="background" height="64" class="site-bar">
+    <v-container class="d-flex align-center py-0">
       <!-- Logo -->
       <v-app-bar-title class="d-flex align-center">
         <a
@@ -37,7 +37,6 @@
           :rel="item.rel || undefined"
           variant="text"
           class="nav-btn"
-          :prepend-icon="item.icon"
           :aria-label="item.ariaLabel || `Navigate to ${item.title}`"
           :aria-current="
             !item.isDownload && route.path === item.to ? 'page' : undefined
@@ -95,8 +94,7 @@
         <v-btn
           href="/search"
           variant="text"
-          class="search-btn"
-          :prepend-icon="mdiMagnify"
+          class="search-btn nav-btn"
           aria-label="Search FAQs"
           :aria-current="route.path === '/search' ? 'page' : undefined"
         >
@@ -196,6 +194,12 @@ function openDownloadDialog(event: MouseEvent) {
 </script>
 
 <style scoped>
+/* Plakat look: a flat black bar, a heavy uppercase wordmark, plain text links.
+   The current page is marked with a white underline as well as aria-current. */
+.site-bar {
+  border-bottom: 1px solid var(--pk-border);
+}
+
 /* Responsive nav: CSS controls visibility (no Vuetify d-flex to avoid !important conflicts) */
 .desktop-nav {
   display: none !important;
@@ -204,8 +208,8 @@ function openDownloadDialog(event: MouseEvent) {
   display: flex !important;
   align-items: center;
 }
-/* Hamburger only on small/xs screens (<600px). Full nav on everything else. */
-@media (min-width: 600px) {
+/* Menu button only below 900px (six text links need the room). Full nav above. */
+@media (min-width: 900px) {
   .desktop-nav {
     display: flex !important;
     align-items: center;
@@ -215,36 +219,36 @@ function openDownloadDialog(event: MouseEvent) {
   }
 }
 
-.v-app-bar-title a {
-  transition: opacity 0.2s ease;
+/* The wordmark keeps its full width; the spacer beside it takes the rest. */
+.v-app-bar-title {
+  flex: 0 1 auto;
 }
 
 .v-app-bar-title a:hover {
-  opacity: 0.8;
   cursor: pointer;
 }
 
 .portal-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: rgb(var(--v-theme-on-surface));
-  letter-spacing: 0.01em;
+  font-size: 1.1875rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--pk-heading);
 }
 
 .navbar-logo {
-  height: 40px;
+  height: 36px;
   width: auto;
   max-width: 200px;
   object-fit: contain;
 }
 
 .logo-link {
-  margin-left: 12px;
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-height: 44px !important;
   min-width: 44px !important;
   height: auto;
-  padding: 8px 12px;
+  padding: 4px 0;
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
@@ -255,71 +259,30 @@ function openDownloadDialog(event: MouseEvent) {
   /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
   min-width: 44px !important;
   min-height: 44px !important;
-  padding: 0 8px;
+  padding: 0 10px;
   margin: 0 2px;
-  font-size: 0.8125rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
-  /* Light theme: darker blue (#1D4ED8) for better contrast on white */
-  /* Dark theme: lighter blue (#93C5FD) for better contrast on dark surface */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .nav-btn,
-.v-theme--dark .nav-btn {
-  color: #93c5fd !important; /* Lighter blue for 7:1+ contrast on dark background */
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  /* 18:1 on the bar */
+  color: var(--pk-text) !important;
 }
 
 .nav-btn:hover {
-  /* Maintain AAA contrast on hover */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
+  color: var(--pk-heading) !important;
 }
 
-[data-v-theme="dark"] .nav-btn:hover,
-.v-theme--dark .nav-btn:hover {
-  color: #93c5fd !important;
-}
-
-.search-btn {
-  /* WCAG 2.5.5 Target Size (Enhanced) - AAA: Minimum 44x44px */
-  min-width: 44px !important;
-  min-height: 44px !important;
-  margin-right: 2px;
-  font-size: 0.8125rem;
-  /* WCAG 1.4.6 Contrast (Enhanced) - AAA: Use higher contrast color */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
-}
-
-/* Dark theme: use lighter color for AAA contrast */
-[data-v-theme="dark"] .search-btn,
-.v-theme--dark .search-btn {
-  color: #93c5fd !important; /* Lighter blue for 7:1+ contrast on dark background */
-}
-
-.search-btn:hover {
-  background: rgba(var(--v-theme-primary), 0.1);
-  /* Maintain AAA contrast on hover */
-  color: rgb(var(--v-theme-primary-darken-1)) !important;
-}
-
-[data-v-theme="dark"] .search-btn:hover,
-.v-theme--dark .search-btn:hover {
-  color: #93c5fd !important;
+.nav-btn[aria-current="page"] {
+  color: var(--pk-heading) !important;
+  font-weight: 700;
+  box-shadow: inset 0 -3px 0 var(--pk-heading);
 }
 
 @media (max-width: 960px) {
   .nav-btn {
-    font-size: 0.75rem;
-    padding: 0 4px;
+    padding: 0 6px;
     margin: 0 1px;
-    /* Maintain 44x44px minimum even on tablet - WCAG 2.5.5 Enhanced AAA */
-    min-width: 44px !important;
-    min-height: 44px !important;
-  }
-
-  .v-container {
-    padding-left: 16px;
-    padding-right: 8px;
   }
 }
 
@@ -330,21 +293,8 @@ function openDownloadDialog(event: MouseEvent) {
   }
 
   .portal-title {
-    font-size: 0.875rem;
-    margin-left: 0.5rem;
-  }
-
-  .logo-link {
-    /* Maintain 44x44px minimum on mobile - WCAG 2.5.5 Enhanced AAA */
-    min-height: 44px !important;
-    min-width: 44px !important;
-    padding: 6px 10px;
-    box-sizing: border-box;
-  }
-
-  .v-container {
-    padding-left: 16px;
-    padding-right: 8px;
+    font-size: 1rem;
+    margin-left: 0.5rem !important;
   }
 }
 
@@ -355,21 +305,7 @@ function openDownloadDialog(event: MouseEvent) {
   }
 
   .portal-title {
-    font-size: 0.75rem;
-    margin-left: 0.25rem;
-  }
-
-  .logo-link {
-    /* Maintain 44x44px minimum on small mobile - WCAG 2.5.5 Enhanced AAA */
-    min-height: 44px !important;
-    min-width: 44px !important;
-    padding: 8px 10px;
-    box-sizing: border-box;
-  }
-
-  .v-container {
-    padding-left: 12px;
-    padding-right: 8px;
+    font-size: 0.875rem;
   }
 }
 </style>

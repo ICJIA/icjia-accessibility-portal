@@ -14,8 +14,8 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'format-detection', content: 'telephone=no' },
-        { name: 'theme-color', content: '#0F172A' }, // Dark theme background color
-        { name: 'msapplication-TileColor', content: '#0F172A' },
+        { name: 'theme-color', content: '#0A0A0A' }, // Dark theme background color
+        { name: 'msapplication-TileColor', content: '#0A0A0A' },
         { name: 'application-name', content: 'ICJIA Accessibility Portal' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
@@ -109,22 +109,28 @@ export default defineNuxtConfig({
               warning: '#FB8C00',
             },
           },
+          // Plakat look (November 2026), matching audit.icjia.app. The tokens
+          // are mirrored as --pk-* variables in app/assets/css/plakat.css.
+          // `primary` is the LINK blue (7.6:1 on the page), because Vuetify
+          // uses primary as a text colour; the cobalt brand block (#3559e0)
+          // is only ever a background, never text (3.4:1 on the page).
           dark: {
             colors: {
-              background: '#0F172A',
-              surface: '#1E293B',
-              'surface-variant': '#1A2332',
+              background: '#0A0A0A',
+              surface: '#111111',
+              'surface-variant': '#16191F',
               primary: '#60A5FA',
-              'primary-darken-1': '#3B82F6',
-              'on-surface': '#F8FAFC',
-              'on-surface-variant': '#CBD5E1',
-              secondary: '#B0B0B0',
-              'secondary-darken-1': '#E0E0E0',
+              'primary-darken-1': '#93C5FD',
+              'on-surface': '#F5F5F5',
+              'on-surface-variant': '#D4D4D4',
+              secondary: '#A3A3A3',
+              'secondary-darken-1': '#D4D4D4',
               accent: '#60A5FA',
-              error: '#CF6679',
-              info: '#90CAF9',
-              success: '#81C784',
-              warning: '#FFB74D',
+              brand: '#3559E0',
+              error: '#F87171',
+              info: '#60A5FA',
+              success: '#4ADE80',
+              warning: '#FDE68A',
             },
           },
         },
@@ -132,7 +138,8 @@ export default defineNuxtConfig({
     }
   },
 
-  css: [],
+  // Archivo is self-hosted (no font CDN request; the CSP's font-src 'self' holds).
+  css: ['@fontsource-variable/archivo/wght.css', '~/assets/css/plakat.css'],
 
   build: {
     transpile: ['vuetify']

@@ -49,15 +49,15 @@ const handleClick = (e: Event) => {
   position: absolute;
   top: -100px;
   left: 0;
-  /* Use theme colors for proper contrast */
-  background: rgb(var(--v-theme-primary));
-  color: rgb(var(--v-theme-on-primary));
+  /* Plakat look: black on white, 19.8:1 */
+  background: var(--pk-heading);
+  color: var(--pk-body);
   padding: 12px 24px;
   text-decoration: none;
   /* High z-index to ensure it's above all other content */
   z-index: 10000;
   border-radius: 0 0 4px 0;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1rem;
   line-height: 1.5;
   /* Ensure it's always accessible */
@@ -72,7 +72,7 @@ const handleClick = (e: Event) => {
   top: 0;
   left: 0;
   /* High contrast outline for visibility */
-  outline: 3px solid rgb(var(--v-theme-primary));
+  outline: 3px solid var(--pk-link);
   outline-offset: 2px;
   /* Add shadow for better visibility */
   box-shadow:
@@ -84,7 +84,7 @@ const handleClick = (e: Event) => {
 .skip-link:focus-visible {
   top: 0;
   left: 0;
-  outline: 3px solid rgb(var(--v-theme-primary));
+  outline: 3px solid var(--pk-link);
   outline-offset: 2px;
   box-shadow:
     0 4px 6px rgba(0, 0, 0, 0.1),
