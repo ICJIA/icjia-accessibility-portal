@@ -207,34 +207,55 @@ function getHighlightTerm(): string | null {
 }
 
 /**
- * Apply yellow highlighting to matching text in the opened panel
+ * Apply yellow highlighting to matching text in the opened panel.
+ *
+ * The answer is not always ready when this is called. On a first page load
+ * (which is how a search result opens: in a new tab) the answer may not be in
+ * the page yet, and once it is, the FAQ list re-renders when the countdown
+ * starts, which throws away any highlights already added. So this checks
+ * several times over about four seconds and adds the highlights whenever the
+ * answer is there without them. It scrolls to the first highlight once.
  */
 function applyHighlighting(panelIndex: number) {
-  if (!highlightTerm.value) return;
-  
+  const term = highlightTerm.value;
+  if (!term) return;
+
   const item = props.items[panelIndex];
   if (!item) return;
-  
+
   const panelId = getQuestionId(item.question);
   const answerId = `answer-${panelId}`;
-  
-  // Wait for content to render
-  setTimeout(() => {
+
+  let attempts = 0;
+  let scrolled = false;
+
+  const tick = () => {
+    attempts++;
+    // Stop if the reader has since searched for something else
+    if (highlightTerm.value !== term) return;
+
     const answerEl = document.getElementById(answerId);
-    if (!answerEl) return;
-    
-    // Clear any existing highlights first
-    clearHighlights(answerEl);
-    
-    // Apply highlighting
-    highlightTextInElement(answerEl, highlightTerm.value!);
-    
-    // Scroll the first highlight into view if needed
-    const firstHighlight = answerEl.querySelector(".search-term-highlight");
-    if (firstHighlight) {
-      firstHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (answerEl) {
+      const hasMarks = !!answerEl.querySelector(".search-term-highlight");
+      const sameTerm = answerEl.dataset.highlightTerm === term;
+      if (!hasMarks || !sameTerm) {
+        // Clear highlights left by an earlier term, then add this one's
+        clearHighlights(answerEl);
+        highlightTextInElement(answerEl, term);
+        answerEl.dataset.highlightTerm = term;
+      }
+
+      const firstHighlight = answerEl.querySelector(".search-term-highlight");
+      if (firstHighlight && !scrolled) {
+        scrolled = true;
+        firstHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
-  }, 300); // Wait for panel animation
+
+    if (attempts < 14) setTimeout(tick, 300);
+  };
+
+  setTimeout(tick, 300); // Wait for panel animation
 }
 
 /**
@@ -434,10 +455,12 @@ async function openPanelFromHash(hash: string) {
         window.history.replaceState(window.history.state, "", `#${actualId}`);
       }
       
-      // Apply search term highlighting if present
-      if (highlightTerm.value) {
-        applyHighlighting(panelIndex);
-      }
+    }
+
+    // Apply search term highlighting if present. This runs even when the
+    // panel element was not found yet: applyHighlighting waits for it.
+    if (highlightTerm.value) {
+      applyHighlighting(panelIndex);
     }
   }, 100);
 }
@@ -477,6 +500,16 @@ watch(expandedPanels, async (newValue, oldValue) => {
     // Update URL without triggering navigation (preserve history state for Vue Router)
     const currentState = window.history.state;
     window.history.replaceState(currentState, "", `#${id}`);
+
+    // If the page was opened from a search result, highlight the search term
+    // in this answer. Doing it here covers every way a question gets opened,
+    // including a first page load, where the link plugin opens the question.
+    // The term is read from the address again here rather than trusted from
+    // mount time.
+    highlightTerm.value = getHighlightTerm();
+    if (highlightTerm.value) {
+      applyHighlighting(newValue);
+    }
 
     // Wait for panel expansion animation to complete, then scroll
     await nextTick();

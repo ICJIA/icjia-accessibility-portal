@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.5.3](https://img.shields.io/badge/Version-1.5.3-blue)](CHANGELOG.md)
+[![Version 1.5.4](https://img.shields.io/badge/Version-1.5.4-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -935,7 +935,7 @@ Every red/blue team security audit of this site is listed here, newest first. Th
 
 | Date | Version | Result |
 |------|---------|--------|
-| **November 25, 2026** | 1.5.3 | 0 critical, 0 high in the deployed site. 12 findings: 7 fixed, 3 accepted with reasons, 2 for the repository owner |
+| **November 25, 2026** | 1.5.3 | 0 critical, 0 high in the deployed site. 12 findings: 8 resolved, 3 accepted with reasons, 1 open for the repository owner |
 | March 26, 2026 | 1.1.0 | 0 critical. 7 findings: 2 fixed (CSP and HSTS headers added), 5 dev-only or low risk |
 
 ### November 25, 2026 — Red/Blue Team Audit (v1.5.3)
@@ -958,8 +958,8 @@ Every red/blue team security audit of this site is listed here, newest first. Th
 | 8 | Medium (residual) | `script-src` still allows `'unsafe-inline'`, so the policy would not stop an injected inline script. | Cannot be removed without breaking the site: Nuxt writes its page data as an inline script, and the static `/docs/` pages use inline scripts. Compensating controls: no injection point was found (see "Verified" below), and every other directive is narrowed to this origin. | **Accepted** |
 | 9 | High by advisory rating; low in practice | `yarn audit` reports 8 advisories (4 high, 4 moderate) in `zod` 3.x, `glob` 13.x, `minimatch` 10.x, `basic-ftp`, and `extract-zip`. | All are in build or developer tools (Nuxt Content's build step, Nitro's file tracing, Puppeteer, netlify-cli, test utilities). None is in the JavaScript sent to browsers (checked in the built bundle), and no server runs in production. Each needs attacker-supplied input, and these tools only read this repository's own files. None has a fix short of a major-version change in its parent package. | **Accepted, monitored** |
 | 10 | Info | Two "raw HTML" spots render text from `content/faqs.md` front matter (the About notes), which now includes a link. | The text comes only from the repository, never from a visitor. Changing it requires commit access, which already means control of the site. | **Accepted** |
-| 11 | Info (owner) | The GitHub repository is private, and on its current plan it has no branch protection on `main` and no secret scanning. | Recommended: turn on branch protection and secret scanning if the plan changes. No secret was found in the tree or in file names in history. | **Owner action** |
-| 12 | Info (owner) | The site's footer and this README link to the GitHub repository, which the public cannot open while it is private. | Not a security risk. Either make the repository public or remove the public link. | **Owner action** |
+| 11 | Info (owner) | The GitHub repository had no branch protection on `main` and no secret scanning (neither was available while it was private on its plan). | The repository was made public later the same day, which makes both available at no cost. Recommended: protect `main` and turn on secret scanning with push protection. Before and after it went public, no secret was found in the tree or anywhere in the full git history (531,000 diff lines scanned for key and token patterns). | **Owner action (open)** |
+| 12 | Info (owner) | The site's footer and this README linked to the GitHub repository, which the public could not open while it was private. | The owner made the repository public on November 25, 2026; the links now work. | **Resolved** |
 
 The maintainer's email address is published on the site as a `mailto:` link at the owner's request; it can be collected by address harvesters. Noted, not counted as a finding.
 
@@ -1051,6 +1051,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.5.4 — search terms are highlighted when a result opens** (2026-11-25): opening a search result in a new tab now highlights the search term in the answer and scrolls to it. Before, the highlight only appeared when the link was followed inside a page that was already open
 - **v1.5.3 — red/blue team security audit** (2026-11-25): 12 findings, none critical or high in the deployed site. Seven fixed (tighter Content-Security-Policy and other headers, a crash on links whose search term contains "%", a new `security.txt`), three accepted with reasons, two for the repository owner. See [Security Audits](#security-audits)
 - **v1.5.2 — Word download fix** (2026-11-25): the Word download no longer prints the page's front matter (title, dates, and the About notes in raw form) as text above the first heading
 - **v1.5.1 — maintainer named** (2026-11-25): the "Created by" note in About These FAQs (home, `/faqs`, `/faqs-print`) and the Word and Markdown downloads now name Christopher Schweda as the person who created the FAQs and maintains, updates, and reviews them, with an email link. Open questions have padding inside their focus outline, and this README was checked against the code and given screenshots
@@ -1152,7 +1153,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.3
+**Version**: 1.5.4
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

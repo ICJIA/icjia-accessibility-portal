@@ -6,6 +6,17 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.4] - 2026-11-25
+
+### Fixed — the search term was not highlighted when a search result opened
+
+- A search result opens the answer in a new tab at `/?highlight=<term>#<question>`. The answer opened, but the term was not highlighted: on a first page load the question is opened by the link plugin, and the highlight was only added on the component's own open path, which did not run then. The version before the redesign behaved the same way. Highlights are now added whenever a question opens while the address carries a search term (the term is read from the address at that moment), and they are re-added if the list re-renders in the first few seconds. The page scrolls to the first highlight once (`FaqAccordion.vue`).
+- **Verified** on the production build: a first load of `/?highlight=100%25%20images#…for-content-creators` shows two highlights (dark text on yellow, 15:1), in view, with no console errors; axe-core 0 violations with highlights showing; 250/250 tests pass.
+
+### Security audit follow-up
+
+- The repository was made public on November 25, 2026. README finding 12 (public links to a private repository) is resolved; finding 11 now recommends turning on branch protection and secret scanning, both free for public repositories. The full git history was scanned for key and token patterns before this note was written: none found.
+
 ## [1.5.3] - 2026-11-25
 
 ### Security (Red/Blue Team Audit)
