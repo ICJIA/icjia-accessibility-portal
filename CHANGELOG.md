@@ -16,7 +16,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 - **Review history:** `app/utils/reviewHistory.ts` lists the six full reviews since May 14, 2026. A new unit test (`test/unit/reviewHistory.test.ts`, 4 tests) checks the list is newest first and that its newest date equals `lastReviewed` in `content/faqs.md`, so a review can't move the date without being listed.
 - **Linked from:** the top bar (second, after Home), the footer (first), and the FAQ's own "Why should I trust this FAQ…?" answer (a "See also" line).
 - **What's New** entry added.
-- **Wording:** the page's opening says each answer is checked, line by line, against the official sources it links to, again and again; it no longer says answers are "built on the law" (the author is not a lawyer, and the point is the checking).
+- **Wording:** the objection now reads "But one person wrote this. And they're not on ICJIA's Executive Staff. Or an ICJIA lawyer. An IT guy wrote this!" The page's opening says each answer is checked, line by line, against the official sources it links to, again and again; it no longer says answers are "built on the law" (the author is not a lawyer, and the point is the checking).
 
 ### Changed — top bar
 
