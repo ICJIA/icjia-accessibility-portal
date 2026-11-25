@@ -16,6 +16,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 ### Security audit follow-up
 
 - The repository was made public on November 25, 2026. README finding 12 (public links to a private repository) is resolved; finding 11 now recommends turning on branch protection and secret scanning, both free for public repositories. The full git history was scanned for key and token patterns before this note was written: none found.
+- The owner then protected `main` with a ruleset (no branch deletion, no force pushes, no bypass list) and turned on secret scanning with push protection; both were verified through the GitHub API (ruleset active, 0 secret-scanning alerts). Finding 11 is resolved, so the November 25 audit has no open findings: 9 resolved, 3 accepted with reasons.
 
 ## [1.5.3] - 2026-11-25
 
