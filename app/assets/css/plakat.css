@@ -43,8 +43,8 @@
      this site is easy to tell apart from audit.icjia.app (cobalt) when
      switching between them. White on it is 7.4:1.
      Never use --pk-brand as TEXT on the dark page (3.4:1): use --pk-link. */
-  --pk-brand: #62498d;
-  --pk-brand-hover: #523c78;
+  --pk-brand: #64439d;
+  --pk-brand-hover: #553985;
   --pk-brand-ink: #ffffff;
 
   /* Badges: green on its own dark wash is 9.5:1. */
