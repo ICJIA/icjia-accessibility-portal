@@ -129,7 +129,8 @@ export default defineNuxtConfig({
               brand: '#442C6D',
               error: '#F87171',
               info: '#60A5FA',
-              success: '#4ADE80',
+              // Purple, not green (2026-11-25): Vuetify draws black text on it.
+              success: '#B9A6E0',
               warning: '#FDE68A',
             },
           },

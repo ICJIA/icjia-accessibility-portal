@@ -670,7 +670,7 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   content: "Close \2013";
 }
 
-/* New / Updated labels: green on its own dark wash (9.5:1), square. */
+/* New / Updated labels: lavender on a dark purple wash (8.1:1), square. */
 .new-badge {
   display: inline-block;
   font-weight: 700;
@@ -679,8 +679,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   font-size: 0.75rem;
   line-height: 1.25rem;
   padding: 1px 8px;
-  background-color: var(--pk-green-wash);
-  color: var(--pk-green);
+  background-color: var(--pk-accent-wash);
+  color: var(--pk-accent);
   white-space: normal;
   overflow-wrap: break-word;
   max-width: 100%;

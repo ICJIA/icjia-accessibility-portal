@@ -6,6 +6,15 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.2] - 2026-11-25
+
+### Changed — every green accent is now purple
+
+- The green labels clashed with the purple brand, so everything is purple now. New tokens in `app/assets/css/plakat.css` replace `--pk-green` and `--pk-green-wash`: **`--pk-accent` (`#c9baea`) on `--pk-accent-wash` (`#30214b`), 8.1:1**. These are small capitals (12–13px), so they use a pale lavender from the brand family rather than the headline purple (`#916ecf`), which would sit at the 4.5:1 minimum at that size.
+- **Where:** the What's New badge on the countdown, the "Updated on …" label on questions, the badges on `/whats-new`, the "Updated" label on search results, and the line above new search results (now the headline purple).
+- **Vuetify `success`** is `#B9A6E0` (was green), so the download dialog's check marks and the search page's "Excellent" relevance chip are purple too.
+- README screenshots retaken. Audit: 7 pages × 3 viewports, 0 violations.
+
 ## [1.6.1] - 2026-11-25
 
 ### Changed — a purple brand colour, so this site doesn't look identical to audit.icjia.app

@@ -526,7 +526,7 @@ function handleEnterKey() {
 }
 
 .result-card.result-new {
-  border-top: 4px solid var(--pk-green);
+  border-top: 4px solid var(--pk-brand-text);
 }
 
 .relevance-indicator {
@@ -581,8 +581,8 @@ function handleEnterKey() {
   font-size: 0.75rem;
   line-height: 1.25rem;
   padding: 1px 8px;
-  background-color: var(--pk-green-wash);
-  color: var(--pk-green);
+  background-color: var(--pk-accent-wash);
+  color: var(--pk-accent);
   flex-shrink: 0;
   white-space: normal;
   overflow-wrap: break-word;

@@ -129,10 +129,10 @@ useBreadcrumbStructuredData([
   margin-bottom: 10px;
 }
 
-/* Green on its own wash: 9.5:1. */
+/* Lavender on its purple wash: 8.1:1. */
 .whats-new-entry-badge {
-  background: var(--pk-green-wash);
-  color: var(--pk-green);
+  background: var(--pk-accent-wash);
+  color: var(--pk-accent);
   font-size: 0.8125rem;
   line-height: 1.25rem;
   font-weight: 700;

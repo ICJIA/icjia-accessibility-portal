@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.6.1](https://img.shields.io/badge/Version-1.6.1-blue)](CHANGELOG.md)
+[![Version 1.6.2](https://img.shields.io/badge/Version-1.6.2-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -33,7 +33,7 @@ All accessibility information is organized in one place to facilitate easy acces
 
 ## Screenshots
 
-The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.6.1 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
+The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.6.2 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
 
 **Home page** — the globe wordmark and top bar, the title block beside the countdown, the What's New strip, and the "About These FAQs" notes:
 
@@ -1064,6 +1064,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.6.2 — every accent is purple** (2026-11-25): the green labels (What's New, "Updated on…", search results) and Vuetify's `success` colour are now a pale lavender on a purple wash (8.1:1), so the whole site is one colour family
 - **v1.6.1 — purple, so this site and audit.icjia.app look different** (2026-11-25): the colour block, the countdown band, the globe in the top bar, and the og:image move from the audit site's cobalt to a desaturated purple (`#442c6d`; white text on it is 11.5:1, up from 5.7:1). Same look, different colour, so it's obvious which site is open
 - **v1.6.0 — "Why trust these FAQs?" page; new top bar** (2026-11-25): a new `/trust` page, linked first in the top bar and the footer, shows the three authorities every answer rests on, how many of the FAQ's links go straight to them (counted from the content at build time), and every full review, dated (`app/utils/reviewHistory.ts`). The top bar now uses the same globe wordmark as audit.icjia.app ("ICJIA Accessibility Portal"), and "Check PDF" is now "Audit PDF", last in the bar, with an icon showing it opens another site
 - **v1.5.5 — the accessibility audit script now tests the whole page** (2026-11-25): the script had been leaving the app's root element out of the test, so its earlier "0 violations" results covered only the page title and language. Fixed, re-run on all 6 pages at 3 viewports: 0 violations, 18/18 skip links. Two things it found on the print page were fixed (a low-contrast email link, a repeated address). See [Current Audit Status](#current-audit-status)
@@ -1169,7 +1170,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.6.1
+**Version**: 1.6.2
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

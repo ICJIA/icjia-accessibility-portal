@@ -51,9 +51,11 @@
      lighter shade of the same hue: 5:1. */
   --pk-brand-text: #916ecf;
 
-  /* Badges: green on its own dark wash is 9.5:1. */
-  --pk-green: #4ade80;
-  --pk-green-wash: #0f2a1a;
+  /* Small labels and accents (Updated, What's New, search): a pale lavender
+     from the brand family on a purple wash, 8.1:1, so small capitals read as
+     easily as the green they replace (2026-11-25: everything purple). */
+  --pk-accent: #c9baea;
+  --pk-accent-wash: #30214b;
 
   /* Search-term highlight: dark ink on yellow is 15:1. */
   --pk-mark: #fde047;
