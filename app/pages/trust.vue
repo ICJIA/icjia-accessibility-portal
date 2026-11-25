@@ -451,7 +451,8 @@ useBreadcrumbStructuredData([
 .trust-h2 {
   margin: 0 0 1.25rem;
   font-size: clamp(2rem, 5vw, 3.25rem);
-  line-height: 0.98;
+  /* Open enough that a heading running to three lines still reads easily. */
+  line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.045em;
   color: var(--pk-heading);
