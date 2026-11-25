@@ -686,8 +686,8 @@ function createAnswerContent(answerNodes: MiniMarkNode[]) {
   max-width: 100%;
 }
 
-/* A brand-new question is marked with the cobalt block instead (white on
-   cobalt: 5.7:1), so "New" and "Updated" differ by more than their wording. */
+/* A brand-new question is marked with the purple block instead (white on
+   the purple: 7.4:1), so "New" and "Updated" differ by more than their wording. */
 .new-badge--new {
   background-color: var(--pk-brand);
   color: var(--pk-brand-ink);

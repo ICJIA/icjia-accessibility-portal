@@ -25,8 +25,9 @@
             </div>
           </div>
         </v-container>
-        <AppFooter />
       </v-main>
+      <!-- Outside <main>, so the footer is a top-level contentinfo landmark -->
+      <AppFooter />
     </div>
   </v-app>
 </template>
@@ -61,7 +62,7 @@ useSeoMeta({
 
 <style scoped>
 /* Plakat look: the same reading-page head as the other pages, then two
-   square buttons — the cobalt one is the main way out. */
+   square buttons — the purple one is the main way out. */
 .error-page {
   min-height: calc(100vh - 360px);
 }

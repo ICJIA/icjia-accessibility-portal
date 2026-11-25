@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.6.0](https://img.shields.io/badge/Version-1.6.0-blue)](CHANGELOG.md)
+[![Version 1.6.1](https://img.shields.io/badge/Version-1.6.1-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -33,11 +33,11 @@ All accessibility information is organized in one place to facilitate easy acces
 
 ## Screenshots
 
-The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.6.0 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
+The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia.app](https://audit.icjia.app). Screenshots are from v1.6.1 (November 25, 2026); the files are in `markdown-documentation/screenshots/`.
 
 **Home page** — the globe wordmark and top bar, the title block beside the countdown, the What's New strip, and the "About These FAQs" notes:
 
-![Home page: a blue block with the title "ICJIA Accessibility Portal" and the deadline link, beside an outlined panel counting down the days, hours, minutes and seconds; below them the What's New strip and three "About These FAQs" notes](markdown-documentation/screenshots/home.png)
+![Home page: a purple block with the title "ICJIA Accessibility Portal" and the deadline link, beside an outlined panel counting down the days, hours, minutes and seconds; below them the What's New strip and three "About These FAQs" notes](markdown-documentation/screenshots/home.png)
 
 **Why trust these FAQs?** — the three authorities every answer rests on, how many links go straight to them, and every full review, dated:
 
@@ -49,7 +49,7 @@ The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia
 
 **Links page** — an internal page: the compact countdown band, then the page title and a ruled list of resources:
 
-![Links page: a compact blue countdown band with the What's New strip under it, the title "Accessibility Links", and a list of official ADA Title II resources](markdown-documentation/screenshots/links.png)
+![Links page: a compact purple countdown band with the What's New strip under it, the title "Accessibility Links", and a list of official ADA Title II resources](markdown-documentation/screenshots/links.png)
 
 **What's New** — every update, newest first:
 
@@ -57,7 +57,7 @@ The site uses the same "Plakat" look as ICJIA's document checker at [audit.icjia
 
 **On a phone** — the title block and countdown stack, and the links move into a menu:
 
-<img src="markdown-documentation/screenshots/home-mobile.png" alt="Home page at phone width: the blue title block above the countdown panel, with a menu button in the top bar" width="320">
+<img src="markdown-documentation/screenshots/home-mobile.png" alt="Home page at phone width: the purple title block above the countdown panel, with a menu button in the top bar" width="320">
 
 ## Quick Start
 
@@ -197,7 +197,7 @@ yarn generate:serve
 - **Responsive Design** - Mobile-first approach with proper breakpoints
   - **Navigation**: Full nav buttons (Home, Why trust this?, Print, Download, Links, Search, Audit PDF) on screens 1024px and wider; a menu button below 1024px (seven text links and the wordmark need the room)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
-- **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one cobalt colour block per page. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
+- **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one colour block per page. The block is a desaturated purple (`#62498d`) rather than the audit site's cobalt, so the two sites are easy to tell apart when switching between them. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
 - **Performance Optimized** - Proper caching headers and optimized assets
 - **SEO Optimized** - Complete SEO setup with Open Graph, Twitter Cards, JSON-LD structured data, automated sitemap, and Google Search Console verification
@@ -1064,6 +1064,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.6.1 — purple, so this site and audit.icjia.app look different** (2026-11-25): the colour block, the countdown band, the globe in the top bar, and the og:image move from the audit site's cobalt to a desaturated purple (`#62498d`; white text on it is 7.4:1, up from 5.7:1). Same look, different colour, so it's obvious which site is open
 - **v1.6.0 — "Why trust these FAQs?" page; new top bar** (2026-11-25): a new `/trust` page, linked first in the top bar and the footer, shows the three authorities every answer rests on, how many of the FAQ's links go straight to them (counted from the content at build time), and every full review, dated (`app/utils/reviewHistory.ts`). The top bar now uses the same globe wordmark as audit.icjia.app ("ICJIA Accessibility Portal"), and "Check PDF" is now "Audit PDF", last in the bar, with an icon showing it opens another site
 - **v1.5.5 — the accessibility audit script now tests the whole page** (2026-11-25): the script had been leaving the app's root element out of the test, so its earlier "0 violations" results covered only the page title and language. Fixed, re-run on all 6 pages at 3 viewports: 0 violations, 18/18 skip links. Two things it found on the print page were fixed (a low-contrast email link, a repeated address). See [Current Audit Status](#current-audit-status)
 - **v1.5.4 — search terms are highlighted when a result opens** (2026-11-25): opening a search result in a new tab now highlights the search term in the answer and scrolls to it. Before, the highlight only appeared when the link was followed inside a page that was already open
@@ -1168,7 +1169,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.6.0
+**Version**: 1.6.1
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

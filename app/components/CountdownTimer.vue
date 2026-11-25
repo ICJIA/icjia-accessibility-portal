@@ -1,6 +1,6 @@
 <template>
   <div class="countdown-card" :class="{ compact: compact }">
-    <!-- The cobalt band: label and deadline on the left, the numbers on the right -->
+    <!-- The purple band: label and deadline on the left, the numbers on the right -->
     <div class="countdown-content pk-block">
       <div class="countdown-intro">
         <h2 v-if="!compact" class="countdown-heading pk-label">
@@ -152,7 +152,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Plakat look: on a reading page the countdown is the page's one cobalt band,
+/* Plakat look: on a reading page the countdown is the page's one purple band,
    with the What's New strip attached underneath it. */
 .countdown-content {
   padding: 28px 32px;
@@ -185,7 +185,7 @@ onUnmounted(() => {
 }
 
 .compliance-link {
-  /* White on cobalt: 5.7:1. Underlined, so colour is not the only cue. */
+  /* White on the purple: 7.4:1. Underlined, so colour is not the only cue. */
   color: var(--pk-brand-ink);
   font-weight: 700;
   text-decoration: underline;

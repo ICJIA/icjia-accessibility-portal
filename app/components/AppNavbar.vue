@@ -10,7 +10,7 @@
           @click="handleLogoClick"
         >
           <!-- Brand mark: the same outline globe as audit.icjia.app, in its
-               light cobalt. Decoration only; the link's name is the text. -->
+               light purple of this site's brand. Decoration only; the link's name is the text. -->
           <svg
             class="brand-mark"
             aria-hidden="true"
@@ -270,13 +270,14 @@ function openDownloadDialog(event: MouseEvent) {
   white-space: nowrap;
 }
 
-/* The globe, in audit.icjia.app's light cobalt (#7391ff). */
+/* The globe, in a light lavender (9:1 on the bar): the same mark as
+   audit.icjia.app, in this site's purple rather than its cobalt. */
 .brand-mark {
   flex-shrink: 0;
   width: 26px;
   height: 26px;
   margin-right: 10px;
-  color: #7391ff;
+  color: #b9a6e0;
 }
 
 /* "Audit PDF": the arrow-out-of-a-box icon says it leaves this site. */

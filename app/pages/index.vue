@@ -1,6 +1,6 @@
 <template>
   <v-container class="home">
-    <!-- Hero: the cobalt block (title, deadline, dates) beside the countdown panel -->
+    <!-- Hero: the purple block (title, deadline, dates) beside the countdown panel -->
     <section class="hero" aria-label="Countdown to the compliance deadline">
       <div class="hero-block pk-block">
         <h1 class="hero-title">ICJIA Accessibility Portal</h1>
@@ -250,7 +250,7 @@ useWebSiteStructuredData();
 
 <style scoped>
 /* Plakat look: the home hero is the same two-part layout as audit.icjia.app —
-   one cobalt colour field on the left, a white-outlined panel on the right. */
+   one purple colour field on the left, a white-outlined panel on the right. */
 .home {
   padding-top: 24px;
   padding-bottom: 0;
@@ -300,7 +300,7 @@ useWebSiteStructuredData();
 }
 
 .compliance-link {
-  /* White on cobalt: 5.7:1. Underlined, so colour is not the only cue. */
+  /* White on the purple: 7.4:1. Underlined, so colour is not the only cue. */
   color: var(--pk-brand-ink);
   font-weight: 700;
   text-decoration: underline;

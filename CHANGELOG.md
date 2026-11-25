@@ -6,6 +6,23 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.1] - 2026-11-25
+
+### Changed — a purple brand colour, so this site doesn't look identical to audit.icjia.app
+
+- The two sites shared the same cobalt (`#3559e0`), so after switching from one to the other it was hard to tell which was open. The brand colour is now a desaturated purple, **`#62498d`** (`--pk-brand` in `app/assets/css/plakat.css` and `brand` in the Vuetify theme), with `#523c78` for hover. It is used for the home page's title block, the countdown band on reading pages, the "New" label on questions, the error page's main button, and the og:image.
+- **Contrast improves:** white on the purple is 7.4:1 (cobalt was 5.7:1).
+- **Globe in the top bar:** light lavender `#b9a6e0` (9:1 on the bar), from the same family, instead of the audit site's light cobalt.
+- **og:image** regenerated, and every README screenshot retaken.
+
+### Fixed
+
+- **Error page:** the footer sat inside `<main>`, so axe flagged it (`landmark-contentinfo-is-top-level`). It is now outside, as on every other page.
+
+### Verified
+
+- `yarn audit:a11y`: 7 pages × 3 viewports, 0 violations, 21/21 skip links. The 404 page: 0 violations. 254/254 tests pass.
+
 ## [1.6.0] - 2026-11-25
 
 ### Added — "Why trust these FAQs?" page (`/trust`)

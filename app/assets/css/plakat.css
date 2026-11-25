@@ -3,7 +3,7 @@
 
    The same visual language as audit.icjia.app: a near-black page, one heavy
    grotesque (Archivo) set tight, square corners, thick white rules, small
-   capital labels, and a single cobalt colour field per page.
+   capital labels, and a single purple colour field per page.
 
    Everything here is scoped to the default layout (.app-wrapper) and to
    Vuetify's overlay container (menus and dialogs teleport there), so the
@@ -39,10 +39,12 @@
   --pk-link: #60a5fa;
   --pk-link-hover: #93c5fd;
 
-  /* Brand block: the one colour field on a page. White on it is 5.7:1.
+  /* Brand block: the one colour field on a page: a desaturated purple, so
+     this site is easy to tell apart from audit.icjia.app (cobalt) when
+     switching between them. White on it is 7.4:1.
      Never use --pk-brand as TEXT on the dark page (3.4:1): use --pk-link. */
-  --pk-brand: #3559e0;
-  --pk-brand-hover: #2a49c4;
+  --pk-brand: #62498d;
+  --pk-brand-hover: #523c78;
   --pk-brand-ink: #ffffff;
 
   /* Badges: green on its own dark wash is 9.5:1. */
@@ -164,7 +166,7 @@
 }
 
 /* Placeholder shown while the compact countdown loads on a reading page:
-   the same cobalt band, so nothing jumps when the numbers arrive. */
+   the same purple band, so nothing jumps when the numbers arrive. */
 .countdown-fallback {
   background: var(--pk-brand);
   color: var(--pk-brand-ink);
@@ -182,8 +184,8 @@
 }
 
 /* --------------------------------------------------------------------------
-   Focus: one visible ring everywhere. On the cobalt block the ring is white,
-   because the link blue does not stand out against cobalt.
+   Focus: one visible ring everywhere. On the purple block the ring is white,
+   because the link blue does not stand out against purple.
    -------------------------------------------------------------------------- */
 .app-wrapper *:focus-visible,
 .v-overlay-container *:focus-visible {
