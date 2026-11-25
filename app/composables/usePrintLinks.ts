@@ -321,7 +321,13 @@ export function usePrintLinks() {
           const escapedHref = href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
           const urlPattern = new RegExp(`\\s*\\(${escapedHref}\\)$`);
           
-          if (!urlPattern.test(currentText)) {
+          // An email link whose text is already the address needs nothing
+          // appended: "name@example.gov (mailto:name@example.gov)" just repeats it.
+          const addressAlreadyShown =
+            /^mailto:/i.test(href) &&
+            currentText.includes(href.replace(/^mailto:/i, ''));
+
+          if (!urlPattern.test(currentText) && !addressAlreadyShown) {
             // Append URL in parentheses for print accessibility
             const urlText = ` (${href})`;
             // Preserve any existing HTML structure if possible, otherwise use textContent

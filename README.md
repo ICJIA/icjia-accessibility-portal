@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.5.4](https://img.shields.io/badge/Version-1.5.4-blue)](CHANGELOG.md)
+[![Version 1.5.5](https://img.shields.io/badge/Version-1.5.5-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -472,7 +472,9 @@ yarn audit:a11y
 
 **What it does:**
 
-- **Starts the dev server** if one isn't already running on port 3000 (`DEV_SERVER_PORT`), or tests the production URL when `TARGET_ENV` is set to `"production"` at the top of the script
+- **Starts the dev server** if one isn't already running on port 3000, or tests the production URL when `TARGET_ENV` is set to `"production"` at the top of the script
+- **Checks it is this site** - Port 3000 is every Nuxt project's default, so the script stops if the home page on that port isn't this site. If another project has the port, run `npx nuxt dev --port 3111` and then `A11Y_PORT=3111 yarn audit:a11y`
+- **Tests the whole page** - Nothing is excluded by default (`AXE_EXCLUDE_SELECTORS` is empty)
 - **Uses sitemap.xml** - Tests every page listed in the sitemap
 - **Real browser** - Loads each page in headless Chrome through Puppeteer and runs axe-core in it
 - **Three viewports** - Desktop (1920x1080), tablet (768x1024), and mobile (375x812)
@@ -790,13 +792,17 @@ A general `{days_until_deadline}` placeholder helper also exists in `app/utils/f
 
 ✅ **All pages currently pass with zero violations detected and zero console errors.**
 
-Latest check (November 25, 2026, v1.5.x, after the redesign), using axe-core 4.14 on the production build:
+Latest full run of the audit script (`yarn audit:a11y`, November 25, 2026, v1.5.5, axe-core 4.14):
 
-- **Pages tested**: 6 (/, /faqs, /faqs-print, /links, /search, /whats-new)
-- **Violations**: 0 (WCAG 2.1 A/AA rules, plus best practices on every page except /faqs-print); `/` and `/links` also checked at mobile width
-- **Console errors**: 0 (all hydration mismatches resolved)
+- **Pages tested**: 6 (/, /faqs, /faqs-print, /links, /search, /whats-new), each at 3 viewports (desktop 1920x1080, tablet 768x1024, mobile 375x812)
+- **Violations**: 0 (WCAG 2.1 A/AA, best-practice, and experimental rules)
+- **Checks run**: 1,749, of which 863 passed and the rest did not apply to the page
+- **Skip links**: 18/18 working
+- **Console errors**: 0
 
-Last full run of the audit script (March 26, 2026, before `/whats-new` existed): 5 pages × 3 viewports, 1,335 checks, 0 violations, 15/15 skip links working. The published report at `/docs/accessibility/` is from that run until `yarn audit:a11y` is run again.
+The report is published at `/docs/accessibility/`.
+
+> **Correction (November 25, 2026).** Until v1.5.5 the audit script left the app's root element (`#__nuxt`) out of the test, which left out the whole rendered page. Only document-level checks ran (page title, language, viewport): about 11 per page. Every earlier result from this script, including the March 26, 2026 run reported as "1,335 checks, 0 violations", therefore said almost nothing about page content. The first full-page run found two things on `/faqs-print`, both fixed in v1.5.5: the maintainer's email link (added the same day) was pale blue on white (2.4:1), and an experimental rule objected to the keyboard-scrollable table boxes (that rule is now switched off, with the reason recorded in the script). Independent full-page checks with axe-core on November 25 had already found 0 violations on the other pages.
 
 #### Lighthouse Scores
 
@@ -1015,7 +1021,7 @@ After the fixes: 250/250 tests pass; the production build was served locally wit
 | **Total Pages Tested** | 5 (/, /faqs, /faqs-print, /links, /search) |
 | **Viewports Tested** | 3 (Desktop 1920x1080, Tablet 768x1024, Mobile 375x812) |
 | **Total Checks Run** | 1,335 |
-| **Violations Found** | **0** |
+| **Violations Found** | **0** (document-level checks only; see the correction under [Current Audit Status](#current-audit-status)) |
 | **Skip Links Verified** | 15/15 |
 | **WCAG 2.1 AA Compliance** | 100% |
 
@@ -1051,6 +1057,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.5.5 — the accessibility audit script now tests the whole page** (2026-11-25): the script had been leaving the app's root element out of the test, so its earlier "0 violations" results covered only the page title and language. Fixed, re-run on all 6 pages at 3 viewports: 0 violations, 18/18 skip links. Two things it found on the print page were fixed (a low-contrast email link, a repeated address). See [Current Audit Status](#current-audit-status)
 - **v1.5.4 — search terms are highlighted when a result opens** (2026-11-25): opening a search result in a new tab now highlights the search term in the answer and scrolls to it. Before, the highlight only appeared when the link was followed inside a page that was already open
 - **v1.5.3 — red/blue team security audit** (2026-11-25): 12 findings, none critical or high in the deployed site. Seven fixed (tighter Content-Security-Policy and other headers, a crash on links whose search term contains "%", a new `security.txt`), three accepted with reasons, two for the repository owner. See [Security Audits](#security-audits)
 - **v1.5.2 — Word download fix** (2026-11-25): the Word download no longer prints the page's front matter (title, dates, and the About notes in raw form) as text above the first heading
@@ -1153,7 +1160,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.5.4
+**Version**: 1.5.5
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:

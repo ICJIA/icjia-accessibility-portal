@@ -582,6 +582,14 @@ useSeo({
   color: #000;
 }
 
+/* Links in the About notes (the maintainer's email). Without this they took
+   the browser's dark-scheme link colour, a pale blue that is 2.4:1 on this
+   page's white paper. Black, underlined: 21:1. */
+.print-disclaimer-content :deep(a) {
+  color: #000;
+  text-decoration: underline;
+}
+
 .print-url {
   font-family: "Courier New", monospace;
   /* WCAG 1.4.8 Visual Presentation (Enhanced) - AAA: Use relative units (rem) instead of fixed (pt) */

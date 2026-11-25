@@ -88,7 +88,7 @@ yarn test:watch       # Watch mode
 
 # Accessibility Audits
 yarn audit:a11y       # Quick console accessibility check (axe-core)
-# For full HTML report: start server first, then run audit-accessibility.js
+# (it also writes the HTML report; if another project is on port 3000: A11Y_PORT=3111 yarn audit:a11y)
 
 # Documentation Generation
 yarn generate:jsdoc   # Generate API docs from JSDoc comments
@@ -225,10 +225,11 @@ yarn test:coverage     # With coverage report
 ```bash
 yarn audit:a11y        # Quick axe-core audit
 
-# For comprehensive HTML report:
-yarn dev               # Terminal 1: Start server
-node audit-accessibility.js  # Terminal 2: Run audit
-# Report at: public/docs/accessibility/index.html
+# yarn audit:a11y (= node audit-accessibility.js) prints a summary AND writes the
+# HTML report to public/docs/accessibility/index.html. It starts the dev server
+# on port 3000 if none is running, and stops if another project is on that port:
+npx nuxt dev --port 3111           # Terminal 1, if port 3000 is taken
+A11Y_PORT=3111 yarn audit:a11y     # Terminal 2
 ```
 
 ## Build & Deployment

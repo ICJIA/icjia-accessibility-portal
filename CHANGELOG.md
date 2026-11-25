@@ -6,6 +6,23 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.5.5] - 2026-11-25
+
+### Fixed — the accessibility audit script was not testing page content
+
+- **The whole page was excluded.** `audit-accessibility.js` passed `{ exclude: [["#__nuxt"]], rules, tags }` to `axe.run()` as a single argument. axe reads a first argument with `exclude` as the *context* (which part of the page to test), so the app's root element, and with it the entire rendered page, was left out, and `rules` and `tags` were ignored. Only document-level checks ran (about 11 per page). Every earlier result from this script, including the March 26, 2026 "1,335 checks, 0 violations", covered little more than the page title and language. The script now calls `axe.run(context, options)` properly with nothing excluded (about 45 to 52 passing checks per page).
+- **Wrong-site guard.** Port 3000 is every Nuxt project's default. The first run today audited a different project's dev server on that port and reported "0 violations" for it. The script now stops unless the home page contains the site's name, and takes the port from `A11Y_PORT`.
+- **`focus-order-semantics` switched off**, with the reason in the script: this experimental best-practice rule rejects the focusable `role="group"` boxes that let keyboard users scroll wide tables (WCAG 2.1.1); the role it would accept, `region`, would add dozens of same-named landmarks instead.
+
+### Fixed — two things the first full-page audit found on `/faqs-print`
+
+- **Low-contrast link (WCAG 1.4.3):** the maintainer's email link added in v1.5.1 had no colour of its own on the print page and took the browser's dark-scheme link colour, pale blue on white (2.4:1). It is now black and underlined (21:1).
+- **Repeated address:** the print page appends each link's address in parentheses, which turned the email link into "name@… (mailto:name@…)". An email link whose text already shows the address is now left alone (`usePrintLinks.ts`).
+
+### Verified
+
+- `A11Y_PORT=3111 yarn audit:a11y` against this site's dev server: 6 pages × 3 viewports, 1,749 checks, **0 violations**, 18/18 skip links working. The report at `/docs/accessibility/` is regenerated from this run (it dated from March 2026). 250/250 tests pass.
+
 ## [1.5.4] - 2026-11-25
 
 ### Fixed — the search term was not highlighted when a search result opened

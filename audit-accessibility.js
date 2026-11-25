@@ -66,7 +66,20 @@ const PRODUCTION_URL = "https://accessibility.icjia.app";
  * The port number for the local development server.
  * This is used when TARGET_ENV is set to "development".
  */
-const DEV_SERVER_PORT = 3000; // Change if your dev server runs on a different port
+// Override without editing this file: A11Y_PORT=3111 yarn audit:a11y
+// (start this site's dev server on that port first: npx nuxt dev --port 3111).
+const DEV_SERVER_PORT = Number(process.env.A11Y_PORT) || 3000;
+
+/**
+ * Text that must appear in the home page's HTML for the audit to run.
+ *
+ * Port 3000 is the default for every Nuxt project, so "something answers on
+ * the port" does not mean it is THIS site. On 2026-11-25 the audit ran against
+ * a different project's dev server on port 3000 and reported zero violations
+ * for pages that were not this site's. The audit now stops if the marker is
+ * missing. Set to "" to skip the check when reusing the script elsewhere.
+ */
+const EXPECTED_SITE_MARKER = "ICJIA Accessibility";
 
 /**
  * Axe-core Rule Configuration
@@ -104,7 +117,14 @@ const AXE_RULE_CONFIG = {
   "page-has-heading-one": true, // Best practice - Page should have h1
 
   // Focus and navigation rules - all enabled
-  "focus-order-semantics": true, // Checks focus order matches DOM order
+  // Off since 2026-11-25. This experimental best-practice rule wants every
+  // focusable element to have a widget role or a landmark role. Wide tables
+  // sit in a focusable scroll box (tabindex="0" role="group" with a label) so
+  // keyboard users can scroll them, which WCAG 2.1.1 needs. "group" is not on
+  // this rule's list; "region" is, but would add dozens of landmarks with the
+  // same name to a page and break landmark-unique instead. The scroll box is
+  // deliberate, so the rule is switched off rather than satisfied badly.
+  "focus-order-semantics": false,
   "identical-links-same-purpose": true, // Checks for duplicate links with same purpose
   "link-in-text-block": true, // WCAG 2.1 SC 1.4.1 - Link contrast in text blocks
 
@@ -167,10 +187,16 @@ const SKIP_LINK_CONFIG = {
 /**
  * Axe Exclude Selectors
  *
- * CSS selectors for elements that should be excluded from accessibility testing.
- * These are typically framework-specific wrapper elements that don't need to be tested.
+ * CSS selectors for elements that should be left out of accessibility testing.
+ * An excluded element is skipped WITH EVERYTHING INSIDE IT, so list only
+ * things you truly cannot fix (a third-party widget, for example).
+ *
+ * Until 2026-11-25 this was [["#__nuxt"]], the app's root element. That
+ * excluded the entire rendered page: only document-level checks (page title,
+ * language, viewport) ran, about 11 per page, and "0 violations" said nothing
+ * about the page's content. It is now empty, so the whole page is tested.
  */
-const AXE_EXCLUDE_SELECTORS = [["#__nuxt"]]; // Default: Nuxt root container
+const AXE_EXCLUDE_SELECTORS = [];
 
 /**
  * Development Server Command
@@ -354,6 +380,32 @@ const BASE_URL =
 
 // For backward compatibility, create THEMES array from THEME_CONFIG
 const THEMES = THEME_CONFIG.themes;
+
+/**
+ * Check that the server at BASE_URL is this site, by looking for
+ * EXPECTED_SITE_MARKER in the home page's HTML.
+ * @returns {Promise<boolean>} True if the marker is found (or no marker is configured)
+ */
+async function isExpectedSite() {
+  if (!EXPECTED_SITE_MARKER) return true;
+  return new Promise((resolve) => {
+    const url = new URL(BASE_URL);
+    const client = url.protocol === "https:" ? https : http;
+    const req = client.get(BASE_URL, (res) => {
+      let body = "";
+      res.setEncoding("utf8");
+      res.on("data", (chunk) => {
+        if (body.length < 500000) body += chunk;
+      });
+      res.on("end", () => resolve(body.includes(EXPECTED_SITE_MARKER)));
+    });
+    req.on("error", () => resolve(false));
+    req.setTimeout(15000, () => {
+      req.destroy();
+      resolve(false);
+    });
+  });
+}
 
 /**
  * Check if the target server is accessible
@@ -560,10 +612,18 @@ async function runAxeAudit(page) {
       // When rules are explicitly set in rulesConfig, they should run regardless of tags
       // However, we still need tags to get the base set of rules
       // Explicitly enabled rules in rulesConfig will override tag filtering
-      return await axe.run({
-        exclude: excludeSelectors, // Use configured exclude selectors
+      //
+      // axe.run takes (context, options). The context says WHICH PART of the
+      // page to test; the options say WHICH RULES to run. They used to be
+      // passed together as one object, which axe read as a context: the
+      // exclude list applied, and `rules` and `tags` were silently ignored.
+      const context =
+        excludeSelectors && excludeSelectors.length > 0
+          ? { exclude: excludeSelectors }
+          : document;
+      return await axe.run(context, {
+        runOnly: { type: "tag", values: tags },
         rules: rulesConfig,
-        tags: tags,
       });
     },
     AXE_RULE_CONFIG,
@@ -2352,6 +2412,23 @@ async function runAudit() {
     } else {
       serverWasAlreadyRunning = true;
       console.log(`   ✅ Dev server detected (already running)`);
+    }
+
+    // Make sure the server on this port is this site, not another project
+    if (!(await isExpectedSite())) {
+      console.error("");
+      console.error(
+        `❌ The server at ${BASE_URL} does not look like this site ("${EXPECTED_SITE_MARKER}" was not found on its home page).`
+      );
+      console.error(
+        `   Another project is probably using port ${DEV_SERVER_PORT}. Start this site on a free port and pass it:`
+      );
+      console.error(`     npx nuxt dev --port 3111`);
+      console.error(`     A11Y_PORT=3111 yarn audit:a11y`);
+      if (devServerProcess) {
+        devServerProcess.kill();
+      }
+      process.exit(1);
     }
 
     console.log("");
