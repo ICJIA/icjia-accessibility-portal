@@ -674,14 +674,15 @@ useBreadcrumbStructuredData([
 .trust-closing {
   margin: 3rem 0 0;
   font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1 !important;
+  /* Same open spacing as the section headings */
+  line-height: 1.2 !important;
   font-weight: 800;
   letter-spacing: -0.045em;
   color: var(--pk-heading);
 }
 
 .trust-closing-2 {
-  color: var(--pk-green);
+  color: var(--pk-brand-text);
 }
 
 .sr-only {
