@@ -273,7 +273,7 @@
           >.
         </p>
         <p class="trust-closing">
-          Rank doesn't make an answer right.<br />
+          A big name doesn't make an answer right.<br />
           <span class="trust-closing-2">Sources do.</span>
         </p>
       </section>
