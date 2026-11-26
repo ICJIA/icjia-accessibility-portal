@@ -26,7 +26,7 @@
           :aria-current="route.path === '/trust' ? 'page' : undefined"
         >
           <v-icon size="16" class="mr-1" aria-hidden="true" :icon="mdiShieldCheckOutline" />
-          <span>Why trust this?</span>
+          <span>Can I trust this?</span>
         </a>
         <span class="footer-separator" aria-hidden="true">•</span>
         <a

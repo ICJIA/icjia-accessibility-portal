@@ -175,7 +175,7 @@ const navItems: NavItem[] = [
     icon: mdiHome,
   },
   {
-    title: "Why trust this?",
+    title: "Can I trust this?",
     to: "/trust",
     icon: mdiShieldCheckOutline,
   },

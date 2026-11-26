@@ -190,19 +190,21 @@
       <section aria-labelledby="trust-objection" class="trust-section">
         <p class="pk-label">The objection</p>
         <h2 id="trust-objection" class="trust-h2">
-          "But one person wrote this. And they're not ICJIA Executive
-          Leadership. <span class="trust-accent">It's some random IT guy!"</span>
+          "But... but one person built this.
+          <span class="trust-accent">It's not Google or Microsoft or Adobe."</span>
         </h2>
         <p class="trust-lead">
-          <strong>True, and it matters less than it sounds.</strong> This FAQ
-          is compiled and maintained by Christopher Schweda in ICJIA's IDS
-          Unit. Its weight doesn't come from anyone's title. It comes from
-          what it cites.
+          <strong>True, and it doesn't need to be.</strong> This FAQ is
+          compiled and maintained by Christopher Schweda in ICJIA's IDS Unit.
+          No answer asks you to take his word, or a company's. Every answer
+          rests on public standards and rules, and links to them.
         </p>
         <div class="trust-cards">
           <div class="trust-card">
-            <h3 class="trust-h3">The rules are written down</h3>
+            <h3 class="trust-h3">The big names already wrote the standard</h3>
             <p>
+              WCAG 2.1 is published by the W3C, a standards body whose members
+              include Google, Microsoft, and Adobe. The federal rule,
               <a
                 href="https://www.ecfr.gov/current/title-28/chapter-I/part-35/subpart-H/section-35.200"
                 target="_blank"
@@ -210,10 +212,9 @@
                 >28 CFR § 35.200<span class="sr-only">
                   (opens in a new tab)</span
                 ></a
-              >
-              says the same thing whoever reads it aloud. A summary that cites
-              nothing deserves less trust than one that cites everything,
-              whoever signs it.
+              >, adopts it. This FAQ invents neither. It explains both and
+              links to them, and they say the same thing whoever builds the
+              page that quotes them.
             </p>
           </div>
           <div class="trust-card">

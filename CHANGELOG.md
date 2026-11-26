@@ -6,6 +6,13 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.4] - 2026-11-26
+
+### Changed — "Can I trust this?"
+
+- The top bar and footer link to `/trust` now read **"Can I trust this?"**, matching audit.icjia.app.
+- The objection on `/trust` is now *"But... but one person built this. It's not Google or Microsoft or Adobe."* The answer under it is reworded to match: no answer asks you to take one person's word, or a company's. Its first card notes that WCAG 2.1 comes from the W3C, whose members include Google, Microsoft, and Adobe, and that 28 CFR § 35.200 adopts it; the FAQ explains both and links to them.
+
 ## [1.6.3] - 2026-11-25
 
 ### Changed — a brighter purple, with the same contrast as audit.icjia.app's blue

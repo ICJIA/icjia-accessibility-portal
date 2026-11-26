@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.6.3](https://img.shields.io/badge/Version-1.6.3-blue)](CHANGELOG.md)
+[![Version 1.6.4](https://img.shields.io/badge/Version-1.6.4-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -195,7 +195,7 @@ yarn generate:serve
 ### Design & Performance
 
 - **Responsive Design** - Mobile-first approach with proper breakpoints
-  - **Navigation**: Full nav buttons (Home, Why trust this?, Print, Download, Links, Search, Audit PDF) on screens 1024px and wider; a menu button below 1024px (seven text links and the wordmark need the room)
+  - **Navigation**: Full nav buttons (Home, Can I trust this?, Print, Download, Links, Search, Audit PDF) on screens 1024px and wider; a menu button below 1024px (seven text links and the wordmark need the room)
   - Uses CSS media queries (not JS) to avoid SSR hydration mismatches
 - **Plakat look (dark)** - The same Swiss-style design as [audit.icjia.app](https://audit.icjia.app): a near-black page, heavy Archivo type, square corners, thick white rules, and one colour block per page. The block is a desaturated purple (`#7b4acf`) rather than the audit site's cobalt, so the two sites are easy to tell apart when switching between them. Design tokens live in `app/assets/css/plakat.css` and are mirrored in the Vuetify theme in `nuxt.config.ts`
 - **Static Site Generation** - Optimized for fast loading and Netlify deployment
@@ -1064,6 +1064,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.6.4 — "Can I trust this?"** (2026-11-26): the nav and footer link to `/trust` is renamed to match audit.icjia.app, and the objection on `/trust` now answers "it's not Google or Microsoft or Adobe"
 - **v1.6.3 — a brighter purple** (2026-11-25): the brand purple is now `#7b4acf`, matched to the audit site's cobalt (white text on it 5.6:1; 3.5:1 against the page), so it stands out as much as the blue does there
 - **v1.6.2 — every accent is purple** (2026-11-25): the green labels (What's New, "Updated on…", search results) and Vuetify's `success` colour are now a pale lavender on a purple wash (8.1:1), so the whole site is one colour family
 - **v1.6.1 — purple, so this site and audit.icjia.app look different** (2026-11-25): the colour block, the countdown band, the globe in the top bar, and the og:image move from the audit site's cobalt to a desaturated purple (`#7b4acf`; white text on it is 5.6:1, the same contrast as the audit site's cobalt (5.7:1)). Same look, different colour, so it's obvious which site is open
@@ -1171,7 +1172,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.6.3
+**Version**: 1.6.4
 **Last Updated**: November 25, 2026
 
 **Core Dependencies**:
