@@ -6,6 +6,15 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.5] - 2026-11-26
+
+### Fixed — text that looked like a heading is now a heading (WCAG 1.3.1)
+
+- **axe DevTools Pro** (4.140, AI-assisted rule `advanced/heading-markup`) found 2 serious issues on the homepage: the "Corrections" and "Not legal advice" labels in **About These FAQs** were bold text styled as headings. All three labels ("Created by" too) are now `<h3>` elements above their note, styled as before (the trailing colon is gone). Same component on `/` and `/faqs`.
+- A scan of every page for other bold text styled like a heading found five on `/links`: "Important Canva limitations" and the POUR principles (Perceivable, Operable, Understandable, Robust). They are now `####` headings in `content/links.md`, styled to look as before.
+- The print page keeps its inline bold labels: there they run into the sentence and do not look like headings.
+- Audit: 7 pages × 3 viewports, 0 violations, 21/21 skip links.
+
 ## [1.6.4] - 2026-11-26
 
 ### Changed — "Can I trust this?"

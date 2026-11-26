@@ -8,12 +8,14 @@
     >
       <h2 id="about-faqs-heading" class="about-faqs-title">About These FAQs</h2>
       <div class="about-faqs-grid">
-        <p
+        <div
           v-for="(item, index) in disclaimerItems"
           :key="index"
           class="about-faqs-item"
-          v-html="renderDisclaimerItem(item)"
-        ></p>
+        >
+          <h3 class="about-faqs-label">{{ item.label }}</h3>
+          <p class="about-faqs-text" v-html="renderDisclaimerItem(item)"></p>
+        </div>
       </div>
     </section>
 
@@ -199,10 +201,11 @@ const disclaimerItems = computed(() => {
   return (page.value as any)?.disclaimer || [];
 });
 
-// Render disclaimer item with markdown bold converted to HTML
+// Render a disclaimer item's text with markdown bold converted to HTML.
+// The label is rendered separately as a real <h3>: it looks like a heading,
+// so it must be one (WCAG 1.3.1; axe DevTools heading-markup, 2026-11-26).
 function renderDisclaimerItem(item: { label: string; text: string }): string {
-  const htmlText = item.text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  return `<strong>${item.label}:</strong> ${htmlText}`;
+  return item.text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }
 
 /** @typedef {any} MiniMarkNode */
@@ -574,12 +577,18 @@ watchEffect(() => {
   text-decoration-thickness: 2px;
 }
 
-/* The label ("Created by:") sits on its own line as the note's heading. */
-.about-faqs-item :deep(strong:first-child) {
-  display: block;
-  margin-bottom: 0.5rem;
+/* The note's heading ("Created by"). */
+.about-faqs-label {
+  margin: 0 0 0.5rem;
   font-size: 1.1875rem;
   line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--pk-heading);
+}
+
+.about-faqs-text {
+  margin: 0;
 }
 
 /* On a reading page the notes are quieter and stack in one column. */

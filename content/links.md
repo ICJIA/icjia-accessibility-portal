@@ -151,7 +151,7 @@ A curated collection of links for website and content accessibility compliance, 
 - <a href="https://www.canva.com/help/canva-accessibility-features/" target="_blank" rel="noopener noreferrer">**Canva Accessibility Settings**</a> — User accessibility options
 - <a href="https://www.canva.com/policies/accessibility/" target="_blank" rel="noopener noreferrer">**Canva Accessibility Statement and VPAT/ACR**</a> — Canva's accessibility statement; it says the latest conformance report is in Canva's Trust & Security Portal
 
-**Important Canva Limitations:**
+#### Important Canva limitations
 
 - Canva-exported PDFs usually aren't fully PDF/UA or WCAG compliant on their own
 - Automatic tagging works best on simple designs
@@ -198,27 +198,27 @@ A curated collection of links for website and content accessibility compliance, 
 
 ### WCAG 2.1 Level AA Requirements Summary (POUR Principles)
 
-**Perceivable**
+#### Perceivable
 
 - Text alternatives for non-text content
 - Captions and audio descriptions for multimedia
 - Content adaptable to different presentations
 - Sufficient color contrast (4.5:1 for normal text)
 
-**Operable**
+#### Operable
 
 - All functionality keyboard accessible
 - Sufficient time to read and use content
 - No content that causes seizures
 - Clear navigation and wayfinding
 
-**Understandable**
+#### Understandable
 
 - Readable and comprehensible text
 - Predictable page operation
 - Input assistance and error prevention
 
-**Robust**
+#### Robust
 
 - Compatible with assistive technologies
 - Code that assistive technologies can read correctly (proper names, roles, and states)

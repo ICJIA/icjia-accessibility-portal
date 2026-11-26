@@ -149,7 +149,8 @@ useBreadcrumbStructuredData([
 }
 
 .links-content :deep(h2 a),
-.links-content :deep(h3 a) {
+.links-content :deep(h3 a),
+.links-content :deep(h4 a) {
   color: inherit;
   text-decoration: none;
   pointer-events: none;
@@ -165,6 +166,19 @@ useBreadcrumbStructuredData([
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--pk-text-2);
+}
+
+/* Sub-headings under a small-capitals h3 (the POUR principles, Canva
+   limitations): they look like the bold lead-ins they replaced, but are real
+   headings (WCAG 1.3.1; axe DevTools heading-markup, 2026-11-26). */
+.links-content :deep(h4) {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--pk-heading);
+  scroll-margin-top: 80px;
 }
 
 .links-content :deep(p) {
