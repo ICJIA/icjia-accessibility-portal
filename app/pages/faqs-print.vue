@@ -310,7 +310,10 @@ const faqSections = computed(() => {
             ? isWithinNewWindow(taggedInfo.date)
             : false;
           const filteredAnswer = filterNewComments(answerNodes);
-          const responsiveAnswer = wrapTablesForResponsiveScroll(filteredAnswer);
+          const responsiveAnswer = wrapTablesForResponsiveScroll(
+            filteredAnswer,
+            questionText
+          );
 
           // Create content object for rendering
           const answerContent = page.value
@@ -370,7 +373,8 @@ const introContent = computed(() => {
 
   // Process intro nodes to replace dynamic placeholders like {days_until_deadline}
   const processedIntroNodes = wrapTablesForResponsiveScroll(
-    filterNewComments(introNodes)
+    filterNewComments(introNodes),
+    "About these FAQs"
   );
 
   return {

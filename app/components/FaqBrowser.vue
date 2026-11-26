@@ -389,7 +389,8 @@ const faqSections = computed(() => {
           currentSection.items.push({
             question: questionText,
             answer: wrapTablesForResponsiveScroll(
-              wrapSeeAlsoLinks(filterNewComments(answerNodes))
+              wrapSeeAlsoLinks(filterNewComments(answerNodes)),
+              questionText
             ).map(replaceDeadlineText),
             isNew: taggedInfo ? isWithinNewWindow(taggedInfo.date) : false,
             newDate: taggedInfo?.date,
@@ -478,7 +479,10 @@ const introContent = computed(() => {
     ...page.value,
     body: {
       ...body,
-      value: wrapTablesForResponsiveScroll(introNodes.map(replaceDeadlineText)),
+      value: wrapTablesForResponsiveScroll(
+        introNodes.map(replaceDeadlineText),
+        "About these FAQs"
+      ),
     },
   };
 });

@@ -6,6 +6,15 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.6.6] - 2026-11-26
+
+### Fixed — the scroll box around each table on `/faqs-print` (46 axe DevTools findings)
+
+- **axe DevTools** (axe-core 4.13, best practices + experimental rules on) flagged all 46 tables on `/faqs-print` with `focus-order-semantics` (minor): each table sits in a box that takes keyboard focus so it can be scrolled sideways (WCAG 2.1.1), and that box had `role="group"`, which is not a role a screen reader expects in the tab order.
+- The box is now `role="region"` and each one has its own name, taken from its question: **"Table: For Content Creators"**, and "(1 of 2)" when one answer has two tables. Unique names keep `landmark-unique` passing, which is why the box had been switched to `group` before. Same change on `/faqs` and in the About These FAQs intro (`wrapTablesForResponsiveScroll` in `app/utils/faqTransform.ts` now takes a label).
+- **`focus-order-semantics` is back on in the audit script.** It had been switched off on 2026-11-25 instead of fixed (`audit-accessibility.js`).
+- Four unit tests for the table wrapper (258/258 pass). Audit: 7 pages × 3 viewports, 0 violations, 21/21 skip links; axe-core with best-practice and experimental rules: 0 violations on `/faqs-print` and `/faqs`; all 46 boxes are named regions, 46 distinct names.
+
 ## [1.6.5] - 2026-11-26
 
 ### Fixed — text that looked like a heading is now a heading (WCAG 1.3.1)

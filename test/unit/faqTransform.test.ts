@@ -7,6 +7,7 @@ import {
   filterNewComments,
   wrapFaqQuestionsIntoCards,
   transformFaqsToAccordionData,
+  wrapTablesForResponsiveScroll,
 } from '../../app/utils/faqTransform'
 
 /**
@@ -389,3 +390,39 @@ describe('faqTransform', () => {
   })
 })
 
+
+describe('wrapTablesForResponsiveScroll', () => {
+  const table = (): any => ['table', {}, ['tbody', {}, ['tr', {}, ['td', {}, 'x']]]]
+
+  it('wraps a table in a focusable region named after its question', () => {
+    const [wrapper] = wrapTablesForResponsiveScroll([table()], 'What is due?') as any[]
+    expect(wrapper[0]).toBe('div')
+    expect(wrapper[1]).toMatchObject({
+      class: 'table-scroll-wrapper',
+      tabindex: '0',
+      role: 'region',
+      'aria-label': 'Table: What is due?',
+    })
+    expect(wrapper[2][0]).toBe('table')
+    expect(wrapper[2][1]['data-responsive-table']).toBe('true')
+  })
+
+  it('numbers several tables in one answer so each region name is unique', () => {
+    const nodes = [table(), ['p', {}, 'between'], ['div', {}, table()]] as any[]
+    const out = wrapTablesForResponsiveScroll(nodes, 'Q') as any[]
+    expect(out[0][1]['aria-label']).toBe('Table: Q (1 of 2)')
+    expect(out[2][2][1]['aria-label']).toBe('Table: Q (2 of 2)')
+  })
+
+  it('never uses role="group" (fails axe focus-order-semantics on a focusable wrapper)', () => {
+    const [wrapper] = wrapTablesForResponsiveScroll([table()]) as any[]
+    expect(wrapper[1].role).toBe('region')
+    expect(wrapper[1]['aria-label']).toBe('Table: scrollable content')
+  })
+
+  it('is idempotent', () => {
+    const once = wrapTablesForResponsiveScroll([table()], 'Q') as any[]
+    const twice = wrapTablesForResponsiveScroll(once, 'Q') as any[]
+    expect(twice).toEqual(once)
+  })
+})

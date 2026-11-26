@@ -2,7 +2,7 @@
 
 # ICJIA Accessibility Portal
 
-[![Version 1.6.5](https://img.shields.io/badge/Version-1.6.5-blue)](CHANGELOG.md)
+[![Version 1.6.6](https://img.shields.io/badge/Version-1.6.6-blue)](CHANGELOG.md)
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG-2.1%20AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![Nuxt 4](https://img.shields.io/badge/Nuxt-4.6.4+-00DC82)](https://nuxt.com)
 [![Vue 3](https://img.shields.io/badge/Vue-3.5.45+-42b883)](https://vuejs.org)
@@ -799,7 +799,7 @@ A general `{days_until_deadline}` placeholder helper also exists in `app/utils/f
 
 ✅ **All pages currently pass with zero violations detected and zero console errors.**
 
-Latest full run of the audit script (`yarn audit:a11y`, November 26, 2026, v1.6.5, axe-core 4.14):
+Latest full run of the audit script (`yarn audit:a11y`, November 26, 2026, v1.6.6, axe-core 4.14):
 
 - **Pages tested**: 7 (/, /faqs, /faqs-print, /links, /search, /trust, /whats-new), each at 3 viewports (desktop 1920x1080, tablet 768x1024, mobile 375x812)
 - **Violations**: 0 (WCAG 2.1 A/AA, best-practice, and experimental rules)
@@ -811,7 +811,7 @@ The report is published at `/docs/accessibility/`.
 
 > **axe DevTools Pro (November 26, 2026).** A scan of the homepage with axe DevTools Pro 4.140 found 2 serious issues that the free axe-core engine cannot find: its AI-assisted rule `advanced/heading-markup` (WCAG 1.3.1) saw that the "Corrections" and "Not legal advice" labels in **About These FAQs** look like headings but were bold text. All three labels there are now real `<h3>` headings. A scan of every page for other bold text styled like a heading then found five lines on `/links` ("Important Canva limitations" and the four POUR principles); they are now `<h4>` headings. Fixed in v1.6.5.
 
-> **Correction (November 25, 2026).** Until v1.5.5 the audit script left the app's root element (`#__nuxt`) out of the test, which left out the whole rendered page. Only document-level checks ran (page title, language, viewport): about 11 per page. Every earlier result from this script, including the March 26, 2026 run reported as "1,335 checks, 0 violations", therefore said almost nothing about page content. The first full-page run found two things on `/faqs-print`, both fixed in v1.5.5: the maintainer's email link (added the same day) was pale blue on white (2.4:1), and an experimental rule objected to the keyboard-scrollable table boxes (that rule is now switched off, with the reason recorded in the script). Independent full-page checks with axe-core on November 25 had already found 0 violations on the other pages.
+> **Correction (November 25, 2026).** Until v1.5.5 the audit script left the app's root element (`#__nuxt`) out of the test, which left out the whole rendered page. Only document-level checks ran (page title, language, viewport): about 11 per page. Every earlier result from this script, including the March 26, 2026 run reported as "1,335 checks, 0 violations", therefore said almost nothing about page content. The first full-page run found two things on `/faqs-print`, both fixed in v1.5.5: the maintainer's email link (added the same day) was pale blue on white (2.4:1), and an experimental rule objected to the keyboard-scrollable table boxes. That rule was switched off then; in v1.6.6 the boxes were fixed instead (each is now a named region) and the rule is back on. Independent full-page checks with axe-core on November 25 had already found 0 violations on the other pages.
 
 #### Lighthouse Scores
 
@@ -1066,6 +1066,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Recent Updates (November 2026)
 
+- **v1.6.6 — table scroll boxes** (2026-11-26): each table on `/faqs-print` and `/faqs` sits in a keyboard-scrollable region named after its question, which clears 46 axe DevTools findings on the print page
 - **v1.6.5 — real headings** (2026-11-26): the labels in About These FAQs and five bold lead-ins on `/links` are now heading elements, after an axe DevTools Pro scan
 - **v1.6.4 — "Can I trust this?"** (2026-11-26): the nav and footer link to `/trust` is renamed to match audit.icjia.app, and the objection on `/trust` now answers "it's not Google or Microsoft or Adobe"
 - **v1.6.3 — a brighter purple** (2026-11-25): the brand purple is now `#7b4acf`, matched to the audit site's cobalt (white text on it 5.6:1; 3.5:1 against the page), so it stands out as much as the blue does there
@@ -1175,8 +1176,8 @@ See [CHANGELOG.md](CHANGELOG.md) for a complete history of all releases, milesto
 
 ### Version Information
 
-**Version**: 1.6.5
-**Last Updated**: November 25, 2026
+**Version**: 1.6.6
+**Last Updated**: November 26, 2026
 
 **Core Dependencies**:
 

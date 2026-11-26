@@ -330,7 +330,7 @@ Every red/blue team security audit is listed in the README's **Security Audits**
 ## Quick Reference: Project Status
 
 - **WCAG Compliance**: 100% (0 violations)
-- **Test Coverage**: 254/254 tests passing across 15 files (unit + Nuxt)
+- **Test Coverage**: 258/258 tests passing across 15 files (unit + Nuxt)
 - **Node Version**: 22.23.4
 - **Last Major Update**: November 2026 (v1.6.0, trust page and new top bar)
 - **Deadline**: April 26, 2027

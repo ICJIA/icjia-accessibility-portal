@@ -541,12 +541,50 @@ export function wrapSeeAlsoLinks(nodes: MarkdownNode[]): MarkdownNode[] {
  *
  * Implementation details:
  * - Wraps `['table', attrs, ...children]` as:
- *   `['div', { class: 'table-scroll-wrapper', tabindex: '0', role: 'region', 'aria-label': 'Scrollable table' }, ['table', {...attrs, 'data-responsive-table': 'true'}, ...children]]`
+ *   `['div', { class: 'table-scroll-wrapper', tabindex: '0', role: 'region', 'aria-label': 'Table: <label>' }, ['table', {...attrs, 'data-responsive-table': 'true'}, ...children]]`
  * - Idempotent via `data-responsive-table="true"` marker on the table node.
+ *
+ * Why `role="region"` with a unique name?
+ * - The wrapper takes keyboard focus (`tabindex="0"`) so keyboard users can scroll
+ *   a wide table (axe `scrollable-region-focusable`). A focusable element needs a
+ *   role that belongs in the focus order; for a scroll container that is a
+ *   landmark role (axe `focus-order-semantics` / `valid-scrollable-semantics`).
+ *   `role="group"` fails that check on every table.
+ * - A region is a landmark, and landmarks of the same role need distinct names
+ *   (axe `landmark-unique`), so each table is named after its question, with
+ *   "(n of m)" added when one answer holds several tables.
+ *
+ * @param nodes - Markdown nodes that may contain tables
+ * @param label - What the tables belong to (usually the question text); used to
+ *   give each scroll region a unique accessible name
+ * @returns The same nodes with each table wrapped in a scroll region
  */
 export function wrapTablesForResponsiveScroll(
-  nodes: MarkdownNode[]
+  nodes: MarkdownNode[],
+  label?: string
 ): MarkdownNode[] {
+  if (!Array.isArray(nodes)) return nodes;
+
+  const countTables = (node: MarkdownNode): number => {
+    if (!isElementNode(node)) return 0;
+    const [tag, rawAttrs, ...children] = node;
+    const attrs = (rawAttrs || {}) as MarkdownNodeAttributes;
+    const self =
+      tag === "table" &&
+      attrs["data-responsive-table"] !== "true" &&
+      attrs["data-responsive-table"] !== true
+        ? 1
+        : 0;
+    return children.reduce((sum, c) => sum + countTables(c), self);
+  };
+  const total = nodes.reduce((sum, n) => sum + countTables(n), 0);
+  const base = `Table: ${(label || "").trim() || "scrollable content"}`;
+  let seen = 0;
+  const nextName = (): string => {
+    seen += 1;
+    return total > 1 ? `${base} (${seen} of ${total})` : base;
+  };
+
   const wrapNode = (node: MarkdownNode): MarkdownNode => {
     if (!isElementNode(node)) return node;
 
@@ -579,8 +617,8 @@ export function wrapTablesForResponsiveScroll(
         {
           class: "table-scroll-wrapper",
           tabindex: "0",
-          role: "group",
-          "aria-label": "Scrollable table",
+          role: "region",
+          "aria-label": nextName(),
         },
         tableNode,
       ] as unknown as MarkdownElementNode;
@@ -589,7 +627,6 @@ export function wrapTablesForResponsiveScroll(
     return [tag, attrs, ...processedChildren] as MarkdownElementNode;
   };
 
-  if (!Array.isArray(nodes)) return nodes;
   return nodes.map(wrapNode);
 }
 
@@ -670,7 +707,10 @@ export function transformFaqsToAccordionData(value: MarkdownNode[]): FaqItem[] {
             const isNew = taggedInfo ? isWithinNewWindow(taggedInfo.date) : false;
             const filteredAnswer = filterNewComments(answerNodes);
             const seeAlsoWrapped = wrapSeeAlsoLinks(filteredAnswer);
-            const responsiveAnswer = wrapTablesForResponsiveScroll(seeAlsoWrapped);
+            const responsiveAnswer = wrapTablesForResponsiveScroll(
+              seeAlsoWrapped,
+              questionText
+            );
 
             faqItems.push({
               question: questionText,

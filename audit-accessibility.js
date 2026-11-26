@@ -117,14 +117,13 @@ const AXE_RULE_CONFIG = {
   "page-has-heading-one": true, // Best practice - Page should have h1
 
   // Focus and navigation rules - all enabled
-  // Off since 2026-11-25. This experimental best-practice rule wants every
-  // focusable element to have a widget role or a landmark role. Wide tables
-  // sit in a focusable scroll box (tabindex="0" role="group" with a label) so
-  // keyboard users can scroll them, which WCAG 2.1.1 needs. "group" is not on
-  // this rule's list; "region" is, but would add dozens of landmarks with the
-  // same name to a page and break landmark-unique instead. The scroll box is
-  // deliberate, so the rule is switched off rather than satisfied badly.
-  "focus-order-semantics": false,
+  // Back on since 2026-11-26 (v1.6.6). Wide tables sit in a focusable scroll
+  // box (tabindex="0") so keyboard users can scroll them (WCAG 2.1.1). The box
+  // is role="region", the landmark role this rule accepts, and each one is
+  // named after its question ("Table: <question>", "(n of m)" when an answer
+  // has several), so landmark-unique still passes. It was off from 2026-11-25
+  // while the box was role="group" (see wrapTablesForResponsiveScroll).
+  "focus-order-semantics": true,
   "identical-links-same-purpose": true, // Checks for duplicate links with same purpose
   "link-in-text-block": true, // WCAG 2.1 SC 1.4.1 - Link contrast in text blocks
 
